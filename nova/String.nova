@@ -60,6 +60,13 @@ public class String implements Comparable<String>
 		}*/
 	}
 	
+	public construct(Char[] chars)
+	{
+		count = chars.count
+		
+		this.chars = chars
+	}
+	
 	calculateSize([PrimitiveArray] Char[] chars) -> Int
 	{
 		return strlen(chars)
@@ -277,6 +284,23 @@ public class String implements Comparable<String>
 		}
 		
 		return ""
+	}
+	
+	public surroundWith(String str) -> String
+	{
+		return surroundWith(str, false)
+	}
+	
+	public surroundWith(String str, Bool symmetrical) -> String
+	{
+		if (symmetrical)
+		{
+			return str + this + new String(str.chars.reverse())
+		}
+		else
+		{
+			return str + this + str
+		}
 	}
 	
 	public compareTo(String other) -> Int
