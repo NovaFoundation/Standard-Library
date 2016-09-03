@@ -128,7 +128,7 @@ nova_datastruct_list_Nova_IntArray* nova_datastruct_list_Nova_IntRange_0_Nova_to
 	l1_Nova_i = this->nova_datastruct_list_Nova_IntRange_Nova_start;
 	while (l1_Nova_i < this->nova_datastruct_list_Nova_IntRange_Nova_end)
 	{
-		nova_datastruct_list_Nova_Array_Nova_set((nova_datastruct_list_Nova_Array*)(l1_Nova_ints), exceptionData, l1_Nova_i - this->nova_datastruct_list_Nova_IntRange_Nova_start, (nova_Nova_Object*)(intptr_t)(l1_Nova_i++));
+		nova_datastruct_list_Nova_Array_virtual1_Nova_set((nova_datastruct_list_Nova_Array*)(l1_Nova_ints), exceptionData, l1_Nova_i - this->nova_datastruct_list_Nova_IntRange_Nova_start, (nova_Nova_Object*)(intptr_t)(l1_Nova_i++));
 	}
 	return l1_Nova_ints;
 }

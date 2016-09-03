@@ -70,9 +70,11 @@ CCLASS_CLASS
 void nova_Nova_String_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_Nova_String_0_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_Nova_String_Nova_c);
 nova_Nova_String* nova_Nova_String_1_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_Nova_String_Nova_chars);
+nova_Nova_String* nova_Nova_String_2_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars);
 void nova_Nova_String_Nova_destroy(nova_Nova_String** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_Nova_String_1_Nova_this(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_Nova_String_Nova_c);
 void nova_Nova_String_2_Nova_this(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_Nova_String_Nova_chars);
+void nova_Nova_String_3_Nova_this(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars);
 nova_Nova_String* nova_Nova_String_0_Nova_concat(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str);
 char nova_Nova_String_Nova_equals(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_other);
 nova_Nova_String* nova_Nova_String_Nova_replace(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_search, nova_Nova_String* nova_Nova_String_Nova_replace);
@@ -93,6 +95,8 @@ nova_Nova_String* nova_Nova_String_Nova_capitalize(nova_Nova_String* this, nova_
 nova_Nova_String* nova_Nova_String_Nova_transform(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String_closure3_Nova_transform nova_Nova_String_Nova_transform, void* nova_Nova_String_ref_Nova_transform, void* transform_context);
 nova_Nova_String* nova_Nova_String_0_Nova_getStringBetween(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_before, nova_Nova_String* nova_Nova_String_Nova_after);
 nova_Nova_String* nova_Nova_String_1_Nova_getStringBetween(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_before, nova_Nova_String* nova_Nova_String_Nova_after, int nova_Nova_String_Nova_start);
+nova_Nova_String* nova_Nova_String_0_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str);
+nova_Nova_String* nova_Nova_String_1_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str, char nova_Nova_String_Nova_symmetrical);
 int nova_Nova_String_Nova_compareTo(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_other);
 nova_Nova_String* nova_Nova_String_0_Nova_toString(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData);
 long_long nova_Nova_String_Accessor_Nova_hashCodeLong(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData);

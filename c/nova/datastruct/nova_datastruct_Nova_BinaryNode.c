@@ -133,7 +133,7 @@ void nova_datastruct_Nova_BinaryNode_Nova_setNode(nova_datastruct_Nova_BinaryNod
 	}
 	else
 	{
-		nova_datastruct_list_Nova_Array_Nova_set((nova_datastruct_list_Nova_Array*)(this->nova_datastruct_Nova_Node_Nova_children), exceptionData, nova_datastruct_Nova_BinaryNode_Nova_index, (nova_Nova_Object*)(nova_datastruct_Nova_BinaryNode_Nova_data));
+		nova_datastruct_list_Nova_Array_virtual1_Nova_set((nova_datastruct_list_Nova_Array*)(this->nova_datastruct_Nova_Node_Nova_children), exceptionData, nova_datastruct_Nova_BinaryNode_Nova_index, (nova_Nova_Object*)(nova_datastruct_Nova_BinaryNode_Nova_data));
 	}
 }
 

@@ -139,11 +139,11 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 		{
 			int l6_Nova_j = 0;
 			
-			nova_datastruct_list_Nova_Array_Nova_set((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numCols)));
+			nova_datastruct_list_Nova_Array_virtual1_Nova_set((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numCols)));
 			l6_Nova_j = (int)0;
 			for (; l6_Nova_j < (int)l2_Nova_numCols; l6_Nova_j++)
 			{
-				nova_datastruct_list_Nova_Array_Nova_set((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_virtual1_Nova_get((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i)), exceptionData, l6_Nova_j, (nova_Nova_Object*)(nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_arrays[l4_Nova_i][l6_Nova_j])));
+				nova_datastruct_list_Nova_Array_virtual1_Nova_set((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_virtual1_Nova_get((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i)), exceptionData, l6_Nova_j, (nova_Nova_Object*)(nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_arrays[l4_Nova_i][l6_Nova_j])));
 			}
 		}
 		l2_Nova_r = nova_database_Nova_ResultSet_Nova_construct(0, exceptionData, l2_Nova_rows, l2_Nova_numCols);

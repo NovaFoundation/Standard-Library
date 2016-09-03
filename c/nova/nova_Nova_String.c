@@ -82,6 +82,20 @@ nova_Nova_String* nova_Nova_String_1_Nova_construct(nova_Nova_String* this, nova
 	return this;
 }
 
+nova_Nova_String* nova_Nova_String_2_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars)
+{
+	CCLASS_NEW(nova_Nova_String, this,);
+	this->vtable = &nova_Extension_VTable_String_val;
+	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
+	nova_Nova_String_Nova_super(this, exceptionData);
+	
+	{
+		nova_Nova_String_3_Nova_this(this, exceptionData, nova_Nova_String_Nova_chars);
+	}
+	
+	return this;
+}
+
 void nova_Nova_String_Nova_destroy(nova_Nova_String** this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	if (!*this)
@@ -114,6 +128,12 @@ void nova_Nova_String_2_Nova_this(nova_Nova_String* this, nova_exception_Nova_Ex
 	{
 		nova_Nova_String_Nova_chars[this->nova_Nova_String_Nova_count] = '\0';
 	}
+}
+
+void nova_Nova_String_3_Nova_this(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars)
+{
+	this->nova_Nova_String_Nova_count = nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_count;
+	this->nova_Nova_String_Nova_chars = nova_Nova_String_Nova_chars;
 }
 
 int nova_Nova_String_Nova_calculateSize(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_Nova_String_Nova_chars)
@@ -327,6 +347,23 @@ nova_Nova_String* nova_Nova_String_1_Nova_getStringBetween(nova_Nova_String* thi
 		return nova_Nova_String_0_Nova_substring(this, exceptionData, l1_Nova_s + nova_Nova_String_Nova_before->nova_Nova_String_Nova_count, l1_Nova_e);
 	}
 	return nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""));
+}
+
+nova_Nova_String* nova_Nova_String_0_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str)
+{
+	return nova_Nova_String_1_Nova_surroundWith(this, exceptionData, nova_Nova_String_Nova_str, 0);
+}
+
+nova_Nova_String* nova_Nova_String_1_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str, char nova_Nova_String_Nova_symmetrical)
+{
+	if (nova_Nova_String_Nova_symmetrical)
+	{
+		return nova_Nova_String_virtual1_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_str), exceptionData, nova_Nova_String_virtual1_Nova_concat((nova_Nova_String*)(this), exceptionData, nova_Nova_String_2_Nova_construct(0, exceptionData, nova_datastruct_list_Nova_List_virtual0_Nova_reverse((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_str->nova_Nova_String_Nova_chars), exceptionData))));
+	}
+	else
+	{
+		return nova_Nova_String_virtual1_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_str), exceptionData, nova_Nova_String_virtual1_Nova_concat((nova_Nova_String*)(this), exceptionData, nova_Nova_String_Nova_str));
+	}
 }
 
 int nova_Nova_String_Nova_compareTo(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_other)
