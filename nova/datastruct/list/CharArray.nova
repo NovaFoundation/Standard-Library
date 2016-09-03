@@ -81,6 +81,12 @@ public class CharArray extends Array<Char>
 	    return (([PrimitiveArray] Char[])data)[index]
 	}
 	
+	[Override]
+	public set(Int index, Char value)
+	{
+	    (([PrimitiveArray] Char[])data)[index] = value
+	}
+	
 	public construct([PrimitiveArray] Char[] data, Int count)
 	{
 		super(data, count)
@@ -168,7 +174,7 @@ public class CharArray extends Array<Char>
 		
 		for (i in 0..howMany)
 		{
-			list.add(data[i])
+			list.add(get(i))
 		}
 		
 		return list
@@ -181,7 +187,7 @@ public class CharArray extends Array<Char>
 		
 		for (i in howMany..count)
 		{
-			list.add(data[i])
+			list.add(get(i))
 		}
 		
 		return list
@@ -204,8 +210,7 @@ public class CharArray extends Array<Char>
 	[Override]
     public reverse() -> CharArray
     {
-    	CharArray array = new CharArray(count)
-    	array.count = count
+    	var array = new CharArray(count)
     	
     	Int i = 0
     	
@@ -215,29 +220,5 @@ public class CharArray extends Array<Char>
     	}
     	
     	return array
-    }
-    
-	[Override]
-    public join(String delimiter) -> String
-    {
-    	String str = ""
-    	
-    	Bool passed = false
-    	
-    	for (element in this)
-    	{
-    		if (passed)
-    		{
-    			str = str + delimiter
-    		}
-    		else
-    		{
-    			passed = true
-    		}
-    		
-    		str = str + element.toString()
-    	}
-    	
-    	return str
     }
 }
