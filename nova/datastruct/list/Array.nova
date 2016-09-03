@@ -425,7 +425,6 @@ public class Array<E> implements List<E>
     public reverse() -> Array<E>
     {
         Array<E> array = new Array(count)
-        array.count = count
         
         Int i = 0
         
@@ -440,9 +439,8 @@ public class Array<E> implements List<E>
     [Override]
     public join(String delimiter) -> String
     {
-        String str = ""
-        
-        Bool passed = false
+        var str = ""
+        var passed = false
         
         for (element in this)
         {
