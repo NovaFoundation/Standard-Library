@@ -28,7 +28,6 @@ nova_datastruct_Extension_VTable_BinaryNode nova_datastruct_Extension_VTable_Bin
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
-		0,
 	},
 	nova_datastruct_Nova_Node_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,

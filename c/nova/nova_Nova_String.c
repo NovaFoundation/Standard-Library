@@ -28,7 +28,6 @@ nova_Extension_VTable_String nova_Extension_VTable_String_val =
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_equals,
 		0,
 		0,
-		0,
 	},
 	nova_Nova_String_0_Nova_toString,
 	nova_Nova_String_Nova_equals,

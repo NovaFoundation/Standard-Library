@@ -28,7 +28,6 @@ nova_svg_Extension_VTable_SvgCircle nova_svg_Extension_VTable_SvgCircle_val =
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
-		0,
 	},
 	nova_svg_Nova_SvgCircle_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,

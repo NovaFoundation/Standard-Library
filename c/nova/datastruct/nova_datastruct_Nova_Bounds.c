@@ -28,7 +28,6 @@ nova_datastruct_Extension_VTable_Bounds nova_datastruct_Extension_VTable_Bounds_
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_datastruct_Nova_Bounds_0_Nova_equals,
 		0,
 		0,
-		0,
 	},
 	nova_datastruct_Nova_Bounds_0_Nova_toString,
 	nova_datastruct_Nova_Bounds_0_Nova_equals,

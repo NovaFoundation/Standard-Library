@@ -32,7 +32,6 @@ nova_datastruct_list_Extension_VTable_Array nova_datastruct_list_Extension_VTabl
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
-		0,
 	},
 	nova_datastruct_list_Nova_Array_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -62,7 +61,7 @@ void nova_datastruct_list_Nova_Array_Nova_shiftRight(nova_datastruct_list_Nova_A
 void nova_datastruct_list_Nova_Array_Nova_shiftLeft(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_list_Nova_Array_Nova_left, int nova_datastruct_list_Nova_Array_Nova_right);
 void nova_datastruct_list_Nova_Array_0_Nova_increaseSize(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_Array_1_Nova_increaseSize(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_list_Nova_Array_Nova_count);
-char nova_datastruct_list_Nova_Array_Nova_testLambda52(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_Array_Nova__1, Context1* context);
+char nova_datastruct_list_Nova_Array_Nova_testLambda37(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_Array_Nova__1, Context1* context);
 
 
 
@@ -319,12 +318,12 @@ void nova_datastruct_list_Nova_Array_0_Nova_set(nova_datastruct_list_Nova_Array*
 
 char nova_datastruct_list_Nova_Array_0_Nova_contains(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_Array_Nova_value)
 {
-	Context1 contextArg55 = 
+	Context1 contextArg37 = 
 	{
 		&nova_datastruct_list_Nova_Array_Nova_value,
 	};
 	
-	return nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_datastruct_list_Nova_Array_Nova_testLambda52, this, &contextArg55);
+	return nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_datastruct_list_Nova_Array_Nova_testLambda37, this, &contextArg37);
 }
 
 nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_0_Nova_toArray(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -536,7 +535,7 @@ nova_Nova_String* nova_datastruct_list_Nova_Array_0_Nova_toString(nova_datastruc
 	return nova_Nova_String_0_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Array [")), exceptionData, nova_Nova_String_virtual1_Nova_concat((nova_Nova_String*)((nova_datastruct_list_Nova_List_virtual0_Nova_join((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", "))))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("]"))));
 }
 
-char nova_datastruct_list_Nova_Array_Nova_testLambda52(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_Array_Nova__1, Context1* context)
+char nova_datastruct_list_Nova_Array_Nova_testLambda37(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_Array_Nova__1, Context1* context)
 {
 	return nova_datastruct_list_Nova_Array_Nova__1 == (nova_Nova_Object*)(*context->nova_datastruct_list_Nova_Array_Nova_value);
 }

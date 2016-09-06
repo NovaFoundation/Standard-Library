@@ -28,7 +28,6 @@ nova_math_logic_Extension_VTable_Hypothesis nova_math_logic_Extension_VTable_Hyp
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
-		0,
 	},
 	nova_math_logic_Nova_LogicalStatement_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
