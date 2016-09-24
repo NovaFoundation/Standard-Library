@@ -28,6 +28,8 @@ nova_datastruct_list_Extension_VTable_IntRange nova_datastruct_list_Extension_VT
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_datastruct_list_Nova_IntRange_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -244,7 +246,7 @@ int nova_datastruct_list_Nova_IntRange_0_Nova_firstWhere(nova_datastruct_list_No
 			return l1_Nova_element;
 		}
 	}
-	return (int)nova_null;
+	return (int)(nova_Nova_Object*)nova_null;
 }
 
 nova_datastruct_list_Nova_IntRange* nova_datastruct_list_Nova_IntRange_0_Nova_reverse(nova_datastruct_list_Nova_IntRange* this, nova_exception_Nova_ExceptionData* exceptionData)

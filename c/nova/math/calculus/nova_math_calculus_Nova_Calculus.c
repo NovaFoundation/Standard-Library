@@ -28,6 +28,8 @@ nova_math_calculus_Extension_VTable_Calculus nova_math_calculus_Extension_VTable
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -68,7 +70,7 @@ void nova_math_calculus_Nova_Calculus_Nova_destroy(nova_math_calculus_Nova_Calcu
 
 nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_Nova_statement)
 {
-	return (nova_math_Nova_NumericStatement*)nova_null;
+	return (nova_math_Nova_NumericStatement*)(nova_Nova_Object*)nova_null;
 }
 
 void nova_math_calculus_Nova_Calculus_0_Nova_this(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData)

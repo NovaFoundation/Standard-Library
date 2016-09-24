@@ -28,6 +28,8 @@ nova_io_Extension_VTable_File nova_io_Extension_VTable_File_val =
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -186,7 +188,7 @@ nova_Nova_String* nova_io_Nova_File_Nova_readLine(nova_io_Nova_File* this, nova_
 	l1_Nova_c = (char)(getc(this->prv->nova_io_Nova_File_Nova_fp));
 	if (l1_Nova_c == EOF)
 	{
-		return (nova_Nova_String*)nova_null;
+		return (nova_Nova_String*)(nova_Nova_Object*)nova_null;
 	}
 	l1_Nova_index = (int)(0);
 	while (l1_Nova_c != '\n' && l1_Nova_c != EOF)

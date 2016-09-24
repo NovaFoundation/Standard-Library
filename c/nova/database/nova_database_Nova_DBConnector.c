@@ -28,6 +28,8 @@ nova_database_Extension_VTable_DBConnector nova_database_Extension_VTable_DBConn
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -118,7 +120,7 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 	if (this->prv->nova_database_Nova_DBConnector_Nova_result == 0)
 	{
 		nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
-		return (nova_database_Nova_ResultSet*)nova_null;
+		return (nova_database_Nova_ResultSet*)(nova_Nova_Object*)nova_null;
 	}
 	
 	l1_Nova_arrays = (char***)(nova_get_results(this->prv->nova_database_Nova_DBConnector_Nova_mysql, this->prv->nova_database_Nova_DBConnector_Nova_result));
@@ -150,7 +152,7 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 		return l2_Nova_r;
 	}
 	nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
-	return (nova_database_Nova_ResultSet*)nova_null;
+	return (nova_database_Nova_ResultSet*)(nova_Nova_Object*)nova_null;
 }
 
 void nova_database_Nova_DBConnector_Nova_close(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData)

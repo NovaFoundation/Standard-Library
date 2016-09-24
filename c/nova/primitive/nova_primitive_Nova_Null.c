@@ -28,6 +28,8 @@ nova_primitive_Extension_VTable_Null nova_primitive_Extension_VTable_Null_val =
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_primitive_Nova_Null_Nova_toString,
 	nova_Nova_String_Nova_equals,

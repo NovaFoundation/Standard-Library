@@ -28,6 +28,8 @@ nova_network_Extension_VTable_NetworkInputStream nova_network_Extension_VTable_N
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_network_Nova_NetworkInputStream_0_Nova_readString,
 	nova_network_Nova_NetworkInputStream_0_Nova_readBytes,
@@ -83,7 +85,7 @@ nova_Nova_String* nova_network_Nova_NetworkInputStream_0_Nova_readString(nova_ne
 
 nova_datastruct_list_Nova_Array* nova_network_Nova_NetworkInputStream_0_Nova_readBytes(nova_network_Nova_NetworkInputStream* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array*)nova_null;
+	return (nova_datastruct_list_Nova_Array*)(nova_Nova_Object*)nova_null;
 }
 
 void nova_network_Nova_NetworkInputStream_Nova_super(nova_network_Nova_NetworkInputStream* this, nova_exception_Nova_ExceptionData* exceptionData)

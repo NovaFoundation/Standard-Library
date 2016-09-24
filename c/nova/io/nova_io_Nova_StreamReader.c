@@ -28,6 +28,8 @@ nova_io_Extension_VTable_StreamReader nova_io_Extension_VTable_StreamReader_val 
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_io_Nova_StreamReader_Nova_readString,
 	nova_io_Nova_StreamReader_Nova_readBytes,
@@ -78,7 +80,7 @@ void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_e
 
 nova_datastruct_list_Nova_Array* nova_io_Nova_StreamReader_Nova_readBytes(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array*)nova_null;
+	return (nova_datastruct_list_Nova_Array*)(nova_Nova_Object*)nova_null;
 }
 
 nova_Nova_String* nova_io_Nova_StreamReader_Nova_readString(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -28,6 +28,8 @@ nova_network_Extension_VTable_ServerSocket nova_network_Extension_VTable_ServerS
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -113,7 +115,7 @@ nova_network_Nova_ConnectionSocket* nova_network_Nova_ServerSocket_Nova_acceptCl
 	l1_Nova_clientSocket = nova_serversocket_accept(this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket);
 	if (l1_Nova_clientSocket == 0)
 	{
-		return (nova_network_Nova_ConnectionSocket*)nova_null;
+		return (nova_network_Nova_ConnectionSocket*)(nova_Nova_Object*)nova_null;
 	}
 	l1_Nova_socket = nova_network_Nova_ConnectionSocket_Nova_construct(0, exceptionData, l1_Nova_clientSocket);
 	return l1_Nova_socket;

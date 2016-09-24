@@ -28,6 +28,8 @@ nova_math_Extension_VTable_NumericOperation nova_math_Extension_VTable_NumericOp
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_math_Nova_NumericOperation_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -227,7 +229,7 @@ void nova_math_Nova_NumericOperation_1_Nova_this(nova_math_Nova_NumericOperation
 
 nova_math_Nova_NumericOperand* nova_math_Nova_NumericOperation_Nova_decodeOperand(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operand)
 {
-	return (nova_math_Nova_NumericOperand*)(nova_math_Nova_NumericOperand*)nova_null;
+	return (nova_math_Nova_NumericOperand*)(nova_Nova_Object*)nova_null;
 }
 
 int nova_math_Nova_NumericOperation_0_Nova_getType(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_s)
@@ -284,7 +286,7 @@ nova_datastruct_Nova_Bounds* nova_math_Nova_NumericOperation_Nova_searchNextType
 	}
 	if (l1_Nova_minIndex >= nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_count)
 	{
-		return (nova_datastruct_Nova_Bounds*)nova_null;
+		return (nova_datastruct_Nova_Bounds*)(nova_Nova_Object*)nova_null;
 	}
 	l1_Nova_minIndex = nova_math_Nova_NumericOperation_Nova_nextNonWhitespaceIndex(0, exceptionData, nova_math_Nova_NumericOperation_Nova_str, l1_Nova_minIndex - 1, -1) + 1;
 	nova_local_0 = nova_datastruct_Nova_Bounds_1_Nova_construct(0, exceptionData, nova_math_Nova_NumericOperation_Nova_start, l1_Nova_minIndex);
