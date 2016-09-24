@@ -20,12 +20,7 @@ public class BinaryNode<E extends Comparable> extends Node<E>
 		set { setNode(1, value) }
 	}
 	
-	public construct()
-	{
-		this(null)
-	}
-	
-	public construct(E data)
+	public construct(E data = null)
 	{
 		this(data, 2)
 	}

@@ -8,24 +8,7 @@ public class Node<E>
 	
 	visible Node<E>[] children
 	
-	public construct()
-	{
-		this(null)
-	}
-	
-	public construct(E data)
-	{
-		children = new Array()
-		
-		this.data = data
-	}
-	
-	public construct(Int numChildren)
-	{
-		this(null, numChildren)
-	}
-	
-	public construct(E data, Int numChildren)
+	public construct(E data = null, Int numChildren = 5)
 	{
 		children = new Array(numChildren)
 		

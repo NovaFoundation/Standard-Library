@@ -121,7 +121,7 @@ public class String implements Comparable<String>
 	    return indexOf(search) >= 0
 	}
 	
-	indexOf(String search, Int start, Int direction) -> Int
+	public indexOf(String search, Int start = 0, Int direction = 1) -> Int
 	{
 	    Int i = start
 	    
@@ -155,22 +155,12 @@ public class String implements Comparable<String>
 		return -1
 	}
 	
-	public indexOf(String search) -> Int
-	{
-		return indexOf(search, 0, 1)
-	}
-	
-	public indexOf(String search, Int start) -> Int
-	{
-		return indexOf(search, start, 1)
-	}
-	
 	public lastIndexOf(String search) -> Int
 	{
 		return indexOf(search, count - 1, -1)
 	}
 	
-	public substring(Int start, Int end) -> String
+	public substring(Int start, Int end = count) -> String
 	{
 		if (end - start <= 0)
 		{
@@ -193,11 +183,6 @@ public class String implements Comparable<String>
 		buf[end - start] = '\0'
 		
 		return new String(buf)
-	}
-	
-	public substring(Int start) -> String
-	{
-		return substring(start, count)
 	}
 	
 	public lastChar() -> Char
@@ -268,12 +253,7 @@ public class String implements Comparable<String>
 		return new String(newData)
 	}
 	
-	public getStringBetween(String before, String after) -> String
-	{
-		return getStringBetween(before, after, 0)
-	}
-	
-	public getStringBetween(String before, String after, Int start) -> String
+	public getStringBetween(String before, String after, Int start = 0) -> String
 	{
 		Int s = indexOf(before, start)
 		Int e = indexOf(after, s + 1)
@@ -286,12 +266,7 @@ public class String implements Comparable<String>
 		return ""
 	}
 	
-	public surroundWith(String str) -> String
-	{
-		return surroundWith(str, false)
-	}
-	
-	public surroundWith(String str, Bool symmetrical) -> String
+	public surroundWith(String str, Bool symmetrical = false) -> String
 	{
 		if (symmetrical)
 		{
