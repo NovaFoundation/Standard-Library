@@ -13,5 +13,5 @@ public interface Iterator<E>
 		no set
 	}
 	
-	reset() -> Iterator<E>
+	public reset() -> Iterator<E>
 }

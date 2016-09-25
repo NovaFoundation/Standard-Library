@@ -87,7 +87,8 @@ CCLASS_CLASS
 	
 	nova_datastruct_list_Extension_VTable_List* vtable;
 	int nova_datastruct_list_Nova_List_Nova_size;
-	struct Private* prv;
+	nova_Nova_Object* nova_datastruct_list_Nova_List_Nova_first;
+	nova_Nova_Object* nova_datastruct_list_Nova_List_Nova_last;
 )
 
 void nova_datastruct_list_Nova_List_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

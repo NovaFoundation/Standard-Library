@@ -17,14 +17,14 @@ public interface List<Type> extends Iterable<Type>
 	}
 	*/
 	
-	Type first
-	Type last
+	public Type first
+	public Type last
 	
-	toArray() -> Type[]
+	public toArray() -> Type[]
 	
-	contains(Type t) -> Bool
+	public contains(Type t) -> Bool
 	
-	forEach(func(Type, Int, List<Type>))
+	public forEach(func(Type, Int, List<Type>))
 	/*{
 	    Int i = 0
 	    
@@ -34,12 +34,12 @@ public interface List<Type> extends Iterable<Type>
 		}
 	}*/
 	
-	map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out>
+	public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out>
 	
-	any(anyFunc(Type) -> Bool) -> Bool
-	all(allFunc(Type) -> Bool) -> Bool
+	public any(anyFunc(Type) -> Bool) -> Bool
+	public all(allFunc(Type) -> Bool) -> Bool
 	
-	filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type>
+	public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type>
 	/*{
 		List<Type> list = clone()
 		
@@ -56,7 +56,7 @@ public interface List<Type> extends Iterable<Type>
 		return list
 	}*/
 	
-	take(Int howMany) -> List<Type>
+	public take(Int howMany) -> List<Type>
 	/*{
 		List<Type> list = clone()
 		
@@ -70,7 +70,7 @@ public interface List<Type> extends Iterable<Type>
 		return list
 	}*/
 	
-	skip(Int howMany) -> List<Type>
+	public skip(Int howMany) -> List<Type>
 	/*{
 		List<Type> list = clone()
 		
@@ -84,7 +84,7 @@ public interface List<Type> extends Iterable<Type>
 		return list
 	}*/
 	
-	firstWhere(func(Type) -> Bool) -> Type
+	public firstWhere(func(Type) -> Bool) -> Type
 	/*{
 		for (element in this)
 		{
@@ -102,7 +102,7 @@ public interface List<Type> extends Iterable<Type>
 	//add(Type value) -> List<Type>
 	//remove(Type value) -> List<Type>
 	//clone() -> List<Type>
-	reverse() -> List<Type>
+	public reverse() -> List<Type>
 	
-    join(String delimiter) -> String
+    public join(String delimiter) -> String
 }
