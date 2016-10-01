@@ -7,7 +7,7 @@ nova_datastruct_Extension_VTable_ReversibleHashMap nova_datastruct_Extension_VTa
 {
 	{
 		0,
-		0,
+		(nova_datastruct_list_Nova_Iterator*(*)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*))nova_datastruct_list_Nova_List_Accessor_Nova_iterator,
 		0,
 		0,
 		0,
@@ -26,7 +26,6 @@ nova_datastruct_Extension_VTable_ReversibleHashMap nova_datastruct_Extension_VTa
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
 		0,
 		0,
 		0,

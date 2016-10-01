@@ -33,7 +33,6 @@ nova_Extension_VTable_System nova_Extension_VTable_System_val =
 		0,
 		0,
 		0,
-		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,

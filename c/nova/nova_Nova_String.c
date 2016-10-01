@@ -29,7 +29,6 @@ nova_Extension_VTable_String nova_Extension_VTable_String_val =
 		0,
 		0,
 		0,
-		0,
 	},
 	nova_Nova_String_0_Nova_toString,
 	nova_Nova_String_Nova_equals,

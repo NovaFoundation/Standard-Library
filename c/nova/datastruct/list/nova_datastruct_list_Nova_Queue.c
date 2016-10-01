@@ -29,7 +29,6 @@ nova_datastruct_list_Extension_VTable_Queue nova_datastruct_list_Extension_VTabl
 		0,
 		0,
 		0,
-		0,
 	},
 	nova_datastruct_list_Nova_Queue_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
