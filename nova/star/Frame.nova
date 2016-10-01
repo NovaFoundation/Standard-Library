@@ -1,0 +1,32 @@
+package "nova/star"
+
+class Frame
+{
+	public Int x
+	{
+		set { x = value }
+	}
+	
+	public Int y
+	{
+		set { y = value }
+	}
+	
+	public Int width
+	{
+		set { width = value }
+	}
+	
+	public Int height
+	{
+		set { height = value }
+	}
+	
+	public construct(Int x = 0, Int y = 0, Int width = 800, Int height = 600)
+	{
+		this.x = x
+		this.y = y
+		this.width = width
+		this.height = height
+	}
+}
