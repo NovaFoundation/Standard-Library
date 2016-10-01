@@ -252,12 +252,6 @@ public class Array<E> implements List<E>
 	}
 	
 	[Override]
-	public contains(E value) -> Bool
-	{
-	    return any({ _ == value })
-	}
-	
-	[Override]
 	public toArray() -> E[]
 	{
 		E[] array = new Array(count)
@@ -292,34 +286,6 @@ public class Array<E> implements List<E>
 		{
 			func(data[i], i, this)
 		}
-	}
-	
-	[Override]
-	public any(anyFunc(E) -> Bool) -> Bool
-	{
-		for (element in this)
-		{
-			if (anyFunc(element))
-			{
-				return true
-			}
-		}
-		
-		return false
-	}
-	
-	[Override]
-	public all(allFunc(E) -> Bool) -> Bool
-	{
-		for (element in this)
-		{
-			if (!allFunc(element))
-			{
-				return false
-			}
-		}
-		
-		return true
 	}
 	
 	[Override]
@@ -366,20 +332,6 @@ public class Array<E> implements List<E>
         }
         
         return list
-    }
-    
-    [Override]
-    public firstWhere(func(E) -> Bool) -> E
-    {
-        for (element in this)
-        {
-            if (func(element))
-            {
-                return element
-            }
-        }
-        
-        return null
     }
     
     [RequireGenericType E extends String]
@@ -434,29 +386,6 @@ public class Array<E> implements List<E>
         }
         
         return array
-    }
-    
-    [Override]
-    public join(String delimiter) -> String
-    {
-        var str = ""
-        var passed = false
-        
-        for (element in this)
-        {
-            if (passed)
-            {
-                str = str + delimiter
-            }
-            else
-            {
-                passed = true
-            }
-            
-            str = str + element.toString()
-        }
-        
-        return str
     }
     
     public toString() -> String
