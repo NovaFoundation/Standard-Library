@@ -5,46 +5,93 @@ public interface List<Type> extends Iterable<Type>
 	visible Int size
 	/*[Int index]
 	{
-		get
-		{
-			return this.get(index)
-		}
-		
-		set
-		{
-			this.set(index, value)
-		}
+		get { return this.get(index) }
+		set { this.set(index, value) }
 	}
 	*/
-	
+
+	visible Iterator<Type> iterator
+	{
+		get { return null }
+		no set
+	}
+
 	public Type first
 	public Type last
-	
+
 	public toArray() -> Type[]
-	
-	public contains(Type t) -> Bool
-	
+	{
+		Type[] array = new Array()
+
+		for (value in this)
+		{
+			array.add(value)
+		}
+
+		return array
+	}
+
+	public contains(Type value) -> Bool
+	{
+	    return any({ _ == value })
+	}
+
 	public forEach(func(Type, Int, List<Type>))
-	/*{
+	{
 	    Int i = 0
-	    
+
 		for (value in this)
 		{
 			func(value, i++, this)
 		}
-	}*/
-	
+	}
+
 	public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out>
-	
-	public any(anyFunc(Type) -> Bool) -> Bool
-	public all(allFunc(Type) -> Bool) -> Bool
-	
-	public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type>
-	/*{
-		List<Type> list = clone()
-		
+	{
+		Out[] array = new Array(count)
+
 		Int i = 0
-		
+
+		for (element in this)
+		{
+			array.add(mapFunc(element, i++, this))
+		}
+
+		return array
+	}
+
+	public any(anyFunc(Type) -> Bool) -> Bool
+	{
+		for (element in this)
+		{
+			if (anyFunc(element))
+			{
+				return true
+			}
+		}
+
+		return false
+	}
+
+	public all(allFunc(Type) -> Bool) -> Bool
+	{
+		for (element in this)
+		{
+			if (!allFunc(element))
+			{
+				return false
+			}
+		}
+
+		return true
+	}
+
+	public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type>
+	{
+		Type[] list = new Array()
+
+		Int i = 0
+
 		for (value in this)
 		{
 			if (filterFunc(value, i++, this))
@@ -52,40 +99,65 @@ public interface List<Type> extends Iterable<Type>
 				list.add(value)
 			}
 		}
-		
+
+		return list
+	}
+
+	/*public filter(filterFunc(Type, Int, this<E>) -> Bool) -> this<Type>
+	{
+		this<Type> list = new this()
+
+		Int i = 0
+
+		for (value in this)
+		{
+			if (filterFunc(value, i++, this))
+			{
+				list.add(value)
+			}
+		}
+
 		return list
 	}*/
-	
+
 	public take(Int howMany) -> List<Type>
-	/*{
-		List<Type> list = clone()
-		
+	{
+		Type[] list = new Array()
+
 		Int i = 0
-		
-		repeat (Math.min(howMany, size))
+
+		for (value in this)
 		{
-			list.add(this[i++])
+			if (i++ >= howMany)
+			{
+				return list
+			}
+
+			list.add(value)
 		}
-		
+
 		return list
-	}*/
-	
+	}
+
 	public skip(Int howMany) -> List<Type>
-	/*{
-		List<Type> list = clone()
-		
+	{
+		Type[] list = new Array()
+
 		Int i = 0
-		
-		repeat (size - howMany)
+
+		for (value in this)
 		{
-			list.add(this[howMany + i++])
+			if (i++ >= howMany)
+			{
+				list.add(value)
+			}
 		}
-		
+
 		return list
-	}*/
-	
+	}
+
 	public firstWhere(func(Type) -> Bool) -> Type
-	/*{
+	{
 		for (element in this)
 		{
 			if (func(element))
@@ -93,16 +165,51 @@ public interface List<Type> extends Iterable<Type>
 				return element
 			}
 		}
-		
+
 		return null
-	}*/
-	
+	}
+
+	public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[]
+	{
+		Iterator<Type> i1 = iterator
+		Iterator<OtherType> i2 = other.iterator
+
+		Out[] array = new Array()
+
+		while (i1.hasNext && i2.hasNext)
+		{
+			array.add(zipper(i1.next, i2.next))
+		}
+
+		return array
+	}
+
 	//get(Int index) -> Type
 	//set(Int index, Type value) -> List<Type>
 	//add(Type value) -> List<Type>
 	//remove(Type value) -> List<Type>
 	//clone() -> List<Type>
 	public reverse() -> List<Type>
-	
+
     public join(String delimiter) -> String
+    {
+        var str = ""
+        var passed = false
+
+        for (element in this)
+        {
+            if (passed)
+            {
+                str = str + delimiter
+            }
+            else
+            {
+                passed = true
+            }
+
+            str = str + element.toString()
+        }
+
+        return str
+    }
 }
