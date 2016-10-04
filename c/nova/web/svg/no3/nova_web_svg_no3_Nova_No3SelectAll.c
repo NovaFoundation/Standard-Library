@@ -3,7 +3,7 @@
 
 
 
-nova_web_svg_no3_Extension_VTable_No3SelectAll nova_web_svg_no3_Extension_VTable_No3SelectAll_val =
+nova_web_svg_no3_No3SelectAll_Extension_VTable nova_web_svg_no3_No3SelectAll_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_web_svg_no3_Extension_VTable_No3SelectAll nova_web_svg_no3_Extension_VTable
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -46,7 +47,7 @@ void nova_web_svg_no3_Nova_No3SelectAll_Nova_init_static(nova_exception_Nova_Exc
 nova_web_svg_no3_Nova_No3SelectAll* nova_web_svg_no3_Nova_No3SelectAll_Nova_construct(nova_web_svg_no3_Nova_No3SelectAll* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3SelectAll_Nova_selection)
 {
 	CCLASS_NEW(nova_web_svg_no3_Nova_No3SelectAll, this,);
-	this->vtable = &nova_web_svg_no3_Extension_VTable_No3SelectAll_val;
+	this->vtable = &nova_web_svg_no3_No3SelectAll_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_web_svg_no3_Nova_No3Node_Nova_super((nova_web_svg_no3_Nova_No3Node*)this, exceptionData);
 	nova_web_svg_no3_Nova_No3SelectAll_0_Nova_super(this, exceptionData);

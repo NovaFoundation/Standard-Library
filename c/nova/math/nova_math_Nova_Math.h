@@ -38,8 +38,8 @@ typedef struct nova_math_Nova_Math nova_math_Nova_Math;
 #include <math.h>
 
 
-typedef struct nova_math_Extension_VTable_Math nova_math_Extension_VTable_Math;
-struct nova_math_Extension_VTable_Math
+typedef struct nova_math_Math_Extension_VTable nova_math_Math_Extension_VTable;
+struct nova_math_Math_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_math_Extension_VTable_Math
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_Extension_VTable_Math nova_math_Extension_VTable_Math_val;
+extern nova_math_Math_Extension_VTable nova_math_Math_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_Nova_Math, 
 	
-	nova_math_Extension_VTable_Math* vtable;
+	nova_math_Math_Extension_VTable* vtable;
 )
 extern double nova_math_Nova_Math_Nova_PI;
 

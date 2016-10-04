@@ -39,8 +39,8 @@ typedef struct nova_star_Nova_WindowThread nova_star_Nova_WindowThread;
 #include <nova/star/nova_star_Nova_Window.h>
 
 
-typedef struct nova_star_Extension_VTable_WindowThread nova_star_Extension_VTable_WindowThread;
-struct nova_star_Extension_VTable_WindowThread
+typedef struct nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable;
+struct nova_star_WindowThread_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -49,14 +49,14 @@ struct nova_star_Extension_VTable_WindowThread
 	void (*nova_thread_Nova_Thread_virtual0_Nova_run)(nova_star_Nova_WindowThread*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_star_Extension_VTable_WindowThread nova_star_Extension_VTable_WindowThread_val;
+extern nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_star_Nova_WindowThread, 
 	
-	nova_star_Extension_VTable_WindowThread* vtable;
+	nova_star_WindowThread_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

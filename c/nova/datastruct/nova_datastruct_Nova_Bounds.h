@@ -37,8 +37,8 @@ typedef struct nova_datastruct_Nova_Bounds nova_datastruct_Nova_Bounds;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_datastruct_Extension_VTable_Bounds nova_datastruct_Extension_VTable_Bounds;
-struct nova_datastruct_Extension_VTable_Bounds
+typedef struct nova_datastruct_Bounds_Extension_VTable nova_datastruct_Bounds_Extension_VTable;
+struct nova_datastruct_Bounds_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_Nova_Bounds*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_datastruct_Extension_VTable_Bounds
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_Extension_VTable_Bounds nova_datastruct_Extension_VTable_Bounds_val;
+extern nova_datastruct_Bounds_Extension_VTable nova_datastruct_Bounds_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_Nova_Bounds, 
 	
-	nova_datastruct_Extension_VTable_Bounds* vtable;
+	nova_datastruct_Bounds_Extension_VTable* vtable;
 	int nova_datastruct_Nova_Bounds_Nova_start;
 	int nova_datastruct_Nova_Bounds_Nova_end;
 )

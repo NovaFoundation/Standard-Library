@@ -3,7 +3,7 @@
 
 
 
-nova_Extension_VTable_String nova_Extension_VTable_String_val =
+nova_String_Extension_VTable nova_String_Extension_VTable_val =
 {
 	{
 		(int(*)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_compareTo,
@@ -26,6 +26,7 @@ nova_Extension_VTable_String nova_Extension_VTable_String_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -55,7 +56,7 @@ void nova_Nova_String_Nova_init_static(nova_exception_Nova_ExceptionData* except
 nova_Nova_String* nova_Nova_String_0_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_Nova_String_Nova_c)
 {
 	CCLASS_NEW(nova_Nova_String, this,);
-	this->vtable = &nova_Extension_VTable_String_val;
+	this->vtable = &nova_String_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_Nova_String_Nova_super(this, exceptionData);
 	
@@ -70,7 +71,7 @@ nova_Nova_String* nova_Nova_String_0_Nova_construct(nova_Nova_String* this, nova
 nova_Nova_String* nova_Nova_String_1_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_Nova_String_Nova_chars)
 {
 	CCLASS_NEW(nova_Nova_String, this,);
-	this->vtable = &nova_Extension_VTable_String_val;
+	this->vtable = &nova_String_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_Nova_String_Nova_super(this, exceptionData);
 	
@@ -84,7 +85,7 @@ nova_Nova_String* nova_Nova_String_1_Nova_construct(nova_Nova_String* this, nova
 nova_Nova_String* nova_Nova_String_2_Nova_construct(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars)
 {
 	CCLASS_NEW(nova_Nova_String, this,);
-	this->vtable = &nova_Extension_VTable_String_val;
+	this->vtable = &nova_String_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_Nova_String_Nova_super(this, exceptionData);
 	

@@ -43,8 +43,8 @@ typedef void (*nova_thread_async_Nova_Async_closure3_Nova_func)(void*, nova_exce
 #include <nova/thread/async/nova_thread_async_Nova_AsyncResult.h>
 
 
-typedef struct nova_thread_async_Extension_VTable_Async nova_thread_async_Extension_VTable_Async;
-struct nova_thread_async_Extension_VTable_Async
+typedef struct nova_thread_async_Async_Extension_VTable nova_thread_async_Async_Extension_VTable;
+struct nova_thread_async_Async_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -52,14 +52,14 @@ struct nova_thread_async_Extension_VTable_Async
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_thread_async_Extension_VTable_Async nova_thread_async_Extension_VTable_Async_val;
+extern nova_thread_async_Async_Extension_VTable nova_thread_async_Async_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_thread_async_Nova_Async, 
 	
-	nova_thread_async_Extension_VTable_Async* vtable;
+	nova_thread_async_Async_Extension_VTable* vtable;
 )
 
 void nova_thread_async_Nova_Async_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

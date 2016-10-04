@@ -3,7 +3,7 @@
 
 
 
-nova_gc_Extension_VTable_GC nova_gc_Extension_VTable_GC_val =
+nova_gc_GC_Extension_VTable nova_gc_GC_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_gc_Extension_VTable_GC nova_gc_Extension_VTable_GC_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -50,7 +51,7 @@ void nova_gc_Nova_GC_Nova_init_static(nova_exception_Nova_ExceptionData* excepti
 nova_gc_Nova_GC* nova_gc_Nova_GC_Nova_construct(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_gc_Nova_GC, this,);
-	this->vtable = &nova_gc_Extension_VTable_GC_val;
+	this->vtable = &nova_gc_GC_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_gc_Nova_GC_Nova_super(this, exceptionData);
 	

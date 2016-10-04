@@ -37,8 +37,8 @@ typedef struct nova_math_Nova_Sequence nova_math_Nova_Sequence;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_math_Extension_VTable_Sequence nova_math_Extension_VTable_Sequence;
-struct nova_math_Extension_VTable_Sequence
+typedef struct nova_math_Sequence_Extension_VTable nova_math_Sequence_Extension_VTable;
+struct nova_math_Sequence_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_math_Extension_VTable_Sequence
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_Extension_VTable_Sequence nova_math_Extension_VTable_Sequence_val;
+extern nova_math_Sequence_Extension_VTable nova_math_Sequence_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_Nova_Sequence, 
 	
-	nova_math_Extension_VTable_Sequence* vtable;
+	nova_math_Sequence_Extension_VTable* vtable;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Sequence_Nova_values;
 )
 extern int nova_math_Nova_Sequence_Nova_INFINITE;

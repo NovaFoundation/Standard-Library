@@ -3,7 +3,7 @@
 
 
 
-nova_io_Extension_VTable_OutputStream nova_io_Extension_VTable_OutputStream_val =
+nova_io_OutputStream_Extension_VTable nova_io_OutputStream_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_io_Extension_VTable_OutputStream nova_io_Extension_VTable_OutputStream_val 
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -52,7 +53,7 @@ void nova_io_Nova_OutputStream_Nova_init_static(nova_exception_Nova_ExceptionDat
 nova_io_Nova_OutputStream* nova_io_Nova_OutputStream_Nova_construct(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_io_Nova_OutputStream, this);
-	this->vtable = &nova_io_Extension_VTable_OutputStream_val;
+	this->vtable = &nova_io_OutputStream_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_OutputStream_Nova_super(this, exceptionData);
 	

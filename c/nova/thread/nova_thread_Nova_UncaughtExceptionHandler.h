@@ -37,8 +37,8 @@ typedef struct nova_thread_Nova_UncaughtExceptionHandler nova_thread_Nova_Uncaug
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_thread_Extension_VTable_UncaughtExceptionHandler nova_thread_Extension_VTable_UncaughtExceptionHandler;
-struct nova_thread_Extension_VTable_UncaughtExceptionHandler
+typedef struct nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExceptionHandler_Extension_VTable;
+struct nova_thread_UncaughtExceptionHandler_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_thread_Extension_VTable_UncaughtExceptionHandler
 	void (*nova_thread_Nova_UncaughtExceptionHandler_virtual1_Nova_uncaughtException)(nova_thread_Nova_UncaughtExceptionHandler*, nova_exception_Nova_ExceptionData*, nova_thread_Nova_Thread*, nova_exception_Nova_Exception*);
 };
 
-extern nova_thread_Extension_VTable_UncaughtExceptionHandler nova_thread_Extension_VTable_UncaughtExceptionHandler_val;
+extern nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExceptionHandler_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_thread_Nova_UncaughtExceptionHandler, 
 	
-	nova_thread_Extension_VTable_UncaughtExceptionHandler* vtable;
+	nova_thread_UncaughtExceptionHandler_Extension_VTable* vtable;
 )
 
 void nova_thread_Nova_UncaughtExceptionHandler_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

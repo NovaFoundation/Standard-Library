@@ -37,8 +37,8 @@ typedef struct nova_exception_Nova_UnimplementedOperationException nova_exceptio
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_exception_Extension_VTable_UnimplementedOperationException nova_exception_Extension_VTable_UnimplementedOperationException;
-struct nova_exception_Extension_VTable_UnimplementedOperationException
+typedef struct nova_exception_UnimplementedOperationException_Extension_VTable nova_exception_UnimplementedOperationException_Extension_VTable;
+struct nova_exception_UnimplementedOperationException_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_exception_Extension_VTable_UnimplementedOperationException
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_exception_Extension_VTable_UnimplementedOperationException nova_exception_Extension_VTable_UnimplementedOperationException_val;
+extern nova_exception_UnimplementedOperationException_Extension_VTable nova_exception_UnimplementedOperationException_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_exception_Nova_UnimplementedOperationException, 
 	
-	nova_exception_Extension_VTable_UnimplementedOperationException* vtable;
+	nova_exception_UnimplementedOperationException_Extension_VTable* vtable;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 

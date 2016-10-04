@@ -3,9 +3,10 @@
 
 
 
-nova_io_Extension_VTable_InputStream nova_io_Extension_VTable_InputStream_val =
+nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable_val =
 {
 	{
+		0,
 		0,
 		0,
 		0,

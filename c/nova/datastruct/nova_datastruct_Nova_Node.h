@@ -38,8 +38,8 @@ typedef struct nova_datastruct_Nova_Node nova_datastruct_Nova_Node;
 #include <nova/datastruct/list/nova_datastruct_list_Nova_Queue.h>
 
 
-typedef struct nova_datastruct_Extension_VTable_Node nova_datastruct_Extension_VTable_Node;
-struct nova_datastruct_Extension_VTable_Node
+typedef struct nova_datastruct_Node_Extension_VTable nova_datastruct_Node_Extension_VTable;
+struct nova_datastruct_Node_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_Nova_Node*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_datastruct_Extension_VTable_Node
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_Extension_VTable_Node nova_datastruct_Extension_VTable_Node_val;
+extern nova_datastruct_Node_Extension_VTable nova_datastruct_Node_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_Nova_Node, 
 	
-	nova_datastruct_Extension_VTable_Node* vtable;
+	nova_datastruct_Node_Extension_VTable* vtable;
 	nova_Nova_Object* nova_datastruct_Nova_Node_Nova_data;
 	nova_datastruct_list_Nova_Array* nova_datastruct_Nova_Node_Nova_children;
 )

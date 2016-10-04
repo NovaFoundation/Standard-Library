@@ -37,21 +37,21 @@ typedef struct nova_operators_Nova_Multiply nova_operators_Nova_Multiply;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_operators_Extension_VTable_Multiply nova_operators_Extension_VTable_Multiply;
-struct nova_operators_Extension_VTable_Multiply
+typedef struct nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTable;
+struct nova_operators_Multiply_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_Object* (*nova_operators_Nova_Multiply_virtual1_Nova_multiply)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
-extern nova_operators_Extension_VTable_Multiply nova_operators_Extension_VTable_Multiply_val;
+extern nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_operators_Nova_Multiply, 
 	
-	nova_operators_Extension_VTable_Multiply* vtable;
+	nova_operators_Multiply_Extension_VTable* vtable;
 )
 
 void nova_operators_Nova_Multiply_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

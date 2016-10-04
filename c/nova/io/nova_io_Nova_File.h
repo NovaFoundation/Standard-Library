@@ -40,8 +40,8 @@ typedef struct nova_io_Nova_File nova_io_Nova_File;
 #include <nova/io/nova_io_Nova_FileNotFoundException.h>
 
 
-typedef struct nova_io_Extension_VTable_File nova_io_Extension_VTable_File;
-struct nova_io_Extension_VTable_File
+typedef struct nova_io_File_Extension_VTable nova_io_File_Extension_VTable;
+struct nova_io_File_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -49,14 +49,14 @@ struct nova_io_Extension_VTable_File
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_io_Extension_VTable_File nova_io_Extension_VTable_File_val;
+extern nova_io_File_Extension_VTable nova_io_File_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_io_Nova_File, 
 	
-	nova_io_Extension_VTable_File* vtable;
+	nova_io_File_Extension_VTable* vtable;
 	nova_Nova_String* nova_io_Nova_File_Nova_location;
 	struct Private* prv;
 )

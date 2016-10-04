@@ -40,8 +40,8 @@ typedef struct nova_web_svg_Nova_SvgComponentList nova_web_svg_Nova_SvgComponent
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponentNode.h>
 
 
-typedef struct nova_web_svg_Extension_VTable_SvgComponentList nova_web_svg_Extension_VTable_SvgComponentList;
-struct nova_web_svg_Extension_VTable_SvgComponentList
+typedef struct nova_web_svg_SvgComponentList_Extension_VTable nova_web_svg_SvgComponentList_Extension_VTable;
+struct nova_web_svg_SvgComponentList_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -49,14 +49,14 @@ struct nova_web_svg_Extension_VTable_SvgComponentList
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_web_svg_Extension_VTable_SvgComponentList nova_web_svg_Extension_VTable_SvgComponentList_val;
+extern nova_web_svg_SvgComponentList_Extension_VTable nova_web_svg_SvgComponentList_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_web_svg_Nova_SvgComponentList, 
 	
-	nova_web_svg_Extension_VTable_SvgComponentList* vtable;
+	nova_web_svg_SvgComponentList_Extension_VTable* vtable;
 	nova_web_svg_Nova_SvgComponentNode* nova_web_svg_Nova_SvgComponentList_Nova_start;
 )
 

@@ -38,8 +38,8 @@ typedef struct nova_math_logic_Nova_Conclusion nova_math_logic_Nova_Conclusion;
 #include <nova/math/logic/nova_math_logic_Nova_LogicalStatement.h>
 
 
-typedef struct nova_math_logic_Extension_VTable_Conclusion nova_math_logic_Extension_VTable_Conclusion;
-struct nova_math_logic_Extension_VTable_Conclusion
+typedef struct nova_math_logic_Conclusion_Extension_VTable nova_math_logic_Conclusion_Extension_VTable;
+struct nova_math_logic_Conclusion_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_math_logic_Nova_LogicalStatement*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_math_logic_Extension_VTable_Conclusion
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_logic_Extension_VTable_Conclusion nova_math_logic_Extension_VTable_Conclusion_val;
+extern nova_math_logic_Conclusion_Extension_VTable nova_math_logic_Conclusion_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_logic_Nova_Conclusion, 
 	
-	nova_math_logic_Extension_VTable_Conclusion* vtable;
+	nova_math_logic_Conclusion_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

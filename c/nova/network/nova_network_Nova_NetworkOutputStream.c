@@ -3,7 +3,7 @@
 
 
 
-nova_network_Extension_VTable_NetworkOutputStream nova_network_Extension_VTable_NetworkOutputStream_val =
+nova_network_NetworkOutputStream_Extension_VTable nova_network_NetworkOutputStream_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_network_Extension_VTable_NetworkOutputStream nova_network_Extension_VTable_
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -54,7 +55,7 @@ void nova_network_Nova_NetworkOutputStream_Nova_init_static(nova_exception_Nova_
 nova_network_Nova_NetworkOutputStream* nova_network_Nova_NetworkOutputStream_Nova_construct(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_network_Nova_ConnectionSocket* nova_network_Nova_NetworkOutputStream_Nova_socket)
 {
 	CCLASS_NEW(nova_network_Nova_NetworkOutputStream, this);
-	this->vtable = &nova_network_Extension_VTable_NetworkOutputStream_val;
+	this->vtable = &nova_network_NetworkOutputStream_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_OutputStream_Nova_super((nova_io_Nova_OutputStream*)this, exceptionData);
 	nova_network_Nova_NetworkOutputStream_0_Nova_super(this, exceptionData);

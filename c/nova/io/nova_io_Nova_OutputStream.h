@@ -38,8 +38,8 @@ typedef struct nova_io_Nova_OutputStream nova_io_Nova_OutputStream;
 #include <nova/io/nova_io_Nova_File.h>
 
 
-typedef struct nova_io_Extension_VTable_OutputStream nova_io_Extension_VTable_OutputStream;
-struct nova_io_Extension_VTable_OutputStream
+typedef struct nova_io_OutputStream_Extension_VTable nova_io_OutputStream_Extension_VTable;
+struct nova_io_OutputStream_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -49,14 +49,14 @@ struct nova_io_Extension_VTable_OutputStream
 	char (*nova_io_Nova_OutputStream_virtual1_Nova_write)(nova_io_Nova_OutputStream*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
-extern nova_io_Extension_VTable_OutputStream nova_io_Extension_VTable_OutputStream_val;
+extern nova_io_OutputStream_Extension_VTable nova_io_OutputStream_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_io_Nova_OutputStream, 
 	
-	nova_io_Extension_VTable_OutputStream* vtable;
+	nova_io_OutputStream_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

@@ -61,8 +61,8 @@ typedef char (*nova_datastruct_list_Nova_IntRange_closure18_Nova_func)(void*, no
 #include <nova/datastruct/list/nova_datastruct_list_Nova_List.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_IntRange nova_datastruct_list_Extension_VTable_IntRange;
-struct nova_datastruct_list_Extension_VTable_IntRange
+typedef struct nova_datastruct_list_IntRange_Extension_VTable nova_datastruct_list_IntRange_Extension_VTable;
+struct nova_datastruct_list_IntRange_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_list_Nova_IntRange*, nova_exception_Nova_ExceptionData*);
@@ -83,14 +83,14 @@ struct nova_datastruct_list_Extension_VTable_IntRange
 	nova_datastruct_list_Nova_IntRangeIterator* (*nova_datastruct_list_Nova_Iterable_virtual_Accessor1_Nova_iterator)(nova_datastruct_list_Nova_IntRange*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_IntRange nova_datastruct_list_Extension_VTable_IntRange_val;
+extern nova_datastruct_list_IntRange_Extension_VTable nova_datastruct_list_IntRange_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_IntRange, 
 	
-	nova_datastruct_list_Extension_VTable_IntRange* vtable;
+	nova_datastruct_list_IntRange_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_IntRange_Nova_start;
 	int nova_datastruct_list_Nova_IntRange_Nova_end;
 )

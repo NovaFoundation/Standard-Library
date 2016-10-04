@@ -3,7 +3,7 @@
 
 
 
-nova_thread_Extension_VTable_UncaughtExceptionHandler nova_thread_Extension_VTable_UncaughtExceptionHandler_val =
+nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExceptionHandler_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_thread_Extension_VTable_UncaughtExceptionHandler nova_thread_Extension_VTab
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -46,7 +47,7 @@ void nova_thread_Nova_UncaughtExceptionHandler_Nova_init_static(nova_exception_N
 nova_thread_Nova_UncaughtExceptionHandler* nova_thread_Nova_UncaughtExceptionHandler_Nova_construct(nova_thread_Nova_UncaughtExceptionHandler* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_thread_Nova_UncaughtExceptionHandler, this,);
-	this->vtable = &nova_thread_Extension_VTable_UncaughtExceptionHandler_val;
+	this->vtable = &nova_thread_UncaughtExceptionHandler_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_thread_Nova_UncaughtExceptionHandler_Nova_super(this, exceptionData);
 	

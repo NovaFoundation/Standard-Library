@@ -3,7 +3,7 @@
 
 
 
-nova_database_Extension_VTable_DBConnector nova_database_Extension_VTable_DBConnector_val =
+nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_database_Extension_VTable_DBConnector nova_database_Extension_VTable_DBConn
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -51,7 +52,7 @@ void nova_database_Nova_DBConnector_Nova_init_static(nova_exception_Nova_Excepti
 nova_database_Nova_DBConnector* nova_database_Nova_DBConnector_Nova_construct(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_database_Nova_DBConnector, this);
-	this->vtable = &nova_database_Extension_VTable_DBConnector_val;
+	this->vtable = &nova_database_DBConnector_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_database_Nova_DBConnector_Nova_super(this, exceptionData);
 	

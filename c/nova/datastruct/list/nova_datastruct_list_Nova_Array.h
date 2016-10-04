@@ -52,8 +52,8 @@ typedef char (*nova_datastruct_list_Nova_Array_closure9_Nova_filterFunc)(void*, 
 #include <nova/datastruct/list/nova_datastruct_list_Nova_List.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_Array nova_datastruct_list_Extension_VTable_Array;
-struct nova_datastruct_list_Extension_VTable_Array
+typedef struct nova_datastruct_list_Array_Extension_VTable nova_datastruct_list_Array_Extension_VTable;
+struct nova_datastruct_list_Array_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_list_Nova_Array*, nova_exception_Nova_ExceptionData*);
@@ -73,14 +73,14 @@ struct nova_datastruct_list_Extension_VTable_Array
 	nova_Nova_Object* (*nova_datastruct_list_Nova_Array_virtual_Accessor_Nova_last)(nova_datastruct_list_Nova_Array*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_Array nova_datastruct_list_Extension_VTable_Array_val;
+extern nova_datastruct_list_Array_Extension_VTable nova_datastruct_list_Array_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_Array, 
 	
-	nova_datastruct_list_Extension_VTable_Array* vtable;
+	nova_datastruct_list_Array_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_Array_Nova_capacity;
 	int nova_datastruct_list_Nova_Array_Nova_count;
 	int nova_datastruct_list_Nova_Array_Nova_position;

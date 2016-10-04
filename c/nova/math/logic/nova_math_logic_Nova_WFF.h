@@ -43,8 +43,8 @@ typedef struct nova_math_logic_Nova_WFF nova_math_logic_Nova_WFF;
 #include <nova/math/logic/nova_math_logic_Nova_StatementLetter.h>
 
 
-typedef struct nova_math_logic_Extension_VTable_WFF nova_math_logic_Extension_VTable_WFF;
-struct nova_math_logic_Extension_VTable_WFF
+typedef struct nova_math_logic_WFF_Extension_VTable nova_math_logic_WFF_Extension_VTable;
+struct nova_math_logic_WFF_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -52,14 +52,14 @@ struct nova_math_logic_Extension_VTable_WFF
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_logic_Extension_VTable_WFF nova_math_logic_Extension_VTable_WFF_val;
+extern nova_math_logic_WFF_Extension_VTable nova_math_logic_WFF_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_logic_Nova_WFF, 
 	
-	nova_math_logic_Extension_VTable_WFF* vtable;
+	nova_math_logic_WFF_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

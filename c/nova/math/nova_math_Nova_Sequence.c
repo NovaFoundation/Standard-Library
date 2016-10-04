@@ -3,7 +3,7 @@
 
 
 
-nova_math_Extension_VTable_Sequence nova_math_Extension_VTable_Sequence_val =
+nova_math_Sequence_Extension_VTable nova_math_Sequence_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_math_Extension_VTable_Sequence nova_math_Extension_VTable_Sequence_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -47,7 +48,7 @@ void nova_math_Nova_Sequence_Nova_init_static(nova_exception_Nova_ExceptionData*
 nova_math_Nova_Sequence* nova_math_Nova_Sequence_Nova_construct(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Sequence_Nova_values)
 {
 	CCLASS_NEW(nova_math_Nova_Sequence, this,);
-	this->vtable = &nova_math_Extension_VTable_Sequence_val;
+	this->vtable = &nova_math_Sequence_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_Sequence_Nova_super(this, exceptionData);
 	

@@ -3,7 +3,7 @@
 
 
 
-nova_star_Extension_VTable_Window nova_star_Extension_VTable_Window_val =
+nova_star_Window_Extension_VTable nova_star_Window_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_star_Extension_VTable_Window nova_star_Extension_VTable_Window_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_star_Nova_Window_Nova_init_static(nova_exception_Nova_ExceptionData* e
 nova_star_Nova_Window* nova_star_Nova_Window_Nova_construct(nova_star_Nova_Window* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_star_Nova_Window, this,);
-	this->vtable = &nova_star_Extension_VTable_Window_val;
+	this->vtable = &nova_star_Window_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_star_Nova_Window_Nova_super(this, exceptionData);
 	

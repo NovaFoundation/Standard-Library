@@ -37,8 +37,8 @@ typedef struct nova_math_Nova_StatementComponent nova_math_Nova_StatementCompone
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_math_Extension_VTable_StatementComponent nova_math_Extension_VTable_StatementComponent;
-struct nova_math_Extension_VTable_StatementComponent
+typedef struct nova_math_StatementComponent_Extension_VTable nova_math_StatementComponent_Extension_VTable;
+struct nova_math_StatementComponent_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_math_Nova_StatementComponent*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_math_Extension_VTable_StatementComponent
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_Extension_VTable_StatementComponent nova_math_Extension_VTable_StatementComponent_val;
+extern nova_math_StatementComponent_Extension_VTable nova_math_StatementComponent_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_Nova_StatementComponent, 
 	
-	nova_math_Extension_VTable_StatementComponent* vtable;
+	nova_math_StatementComponent_Extension_VTable* vtable;
 	nova_Nova_Object* nova_math_Nova_StatementComponent_Nova_data;
 	nova_math_Nova_StatementComponent* nova_math_Nova_StatementComponent_Nova_next;
 )

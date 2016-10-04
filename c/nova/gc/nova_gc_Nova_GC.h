@@ -38,8 +38,8 @@ typedef struct nova_gc_Nova_GC nova_gc_Nova_GC;
 #include <nova/gc/NativeGC.h>
 
 
-typedef struct nova_gc_Extension_VTable_GC nova_gc_Extension_VTable_GC;
-struct nova_gc_Extension_VTable_GC
+typedef struct nova_gc_GC_Extension_VTable nova_gc_GC_Extension_VTable;
+struct nova_gc_GC_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_gc_Extension_VTable_GC
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_gc_Extension_VTable_GC nova_gc_Extension_VTable_GC_val;
+extern nova_gc_GC_Extension_VTable nova_gc_GC_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_gc_Nova_GC, 
 	
-	nova_gc_Extension_VTable_GC* vtable;
+	nova_gc_GC_Extension_VTable* vtable;
 )
 
 void nova_gc_Nova_GC_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

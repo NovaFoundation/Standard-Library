@@ -3,9 +3,10 @@
 
 
 
-nova_operators_Extension_VTable_Multiply nova_operators_Extension_VTable_Multiply_val =
+nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTable_val =
 {
 	{
+		0,
 		0,
 		0,
 		0,

@@ -37,8 +37,8 @@ typedef struct nova_ar_Nova_TrackPoint nova_ar_Nova_TrackPoint;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_ar_Extension_VTable_TrackPoint nova_ar_Extension_VTable_TrackPoint;
-struct nova_ar_Extension_VTable_TrackPoint
+typedef struct nova_ar_TrackPoint_Extension_VTable nova_ar_TrackPoint_Extension_VTable;
+struct nova_ar_TrackPoint_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_ar_Extension_VTable_TrackPoint
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_ar_Extension_VTable_TrackPoint nova_ar_Extension_VTable_TrackPoint_val;
+extern nova_ar_TrackPoint_Extension_VTable nova_ar_TrackPoint_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_ar_Nova_TrackPoint, 
 	
-	nova_ar_Extension_VTable_TrackPoint* vtable;
+	nova_ar_TrackPoint_Extension_VTable* vtable;
 )
 
 void nova_ar_Nova_TrackPoint_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

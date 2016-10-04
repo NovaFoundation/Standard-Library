@@ -3,7 +3,7 @@
 
 
 
-nova_math_Extension_VTable_Matrix nova_math_Extension_VTable_Matrix_val =
+nova_math_Matrix_Extension_VTable nova_math_Matrix_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_math_Extension_VTable_Matrix nova_math_Extension_VTable_Matrix_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -50,7 +51,7 @@ void nova_math_Nova_Matrix_Nova_init_static(nova_exception_Nova_ExceptionData* e
 nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_rows, int nova_math_Nova_Matrix_Nova_cols)
 {
 	CCLASS_NEW(nova_math_Nova_Matrix, this);
-	this->vtable = &nova_math_Extension_VTable_Matrix_val;
+	this->vtable = &nova_math_Matrix_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_Matrix_Nova_super(this, exceptionData);
 	

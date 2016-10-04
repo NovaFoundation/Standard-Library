@@ -38,8 +38,8 @@ typedef struct nova_web_svg_no3_Nova_No3Select nova_web_svg_no3_Nova_No3Select;
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3Node.h>
 
 
-typedef struct nova_web_svg_no3_Extension_VTable_No3Select nova_web_svg_no3_Extension_VTable_No3Select;
-struct nova_web_svg_no3_Extension_VTable_No3Select
+typedef struct nova_web_svg_no3_No3Select_Extension_VTable nova_web_svg_no3_No3Select_Extension_VTable;
+struct nova_web_svg_no3_No3Select_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_web_svg_no3_Extension_VTable_No3Select
 	nova_Nova_String* (*nova_web_svg_no3_Nova_No3Node_virtual1_Nova_toJs)(nova_web_svg_no3_Nova_No3Select*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_web_svg_no3_Extension_VTable_No3Select nova_web_svg_no3_Extension_VTable_No3Select_val;
+extern nova_web_svg_no3_No3Select_Extension_VTable nova_web_svg_no3_No3Select_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_web_svg_no3_Nova_No3Select, 
 	
-	nova_web_svg_no3_Extension_VTable_No3Select* vtable;
+	nova_web_svg_no3_No3Select_Extension_VTable* vtable;
 	nova_Nova_String* nova_web_svg_no3_Nova_No3Select_Nova_selection;
 )
 

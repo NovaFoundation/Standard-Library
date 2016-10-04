@@ -37,8 +37,8 @@ typedef struct nova_web_svg_no3_Nova_No3Node nova_web_svg_no3_Nova_No3Node;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_web_svg_no3_Extension_VTable_No3Node nova_web_svg_no3_Extension_VTable_No3Node;
-struct nova_web_svg_no3_Extension_VTable_No3Node
+typedef struct nova_web_svg_no3_No3Node_Extension_VTable nova_web_svg_no3_No3Node_Extension_VTable;
+struct nova_web_svg_no3_No3Node_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_web_svg_no3_Extension_VTable_No3Node
 	nova_Nova_String* (*nova_web_svg_no3_Nova_No3Node_virtual1_Nova_toJs)(nova_web_svg_no3_Nova_No3Node*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_web_svg_no3_Extension_VTable_No3Node nova_web_svg_no3_Extension_VTable_No3Node_val;
+extern nova_web_svg_no3_No3Node_Extension_VTable nova_web_svg_no3_No3Node_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_web_svg_no3_Nova_No3Node, 
 	
-	nova_web_svg_no3_Extension_VTable_No3Node* vtable;
+	nova_web_svg_no3_No3Node_Extension_VTable* vtable;
 )
 
 void nova_web_svg_no3_Nova_No3Node_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

@@ -63,8 +63,8 @@ typedef char (*nova_datastruct_list_Nova_LinkedList_closure18_Nova_func)(void*, 
 #include <nova/datastruct/list/nova_datastruct_list_Nova_ListNode.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_LinkedList nova_datastruct_list_Extension_VTable_LinkedList;
-struct nova_datastruct_list_Extension_VTable_LinkedList
+typedef struct nova_datastruct_list_LinkedList_Extension_VTable nova_datastruct_list_LinkedList_Extension_VTable;
+struct nova_datastruct_list_LinkedList_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -85,14 +85,14 @@ struct nova_datastruct_list_Extension_VTable_LinkedList
 	nova_datastruct_list_Nova_LinkedListIterator* (*nova_datastruct_list_Nova_Iterable_virtual_Accessor1_Nova_iterator)(nova_datastruct_list_Nova_LinkedList*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_LinkedList nova_datastruct_list_Extension_VTable_LinkedList_val;
+extern nova_datastruct_list_LinkedList_Extension_VTable nova_datastruct_list_LinkedList_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_LinkedList, 
 	
-	nova_datastruct_list_Extension_VTable_LinkedList* vtable;
+	nova_datastruct_list_LinkedList_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_LinkedList_Nova_size;
 	struct Private* prv;
 )

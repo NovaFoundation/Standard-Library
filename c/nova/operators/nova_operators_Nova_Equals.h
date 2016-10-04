@@ -37,21 +37,21 @@ typedef struct nova_operators_Nova_Equals nova_operators_Nova_Equals;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_operators_Extension_VTable_Equals nova_operators_Extension_VTable_Equals;
-struct nova_operators_Extension_VTable_Equals
+typedef struct nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable;
+struct nova_operators_Equals_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
-extern nova_operators_Extension_VTable_Equals nova_operators_Extension_VTable_Equals_val;
+extern nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_operators_Nova_Equals, 
 	
-	nova_operators_Extension_VTable_Equals* vtable;
+	nova_operators_Equals_Extension_VTable* vtable;
 )
 
 void nova_operators_Nova_Equals_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

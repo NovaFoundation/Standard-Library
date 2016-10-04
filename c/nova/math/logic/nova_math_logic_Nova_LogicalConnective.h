@@ -38,8 +38,8 @@ typedef struct nova_math_logic_Nova_LogicalConnective nova_math_logic_Nova_Logic
 #include <nova/math/logic/nova_math_logic_Nova_StatementComponent.h>
 
 
-typedef struct nova_math_logic_Extension_VTable_LogicalConnective nova_math_logic_Extension_VTable_LogicalConnective;
-struct nova_math_logic_Extension_VTable_LogicalConnective
+typedef struct nova_math_logic_LogicalConnective_Extension_VTable nova_math_logic_LogicalConnective_Extension_VTable;
+struct nova_math_logic_LogicalConnective_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_math_logic_Extension_VTable_LogicalConnective
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_logic_Extension_VTable_LogicalConnective nova_math_logic_Extension_VTable_LogicalConnective_val;
+extern nova_math_logic_LogicalConnective_Extension_VTable nova_math_logic_LogicalConnective_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_logic_Nova_LogicalConnective, 
 	
-	nova_math_logic_Extension_VTable_LogicalConnective* vtable;
+	nova_math_logic_LogicalConnective_Extension_VTable* vtable;
 )
 
 void nova_math_logic_Nova_LogicalConnective_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

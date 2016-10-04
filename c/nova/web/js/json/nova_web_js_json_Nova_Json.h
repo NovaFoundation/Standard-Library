@@ -38,8 +38,8 @@ typedef struct nova_web_js_json_Nova_Json nova_web_js_json_Nova_Json;
 #include <nova/datastruct/nova_datastruct_Nova_HashMap.h>
 
 
-typedef struct nova_web_js_json_Extension_VTable_Json nova_web_js_json_Extension_VTable_Json;
-struct nova_web_js_json_Extension_VTable_Json
+typedef struct nova_web_js_json_Json_Extension_VTable nova_web_js_json_Json_Extension_VTable;
+struct nova_web_js_json_Json_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_web_js_json_Nova_Json*, nova_exception_Nova_ExceptionData*);
@@ -60,14 +60,14 @@ struct nova_web_js_json_Extension_VTable_Json
 	nova_datastruct_Nova_HashMap* (*nova_datastruct_Nova_HashMap_virtual1_Nova_put)(nova_datastruct_Nova_HashMap*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*, nova_Nova_Object*);
 };
 
-extern nova_web_js_json_Extension_VTable_Json nova_web_js_json_Extension_VTable_Json_val;
+extern nova_web_js_json_Json_Extension_VTable nova_web_js_json_Json_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_web_js_json_Nova_Json, 
 	
-	nova_web_js_json_Extension_VTable_Json* vtable;
+	nova_web_js_json_Json_Extension_VTable* vtable;
 	int nova_datastruct_Nova_HashMap_Nova_size;
 	struct Private* prv;
 )

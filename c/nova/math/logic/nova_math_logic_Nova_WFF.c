@@ -3,7 +3,7 @@
 
 
 
-nova_math_logic_Extension_VTable_WFF nova_math_logic_Extension_VTable_WFF_val =
+nova_math_logic_WFF_Extension_VTable nova_math_logic_WFF_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_math_logic_Extension_VTable_WFF nova_math_logic_Extension_VTable_WFF_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -67,7 +68,7 @@ void nova_math_logic_Nova_WFF_Nova_init_static(nova_exception_Nova_ExceptionData
 nova_math_logic_Nova_WFF* nova_math_logic_Nova_WFF_Nova_construct(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_WFF_Nova_wellFormedFormula, nova_datastruct_list_Nova_Array* nova_math_logic_Nova_WFF_Nova_letters)
 {
 	CCLASS_NEW(nova_math_logic_Nova_WFF, this);
-	this->vtable = &nova_math_logic_Extension_VTable_WFF_val;
+	this->vtable = &nova_math_logic_WFF_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_logic_Nova_WFF_Nova_super(this, exceptionData);
 	

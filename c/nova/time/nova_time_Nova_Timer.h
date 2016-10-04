@@ -38,8 +38,8 @@ typedef struct nova_time_Nova_Timer nova_time_Nova_Timer;
 #include <nova/time/nova_time_Nova_Time.h>
 
 
-typedef struct nova_time_Extension_VTable_Timer nova_time_Extension_VTable_Timer;
-struct nova_time_Extension_VTable_Timer
+typedef struct nova_time_Timer_Extension_VTable nova_time_Timer_Extension_VTable;
+struct nova_time_Timer_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_time_Nova_Timer*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_time_Extension_VTable_Timer
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_time_Extension_VTable_Timer nova_time_Extension_VTable_Timer_val;
+extern nova_time_Timer_Extension_VTable nova_time_Timer_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_time_Nova_Timer, 
 	
-	nova_time_Extension_VTable_Timer* vtable;
+	nova_time_Timer_Extension_VTable* vtable;
 	long_long nova_time_Nova_Timer_Nova_startTime;
 	long_long nova_time_Nova_Timer_Nova_endTime;
 )

@@ -3,7 +3,7 @@
 
 
 
-nova_primitive_Extension_VTable_Primitive nova_primitive_Extension_VTable_Primitive_val =
+nova_primitive_Primitive_Extension_VTable nova_primitive_Primitive_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_primitive_Extension_VTable_Primitive nova_primitive_Extension_VTable_Primit
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_primitive_Nova_Primitive_Nova_init_static(nova_exception_Nova_Exceptio
 nova_primitive_Nova_Primitive* nova_primitive_Nova_Primitive_Nova_construct(nova_primitive_Nova_Primitive* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_primitive_Nova_Primitive, this,);
-	this->vtable = &nova_primitive_Extension_VTable_Primitive_val;
+	this->vtable = &nova_primitive_Primitive_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_primitive_Nova_Primitive_Nova_super(this, exceptionData);
 	

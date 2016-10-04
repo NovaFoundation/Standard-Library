@@ -40,8 +40,8 @@ typedef struct nova_network_Nova_NetworkOutputStream nova_network_Nova_NetworkOu
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>
 
 
-typedef struct nova_network_Extension_VTable_NetworkOutputStream nova_network_Extension_VTable_NetworkOutputStream;
-struct nova_network_Extension_VTable_NetworkOutputStream
+typedef struct nova_network_NetworkOutputStream_Extension_VTable nova_network_NetworkOutputStream_Extension_VTable;
+struct nova_network_NetworkOutputStream_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -51,14 +51,14 @@ struct nova_network_Extension_VTable_NetworkOutputStream
 	char (*nova_io_Nova_OutputStream_virtual1_Nova_write)(nova_network_Nova_NetworkOutputStream*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
-extern nova_network_Extension_VTable_NetworkOutputStream nova_network_Extension_VTable_NetworkOutputStream_val;
+extern nova_network_NetworkOutputStream_Extension_VTable nova_network_NetworkOutputStream_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_network_Nova_NetworkOutputStream, 
 	
-	nova_network_Extension_VTable_NetworkOutputStream* vtable;
+	nova_network_NetworkOutputStream_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

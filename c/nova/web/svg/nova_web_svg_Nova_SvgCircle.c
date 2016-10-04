@@ -3,7 +3,7 @@
 
 
 
-nova_web_svg_Extension_VTable_SvgCircle nova_web_svg_Extension_VTable_SvgCircle_val =
+nova_web_svg_SvgCircle_Extension_VTable nova_web_svg_SvgCircle_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_web_svg_Extension_VTable_SvgCircle nova_web_svg_Extension_VTable_SvgCircle_
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_web_svg_Nova_SvgCircle_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -46,7 +47,7 @@ void nova_web_svg_Nova_SvgCircle_Nova_init_static(nova_exception_Nova_ExceptionD
 nova_web_svg_Nova_SvgCircle* nova_web_svg_Nova_SvgCircle_Nova_construct(nova_web_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_web_svg_Nova_SvgCircle_Nova_x, double nova_web_svg_Nova_SvgCircle_Nova_y, int nova_web_svg_Nova_SvgCircle_Nova_r)
 {
 	CCLASS_NEW(nova_web_svg_Nova_SvgCircle, this,);
-	this->vtable = &nova_web_svg_Extension_VTable_SvgCircle_val;
+	this->vtable = &nova_web_svg_SvgCircle_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_web_svg_Nova_SvgComponent_Nova_super((nova_web_svg_Nova_SvgComponent*)this, exceptionData);
 	nova_web_svg_Nova_SvgCircle_0_Nova_super(this, exceptionData);

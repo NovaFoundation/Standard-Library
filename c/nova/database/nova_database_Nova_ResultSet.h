@@ -37,8 +37,8 @@ typedef struct nova_database_Nova_ResultSet nova_database_Nova_ResultSet;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_database_Extension_VTable_ResultSet nova_database_Extension_VTable_ResultSet;
-struct nova_database_Extension_VTable_ResultSet
+typedef struct nova_database_ResultSet_Extension_VTable nova_database_ResultSet_Extension_VTable;
+struct nova_database_ResultSet_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_database_Extension_VTable_ResultSet
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_database_Extension_VTable_ResultSet nova_database_Extension_VTable_ResultSet_val;
+extern nova_database_ResultSet_Extension_VTable nova_database_ResultSet_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_database_Nova_ResultSet, 
 	
-	nova_database_Extension_VTable_ResultSet* vtable;
+	nova_database_ResultSet_Extension_VTable* vtable;
 	int nova_database_Nova_ResultSet_Nova_numCols;
 	nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows;
 )

@@ -37,8 +37,8 @@ typedef struct nova_exception_Nova_ExceptionData nova_exception_Nova_ExceptionDa
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_exception_Extension_VTable_ExceptionData nova_exception_Extension_VTable_ExceptionData;
-struct nova_exception_Extension_VTable_ExceptionData
+typedef struct nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Extension_VTable;
+struct nova_exception_ExceptionData_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_exception_Extension_VTable_ExceptionData
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_exception_Extension_VTable_ExceptionData nova_exception_Extension_VTable_ExceptionData_val;
+extern nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_exception_Nova_ExceptionData, 
 	
-	nova_exception_Extension_VTable_ExceptionData* vtable;
+	nova_exception_ExceptionData_Extension_VTable* vtable;
 	buffer* nova_exception_Nova_ExceptionData_Nova_buf;
 	nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_parent;
 	nova_datastruct_list_Nova_IntArray* nova_exception_Nova_ExceptionData_Nova_codes;

@@ -38,8 +38,8 @@ typedef struct nova_datastruct_list_Nova_EmptyStackException nova_datastruct_lis
 #include <nova/datastruct/list/nova_datastruct_list_Nova_NoSuchElementException.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_EmptyStackException nova_datastruct_list_Extension_VTable_EmptyStackException;
-struct nova_datastruct_list_Extension_VTable_EmptyStackException
+typedef struct nova_datastruct_list_EmptyStackException_Extension_VTable nova_datastruct_list_EmptyStackException_Extension_VTable;
+struct nova_datastruct_list_EmptyStackException_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_datastruct_list_Extension_VTable_EmptyStackException
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_EmptyStackException nova_datastruct_list_Extension_VTable_EmptyStackException_val;
+extern nova_datastruct_list_EmptyStackException_Extension_VTable nova_datastruct_list_EmptyStackException_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_EmptyStackException, 
 	
-	nova_datastruct_list_Extension_VTable_EmptyStackException* vtable;
+	nova_datastruct_list_EmptyStackException_Extension_VTable* vtable;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 

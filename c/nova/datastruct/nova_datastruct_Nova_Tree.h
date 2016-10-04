@@ -38,8 +38,8 @@ typedef struct nova_datastruct_Nova_Tree nova_datastruct_Nova_Tree;
 #include <nova/datastruct/nova_datastruct_Nova_Node.h>
 
 
-typedef struct nova_datastruct_Extension_VTable_Tree nova_datastruct_Extension_VTable_Tree;
-struct nova_datastruct_Extension_VTable_Tree
+typedef struct nova_datastruct_Tree_Extension_VTable nova_datastruct_Tree_Extension_VTable;
+struct nova_datastruct_Tree_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_datastruct_Extension_VTable_Tree
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_Extension_VTable_Tree nova_datastruct_Extension_VTable_Tree_val;
+extern nova_datastruct_Tree_Extension_VTable nova_datastruct_Tree_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_Nova_Tree, 
 	
-	nova_datastruct_Extension_VTable_Tree* vtable;
+	nova_datastruct_Tree_Extension_VTable* vtable;
 	nova_datastruct_Nova_Node* nova_datastruct_Nova_Tree_Nova_root;
 )
 

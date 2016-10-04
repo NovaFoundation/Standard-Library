@@ -39,8 +39,8 @@ typedef struct nova_primitive_number_Nova_Float nova_primitive_number_Nova_Float
 #include <nova/primitive/number/nova_primitive_number_Nova_RealNumber.h>
 
 
-typedef struct nova_primitive_number_Extension_VTable_Float nova_primitive_number_Extension_VTable_Float;
-struct nova_primitive_number_Extension_VTable_Float
+typedef struct nova_primitive_number_Float_Extension_VTable nova_primitive_number_Float_Extension_VTable;
+struct nova_primitive_number_Float_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_primitive_number_Nova_Float*, nova_exception_Nova_ExceptionData*);
@@ -51,14 +51,14 @@ struct nova_primitive_number_Extension_VTable_Float
 	float (*nova_operators_Nova_Multiply_virtual1_Nova_multiply)(nova_primitive_number_Nova_Float*, nova_exception_Nova_ExceptionData*, float);
 };
 
-extern nova_primitive_number_Extension_VTable_Float nova_primitive_number_Extension_VTable_Float_val;
+extern nova_primitive_number_Float_Extension_VTable nova_primitive_number_Float_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_primitive_number_Nova_Float, 
 	
-	nova_primitive_number_Extension_VTable_Float* vtable;
+	nova_primitive_number_Float_Extension_VTable* vtable;
 	float nova_primitive_number_Nova_Float_Nova_value;
 )
 

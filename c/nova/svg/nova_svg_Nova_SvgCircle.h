@@ -39,8 +39,8 @@ typedef struct nova_svg_Nova_SvgCircle nova_svg_Nova_SvgCircle;
 #include <nova/svg/nova_svg_Nova_SvgComponent.h>
 
 
-typedef struct nova_svg_Extension_VTable_SvgCircle nova_svg_Extension_VTable_SvgCircle;
-struct nova_svg_Extension_VTable_SvgCircle
+typedef struct nova_svg_SvgCircle_Extension_VTable nova_svg_SvgCircle_Extension_VTable;
+struct nova_svg_SvgCircle_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_svg_Nova_SvgCircle*, nova_exception_Nova_ExceptionData*);
@@ -49,14 +49,14 @@ struct nova_svg_Extension_VTable_SvgCircle
 	void (*nova_svg_Nova_SvgComponent_virtual0_Nova_generateOutput)(nova_svg_Nova_SvgCircle*, nova_exception_Nova_ExceptionData*, nova_io_Nova_File*);
 };
 
-extern nova_svg_Extension_VTable_SvgCircle nova_svg_Extension_VTable_SvgCircle_val;
+extern nova_svg_SvgCircle_Extension_VTable nova_svg_SvgCircle_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_svg_Nova_SvgCircle, 
 	
-	nova_svg_Extension_VTable_SvgCircle* vtable;
+	nova_svg_SvgCircle_Extension_VTable* vtable;
 	nova_svg_Nova_SvgComponentList* nova_svg_Nova_SvgComponent_Nova_children;
 	double nova_svg_Nova_SvgCircle_Nova_x;
 	double nova_svg_Nova_SvgCircle_Nova_y;

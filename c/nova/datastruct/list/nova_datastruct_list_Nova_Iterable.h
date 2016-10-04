@@ -38,21 +38,21 @@ typedef struct nova_datastruct_list_Nova_Iterable nova_datastruct_list_Nova_Iter
 #include <nova/datastruct/list/nova_datastruct_list_Nova_Iterator.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_Iterable nova_datastruct_list_Extension_VTable_Iterable;
-struct nova_datastruct_list_Extension_VTable_Iterable
+typedef struct nova_datastruct_list_Iterable_Extension_VTable nova_datastruct_list_Iterable_Extension_VTable;
+struct nova_datastruct_list_Iterable_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_datastruct_list_Nova_Iterator* (*nova_datastruct_list_Nova_Iterable_virtual_Accessor1_Nova_iterator)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_Iterable nova_datastruct_list_Extension_VTable_Iterable_val;
+extern nova_datastruct_list_Iterable_Extension_VTable nova_datastruct_list_Iterable_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_Iterable, 
 	
-	nova_datastruct_list_Extension_VTable_Iterable* vtable;
+	nova_datastruct_list_Iterable_Extension_VTable* vtable;
 )
 
 void nova_datastruct_list_Nova_Iterable_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

@@ -3,7 +3,7 @@
 
 
 
-nova_datastruct_Extension_VTable_BinaryNode nova_datastruct_Extension_VTable_BinaryNode_val =
+nova_datastruct_BinaryNode_Extension_VTable nova_datastruct_BinaryNode_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_datastruct_Extension_VTable_BinaryNode nova_datastruct_Extension_VTable_Bin
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_datastruct_Nova_Node_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -48,7 +49,7 @@ void nova_datastruct_Nova_BinaryNode_Nova_init_static(nova_exception_Nova_Except
 nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryNode_0_Nova_construct(nova_datastruct_Nova_BinaryNode* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* nova_datastruct_Nova_BinaryNode_Nova_data)
 {
 	CCLASS_NEW(nova_datastruct_Nova_BinaryNode, this,);
-	this->vtable = &nova_datastruct_Extension_VTable_BinaryNode_val;
+	this->vtable = &nova_datastruct_BinaryNode_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_datastruct_Nova_Node_Nova_super((nova_datastruct_Nova_Node*)this, exceptionData);
 	nova_datastruct_Nova_BinaryNode_0_Nova_super(this, exceptionData);
@@ -63,7 +64,7 @@ nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryNode_0_Nova_construc
 nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryNode_1_Nova_construct(nova_datastruct_Nova_BinaryNode* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* nova_datastruct_Nova_BinaryNode_Nova_data, int nova_datastruct_Nova_BinaryNode_Nova_size)
 {
 	CCLASS_NEW(nova_datastruct_Nova_BinaryNode, this,);
-	this->vtable = &nova_datastruct_Extension_VTable_BinaryNode_val;
+	this->vtable = &nova_datastruct_BinaryNode_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_datastruct_Nova_Node_Nova_super((nova_datastruct_Nova_Node*)this, exceptionData);
 	nova_datastruct_Nova_BinaryNode_0_Nova_super(this, exceptionData);

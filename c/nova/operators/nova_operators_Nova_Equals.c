@@ -3,9 +3,10 @@
 
 
 
-nova_operators_Extension_VTable_Equals nova_operators_Extension_VTable_Equals_val =
+nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable_val =
 {
 	{
+		0,
 		0,
 		0,
 		0,

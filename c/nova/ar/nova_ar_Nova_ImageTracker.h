@@ -37,8 +37,8 @@ typedef struct nova_ar_Nova_ImageTracker nova_ar_Nova_ImageTracker;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_ar_Extension_VTable_ImageTracker nova_ar_Extension_VTable_ImageTracker;
-struct nova_ar_Extension_VTable_ImageTracker
+typedef struct nova_ar_ImageTracker_Extension_VTable nova_ar_ImageTracker_Extension_VTable;
+struct nova_ar_ImageTracker_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_ar_Extension_VTable_ImageTracker
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_ar_Extension_VTable_ImageTracker nova_ar_Extension_VTable_ImageTracker_val;
+extern nova_ar_ImageTracker_Extension_VTable nova_ar_ImageTracker_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_ar_Nova_ImageTracker, 
 	
-	nova_ar_Extension_VTable_ImageTracker* vtable;
+	nova_ar_ImageTracker_Extension_VTable* vtable;
 )
 
 void nova_ar_Nova_ImageTracker_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

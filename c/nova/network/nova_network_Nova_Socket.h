@@ -37,8 +37,8 @@ typedef struct nova_network_Nova_Socket nova_network_Nova_Socket;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_network_Extension_VTable_Socket nova_network_Extension_VTable_Socket;
-struct nova_network_Extension_VTable_Socket
+typedef struct nova_network_Socket_Extension_VTable nova_network_Socket_Extension_VTable;
+struct nova_network_Socket_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_network_Extension_VTable_Socket
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_network_Extension_VTable_Socket nova_network_Extension_VTable_Socket_val;
+extern nova_network_Socket_Extension_VTable nova_network_Socket_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_network_Nova_Socket, 
 	
-	nova_network_Extension_VTable_Socket* vtable;
+	nova_network_Socket_Extension_VTable* vtable;
 	nova_Nova_String* nova_network_Nova_Socket_Nova_ip;
 	int nova_network_Nova_Socket_Nova_port;
 )

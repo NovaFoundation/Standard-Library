@@ -3,11 +3,12 @@
 
 
 
-nova_datastruct_list_Extension_VTable_Iterable nova_datastruct_list_Extension_VTable_Iterable_val =
+nova_datastruct_list_Iterable_Extension_VTable nova_datastruct_list_Iterable_Extension_VTable_val =
 {
 	{
 		0,
 		(nova_datastruct_list_Nova_Iterator*(*)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*))nova_datastruct_list_Nova_Iterable_Accessor_Nova_iterator,
+		0,
 		0,
 		0,
 		0,

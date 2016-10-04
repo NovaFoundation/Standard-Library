@@ -65,8 +65,8 @@ typedef nova_Nova_Object* (*nova_datastruct_list_Nova_List_closure21_Nova_zipper
 #include <nova/datastruct/list/nova_datastruct_list_Nova_Iterator.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_List nova_datastruct_list_Extension_VTable_List;
-struct nova_datastruct_list_Extension_VTable_List
+typedef struct nova_datastruct_list_List_Extension_VTable nova_datastruct_list_List_Extension_VTable;
+struct nova_datastruct_list_List_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_datastruct_list_Nova_Array* (*nova_datastruct_list_Nova_List_virtual0_Nova_toArray)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*);
@@ -84,14 +84,14 @@ struct nova_datastruct_list_Extension_VTable_List
 	nova_datastruct_list_Nova_Iterator* (*nova_datastruct_list_Nova_Iterable_virtual_Accessor1_Nova_iterator)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_List nova_datastruct_list_Extension_VTable_List_val;
+extern nova_datastruct_list_List_Extension_VTable nova_datastruct_list_List_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_List, 
 	
-	nova_datastruct_list_Extension_VTable_List* vtable;
+	nova_datastruct_list_List_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_List_Nova_size;
 	nova_Nova_Object* nova_datastruct_list_Nova_List_Nova_first;
 	nova_Nova_Object* nova_datastruct_list_Nova_List_Nova_last;

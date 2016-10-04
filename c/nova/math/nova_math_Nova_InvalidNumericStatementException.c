@@ -3,7 +3,7 @@
 
 
 
-nova_math_Extension_VTable_InvalidNumericStatementException nova_math_Extension_VTable_InvalidNumericStatementException_val =
+nova_math_InvalidNumericStatementException_Extension_VTable nova_math_InvalidNumericStatementException_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_math_Extension_VTable_InvalidNumericStatementException nova_math_Extension_
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_math_Nova_InvalidNumericStatementException_Nova_init_static(nova_excep
 nova_math_Nova_InvalidNumericStatementException* nova_math_Nova_InvalidNumericStatementException_Nova_construct(nova_math_Nova_InvalidNumericStatementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_InvalidNumericStatementException_Nova_message)
 {
 	CCLASS_NEW(nova_math_Nova_InvalidNumericStatementException, this,);
-	this->vtable = &nova_math_Extension_VTable_InvalidNumericStatementException_val;
+	this->vtable = &nova_math_InvalidNumericStatementException_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_exception_Nova_Exception_Nova_super((nova_exception_Nova_Exception*)this, exceptionData);
 	nova_math_Nova_InvalidNumericStatementException_0_Nova_super(this, exceptionData);

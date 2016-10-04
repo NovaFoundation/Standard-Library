@@ -3,7 +3,7 @@
 
 
 
-nova_primitive_Extension_VTable_Null nova_primitive_Extension_VTable_Null_val =
+nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable_val =
 {
 	{
 		(int(*)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_compareTo,
@@ -29,6 +29,7 @@ nova_primitive_Extension_VTable_Null nova_primitive_Extension_VTable_Null_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_primitive_Nova_Null_Nova_toString,
 	nova_Nova_String_Nova_equals,
@@ -47,7 +48,7 @@ void nova_primitive_Nova_Null_Nova_init_static(nova_exception_Nova_ExceptionData
 nova_primitive_Nova_Null* nova_primitive_Nova_Null_Nova_construct(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_primitive_Nova_Null, this,);
-	this->vtable = &nova_primitive_Extension_VTable_Null_val;
+	this->vtable = &nova_primitive_Null_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_Nova_String_Nova_super((nova_Nova_String*)this, exceptionData);
 	nova_primitive_Nova_Null_0_Nova_super(this, exceptionData);

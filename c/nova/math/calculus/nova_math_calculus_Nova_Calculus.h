@@ -38,8 +38,8 @@ typedef struct nova_math_calculus_Nova_Calculus nova_math_calculus_Nova_Calculus
 #include <nova/math/nova_math_Nova_NumericStatement.h>
 
 
-typedef struct nova_math_calculus_Extension_VTable_Calculus nova_math_calculus_Extension_VTable_Calculus;
-struct nova_math_calculus_Extension_VTable_Calculus
+typedef struct nova_math_calculus_Calculus_Extension_VTable nova_math_calculus_Calculus_Extension_VTable;
+struct nova_math_calculus_Calculus_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_math_calculus_Extension_VTable_Calculus
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_calculus_Extension_VTable_Calculus nova_math_calculus_Extension_VTable_Calculus_val;
+extern nova_math_calculus_Calculus_Extension_VTable nova_math_calculus_Calculus_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_calculus_Nova_Calculus, 
 	
-	nova_math_calculus_Extension_VTable_Calculus* vtable;
+	nova_math_calculus_Calculus_Extension_VTable* vtable;
 )
 
 void nova_math_calculus_Nova_Calculus_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

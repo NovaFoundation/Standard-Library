@@ -39,8 +39,8 @@ typedef struct nova_math_logic_Nova_LogicalStatement nova_math_logic_Nova_Logica
 #include <nova/math/logic/nova_math_logic_Nova_StatementComponent.h>
 
 
-typedef struct nova_math_logic_Extension_VTable_LogicalStatement nova_math_logic_Extension_VTable_LogicalStatement;
-struct nova_math_logic_Extension_VTable_LogicalStatement
+typedef struct nova_math_logic_LogicalStatement_Extension_VTable nova_math_logic_LogicalStatement_Extension_VTable;
+struct nova_math_logic_LogicalStatement_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_math_logic_Nova_LogicalStatement*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_math_logic_Extension_VTable_LogicalStatement
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_logic_Extension_VTable_LogicalStatement nova_math_logic_Extension_VTable_LogicalStatement_val;
+extern nova_math_logic_LogicalStatement_Extension_VTable nova_math_logic_LogicalStatement_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_logic_Nova_LogicalStatement, 
 	
-	nova_math_logic_Extension_VTable_LogicalStatement* vtable;
+	nova_math_logic_LogicalStatement_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

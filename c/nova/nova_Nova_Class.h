@@ -37,8 +37,8 @@ typedef struct nova_Nova_Class nova_Nova_Class;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_Extension_VTable_Class nova_Extension_VTable_Class;
-struct nova_Extension_VTable_Class
+typedef struct nova_Class_Extension_VTable nova_Class_Extension_VTable;
+struct nova_Class_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_Extension_VTable_Class
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_Extension_VTable_Class nova_Extension_VTable_Class_val;
+extern nova_Class_Extension_VTable nova_Class_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_Nova_Class, 
 	
-	nova_Extension_VTable_Class* vtable;
+	nova_Class_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

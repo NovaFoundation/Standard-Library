@@ -39,22 +39,22 @@ typedef struct nova_io_Nova_StreamReader nova_io_Nova_StreamReader;
 #include <nova/io/nova_io_Nova_InputStream.h>
 
 
-typedef struct nova_io_Extension_VTable_StreamReader nova_io_Extension_VTable_StreamReader;
-struct nova_io_Extension_VTable_StreamReader
+typedef struct nova_io_StreamReader_Extension_VTable nova_io_StreamReader_Extension_VTable;
+struct nova_io_StreamReader_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_io_Nova_InputStream_virtual1_Nova_readString)(nova_io_Nova_StreamReader*, nova_exception_Nova_ExceptionData*);
 	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual1_Nova_readBytes)(nova_io_Nova_StreamReader*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_io_Extension_VTable_StreamReader nova_io_Extension_VTable_StreamReader_val;
+extern nova_io_StreamReader_Extension_VTable nova_io_StreamReader_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_io_Nova_StreamReader, 
 	
-	nova_io_Extension_VTable_StreamReader* vtable;
+	nova_io_StreamReader_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

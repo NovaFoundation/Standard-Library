@@ -39,8 +39,8 @@ typedef struct nova_datastruct_Nova_BinaryNode nova_datastruct_Nova_BinaryNode;
 #include <nova/datastruct/nova_datastruct_Nova_Node.h>
 
 
-typedef struct nova_datastruct_Extension_VTable_BinaryNode nova_datastruct_Extension_VTable_BinaryNode;
-struct nova_datastruct_Extension_VTable_BinaryNode
+typedef struct nova_datastruct_BinaryNode_Extension_VTable nova_datastruct_BinaryNode_Extension_VTable;
+struct nova_datastruct_BinaryNode_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_Nova_Node*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_datastruct_Extension_VTable_BinaryNode
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_Extension_VTable_BinaryNode nova_datastruct_Extension_VTable_BinaryNode_val;
+extern nova_datastruct_BinaryNode_Extension_VTable nova_datastruct_BinaryNode_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_Nova_BinaryNode, 
 	
-	nova_datastruct_Extension_VTable_BinaryNode* vtable;
+	nova_datastruct_BinaryNode_Extension_VTable* vtable;
 	nova_Nova_Object* nova_datastruct_Nova_Node_Nova_data;
 	nova_datastruct_list_Nova_Array* nova_datastruct_Nova_Node_Nova_children;
 )

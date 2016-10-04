@@ -37,8 +37,8 @@ typedef struct nova_math_Nova_Polynomial nova_math_Nova_Polynomial;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_math_Extension_VTable_Polynomial nova_math_Extension_VTable_Polynomial;
-struct nova_math_Extension_VTable_Polynomial
+typedef struct nova_math_Polynomial_Extension_VTable nova_math_Polynomial_Extension_VTable;
+struct nova_math_Polynomial_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_math_Extension_VTable_Polynomial
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_Extension_VTable_Polynomial nova_math_Extension_VTable_Polynomial_val;
+extern nova_math_Polynomial_Extension_VTable nova_math_Polynomial_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_Nova_Polynomial, 
 	
-	nova_math_Extension_VTable_Polynomial* vtable;
+	nova_math_Polynomial_Extension_VTable* vtable;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Polynomial_Nova_coefficients;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Polynomial_Nova_degrees;
 	nova_datastruct_list_Nova_Array* nova_math_Nova_Polynomial_Nova_signs;

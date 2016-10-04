@@ -3,7 +3,7 @@
 
 
 
-nova_math_Extension_VTable_Polynomial nova_math_Extension_VTable_Polynomial_val =
+nova_math_Polynomial_Extension_VTable nova_math_Polynomial_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_math_Extension_VTable_Polynomial nova_math_Extension_VTable_Polynomial_val 
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -56,7 +57,7 @@ void nova_math_Nova_Polynomial_Nova_init_static(nova_exception_Nova_ExceptionDat
 nova_math_Nova_Polynomial* nova_math_Nova_Polynomial_Nova_construct(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_Polynomial_Nova_polynomial)
 {
 	CCLASS_NEW(nova_math_Nova_Polynomial, this,);
-	this->vtable = &nova_math_Extension_VTable_Polynomial_val;
+	this->vtable = &nova_math_Polynomial_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_Polynomial_Nova_super(this, exceptionData);
 	

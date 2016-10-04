@@ -3,7 +3,7 @@
 
 
 
-nova_io_Extension_VTable_File nova_io_Extension_VTable_File_val =
+nova_io_File_Extension_VTable nova_io_File_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_io_Extension_VTable_File nova_io_Extension_VTable_File_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -57,7 +58,7 @@ void nova_io_Nova_File_Nova_init_static(nova_exception_Nova_ExceptionData* excep
 nova_io_Nova_File* nova_io_Nova_File_0_Nova_construct(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_io_Nova_File_Nova_location)
 {
 	CCLASS_NEW(nova_io_Nova_File, this);
-	this->vtable = &nova_io_Extension_VTable_File_val;
+	this->vtable = &nova_io_File_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_File_Nova_super(this, exceptionData);
 	
@@ -71,7 +72,7 @@ nova_io_Nova_File* nova_io_Nova_File_0_Nova_construct(nova_io_Nova_File* this, n
 nova_io_Nova_File* nova_io_Nova_File_1_Nova_construct(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, FILE* nova_io_Nova_File_Nova_fp)
 {
 	CCLASS_NEW(nova_io_Nova_File, this);
-	this->vtable = &nova_io_Extension_VTable_File_val;
+	this->vtable = &nova_io_File_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_File_Nova_super(this, exceptionData);
 	

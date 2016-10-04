@@ -7,7 +7,7 @@ typedef struct nova_Nova_String nova_Nova_String;
 
 typedef void (*nova_Nova_System_closure1_Nova_exit)(void*, nova_exception_Nova_ExceptionData*, int, nova_Nova_String*, char, void*);
 
-nova_Extension_VTable_System nova_Extension_VTable_System_val =
+nova_System_Extension_VTable nova_System_Extension_VTable_val =
 {
 	{
 		0,
@@ -33,6 +33,7 @@ nova_Extension_VTable_System nova_Extension_VTable_System_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -49,7 +50,7 @@ void nova_Nova_System_Nova_init_static(nova_exception_Nova_ExceptionData* except
 nova_Nova_System* nova_Nova_System_Nova_construct(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_Nova_System, this,);
-	this->vtable = &nova_Extension_VTable_System_val;
+	this->vtable = &nova_System_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_Nova_System_Nova_super(this, exceptionData);
 	

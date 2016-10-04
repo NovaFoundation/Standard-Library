@@ -38,8 +38,8 @@ typedef struct nova_math_Nova_NumericTree nova_math_Nova_NumericTree;
 #include <nova/math/nova_math_Nova_NumericOperation.h>
 
 
-typedef struct nova_math_Extension_VTable_NumericTree nova_math_Extension_VTable_NumericTree;
-struct nova_math_Extension_VTable_NumericTree
+typedef struct nova_math_NumericTree_Extension_VTable nova_math_NumericTree_Extension_VTable;
+struct nova_math_NumericTree_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_math_Nova_NumericTree*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_math_Extension_VTable_NumericTree
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_Extension_VTable_NumericTree nova_math_Extension_VTable_NumericTree_val;
+extern nova_math_NumericTree_Extension_VTable nova_math_NumericTree_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_Nova_NumericTree, 
 	
-	nova_math_Extension_VTable_NumericTree* vtable;
+	nova_math_NumericTree_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

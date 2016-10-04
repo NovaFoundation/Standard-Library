@@ -3,7 +3,7 @@
 
 
 
-nova_web_js_json_Extension_VTable_Json nova_web_js_json_Extension_VTable_Json_val =
+nova_web_js_json_Json_Extension_VTable nova_web_js_json_Json_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_web_js_json_Extension_VTable_Json nova_web_js_json_Extension_VTable_Json_va
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -64,7 +65,7 @@ void nova_web_js_json_Nova_Json_Nova_init_static(nova_exception_Nova_ExceptionDa
 nova_web_js_json_Nova_Json* nova_web_js_json_Nova_Json_Nova_construct(nova_web_js_json_Nova_Json* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_web_js_json_Nova_Json, this);
-	this->vtable = &nova_web_js_json_Extension_VTable_Json_val;
+	this->vtable = &nova_web_js_json_Json_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_datastruct_Nova_HashMap_Nova_super((nova_datastruct_Nova_HashMap*)this, exceptionData);
 	nova_web_js_json_Nova_Json_0_Nova_super(this, exceptionData);

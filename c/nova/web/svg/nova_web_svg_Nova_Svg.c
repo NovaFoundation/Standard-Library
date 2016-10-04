@@ -3,7 +3,7 @@
 
 
 
-nova_web_svg_Extension_VTable_Svg nova_web_svg_Extension_VTable_Svg_val =
+nova_web_svg_Svg_Extension_VTable nova_web_svg_Svg_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_web_svg_Extension_VTable_Svg nova_web_svg_Extension_VTable_Svg_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_web_svg_Nova_Svg_Nova_init_static(nova_exception_Nova_ExceptionData* e
 nova_web_svg_Nova_Svg* nova_web_svg_Nova_Svg_Nova_construct(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_web_svg_Nova_Svg, this,);
-	this->vtable = &nova_web_svg_Extension_VTable_Svg_val;
+	this->vtable = &nova_web_svg_Svg_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_web_svg_Nova_Svg_Nova_super(this, exceptionData);
 	

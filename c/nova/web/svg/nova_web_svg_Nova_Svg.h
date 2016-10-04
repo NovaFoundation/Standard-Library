@@ -39,8 +39,8 @@ typedef struct nova_web_svg_Nova_Svg nova_web_svg_Nova_Svg;
 #include <nova/web/svg/nova_web_svg_Nova_SvgMainComponent.h>
 
 
-typedef struct nova_web_svg_Extension_VTable_Svg nova_web_svg_Extension_VTable_Svg;
-struct nova_web_svg_Extension_VTable_Svg
+typedef struct nova_web_svg_Svg_Extension_VTable nova_web_svg_Svg_Extension_VTable;
+struct nova_web_svg_Svg_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_web_svg_Extension_VTable_Svg
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_web_svg_Extension_VTable_Svg nova_web_svg_Extension_VTable_Svg_val;
+extern nova_web_svg_Svg_Extension_VTable nova_web_svg_Svg_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_web_svg_Nova_Svg, 
 	
-	nova_web_svg_Extension_VTable_Svg* vtable;
+	nova_web_svg_Svg_Extension_VTable* vtable;
 	nova_web_svg_Nova_SvgMainComponent* nova_web_svg_Nova_Svg_Nova_root;
 )
 

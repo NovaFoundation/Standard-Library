@@ -3,7 +3,7 @@
 
 
 
-nova_datastruct_list_Extension_VTable_IntArrayIterator nova_datastruct_list_Extension_VTable_IntArrayIterator_val =
+nova_datastruct_list_IntArrayIterator_Extension_VTable nova_datastruct_list_IntArrayIterator_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_datastruct_list_Extension_VTable_IntArrayIterator nova_datastruct_list_Exte
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -56,7 +57,7 @@ void nova_datastruct_list_Nova_IntArrayIterator_Nova_init_static(nova_exception_
 nova_datastruct_list_Nova_IntArrayIterator* nova_datastruct_list_Nova_IntArrayIterator_Nova_construct(nova_datastruct_list_Nova_IntArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_IntArray* nova_datastruct_list_Nova_IntArrayIterator_Nova_array)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_IntArrayIterator, this);
-	this->vtable = &nova_datastruct_list_Extension_VTable_IntArrayIterator_val;
+	this->vtable = &nova_datastruct_list_IntArrayIterator_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_datastruct_list_Nova_IntArrayIterator_Nova_super(this, exceptionData);
 	

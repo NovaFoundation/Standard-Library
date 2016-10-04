@@ -38,8 +38,8 @@ typedef struct nova_process_Nova_Process nova_process_Nova_Process;
 #include <nova/io/nova_io_Nova_StreamReader.h>
 
 
-typedef struct nova_process_Extension_VTable_Process nova_process_Extension_VTable_Process;
-struct nova_process_Extension_VTable_Process
+typedef struct nova_process_Process_Extension_VTable nova_process_Process_Extension_VTable;
+struct nova_process_Process_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_process_Extension_VTable_Process
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_process_Extension_VTable_Process nova_process_Extension_VTable_Process_val;
+extern nova_process_Process_Extension_VTable nova_process_Process_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_process_Nova_Process, 
 	
-	nova_process_Extension_VTable_Process* vtable;
+	nova_process_Process_Extension_VTable* vtable;
 	nova_io_Nova_StreamReader* nova_process_Nova_Process_Nova_reader;
 )
 

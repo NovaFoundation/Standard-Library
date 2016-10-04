@@ -40,8 +40,8 @@ typedef struct nova_svg_Nova_SvgMainComponent nova_svg_Nova_SvgMainComponent;
 #include <nova/svg/nova_svg_Nova_SvgComponentList.h>
 
 
-typedef struct nova_svg_Extension_VTable_SvgMainComponent nova_svg_Extension_VTable_SvgMainComponent;
-struct nova_svg_Extension_VTable_SvgMainComponent
+typedef struct nova_svg_SvgMainComponent_Extension_VTable nova_svg_SvgMainComponent_Extension_VTable;
+struct nova_svg_SvgMainComponent_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -50,14 +50,14 @@ struct nova_svg_Extension_VTable_SvgMainComponent
 	void (*nova_svg_Nova_SvgComponent_virtual0_Nova_generateOutput)(nova_svg_Nova_SvgMainComponent*, nova_exception_Nova_ExceptionData*, nova_io_Nova_File*);
 };
 
-extern nova_svg_Extension_VTable_SvgMainComponent nova_svg_Extension_VTable_SvgMainComponent_val;
+extern nova_svg_SvgMainComponent_Extension_VTable nova_svg_SvgMainComponent_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_svg_Nova_SvgMainComponent, 
 	
-	nova_svg_Extension_VTable_SvgMainComponent* vtable;
+	nova_svg_SvgMainComponent_Extension_VTable* vtable;
 	nova_svg_Nova_SvgComponentList* nova_svg_Nova_SvgComponent_Nova_children;
 )
 

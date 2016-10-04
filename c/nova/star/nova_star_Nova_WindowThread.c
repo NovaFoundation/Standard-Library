@@ -3,7 +3,7 @@
 
 
 
-nova_star_Extension_VTable_WindowThread nova_star_Extension_VTable_WindowThread_val =
+nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_star_Extension_VTable_WindowThread nova_star_Extension_VTable_WindowThread_
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -53,7 +54,7 @@ void nova_star_Nova_WindowThread_Nova_init_static(nova_exception_Nova_ExceptionD
 nova_star_Nova_WindowThread* nova_star_Nova_WindowThread_Nova_construct(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* nova_star_Nova_WindowThread_Nova_window)
 {
 	CCLASS_NEW(nova_star_Nova_WindowThread, this);
-	this->vtable = &nova_star_Extension_VTable_WindowThread_val;
+	this->vtable = &nova_star_WindowThread_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_thread_Nova_Thread_Nova_super((nova_thread_Nova_Thread*)this, exceptionData);
 	nova_star_Nova_WindowThread_0_Nova_super(this, exceptionData);

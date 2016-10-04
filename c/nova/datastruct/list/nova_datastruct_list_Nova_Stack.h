@@ -39,8 +39,8 @@ typedef struct nova_datastruct_list_Nova_Stack nova_datastruct_list_Nova_Stack;
 #include <nova/datastruct/list/nova_datastruct_list_Nova_ListNode.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_Stack nova_datastruct_list_Extension_VTable_Stack;
-struct nova_datastruct_list_Extension_VTable_Stack
+typedef struct nova_datastruct_list_Stack_Extension_VTable nova_datastruct_list_Stack_Extension_VTable;
+struct nova_datastruct_list_Stack_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_datastruct_list_Extension_VTable_Stack
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_Stack nova_datastruct_list_Extension_VTable_Stack_val;
+extern nova_datastruct_list_Stack_Extension_VTable nova_datastruct_list_Stack_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_Stack, 
 	
-	nova_datastruct_list_Extension_VTable_Stack* vtable;
+	nova_datastruct_list_Stack_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_Stack_Nova_size;
 	struct Private* prv;
 )

@@ -37,8 +37,8 @@ typedef struct nova_star_Nova_Frame nova_star_Nova_Frame;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_star_Extension_VTable_Frame nova_star_Extension_VTable_Frame;
-struct nova_star_Extension_VTable_Frame
+typedef struct nova_star_Frame_Extension_VTable nova_star_Frame_Extension_VTable;
+struct nova_star_Frame_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_star_Extension_VTable_Frame
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_star_Extension_VTable_Frame nova_star_Extension_VTable_Frame_val;
+extern nova_star_Frame_Extension_VTable nova_star_Frame_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_star_Nova_Frame, 
 	
-	nova_star_Extension_VTable_Frame* vtable;
+	nova_star_Frame_Extension_VTable* vtable;
 	int nova_star_Nova_Frame_Nova_x;
 	int nova_star_Nova_Frame_Nova_y;
 	int nova_star_Nova_Frame_Nova_width;

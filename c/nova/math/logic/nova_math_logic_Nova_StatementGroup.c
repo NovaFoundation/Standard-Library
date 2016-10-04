@@ -3,7 +3,7 @@
 
 
 
-nova_math_logic_Extension_VTable_StatementGroup nova_math_logic_Extension_VTable_StatementGroup_val =
+nova_math_logic_StatementGroup_Extension_VTable nova_math_logic_StatementGroup_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_math_logic_Extension_VTable_StatementGroup nova_math_logic_Extension_VTable
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_math_logic_Nova_StatementGroup_Nova_init_static(nova_exception_Nova_Ex
 nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_StatementGroup_Nova_construct(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement, nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds)
 {
 	CCLASS_NEW(nova_math_logic_Nova_StatementGroup, this,);
-	this->vtable = &nova_math_logic_Extension_VTable_StatementGroup_val;
+	this->vtable = &nova_math_logic_StatementGroup_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_logic_Nova_StatementGroup_Nova_super(this, exceptionData);
 	

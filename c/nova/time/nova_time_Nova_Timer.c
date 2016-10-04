@@ -3,7 +3,7 @@
 
 
 
-nova_time_Extension_VTable_Timer nova_time_Extension_VTable_Timer_val =
+nova_time_Timer_Extension_VTable nova_time_Timer_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_time_Extension_VTable_Timer nova_time_Extension_VTable_Timer_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_time_Nova_Timer_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -47,7 +48,7 @@ void nova_time_Nova_Timer_Nova_init_static(nova_exception_Nova_ExceptionData* ex
 nova_time_Nova_Timer* nova_time_Nova_Timer_Nova_construct(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_time_Nova_Timer, this,);
-	this->vtable = &nova_time_Extension_VTable_Timer_val;
+	this->vtable = &nova_time_Timer_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_time_Nova_Timer_Nova_super(this, exceptionData);
 	

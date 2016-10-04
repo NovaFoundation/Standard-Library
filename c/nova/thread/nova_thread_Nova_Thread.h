@@ -38,8 +38,8 @@ typedef struct nova_thread_Nova_Thread nova_thread_Nova_Thread;
 #include <nova/thread/NativeThread.h>
 
 
-typedef struct nova_thread_Extension_VTable_Thread nova_thread_Extension_VTable_Thread;
-struct nova_thread_Extension_VTable_Thread
+typedef struct nova_thread_Thread_Extension_VTable nova_thread_Thread_Extension_VTable;
+struct nova_thread_Thread_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_thread_Extension_VTable_Thread
 	void (*nova_thread_Nova_Thread_virtual0_Nova_run)(nova_thread_Nova_Thread*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_thread_Extension_VTable_Thread nova_thread_Extension_VTable_Thread_val;
+extern nova_thread_Thread_Extension_VTable nova_thread_Thread_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_thread_Nova_Thread, 
 	
-	nova_thread_Extension_VTable_Thread* vtable;
+	nova_thread_Thread_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

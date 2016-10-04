@@ -37,8 +37,8 @@ typedef struct nova_datastruct_list_Nova_NoSuchElementException nova_datastruct_
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_NoSuchElementException nova_datastruct_list_Extension_VTable_NoSuchElementException;
-struct nova_datastruct_list_Extension_VTable_NoSuchElementException
+typedef struct nova_datastruct_list_NoSuchElementException_Extension_VTable nova_datastruct_list_NoSuchElementException_Extension_VTable;
+struct nova_datastruct_list_NoSuchElementException_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_datastruct_list_Extension_VTable_NoSuchElementException
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_NoSuchElementException nova_datastruct_list_Extension_VTable_NoSuchElementException_val;
+extern nova_datastruct_list_NoSuchElementException_Extension_VTable nova_datastruct_list_NoSuchElementException_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_NoSuchElementException, 
 	
-	nova_datastruct_list_Extension_VTable_NoSuchElementException* vtable;
+	nova_datastruct_list_NoSuchElementException_Extension_VTable* vtable;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 

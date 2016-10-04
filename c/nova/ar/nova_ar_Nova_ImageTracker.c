@@ -3,7 +3,7 @@
 
 
 
-nova_ar_Extension_VTable_ImageTracker nova_ar_Extension_VTable_ImageTracker_val =
+nova_ar_ImageTracker_Extension_VTable nova_ar_ImageTracker_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_ar_Extension_VTable_ImageTracker nova_ar_Extension_VTable_ImageTracker_val 
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_ar_Nova_ImageTracker_Nova_init_static(nova_exception_Nova_ExceptionDat
 nova_ar_Nova_ImageTracker* nova_ar_Nova_ImageTracker_Nova_construct(nova_ar_Nova_ImageTracker* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_ar_Nova_ImageTracker, this,);
-	this->vtable = &nova_ar_Extension_VTable_ImageTracker_val;
+	this->vtable = &nova_ar_ImageTracker_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_ar_Nova_ImageTracker_Nova_super(this, exceptionData);
 	

@@ -3,7 +3,7 @@
 
 
 
-nova_io_Extension_VTable_FileNotFoundException nova_io_Extension_VTable_FileNotFoundException_val =
+nova_io_FileNotFoundException_Extension_VTable nova_io_FileNotFoundException_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_io_Extension_VTable_FileNotFoundException nova_io_Extension_VTable_FileNotF
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_io_Nova_FileNotFoundException_Nova_init_static(nova_exception_Nova_Exc
 nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_construct(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file)
 {
 	CCLASS_NEW(nova_io_Nova_FileNotFoundException, this,);
-	this->vtable = &nova_io_Extension_VTable_FileNotFoundException_val;
+	this->vtable = &nova_io_FileNotFoundException_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_exception_Nova_Exception_Nova_super((nova_exception_Nova_Exception*)this, exceptionData);
 	nova_io_Nova_FileNotFoundException_0_Nova_super(this, exceptionData);

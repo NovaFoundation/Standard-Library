@@ -6,7 +6,7 @@ typedef struct nova_exception_Nova_ExceptionData nova_exception_Nova_ExceptionDa
 
 typedef void (*nova_thread_Nova_Thread_closure1_Nova_run)(void*, nova_exception_Nova_ExceptionData*, void*);
 
-nova_thread_Extension_VTable_Thread nova_thread_Extension_VTable_Thread_val =
+nova_thread_Thread_Extension_VTable nova_thread_Thread_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_thread_Extension_VTable_Thread nova_thread_Extension_VTable_Thread_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -56,7 +57,7 @@ void nova_thread_Nova_Thread_Nova_init_static(nova_exception_Nova_ExceptionData*
 nova_thread_Nova_Thread* nova_thread_Nova_Thread_Nova_construct(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_thread_Nova_Thread, this);
-	this->vtable = &nova_thread_Extension_VTable_Thread_val;
+	this->vtable = &nova_thread_Thread_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_thread_Nova_Thread_Nova_super(this, exceptionData);
 	

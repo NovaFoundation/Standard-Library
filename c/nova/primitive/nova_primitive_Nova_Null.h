@@ -37,8 +37,8 @@ typedef struct nova_primitive_Nova_Null nova_primitive_Nova_Null;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_primitive_Extension_VTable_Null nova_primitive_Extension_VTable_Null;
-struct nova_primitive_Extension_VTable_Null
+typedef struct nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable;
+struct nova_primitive_Null_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_primitive_Extension_VTable_Null
 	int (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 };
 
-extern nova_primitive_Extension_VTable_Null nova_primitive_Extension_VTable_Null_val;
+extern nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_primitive_Nova_Null, 
 	
-	nova_primitive_Extension_VTable_Null* vtable;
+	nova_primitive_Null_Extension_VTable* vtable;
 	int nova_Nova_String_Nova_count;
 	nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars;
 )

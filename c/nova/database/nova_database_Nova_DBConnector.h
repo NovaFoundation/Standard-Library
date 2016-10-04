@@ -39,8 +39,8 @@ typedef struct nova_database_Nova_DBConnector nova_database_Nova_DBConnector;
 #include <nova/database/nova_database_Nova_ResultSet.h>
 
 
-typedef struct nova_database_Extension_VTable_DBConnector nova_database_Extension_VTable_DBConnector;
-struct nova_database_Extension_VTable_DBConnector
+typedef struct nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_VTable;
+struct nova_database_DBConnector_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -48,14 +48,14 @@ struct nova_database_Extension_VTable_DBConnector
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_database_Extension_VTable_DBConnector nova_database_Extension_VTable_DBConnector_val;
+extern nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_database_Nova_DBConnector, 
 	
-	nova_database_Extension_VTable_DBConnector* vtable;
+	nova_database_DBConnector_Extension_VTable* vtable;
 	nova_Nova_String* nova_database_Nova_DBConnector_Nova_error;
 	struct Private* prv;
 )

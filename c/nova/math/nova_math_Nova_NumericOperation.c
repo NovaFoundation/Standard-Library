@@ -3,7 +3,7 @@
 
 
 
-nova_math_Extension_VTable_NumericOperation nova_math_Extension_VTable_NumericOperation_val =
+nova_math_NumericOperation_Extension_VTable nova_math_NumericOperation_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_math_Extension_VTable_NumericOperation nova_math_Extension_VTable_NumericOp
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -101,7 +102,7 @@ void nova_math_Nova_NumericOperation_Nova_init_static(nova_exception_Nova_Except
 nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_0_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operation)
 {
 	CCLASS_NEW(nova_math_Nova_NumericOperation, this);
-	this->vtable = &nova_math_Extension_VTable_NumericOperation_val;
+	this->vtable = &nova_math_NumericOperation_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_NumericOperand_Nova_super((nova_math_Nova_NumericOperand*)this, exceptionData);
 	nova_math_Nova_NumericOperation_0_Nova_super(this, exceptionData);
@@ -116,7 +117,7 @@ nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_0_Nova_construc
 nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_1_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_left, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operator, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_right)
 {
 	CCLASS_NEW(nova_math_Nova_NumericOperation, this);
-	this->vtable = &nova_math_Extension_VTable_NumericOperation_val;
+	this->vtable = &nova_math_NumericOperation_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_NumericOperand_Nova_super((nova_math_Nova_NumericOperand*)this, exceptionData);
 	nova_math_Nova_NumericOperation_0_Nova_super(this, exceptionData);
@@ -131,7 +132,7 @@ nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_1_Nova_construc
 nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_2_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericOperand* nova_math_Nova_NumericOperation_Nova_left, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operator, nova_math_Nova_NumericOperand* nova_math_Nova_NumericOperation_Nova_right)
 {
 	CCLASS_NEW(nova_math_Nova_NumericOperation, this);
-	this->vtable = &nova_math_Extension_VTable_NumericOperation_val;
+	this->vtable = &nova_math_NumericOperation_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_NumericOperand_Nova_super((nova_math_Nova_NumericOperand*)this, exceptionData);
 	nova_math_Nova_NumericOperation_0_Nova_super(this, exceptionData);

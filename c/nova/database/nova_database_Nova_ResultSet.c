@@ -3,7 +3,7 @@
 
 
 
-nova_database_Extension_VTable_ResultSet nova_database_Extension_VTable_ResultSet_val =
+nova_database_ResultSet_Extension_VTable nova_database_ResultSet_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_database_Extension_VTable_ResultSet nova_database_Extension_VTable_ResultSe
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_database_Nova_ResultSet_Nova_init_static(nova_exception_Nova_Exception
 nova_database_Nova_ResultSet* nova_database_Nova_ResultSet_Nova_construct(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows, int nova_database_Nova_ResultSet_Nova_numCols)
 {
 	CCLASS_NEW(nova_database_Nova_ResultSet, this,);
-	this->vtable = &nova_database_Extension_VTable_ResultSet_val;
+	this->vtable = &nova_database_ResultSet_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_database_Nova_ResultSet_Nova_super(this, exceptionData);
 	

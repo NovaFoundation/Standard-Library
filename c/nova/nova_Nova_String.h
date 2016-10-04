@@ -44,8 +44,8 @@ typedef char (*nova_Nova_String_closure3_Nova_transform)(void*, nova_exception_N
 #include <nova/datastruct/nova_datastruct_Nova_HashSet.h>
 
 
-typedef struct nova_Extension_VTable_String nova_Extension_VTable_String;
-struct nova_Extension_VTable_String
+typedef struct nova_String_Extension_VTable nova_String_Extension_VTable;
+struct nova_String_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_String*, nova_exception_Nova_ExceptionData*);
@@ -55,14 +55,14 @@ struct nova_Extension_VTable_String
 	int (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 };
 
-extern nova_Extension_VTable_String nova_Extension_VTable_String_val;
+extern nova_String_Extension_VTable nova_String_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_Nova_String, 
 	
-	nova_Extension_VTable_String* vtable;
+	nova_String_Extension_VTable* vtable;
 	int nova_Nova_String_Nova_count;
 	nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars;
 )

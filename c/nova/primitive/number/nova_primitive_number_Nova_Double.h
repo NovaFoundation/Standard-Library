@@ -39,8 +39,8 @@ typedef struct nova_primitive_number_Nova_Double nova_primitive_number_Nova_Doub
 #include <nova/primitive/number/nova_primitive_number_Nova_RealNumber.h>
 
 
-typedef struct nova_primitive_number_Extension_VTable_Double nova_primitive_number_Extension_VTable_Double;
-struct nova_primitive_number_Extension_VTable_Double
+typedef struct nova_primitive_number_Double_Extension_VTable nova_primitive_number_Double_Extension_VTable;
+struct nova_primitive_number_Double_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_primitive_number_Nova_Double*, nova_exception_Nova_ExceptionData*);
@@ -51,14 +51,14 @@ struct nova_primitive_number_Extension_VTable_Double
 	double (*nova_operators_Nova_Multiply_virtual1_Nova_multiply)(nova_primitive_number_Nova_Double*, nova_exception_Nova_ExceptionData*, double);
 };
 
-extern nova_primitive_number_Extension_VTable_Double nova_primitive_number_Extension_VTable_Double_val;
+extern nova_primitive_number_Double_Extension_VTable nova_primitive_number_Double_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_primitive_number_Nova_Double, 
 	
-	nova_primitive_number_Extension_VTable_Double* vtable;
+	nova_primitive_number_Double_Extension_VTable* vtable;
 	double nova_primitive_number_Nova_Double_Nova_value;
 )
 

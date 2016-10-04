@@ -3,7 +3,7 @@
 
 
 
-nova_exception_Extension_VTable_UnimplementedOperationException nova_exception_Extension_VTable_UnimplementedOperationException_val =
+nova_exception_UnimplementedOperationException_Extension_VTable nova_exception_UnimplementedOperationException_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_exception_Extension_VTable_UnimplementedOperationException nova_exception_E
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_exception_Nova_UnimplementedOperationException_Nova_init_static(nova_e
 nova_exception_Nova_UnimplementedOperationException* nova_exception_Nova_UnimplementedOperationException_Nova_construct(nova_exception_Nova_UnimplementedOperationException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_exception_Nova_UnimplementedOperationException_Nova_message)
 {
 	CCLASS_NEW(nova_exception_Nova_UnimplementedOperationException, this,);
-	this->vtable = &nova_exception_Extension_VTable_UnimplementedOperationException_val;
+	this->vtable = &nova_exception_UnimplementedOperationException_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_exception_Nova_Exception_Nova_super((nova_exception_Nova_Exception*)this, exceptionData);
 	nova_exception_Nova_UnimplementedOperationException_0_Nova_super(this, exceptionData);

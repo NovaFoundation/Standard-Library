@@ -3,7 +3,7 @@
 
 
 
-nova_network_Extension_VTable_ConnectionSocket nova_network_Extension_VTable_ConnectionSocket_val =
+nova_network_ConnectionSocket_Extension_VTable nova_network_ConnectionSocket_Extension_VTable_val =
 {
 	{
 		0,
@@ -26,6 +26,7 @@ nova_network_Extension_VTable_ConnectionSocket nova_network_Extension_VTable_Con
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -53,7 +54,7 @@ void nova_network_Nova_ConnectionSocket_Nova_init_static(nova_exception_Nova_Exc
 nova_network_Nova_ConnectionSocket* nova_network_Nova_ConnectionSocket_Nova_construct(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, SOCKET_ID_TYPE nova_network_Nova_ConnectionSocket_Nova_socket)
 {
 	CCLASS_NEW(nova_network_Nova_ConnectionSocket, this);
-	this->vtable = &nova_network_Extension_VTable_ConnectionSocket_val;
+	this->vtable = &nova_network_ConnectionSocket_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_network_Nova_Socket_Nova_super((nova_network_Nova_Socket*)this, exceptionData);
 	nova_network_Nova_ConnectionSocket_0_Nova_super(this, exceptionData);

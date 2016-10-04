@@ -37,22 +37,22 @@ typedef struct nova_io_Nova_InputStream nova_io_Nova_InputStream;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_io_Extension_VTable_InputStream nova_io_Extension_VTable_InputStream;
-struct nova_io_Extension_VTable_InputStream
+typedef struct nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable;
+struct nova_io_InputStream_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_io_Nova_InputStream_virtual1_Nova_readString)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
 	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual1_Nova_readBytes)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_io_Extension_VTable_InputStream nova_io_Extension_VTable_InputStream_val;
+extern nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_io_Nova_InputStream, 
 	
-	nova_io_Extension_VTable_InputStream* vtable;
+	nova_io_InputStream_Extension_VTable* vtable;
 )
 
 void nova_io_Nova_InputStream_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

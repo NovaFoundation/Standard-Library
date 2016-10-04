@@ -37,21 +37,21 @@ typedef struct nova_datastruct_Nova_Comparable nova_datastruct_Nova_Comparable;
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_datastruct_Extension_VTable_Comparable nova_datastruct_Extension_VTable_Comparable;
-struct nova_datastruct_Extension_VTable_Comparable
+typedef struct nova_datastruct_Comparable_Extension_VTable nova_datastruct_Comparable_Extension_VTable;
+struct nova_datastruct_Comparable_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	int (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
-extern nova_datastruct_Extension_VTable_Comparable nova_datastruct_Extension_VTable_Comparable_val;
+extern nova_datastruct_Comparable_Extension_VTable nova_datastruct_Comparable_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_Nova_Comparable, 
 	
-	nova_datastruct_Extension_VTable_Comparable* vtable;
+	nova_datastruct_Comparable_Extension_VTable* vtable;
 )
 
 void nova_datastruct_Nova_Comparable_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

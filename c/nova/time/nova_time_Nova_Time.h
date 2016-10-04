@@ -38,8 +38,8 @@ typedef struct nova_time_Nova_Time nova_time_Nova_Time;
 #include <nova/time/NativeTime.h>
 
 
-typedef struct nova_time_Extension_VTable_Time nova_time_Extension_VTable_Time;
-struct nova_time_Extension_VTable_Time
+typedef struct nova_time_Time_Extension_VTable nova_time_Time_Extension_VTable;
+struct nova_time_Time_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_time_Extension_VTable_Time
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_time_Extension_VTable_Time nova_time_Extension_VTable_Time_val;
+extern nova_time_Time_Extension_VTable nova_time_Time_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_time_Nova_Time, 
 	
-	nova_time_Extension_VTable_Time* vtable;
+	nova_time_Time_Extension_VTable* vtable;
 )
 
 void nova_time_Nova_Time_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

@@ -3,7 +3,7 @@
 
 
 
-nova_datastruct_Extension_VTable_BinaryTree nova_datastruct_Extension_VTable_BinaryTree_val =
+nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_datastruct_Extension_VTable_BinaryTree nova_datastruct_Extension_VTable_Bin
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_datastruct_Nova_BinaryTree_Nova_init_static(nova_exception_Nova_Except
 nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_construct(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_BinaryTree_Nova_data)
 {
 	CCLASS_NEW(nova_datastruct_Nova_BinaryTree, this,);
-	this->vtable = &nova_datastruct_Extension_VTable_BinaryTree_val;
+	this->vtable = &nova_datastruct_BinaryTree_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_datastruct_Nova_Tree_Nova_super((nova_datastruct_Nova_Tree*)this, exceptionData);
 	nova_datastruct_Nova_BinaryTree_0_Nova_super(this, exceptionData);

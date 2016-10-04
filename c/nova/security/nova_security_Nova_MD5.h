@@ -38,8 +38,8 @@ typedef struct nova_security_Nova_MD5 nova_security_Nova_MD5;
 #include <nova/security/NativeMD5.h>
 
 
-typedef struct nova_security_Extension_VTable_MD5 nova_security_Extension_VTable_MD5;
-struct nova_security_Extension_VTable_MD5
+typedef struct nova_security_MD5_Extension_VTable nova_security_MD5_Extension_VTable;
+struct nova_security_MD5_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_security_Extension_VTable_MD5
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_security_Extension_VTable_MD5 nova_security_Extension_VTable_MD5_val;
+extern nova_security_MD5_Extension_VTable nova_security_MD5_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_security_Nova_MD5, 
 	
-	nova_security_Extension_VTable_MD5* vtable;
+	nova_security_MD5_Extension_VTable* vtable;
 )
 
 void nova_security_Nova_MD5_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

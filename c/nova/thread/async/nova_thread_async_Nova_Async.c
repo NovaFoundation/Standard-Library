@@ -3,7 +3,7 @@
 
 
 
-nova_thread_async_Extension_VTable_Async nova_thread_async_Extension_VTable_Async_val =
+nova_thread_async_Async_Extension_VTable nova_thread_async_Async_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_thread_async_Extension_VTable_Async nova_thread_async_Extension_VTable_Asyn
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -45,7 +46,7 @@ void nova_thread_async_Nova_Async_Nova_init_static(nova_exception_Nova_Exception
 nova_thread_async_Nova_Async* nova_thread_async_Nova_Async_Nova_construct(nova_thread_async_Nova_Async* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_thread_async_Nova_Async, this,);
-	this->vtable = &nova_thread_async_Extension_VTable_Async_val;
+	this->vtable = &nova_thread_async_Async_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_thread_async_Nova_Async_Nova_super(this, exceptionData);
 	

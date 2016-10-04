@@ -3,7 +3,7 @@
 
 
 
-nova_math_Extension_VTable_NumericTree nova_math_Extension_VTable_NumericTree_val =
+nova_math_NumericTree_Extension_VTable nova_math_NumericTree_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_math_Extension_VTable_NumericTree nova_math_Extension_VTable_NumericTree_va
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_math_Nova_NumericTree_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -50,7 +51,7 @@ void nova_math_Nova_NumericTree_Nova_init_static(nova_exception_Nova_ExceptionDa
 nova_math_Nova_NumericTree* nova_math_Nova_NumericTree_Nova_construct(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericTree_Nova_statement)
 {
 	CCLASS_NEW(nova_math_Nova_NumericTree, this);
-	this->vtable = &nova_math_Extension_VTable_NumericTree_val;
+	this->vtable = &nova_math_NumericTree_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_math_Nova_NumericTree_Nova_super(this, exceptionData);
 	

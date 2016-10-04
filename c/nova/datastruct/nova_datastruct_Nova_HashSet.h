@@ -61,8 +61,8 @@ typedef void (*nova_datastruct_Nova_HashSet_closure18_Nova_func)(void*, nova_exc
 #include <nova/datastruct/list/nova_datastruct_list_Nova_ArrayIterator.h>
 
 
-typedef struct nova_datastruct_Extension_VTable_HashSet nova_datastruct_Extension_VTable_HashSet;
-struct nova_datastruct_Extension_VTable_HashSet
+typedef struct nova_datastruct_HashSet_Extension_VTable nova_datastruct_HashSet_Extension_VTable;
+struct nova_datastruct_HashSet_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_Nova_HashSet*, nova_exception_Nova_ExceptionData*);
@@ -82,14 +82,14 @@ struct nova_datastruct_Extension_VTable_HashSet
 	char (*nova_datastruct_list_Nova_List_virtual0_Nova_contains)(nova_datastruct_Nova_HashSet*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
-extern nova_datastruct_Extension_VTable_HashSet nova_datastruct_Extension_VTable_HashSet_val;
+extern nova_datastruct_HashSet_Extension_VTable nova_datastruct_HashSet_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_Nova_HashSet, 
 	
-	nova_datastruct_Extension_VTable_HashSet* vtable;
+	nova_datastruct_HashSet_Extension_VTable* vtable;
 	int nova_datastruct_Nova_HashSet_Nova_size;
 	struct Private* prv;
 )

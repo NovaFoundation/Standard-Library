@@ -40,8 +40,8 @@ typedef struct nova_math_Nova_NumericOperation nova_math_Nova_NumericOperation;
 #include <nova/math/nova_math_Nova_NumericOperand.h>
 
 
-typedef struct nova_math_Extension_VTable_NumericOperation nova_math_Extension_VTable_NumericOperation;
-struct nova_math_Extension_VTable_NumericOperation
+typedef struct nova_math_NumericOperation_Extension_VTable nova_math_NumericOperation_Extension_VTable;
+struct nova_math_NumericOperation_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_math_Nova_NumericOperation*, nova_exception_Nova_ExceptionData*);
@@ -49,14 +49,14 @@ struct nova_math_Extension_VTable_NumericOperation
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_Extension_VTable_NumericOperation nova_math_Extension_VTable_NumericOperation_val;
+extern nova_math_NumericOperation_Extension_VTable nova_math_NumericOperation_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_Nova_NumericOperation, 
 	
-	nova_math_Extension_VTable_NumericOperation* vtable;
+	nova_math_NumericOperation_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

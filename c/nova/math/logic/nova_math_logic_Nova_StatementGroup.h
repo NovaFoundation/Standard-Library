@@ -38,8 +38,8 @@ typedef struct nova_math_logic_Nova_StatementGroup nova_math_logic_Nova_Statemen
 #include <nova/datastruct/nova_datastruct_Nova_Bounds.h>
 
 
-typedef struct nova_math_logic_Extension_VTable_StatementGroup nova_math_logic_Extension_VTable_StatementGroup;
-struct nova_math_logic_Extension_VTable_StatementGroup
+typedef struct nova_math_logic_StatementGroup_Extension_VTable nova_math_logic_StatementGroup_Extension_VTable;
+struct nova_math_logic_StatementGroup_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -47,14 +47,14 @@ struct nova_math_logic_Extension_VTable_StatementGroup
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_math_logic_Extension_VTable_StatementGroup nova_math_logic_Extension_VTable_StatementGroup_val;
+extern nova_math_logic_StatementGroup_Extension_VTable nova_math_logic_StatementGroup_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_math_logic_Nova_StatementGroup, 
 	
-	nova_math_logic_Extension_VTable_StatementGroup* vtable;
+	nova_math_logic_StatementGroup_Extension_VTable* vtable;
 	nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement;
 	nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds;
 )

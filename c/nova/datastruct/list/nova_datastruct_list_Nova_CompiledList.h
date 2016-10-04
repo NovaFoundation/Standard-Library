@@ -37,8 +37,8 @@ typedef struct nova_datastruct_list_Nova_CompiledList nova_datastruct_list_Nova_
 #include <nova/nova_Nova_Class.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_CompiledList nova_datastruct_list_Extension_VTable_CompiledList;
-struct nova_datastruct_list_Extension_VTable_CompiledList
+typedef struct nova_datastruct_list_CompiledList_Extension_VTable nova_datastruct_list_CompiledList_Extension_VTable;
+struct nova_datastruct_list_CompiledList_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -46,14 +46,14 @@ struct nova_datastruct_list_Extension_VTable_CompiledList
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_CompiledList nova_datastruct_list_Extension_VTable_CompiledList_val;
+extern nova_datastruct_list_CompiledList_Extension_VTable nova_datastruct_list_CompiledList_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_CompiledList, 
 	
-	nova_datastruct_list_Extension_VTable_CompiledList* vtable;
+	nova_datastruct_list_CompiledList_Extension_VTable* vtable;
 )
 
 void nova_datastruct_list_Nova_CompiledList_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

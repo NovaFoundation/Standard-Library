@@ -3,7 +3,7 @@
 
 
 
-nova_io_Extension_VTable_Console nova_io_Extension_VTable_Console_val =
+nova_io_Console_Extension_VTable nova_io_Console_Extension_VTable_val =
 {
 	{
 		0,
@@ -29,6 +29,7 @@ nova_io_Extension_VTable_Console nova_io_Extension_VTable_Console_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_0_Nova_toString,
 	nova_Nova_Object_0_Nova_equals,
@@ -48,7 +49,7 @@ void nova_io_Nova_Console_Nova_init_static(nova_exception_Nova_ExceptionData* ex
 nova_io_Nova_Console* nova_io_Nova_Console_Nova_construct(nova_io_Nova_Console* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_io_Nova_Console, this,);
-	this->vtable = &nova_io_Extension_VTable_Console_val;
+	this->vtable = &nova_io_Console_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_Console_Nova_super(this, exceptionData);
 	

@@ -40,22 +40,22 @@ typedef struct nova_network_Nova_NetworkInputStream nova_network_Nova_NetworkInp
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>
 
 
-typedef struct nova_network_Extension_VTable_NetworkInputStream nova_network_Extension_VTable_NetworkInputStream;
-struct nova_network_Extension_VTable_NetworkInputStream
+typedef struct nova_network_NetworkInputStream_Extension_VTable nova_network_NetworkInputStream_Extension_VTable;
+struct nova_network_NetworkInputStream_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_io_Nova_InputStream_virtual1_Nova_readString)(nova_network_Nova_NetworkInputStream*, nova_exception_Nova_ExceptionData*);
 	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual1_Nova_readBytes)(nova_network_Nova_NetworkInputStream*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_network_Extension_VTable_NetworkInputStream nova_network_Extension_VTable_NetworkInputStream_val;
+extern nova_network_NetworkInputStream_Extension_VTable nova_network_NetworkInputStream_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_network_Nova_NetworkInputStream, 
 	
-	nova_network_Extension_VTable_NetworkInputStream* vtable;
+	nova_network_NetworkInputStream_Extension_VTable* vtable;
 	struct Private* prv;
 )
 

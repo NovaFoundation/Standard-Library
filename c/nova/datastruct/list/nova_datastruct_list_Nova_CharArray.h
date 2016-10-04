@@ -60,8 +60,8 @@ typedef char (*nova_datastruct_list_Nova_CharArray_closure18_Nova_func)(void*, n
 #include <nova/datastruct/list/nova_datastruct_list_Nova_CharArrayIterator.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_CharArray nova_datastruct_list_Extension_VTable_CharArray;
-struct nova_datastruct_list_Extension_VTable_CharArray
+typedef struct nova_datastruct_list_CharArray_Extension_VTable nova_datastruct_list_CharArray_Extension_VTable;
+struct nova_datastruct_list_CharArray_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_list_Nova_Array*, nova_exception_Nova_ExceptionData*);
@@ -84,14 +84,14 @@ struct nova_datastruct_list_Extension_VTable_CharArray
 	char (*nova_datastruct_list_Nova_List_virtual0_Nova_firstWhere)(nova_datastruct_list_Nova_CharArray*, nova_exception_Nova_ExceptionData*, nova_datastruct_list_Nova_CharArray_closure18_Nova_func nova_datastruct_list_Nova_CharArray_Nova_func, void* nova_datastruct_list_Nova_CharArray_ref_Nova_func, void* func_context);
 };
 
-extern nova_datastruct_list_Extension_VTable_CharArray nova_datastruct_list_Extension_VTable_CharArray_val;
+extern nova_datastruct_list_CharArray_Extension_VTable nova_datastruct_list_CharArray_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_CharArray, 
 	
-	nova_datastruct_list_Extension_VTable_CharArray* vtable;
+	nova_datastruct_list_CharArray_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_Array_Nova_capacity;
 	int nova_datastruct_list_Nova_Array_Nova_count;
 	int nova_datastruct_list_Nova_Array_Nova_position;

@@ -39,8 +39,8 @@ typedef struct nova_datastruct_list_Nova_IntArrayIterator nova_datastruct_list_N
 #include <nova/datastruct/list/nova_datastruct_list_Nova_NoSuchElementException.h>
 
 
-typedef struct nova_datastruct_list_Extension_VTable_IntArrayIterator nova_datastruct_list_Extension_VTable_IntArrayIterator;
-struct nova_datastruct_list_Extension_VTable_IntArrayIterator
+typedef struct nova_datastruct_list_IntArrayIterator_Extension_VTable nova_datastruct_list_IntArrayIterator_Extension_VTable;
+struct nova_datastruct_list_IntArrayIterator_Extension_VTable
 {
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -51,14 +51,14 @@ struct nova_datastruct_list_Extension_VTable_IntArrayIterator
 	int (*nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next)(nova_datastruct_list_Nova_IntArrayIterator*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_datastruct_list_Extension_VTable_IntArrayIterator nova_datastruct_list_Extension_VTable_IntArrayIterator_val;
+extern nova_datastruct_list_IntArrayIterator_Extension_VTable nova_datastruct_list_IntArrayIterator_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
 	nova_datastruct_list_Nova_IntArrayIterator, 
 	
-	nova_datastruct_list_Extension_VTable_IntArrayIterator* vtable;
+	nova_datastruct_list_IntArrayIterator_Extension_VTable* vtable;
 	int nova_datastruct_list_Nova_IntArrayIterator_Nova_position;
 	struct Private* prv;
 )

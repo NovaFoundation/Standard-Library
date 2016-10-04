@@ -7,7 +7,7 @@ typedef struct
 } Context1;
 
 
-nova_datastruct_list_Extension_VTable_LinkedList nova_datastruct_list_Extension_VTable_LinkedList_val =
+nova_datastruct_list_LinkedList_Extension_VTable nova_datastruct_list_LinkedList_Extension_VTable_val =
 {
 	{
 		0,
@@ -30,6 +30,7 @@ nova_datastruct_list_Extension_VTable_LinkedList nova_datastruct_list_Extension_
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -60,7 +61,7 @@ CCLASS_PRIVATE
 	
 )
 
-char nova_datastruct_list_Nova_LinkedList_Nova_testLambda53(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_LinkedList_Nova__1, Context1* context);
+char nova_datastruct_list_Nova_LinkedList_Nova_testLambda17(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_LinkedList_Nova__1, Context1* context);
 
 
 
@@ -73,7 +74,7 @@ void nova_datastruct_list_Nova_LinkedList_Nova_init_static(nova_exception_Nova_E
 nova_datastruct_list_Nova_LinkedList* nova_datastruct_list_Nova_LinkedList_Nova_construct(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_LinkedList, this);
-	this->vtable = &nova_datastruct_list_Extension_VTable_LinkedList_val;
+	this->vtable = &nova_datastruct_list_LinkedList_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_datastruct_list_Nova_LinkedList_Nova_super(this, exceptionData);
 	
@@ -160,12 +161,12 @@ nova_datastruct_list_Nova_LinkedList* nova_datastruct_list_Nova_LinkedList_Nova_
 
 char nova_datastruct_list_Nova_LinkedList_0_Nova_contains(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_LinkedList_Nova_value)
 {
-	Context1 contextArg63 = 
+	Context1 contextArg17 = 
 	{
 		&nova_datastruct_list_Nova_LinkedList_Nova_value,
 	};
 	
-	return nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_datastruct_list_Nova_LinkedList_Nova_testLambda53, this, &contextArg63);
+	return nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_datastruct_list_Nova_LinkedList_Nova_testLambda17, this, &contextArg17);
 }
 
 nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_LinkedList_0_Nova_toArray(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -400,7 +401,7 @@ void nova_datastruct_list_Nova_LinkedList_0_Nova_this(nova_datastruct_list_Nova_
 {
 }
 
-char nova_datastruct_list_Nova_LinkedList_Nova_testLambda53(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_LinkedList_Nova__1, Context1* context)
+char nova_datastruct_list_Nova_LinkedList_Nova_testLambda17(nova_datastruct_list_Nova_LinkedList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_LinkedList_Nova__1, Context1* context)
 {
 	return nova_datastruct_list_Nova_LinkedList_Nova__1 == (nova_Nova_Object*)(*context->nova_datastruct_list_Nova_LinkedList_Nova_value);
 }
