@@ -1,21 +1,20 @@
 var CompiledList = function () {
-	var self = this;
-	
-	
-	this.CompiledList = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+CompiledList.prototype.CompiledList = function () {
+	this.this();
+};
+
+CompiledList.prototype.destroy = function () {
+};
+
+CompiledList.prototype.this = function () {
+};
+
+CompiledList.prototype.super = function () {
+};
+
 
 

@@ -1,26 +1,25 @@
 var No3Selection = function () {
-	var self = this;
-	
 	this.selection = nova_null;
 	
-	this.No3Selection = function (selection) {
-		self.this(selection);
-	};
 	
-	this.destroy = function () {
-	};
-	
-	this.this = function (selection) {
-		self = selection;
-	};
-	
-	this.toJs = function () {
-		return concat((self.selection).concat(new String("')")));
 };
 
-this.super = function () {
+No3Selection.prototype.No3Selection = function (selection) {
+	this.this(selection);
 };
 
+No3Selection.prototype.destroy = function () {
 };
+
+No3Selection.prototype.this = function (selection) {
+	this = selection;
+};
+
+No3Selection.prototype.toJs = function () {
+	return concat((this.selection).concat(new String("')")));};
+
+No3Selection.prototype.super = function () {
+};
+
 
 

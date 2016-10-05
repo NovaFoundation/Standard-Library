@@ -1,21 +1,20 @@
 var StatementComponent = function () {
-	var self = this;
-	
-	
-	this.StatementComponent = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+StatementComponent.prototype.StatementComponent = function () {
+	this.this();
+};
+
+StatementComponent.prototype.destroy = function () {
+};
+
+StatementComponent.prototype.this = function () {
+};
+
+StatementComponent.prototype.super = function () {
+};
+
 
 

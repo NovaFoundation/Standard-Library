@@ -1,97 +1,96 @@
 var Math = function () {
-	var self = this;
-	
-	
-	this.Math = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.max = function (a, b) {
-		return ;
-	};
-	
-	this.min = function (a, b) {
-		return ;
-	};
-	
-	this.sign = function (num) {
-		if (num > 0) {
-			return 1;
-		} else {
-			return -1;
-		}
-		return 0;
-	};
-	
-	this.random = function (range) {
-		return self.extRand() % range;
-	};
-	
-	this.abs = function (number) {
-		return self.extAbs(number);
-	};
-	
-	this.abs = function (number) {
-		return self.extFabs(number);
-	};
-	
-	this.sqrt = function (number) {
-		return self.extSqrt(number);
-	};
-	
-	this.pow = function (base, power) {
-		return self.extPow(base, power);
-	};
-	
-	this.sin = function (number) {
-		return self.extSin(number);
-	};
-	
-	this.cos = function (number) {
-		return self.extCos(number);
-	};
-	
-	this.tan = function (number) {
-		return self.extTan(number);
-	};
-	
-	this.asin = function (number) {
-		return self.extAsin(number);
-	};
-	
-	this.acos = function (number) {
-		return self.extAcos(number);
-	};
-	
-	this.atan = function (number) {
-		return self.extAtan(number);
-	};
-	
-	this.round = function (number) {
-		return self.floor(number + 0.5);
-	};
-	
-	this.floor = function (number) {
-		return self.extFloor(number);
-	};
-	
-	this.ceil = function (number) {
-		return self.extCeil(number);
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
 
+Math.prototype.Math = function () {
+	this.this();
+};
+
+Math.prototype.destroy = function () {
+};
+
+Math.prototype.max = function (a, b) {
+	return ;
+};
+
+Math.prototype.min = function (a, b) {
+	return ;
+};
+
+Math.prototype.sign = function (num) {
+	if (num > 0) {
+		return 1;
+	} else {
+		return -1;
+	}
+	return 0;
+};
+
+Math.prototype.random = function (range) {
+	return this.extRand() % range;
+};
+
+Math.prototype.abs = function (number) {
+	return this.extAbs(number);
+};
+
+Math.prototype.abs = function (number) {
+	return this.extFabs(number);
+};
+
+Math.prototype.sqrt = function (number) {
+	return this.extSqrt(number);
+};
+
+Math.prototype.pow = function (base, power) {
+	return this.extPow(base, power);
+};
+
+Math.prototype.sin = function (number) {
+	return this.extSin(number);
+};
+
+Math.prototype.cos = function (number) {
+	return this.extCos(number);
+};
+
+Math.prototype.tan = function (number) {
+	return this.extTan(number);
+};
+
+Math.prototype.asin = function (number) {
+	return this.extAsin(number);
+};
+
+Math.prototype.acos = function (number) {
+	return this.extAcos(number);
+};
+
+Math.prototype.atan = function (number) {
+	return this.extAtan(number);
+};
+
+Math.prototype.round = function (number) {
+	return this.floor(number + 0.5);
+};
+
+Math.prototype.floor = function (number) {
+	return this.extFloor(number);
+};
+
+Math.prototype.ceil = function (number) {
+	return this.extCeil(number);
+};
+
+Math.prototype.this = function () {
+};
+
+Math.prototype.super = function () {
+};
+
+
 (function () {
-		self.PI = 3.141592653;
+		this.PI = 3.141592653;
 })();
 

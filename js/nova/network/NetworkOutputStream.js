@@ -1,31 +1,30 @@
 var NetworkOutputStream = function () {
-	var self = this;
-	
 	this.socket = nova_null;
-	
-	this.NetworkOutputStream = function (socket) {
-		self.this(socket);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (socket) {
-		self = socket;
-	};
-	
-	this.write = function (data) {
-		return write(data);
-	};
-	
-	this.write = function (data) {
-		return false;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+NetworkOutputStream.prototype.NetworkOutputStream = function (socket) {
+	this.this(socket);
+};
+
+NetworkOutputStream.prototype.destroy = function () {
+};
+
+NetworkOutputStream.prototype.this = function (socket) {
+	this = socket;
+};
+
+NetworkOutputStream.prototype.write = function (data) {
+	return write(data);
+};
+
+NetworkOutputStream.prototype.write = function (data) {
+	return false;
+};
+
+NetworkOutputStream.prototype.super = function () {
+};
+
 
 

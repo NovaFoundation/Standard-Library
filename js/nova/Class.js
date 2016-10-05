@@ -1,22 +1,21 @@
 var Class = function () {
-	var self = this;
-	
 	this.id = 0;
-	
-	this.Class = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Class.prototype.Class = function () {
+	this.this();
+};
+
+Class.prototype.destroy = function () {
+};
+
+Class.prototype.this = function () {
+};
+
+Class.prototype.super = function () {
+};
+
 
 

@@ -1,21 +1,20 @@
 var Graph = function () {
-	var self = this;
-	
-	
-	this.Graph = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Graph.prototype.Graph = function () {
+	this.this();
+};
+
+Graph.prototype.destroy = function () {
+};
+
+Graph.prototype.this = function () {
+};
+
+Graph.prototype.super = function () {
+};
+
 
 

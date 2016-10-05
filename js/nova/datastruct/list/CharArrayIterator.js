@@ -1,48 +1,47 @@
 var CharArrayIterator = function () {
-	var self = this;
-	
 	this.array = nova_null;
 	this.position = 0;
 	
-	this.CharArrayIterator = function (array) {
-		self.this(array);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (array) {
-		self = array;
-		self.reset();
-	};
-	
-	this.reset = function () {
-		self.position = 0;
-		return self;
-	};
-	
-	this.accessor_hasNext = function () {
-		return self.array.count > self.position;
-	};
-	
-	this.mutator_hasNext = function () {
-	};
-	
-	this.accessor_next = function () {
-		if (self.hasNext()) {
-			return get(self.position++);
-		}
-		;
-		return 0;
-	};
-	
-	this.mutator_next = function () {
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+CharArrayIterator.prototype.CharArrayIterator = function (array) {
+	this.this(array);
+};
+
+CharArrayIterator.prototype.destroy = function () {
+};
+
+CharArrayIterator.prototype.this = function (array) {
+	this = array;
+	this.reset();
+};
+
+CharArrayIterator.prototype.reset = function () {
+	this.position = 0;
+	return this;
+};
+
+CharArrayIterator.prototype.accessor_hasNext = function () {
+	return this.array.count > this.position;
+};
+
+CharArrayIterator.prototype.mutator_hasNext = function () {
+};
+
+CharArrayIterator.prototype.accessor_next = function () {
+	if (this.hasNext()) {
+		return get(this.position++);
+	}
+	;
+	return 0;
+};
+
+CharArrayIterator.prototype.mutator_next = function () {
+};
+
+CharArrayIterator.prototype.super = function () {
+};
+
 
 

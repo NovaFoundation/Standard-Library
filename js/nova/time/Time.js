@@ -1,28 +1,27 @@
 var Time = function () {
-	var self = this;
-	
-	
-	this.Time = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.accessor_currentTimeMillis = function () {
-		return self.extCurrentTimeMillis();
-	};
-	
-	this.mutator_currentTimeMillis = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Time.prototype.Time = function () {
+	this.this();
+};
+
+Time.prototype.destroy = function () {
+};
+
+Time.prototype.this = function () {
+};
+
+Time.prototype.accessor_currentTimeMillis = function () {
+	return this.extCurrentTimeMillis();
+};
+
+Time.prototype.mutator_currentTimeMillis = function () {
+};
+
+Time.prototype.super = function () {
+};
+
 
 

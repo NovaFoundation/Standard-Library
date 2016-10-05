@@ -1,21 +1,20 @@
 var LogicalConnective = function () {
-	var self = this;
-	
-	
-	this.LogicalConnective = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+LogicalConnective.prototype.LogicalConnective = function () {
+	this.this();
+};
+
+LogicalConnective.prototype.destroy = function () {
+};
+
+LogicalConnective.prototype.this = function () {
+};
+
+LogicalConnective.prototype.super = function () {
+};
+
 
 

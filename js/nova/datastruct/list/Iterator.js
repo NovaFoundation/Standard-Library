@@ -1,32 +1,31 @@
 var Iterator = function () {
-	var self = this;
-	
-	
-	reset = nova_null;
-	this.accessor_hasNext = function () {
-		return false;
-	};
-	
-	this.mutator_hasNext = function () {
-	};
-	
-	this.accessor_next = function () {
-		return null;
-	};
-	
-	this.mutator_next = function () {
-	};
-	
-	this.reset = function () {
-	};
-	
-	this.hasNext = function () {
-	};
-	
-	this.next = function () {
-	};
 	
 	
 };
+
+reset = nova_null;
+Iterator.prototype.accessor_hasNext = function () {
+	return false;
+};
+
+Iterator.prototype.mutator_hasNext = function () {
+};
+
+Iterator.prototype.accessor_next = function () {
+	return null;
+};
+
+Iterator.prototype.mutator_next = function () {
+};
+
+Iterator.prototype.reset = function () {
+};
+
+Iterator.prototype.hasNext = function () {
+};
+
+Iterator.prototype.next = function () {
+};
+
 
 

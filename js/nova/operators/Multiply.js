@@ -1,12 +1,11 @@
 var Multiply = function () {
-	var self = this;
-	
-	
-	multiply = nova_null;
-	this.multiply = function (value) {
-	};
 	
 	
 };
+
+multiply = nova_null;
+Multiply.prototype.multiply = function (value) {
+};
+
 
 

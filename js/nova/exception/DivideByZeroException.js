@@ -1,21 +1,20 @@
 var DivideByZeroException = function () {
-	var self = this;
-	
-	
-	this.DivideByZeroException = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+DivideByZeroException.prototype.DivideByZeroException = function () {
+	this.this();
+};
+
+DivideByZeroException.prototype.destroy = function () {
+};
+
+DivideByZeroException.prototype.this = function () {
+};
+
+DivideByZeroException.prototype.super = function () {
+};
+
 
 

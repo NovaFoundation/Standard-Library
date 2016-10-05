@@ -1,25 +1,24 @@
 var Json = function () {
-	var self = this;
-	
-	
-	this.Json = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.toString = function () {
-		return "{}";
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Json.prototype.Json = function () {
+	this.this();
+};
+
+Json.prototype.destroy = function () {
+};
+
+Json.prototype.toString = function () {
+	return "{}";
+};
+
+Json.prototype.this = function () {
+};
+
+Json.prototype.super = function () {
+};
+
 
 

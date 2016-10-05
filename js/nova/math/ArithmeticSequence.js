@@ -1,21 +1,20 @@
 var ArithmeticSequence = function () {
-	var self = this;
-	
-	
-	this.ArithmeticSequence = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+ArithmeticSequence.prototype.ArithmeticSequence = function () {
+	this.this();
+};
+
+ArithmeticSequence.prototype.destroy = function () {
+};
+
+ArithmeticSequence.prototype.this = function () {
+};
+
+ArithmeticSequence.prototype.super = function () {
+};
+
 
 

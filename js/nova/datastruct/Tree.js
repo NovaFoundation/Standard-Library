@@ -1,38 +1,37 @@
 var Tree = function () {
-	var self = this;
-	
 	this.root = nova_null;
-	
-	this.Tree = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.preorder = function () {
-		return preorder();
-	};
-	
-	this.inorder = function () {
-		return inorder();
-	};
-	
-	this.postorder = function () {
-		return postorder();
-	};
-	
-	this.levelorder = function () {
-		return levelorder();
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Tree.prototype.Tree = function () {
+	this.this();
+};
+
+Tree.prototype.destroy = function () {
+};
+
+Tree.prototype.preorder = function () {
+	return preorder();
+};
+
+Tree.prototype.inorder = function () {
+	return inorder();
+};
+
+Tree.prototype.postorder = function () {
+	return postorder();
+};
+
+Tree.prototype.levelorder = function () {
+	return levelorder();
+};
+
+Tree.prototype.this = function () {
+};
+
+Tree.prototype.super = function () {
+};
+
 
 

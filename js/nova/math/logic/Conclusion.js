@@ -1,22 +1,21 @@
 var Conclusion = function () {
-	var self = this;
-	
-	
-	this.Conclusion = function (statement) {
-		self.this(statement);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (statement) {
-		self.this(statement);
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Conclusion.prototype.Conclusion = function (statement) {
+	this.this(statement);
+};
+
+Conclusion.prototype.destroy = function () {
+};
+
+Conclusion.prototype.this = function (statement) {
+	this.this(statement);
+};
+
+Conclusion.prototype.super = function () {
+};
+
 
 

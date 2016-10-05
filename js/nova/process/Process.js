@@ -1,23 +1,22 @@
 var Process = function () {
-	var self = this;
-	
 	this.reader = nova_null;
-	
-	this.Process = function (reader) {
-		self.this(reader);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (reader) {
-		self = reader;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Process.prototype.Process = function (reader) {
+	this.this(reader);
+};
+
+Process.prototype.destroy = function () {
+};
+
+Process.prototype.this = function (reader) {
+	this = reader;
+};
+
+Process.prototype.super = function () {
+};
+
 
 

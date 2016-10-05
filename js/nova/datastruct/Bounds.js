@@ -1,111 +1,110 @@
 var Bounds = function () {
-	var self = this;
-	
 	this.start = 0;
 	this.end = 0;
 	
-	this.Bounds = function () {
-		self.this();
-	};
-	
-	this.Bounds = function (start, end) {
-		self.this(start, end);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-		self.this(0, 0);
-	};
-	
-	this.this = function (start, end) {
-		self = start;
-		self = end;
-	};
-	
-	this.extractString = function (source) {
-		if (!self.accessor_valid()) {
-			return null;
-		}
-		return substring(self.start, self.end);
-	};
-	
-	this.extractPreString = function (source) {
-		if (!self.accessor_valid()) {
-			return null;
-		}
-		return substring(0, self.start);
-	};
-	
-	this.extractPostString = function (source) {
-		if (!self.accessor_valid()) {
-			return source;
-		}
-		return substring(self.end);
-	};
-	
-	this.trimString = function (source) {
-		if (!self.accessor_valid()) {
-			return source;
-		}
-		return concat(self.extractPostString(source));
-	};
-	
-	this.invalidate = function () {
-		self.start = -1;
-		self.end = -1;
-	};
-	
-	this.equals = function (bounds) {
-		return bounds != null && bounds.start == self.start && bounds.end == self.end;
-	};
-	
-	this.toString = function () {
-		return concat(Int.toString(self.start).concat(new String(", ").concat(Int.toString(self.end).concat(new String("]")))));
-	};
-	
-	this.cloneTo = function (bounds) {
-		bounds.start = self.start;
-		bounds.end = self.end;
-	};
-	
-	this.clone = function () {
-		return new Bounds(self.start, self.end);
-	};
-	
-	this.accessor_size = function () {
-		return self.end - self.start;
-	};
-	
-	this.mutator_size = function () {
-	};
-	
-	this.accessor_valid = function () {
-		return self.start >= 0 && self.end > 0;
-	};
-	
-	this.mutator_valid = function () {
-	};
-	
-	this.accessor_endless = function () {
-		return self.end < 0;
-	};
-	
-	this.mutator_endless = function () {
-	};
-	
-	this.accessor_optional = function () {
-		return self.start == 0;
-	};
-	
-	this.mutator_optional = function () {
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+Bounds.prototype.Bounds = function () {
+	this.this();
+};
+
+Bounds.prototype.Bounds = function (start, end) {
+	this.this(start, end);
+};
+
+Bounds.prototype.destroy = function () {
+};
+
+Bounds.prototype.this = function () {
+	this.this(0, 0);
+};
+
+Bounds.prototype.this = function (start, end) {
+	this = start;
+	this = end;
+};
+
+Bounds.prototype.extractString = function (source) {
+	if (!this.accessor_valid()) {
+		return null;
+	}
+	return substring(this.start, this.end);
+};
+
+Bounds.prototype.extractPreString = function (source) {
+	if (!this.accessor_valid()) {
+		return null;
+	}
+	return substring(0, this.start);
+};
+
+Bounds.prototype.extractPostString = function (source) {
+	if (!this.accessor_valid()) {
+		return source;
+	}
+	return substring(this.end);
+};
+
+Bounds.prototype.trimString = function (source) {
+	if (!this.accessor_valid()) {
+		return source;
+	}
+	return concat(this.extractPostString(source));
+};
+
+Bounds.prototype.invalidate = function () {
+	this.start = -1;
+	this.end = -1;
+};
+
+Bounds.prototype.equals = function (bounds) {
+	return bounds != null && bounds.start == this.start && bounds.end == this.end;
+};
+
+Bounds.prototype.toString = function () {
+	return concat(Int.toString(this.start).concat(new String(", ").concat(Int.toString(this.end).concat(new String("]")))));
+};
+
+Bounds.prototype.cloneTo = function (bounds) {
+	bounds.start = this.start;
+	bounds.end = this.end;
+};
+
+Bounds.prototype.clone = function () {
+	return new Bounds(this.start, this.end);
+};
+
+Bounds.prototype.accessor_size = function () {
+	return this.end - this.start;
+};
+
+Bounds.prototype.mutator_size = function () {
+};
+
+Bounds.prototype.accessor_valid = function () {
+	return this.start >= 0 && this.end > 0;
+};
+
+Bounds.prototype.mutator_valid = function () {
+};
+
+Bounds.prototype.accessor_endless = function () {
+	return this.end < 0;
+};
+
+Bounds.prototype.mutator_endless = function () {
+};
+
+Bounds.prototype.accessor_optional = function () {
+	return this.start == 0;
+};
+
+Bounds.prototype.mutator_optional = function () {
+};
+
+Bounds.prototype.super = function () {
+};
+
 
 

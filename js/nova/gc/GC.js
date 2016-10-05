@@ -1,65 +1,64 @@
 var GC = function () {
-	var self = this;
-	
-	
-	this.GC = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.init = function () {
-		self.nova_gc_init();
-	};
-	
-	this.collect = function () {
-		self.nova_gc_collect();
-	};
-	
-	this.enableIncremental = function () {
-		self.nova_gc_enableIncremental();
-	};
-	
-	this.dump = function () {
-		self.nova_gc_dump();
-	};
-	
-	this.this = function () {
-	};
-	
-	this.accessor_freeBytes = function () {
-		return self.nova_gc_getFreeBytes();
-	};
-	
-	this.mutator_freeBytes = function () {
-	};
-	
-	this.accessor_totalBytes = function () {
-		return self.nova_gc_getTotalBytes();
-	};
-	
-	this.mutator_totalBytes = function () {
-	};
-	
-	this.accessor_heapSize = function () {
-		return self.nova_gc_getHeapSize();
-	};
-	
-	this.mutator_heapSize = function () {
-	};
-	
-	this.accessor_bytesSinceGC = function () {
-		return self.nova_gc_getBytesSinceGC();
-	};
-	
-	this.mutator_bytesSinceGC = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+GC.prototype.GC = function () {
+	this.this();
+};
+
+GC.prototype.destroy = function () {
+};
+
+GC.prototype.init = function () {
+	this.nova_gc_init();
+};
+
+GC.prototype.collect = function () {
+	this.nova_gc_collect();
+};
+
+GC.prototype.enableIncremental = function () {
+	this.nova_gc_enableIncremental();
+};
+
+GC.prototype.dump = function () {
+	this.nova_gc_dump();
+};
+
+GC.prototype.this = function () {
+};
+
+GC.prototype.accessor_freeBytes = function () {
+	return this.nova_gc_getFreeBytes();
+};
+
+GC.prototype.mutator_freeBytes = function () {
+};
+
+GC.prototype.accessor_totalBytes = function () {
+	return this.nova_gc_getTotalBytes();
+};
+
+GC.prototype.mutator_totalBytes = function () {
+};
+
+GC.prototype.accessor_heapSize = function () {
+	return this.nova_gc_getHeapSize();
+};
+
+GC.prototype.mutator_heapSize = function () {
+};
+
+GC.prototype.accessor_bytesSinceGC = function () {
+	return this.nova_gc_getBytesSinceGC();
+};
+
+GC.prototype.mutator_bytesSinceGC = function () {
+};
+
+GC.prototype.super = function () {
+};
+
 
 

@@ -1,30 +1,29 @@
 var SvgComponent = function () {
-	var self = this;
-	
 	this.children = nova_null;
-	
-	this.SvgComponent = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-		self.children = new SvgComponentList();
-	};
-	
-	this.generateOutput = function (file) {
-		Console.writeLine("This is wrong");
-	};
-	
-	this.super = function () {
-	};
-	
-	this.generateOutput = function (file) {
-	};
 	
 	
 };
+
+SvgComponent.prototype.SvgComponent = function () {
+	this.this();
+};
+
+SvgComponent.prototype.destroy = function () {
+};
+
+SvgComponent.prototype.this = function () {
+	this.children = new SvgComponentList();
+};
+
+SvgComponent.prototype.generateOutput = function (file) {
+	Console.writeLine("This is wrong");
+};
+
+SvgComponent.prototype.super = function () {
+};
+
+SvgComponent.prototype.generateOutput = function (file) {
+};
+
 
 

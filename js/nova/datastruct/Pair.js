@@ -1,28 +1,27 @@
 var Pair = function () {
-	var self = this;
-	
 	this.key = nova_null;
 	this.value = nova_null;
 	
-	this.Pair = function (key, value) {
-		self.this(key, value);
-	};
 	
-	this.destroy = function () {
-	};
-	
-	this.this = function (key, value) {
-		self = key;
-		self = value;
-	};
-	
-	this.toString = function () {
-		return concat((self.key).toString().concat(new String(", ").concat((self.value).toString().concat(new String(")")))));
 };
 
-this.super = function () {
+Pair.prototype.Pair = function (key, value) {
+	this.this(key, value);
 };
 
+Pair.prototype.destroy = function () {
 };
+
+Pair.prototype.this = function (key, value) {
+	this = key;
+	this = value;
+};
+
+Pair.prototype.toString = function () {
+	return concat((this.key).toString().concat(new String(", ").concat((this.value).toString().concat(new String(")")))));};
+
+Pair.prototype.super = function () {
+};
+
 
 

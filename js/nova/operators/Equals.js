@@ -1,12 +1,11 @@
 var Equals = function () {
-	var self = this;
-	
-	
-	equals = 0;
-	this.equals = function (another) {
-	};
 	
 	
 };
+
+equals = 0;
+Equals.prototype.equals = function (another) {
+};
+
 
 

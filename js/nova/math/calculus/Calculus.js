@@ -1,25 +1,24 @@
 var Calculus = function () {
-	var self = this;
-	
-	
-	this.Calculus = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.derivative = function (statement) {
-		return null;
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Calculus.prototype.Calculus = function () {
+	this.this();
+};
+
+Calculus.prototype.destroy = function () {
+};
+
+Calculus.prototype.derivative = function (statement) {
+	return null;
+};
+
+Calculus.prototype.this = function () {
+};
+
+Calculus.prototype.super = function () {
+};
+
 
 

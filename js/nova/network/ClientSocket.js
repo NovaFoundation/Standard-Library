@@ -1,41 +1,40 @@
 var ClientSocket = function () {
-	var self = this;
-	
 	this.socket = nova_null;
 	this.connection = nova_null;
 	
-	this.ClientSocket = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.connect = function (ipAddress, port) {
-		self.socket = self.nova_clientsocket_connect(ipAddress.chars.data, port);
-		if (self.socket == 0) {
-			return false;
-		}
-		self.connection = new ConnectionSocket(self.socket);
-		return true;
-	};
-	
-	this.close = function () {
-		var result;
-		result = self.nova_socket_close(self.socket);
-		if (result == 0) {
-			return false;
-		}
-		return true;
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+ClientSocket.prototype.ClientSocket = function () {
+	this.this();
+};
+
+ClientSocket.prototype.destroy = function () {
+};
+
+ClientSocket.prototype.this = function () {
+};
+
+ClientSocket.prototype.connect = function (ipAddress, port) {
+	this.socket = this.nova_clientsocket_connect(ipAddress.chars.data, port);
+	if (this.socket == 0) {
+		return false;
+	}
+	this.connection = new ConnectionSocket(this.socket);
+	return true;
+};
+
+ClientSocket.prototype.close = function () {
+	var result;
+	result = this.nova_socket_close(this.socket);
+	if (result == 0) {
+		return false;
+	}
+	return true;
+};
+
+ClientSocket.prototype.super = function () {
+};
+
 
 

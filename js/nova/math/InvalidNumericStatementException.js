@@ -1,22 +1,21 @@
 var InvalidNumericStatementException = function () {
-	var self = this;
-	
-	
-	this.InvalidNumericStatementException = function (message) {
-		self.this(message);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (message) {
-		self.this(message);
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+InvalidNumericStatementException.prototype.InvalidNumericStatementException = function (message) {
+	this.this(message);
+};
+
+InvalidNumericStatementException.prototype.destroy = function () {
+};
+
+InvalidNumericStatementException.prototype.this = function (message) {
+	this.this(message);
+};
+
+InvalidNumericStatementException.prototype.super = function () {
+};
+
 
 

@@ -1,28 +1,27 @@
 var StatementComponent = function () {
-	var self = this;
-	
 	this.data = nova_null;
 	this.next = nova_null;
 	
-	this.StatementComponent = function (data) {
-		self.this(data);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (data) {
-		self = data;
-	};
-	
-	this.toString = function () {
-		return toString();
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+StatementComponent.prototype.StatementComponent = function (data) {
+	this.this(data);
+};
+
+StatementComponent.prototype.destroy = function () {
+};
+
+StatementComponent.prototype.this = function (data) {
+	this = data;
+};
+
+StatementComponent.prototype.toString = function () {
+	return toString();
+};
+
+StatementComponent.prototype.super = function () {
+};
+
 
 

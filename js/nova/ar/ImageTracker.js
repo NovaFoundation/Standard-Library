@@ -1,21 +1,20 @@
 var ImageTracker = function () {
-	var self = this;
-	
-	
-	this.ImageTracker = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+ImageTracker.prototype.ImageTracker = function () {
+	this.this();
+};
+
+ImageTracker.prototype.destroy = function () {
+};
+
+ImageTracker.prototype.this = function () {
+};
+
+ImageTracker.prototype.super = function () {
+};
+
 
 

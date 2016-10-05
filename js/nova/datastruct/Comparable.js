@@ -1,12 +1,11 @@
 var Comparable = function () {
-	var self = this;
-	
-	
-	compareTo = 0;
-	this.compareTo = function (other) {
-	};
 	
 	
 };
+
+compareTo = 0;
+Comparable.prototype.compareTo = function (other) {
+};
+
 
 

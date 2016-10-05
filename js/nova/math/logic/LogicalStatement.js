@@ -1,29 +1,28 @@
 var LogicalStatement = function () {
-	var self = this;
-	
 	this.statement = nova_null;
 	this.components = nova_null;
 	
-	this.LogicalStatement = function (statement) {
-		self.this(statement);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (statement) {
-		self = statement;
-		self.components = new Array();
-	};
-	
-	this.toString = function () {
-		return self.statement;
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+LogicalStatement.prototype.LogicalStatement = function (statement) {
+	this.this(statement);
+};
+
+LogicalStatement.prototype.destroy = function () {
+};
+
+LogicalStatement.prototype.this = function (statement) {
+	this = statement;
+	this.components = new Array();
+};
+
+LogicalStatement.prototype.toString = function () {
+	return this.statement;
+};
+
+LogicalStatement.prototype.super = function () {
+};
+
 
 

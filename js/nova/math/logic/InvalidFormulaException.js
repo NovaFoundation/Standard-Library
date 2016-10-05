@@ -1,22 +1,21 @@
 var InvalidFormulaException = function () {
-	var self = this;
-	
-	
-	this.InvalidFormulaException = function (message) {
-		self.this(message);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (message) {
-		self.this(message);
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+InvalidFormulaException.prototype.InvalidFormulaException = function (message) {
+	this.this(message);
+};
+
+InvalidFormulaException.prototype.destroy = function () {
+};
+
+InvalidFormulaException.prototype.this = function (message) {
+	this.this(message);
+};
+
+InvalidFormulaException.prototype.super = function () {
+};
+
 
 

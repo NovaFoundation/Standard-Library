@@ -1,21 +1,20 @@
 var Primitive = function () {
-	var self = this;
-	
-	
-	this.Primitive = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Primitive.prototype.Primitive = function () {
+	this.this();
+};
+
+Primitive.prototype.destroy = function () {
+};
+
+Primitive.prototype.this = function () {
+};
+
+Primitive.prototype.super = function () {
+};
+
 
 

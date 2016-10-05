@@ -1,43 +1,42 @@
 var Short = function () {
-	var self = this;
-	
 	this.value = 0;
-	
-	this.Short = function (value) {
-		self.this(value);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (value) {
-		self = value;
-	};
-	
-	this.numDigits = function (number) {
-		return numDigits(number);
-	};
-	
-	this.toString = function (value) {
-		return toString(value);
-	};
-	
-	this.toString = function () {
-		return self.toString(self.value);
-	};
-	
-	this.compareTo = function (other) {
-		return self.value - other;
-	};
-	
-	this.multiply = function (value) {
-		return self * value;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Short.prototype.Short = function (value) {
+	this.this(value);
+};
+
+Short.prototype.destroy = function () {
+};
+
+Short.prototype.this = function (value) {
+	this = value;
+};
+
+Short.prototype.numDigits = function (number) {
+	return numDigits(number);
+};
+
+Short.prototype.toString = function (value) {
+	return toString(value);
+};
+
+Short.prototype.toString = function () {
+	return this.toString(this.value);
+};
+
+Short.prototype.compareTo = function (other) {
+	return this.value - other;
+};
+
+Short.prototype.multiply = function (value) {
+	return this * value;
+};
+
+Short.prototype.super = function () {
+};
+
 
 

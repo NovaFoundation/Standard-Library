@@ -1,71 +1,70 @@
 var ConnectionSocket = function () {
-	var self = this;
-	
 	this.inputBuffer = nova_null;
 	this.socket = nova_null;
 	this.connected = 0;
 	this.in = nova_null;
 	this.out = nova_null;
 	
-	this.ConnectionSocket = function (socket) {
-		self.this(socket);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (socket) {
-		self = socket;
-		self.in = new NetworkInputStream(self);
-		self.out = new NetworkOutputStream(self);
-		self.connected = true;
-	};
-	
-	this.close = function () {
-		self.connected = false;
-		self.nova_socket_close(self.socket);
-	};
-	
-	this.validateConnection = function () {
-		var message;
-		if (!self.connected) {
-			return self.connected;
-		}
-		message = self.readString(false);
-		if (self.connected) {
-			self.inputBuffer.enqueue(message);
-		}
-		return self.connected;
-	};
-	
-	this.readString = function () {
-		return self.readString(true);
-	};
-	
-	this.readString = function (checkBuffer) {
-		if (!checkBuffer || self.inputBuffer.accessor_empty()) {
-			var data;
-			data = self.nova_socket_receive(self.socket);
-			if (data == 0) {
-				self.connected = false;
-				return null;
-			}
-			return new String(data);
-		}
-		return dequeue();
-	};
-	
-	this.write = function (data) {
-		var success;
-		success = self.nova_socket_send(self.socket, data.chars.data) == 1;
-		return success;
-	};
-	
-	this.super = function () {
-		self.inputBuffer = new Queue();
-	};
-	
 	
 };
+
+ConnectionSocket.prototype.ConnectionSocket = function (socket) {
+	this.this(socket);
+};
+
+ConnectionSocket.prototype.destroy = function () {
+};
+
+ConnectionSocket.prototype.this = function (socket) {
+	this = socket;
+	this.in = new NetworkInputStream(this);
+	this.out = new NetworkOutputStream(this);
+	this.connected = true;
+};
+
+ConnectionSocket.prototype.close = function () {
+	this.connected = false;
+	this.nova_socket_close(this.socket);
+};
+
+ConnectionSocket.prototype.validateConnection = function () {
+	var message;
+	if (!this.connected) {
+		return this.connected;
+	}
+	message = this.readString(false);
+	if (this.connected) {
+		this.inputBuffer.enqueue(message);
+	}
+	return this.connected;
+};
+
+ConnectionSocket.prototype.readString = function () {
+	return this.readString(true);
+};
+
+ConnectionSocket.prototype.readString = function (checkBuffer) {
+	if (!checkBuffer || this.inputBuffer.accessor_empty()) {
+		var data;
+		data = this.nova_socket_receive(this.socket);
+		if (data == 0) {
+			this.connected = false;
+			return null;
+		}
+		return new String(data);
+	}
+	return dequeue();
+};
+
+ConnectionSocket.prototype.write = function (data) {
+	var success;
+	success = this.nova_socket_send(this.socket, data.chars.data) == 1;
+	return success;
+};
+
+ConnectionSocket.prototype.super = function () {
+	this.inputBuffer = new Queue();
+};
+
 
 

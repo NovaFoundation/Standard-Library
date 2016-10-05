@@ -1,55 +1,54 @@
 var Int = function () {
-	var self = this;
-	
 	this.value = 0;
-	
-	this.Int = function (value) {
-		self.this(value);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (value) {
-		self = value;
-	};
-	
-	this.getHashCodeLong = function () {
-		return self.value;
-	};
-	
-	this.numDigits = function (number) {
-		return numDigits(number);
-	};
-	
-	this.toString = function (value) {
-		return toString(value);
-	};
-	
-	this.toString = function () {
-		return self.toString(self.value);
-	};
-	
-	this.parseInt = function (num) {
-		return self.atoi(num.chars.data);
-	};
-	
-	this.compareTo = function (other) {
-		return self.value - other;
-	};
-	
-	this.multiply = function (value) {
-		return self * value;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
 
+Int.prototype.Int = function (value) {
+	this.this(value);
+};
+
+Int.prototype.destroy = function () {
+};
+
+Int.prototype.this = function (value) {
+	this = value;
+};
+
+Int.prototype.getHashCodeLong = function () {
+	return this.value;
+};
+
+Int.prototype.numDigits = function (number) {
+	return numDigits(number);
+};
+
+Int.prototype.toString = function (value) {
+	return toString(value);
+};
+
+Int.prototype.toString = function () {
+	return this.toString(this.value);
+};
+
+Int.prototype.parseInt = function (num) {
+	return this.atoi(num.chars.data);
+};
+
+Int.prototype.compareTo = function (other) {
+	return this.value - other;
+};
+
+Int.prototype.multiply = function (value) {
+	return this * value;
+};
+
+Int.prototype.super = function () {
+};
+
+
 (function () {
-		self.MAX_VALUE = 2147483647;
-		self.MIN_VALUE = -2147483648;
+		this.MAX_VALUE = 2147483647;
+		this.MIN_VALUE = -2147483648;
 })();
 

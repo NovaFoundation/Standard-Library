@@ -1,56 +1,55 @@
 var ServerSocket = function () {
-	var self = this;
-	
 	this.serverSocket = nova_null;
 	this.open = 0;
 	this.requests = nova_null;
 	
-	this.ServerSocket = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-		self.open = false;
-	};
-	
-	this.start = function (port) {
-		self.serverSocket = self.nova_serversocket_start(port);
-		if (self.serverSocket == 0) {
-			return false;
-		}
-		self.open = true;
-		return true;
-	};
-	
-	this.close = function () {
-		var result;
-		result = self.nova_socket_close(self.serverSocket);
-		if (result == 0) {
-			return false;
-		}
-		self.open = false;
-		return true;
-	};
-	
-	this.acceptClient = function () {
-		var clientSocket;
-		var socket;
-		clientSocket = self.nova_serversocket_accept(self.serverSocket);
-		if (clientSocket == 0) {
-			return null;
-		}
-		socket = new ConnectionSocket(clientSocket);
-		return socket;
-	};
-	
-	this.super = function () {
-		self.requests = new Array();
-	};
-	
 	
 };
+
+ServerSocket.prototype.ServerSocket = function () {
+	this.this();
+};
+
+ServerSocket.prototype.destroy = function () {
+};
+
+ServerSocket.prototype.this = function () {
+	this.open = false;
+};
+
+ServerSocket.prototype.start = function (port) {
+	this.serverSocket = this.nova_serversocket_start(port);
+	if (this.serverSocket == 0) {
+		return false;
+	}
+	this.open = true;
+	return true;
+};
+
+ServerSocket.prototype.close = function () {
+	var result;
+	result = this.nova_socket_close(this.serverSocket);
+	if (result == 0) {
+		return false;
+	}
+	this.open = false;
+	return true;
+};
+
+ServerSocket.prototype.acceptClient = function () {
+	var clientSocket;
+	var socket;
+	clientSocket = this.nova_serversocket_accept(this.serverSocket);
+	if (clientSocket == 0) {
+		return null;
+	}
+	socket = new ConnectionSocket(clientSocket);
+	return socket;
+};
+
+ServerSocket.prototype.super = function () {
+	this.requests = new Array();
+};
+
 
 

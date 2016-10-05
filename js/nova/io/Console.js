@@ -1,159 +1,158 @@
 var Console = function () {
-	var self = this;
-	
-	
-	this.Console = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.writeLine = function () {
-		self.writeLine("");
-	};
-	
-	this.writeLine = function (text) {
-		self.write(text.concat(new String("\n")));
-	};
-	
-	this.writeLine = function (obj) {
-		self.writeLine(obj.toString());
-	};
-	
-	this.writeLine = function (num) {
-		self.writeLine(Double.toString(num));
-	};
-	
-	this.writeLine = function (num) {
-		self.writeLine(Double.toString(num));
-	};
-	
-	this.writeLine = function (num) {
-		self.writeLine(Long.toString(num));
-	};
-	
-	this.writeLine = function (num) {
-		self.writeLine(Int.toString(num));
-	};
-	
-	this.writeLine = function (num) {
-		self.writeLine(Int.toString(num));
-	};
-	
-	this.writeLine = function (num) {
-		self.writeLine(Byte.toString(num));
-	};
-	
-	this.writeLine = function (c) {
-		self.writeLine(Char.toString(c));
-	};
-	
-	this.write = function (text) {
-		var cText;
-		cText = text.chars;
-		self.fputs(cText.data, self.stdout);
-		self.flushOutput();
-	};
-	
-	this.write = function (obj) {
-		self.write(obj.toString());
-	};
-	
-	this.write = function (num) {
-		self.write(Double.toString(num));
-	};
-	
-	this.write = function (num) {
-		self.write(Double.toString(num));
-	};
-	
-	this.write = function (num) {
-		self.write(Long.toString(num));
-	};
-	
-	this.write = function (num) {
-		self.write(Int.toString(num));
-	};
-	
-	this.write = function (num) {
-		self.write(Int.toString(num));
-	};
-	
-	this.write = function (num) {
-		self.write(Byte.toString(num));
-	};
-	
-	this.write = function (c) {
-		self.write(Char.toString(c));
-	};
-	
-	this.readInt = function () {
-		var s;
-		s = self.readLine();
-		return parseInt(s);
-	};
-	
-	this.readDouble = function () {
-		var s;
-		s = self.readLine();
-		return parseDouble(s);
-	};
-	
-	this.readChar = function () {
-		var c;
-		c = self.getchar();
-		self.flushInput();
-		return c;
-	};
-	
-	this.flushInput = function () {
-		self.fseek(self.stdin, 0, self.SEEK_END);
-	};
-	
-	this.flushOutput = function () {
-		self.fflush(self.stdout);
-	};
-	
-	this.readLine = function () {
-		var line;
-		var s;
-		line = self.ufgets(self.stdin);
-		s = new String(line);
-		return s;
-	};
-	
-	this.readPassword = function () {
-		var pass;
-		self.setEcho(false);
-		pass = self.readLine();
-		self.setEcho(true);
-		self.write("\n");
-		return pass;
-	};
-	
-	this.setEcho = function (echo) {
-		self.nova_setEcho(echo);
-	};
-	
-	this.clearScreen = function () {
-		self.nova_clearScreen();
-	};
-	
-	this.waitForEnter = function () {
-		var c;
-		self.flushInput();
-		c = [];
-		self.fgets(c, 2, self.stdin);
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Console.prototype.Console = function () {
+	this.this();
+};
+
+Console.prototype.destroy = function () {
+};
+
+Console.prototype.writeLine = function () {
+	this.writeLine("");
+};
+
+Console.prototype.writeLine = function (text) {
+	this.write(text.concat(new String("\n")));
+};
+
+Console.prototype.writeLine = function (obj) {
+	this.writeLine(obj.toString());
+};
+
+Console.prototype.writeLine = function (num) {
+	this.writeLine(Double.toString(num));
+};
+
+Console.prototype.writeLine = function (num) {
+	this.writeLine(Double.toString(num));
+};
+
+Console.prototype.writeLine = function (num) {
+	this.writeLine(Long.toString(num));
+};
+
+Console.prototype.writeLine = function (num) {
+	this.writeLine(Int.toString(num));
+};
+
+Console.prototype.writeLine = function (num) {
+	this.writeLine(Int.toString(num));
+};
+
+Console.prototype.writeLine = function (num) {
+	this.writeLine(Byte.toString(num));
+};
+
+Console.prototype.writeLine = function (c) {
+	this.writeLine(Char.toString(c));
+};
+
+Console.prototype.write = function (text) {
+	var cText;
+	cText = text.chars;
+	this.fputs(cText.data, this.stdout);
+	this.flushOutput();
+};
+
+Console.prototype.write = function (obj) {
+	this.write(obj.toString());
+};
+
+Console.prototype.write = function (num) {
+	this.write(Double.toString(num));
+};
+
+Console.prototype.write = function (num) {
+	this.write(Double.toString(num));
+};
+
+Console.prototype.write = function (num) {
+	this.write(Long.toString(num));
+};
+
+Console.prototype.write = function (num) {
+	this.write(Int.toString(num));
+};
+
+Console.prototype.write = function (num) {
+	this.write(Int.toString(num));
+};
+
+Console.prototype.write = function (num) {
+	this.write(Byte.toString(num));
+};
+
+Console.prototype.write = function (c) {
+	this.write(Char.toString(c));
+};
+
+Console.prototype.readInt = function () {
+	var s;
+	s = this.readLine();
+	return parseInt(s);
+};
+
+Console.prototype.readDouble = function () {
+	var s;
+	s = this.readLine();
+	return parseDouble(s);
+};
+
+Console.prototype.readChar = function () {
+	var c;
+	c = this.getchar();
+	this.flushInput();
+	return c;
+};
+
+Console.prototype.flushInput = function () {
+	this.fseek(this.stdin, 0, this.SEEK_END);
+};
+
+Console.prototype.flushOutput = function () {
+	this.fflush(this.stdout);
+};
+
+Console.prototype.readLine = function () {
+	var line;
+	var s;
+	line = this.ufgets(this.stdin);
+	s = new String(line);
+	return s;
+};
+
+Console.prototype.readPassword = function () {
+	var pass;
+	this.setEcho(false);
+	pass = this.readLine();
+	this.setEcho(true);
+	this.write("\n");
+	return pass;
+};
+
+Console.prototype.setEcho = function (echo) {
+	this.nova_setEcho(echo);
+};
+
+Console.prototype.clearScreen = function () {
+	this.nova_clearScreen();
+};
+
+Console.prototype.waitForEnter = function () {
+	var c;
+	this.flushInput();
+	c = [];
+	this.fgets(c, 2, this.stdin);
+};
+
+Console.prototype.this = function () {
+};
+
+Console.prototype.super = function () {
+};
+
 
 

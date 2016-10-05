@@ -1,43 +1,42 @@
 var Byte = function () {
-	var self = this;
-	
 	this.value = 0;
-	
-	this.Byte = function (value) {
-		self.this(value);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (value) {
-		self = value;
-	};
-	
-	this.numDigits = function (number) {
-		return numDigits(number);
-	};
-	
-	this.toString = function (value) {
-		return toString(value);
-	};
-	
-	this.toString = function () {
-		return self.toString(self.value);
-	};
-	
-	this.compareTo = function (other) {
-		return self.value - other;
-	};
-	
-	this.multiply = function (value) {
-		return self * value;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Byte.prototype.Byte = function (value) {
+	this.this(value);
+};
+
+Byte.prototype.destroy = function () {
+};
+
+Byte.prototype.this = function (value) {
+	this = value;
+};
+
+Byte.prototype.numDigits = function (number) {
+	return numDigits(number);
+};
+
+Byte.prototype.toString = function (value) {
+	return toString(value);
+};
+
+Byte.prototype.toString = function () {
+	return this.toString(this.value);
+};
+
+Byte.prototype.compareTo = function (other) {
+	return this.value - other;
+};
+
+Byte.prototype.multiply = function (value) {
+	return this * value;
+};
+
+Byte.prototype.super = function () {
+};
+
 
 

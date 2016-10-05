@@ -1,124 +1,123 @@
 var Node = function () {
-	var self = this;
-	
 	this.data = nova_null;
 	this.children = nova_null;
 	
-	this.Node = function (data, numChildren) {
-		self.this(data, numChildren);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (data, numChildren) {
-		data = typeof data == 'undefined' ? null : data;
-		numChildren = typeof numChildren == 'undefined' ? 5 : numChildren;
-		self.children = new Array(numChildren);
-		self = data;
-	};
-	
-	this.notNull = function (value) {
-		return value != null;
-	};
-	
-	this.preorder = function () {
-		var array;
-		array = new Array();
-		self.preorder(array);
-		return array;
-	};
-	
-	this.preorder = function (array) {
-		var contextArg12;
-		array.add(self.data);
-		self.children.filter(self.notNull).forEach(self.testLambda12);
-	};
-	
-	this.inorder = function () {
-		var array;
-		array = new Array();
-		return self.inorder(array);
-	};
-	
-	this.inorder = function (array) {
-		var half;
-		var contextArg13;
-		var contextArg14;
-		half = Math.ceil(self.children.count / 2.0);
-		self.children.take(half).filter(self.notNull).forEach(self.testLambda13);
-		array.add(self.data);
-		self.children.skip(half).filter(self.notNull).forEach(self.testLambda14);
-		return array;
-	};
-	
-	this.postorder = function () {
-		var array;
-		array = new Array();
-		return self.postorder(array);
-	};
-	
-	this.postorder = function (array) {
-		var contextArg15;
-		self.children.filter(self.notNull).forEach(self.testLambda15);
-		array.add(self.data);
-		return array;
-	};
-	
-	this.levelorder = function () {
-		var array;
-		array = new Array();
-		return self.levelorder(array);
-	};
-	
-	this.levelorder = function (array) {
-		var queue;
-		queue = new Queue(self.generated9());
-		while (!queue.accessor_empty()) {
-			var current;
-			var contextArg16;
-			current = queue.dequeue();
-			array.add(current.data);
-			current.children.filter(self.notNull).forEach(self.testLambda16);
-		}
-		return array;
-	};
-	
-	this.toString = function () {
-		return toString();
-	};
-	
-	this.testLambda12 = function (_1, _2, _3) {
-		_1.preorder(array);
-	};
-	
-	this.testLambda13 = function (_1, _2, _3) {
-		_1.inorder(array);
-	};
-	
-	this.testLambda14 = function (_1, _2, _3) {
-		_1.inorder(array);
-	};
-	
-	this.testLambda15 = function (_1, _2, _3) {
-		_1.postorder(array);
-	};
-	
-	this.generated9 = function () {
-		var temp;
-		temp = [];
-		temp = self;
-		return new Array(temp, 1);
-	};
-	
-	this.testLambda16 = function (_1, _2, _3) {
-		queue.enqueue(_1);
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+Node.prototype.Node = function (data, numChildren) {
+	this.this(data, numChildren);
+};
+
+Node.prototype.destroy = function () {
+};
+
+Node.prototype.this = function (data, numChildren) {
+	data = typeof data == 'undefined' ? null : data;
+	numChildren = typeof numChildren == 'undefined' ? 5 : numChildren;
+	this.children = new Array(numChildren);
+	this = data;
+};
+
+Node.prototype.notNull = function (value) {
+	return value != null;
+};
+
+Node.prototype.preorder = function () {
+	var array;
+	array = new Array();
+	this.preorder(array);
+	return array;
+};
+
+Node.prototype.preorder = function (array) {
+	var contextArg12;
+	array.add(this.data);
+	this.children.filter(this.notNull).forEach(this.testLambda12);
+};
+
+Node.prototype.inorder = function () {
+	var array;
+	array = new Array();
+	return this.inorder(array);
+};
+
+Node.prototype.inorder = function (array) {
+	var half;
+	var contextArg13;
+	var contextArg14;
+	half = Math.ceil(this.children.count / 2.0);
+	this.children.take(half).filter(this.notNull).forEach(this.testLambda13);
+	array.add(this.data);
+	this.children.skip(half).filter(this.notNull).forEach(this.testLambda14);
+	return array;
+};
+
+Node.prototype.postorder = function () {
+	var array;
+	array = new Array();
+	return this.postorder(array);
+};
+
+Node.prototype.postorder = function (array) {
+	var contextArg15;
+	this.children.filter(this.notNull).forEach(this.testLambda15);
+	array.add(this.data);
+	return array;
+};
+
+Node.prototype.levelorder = function () {
+	var array;
+	array = new Array();
+	return this.levelorder(array);
+};
+
+Node.prototype.levelorder = function (array) {
+	var queue;
+	queue = new Queue(this.generated9());
+	while (!queue.accessor_empty()) {
+		var current;
+		var contextArg16;
+		current = queue.dequeue();
+		array.add(current.data);
+		current.children.filter(this.notNull).forEach(this.testLambda16);
+	}
+	return array;
+};
+
+Node.prototype.toString = function () {
+	return toString();
+};
+
+Node.prototype.testLambda12 = function (_1, _2, _3) {
+	_1.preorder(array);
+};
+
+Node.prototype.testLambda13 = function (_1, _2, _3) {
+	_1.inorder(array);
+};
+
+Node.prototype.testLambda14 = function (_1, _2, _3) {
+	_1.inorder(array);
+};
+
+Node.prototype.testLambda15 = function (_1, _2, _3) {
+	_1.postorder(array);
+};
+
+Node.prototype.generated9 = function () {
+	var temp;
+	temp = [];
+	temp = this;
+	return new Array(temp, 1);
+};
+
+Node.prototype.testLambda16 = function (_1, _2, _3) {
+	queue.enqueue(_1);
+};
+
+Node.prototype.super = function () {
+};
+
 
 

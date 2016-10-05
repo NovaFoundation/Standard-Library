@@ -1,43 +1,42 @@
 var Float = function () {
-	var self = this;
-	
 	this.value = 0;
-	
-	this.Float = function (value) {
-		self.this(value);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (value) {
-		self = value;
-	};
-	
-	this.numDigits = function (number) {
-		return numDigits(number);
-	};
-	
-	this.toString = function (value) {
-		return toString(value);
-	};
-	
-	this.toString = function () {
-		return self.toString(self.value);
-	};
-	
-	this.compareTo = function (other) {
-		return self.value - other;
-	};
-	
-	this.multiply = function (value) {
-		return self * value;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Float.prototype.Float = function (value) {
+	this.this(value);
+};
+
+Float.prototype.destroy = function () {
+};
+
+Float.prototype.this = function (value) {
+	this = value;
+};
+
+Float.prototype.numDigits = function (number) {
+	return numDigits(number);
+};
+
+Float.prototype.toString = function (value) {
+	return toString(value);
+};
+
+Float.prototype.toString = function () {
+	return this.toString(this.value);
+};
+
+Float.prototype.compareTo = function (other) {
+	return this.value - other;
+};
+
+Float.prototype.multiply = function (value) {
+	return this * value;
+};
+
+Float.prototype.super = function () {
+};
+
 
 

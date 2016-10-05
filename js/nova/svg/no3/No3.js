@@ -1,25 +1,24 @@
 var No3 = function () {
-	var self = this;
-	
-	
-	this.No3 = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.select = function (selection) {
-		return new No3Selection(selection);
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+No3.prototype.No3 = function () {
+	this.this();
+};
+
+No3.prototype.destroy = function () {
+};
+
+No3.prototype.select = function (selection) {
+	return new No3Selection(selection);
+};
+
+No3.prototype.this = function () {
+};
+
+No3.prototype.super = function () {
+};
+
 
 

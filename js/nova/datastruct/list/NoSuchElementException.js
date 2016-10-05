@@ -1,30 +1,29 @@
 var NoSuchElementException = function () {
-	var self = this;
-	
-	
-	this.NoSuchElementException = function () {
-		self.this();
-	};
-	
-	this.NoSuchElementException = function (message) {
-		self.this(message);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-		self.this("No such element");
-	};
-	
-	this.this = function (message) {
-		self.this(message);
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+NoSuchElementException.prototype.NoSuchElementException = function () {
+	this.this();
+};
+
+NoSuchElementException.prototype.NoSuchElementException = function (message) {
+	this.this(message);
+};
+
+NoSuchElementException.prototype.destroy = function () {
+};
+
+NoSuchElementException.prototype.this = function () {
+	this.this("No such element");
+};
+
+NoSuchElementException.prototype.this = function (message) {
+	this.this(message);
+};
+
+NoSuchElementException.prototype.super = function () {
+};
+
 
 

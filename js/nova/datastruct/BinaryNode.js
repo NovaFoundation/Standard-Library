@@ -1,80 +1,79 @@
 var BinaryNode = function () {
-	var self = this;
-	
-	
-	this.BinaryNode = function (data) {
-		self.this(data);
-	};
-	
-	this.BinaryNode = function (data, size) {
-		self.this(data, size);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (data) {
-		data = typeof data == 'undefined' ? null : data;
-		self.this(data, 2);
-	};
-	
-	this.this = function (data, size) {
-		self.this(data, size);
-	};
-	
-	this.getNode = function (index) {
-		if (self.children.count <= index) {
-			return null;
-		}
-		return get(index);
-	};
-	
-	this.setNode = function (index, data) {
-		if (self.children.count <= index) {
-			self.children.add(index, data);
-		} else {
-			self.children.set(index, data);
-		}
-	};
-	
-	this.addChild = function (data) {
-		if (self >= 0) {
-			if (self.accessor_left() == null) {
-				self.mutator_left(new BinaryNode(data));
-			} else {
-				self.accessor_left().addChild(data);
-			}
-		} else {
-			if (self.accessor_right() == null) {
-				self.mutator_right(new BinaryNode(data));
-			} else {
-				self.accessor_right().addChild(data);
-			}
-		}
-	};
-	
-	this.accessor_left = function () {
-		return self.getNode(0);
-	};
-	
-	this.mutator_left = function (value) {
-		self.setNode(0, value);
-		return value;
-	};
-	
-	this.accessor_right = function () {
-		return self.getNode(1);
-	};
-	
-	this.mutator_right = function (value) {
-		self.setNode(1, value);
-		return value;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+BinaryNode.prototype.BinaryNode = function (data) {
+	this.this(data);
+};
+
+BinaryNode.prototype.BinaryNode = function (data, size) {
+	this.this(data, size);
+};
+
+BinaryNode.prototype.destroy = function () {
+};
+
+BinaryNode.prototype.this = function (data) {
+	data = typeof data == 'undefined' ? null : data;
+	this.this(data, 2);
+};
+
+BinaryNode.prototype.this = function (data, size) {
+	this.this(data, size);
+};
+
+BinaryNode.prototype.getNode = function (index) {
+	if (this.children.count <= index) {
+		return null;
+	}
+	return get(index);
+};
+
+BinaryNode.prototype.setNode = function (index, data) {
+	if (this.children.count <= index) {
+		this.children.add(index, data);
+	} else {
+		this.children.set(index, data);
+	}
+};
+
+BinaryNode.prototype.addChild = function (data) {
+	if (this >= 0) {
+		if (this.accessor_left() == null) {
+			this.mutator_left(new BinaryNode(data));
+		} else {
+			this.accessor_left().addChild(data);
+		}
+	} else {
+		if (this.accessor_right() == null) {
+			this.mutator_right(new BinaryNode(data));
+		} else {
+			this.accessor_right().addChild(data);
+		}
+	}
+};
+
+BinaryNode.prototype.accessor_left = function () {
+	return this.getNode(0);
+};
+
+BinaryNode.prototype.mutator_left = function (value) {
+	this.setNode(0, value);
+	return value;
+};
+
+BinaryNode.prototype.accessor_right = function () {
+	return this.getNode(1);
+};
+
+BinaryNode.prototype.mutator_right = function (value) {
+	this.setNode(1, value);
+	return value;
+};
+
+BinaryNode.prototype.super = function () {
+};
+
 
 

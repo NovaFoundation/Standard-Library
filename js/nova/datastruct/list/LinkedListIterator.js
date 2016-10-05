@@ -1,51 +1,50 @@
 var LinkedListIterator = function () {
-	var self = this;
-	
 	this.list = nova_null;
 	this.position = nova_null;
 	
-	this.LinkedListIterator = function (list) {
-		self.this(list);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (list) {
-		self = list;
-		self.reset();
-	};
-	
-	this.reset = function () {
-		self.position = self.list.accessor_first();
-		return self;
-	};
-	
-	this.accessor_hasNext = function () {
-		return self.position != null;
-	};
-	
-	this.mutator_hasNext = function () {
-	};
-	
-	this.accessor_next = function () {
-		if (self.hasNext()) {
-			var data;
-			data = self.position.data;
-			self.position = self.position.next;
-			return data;
-		}
-		;
-		return null;
-	};
-	
-	this.mutator_next = function () {
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+LinkedListIterator.prototype.LinkedListIterator = function (list) {
+	this.this(list);
+};
+
+LinkedListIterator.prototype.destroy = function () {
+};
+
+LinkedListIterator.prototype.this = function (list) {
+	this = list;
+	this.reset();
+};
+
+LinkedListIterator.prototype.reset = function () {
+	this.position = this.list.accessor_first();
+	return this;
+};
+
+LinkedListIterator.prototype.accessor_hasNext = function () {
+	return this.position != null;
+};
+
+LinkedListIterator.prototype.mutator_hasNext = function () {
+};
+
+LinkedListIterator.prototype.accessor_next = function () {
+	if (this.hasNext()) {
+		var data;
+		data = this.position.data;
+		this.position = this.position.next;
+		return data;
+	}
+	;
+	return null;
+};
+
+LinkedListIterator.prototype.mutator_next = function () {
+};
+
+LinkedListIterator.prototype.super = function () {
+};
+
 
 

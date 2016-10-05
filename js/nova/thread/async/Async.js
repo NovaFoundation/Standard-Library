@@ -1,28 +1,27 @@
 var Async = function () {
-	var self = this;
-	
-	
-	this.Async = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.execute = function (func) {
-		var result;
-		result = new AsyncResult();
-		func();
-		return result;
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Async.prototype.Async = function () {
+	this.this();
+};
+
+Async.prototype.destroy = function () {
+};
+
+Async.prototype.execute = function (func) {
+	var result;
+	result = new AsyncResult();
+	func();
+	return result;
+};
+
+Async.prototype.this = function () {
+};
+
+Async.prototype.super = function () {
+};
+
 
 

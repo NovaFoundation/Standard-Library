@@ -1,27 +1,26 @@
 var NumericStatement = function () {
-	var self = this;
-	
 	this.tree = nova_null;
-	
-	this.NumericStatement = function (statement) {
-		self.this(statement);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (statement) {
-		self.tree = new NumericTree(statement.trim());
-	};
-	
-	this.toString = function () {
-		return toString();
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+NumericStatement.prototype.NumericStatement = function (statement) {
+	this.this(statement);
+};
+
+NumericStatement.prototype.destroy = function () {
+};
+
+NumericStatement.prototype.this = function (statement) {
+	this.tree = new NumericTree(statement.trim());
+};
+
+NumericStatement.prototype.toString = function () {
+	return toString();
+};
+
+NumericStatement.prototype.super = function () {
+};
+
 
 

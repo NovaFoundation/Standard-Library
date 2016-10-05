@@ -1,22 +1,21 @@
 var Hypothesis = function () {
-	var self = this;
-	
-	
-	this.Hypothesis = function (statement) {
-		self.this(statement);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (statement) {
-		self.this(statement);
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Hypothesis.prototype.Hypothesis = function (statement) {
+	this.this(statement);
+};
+
+Hypothesis.prototype.destroy = function () {
+};
+
+Hypothesis.prototype.this = function (statement) {
+	this.this(statement);
+};
+
+Hypothesis.prototype.super = function () {
+};
+
 
 

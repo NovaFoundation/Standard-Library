@@ -1,29 +1,28 @@
 var ResultSet = function () {
-	var self = this;
-	
 	this.numCols = 0;
 	this.rows = nova_null;
 	
-	this.ResultSet = function (rows, numCols) {
-		self.this(rows, numCols);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (rows, numCols) {
-		self = rows;
-		self = numCols;
-	};
-	
-	this.accessor_numRows = function () {
-		return count;
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+ResultSet.prototype.ResultSet = function (rows, numCols) {
+	this.this(rows, numCols);
+};
+
+ResultSet.prototype.destroy = function () {
+};
+
+ResultSet.prototype.this = function (rows, numCols) {
+	this = rows;
+	this = numCols;
+};
+
+ResultSet.prototype.accessor_numRows = function () {
+	return count;
+};
+
+ResultSet.prototype.super = function () {
+};
+
 
 

@@ -1,18 +1,17 @@
 var Iterable = function () {
-	var self = this;
-	
-	
-	this.accessor_iterator = function () {
-		return null;
-	};
-	
-	this.mutator_iterator = function () {
-	};
-	
-	this.iterator = function () {
-	};
 	
 	
 };
+
+Iterable.prototype.accessor_iterator = function () {
+	return null;
+};
+
+Iterable.prototype.mutator_iterator = function () {
+};
+
+Iterable.prototype.iterator = function () {
+};
+
 
 

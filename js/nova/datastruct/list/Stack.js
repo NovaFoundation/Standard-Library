@@ -1,49 +1,48 @@
 var Stack = function () {
-	var self = this;
-	
 	this.top = nova_null;
 	this.size = 0;
 	
-	this.Stack = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.push = function (data) {
-		var node;
-		node = new ListNode(data);
-		node.next = self.top;
-		self.top = node;
-		self.size++;
-	};
-	
-	this.pop = function () {
-		var data;
-		if (self.accessor_empty()) {
-			;
-		}
-		data = self.top.data;
-		self.top = self.top.next;
-		self.size--;
-		return data;
-	};
-	
-	this.this = function () {
-	};
-	
-	this.accessor_empty = function () {
-		return self.size <= 0;
-	};
-	
-	this.mutator_empty = function () {
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+Stack.prototype.Stack = function () {
+	this.this();
+};
+
+Stack.prototype.destroy = function () {
+};
+
+Stack.prototype.push = function (data) {
+	var node;
+	node = new ListNode(data);
+	node.next = this.top;
+	this.top = node;
+	this.size++;
+};
+
+Stack.prototype.pop = function () {
+	var data;
+	if (this.accessor_empty()) {
+		;
+	}
+	data = this.top.data;
+	this.top = this.top.next;
+	this.size--;
+	return data;
+};
+
+Stack.prototype.this = function () {
+};
+
+Stack.prototype.accessor_empty = function () {
+	return this.size <= 0;
+};
+
+Stack.prototype.mutator_empty = function () {
+};
+
+Stack.prototype.super = function () {
+};
+
 
 

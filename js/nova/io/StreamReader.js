@@ -1,33 +1,32 @@
 var StreamReader = function () {
-	var self = this;
-	
 	this.file = nova_null;
-	
-	this.StreamReader = function (file) {
-		self.this(file);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (file) {
-		self = file;
-	};
-	
-	this.readBytes = function () {
-		return null;
-	};
-	
-	this.readString = function () {
-		var output;
-		output = self.file.readAllContents();
-		return output;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+StreamReader.prototype.StreamReader = function (file) {
+	this.this(file);
+};
+
+StreamReader.prototype.destroy = function () {
+};
+
+StreamReader.prototype.this = function (file) {
+	this = file;
+};
+
+StreamReader.prototype.readBytes = function () {
+	return null;
+};
+
+StreamReader.prototype.readString = function () {
+	var output;
+	output = this.file.readAllContents();
+	return output;
+};
+
+StreamReader.prototype.super = function () {
+};
+
 
 

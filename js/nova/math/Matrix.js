@@ -1,27 +1,26 @@
 var Matrix = function () {
-	var self = this;
-	
 	this.matrix = nova_null;
-	
-	this.Matrix = function (rows, cols) {
-		self.this(rows, cols);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (rows, cols) {
-		self.matrix = new Array(rows);
-	};
-	
-	this.sum = function () {
-		return 0;
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Matrix.prototype.Matrix = function (rows, cols) {
+	this.this(rows, cols);
+};
+
+Matrix.prototype.destroy = function () {
+};
+
+Matrix.prototype.this = function (rows, cols) {
+	this.matrix = new Array(rows);
+};
+
+Matrix.prototype.sum = function () {
+	return 0;
+};
+
+Matrix.prototype.super = function () {
+};
+
 
 

@@ -1,27 +1,26 @@
 var NumericOperand = function () {
-	var self = this;
-	
 	this.data = nova_null;
-	
-	this.NumericOperand = function (data) {
-		self.this(data);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (data) {
-		self = data;
-	};
-	
-	this.toString = function () {
-		return toString();
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+NumericOperand.prototype.NumericOperand = function (data) {
+	this.this(data);
+};
+
+NumericOperand.prototype.destroy = function () {
+};
+
+NumericOperand.prototype.this = function (data) {
+	this = data;
+};
+
+NumericOperand.prototype.toString = function () {
+	return toString();
+};
+
+NumericOperand.prototype.super = function () {
+};
+
 
 

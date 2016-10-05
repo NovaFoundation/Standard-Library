@@ -1,21 +1,20 @@
 var HuffmanTree = function () {
-	var self = this;
-	
-	
-	this.HuffmanTree = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+HuffmanTree.prototype.HuffmanTree = function () {
+	this.this();
+};
+
+HuffmanTree.prototype.destroy = function () {
+};
+
+HuffmanTree.prototype.this = function () {
+};
+
+HuffmanTree.prototype.super = function () {
+};
+
 
 

@@ -1,74 +1,74 @@
 var WFF = function () {
-	var self = this;
-	
 	this.letters = nova_null;
 	this.hypotheses = nova_null;
 	this.conclusion = nova_null;
 	this.wff = nova_null;
 	
-	this.WFF = function (wellFormedFormula, letters) {
-		self.this(wellFormedFormula, letters);
-	};
 	
-	this.destroy = function () {
-	};
-	
-	this.this = function (wellFormedFormula, letters) {
-		self = wellFormedFormula.trim();
-		self = letters;
-		self.hypotheses = new Array();
-		self.decodeFormula();
-	};
-	
-	this.decodeFormula = function () {
-		var conclusionGroup;
-		var conclusion;
-		var statements;
-		var i;
-		var n;
-		conclusionGroup = self.searchForConclusion(self.wff);
-		if (conclusionGroup == null) {
-			;
-		}
-		conclusion = conclusionGroup.statement;
-		Console.writeLine(new String("Conclusion: ").concat(conclusion.toString()));
-		self.wff = conclusionGroup.bounds.extractPreString(self.wff);
-		statements = self.decodeHypotheses(self.wff);
-		i = 0;
-		for (; i < statements.count; i++) {
-			var group;
-			group = statements.get(i);
-			self.hypotheses.add(group.statement);
-		}
-		n = 0;
-		for (; n < self.hypotheses.count; n++) {
-			Console.writeLine(self.hypotheses.get(n));
-		}
-	};
-	
-	this.searchForConclusion = function (wff) {
-		var index;
-		var conclusionStart;
-		var bounds;
-		var conclusion;
-		var group;
-		index = wff.lastIndexOf("->");
-		if (index < 0) {
-			return null;
-		}
-		if (wff.lastChar() == ')') {
-		var first;
-		first = self.findEndingMatch(wff, '(', ')', wff.count - 1, -1);
-	}
-	conclusionStart = self.nextNonWhitespaceIndex(wff, index + 2, 1);
-	bounds = new Bounds(conclusionStart, wff.count);
-	conclusion = new Conclusion(bounds.extractString(wff));
-	bounds.start = self.nextNonWhitespaceIndex(wff, index - 1, -1) + 1;
-	group = new StatementGroup(conclusion, bounds);
-	return group;
 };
 
-this.decodeHypotheses = function (wff) {
+WFF.prototype.WFF = function (wellFormedFormula, letters) {
+	this.this(wellFormedFormula, letters);
+};
+
+WFF.prototype.destroy = function () {
+};
+
+WFF.prototype.this = function (wellFormedFormula, letters) {
+	this = wellFormedFormula.trim();
+	this = letters;
+	this.hypotheses = new Array();
+	this.decodeFormula();
+};
+
+WFF.prototype.decodeFormula = function () {
+	var conclusionGroup;
+	var conclusion;
+	var statements;
+	var i;
+	var n;
+	conclusionGroup = this.searchForConclusion(this.wff);
+	if (conclusionGroup == null) {
+		;
+	}
+	conclusion = conclusionGroup.statement;
+	Console.writeLine(new String("Conclusion: ").concat(conclusion.toString()));
+	this.wff = conclusionGroup.bounds.extractPreString(this.wff);
+	statements = this.decodeHypotheses(this.wff);
+	i = 0;
+	for (; i < statements.count; i++) {
+		var group;
+		group = statements.get(i);
+		this.hypotheses.add(group.statement);
+	}
+	n = 0;
+	for (; n < this.hypotheses.count; n++) {
+		Console.writeLine(this.hypotheses.get(n));
+	}
+};
+
+WFF.prototype.searchForConclusion = function (wff) {
+	var index;
+	var conclusionStart;
+	var bounds;
+	var conclusion;
+	var group;
+	index = wff.lastIndexOf("->");
+	if (index < 0) {
+		return null;
+	}
+	if (wff.lastChar() == ')') {
+	var first;
+	first = this.findEndingMatch(wff, '(', ')', wff.count - 1, -1);
+}
+conclusionStart = this.nextNonWhitespaceIndex(wff, index + 2, 1);
+bounds = new Bounds(conclusionStart, wff.count);
+conclusion = new Conclusion(bounds.extractString(wff));
+bounds.start = this.nextNonWhitespaceIndex(wff, index - 1, -1) + 1;
+group = new StatementGroup(conclusion, bounds);
+return group;};
+
+WFF.prototype.decodeHypotheses = function (wff) {
 	var list;
 	var next;
 	var prev;
@@ -78,16 +78,16 @@ this.decodeHypotheses = function (wff) {
 	prev = 0;
 	index = wff.indexOf("&");
 	while (index >= 0) {
-		next = self.nextNonWhitespaceIndex(wff, index - 1, -1);
-		list.add(self.generateHypothesis(wff, prev, next + 1));
-		prev = self.nextNonWhitespaceIndex(wff, index + 1, 1);
+		next = this.nextNonWhitespaceIndex(wff, index - 1, -1);
+		list.add(this.generateHypothesis(wff, prev, next + 1));
+		prev = this.nextNonWhitespaceIndex(wff, index + 1, 1);
 		index = wff.indexOf("&", prev + 1);
 	}
-	list.add(self.generateHypothesis(wff, prev, wff.count));
+	list.add(this.generateHypothesis(wff, prev, wff.count));
 	return list;
 };
 
-this.generateHypothesis = function (wff, start, end) {
+WFF.prototype.generateHypothesis = function (wff, start, end) {
 	var bounds;
 	var h;
 	var group;
@@ -97,25 +97,25 @@ this.generateHypothesis = function (wff, start, end) {
 	return group;
 };
 
-this.searchForStatement = function (wff) {
+WFF.prototype.searchForStatement = function (wff) {
 	return null;
 };
 
-this.nextNonWhitespaceIndex = function (wff, index, direction) {
-	return self.nextWhitespaceIndex(wff, index, direction, true);
+WFF.prototype.nextNonWhitespaceIndex = function (wff, index, direction) {
+	return this.nextWhitespaceIndex(wff, index, direction, true);
 };
 
-this.nextWhitespaceIndex = function (wff, index, direction) {
-	return self.nextWhitespaceIndex(wff, index, direction, false);
+WFF.prototype.nextWhitespaceIndex = function (wff, index, direction) {
+	return this.nextWhitespaceIndex(wff, index, direction, false);
 };
 
-this.nextWhitespaceIndex = function (wff, index, direction, opposite) {
+WFF.prototype.nextWhitespaceIndex = function (wff, index, direction, opposite) {
 	var i;
 	i = index;
 	while (i < wff.count && i >= 0) {
 		var c;
 		c = wff.charAt(i);
-		if (self.containsChar(c, self.whitespace) != opposite) {
+		if (this.containsChar(c, this.whitespace) != opposite) {
 			return i;
 		}
 		i = i + direction;
@@ -123,7 +123,7 @@ this.nextWhitespaceIndex = function (wff, index, direction, opposite) {
 	return -1;
 };
 
-this.containsChar = function (needle, chars) {
+WFF.prototype.containsChar = function (needle, chars) {
 	var i;
 	i = 0;
 	for (; i < chars.count; i++) {
@@ -134,7 +134,7 @@ this.containsChar = function (needle, chars) {
 	return false;
 };
 
-this.findEndingMatch = function (wff, start, end, index, direction) {
+WFF.prototype.findEndingMatch = function (wff, start, end, index, direction) {
 	var scope;
 	var i;
 	if (direction < 0) {
@@ -161,7 +161,7 @@ this.findEndingMatch = function (wff, start, end, index, direction) {
 	return -1;
 };
 
-this.generated8 = function () {
+WFF.prototype.generated8 = function () {
 	var temp;
 	temp = [];
 	temp = ' ';
@@ -171,12 +171,11 @@ this.generated8 = function () {
 	return new CharArray(temp, 4);
 };
 
-this.super = function () {
+WFF.prototype.super = function () {
 };
 
-};
 
 (function () {
-		self.whitespace = self.generated8();
+		this.whitespace = this.generated8();
 })();
 

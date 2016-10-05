@@ -1,21 +1,20 @@
 var Statement = function () {
-	var self = this;
-	
-	
-	this.Statement = function () {
-		self.this();
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function () {
-	};
-	
-	this.super = function () {
-	};
 	
 	
 };
+
+Statement.prototype.Statement = function () {
+	this.this();
+};
+
+Statement.prototype.destroy = function () {
+};
+
+Statement.prototype.this = function () {
+};
+
+Statement.prototype.super = function () {
+};
+
 
 

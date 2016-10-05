@@ -1,48 +1,47 @@
 var DoubleArrayIterator = function () {
-	var self = this;
-	
 	this.array = nova_null;
 	this.position = 0;
 	
-	this.DoubleArrayIterator = function (array) {
-		self.this(array);
-	};
-	
-	this.destroy = function () {
-	};
-	
-	this.this = function (array) {
-		self = array;
-		self.reset();
-	};
-	
-	this.reset = function () {
-		self.position = 0;
-		return self;
-	};
-	
-	this.accessor_hasNext = function () {
-		return self.array.count > self.position;
-	};
-	
-	this.mutator_hasNext = function () {
-	};
-	
-	this.accessor_next = function () {
-		if (self.hasNext()) {
-			return get(self.position++);
-		}
-		;
-		return 0;
-	};
-	
-	this.mutator_next = function () {
-	};
-	
-	this.super = function () {
-	};
-	
 	
 };
+
+DoubleArrayIterator.prototype.DoubleArrayIterator = function (array) {
+	this.this(array);
+};
+
+DoubleArrayIterator.prototype.destroy = function () {
+};
+
+DoubleArrayIterator.prototype.this = function (array) {
+	this = array;
+	this.reset();
+};
+
+DoubleArrayIterator.prototype.reset = function () {
+	this.position = 0;
+	return this;
+};
+
+DoubleArrayIterator.prototype.accessor_hasNext = function () {
+	return this.array.count > this.position;
+};
+
+DoubleArrayIterator.prototype.mutator_hasNext = function () {
+};
+
+DoubleArrayIterator.prototype.accessor_next = function () {
+	if (this.hasNext()) {
+		return get(this.position++);
+	}
+	;
+	return 0;
+};
+
+DoubleArrayIterator.prototype.mutator_next = function () {
+};
+
+DoubleArrayIterator.prototype.super = function () {
+};
+
 
 
