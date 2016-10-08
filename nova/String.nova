@@ -69,9 +69,10 @@ public class String implements Comparable<String>
 
 	calculateSize([PrimitiveArray] Char[] chars) -> Int
 	{
-		return strlen(chars)
+		[Target c] return strlen(chars)
+		[Target js] return 0
 	}
-	
+
 	public concat(String str) -> String
 	{
 		Int sz = str.count + count + 1
