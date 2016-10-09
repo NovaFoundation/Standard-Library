@@ -14,7 +14,11 @@ public class Object implements Equals
 	
 	public String hashCode
 	{
-		get { return new String(hashCode(this)) }
+		get
+		{
+			[Target c] return new String(hashCode(this))
+			[Target js] return new String("No hashcode available in JS")
+		}
 		no set
 	}
 	

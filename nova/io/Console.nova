@@ -13,7 +13,6 @@ public class Console
 	external int   SEEK_END
 
 	[Target c] external void fgets(char buf[], int size, FILE* stream) as extReadLine
-	[Target js] external char[] readline() as extReadLine
 	external void fseek(FILE* stream, int offset, int origin)
 	[Target c] external void fputs(char str[], FILE* stream) as writeExternal
 	[Target js] external void console.log(char str[]) as writeExternal
@@ -153,13 +152,13 @@ public class Console
 
 	static flushInput()
 	{
-		fseek(stdin, 0, SEEK_END)
+		[Target c] fseek(stdin, 0, SEEK_END)
 	}
 
 	static flushOutput()
 	{
 //		fseek(stdout, 0, SEEK_END)
-		fflush(stdout)
+		[Target c] fflush(stdout)
 	}
 
 	public static readLine() -> String
@@ -168,7 +167,6 @@ public class Console
 		Char[] line
 
 		[Target c] line = ufgets(stdin)
-		[Target js] line = extReadLine()
 
 		String s = new String(line)
 
@@ -206,6 +204,5 @@ public class Console
 		Char c[] = new Char[2]
 
 		[Target c] extReadLine(c, 2, stdin)
-	  [Target js] extReadLine()
 	}
 }

@@ -27,7 +27,8 @@ public class String implements Comparable<String>
 
 	    no set
 	}
-
+	
+	[Target c]
 	public construct(Char c)
 	{
 	    [PrimitiveArray]
@@ -38,13 +39,28 @@ public class String implements Comparable<String>
 
 		this(chars)
 	}
+	
+	[Target js]
+	public construct(Char c)
+	{
+	    [PrimitiveArray]
+		Char[] chars
+		
+		external
+		{
+			chars = [#{c}];
+		}
 
+		this(chars)
+	}
+	
+	[Target c]
 	public construct([PrimitiveArray] Char[] chars)
 	{
 		count = calculateSize(chars)
 
 		this.chars = new CharArray(chars, count)
-
+		
 		if (chars[count] != '\0')
 		{
 			chars[count] = '\0'
@@ -59,6 +75,14 @@ public class String implements Comparable<String>
 		    //pool.add(this)
 		}*/
 	}
+	
+	[Target js]
+	public construct([PrimitiveArray] Char[] chars)
+	{
+		count = calculateSize(chars)
+
+		this.chars = new CharArray(chars, count)
+	}
 
 	public construct(Char[] chars)
 	{
@@ -70,9 +94,14 @@ public class String implements Comparable<String>
 	calculateSize([PrimitiveArray] Char[] chars) -> Int
 	{
 		[Target c] return strlen(chars)
-		[Target js] return 0
+		
+		external js
+		{
+			return #{chars}.length;
+		}
 	}
 
+	[Target c]
 	public concat(String str) -> String
 	{
 		Int sz = str.count + count + 1
@@ -87,7 +116,18 @@ public class String implements Comparable<String>
 
 		return new String(newData)
 	}
-
+	
+	[Target js]
+	public concat(String str) -> String
+	{
+		external
+		{
+			var newData = #{chars.data}.slice(0, #{count}).concat(#{str.chars.data});
+			
+			return new novaConstructors.newString1(newData);
+		}
+	}
+	
 	public equals(String other) -> Bool
 	{
 		return compareTo(other) == 0
@@ -122,7 +162,7 @@ public class String implements Comparable<String>
 	    return indexOf(search) >= 0
 	}
 
-	public indexOf(String search, Int start = 0, Int direction = 1) -> Int
+	public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int
 	{
 	    Int i = start
 
@@ -150,10 +190,10 @@ public class String implements Comparable<String>
 //					return i - search.count + 1
 			}
 
-			i = i + direction
+			i += direction
 		}
 
-		return -1
+		return defaultReturnValue
 	}
 
 	public lastIndexOf(String search) -> Int
@@ -169,20 +209,28 @@ public class String implements Comparable<String>
             {
                 throw new Exception("Substring bounds of [" + start + ", " + end + "] are invalid")
             }
-
+			
             return ""
         }
-
+		
 		[PrimitiveArray]
 		Char buf[] = new Char[end - start + 1]
-
+		
 		[PrimitiveArray]
 		Char[] arr = chars.data
-
-		memcpy(buf, arr[start], end - start)
-
-		buf[end - start] = '\0'
-
+		
+		external c
+		{
+			memcpy(#{buf}, &#{arr[start]}, #{end - start});
+			
+			#{buf[end - start] = '\0'};
+		}
+		
+		external js
+		{
+			#{buf} = #{arr}.slice(#{start}, #{end});
+		}
+		
 		return new String(buf)
 	}
 

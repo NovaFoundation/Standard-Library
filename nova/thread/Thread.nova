@@ -37,7 +37,13 @@ public class Thread
 	
 	public static sleep(Long millis)
 	{
+		[Target c]
 		lib_nova_thread_sleep(millis)
+		
+		external js
+		{
+			console.log("No sleep available in JS");
+		}
 	}
 	
 	public run()

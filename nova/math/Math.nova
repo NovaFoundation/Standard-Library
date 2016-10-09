@@ -15,8 +15,10 @@ public class Math
 	external double asin(double number) as extAsin
 	external double acos(double number) as extAcos
 	external double atan(double number) as extAtan
-	external long floor(double number) as extFloor
-	external long ceil(double number) as extCeil
+	[Target c] external long floor(double number) as extFloor
+	[Target js] external long Math.floor(double number) as extFloor
+	[Target c] external long ceil(double number) as extCeil
+	[Target js] external long Math.ceil(double number) as extCeil
 	external long rand() as extRand
 
 	visible static Double PI = 3.141592653
