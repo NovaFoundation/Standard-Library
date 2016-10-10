@@ -8,11 +8,7 @@ class StringCharArray extends CharArray
 		
 		external js
 		{
-			#{this.data} = "";
-			
-			for (var i = 0; i < #{data.data}.length; i++) {
-				#{this.data} += #{data.data}[i];
-			}
+			#{this.data} = #{data.data}.join("");
 		}
 	}
 
@@ -22,7 +18,7 @@ class StringCharArray extends CharArray
 		
 		external js
 		{
-			#{this.data} = #{data};
+			#{this.data} = typeof #{data} === 'string' ? #{data} : #{data}.join("");
 		}
 	}
 	
