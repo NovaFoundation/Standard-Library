@@ -76,6 +76,22 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return start + 1
 	}
 	
+	[Target js]
+	public static toString(Double value) -> String
+	{
+		return new String(toCharArray(value))
+	}
+	
+	[PrimitiveArray]
+	public static toCharArray(Double value) -> Char[]
+	{
+		external js
+		{
+			return #{value}.toString();
+		}
+	}
+	
+	[Target c]
 	public static toString(Double value) -> String
 	{
 	    [PrimitiveArray]

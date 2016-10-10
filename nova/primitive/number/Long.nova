@@ -36,6 +36,22 @@ public class Long extends Number implements Comparable<Long>, Integer
 		return size
 	}
 	
+	[Target js]
+	public static toString(Long value) -> String
+	{
+		return new String(toCharArray(value))
+	}
+	
+	[PrimitiveArray]
+	public static toCharArray(Long value) -> Char[]
+	{
+		external js
+		{
+			return #{value}.toString();
+		}
+	}
+	
+	[Target c]
 	public static toString(Long value) -> String
 	{
 		Int  charOffset = '0'
