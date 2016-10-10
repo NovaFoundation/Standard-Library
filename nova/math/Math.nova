@@ -5,20 +5,31 @@ import "math.h"
 public class Math
 {
 	[Target c] external double llabs(long number) as extAbs
-	[Target js] external double Math.abs(long number) as extAbs
-	external double fabs(double number) as extFabs
-	external double sqrt(double number) as extSqrt
-	external double pow(double base, double power) as extPow
-	external double sin(double number) as extSin
-	external double cos(double number) as extCos
-	external double tan(double number) as extTan
-	external double asin(double number) as extAsin
-	external double acos(double number) as extAcos
-	external double atan(double number) as extAtan
+	[Target c] external double fabs(double number) as extFabs
+	[Target c] external double sqrt(double number) as extSqrt
+	[Target c] external double pow(double base, double power) as extPow
+	[Target c] external double sin(double number) as extSin
+	[Target c] external double cos(double number) as extCos
+	[Target c] external double tan(double number) as extTan
+	[Target c] external double asin(double number) as extAsin
+	[Target c] external double acos(double number) as extAcos
+	[Target c] external double atan(double number) as extAtan
 	[Target c] external long floor(double number) as extFloor
-	[Target js] external long Math.floor(double number) as extFloor
 	[Target c] external long ceil(double number) as extCeil
+	
+	[Target js] external double Math.abs(long number) as extAbs
+	[Target js] external double Math.abs(double number) as extFabs
+	[Target js] external double Math.sqrt(double number) as extSqrt
+	[Target js] external double Math.pow(double base, double power) as extPow
+	[Target js] external double Math.sin(double number) as extSin
+	[Target js] external double Math.cos(double number) as extCos
+	[Target js] external double Math.tan(double number) as extTan
+	[Target js] external double Math.asin(double number) as extAsin
+	[Target js] external double Math.acos(double number) as extAcos
+	[Target js] external double Math.atan(double number) as extAtan
+	[Target js] external long Math.floor(double number) as extFloor
 	[Target js] external long Math.ceil(double number) as extCeil
+	
 	external long rand() as extRand
 
 	visible static Double PI = 3.141592653
