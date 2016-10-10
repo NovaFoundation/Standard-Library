@@ -42,7 +42,7 @@ public class Thread
 		
 		external js
 		{
-			console.log("No sleep available in JS");
+			console.warn("No sleep available in JS");
 		}
 	}
 	
