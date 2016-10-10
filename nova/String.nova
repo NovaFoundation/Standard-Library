@@ -29,7 +29,7 @@ public class String implements Comparable<String>
 	    no set
 	}
 	
-	[Target c]
+	[Target not js]
 	public construct(Char c)
 	{
 	    [PrimitiveArray]
@@ -55,7 +55,7 @@ public class String implements Comparable<String>
 		this(chars)
 	}
 	
-	[Target c]
+	[Target not js]
 	public construct([PrimitiveArray] Char[] chars)
 	{
 		count = calculateSize(chars)
@@ -100,9 +100,13 @@ public class String implements Comparable<String>
 		{
 			return #{chars}.length;
 		}
+		external java
+		{
+			return #{chars}.length;
+		}
 	}
 
-	[Target c]
+	[Target not js]
 	public concat(String str) -> String
 	{
 		Int sz = str.count + count + 1

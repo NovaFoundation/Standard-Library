@@ -17,18 +17,18 @@ public class Math
 	[Target c] external long floor(double number) as extFloor
 	[Target c] external long ceil(double number) as extCeil
 	
-	[Target js] external double Math.abs(long number) as extAbs
-	[Target js] external double Math.abs(double number) as extFabs
-	[Target js] external double Math.sqrt(double number) as extSqrt
-	[Target js] external double Math.pow(double base, double power) as extPow
-	[Target js] external double Math.sin(double number) as extSin
-	[Target js] external double Math.cos(double number) as extCos
-	[Target js] external double Math.tan(double number) as extTan
-	[Target js] external double Math.asin(double number) as extAsin
-	[Target js] external double Math.acos(double number) as extAcos
-	[Target js] external double Math.atan(double number) as extAtan
-	[Target js] external long Math.floor(double number) as extFloor
-	[Target js] external long Math.ceil(double number) as extCeil
+	[Target not c] external double Math.abs(long number) as extAbs
+	[Target not c] external double Math.abs(double number) as extFabs
+	[Target not c] external double Math.sqrt(double number) as extSqrt
+	[Target not c] external double Math.pow(double base, double power) as extPow
+	[Target not c] external double Math.sin(double number) as extSin
+	[Target not c] external double Math.cos(double number) as extCos
+	[Target not c] external double Math.tan(double number) as extTan
+	[Target not c] external double Math.asin(double number) as extAsin
+	[Target not c] external double Math.acos(double number) as extAcos
+	[Target not c] external double Math.atan(double number) as extAtan
+	[Target not c] external long Math.floor(double number) as extFloor
+	[Target not c] external long Math.ceil(double number) as extCeil
 	
 	external long rand() as extRand
 

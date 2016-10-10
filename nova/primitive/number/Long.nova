@@ -51,7 +51,7 @@ public class Long extends Number implements Comparable<Long>, Integer
 		}
 	}
 	
-	[Target c]
+	[Target not js]
 	public static toString(Long value) -> String
 	{
 		Int  charOffset = '0'

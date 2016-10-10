@@ -91,7 +91,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		}
 	}
 	
-	[Target c]
+	[Target not js]
 	public static toString(Double value) -> String
 	{
 	    [PrimitiveArray]
