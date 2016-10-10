@@ -2,15 +2,16 @@ package "nova"
 
 import "nova/datastruct/Comparable"
 import "nova/datastruct/HashSet"
+import "nova/datastruct/list/StringCharArray"
 
 public class String implements Comparable<String>
 {
 	visible Int    count
 
-	visible Char[] chars
+	visible StringCharArray chars
 
 	static Char[]  whitespace = [ ' ', '\t', '\n', '\r' ]
-
+	
 	external void strcpy(char dst[], char src[])
 	external void strcat(char dst[], char src[])
 	external int strlen(char chars[])
@@ -59,7 +60,7 @@ public class String implements Comparable<String>
 	{
 		count = calculateSize(chars)
 
-		this.chars = new CharArray(chars, count)
+		this.chars = new StringCharArray(chars, count)
 		
 		if (chars[count] != '\0')
 		{
@@ -81,14 +82,14 @@ public class String implements Comparable<String>
 	{
 		count = calculateSize(chars)
 
-		this.chars = new CharArray(chars, count)
+		this.chars = new StringCharArray(chars, count)
 	}
 
 	public construct(Char[] chars)
 	{
 		count = chars.count
 
-		this.chars = chars
+		this.chars = new StringCharArray(chars)
 	}
 
 	calculateSize([PrimitiveArray] Char[] chars) -> Int

@@ -1,0 +1,37 @@
+package "nova/datastruct/list"
+
+class StringCharArray extends CharArray
+{
+	public construct(Char[] data)
+	{
+		super(data.data, data.count)
+		
+		external js
+		{
+			#{this.data} = "";
+			
+			for (var i = 0; i < #{data.data}.length; i++) {
+				#{this.data} += #{data.data}[i];
+			}
+		}
+	}
+
+	public construct([PrimitiveArray] Char[] data, Int count)
+	{
+		super(data, count)
+		
+		external js
+		{
+			#{this.data} = #{data};
+		}
+	}
+	
+	[Target js]
+	public get(Int index) -> Char
+	{
+		external
+		{
+			return #{data}.charAt(#{index});
+		}
+	}
+}
