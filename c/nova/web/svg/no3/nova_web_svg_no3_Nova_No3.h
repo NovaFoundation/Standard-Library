@@ -37,14 +37,16 @@ typedef struct nova_web_svg_no3_Nova_No3 nova_web_svg_no3_Nova_No3;
 #include <nova/nova_Nova_Class.h>
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3Select.h>
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3SelectAll.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_web_svg_no3_No3_Extension_VTable nova_web_svg_no3_No3_Extension_VTable;
 struct nova_web_svg_no3_No3_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -61,9 +63,9 @@ CCLASS_CLASS
 void nova_web_svg_no3_Nova_No3_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_web_svg_no3_Nova_No3* nova_web_svg_no3_Nova_No3_Nova_construct(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_web_svg_no3_Nova_No3_Nova_destroy(nova_web_svg_no3_Nova_No3** this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3_Nova_select(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3_Nova_selection);
-nova_web_svg_no3_Nova_No3SelectAll* nova_web_svg_no3_Nova_No3_Nova_selectAll(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3_Nova_selection);
-void nova_web_svg_no3_Nova_No3_0_Nova_this(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3_static_Nova_select(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3_Nova_selection);
+nova_web_svg_no3_Nova_No3SelectAll* nova_web_svg_no3_Nova_No3_static_Nova_selectAll(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3_Nova_selection);
+void nova_web_svg_no3_Nova_No3_Nova_this(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_web_svg_no3_Nova_No3_Nova_super(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

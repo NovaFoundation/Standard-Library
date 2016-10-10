@@ -1,5 +1,36 @@
 #include <precompiled.h>
+#include <Nova.h>
+#include <ExceptionHandler.h>
+#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
+#include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
+#include <nova/io/nova_io_Nova_Console.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Byte.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Short.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Int.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Long.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Float.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Double.h>
+#include <nova/primitive/nova_primitive_Nova_Null.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Char.h>
+#include <nova/primitive/nova_primitive_Nova_Bool.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_Array.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_CharArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_DoubleArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntRange.h>
+#include <nova/thread/nova_thread_Nova_Thread.h>
+#include <nova/thread/async/nova_thread_async_Nova_Async.h>
+#include <nova/gc/nova_gc_Nova_GC.h>
+#include <nova/math/nova_math_Nova_Math.h>
+#include <nova/nova_Nova_Object.h>
+#include <nova/nova_Nova_String.h>
+#include <nova/nova_Nova_System.h>
+#include <nova/nova_Nova_Class.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 typedef struct
 {
@@ -29,21 +60,21 @@ nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Exten
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
 		0,
 		0,
 		0,
 		0,
 	},
-	nova_Nova_Object_0_Nova_toString,
-	nova_Nova_Object_0_Nova_equals,
+	nova_Nova_Object_Nova_toString,
+	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
 
 
 nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDataByCode(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_exception_Nova_ExceptionData_Nova_code);
-char nova_exception_Nova_ExceptionData_Nova_testLambda19(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_exception_Nova_ExceptionData_Nova__1, Context1* context);
+char nova_exception_Nova_ExceptionData_static_Nova_testLambda19(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_exception_Nova_ExceptionData_Nova__1, Context1* context);
 void nova_exception_Nova_ExceptionData_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -102,7 +133,7 @@ nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDat
 			&nova_exception_Nova_ExceptionData_Nova_code,
 		};
 		
-		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_codes), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_Nova_testLambda19, this, &contextArg19) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
+		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_codes), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_static_Nova_testLambda19, this, &contextArg19) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
 		{
 			return l1_Nova_data;
 		}
@@ -118,7 +149,7 @@ void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_Exc
 	l1_Nova_data = nova_exception_Nova_ExceptionData_Nova_getDataByCode(this, exceptionData, nova_exception_Nova_ExceptionData_Nova_code);
 	if (l1_Nova_data == NULL)
 	{
-		nova_io_Nova_Console_1_Nova_writeLine(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Could not get exception buffer!")));
+		nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Could not get exception buffer!")));
 		return;
 	}
 	if (l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
@@ -128,7 +159,7 @@ void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_Exc
 	jump(*l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_buf, nova_exception_Nova_ExceptionData_Nova_code);
 }
 
-char nova_exception_Nova_ExceptionData_Nova_testLambda19(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_exception_Nova_ExceptionData_Nova__1, Context1* context)
+char nova_exception_Nova_ExceptionData_static_Nova_testLambda19(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_exception_Nova_ExceptionData_Nova__1, Context1* context)
 {
 	return nova_exception_Nova_ExceptionData_Nova__1 == (*context->nova_exception_Nova_ExceptionData_Nova_code);
 }

@@ -35,14 +35,16 @@ typedef struct nova_datastruct_list_Nova_Queue nova_datastruct_list_Nova_Queue;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_datastruct_list_Queue_Extension_VTable nova_datastruct_list_Queue_Extension_VTable;
 struct nova_datastruct_list_Queue_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_datastruct_list_Nova_Queue*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_datastruct_list_Nova_Queue*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -61,11 +63,11 @@ void nova_datastruct_list_Nova_Queue_Nova_init_static(nova_exception_Nova_Except
 nova_datastruct_list_Nova_Queue* nova_datastruct_list_Nova_Queue_0_Nova_construct(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_datastruct_list_Nova_Queue* nova_datastruct_list_Nova_Queue_1_Nova_construct(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Queue_Nova_data);
 void nova_datastruct_list_Nova_Queue_Nova_destroy(nova_datastruct_list_Nova_Queue** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_datastruct_list_Nova_Queue_0_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_datastruct_list_Nova_Queue_1_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Queue_Nova_data);
+void nova_datastruct_list_Nova_Queue_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_datastruct_list_Nova_Queue_0_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Queue_Nova_data);
 nova_Nova_Object* nova_datastruct_list_Nova_Queue_Nova_dequeue(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_Queue_Nova_enqueue(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_Queue_Nova_element);
-nova_Nova_String* nova_datastruct_list_Nova_Queue_0_Nova_toString(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_String* nova_datastruct_list_Nova_Queue_Nova_toString(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
 int nova_datastruct_list_Nova_Queue_Accessor_Nova_size(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
 char nova_datastruct_list_Nova_Queue_Accessor_Nova_empty(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_Queue_Nova_super(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData);

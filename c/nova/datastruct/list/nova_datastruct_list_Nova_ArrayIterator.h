@@ -37,16 +37,18 @@ typedef struct nova_datastruct_list_Nova_ArrayIterator nova_datastruct_list_Nova
 #include <nova/nova_Nova_Class.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_Iterator.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_NoSuchElementException.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_datastruct_list_ArrayIterator_Extension_VTable nova_datastruct_list_ArrayIterator_Extension_VTable;
 struct nova_datastruct_list_ArrayIterator_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	nova_datastruct_list_Nova_Iterator* (*nova_datastruct_list_Nova_Iterator_virtual0_Nova_reset)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
+	nova_datastruct_list_Nova_Iterator* (*nova_datastruct_list_Nova_Iterator_virtual_Nova_reset)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
 	char (*nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
 	nova_Nova_Object* (*nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
 };

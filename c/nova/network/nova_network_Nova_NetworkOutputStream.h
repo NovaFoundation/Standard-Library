@@ -38,14 +38,17 @@ typedef struct nova_network_Nova_NetworkOutputStream nova_network_Nova_NetworkOu
 #include <nova/network/NativeSocket.h>
 #include <nova/io/nova_io_Nova_OutputStream.h>
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>
+#include <nova/io/nova_io_Nova_File.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_network_NetworkOutputStream_Extension_VTable nova_network_NetworkOutputStream_Extension_VTable;
 struct nova_network_NetworkOutputStream_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	char (*nova_io_Nova_OutputStream_virtual0_Nova_write)(nova_network_Nova_NetworkOutputStream*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 	char (*nova_io_Nova_OutputStream_virtual1_Nova_write)(nova_network_Nova_NetworkOutputStream*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
@@ -68,6 +71,6 @@ void nova_network_Nova_NetworkOutputStream_Nova_destroy(nova_network_Nova_Networ
 void nova_network_Nova_NetworkOutputStream_Nova_this(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_network_Nova_ConnectionSocket* nova_network_Nova_NetworkOutputStream_Nova_socket);
 char nova_network_Nova_NetworkOutputStream_0_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_network_Nova_NetworkOutputStream_Nova_data);
 char nova_network_Nova_NetworkOutputStream_1_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_network_Nova_NetworkOutputStream_Nova_data);
-void nova_network_Nova_NetworkOutputStream_0_Nova_super(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_network_Nova_NetworkOutputStream_Nova_super(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

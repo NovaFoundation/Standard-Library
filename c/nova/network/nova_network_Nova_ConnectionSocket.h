@@ -41,14 +41,16 @@ typedef struct nova_network_Nova_ConnectionSocket nova_network_Nova_ConnectionSo
 #include <nova/network/nova_network_Nova_NetworkInputStream.h>
 #include <nova/network/nova_network_Nova_NetworkOutputStream.h>
 #include <nova/network/nova_network_Nova_Socket.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_network_ConnectionSocket_Extension_VTable nova_network_ConnectionSocket_Extension_VTable;
 struct nova_network_ConnectionSocket_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -76,6 +78,6 @@ void nova_network_Nova_ConnectionSocket_Nova_close(nova_network_Nova_ConnectionS
 char nova_network_Nova_ConnectionSocket_Nova_validateConnection(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_network_Nova_ConnectionSocket_0_Nova_readString(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
 char nova_network_Nova_ConnectionSocket_Nova_write(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_network_Nova_ConnectionSocket_Nova_data);
-void nova_network_Nova_ConnectionSocket_0_Nova_super(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_network_Nova_ConnectionSocket_Nova_super(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

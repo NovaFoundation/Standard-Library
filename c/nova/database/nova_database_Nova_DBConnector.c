@@ -1,5 +1,38 @@
 #include <precompiled.h>
-#include <nova/database/nova_database_Nova_DBConnector.h>
+#include <Nova.h>
+#include <ExceptionHandler.h>
+#include <InterfaceVTable.h>
+#include <nova/exception/nova_exception_Nova_ExceptionData.h>
+#include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
+#include <nova/io/nova_io_Nova_Console.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Byte.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Short.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Int.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Long.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Float.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Double.h>
+#include <nova/primitive/nova_primitive_Nova_Null.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Char.h>
+#include <nova/primitive/nova_primitive_Nova_Bool.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_Array.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_CharArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_DoubleArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntRange.h>
+#include <nova/thread/nova_thread_Nova_Thread.h>
+#include <nova/thread/async/nova_thread_async_Nova_Async.h>
+#include <nova/gc/nova_gc_Nova_GC.h>
+#include <nova/math/nova_math_Nova_Math.h>
+#include <nova/nova_Nova_Object.h>
+#include <nova/nova_Nova_String.h>
+#include <nova/nova_Nova_System.h>
+#include <nova/nova_Nova_Class.h>
+#include <nova/database/NativeDBConnector.h>
+#include <nova/database/nova_database_Nova_ResultSet.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 
@@ -25,14 +58,14 @@ nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_V
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
 		0,
 		0,
 		0,
 		0,
 	},
-	nova_Nova_Object_0_Nova_toString,
-	nova_Nova_Object_0_Nova_equals,
+	nova_Nova_Object_Nova_toString,
+	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
@@ -57,7 +90,7 @@ nova_database_Nova_DBConnector* nova_database_Nova_DBConnector_Nova_construct(no
 	nova_database_Nova_DBConnector_Nova_super(this, exceptionData);
 	
 	{
-		nova_database_Nova_DBConnector_0_Nova_this(this, exceptionData);
+		nova_database_Nova_DBConnector_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -78,7 +111,7 @@ void nova_database_Nova_DBConnector_Nova_destroy(nova_database_Nova_DBConnector*
 	NOVA_FREE(*this);
 }
 
-void nova_database_Nova_DBConnector_0_Nova_this(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_database_Nova_DBConnector_Nova_this(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	this->nova_database_Nova_DBConnector_Nova_error = nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""));
 }
@@ -140,11 +173,11 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 		{
 			int l6_Nova_j = 0;
 			
-			nova_datastruct_list_Nova_Array_virtual1_Nova_set((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numCols)));
+			nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numCols)));
 			l6_Nova_j = (int)0;
 			for (; l6_Nova_j < (int)l2_Nova_numCols; l6_Nova_j++)
 			{
-				nova_datastruct_list_Nova_Array_virtual1_Nova_set((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_virtual1_Nova_get((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i)), exceptionData, l6_Nova_j, (nova_Nova_Object*)(nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_arrays[l4_Nova_i][l6_Nova_j])));
+				nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i)), exceptionData, l6_Nova_j, (nova_Nova_Object*)(nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_arrays[l4_Nova_i][l6_Nova_j])));
 			}
 		}
 		l2_Nova_r = nova_database_Nova_ResultSet_Nova_construct(0, exceptionData, l2_Nova_rows, l2_Nova_numCols);

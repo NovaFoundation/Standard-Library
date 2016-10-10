@@ -1,5 +1,36 @@
 #include <precompiled.h>
-#include <nova/math/nova_math_Nova_Polynomial.h>
+#include <Nova.h>
+#include <ExceptionHandler.h>
+#include <InterfaceVTable.h>
+#include <nova/exception/nova_exception_Nova_ExceptionData.h>
+#include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
+#include <nova/io/nova_io_Nova_Console.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Byte.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Short.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Int.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Long.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Float.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Double.h>
+#include <nova/primitive/nova_primitive_Nova_Null.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Char.h>
+#include <nova/primitive/nova_primitive_Nova_Bool.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_Array.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_CharArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_DoubleArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntRange.h>
+#include <nova/thread/nova_thread_Nova_Thread.h>
+#include <nova/thread/async/nova_thread_async_Nova_Async.h>
+#include <nova/gc/nova_gc_Nova_GC.h>
+#include <nova/math/nova_math_Nova_Math.h>
+#include <nova/nova_Nova_Object.h>
+#include <nova/nova_Nova_String.h>
+#include <nova/nova_Nova_System.h>
+#include <nova/nova_Nova_Class.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 
@@ -25,23 +56,23 @@ nova_math_Polynomial_Extension_VTable nova_math_Polynomial_Extension_VTable_val 
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
 		0,
 		0,
 		0,
 		0,
 	},
-	nova_Nova_Object_0_Nova_toString,
-	nova_Nova_Object_0_Nova_equals,
+	nova_Nova_Object_Nova_toString,
+	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
 
 
-char nova_math_Nova_Polynomial_Nova_isLetter(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
-char nova_math_Nova_Polynomial_Nova_isSymbol(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
-char nova_math_Nova_Polynomial_Nova_isWhitespace(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
-char nova_math_Nova_Polynomial_Nova_contains(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_array, char nova_math_Nova_Polynomial_Nova_c);
+char nova_math_Nova_Polynomial_static_Nova_isLetter(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
+char nova_math_Nova_Polynomial_static_Nova_isSymbol(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
+char nova_math_Nova_Polynomial_static_Nova_isWhitespace(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
+char nova_math_Nova_Polynomial_static_Nova_contains(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_array, char nova_math_Nova_Polynomial_Nova_c);
 nova_datastruct_list_Nova_CharArray* generated6(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_datastruct_list_Nova_CharArray* generated7(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_SYMBOLS_CHARS;
@@ -96,7 +127,7 @@ void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_e
 	l2_Nova_i = (int)0;
 	for (; l2_Nova_i < (int)nova_math_Nova_Polynomial_Nova_polynomial->nova_Nova_String_Nova_count; l2_Nova_i++)
 	{
-		if (!nova_math_Nova_Polynomial_Nova_isLetter(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual1_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Polynomial_Nova_polynomial->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
+		if (!nova_math_Nova_Polynomial_static_Nova_isLetter(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Polynomial_Nova_polynomial->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
 		{
 			l2_Nova_reading = 0;
 		}
@@ -111,22 +142,22 @@ void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_e
 	}
 }
 
-char nova_math_Nova_Polynomial_Nova_isLetter(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
+char nova_math_Nova_Polynomial_static_Nova_isLetter(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
 {
-	return !nova_math_Nova_Polynomial_Nova_isSymbol(0, exceptionData, nova_math_Nova_Polynomial_Nova_c) && !nova_math_Nova_Polynomial_Nova_isWhitespace(0, exceptionData, nova_math_Nova_Polynomial_Nova_c);
+	return !nova_math_Nova_Polynomial_static_Nova_isSymbol(0, exceptionData, nova_math_Nova_Polynomial_Nova_c) && !nova_math_Nova_Polynomial_static_Nova_isWhitespace(0, exceptionData, nova_math_Nova_Polynomial_Nova_c);
 }
 
-char nova_math_Nova_Polynomial_Nova_isSymbol(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
+char nova_math_Nova_Polynomial_static_Nova_isSymbol(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
 {
-	return nova_math_Nova_Polynomial_Nova_contains(0, exceptionData, nova_math_Nova_Polynomial_Nova_SYMBOLS_CHARS, nova_math_Nova_Polynomial_Nova_c);
+	return nova_math_Nova_Polynomial_static_Nova_contains(0, exceptionData, nova_math_Nova_Polynomial_Nova_SYMBOLS_CHARS, nova_math_Nova_Polynomial_Nova_c);
 }
 
-char nova_math_Nova_Polynomial_Nova_isWhitespace(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
+char nova_math_Nova_Polynomial_static_Nova_isWhitespace(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
 {
-	return nova_math_Nova_Polynomial_Nova_contains(0, exceptionData, nova_math_Nova_Polynomial_Nova_WHITESPACE_CHARS, nova_math_Nova_Polynomial_Nova_c);
+	return nova_math_Nova_Polynomial_static_Nova_contains(0, exceptionData, nova_math_Nova_Polynomial_Nova_WHITESPACE_CHARS, nova_math_Nova_Polynomial_Nova_c);
 }
 
-char nova_math_Nova_Polynomial_Nova_contains(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_array, char nova_math_Nova_Polynomial_Nova_c)
+char nova_math_Nova_Polynomial_static_Nova_contains(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_array, char nova_math_Nova_Polynomial_Nova_c)
 {
 	int l2_Nova_i = 0;
 	

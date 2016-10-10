@@ -37,16 +37,19 @@ typedef struct nova_star_Nova_WindowThread nova_star_Nova_WindowThread;
 #include <nova/nova_Nova_Class.h>
 #include <nova/star/NativeWindow.h>
 #include <nova/star/nova_star_Nova_Window.h>
+#include <nova/thread/NativeThread.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable;
 struct nova_star_WindowThread_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	void (*nova_thread_Nova_Thread_virtual0_Nova_run)(nova_star_Nova_WindowThread*, nova_exception_Nova_ExceptionData*);
+	void (*nova_thread_Nova_Thread_virtual_Nova_run)(nova_star_Nova_WindowThread*, nova_exception_Nova_ExceptionData*);
 };
 
 extern nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable_val;
@@ -63,8 +66,8 @@ CCLASS_CLASS
 void nova_star_Nova_WindowThread_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_star_Nova_WindowThread* nova_star_Nova_WindowThread_Nova_construct(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* nova_star_Nova_WindowThread_Nova_window);
 void nova_star_Nova_WindowThread_Nova_destroy(nova_star_Nova_WindowThread** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_star_Nova_WindowThread_1_Nova_this(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* nova_star_Nova_WindowThread_Nova_window);
+void nova_star_Nova_WindowThread_Nova_this(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* nova_star_Nova_WindowThread_Nova_window);
 void nova_star_Nova_WindowThread_Nova_run(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_star_Nova_WindowThread_0_Nova_super(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_star_Nova_WindowThread_Nova_super(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

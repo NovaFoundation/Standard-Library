@@ -40,14 +40,16 @@ typedef struct nova_Nova_System nova_Nova_System;
 #include <nova/time/nova_time_Nova_Time.h>
 #include <nova/process/nova_process_Nova_Process.h>
 #include <nova/NativeSystem.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_System_Extension_VTable nova_System_Extension_VTable;
 struct nova_System_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -64,11 +66,11 @@ CCLASS_CLASS
 void nova_Nova_System_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_System* nova_Nova_System_Nova_construct(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_Nova_System_Nova_destroy(nova_Nova_System** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_Nova_System_0_Nova_exit(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_System_Nova_code);
-void nova_Nova_System_1_Nova_exit(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_System_Nova_code, nova_Nova_String* nova_Nova_System_Nova_message);
-void nova_Nova_System_2_Nova_exit(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_System_Nova_code, nova_Nova_String* nova_Nova_System_Nova_message, char nova_Nova_System_Nova_log);
-nova_process_Nova_Process* nova_Nova_System_Nova_execute(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_System_Nova_command);
-void nova_Nova_System_0_Nova_this(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_Nova_System_0_static_Nova_exit(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_System_Nova_code);
+void nova_Nova_System_1_static_Nova_exit(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_System_Nova_code, nova_Nova_String* nova_Nova_System_Nova_message);
+void nova_Nova_System_2_static_Nova_exit(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_System_Nova_code, nova_Nova_String* nova_Nova_System_Nova_message, char nova_Nova_System_Nova_log);
+nova_process_Nova_Process* nova_Nova_System_static_Nova_execute(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_System_Nova_command);
+void nova_Nova_System_Nova_this(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_Nova_System_Nova_super(nova_Nova_System* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

@@ -1,5 +1,37 @@
 #include <precompiled.h>
-#include <nova/time/nova_time_Nova_Timer.h>
+#include <Nova.h>
+#include <ExceptionHandler.h>
+#include <InterfaceVTable.h>
+#include <nova/exception/nova_exception_Nova_ExceptionData.h>
+#include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
+#include <nova/io/nova_io_Nova_Console.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Byte.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Short.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Int.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Long.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Float.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Double.h>
+#include <nova/primitive/nova_primitive_Nova_Null.h>
+#include <nova/primitive/number/nova_primitive_number_Nova_Char.h>
+#include <nova/primitive/nova_primitive_Nova_Bool.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_Array.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_CharArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_DoubleArray.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_IntRange.h>
+#include <nova/thread/nova_thread_Nova_Thread.h>
+#include <nova/thread/async/nova_thread_async_Nova_Async.h>
+#include <nova/gc/nova_gc_Nova_GC.h>
+#include <nova/math/nova_math_Nova_Math.h>
+#include <nova/nova_Nova_Object.h>
+#include <nova/nova_Nova_String.h>
+#include <nova/nova_Nova_System.h>
+#include <nova/nova_Nova_Class.h>
+#include <nova/time/nova_time_Nova_Time.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 
@@ -25,14 +57,14 @@ nova_time_Timer_Extension_VTable nova_time_Timer_Extension_VTable_val =
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
 		0,
 		0,
 		0,
 		0,
 	},
-	nova_time_Nova_Timer_0_Nova_toString,
-	nova_Nova_Object_0_Nova_equals,
+	nova_time_Nova_Timer_Nova_toString,
+	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
@@ -53,7 +85,7 @@ nova_time_Nova_Timer* nova_time_Nova_Timer_Nova_construct(nova_time_Nova_Timer* 
 	nova_time_Nova_Timer_Nova_super(this, exceptionData);
 	
 	{
-		nova_time_Nova_Timer_0_Nova_this(this, exceptionData);
+		nova_time_Nova_Timer_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -72,20 +104,20 @@ void nova_time_Nova_Timer_Nova_destroy(nova_time_Nova_Timer** this, nova_excepti
 	NOVA_FREE(*this);
 }
 
-void nova_time_Nova_Timer_0_Nova_this(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_time_Nova_Timer_Nova_this(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 
 nova_time_Nova_Timer* nova_time_Nova_Timer_Nova_start(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->nova_time_Nova_Timer_Nova_startTime = nova_time_Nova_Time_Accessor_Nova_currentTimeMillis(0, exceptionData);
+	this->nova_time_Nova_Timer_Nova_startTime = nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData);
 	this->nova_time_Nova_Timer_Nova_endTime = (long_long)(0);
 	return this;
 }
 
 nova_time_Nova_Timer* nova_time_Nova_Timer_Nova_stop(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->nova_time_Nova_Timer_Nova_endTime = nova_time_Nova_Time_Accessor_Nova_currentTimeMillis(0, exceptionData);
+	this->nova_time_Nova_Timer_Nova_endTime = nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData);
 	return this;
 }
 
@@ -96,9 +128,9 @@ nova_time_Nova_Timer* nova_time_Nova_Timer_Nova_reset(nova_time_Nova_Timer* this
 	return this;
 }
 
-nova_Nova_String* nova_time_Nova_Timer_0_Nova_toString(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_Nova_String* nova_time_Nova_Timer_Nova_toString(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_0_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Timer { duration: ")), exceptionData, nova_Nova_String_virtual1_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Long_2_Nova_toString(0, exceptionData, (nova_time_Nova_Timer_Accessor_Nova_duration(this, exceptionData)))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" }"))));
+	return nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Timer { duration: ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, (nova_time_Nova_Timer_Accessor_Nova_duration(this, exceptionData)))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" }"))));
 }
 
 long_long nova_time_Nova_Timer_Accessor_Nova_duration(nova_time_Nova_Timer* this, nova_exception_Nova_ExceptionData* exceptionData)

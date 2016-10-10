@@ -38,14 +38,16 @@ typedef struct nova_io_Nova_File nova_io_Nova_File;
 #include <nova/io/NativeFile.h>
 #include <nova/time/nova_time_Nova_Time.h>
 #include <nova/io/nova_io_Nova_FileNotFoundException.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_io_File_Extension_VTable nova_io_File_Extension_VTable;
 struct nova_io_File_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -65,8 +67,8 @@ void nova_io_Nova_File_Nova_init_static(nova_exception_Nova_ExceptionData* excep
 nova_io_Nova_File* nova_io_Nova_File_0_Nova_construct(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_io_Nova_File_Nova_location);
 nova_io_Nova_File* nova_io_Nova_File_1_Nova_construct(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, FILE* nova_io_Nova_File_Nova_fp);
 void nova_io_Nova_File_Nova_destroy(nova_io_Nova_File** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_io_Nova_File_1_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_io_Nova_File_Nova_location);
-void nova_io_Nova_File_2_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, FILE* nova_io_Nova_File_Nova_fp);
+void nova_io_Nova_File_0_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_io_Nova_File_Nova_location);
+void nova_io_Nova_File_1_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, FILE* nova_io_Nova_File_Nova_fp);
 char nova_io_Nova_File_Nova_delete(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_Nova_reopen(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_Nova_rewind(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);

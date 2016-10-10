@@ -37,14 +37,16 @@ typedef struct nova_database_Nova_DBConnector nova_database_Nova_DBConnector;
 #include <nova/nova_Nova_Class.h>
 #include <nova/database/NativeDBConnector.h>
 #include <nova/database/nova_database_Nova_ResultSet.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_VTable;
 struct nova_database_DBConnector_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -63,7 +65,7 @@ CCLASS_CLASS
 void nova_database_Nova_DBConnector_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_database_Nova_DBConnector* nova_database_Nova_DBConnector_Nova_construct(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_database_Nova_DBConnector_Nova_destroy(nova_database_Nova_DBConnector** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_database_Nova_DBConnector_0_Nova_this(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_database_Nova_DBConnector_Nova_this(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_database_Nova_DBConnector_0_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_host, nova_Nova_String* nova_database_Nova_DBConnector_Nova_user, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password);
 void nova_database_Nova_DBConnector_1_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_host, nova_Nova_String* nova_database_Nova_DBConnector_Nova_user, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password, nova_Nova_String* nova_database_Nova_DBConnector_Nova_database);
 void nova_database_Nova_DBConnector_2_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_host, nova_Nova_String* nova_database_Nova_DBConnector_Nova_user, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password, nova_Nova_String* nova_database_Nova_DBConnector_Nova_database, int nova_database_Nova_DBConnector_Nova_port, nova_Nova_String* nova_database_Nova_DBConnector_Nova_unixSocket, int nova_database_Nova_DBConnector_Nova_clientFlag);

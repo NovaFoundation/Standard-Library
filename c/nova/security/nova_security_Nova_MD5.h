@@ -36,14 +36,16 @@ typedef struct nova_security_Nova_MD5 nova_security_Nova_MD5;
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/security/NativeMD5.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_security_MD5_Extension_VTable nova_security_MD5_Extension_VTable;
 struct nova_security_MD5_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -60,8 +62,8 @@ CCLASS_CLASS
 void nova_security_Nova_MD5_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_security_Nova_MD5* nova_security_Nova_MD5_Nova_construct(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_security_Nova_MD5_Nova_destroy(nova_security_Nova_MD5** this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_String* nova_security_Nova_MD5_Nova_encrypt(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_security_Nova_MD5_Nova_str);
-void nova_security_Nova_MD5_0_Nova_this(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_security_Nova_MD5_Nova_str);
+void nova_security_Nova_MD5_Nova_this(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_security_Nova_MD5_Nova_super(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

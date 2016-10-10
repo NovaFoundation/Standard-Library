@@ -36,14 +36,16 @@ typedef struct nova_io_Nova_FileNotFoundException nova_io_Nova_FileNotFoundExcep
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/io/nova_io_Nova_File.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_io_FileNotFoundException_Extension_VTable nova_io_FileNotFoundException_Extension_VTable;
 struct nova_io_FileNotFoundException_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -62,6 +64,6 @@ void nova_io_Nova_FileNotFoundException_Nova_init_static(nova_exception_Nova_Exc
 nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_construct(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file);
 void nova_io_Nova_FileNotFoundException_Nova_destroy(nova_io_Nova_FileNotFoundException** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_FileNotFoundException_Nova_this(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file);
-void nova_io_Nova_FileNotFoundException_0_Nova_super(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_io_Nova_FileNotFoundException_Nova_super(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

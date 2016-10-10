@@ -35,16 +35,21 @@ typedef struct nova_primitive_Nova_Null nova_primitive_Nova_Null;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/datastruct/nova_datastruct_Nova_Comparable.h>
+#include <nova/datastruct/nova_datastruct_Nova_HashSet.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_StringCharArray.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable;
 struct nova_primitive_Null_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_String*, nova_exception_Nova_ExceptionData*);
-	nova_Nova_String* (*nova_Nova_String_virtual1_Nova_concat)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
+	nova_Nova_String* (*nova_Nova_String_virtual_Nova_concat)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 	int (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 };
 
@@ -57,15 +62,15 @@ CCLASS_CLASS
 	
 	nova_primitive_Null_Extension_VTable* vtable;
 	int nova_Nova_String_Nova_count;
-	nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_chars;
+	nova_datastruct_list_Nova_StringCharArray* nova_Nova_String_Nova_chars;
 )
 
 void nova_primitive_Nova_Null_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_primitive_Nova_Null* nova_primitive_Nova_Null_Nova_construct(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_primitive_Nova_Null_Nova_destroy(nova_primitive_Nova_Null** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_primitive_Nova_Null_0_Nova_this(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_primitive_Nova_Null_Nova_this(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_primitive_Nova_Null_Nova_toString(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_primitive_Nova_Null_Nova_concat(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_primitive_Nova_Null_Nova_other);
-void nova_primitive_Nova_Null_0_Nova_super(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_primitive_Nova_Null_Nova_super(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

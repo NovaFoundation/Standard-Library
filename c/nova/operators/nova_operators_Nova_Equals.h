@@ -41,7 +41,7 @@ typedef struct nova_operators_Equals_Extension_VTable nova_operators_Equals_Exte
 struct nova_operators_Equals_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
 extern nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable_val;
@@ -55,6 +55,6 @@ CCLASS_CLASS
 )
 
 void nova_operators_Nova_Equals_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-char nova_operators_Nova_Equals_0_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Equals_Nova_another);char nova_operators_Nova_Equals_virtual0_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Equals_Nova_another);
+char nova_operators_Nova_Equals_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Equals_Nova_another);char nova_operators_Nova_Equals_virtual_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Equals_Nova_another);
 
 #endif

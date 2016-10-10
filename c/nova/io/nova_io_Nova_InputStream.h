@@ -41,8 +41,8 @@ typedef struct nova_io_InputStream_Extension_VTable nova_io_InputStream_Extensio
 struct nova_io_InputStream_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_io_Nova_InputStream_virtual1_Nova_readString)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
-	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual1_Nova_readBytes)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
+	nova_Nova_String* (*nova_io_Nova_InputStream_virtual_Nova_readString)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
+	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual_Nova_readBytes)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
 };
 
 extern nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable_val;
@@ -56,7 +56,7 @@ CCLASS_CLASS
 )
 
 void nova_io_Nova_InputStream_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_String* nova_io_Nova_InputStream_0_Nova_readString(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);nova_datastruct_list_Nova_Array* nova_io_Nova_InputStream_0_Nova_readBytes(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);nova_Nova_String* nova_io_Nova_InputStream_virtual1_Nova_readString(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_datastruct_list_Nova_Array* nova_io_Nova_InputStream_virtual1_Nova_readBytes(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_String* nova_io_Nova_InputStream_Nova_readString(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);nova_datastruct_list_Nova_Array* nova_io_Nova_InputStream_Nova_readBytes(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);nova_Nova_String* nova_io_Nova_InputStream_virtual_Nova_readString(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_datastruct_list_Nova_Array* nova_io_Nova_InputStream_virtual_Nova_readBytes(nova_io_Nova_InputStream* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

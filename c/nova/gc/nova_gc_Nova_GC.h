@@ -36,14 +36,16 @@ typedef struct nova_gc_Nova_GC nova_gc_Nova_GC;
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/gc/NativeGC.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_gc_GC_Extension_VTable nova_gc_GC_Extension_VTable;
 struct nova_gc_GC_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -60,11 +62,11 @@ CCLASS_CLASS
 void nova_gc_Nova_GC_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_gc_Nova_GC* nova_gc_Nova_GC_Nova_construct(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_gc_Nova_GC_Nova_destroy(nova_gc_Nova_GC** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_gc_Nova_GC_Nova_init(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_gc_Nova_GC_Nova_collect(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_gc_Nova_GC_Nova_enableIncremental(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_gc_Nova_GC_Nova_dump(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_gc_Nova_GC_0_Nova_this(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_gc_Nova_GC_static_Nova_init(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_gc_Nova_GC_static_Nova_collect(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_gc_Nova_GC_static_Nova_enableIncremental(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_gc_Nova_GC_static_Nova_dump(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_gc_Nova_GC_Nova_this(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
 int nova_gc_Nova_GC_Accessor_Nova_freeBytes(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
 int nova_gc_Nova_GC_Accessor_Nova_totalBytes(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);
 int nova_gc_Nova_GC_Accessor_Nova_heapSize(nova_gc_Nova_GC* this, nova_exception_Nova_ExceptionData* exceptionData);

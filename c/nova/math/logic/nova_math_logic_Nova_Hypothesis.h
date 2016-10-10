@@ -36,14 +36,18 @@ typedef struct nova_math_logic_Nova_Hypothesis nova_math_logic_Nova_Hypothesis;
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/math/logic/nova_math_logic_Nova_LogicalStatement.h>
+#include <nova/math/nova_math_Nova_Statement.h>
+#include <nova/math/logic/nova_math_logic_Nova_StatementComponent.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 typedef struct nova_math_logic_Hypothesis_Extension_VTable nova_math_logic_Hypothesis_Extension_VTable;
 struct nova_math_logic_Hypothesis_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual1_Nova_toString)(nova_math_logic_Nova_LogicalStatement*, nova_exception_Nova_ExceptionData*);
-	char (*nova_operators_Nova_Equals_virtual0_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_math_logic_Nova_LogicalStatement*, nova_exception_Nova_ExceptionData*);
+	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -61,7 +65,7 @@ CCLASS_CLASS
 void nova_math_logic_Nova_Hypothesis_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_math_logic_Nova_Hypothesis* nova_math_logic_Nova_Hypothesis_Nova_construct(nova_math_logic_Nova_Hypothesis* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_Hypothesis_Nova_statement);
 void nova_math_logic_Nova_Hypothesis_Nova_destroy(nova_math_logic_Nova_Hypothesis** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_logic_Nova_Hypothesis_0_Nova_this(nova_math_logic_Nova_Hypothesis* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_Hypothesis_Nova_statement);
-void nova_math_logic_Nova_Hypothesis_2_Nova_super(nova_math_logic_Nova_Hypothesis* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_math_logic_Nova_Hypothesis_Nova_this(nova_math_logic_Nova_Hypothesis* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_Hypothesis_Nova_statement);
+void nova_math_logic_Nova_Hypothesis_Nova_super(nova_math_logic_Nova_Hypothesis* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

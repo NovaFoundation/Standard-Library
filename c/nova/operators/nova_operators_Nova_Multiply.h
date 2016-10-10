@@ -41,7 +41,7 @@ typedef struct nova_operators_Multiply_Extension_VTable nova_operators_Multiply_
 struct nova_operators_Multiply_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_Object* (*nova_operators_Nova_Multiply_virtual1_Nova_multiply)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_Object* (*nova_operators_Nova_Multiply_virtual_Nova_multiply)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
 extern nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTable_val;
@@ -55,6 +55,6 @@ CCLASS_CLASS
 )
 
 void nova_operators_Nova_Multiply_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_Object* nova_operators_Nova_Multiply_0_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value);nova_Nova_Object* nova_operators_Nova_Multiply_virtual1_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value);
+nova_Nova_Object* nova_operators_Nova_Multiply_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value);nova_Nova_Object* nova_operators_Nova_Multiply_virtual_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value);
 
 #endif
