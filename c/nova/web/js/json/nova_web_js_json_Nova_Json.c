@@ -81,7 +81,6 @@ nova_web_js_json_Json_Extension_VTable nova_web_js_json_Json_Extension_VTable_va
 	nova_datastruct_Nova_HashMap_Nova_reverse,
 	nova_datastruct_Nova_HashMap_Nova_firstWhere,
 	nova_datastruct_Nova_HashMap_Nova_forEach,
-	nova_datastruct_Nova_HashMap_Nova_put,
 };
 
 

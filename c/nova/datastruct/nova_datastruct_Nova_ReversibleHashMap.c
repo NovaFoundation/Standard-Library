@@ -81,7 +81,6 @@ nova_datastruct_ReversibleHashMap_Extension_VTable nova_datastruct_ReversibleHas
 	nova_datastruct_Nova_HashMap_Nova_reverse,
 	nova_datastruct_Nova_HashMap_Nova_firstWhere,
 	nova_datastruct_Nova_HashMap_Nova_forEach,
-	nova_datastruct_Nova_ReversibleHashMap_Nova_put,
 };
 
 
