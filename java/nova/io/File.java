@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,15 +23,15 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.time.Time;
 import nova.io.FileNotFoundException;
 
-public class File
+public class File extends NovaObject
 {
 	private FILE fp;
 	
@@ -50,21 +50,21 @@ public class File
 		init(fp);
 	}
 	
-	public boolean exists()
+	public boolean accessor_exists()
 	{
 		return fp != 0;
 	}
 	
-	private boolean exists()
+	private boolean mutator_exists()
 	{
 	}
 	
-	public int maxOpenFiles()
+	public int accessor_maxOpenFiles()
 	{
 		return extGetMaxOpenFiles();
 	}
 	
-	public int maxOpenFiles(int value)
+	public int mutator_maxOpenFiles(int value)
 	{
 		short min;
 		short max;
@@ -124,7 +124,7 @@ public class File
 	
 	public void clearContents()
 	{
-		if (exists())
+		if (accessor_exists())
 		{
 			fp = fopen(location.chars.data, new NovaString("w"));
 		}
@@ -132,16 +132,16 @@ public class File
 	
 	public boolean create()
 	{
-		if (!exists())
+		if (!accessor_exists())
 		{
 			fp = fopen(location.chars.data, new NovaString("w"));
-			if (!exists())
+			if (!accessor_exists())
 			{
 				throw new FileNotFoundException(this);
 				return false;
 			}
 			reopen();
-			if (!exists())
+			if (!accessor_exists())
 			{
 				throw new FileNotFoundException(this);
 				return false;
@@ -223,7 +223,7 @@ public class File
 	
 	public void close()
 	{
-		if (exists())
+		if (accessor_exists())
 		{
 			fclose(fp);
 		}

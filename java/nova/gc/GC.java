@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,13 +23,13 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 
-public class GC
+public class GC extends NovaObject
 {
 	
 	
@@ -41,39 +41,39 @@ public class GC
 		init();
 	}
 	
-	public int freeBytes()
+	public int accessor_freeBytes()
 	{
 		return nova_gc_getFreeBytes();
 	}
 	
-	private int freeBytes()
+	private int mutator_freeBytes()
 	{
 	}
 	
-	public int totalBytes()
+	public int accessor_totalBytes()
 	{
 		return nova_gc_getTotalBytes();
 	}
 	
-	private int totalBytes()
+	private int mutator_totalBytes()
 	{
 	}
 	
-	public int heapSize()
+	public int accessor_heapSize()
 	{
 		return nova_gc_getHeapSize();
 	}
 	
-	private int heapSize()
+	private int mutator_heapSize()
 	{
 	}
 	
-	public int bytesSinceGC()
+	public int accessor_bytesSinceGC()
 	{
 		return nova_gc_getBytesSinceGC();
 	}
 	
-	private int bytesSinceGC()
+	private int mutator_bytesSinceGC()
 	{
 	}
 	

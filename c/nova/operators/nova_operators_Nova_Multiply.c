@@ -60,7 +60,7 @@ nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTabl
 		0,
 		0,
 	},
-	nova_operators_Nova_Multiply_virtual_Nova_multiply,
+	nova_operators_Nova_Multiply_virtual0_Nova_multiply,
 };
 
 
@@ -71,8 +71,8 @@ void nova_operators_Nova_Multiply_Nova_init_static(nova_exception_Nova_Exception
 }
 
 
-nova_Nova_Object* nova_operators_Nova_Multiply_virtual_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value)
+nova_Nova_Object* nova_operators_Nova_Multiply_virtual0_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value)
 {
-	return this->vtable->itable.nova_operators_Nova_Multiply_virtual_Nova_multiply((nova_operators_Nova_Multiply*)(this), exceptionData, nova_operators_Nova_Multiply_Nova_value);
+	return this->vtable->itable.nova_operators_Nova_Multiply_virtual0_Nova_multiply((nova_operators_Nova_Multiply*)(this), exceptionData, nova_operators_Nova_Multiply_Nova_value);
 }
 

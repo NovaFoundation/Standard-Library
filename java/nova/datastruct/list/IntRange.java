@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,15 +23,15 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.IntRangeIterator;
 import nova.datastruct.list.List;
 
-public class IntRange
+public class IntRange extends NovaObject implements List
 {
 	
 	public int start;
@@ -50,39 +50,39 @@ public class IntRange
 		init(start, end);
 	}
 	
-	private int first()
+	private int accessor_first()
 	{
 		return start;
 	}
 	
-	private int first()
+	private int mutator_first()
 	{
 	}
 	
-	private int last()
+	private int accessor_last()
 	{
 		return end - 1;
 	}
 	
-	private int last()
+	private int mutator_last()
 	{
 	}
 	
-	public int size()
+	public int accessor_size()
 	{
 		return end - start;
 	}
 	
-	private int size()
+	private int mutator_size()
 	{
 	}
 	
-	public IntRangeIterator iterator()
+	public IntRangeIterator accessor_iterator()
 	{
 		return new IntRangeIterator(this);
 	}
 	
-	private IntRangeIterator iterator()
+	private IntRangeIterator mutator_iterator()
 	{
 	}
 	
@@ -106,7 +106,7 @@ public class IntRange
 	{
 		IntArray ints;
 		int i;
-		ints = new IntArray(size());
+		ints = new IntArray(accessor_size());
 		i = start;
 		while (i < end)
 		{
@@ -121,10 +121,10 @@ public class IntRange
 		IntRangeIterator nova_local_0;
 		int value;
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			value = nova_local_0.next();
+			value = nova_local_0.accessor_next();
 			func(value, i++, this);
 		}
 	}
@@ -137,10 +137,10 @@ public class IntRange
 		int element;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.add(mapFunc(element, i++, this));
 		}
 		return array;
@@ -150,10 +150,10 @@ public class IntRange
 	{
 		IntRangeIterator nova_local_0;
 		int element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (anyFunc(element))
 			{
 				return true;
@@ -166,10 +166,10 @@ public class IntRange
 	{
 		IntRangeIterator nova_local_0;
 		int element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (!allFunc(element))
 			{
 				return false;
@@ -186,10 +186,10 @@ public class IntRange
 		int value;
 		list = new IntArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			value = nova_local_0.next();
+			value = nova_local_0.accessor_next();
 			if (filterFunc(value, i++, this))
 			{
 				list.add(value);
@@ -212,10 +212,10 @@ public class IntRange
 	{
 		IntRangeIterator nova_local_0;
 		int element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (func(element))
 			{
 				return element;
@@ -237,10 +237,10 @@ public class IntRange
 		int element;
 		str = new NovaString("");
 		passed = false;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (passed)
 			{
 				str = str.concat(delimiter);

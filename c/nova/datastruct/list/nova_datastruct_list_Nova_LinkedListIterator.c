@@ -120,7 +120,7 @@ void nova_datastruct_list_Nova_LinkedListIterator_Nova_destroy(nova_datastruct_l
 void nova_datastruct_list_Nova_LinkedListIterator_Nova_this(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_LinkedList* nova_datastruct_list_Nova_LinkedListIterator_Nova_list)
 {
 	this->prv->nova_datastruct_list_Nova_LinkedListIterator_Nova_list = nova_datastruct_list_Nova_LinkedListIterator_Nova_list;
-	nova_datastruct_list_Nova_Iterator_virtual_Nova_reset((nova_datastruct_list_Nova_Iterator*)(this), exceptionData);
+	nova_datastruct_list_Nova_LinkedListIterator_Nova_reset(this, exceptionData);
 }
 
 nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_LinkedListIterator_Nova_reset(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -137,7 +137,7 @@ char nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_hasNext(nova_dat
 
 nova_Nova_Object* nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_next(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext((nova_datastruct_list_Nova_Iterator*)(this), exceptionData))
+	if (nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_hasNext(this, exceptionData))
 	{
 		nova_Nova_Object* l2_Nova_data = (nova_Nova_Object*)nova_null;
 		

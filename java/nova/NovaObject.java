@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,14 +23,14 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.operators.Equals;
 
-public class NovaObject
+public class NovaObject implements Equals
 {
 	
 	
@@ -42,20 +42,20 @@ public class NovaObject
 		init();
 	}
 	
-	public NovaString hashCode()
+	public NovaString accessor_hashCode()
 	{
 	}
 	
-	private NovaString hashCode()
+	private NovaString mutator_hashCode()
 	{
 	}
 	
-	public long hashCodeLong()
+	public long accessor_hashCodeLong()
 	{
 		return strtol(hashCode(this), NULL, 16);
 	}
 	
-	private long hashCodeLong()
+	private long mutator_hashCodeLong()
 	{
 	}
 	
@@ -63,7 +63,7 @@ public class NovaObject
 	
 	public NovaString toString()
 	{
-		return new NovaString("[Object @").concat((hashCode()).concat(new NovaString("]")));
+		return new NovaString("[Object @").concat((accessor_hashCode()).concat(new NovaString("]")));
 	}
 	
 	public boolean equals(NovaObject another)

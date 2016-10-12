@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,14 +23,14 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.time.Time;
 
-public class Timer
+public class Timer extends NovaObject
 {
 	
 	public long startTime;
@@ -44,12 +44,12 @@ public class Timer
 		init();
 	}
 	
-	public long duration()
+	public long accessor_duration()
 	{
 		return endTime - startTime;
 	}
 	
-	private long duration()
+	private long mutator_duration()
 	{
 	}
 	
@@ -59,14 +59,14 @@ public class Timer
 	
 	public Timer start()
 	{
-		startTime = Time.currentTimeMillis();
+		startTime = Time.accessor_currentTimeMillis();
 		endTime = 0;
 		return this;
 	}
 	
 	public Timer stop()
 	{
-		endTime = Time.currentTimeMillis();
+		endTime = Time.accessor_currentTimeMillis();
 		return this;
 	}
 	
@@ -79,7 +79,7 @@ public class Timer
 	
 	public NovaString toString()
 	{
-		return new NovaString("Timer { duration: ").concat(NovaLong.toString((duration())).concat(new NovaString(" }")));
+		return new NovaString("Timer { duration: ").concat(NovaLong.toString((accessor_duration())).concat(new NovaString(" }")));
 	}
 	
 }

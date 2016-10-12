@@ -127,7 +127,7 @@ void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_e
 	l2_Nova_i = (int)0;
 	for (; l2_Nova_i < (int)nova_math_Nova_Polynomial_Nova_polynomial->nova_Nova_String_Nova_count; l2_Nova_i++)
 	{
-		if (!nova_math_Nova_Polynomial_static_Nova_isLetter(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Polynomial_Nova_polynomial->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
+		if (!nova_math_Nova_Polynomial_static_Nova_isLetter(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_Nova_Polynomial_Nova_polynomial->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
 		{
 			l2_Nova_reading = 0;
 		}

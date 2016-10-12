@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,13 +23,13 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 
-public class Queue
+public class Queue extends NovaObject
 {
 	private NovaArray data;
 	
@@ -47,21 +47,21 @@ public class Queue
 		init(data);
 	}
 	
-	public int size()
+	public int accessor_size()
 	{
 		return data.position;
 	}
 	
-	private int size()
+	private int mutator_size()
 	{
 	}
 	
-	public boolean empty()
+	public boolean accessor_empty()
 	{
-		return size() <= 0;
+		return accessor_size() <= 0;
 	}
 	
-	private boolean empty()
+	private boolean mutator_empty()
 	{
 	}
 	
@@ -90,10 +90,10 @@ public class Queue
 		NovaString s;
 		int i;
 		s = new NovaString("");
-		i = size() - 1;
+		i = accessor_size() - 1;
 		while (i >= 0)
 		{
-			if (i < size() - 1)
+			if (i < accessor_size() - 1)
 			{
 				s = s.concat(new NovaString(", "));
 			}

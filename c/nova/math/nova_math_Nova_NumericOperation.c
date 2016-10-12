@@ -209,7 +209,7 @@ void nova_math_Nova_NumericOperation_Nova_this(nova_math_Nova_NumericOperation* 
 	l2_Nova_bounds1 = nova_math_Nova_NumericOperation_static_Nova_searchNextType(0, exceptionData, nova_math_Nova_NumericOperation_Nova_operation, 0, &l2_Nova_index1);
 	l2_Nova_bounds2 = nova_math_Nova_NumericOperation_static_Nova_searchNextType(0, exceptionData, nova_math_Nova_NumericOperation_Nova_operation, l2_Nova_bounds1->nova_datastruct_Nova_Bounds_Nova_end, &l2_Nova_index2);
 	l2_Nova_bounds3 = (nova_datastruct_Nova_Bounds*)((nova_Nova_Object*)nova_null);
-	nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)(l2_Nova_bounds1), exceptionData)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)(l2_Nova_bounds2), exceptionData)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" and ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, l2_Nova_index1)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", ")), exceptionData, nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, l2_Nova_index2))))))));
+	nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_datastruct_Nova_Bounds_Nova_toString(l2_Nova_bounds1, exceptionData)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_datastruct_Nova_Bounds_Nova_toString(l2_Nova_bounds2, exceptionData)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" and ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, l2_Nova_index1)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", ")), exceptionData, nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, l2_Nova_index2))))))));
 	l2_Nova_lh = nova_datastruct_Nova_Bounds_Nova_extractString(l2_Nova_bounds1, exceptionData, nova_math_Nova_NumericOperation_Nova_operation);
 	l2_Nova_op = nova_datastruct_Nova_Bounds_Nova_extractString(l2_Nova_bounds2, exceptionData, nova_math_Nova_NumericOperation_Nova_operation);
 	l2_Nova_rh = (nova_Nova_String*)((nova_Nova_Object*)nova_null);
@@ -219,7 +219,7 @@ void nova_math_Nova_NumericOperation_Nova_this(nova_math_Nova_NumericOperation* 
 	{
 		if (l2_Nova_type1 == nova_math_Nova_NumericOperation_Nova_OPERATOR)
 		{
-			THROW(5, nova_math_Nova_InvalidNumericStatementException_Nova_construct(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Missing left hand operand in operation '")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_math_Nova_NumericOperation_Nova_operation), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
+			THROW(6, nova_math_Nova_InvalidNumericStatementException_Nova_construct(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Missing left hand operand in operation '")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_math_Nova_NumericOperation_Nova_operation), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
 		}
 		l2_Nova_rh = l2_Nova_op;
 		l2_Nova_op = nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("*"));
@@ -272,7 +272,7 @@ int nova_math_Nova_NumericOperation_0_static_Nova_getType(nova_math_Nova_Numeric
 	{
 		return (int)0;
 	}
-	return nova_math_Nova_NumericOperation_1_static_Nova_getType(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_NumericOperation_Nova_s->nova_Nova_String_Nova_chars), exceptionData, 0)));
+	return nova_math_Nova_NumericOperation_1_static_Nova_getType(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_Nova_NumericOperation_Nova_s->nova_Nova_String_Nova_chars), exceptionData, 0)));
 }
 
 int nova_math_Nova_NumericOperation_1_static_Nova_getType(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_NumericOperation_Nova_c)
@@ -309,7 +309,7 @@ nova_datastruct_Nova_Bounds* nova_math_Nova_NumericOperation_static_Nova_searchN
 		char l1_Nova_operator = 0;
 		int l1_Nova_rank = 0;
 		
-		l1_Nova_operator = (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_index));
+		l1_Nova_operator = (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_index));
 		l1_Nova_rank = nova_math_Nova_NumericOperation_static_Nova_getOperatorRank(0, exceptionData, l1_Nova_operator);
 		if (l1_Nova_rank > l1_Nova_minRank)
 		{
@@ -335,7 +335,7 @@ int nova_math_Nova_NumericOperation_static_Nova_nextOperator(nova_math_Nova_Nume
 	l2_Nova_i = (int)nova_math_Nova_NumericOperation_Nova_start;
 	for (; l2_Nova_i < (int)nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_count; l2_Nova_i++)
 	{
-		if (nova_math_Nova_NumericOperation_static_Nova_isOperator(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
+		if (nova_math_Nova_NumericOperation_static_Nova_isOperator(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
 		{
 			return l2_Nova_i;
 		}
@@ -365,7 +365,7 @@ int nova_math_Nova_NumericOperation_static_Nova_getOperatorRank(nova_math_Nova_N
 	
 	int nova_math_Nova_NumericOperation_static_Nova_nextNonWhitespaceIndex(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_str, int nova_math_Nova_NumericOperation_Nova_start, int nova_math_Nova_NumericOperation_Nova_direction)
 	{
-		while (nova_math_Nova_NumericOperation_Nova_start >= 0 && nova_math_Nova_NumericOperation_Nova_start < nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_count && nova_math_Nova_NumericOperation_static_Nova_isWhitespace(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_chars), exceptionData, nova_math_Nova_NumericOperation_Nova_start))))
+		while (nova_math_Nova_NumericOperation_Nova_start >= 0 && nova_math_Nova_NumericOperation_Nova_start < nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_count && nova_math_Nova_NumericOperation_static_Nova_isWhitespace(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_Nova_NumericOperation_Nova_str->nova_Nova_String_Nova_chars), exceptionData, nova_math_Nova_NumericOperation_Nova_start))))
 		{
 			nova_math_Nova_NumericOperation_Nova_start = nova_math_Nova_NumericOperation_Nova_start + nova_math_Nova_NumericOperation_Nova_direction;
 		}
@@ -406,7 +406,7 @@ int nova_math_Nova_NumericOperation_static_Nova_getOperatorRank(nova_math_Nova_N
 		l2_Nova_i = (int)0;
 		for (; l2_Nova_i < (int)nova_math_Nova_NumericOperation_Nova_array->nova_datastruct_list_Nova_Array_Nova_count; l2_Nova_i++)
 		{
-			if (nova_math_Nova_NumericOperation_Nova_c == (char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_NumericOperation_Nova_array), exceptionData, l2_Nova_i))
+			if (nova_math_Nova_NumericOperation_Nova_c == (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get(nova_math_Nova_NumericOperation_Nova_array, exceptionData, l2_Nova_i))
 			{
 				return 1;
 			}

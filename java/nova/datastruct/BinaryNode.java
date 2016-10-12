@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,15 +23,15 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.Comparable;
-import nova.datastruct.Node;
+import nova.datastruct.NovaNode;
 
-public class BinaryNode
+public class BinaryNode extends NovaNode
 {
 	
 	
@@ -48,23 +48,23 @@ public class BinaryNode
 		init(data, size);
 	}
 	
-	public BinaryNode left()
+	public BinaryNode accessor_left()
 	{
 		return getNode(0);
 	}
 	
-	public BinaryNode left(BinaryNode value)
+	public BinaryNode mutator_left(BinaryNode value)
 	{
 		setNode(0, value);
 		return value;
 	}
 	
-	public BinaryNode right()
+	public BinaryNode accessor_right()
 	{
 		return getNode(1);
 	}
 	
-	public BinaryNode right(BinaryNode value)
+	public BinaryNode mutator_right(BinaryNode value)
 	{
 		setNode(1, value);
 		return value;
@@ -106,24 +106,24 @@ public class BinaryNode
 	{
 		if (this.data.compareTo(data) >= 0)
 		{
-			if (left() == null)
+			if (accessor_left() == null)
 			{
-				left(new BinaryNode(Optional.ofNullable(data)));
+				mutator_left(new BinaryNode(Optional.ofNullable(data)));
 			}
 			else
 			{
-				left().addChild(data);
+				accessor_left().addChild(data);
 			}
 		}
 		else
 		{
-			if (right() == null)
+			if (accessor_right() == null)
 			{
-				right(new BinaryNode(Optional.ofNullable(data)));
+				mutator_right(new BinaryNode(Optional.ofNullable(data)));
 			}
 			else
 			{
-				right().addChild(data);
+				accessor_right().addChild(data);
 			}
 		}
 	}

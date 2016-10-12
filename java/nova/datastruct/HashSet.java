@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,15 +23,15 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.List;
 import nova.datastruct.list.ArrayIterator;
 
-public class HashSet
+public class HashSet extends NovaObject implements List
 {
 	private NovaArray buckets;
 	private int bucketSize;
@@ -74,15 +74,15 @@ public class HashSet
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					if (func(v))
@@ -100,15 +100,15 @@ public class HashSet
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					if (!func(v))
@@ -130,15 +130,15 @@ public class HashSet
 		array = new NovaArray();
 		i = 0;
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					array.add(func(v, i++, this));
@@ -157,15 +157,15 @@ public class HashSet
 		array = new NovaArray();
 		i = 0;
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					if (func(v, i++, this))
@@ -187,15 +187,15 @@ public class HashSet
 		i = 0;
 		output = new NovaString("");
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					if (i > 0)
@@ -232,15 +232,15 @@ public class HashSet
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					if (func(v))
@@ -260,15 +260,15 @@ public class HashSet
 		NovaArray bucket;
 		i = 0;
 		nova_local_0 = (buckets).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
-			bucket = nova_local_0.next();
+			bucket = nova_local_0.accessor_next();
 			nova_local_1 = (bucket).iterator();
-			while (nova_local_1.hasNext())
+			while (nova_local_1.accessor_hasNext())
 			{
-				v = nova_local_1.next();
+				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
 					func(v, i++, this);
@@ -293,9 +293,9 @@ public class HashSet
 		ArrayIterator nova_local_0;
 		NovaObject v;
 		nova_local_0 = (getBucket(value)).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			v = nova_local_0.next();
+			v = nova_local_0.accessor_next();
 			if (v.equals(value))
 			{
 				return v;
@@ -313,9 +313,9 @@ public class HashSet
 		bucket = getBucket(value);
 		i = 0;
 		nova_local_0 = (bucket).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			v = nova_local_0.next();
+			v = nova_local_0.accessor_next();
 			if (v.equals(value))
 			{
 				bucket.remove(i);

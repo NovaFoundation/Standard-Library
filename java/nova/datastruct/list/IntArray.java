@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,14 +23,14 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.IntArrayIterator;
 
-public class IntArray
+public class IntArray extends NovaArray
 {
 	
 	
@@ -52,16 +52,16 @@ public class IntArray
 		init(data, count);
 	}
 	
-	public IntArrayIterator iterator()
+	public IntArrayIterator accessor_iterator()
 	{
 		return new IntArrayIterator(this);
 	}
 	
-	private IntArrayIterator iterator()
+	private IntArrayIterator mutator_iterator()
 	{
 	}
 	
-	public int first()
+	public int accessor_first()
 	{
 		if (count > 0)
 		{
@@ -70,11 +70,11 @@ public class IntArray
 		return null;
 	}
 	
-	private int first()
+	private int mutator_first()
 	{
 	}
 	
-	public int last()
+	public int accessor_last()
 	{
 		if (count > 0)
 		{
@@ -106,10 +106,10 @@ public class IntArray
 		int element;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.add(mapFunc(element, i++, this));
 		}
 		return array;
@@ -129,10 +129,10 @@ public class IntArray
 	{
 		IntArrayIterator nova_local_0;
 		int element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (anyFunc(element))
 			{
 				return true;
@@ -145,10 +145,10 @@ public class IntArray
 	{
 		IntArrayIterator nova_local_0;
 		int element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (!allFunc(element))
 			{
 				return false;
@@ -165,10 +165,10 @@ public class IntArray
 		int element;
 		filtered = new IntArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (filterFunc(element, i++, this))
 			{
 				filtered.add(element);
@@ -211,10 +211,10 @@ public class IntArray
 	{
 		IntArrayIterator nova_local_0;
 		int element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (func(element))
 			{
 				return element;
@@ -232,10 +232,10 @@ public class IntArray
 		array = new IntArray(count);
 		array.count = count;
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.set(count - ++i, element);
 		}
 		return array;
@@ -249,10 +249,10 @@ public class IntArray
 		int element;
 		str = new NovaString("");
 		passed = false;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (passed)
 			{
 				str = str.concat(delimiter);

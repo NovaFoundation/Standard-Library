@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,15 +23,15 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.ArrayIterator;
 import nova.datastruct.list.List;
 
-public class NovaArray
+public class NovaArray extends NovaObject implements List
 {
 	
 	public int capacity;
@@ -57,25 +57,25 @@ public class NovaArray
 		init(data, count);
 	}
 	
-	public boolean empty()
+	public boolean accessor_empty()
 	{
 		return count <= 0;
 	}
 	
-	private boolean empty()
+	private boolean mutator_empty()
 	{
 	}
 	
-	public ArrayIterator iterator()
+	public ArrayIterator accessor_iterator()
 	{
 		return new ArrayIterator(this);
 	}
 	
-	private ArrayIterator iterator()
+	private ArrayIterator mutator_iterator()
 	{
 	}
 	
-	public NovaObject first()
+	public NovaObject accessor_first()
 	{
 		if (count > 0)
 		{
@@ -84,11 +84,11 @@ public class NovaArray
 		return null;
 	}
 	
-	private NovaObject first()
+	private NovaObject mutator_first()
 	{
 	}
 	
-	public NovaObject last()
+	public NovaObject accessor_last()
 	{
 		if (count > 0)
 		{
@@ -137,9 +137,9 @@ public class NovaArray
 		ArrayIterator nova_local_0;
 		NovaObject d;
 		nova_local_0 = (data).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			d = nova_local_0.next();
+			d = nova_local_0.accessor_next();
 			add(d);
 		}
 		return this;
@@ -199,9 +199,9 @@ public class NovaArray
 		NovaObject e;
 		i = 0;
 		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			e = nova_local_0.next();
+			e = nova_local_0.accessor_next();
 			if (element == e)
 			{
 				return i;
@@ -286,9 +286,9 @@ public class NovaArray
 		array = new NovaArray(count);
 		i = 0;
 		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.add(mapFunc(element, i++, this));
 		}
 		return array;
@@ -313,9 +313,9 @@ public class NovaArray
 		filtered = new NovaArray();
 		i = 0;
 		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (filterFunc(element, i++, this))
 			{
 				filtered.add(element);
@@ -358,9 +358,9 @@ public class NovaArray
 		NovaObject value;
 		sum = 0;
 		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			value = nova_local_0.next();
+			value = nova_local_0.accessor_next();
 			sum = sum + ((NovaString)value).count;
 		}
 		return sum;
@@ -375,9 +375,9 @@ public class NovaArray
 		array = new NovaArray(count);
 		i = 0;
 		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.data[count - ++i] = element;
 		}
 		return array;

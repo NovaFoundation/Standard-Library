@@ -133,7 +133,7 @@ nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDat
 			&nova_exception_Nova_ExceptionData_Nova_code,
 		};
 		
-		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_codes), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_static_Nova_testLambda19, this, &contextArg19) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
+		if (nova_datastruct_list_Nova_IntArray_Nova_any(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_codes, exceptionData, (nova_datastruct_list_Nova_IntArray_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_static_Nova_testLambda19, this, &contextArg19) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
 		{
 			return l1_Nova_data;
 		}

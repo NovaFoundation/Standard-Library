@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,14 +23,14 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.Queue;
 
-public class NovaNode
+public class NovaNode extends NovaObject
 {
 	
 	public NovaObject data;
@@ -39,12 +39,12 @@ public class NovaNode
 	
 	
 	
-	public NovaNode(Optional<NovaObject> data_optional, Optional<int> numChildren_optional)
+	public NovaNode(Optional<NovaObject> data_optional, Optional<NovaInt> numChildren_optional)
 	{
 		init(Optional.ofNullable(data), Optional.ofNullable(numChildren));
 	}
 	
-	public void init(Optional<NovaObject> data_optional, Optional<int> numChildren_optional)
+	public void init(Optional<NovaObject> data_optional, Optional<NovaInt> numChildren_optional)
 	{
 		NovaObject data = data_optional == null ? null : data_optional.get();
 		int numChildren = numChildren_optional == null ? 5 : numChildren_optional.get();
@@ -117,7 +117,7 @@ public class NovaNode
 	{
 		Queue queue;
 		queue = new Queue(generated9());
-		while (!queue.empty())
+		while (!queue.accessor_empty())
 		{
 			NovaNode current;
 			void contextArg16;

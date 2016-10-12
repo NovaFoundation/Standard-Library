@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,15 +23,15 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.Iterator;
 import nova.datastruct.list.NoSuchElementException;
 
-public class ArrayIterator
+public class ArrayIterator extends NovaObject implements Iterator
 {
 	private NovaArray array;
 	
@@ -45,18 +45,18 @@ public class ArrayIterator
 		init(array);
 	}
 	
-	public boolean hasNext()
+	public boolean accessor_hasNext()
 	{
 		return array.count > position;
 	}
 	
-	private boolean hasNext()
+	private boolean mutator_hasNext()
 	{
 	}
 	
-	public NovaObject next()
+	public NovaObject accessor_next()
 	{
-		if (hasNext())
+		if (accessor_hasNext())
 		{
 			return array.get(position++);
 		}
@@ -64,7 +64,7 @@ public class ArrayIterator
 		return null;
 	}
 	
-	private NovaObject next()
+	private NovaObject mutator_next()
 	{
 	}
 	

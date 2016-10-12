@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,9 +23,9 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.ArrayIterator;
@@ -33,7 +33,7 @@ import nova.datastruct.list.LinkedListIterator;
 import nova.datastruct.list.List;
 import nova.datastruct.list.ListNode;
 
-public class LinkedList
+public class LinkedList extends NovaObject implements List
 {
 	private ListNode start;
 	private ListNode current;
@@ -48,30 +48,30 @@ public class LinkedList
 		init();
 	}
 	
-	public LinkedListIterator iterator()
+	public LinkedListIterator accessor_iterator()
 	{
 		return new LinkedListIterator(this);
 	}
 	
-	private LinkedListIterator iterator()
+	private LinkedListIterator mutator_iterator()
 	{
 	}
 	
-	public ListNode first()
+	public ListNode accessor_first()
 	{
 		return start;
 	}
 	
-	private ListNode first()
+	private ListNode mutator_first()
 	{
 	}
 	
-	public ListNode last()
+	public ListNode accessor_last()
 	{
 		return current;
 	}
 	
-	private ListNode last()
+	private ListNode mutator_last()
 	{
 	}
 	
@@ -80,9 +80,9 @@ public class LinkedList
 		ArrayIterator nova_local_0;
 		NovaObject d;
 		nova_local_0 = (data).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			d = nova_local_0.next();
+			d = nova_local_0.accessor_next();
 			add(d);
 		}
 		return this;
@@ -144,10 +144,10 @@ public class LinkedList
 		NovaObject element;
 		array = new NovaArray(size);
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.set(i++, element);
 		}
 		return array;
@@ -161,10 +161,10 @@ public class LinkedList
 		NovaObject element;
 		array = new LinkedList();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.add(mapFunc(element, i++, this));
 		}
 		return array;
@@ -176,10 +176,10 @@ public class LinkedList
 		LinkedListIterator nova_local_0;
 		NovaObject element;
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			func(element, i++, this);
 		}
 	}
@@ -188,10 +188,10 @@ public class LinkedList
 	{
 		LinkedListIterator nova_local_0;
 		NovaObject element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (anyFunc(element))
 			{
 				return true;
@@ -204,10 +204,10 @@ public class LinkedList
 	{
 		LinkedListIterator nova_local_0;
 		NovaObject element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (!allFunc(element))
 			{
 				return false;
@@ -224,10 +224,10 @@ public class LinkedList
 		NovaObject element;
 		filtered = new LinkedList();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (filterFunc(element, i++, this))
 			{
 				filtered.add(element);
@@ -246,10 +246,10 @@ public class LinkedList
 			howMany = size;
 		}
 		list = new LinkedList();
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (list.size == howMany)
 			{
 				break;
@@ -267,10 +267,10 @@ public class LinkedList
 		NovaObject element;
 		list = new NovaArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (i++ > howMany)
 			{
 				list.add(element);
@@ -283,10 +283,10 @@ public class LinkedList
 	{
 		LinkedListIterator nova_local_0;
 		NovaObject element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (func(element))
 			{
 				return element;

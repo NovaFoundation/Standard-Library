@@ -151,10 +151,10 @@ void nova_math_logic_Nova_WFF_Nova_decodeFormula(nova_math_logic_Nova_WFF* this,
 	l1_Nova_conclusionGroup = nova_math_logic_Nova_WFF_Nova_searchForConclusion(this, exceptionData, this->prv->nova_math_logic_Nova_WFF_Nova_wff);
 	if (l1_Nova_conclusionGroup == (nova_math_logic_Nova_StatementGroup*)nova_null)
 	{
-		THROW(6, nova_math_logic_Nova_InvalidFormulaException_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("No valid conclusion found"))));
+		THROW(7, nova_math_logic_Nova_InvalidFormulaException_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("No valid conclusion found"))));
 	}
 	l1_Nova_conclusion = (nova_math_logic_Nova_Conclusion*)(l1_Nova_conclusionGroup->nova_math_logic_Nova_StatementGroup_Nova_statement);
-	nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Conclusion: ")), exceptionData, nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)(l1_Nova_conclusion), exceptionData)));
+	nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Conclusion: ")), exceptionData, nova_math_logic_Nova_LogicalStatement_Nova_toString((nova_math_logic_Nova_LogicalStatement*)(l1_Nova_conclusion), exceptionData)));
 	this->prv->nova_math_logic_Nova_WFF_Nova_wff = nova_datastruct_Nova_Bounds_Nova_extractPreString(l1_Nova_conclusionGroup->nova_math_logic_Nova_StatementGroup_Nova_bounds, exceptionData, this->prv->nova_math_logic_Nova_WFF_Nova_wff);
 	l1_Nova_statements = nova_math_logic_Nova_WFF_Nova_decodeHypotheses(this, exceptionData, this->prv->nova_math_logic_Nova_WFF_Nova_wff);
 	l4_Nova_i = (int)0;

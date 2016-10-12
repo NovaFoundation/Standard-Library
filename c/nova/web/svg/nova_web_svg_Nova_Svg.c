@@ -109,7 +109,7 @@ void nova_web_svg_Nova_Svg_Nova_this(nova_web_svg_Nova_Svg* this, nova_exception
 
 void nova_web_svg_Nova_Svg_Nova_generateOutput(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_web_svg_Nova_Svg_Nova_file)
 {
-	nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_web_svg_Nova_SvgComponent*)(this->nova_web_svg_Nova_Svg_Nova_root), exceptionData, nova_web_svg_Nova_Svg_Nova_file);
+	nova_web_svg_Nova_SvgMainComponent_Nova_generateOutput(this->nova_web_svg_Nova_Svg_Nova_root, exceptionData, nova_web_svg_Nova_Svg_Nova_file);
 }
 
 void nova_web_svg_Nova_Svg_Nova_generateHTMLOutput(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_web_svg_Nova_Svg_Nova_file)

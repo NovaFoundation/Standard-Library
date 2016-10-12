@@ -173,6 +173,7 @@ void nova_Nova_String_2_Nova_this(nova_Nova_String* this, nova_exception_Nova_Ex
 int nova_Nova_String_Nova_calculateSize(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_Nova_String_Nova_chars)
 {
 	return (int)strlen(nova_Nova_String_Nova_chars);
+	
 }
 
 nova_Nova_String* nova_Nova_String_Nova_concat(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str)
@@ -191,7 +192,7 @@ nova_Nova_String* nova_Nova_String_Nova_concat(nova_Nova_String* this, nova_exce
 
 char nova_Nova_String_Nova_equals(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_other)
 {
-	return nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo((nova_datastruct_Nova_Comparable*)(this), exceptionData, (nova_Nova_Object*)(nova_Nova_String_Nova_other)) == 0;
+	return nova_Nova_String_Nova_compareTo(this, exceptionData, nova_Nova_String_Nova_other) == 0;
 }
 
 nova_Nova_String* nova_Nova_String_Nova_replace(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_search, nova_Nova_String* nova_Nova_String_Nova_replace)
@@ -240,7 +241,7 @@ int nova_Nova_String_Nova_indexOf(nova_Nova_String* this, nova_exception_Nova_Ex
 		l1_Nova_j = (int)(0);
 		while (l1_Nova_j < nova_Nova_String_Nova_search->nova_Nova_String_Nova_count && l1_Nova_i + l1_Nova_j < this->nova_Nova_String_Nova_count && l1_Nova_found)
 		{
-			if ((char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_Nova_String_Nova_search->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_j) != (char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_i + l1_Nova_j))
+			if ((char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_search->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_j) != (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_i + l1_Nova_j))
 			{
 				l1_Nova_found = 0;
 			}
@@ -290,7 +291,7 @@ char nova_Nova_String_Nova_lastChar(nova_Nova_String* this, nova_exception_Nova_
 
 char nova_Nova_String_Nova_charAt(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_String_Nova_index)
 {
-	return (char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, nova_Nova_String_Nova_index);
+	return (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, nova_Nova_String_Nova_index);
 }
 
 nova_Nova_String* nova_Nova_String_Nova_trim(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -300,11 +301,11 @@ nova_Nova_String* nova_Nova_String_Nova_trim(nova_Nova_String* this, nova_except
 	
 	l1_Nova_start = (int)(0);
 	l1_Nova_end = this->nova_Nova_String_Nova_count - 1;
-	while (l1_Nova_start < this->nova_Nova_String_Nova_count && nova_datastruct_list_Nova_List_virtual0_Nova_contains((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_whitespace), exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_start))))
+	while (l1_Nova_start < this->nova_Nova_String_Nova_count && nova_datastruct_list_Nova_List_virtual0_Nova_contains((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_whitespace), exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_start))))
 	{
 		l1_Nova_start++;
 	}
-	while (l1_Nova_end >= 0 && nova_datastruct_list_Nova_List_virtual0_Nova_contains((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_whitespace), exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_end))))
+	while (l1_Nova_end >= 0 && nova_datastruct_list_Nova_List_virtual0_Nova_contains((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_whitespace), exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_end))))
 	{
 		l1_Nova_end--;
 	}
@@ -335,7 +336,7 @@ nova_Nova_String* nova_Nova_String_Nova_capitalize(nova_Nova_String* this, nova_
 	{
 		return this;
 	}
-	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Char_static_Nova_toString(0, exceptionData, nova_primitive_number_Nova_Char_static_Nova_toUpperCase(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, 0))))), exceptionData, nova_Nova_String_Nova_substring(this, exceptionData, 1, (intptr_t)nova_null));
+	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Char_static_Nova_toString(0, exceptionData, nova_primitive_number_Nova_Char_static_Nova_toUpperCase(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, 0))))), exceptionData, nova_Nova_String_Nova_substring(this, exceptionData, 1, (intptr_t)nova_null));
 }
 
 nova_Nova_String* nova_Nova_String_Nova_transform(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String_closure3_Nova_transform nova_Nova_String_Nova_transform, void* nova_Nova_String_ref_Nova_transform, void* transform_context)
@@ -348,7 +349,7 @@ nova_Nova_String* nova_Nova_String_Nova_transform(nova_Nova_String* this, nova_e
 	l2_Nova_i = (int)0;
 	for (; l2_Nova_i < (int)this->nova_Nova_String_Nova_count; l2_Nova_i++)
 	{
-		l1_Nova_newData[l2_Nova_i] = nova_Nova_String_Nova_transform(nova_Nova_String_ref_Nova_transform, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i)), l2_Nova_i, transform_context);
+		l1_Nova_newData[l2_Nova_i] = nova_Nova_String_Nova_transform(nova_Nova_String_ref_Nova_transform, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i)), l2_Nova_i, transform_context);
 	}
 	return nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_newData);
 }
@@ -373,7 +374,7 @@ nova_Nova_String* nova_Nova_String_Nova_surroundWith(nova_Nova_String* this, nov
 	nova_Nova_String_Nova_symmetrical = (char)(nova_Nova_String_Nova_symmetrical == (intptr_t)nova_null ? 0 : nova_Nova_String_Nova_symmetrical);
 	if (nova_Nova_String_Nova_symmetrical)
 	{
-		return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_str), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(this), exceptionData, nova_Nova_String_2_Nova_construct(0, exceptionData, (nova_datastruct_list_Nova_CharArray*)(intptr_t)(nova_datastruct_list_Nova_List_virtual_Nova_reverse((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_str->nova_Nova_String_Nova_chars), exceptionData)))));
+		return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_str), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(this), exceptionData, nova_Nova_String_2_Nova_construct(0, exceptionData, (nova_datastruct_list_Nova_CharArray*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_reverse((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_str->nova_Nova_String_Nova_chars), exceptionData)))));
 	}
 	else
 	{
@@ -390,9 +391,9 @@ int nova_Nova_String_Nova_compareTo(nova_Nova_String* this, nova_exception_Nova_
 	l2_Nova_i = (int)0;
 	for (; l2_Nova_i < (int)l1_Nova_min; l2_Nova_i++)
 	{
-		if ((char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i) - (char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_Nova_String_Nova_other->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i) != 0)
+		if ((char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i) - (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_other->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i) != 0)
 		{
-			return (int)(char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i) - (char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_Nova_String_Nova_other->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i);
+			return (int)(char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i) - (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_other->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i);
 		}
 	}
 	return this->nova_Nova_String_Nova_count - nova_Nova_String_Nova_other->nova_Nova_String_Nova_count;
@@ -417,7 +418,7 @@ nova_datastruct_list_Nova_CharArray* generated1(nova_Nova_String* this, nova_exc
 
 long_long nova_Nova_String_Accessor_Nova_hashCodeLong(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong((nova_Nova_Object*)(this->nova_Nova_String_Nova_chars), exceptionData);
+	return nova_datastruct_list_Nova_CharArray_Accessor_Nova_hashCodeLong((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData);
 }
 
 

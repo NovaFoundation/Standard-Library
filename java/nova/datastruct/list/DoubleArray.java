@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,14 +23,14 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.list.DoubleArrayIterator;
 
-public class DoubleArray
+public class DoubleArray extends NovaArray
 {
 	
 	
@@ -52,16 +52,16 @@ public class DoubleArray
 		init(data, count);
 	}
 	
-	public DoubleArrayIterator iterator()
+	public DoubleArrayIterator accessor_iterator()
 	{
 		return new DoubleArrayIterator(this);
 	}
 	
-	private DoubleArrayIterator iterator()
+	private DoubleArrayIterator mutator_iterator()
 	{
 	}
 	
-	public double first()
+	public double accessor_first()
 	{
 		if (count > 0)
 		{
@@ -70,11 +70,11 @@ public class DoubleArray
 		return 0;
 	}
 	
-	private double first()
+	private double mutator_first()
 	{
 	}
 	
-	public double last()
+	public double accessor_last()
 	{
 		if (count > 0)
 		{
@@ -98,6 +98,16 @@ public class DoubleArray
 		init(data, count);
 	}
 	
+	public double get(int index)
+	{
+		return ((double[])data)[index];
+	}
+	
+	public void set(int index, double value)
+	{
+		((double[])data)[index] = value;
+	}
+	
 	public NovaArray map(NovaObject mapFunc)
 	{
 		NovaArray array;
@@ -106,10 +116,10 @@ public class DoubleArray
 		double element;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.add(mapFunc(element, i++, this));
 		}
 		return array;
@@ -129,10 +139,10 @@ public class DoubleArray
 	{
 		DoubleArrayIterator nova_local_0;
 		double element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (anyFunc(element))
 			{
 				return true;
@@ -145,10 +155,10 @@ public class DoubleArray
 	{
 		DoubleArrayIterator nova_local_0;
 		double element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (!allFunc(element))
 			{
 				return false;
@@ -165,10 +175,10 @@ public class DoubleArray
 		double element;
 		filtered = new DoubleArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (filterFunc(element, i++, this))
 			{
 				filtered.add(element);
@@ -189,7 +199,7 @@ public class DoubleArray
 		i = (int)0;
 		for (; i < (int)howMany; i++)
 		{
-			list.add(data[i]);
+			list.add(get(i));
 		}
 		return list;
 	}
@@ -202,7 +212,7 @@ public class DoubleArray
 		i = (int)howMany;
 		for (; i < (int)count; i++)
 		{
-			list.add(data[i]);
+			list.add(get(i));
 		}
 		return list;
 	}
@@ -211,10 +221,10 @@ public class DoubleArray
 	{
 		DoubleArrayIterator nova_local_0;
 		double element;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (func(element))
 			{
 				return element;
@@ -232,10 +242,10 @@ public class DoubleArray
 		array = new DoubleArray(count);
 		array.count = count;
 		i = 0;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			array.set(count - ++i, element);
 		}
 		return array;
@@ -249,10 +259,10 @@ public class DoubleArray
 		double element;
 		str = new NovaString("");
 		passed = false;
-		nova_local_0 = (this).iterator();
-		while (nova_local_0.hasNext())
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
 		{
-			element = nova_local_0.next();
+			element = nova_local_0.accessor_next();
 			if (passed)
 			{
 				str = str.concat(delimiter);

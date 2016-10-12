@@ -118,7 +118,7 @@ void nova_datastruct_list_Nova_CharArrayIterator_Nova_destroy(nova_datastruct_li
 void nova_datastruct_list_Nova_CharArrayIterator_Nova_this(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_datastruct_list_Nova_CharArrayIterator_Nova_array)
 {
 	this->prv->nova_datastruct_list_Nova_CharArrayIterator_Nova_array = nova_datastruct_list_Nova_CharArrayIterator_Nova_array;
-	nova_datastruct_list_Nova_Iterator_virtual_Nova_reset((nova_datastruct_list_Nova_Iterator*)(this), exceptionData);
+	nova_datastruct_list_Nova_CharArrayIterator_Nova_reset(this, exceptionData);
 }
 
 nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_CharArrayIterator_Nova_reset(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -135,9 +135,9 @@ char nova_datastruct_list_Nova_CharArrayIterator_Accessor_Nova_hasNext(nova_data
 
 char nova_datastruct_list_Nova_CharArrayIterator_Accessor_Nova_next(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext((nova_datastruct_list_Nova_Iterator*)(this), exceptionData))
+	if (nova_datastruct_list_Nova_CharArrayIterator_Accessor_Nova_hasNext(this, exceptionData))
 	{
-		return (char)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_datastruct_list_Nova_CharArrayIterator_Nova_array), exceptionData, this->nova_datastruct_list_Nova_CharArrayIterator_Nova_position++);
+		return (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get(this->prv->nova_datastruct_list_Nova_CharArrayIterator_Nova_array, exceptionData, this->nova_datastruct_list_Nova_CharArrayIterator_Nova_position++);
 	}
 	THROW(2, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
 	return (char)0;

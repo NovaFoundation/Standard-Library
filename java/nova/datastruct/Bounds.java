@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,13 +23,13 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 
-public class Bounds
+public class Bounds extends NovaObject
 {
 	
 	public int start;
@@ -48,39 +48,39 @@ public class Bounds
 		init(start, end);
 	}
 	
-	public int size()
+	public int accessor_size()
 	{
 		return end - start;
 	}
 	
-	private int size()
+	private int mutator_size()
 	{
 	}
 	
-	public boolean valid()
+	public boolean accessor_valid()
 	{
 		return start >= 0 && end > 0;
 	}
 	
-	private boolean valid()
+	private boolean mutator_valid()
 	{
 	}
 	
-	public boolean endless()
+	public boolean accessor_endless()
 	{
 		return end < 0;
 	}
 	
-	private boolean endless()
+	private boolean mutator_endless()
 	{
 	}
 	
-	public boolean optional()
+	public boolean accessor_optional()
 	{
 		return start == 0;
 	}
 	
-	private boolean optional()
+	private boolean mutator_optional()
 	{
 	}
 	
@@ -97,7 +97,7 @@ public class Bounds
 	
 	public NovaString extractString(NovaString source)
 	{
-		if (!valid())
+		if (!accessor_valid())
 		{
 			return null;
 		}
@@ -106,7 +106,7 @@ public class Bounds
 	
 	public NovaString extractPreString(NovaString source)
 	{
-		if (!valid())
+		if (!accessor_valid())
 		{
 			return null;
 		}
@@ -115,7 +115,7 @@ public class Bounds
 	
 	public NovaString extractPostString(NovaString source)
 	{
-		if (!valid())
+		if (!accessor_valid())
 		{
 			return source;
 		}
@@ -124,7 +124,7 @@ public class Bounds
 	
 	public NovaString trimString(NovaString source)
 	{
-		if (!valid())
+		if (!accessor_valid())
 		{
 			return source;
 		}

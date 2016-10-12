@@ -118,7 +118,7 @@ void nova_datastruct_list_Nova_IntRangeIterator_Nova_destroy(nova_datastruct_lis
 void nova_datastruct_list_Nova_IntRangeIterator_Nova_this(nova_datastruct_list_Nova_IntRangeIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_IntRange* nova_datastruct_list_Nova_IntRangeIterator_Nova_range)
 {
 	this->prv->nova_datastruct_list_Nova_IntRangeIterator_Nova_range = nova_datastruct_list_Nova_IntRangeIterator_Nova_range;
-	nova_datastruct_list_Nova_Iterator_virtual_Nova_reset((nova_datastruct_list_Nova_Iterator*)(this), exceptionData);
+	nova_datastruct_list_Nova_IntRangeIterator_Nova_reset(this, exceptionData);
 }
 
 nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_IntRangeIterator_Nova_reset(nova_datastruct_list_Nova_IntRangeIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -135,7 +135,7 @@ char nova_datastruct_list_Nova_IntRangeIterator_Accessor_Nova_hasNext(nova_datas
 
 int nova_datastruct_list_Nova_IntRangeIterator_Accessor_Nova_next(nova_datastruct_list_Nova_IntRangeIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext((nova_datastruct_list_Nova_Iterator*)(this), exceptionData))
+	if (nova_datastruct_list_Nova_IntRangeIterator_Accessor_Nova_hasNext(this, exceptionData))
 	{
 		return this->nova_datastruct_list_Nova_IntRangeIterator_Nova_position++;
 	}

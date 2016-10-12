@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,9 +23,9 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.BinaryNode;
@@ -33,7 +33,7 @@ import nova.datastruct.Comparable;
 import nova.datastruct.Tree;
 import nova.datastruct.list.ArrayIterator;
 
-public class BinaryTree
+public class BinaryTree extends Tree
 {
 	
 	
@@ -45,12 +45,12 @@ public class BinaryTree
 		init(data);
 	}
 	
-	public BinaryNode root()
+	public BinaryNode accessor_root()
 	{
 		return ((Tree)this).root;
 	}
 	
-	public BinaryNode root(BinaryNode node)
+	public BinaryNode mutator_root(BinaryNode node)
 	{
 		((Tree)this).root = node;
 		return node;
@@ -63,13 +63,13 @@ public class BinaryTree
 	
 	public BinaryTree addNode(Comparable data)
 	{
-		if (root() == null)
+		if (accessor_root() == null)
 		{
-			root(new BinaryNode(Optional.ofNullable(data)));
+			mutator_root(new BinaryNode(Optional.ofNullable(data)));
 		}
 		else
 		{
-			root().addChild(data);
+			accessor_root().addChild(data);
 		}
 		return this;
 	}
@@ -79,9 +79,9 @@ public class BinaryTree
 		ArrayIterator nova_local_0;
 		Comparable d;
 		nova_local_0 = (data).iterator();
-		while (nova_local_0.hasNext())
+		while (nova_local_0.accessor_hasNext())
 		{
-			d = nova_local_0.next();
+			d = nova_local_0.accessor_next();
 			addNode(d);
 		}
 		return this;

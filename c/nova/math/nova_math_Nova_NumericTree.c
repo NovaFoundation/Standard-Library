@@ -114,7 +114,7 @@ void nova_math_Nova_NumericTree_Nova_this(nova_math_Nova_NumericTree* this, nova
 
 nova_Nova_String* nova_math_Nova_NumericTree_Nova_toString(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)(this->prv->nova_math_Nova_NumericTree_Nova_root), exceptionData);
+	return nova_math_Nova_NumericOperation_Nova_toString(this->prv->nova_math_Nova_NumericTree_Nova_root, exceptionData);
 }
 
 void nova_math_Nova_NumericTree_Nova_super(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData)

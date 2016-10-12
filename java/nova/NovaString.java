@@ -4,18 +4,18 @@ import java.util.Optional;
 import nova.exception.ExceptionData;
 import nova.exception.Exception;
 import nova.exception.DivideByZeroException;
-import nova.io.Console;
+import nova.io.NovaConsole;
 import nova.primitive.number.Number;
-import nova.primitive.number.Byte;
-import nova.primitive.number.Short;
-import nova.primitive.number.Int;
-import nova.primitive.number.Long;
-import nova.primitive.number.Float;
-import nova.primitive.number.Double;
+import nova.primitive.number.NovaByte;
+import nova.primitive.number.NovaShort;
+import nova.primitive.number.NovaInt;
+import nova.primitive.number.NovaLong;
+import nova.primitive.number.NovaFloat;
+import nova.primitive.number.NovaDouble;
 import nova.primitive.Null;
 import nova.primitive.number.Char;
 import nova.primitive.Bool;
-import nova.datastruct.list.Array;
+import nova.datastruct.list.NovaArray;
 import nova.datastruct.list.IntArray;
 import nova.datastruct.list.CharArray;
 import nova.datastruct.list.DoubleArray;
@@ -23,16 +23,16 @@ import nova.datastruct.list.IntRange;
 import nova.thread.Thread;
 import nova.thread.async.Async;
 import nova.gc.GC;
-import nova.math.Math;
-import nova.Object;
-import nova.String;
+import nova.math.NovaMath;
+import nova.NovaObject;
+import nova.NovaString;
 import nova.System;
 import nova.Class;
 import nova.datastruct.Comparable;
 import nova.datastruct.HashSet;
 import nova.datastruct.list.StringCharArray;
 
-public class NovaString
+public class NovaString extends NovaObject implements Comparable
 {
 	
 	public int count;
@@ -58,12 +58,12 @@ public class NovaString
 		init(chars);
 	}
 	
-	public long hashCodeLong()
+	public long accessor_hashCodeLong()
 	{
-		return chars.hashCodeLong();
+		return chars.accessor_hashCodeLong();
 	}
 	
-	private long hashCodeLong()
+	private long mutator_hashCodeLong()
 	{
 	}
 	
@@ -146,7 +146,7 @@ public class NovaString
 		return indexOf(search, null, null, null) >= 0;
 	}
 	
-	public int indexOf(NovaString search, Optional<int> start_optional, Optional<int> direction_optional, Optional<int> defaultReturnValue_optional)
+	public int indexOf(NovaString search, Optional<NovaInt> start_optional, Optional<NovaInt> direction_optional, Optional<NovaInt> defaultReturnValue_optional)
 	{
 		int i;
 		int start = start_optional == null ? 0 : start_optional.get();
@@ -181,7 +181,7 @@ public class NovaString
 		return indexOf(search, Optional.ofNullable(count - 1), Optional.ofNullable(-1), null);
 	}
 	
-	public NovaString substring(int start, Optional<int> end_optional)
+	public NovaString substring(int start, Optional<NovaInt> end_optional)
 	{
 		char[] buf;
 		char[] arr;
@@ -196,7 +196,7 @@ public class NovaString
 		}
 		buf = new char[end - start + 1];
 		arr = chars.data;
-		null
+		
 		return new NovaString(buf);
 	}
 	
@@ -267,7 +267,7 @@ public class NovaString
 		return new NovaString(newData);
 	}
 	
-	public NovaString getStringBetween(NovaString before, NovaString after, Optional<int> start_optional)
+	public NovaString getStringBetween(NovaString before, NovaString after, Optional<NovaInt> start_optional)
 	{
 		int s;
 		int e;
@@ -281,7 +281,7 @@ public class NovaString
 		return new NovaString("");
 	}
 	
-	public NovaString surroundWith(NovaString str, Optional<boolean> symmetrical_optional)
+	public NovaString surroundWith(NovaString str, Optional<Bool> symmetrical_optional)
 	{
 		boolean symmetrical = symmetrical_optional == null ? false : symmetrical_optional.get();
 		if (symmetrical)

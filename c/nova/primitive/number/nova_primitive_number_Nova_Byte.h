@@ -52,7 +52,7 @@ struct nova_primitive_number_Byte_Extension_VTable
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	int (*nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits)(nova_primitive_number_Nova_Byte*, nova_exception_Nova_ExceptionData*, char);
 	char (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_primitive_number_Nova_Byte*, nova_exception_Nova_ExceptionData*, char);
-	char (*nova_operators_Nova_Multiply_virtual_Nova_multiply)(nova_primitive_number_Nova_Byte*, nova_exception_Nova_ExceptionData*, char);
+	char (*nova_operators_Nova_Multiply_virtual0_Nova_multiply)(nova_primitive_number_Nova_Byte*, nova_exception_Nova_ExceptionData*, char);
 };
 
 extern nova_primitive_number_Byte_Extension_VTable nova_primitive_number_Byte_Extension_VTable_val;

@@ -116,7 +116,7 @@ double nova_math_Nova_Sequence_static_Nova_sum(nova_math_Nova_Sequence* this, no
 	l2_Nova_i = (int)0;
 	for (; l2_Nova_i < (int)nova_math_Nova_Sequence_Nova_num; l2_Nova_i++)
 	{
-		l1_Nova_value = l1_Nova_value + (double)(intptr_t)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_math_Nova_Sequence_Nova_values), exceptionData, l2_Nova_i);
+		l1_Nova_value = l1_Nova_value + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Sequence_Nova_values, exceptionData, l2_Nova_i);
 	}
 	return l1_Nova_value;
 }
