@@ -226,30 +226,33 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	    return buckets[(Int)(key.hashCodeLong & (buckets.count - 1))]
 	}
 	
-	public put(K key, V value) -> HashMap
+	this[K key] -> V
 	{
-	    var bucket = getBucket(key)
-	    
-		bucket.add(new Pair<K, V>(key, value))
+		get
+		{
+			var pair = getPair(key)
+			
+			if (pair != null)
+			{
+				return pair.value
+			}
+			
+			return null
+		}
 		
-		return this
+		set
+		{
+			var bucket = getBucket(key)
+			
+			bucket.add(new Pair<K, V>(key, value))
+			
+			return this
+		}
 	}
 	
 	getPair(K key) -> Pair<K, V>
 	{
 	    return getBucket(key).filter(x -> x != 0 && x != null && x.key.equals(key)).first
-	}
-	
-	public get(K key) -> V
-	{
-	    var pair = getPair(key)
-	    
-	    if (pair != null)
-	    {
-	        return pair.value
-	    }
-	    
-	    return null
 	}
 	
 	public remove(K key) -> V
