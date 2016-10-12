@@ -1,0 +1,6 @@
+package "nova/math"
+
+class Vector2D
+{
+
+}
