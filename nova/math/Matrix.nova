@@ -1,16 +1,177 @@
 package "nova/math"
 
-public class Matrix
+import "nova/operators/Multiply"
+import "nova/exception/InvalidArgumentException"
+
+class Matrix implements Multiply<Matrix>
 {
-	Number[][] matrix
+	public Double[][] data
+	
+	visible Int rows
+	{
+		get { return data.count }
+		no set
+	}
+	
+	visible Int cols
+	{
+		get { return data[0].count }
+		no set {}
+	}
+	
+	visible Bool isSquare
+	{
+		get { return cols == rows }
+		no set
+	}
 	
 	public construct(Int rows, Int cols)
 	{
-		matrix = new Array(rows)
+		if (rows <= 0 || cols <= 0)
+			throw new InvalidArgumentException("Invalid matrix size #{rows}x#{cols}. The number of rows and columns must both be positive.")
+		
+		this(new DoubleArray(rows).map({ new DoubleArray(cols) }))
 	}
 	
-	public sum() -> Number
+	public construct(Double[][] data)
 	{
-		return 0
+		if (data == null || data.count == 0)
+			throw new InvalidArgumentException("Matrix size must be greater than 0 rows and columns")
+		
+		this.data = data
+	}
+	
+	public add(Matrix other, Bool allowUnequalDimensions = false) -> Matrix
+	{
+		if (!allowUnequalDimensions && (rows != other.rows || cols != other.cols))
+			throw new InvalidArgumentException("The matrices' sizes must be equal to perform this operation")
+		
+		//return new Matrix(data.zip(other, { _.zip(_, { _ + _ }) }))
+		var result = new Matrix(rows, cols)
+		
+		for (row in 0..Math.min(rows, other.rows))
+		{
+			for (col in 0..Math.min(cols, other.cols))
+			{
+				result.data[row][col] = data[row][col] + other.data[row][col]
+			}
+		}
+		
+		return result
+	}
+	
+	public subtract(Matrix other, Bool allowUnequalDimensions = false) -> Matrix
+	{
+		if (!allowUnequalDimensions && (rows != other.rows || cols != other.cols))
+			throw new InvalidArgumentException("The matrices' sizes must be equal to perform this operation")
+		
+		//return new Matrix(data.zip(other, { _.zip(_, { _ - _ }) }))
+		var result = new Matrix(rows, cols)
+		
+		for (row in 0..Math.min(rows, other.rows))
+		{
+			for (col in 0..Math.min(cols, other.cols))
+			{
+				result.data[row][col] = data[row][col] - other.data[row][col]
+			}
+		}
+		
+		return result
+	}
+	
+	public multiply(Matrix other) -> Matrix
+	{
+		if (cols != other.rows)
+			throw new InvalidArgumentException("Matrix with dimensions #{rows}x#{cols} cannot be multiplied with matrix with dimensions #{other.rows}x#{other.cols}. #cols != #other.rows")
+		
+		var result = new Matrix(rows, other.cols)
+		
+		for (outR in 0..result.rows)
+		{
+			Int r = 0
+			
+			for (row in data)
+			{
+				Double value = 0
+				
+				for (c in 0..cols)
+				{
+					value += row[c] * other.data[c][outR]
+				}
+				
+				result.data[r++][outR] = value
+			}
+		}
+		
+		return result
+	}
+	
+	public transpose() -> Matrix
+	{
+		var result = new Matrix(cols, rows)
+		
+		data.forEach((row, r) -> {
+			for (c in 0..cols)
+			{
+				result.data[c][r] = row[c]
+			}
+		})
+		
+		return result
+	}
+	
+	public determinant() -> Double
+	{
+		if (!isSquare)
+			throw new InvalidArgumentException("Matrix must be square to calculate the determinant")
+		
+		return determinant(data)
+	}
+	
+	public static determinant(Double[][] data) -> Double
+	{
+		var order = data.count
+		
+		Double det = 0
+		
+		if (order == 1)
+		{
+		    det = data[0][0]
+		}
+		else if (order == 2)
+		{
+		    det = data[0][0] * data[1][1] - data[1][0] * data[0][1]
+		}
+		else
+		{
+		    det = 0
+			
+		    for (j1 in 0..order)
+		    {
+		        Double[][] m = new DoubleArray(order - 1).map({ new DoubleArray(order - 1) })
+				
+		        for (i in 1..order)
+		        {
+		            Int j2 = 0
+					
+		            for (j in 0..order)
+		            {
+		                if (j != j1)
+						{
+							m[i - 1][j2++] = data[i][j]
+						}
+		            }
+		        }
+				
+		        det += Math.pow(-1.0, 1.0 + j1 + 1.0) * data[0][j1] * determinant(m)
+		    }
+		}
+		
+		return det
+	}
+	
+	public toString() -> String
+	{
+		return data.map({ "[ #{_.join("\t")} ]" }).join("\n")
 	}
 }
