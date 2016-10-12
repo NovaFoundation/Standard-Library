@@ -144,11 +144,9 @@ class Matrix implements Multiply<Matrix>
 		}
 		else
 		{
-		    det = 0
-			
 		    for (j1 in 0..order)
 		    {
-		        Double[][] m = new DoubleArray(order - 1).map({ new DoubleArray(order - 1) })
+		        Double[][] m = new Array(order - 1).map({ new DoubleArray(order - 1) })
 				
 		        for (i in 1..order)
 		        {
