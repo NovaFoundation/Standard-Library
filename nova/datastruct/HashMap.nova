@@ -222,8 +222,8 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	
 	getBucket(K key) -> Pair<K, V>[]
 	{
-	    //return buckets.get((Int)(key.hashCodeLong % buckets.count))
-	    return buckets.get((Int)(key.hashCodeLong & (buckets.count - 1)))
+	    //return buckets[(Int)(key.hashCodeLong % buckets.count)]
+	    return buckets[(Int)(key.hashCodeLong & (buckets.count - 1))]
 	}
 	
 	public put(K key, V value) -> HashMap

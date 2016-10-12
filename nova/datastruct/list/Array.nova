@@ -60,6 +60,19 @@ public class Array<E> implements List<E>
             return null
         }
 	}
+	
+	this[Int index] -> E
+	{
+		get
+		{
+			return data[index]
+		}
+		
+		set
+		{
+			data[index] = value
+		}
+	}
 
 	public construct()
 	{
@@ -252,16 +265,6 @@ public class Array<E> implements List<E>
 		}
 	}
 
-	public get(Int index) -> E
-	{
-		return data[index]
-	}
-
-	public set(Int index, E value)
-	{
-		data[index] = value
-	}
-
 	[Override]
 	public toArray() -> E[]
 	{
@@ -269,7 +272,7 @@ public class Array<E> implements List<E>
 
 		for (i in 0..count)
 		{
-			array.set(i, data[i])
+			array[i] = data[i]
 		}
 
 		return array

@@ -45,6 +45,31 @@ public class DoubleArray extends Array<Double>
         }
 	}
 	
+	this[Int index] -> Double
+	{
+		get
+		{
+			external c
+			{
+				return ((double*)#{data})[#{index}];
+			}
+			
+			[Target not c]
+			return (([PrimitiveArray] Double[])data)[index]
+		}
+		
+		set
+		{
+			external c
+			{
+				((double*)#{data})[#{index}] = #{value};
+			}
+			
+			[Target not c]
+			(([PrimitiveArray] Double[])data)[index] = value
+		}
+	}
+	
 	public construct()
 	{
 		super()
@@ -53,6 +78,11 @@ public class DoubleArray extends Array<Double>
 	public construct(Int count)
 	{
 	    super(count)
+		
+		external c
+		{
+			#{data} = (nova_Nova_Object**)NOVA_MALLOC(sizeof(double) * #{count});
+		}
 	}
 	
 	public construct([PrimitiveArray] Double[] data, Int count)
@@ -142,7 +172,7 @@ public class DoubleArray extends Array<Double>
 		
 		for (i in 0..howMany)
 		{
-			list.add(data[i])
+			list.add(get(i))
 		}
 		
 		return list
@@ -155,7 +185,7 @@ public class DoubleArray extends Array<Double>
 		
 		for (i in howMany..count)
 		{
-			list.add(data[i])
+			list.add(get(i))
 		}
 		
 		return list

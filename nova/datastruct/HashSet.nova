@@ -209,8 +209,8 @@ public class HashSet<T> implements List<T>
 
 	getBucket(T value) -> T[]
 	{
-	    //return buckets.get((Int)(value.hashCodeLong % buckets.count))
-	    return buckets.get((Int)(value.hashCodeLong & (buckets.count - 1)))
+	    //return buckets[(Int)(value.hashCodeLong % buckets.count)]
+	    return buckets[(Int)(value.hashCodeLong & (buckets.count - 1))]
 	}
 
 	public add(T value) -> HashSet

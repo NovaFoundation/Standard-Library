@@ -35,8 +35,8 @@ public class BinaryNode<E extends Comparable> extends Node<E>
 		if (children.count <= index)
 			return null
 		
-		return (BinaryNode)children.get(index)
-		//return children.count > index ? (BinaryNode)children.get(index) : null
+		return (BinaryNode)children[index]
+		//return children.count > index ? (BinaryNode)children[index] : null
 	}
 	
 	setNode(Int index, BinaryNode<E> data)
@@ -44,7 +44,7 @@ public class BinaryNode<E extends Comparable> extends Node<E>
 		if (children.count <= index)
 			children.add(index, data)
 		else
-			children.set(index, data)
+			children[index] = data
 	}
 	
 	public addChild(E data)

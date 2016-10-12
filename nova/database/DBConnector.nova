@@ -86,11 +86,11 @@ public class DBConnector
 			
 			for (i in 0..numRows)
 			{
-			    rows.set(i, new Array<String>(numCols))
+			    rows[i] = new Array<String>(numCols)
 			    
 				for (j in 0..numCols)
 				{
-					rows.get(i).set(j, new String(arrays[i][j]))
+					rows[i][j] = new String(arrays[i][j])
 				}
 			}
 			

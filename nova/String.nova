@@ -179,7 +179,7 @@ public class String implements Comparable<String>
 
 			while (j < search.count && i + j < count && found)
 			{
-				if (search.chars.get(j) != chars.get(i + j))
+				if (search.chars[j] != chars[i + j])
 				{
 					found = false
 				}
@@ -189,10 +189,7 @@ public class String implements Comparable<String>
 
 			if (found)
 			{
-//				if (direction > 0)
-					return i
-//				else
-//					return i - search.count + 1
+				return i
 			}
 
 			i += direction
@@ -246,7 +243,7 @@ public class String implements Comparable<String>
 
 	public charAt(Int index) -> Char
 	{
-		return chars.get(index)
+		return chars[index]
 	}
 
 	public trim() -> String
@@ -254,12 +251,12 @@ public class String implements Comparable<String>
 		Int start = 0
 		Int end   = count - 1
 
-		while (start < count && whitespace.contains(chars.get(start)))
+		while (start < count && whitespace.contains(chars[start]))
 		{
 			start++
 		}
 
-		while (end >= 0 && whitespace.contains(chars.get(end)))
+		while (end >= 0 && whitespace.contains(chars[end]))
 		{
 			end--
 		}
@@ -291,7 +288,7 @@ public class String implements Comparable<String>
 	{
 	    if (count == 0) return this
 
-	    return chars.get(0).toUpperCase() + substring(1)
+	    return chars[0].toUpperCase() + substring(1)
 	}
 
 	public transform(transform(Char, Int) -> Char) -> String
@@ -301,7 +298,7 @@ public class String implements Comparable<String>
 
 		for (i in 0..count)
 		{
-			newData[i] = transform(chars.get(i), i)
+			newData[i] = transform(chars[i], i)
 		}
 
 		return new String(newData)
@@ -338,9 +335,9 @@ public class String implements Comparable<String>
 
 		for (i in 0..min)
 		{
-			if (chars.get(i) - other.chars.get(i) != 0)
+			if (chars[i] - other.chars[i] != 0)
 			{
-				return chars.get(i) - other.chars.get(i)
+				return chars[i] - other.chars[i]
 			}
 		}
 

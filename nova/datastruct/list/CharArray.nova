@@ -65,6 +65,19 @@ public class CharArray extends Array<Char>
 	    no set
 	}
 	
+	this[Int index] -> Char
+	{
+		get
+		{
+			return (([PrimitiveArray] Char[])data)[index]
+		}
+		
+		set
+		{
+			(([PrimitiveArray] Char[])data)[index] = value
+		}
+	}
+	
 	public construct()
 	{
 		super()
@@ -73,18 +86,6 @@ public class CharArray extends Array<Char>
 	public construct(Int count)
 	{
 	    super(count)
-	}
-	
-	[Override]
-	public get(Int index) -> Char
-	{
-	    return (([PrimitiveArray] Char[])data)[index]
-	}
-	
-	[Override]
-	public set(Int index, Char value)
-	{
-	    (([PrimitiveArray] Char[])data)[index] = value
 	}
 	
 	public construct([PrimitiveArray] Char[] data, Int count)
