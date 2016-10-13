@@ -7,23 +7,9 @@ class Matrix implements Multiply<Matrix>
 {
 	public Double[][] data
 	
-	visible Int rows
-	{
-		get { return data.count }
-		no set
-	}
-	
-	visible Int cols
-	{
-		get { return data[0].count }
-		no set {}
-	}
-	
-	visible Bool isSquare
-	{
-		get { return cols == rows }
-		no set
-	}
+	visible Bool isSquare => cols == rows
+	visible Int rows => data.count
+	visible Int cols => data[0].count
 	
 	public construct(Int rows, Int cols)
 	{

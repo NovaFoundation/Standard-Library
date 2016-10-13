@@ -357,6 +357,12 @@ nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda24(nova_math_Nova_
 	return (nova_Nova_Object*)nova_datastruct_list_Nova_DoubleArray_1_Nova_construct(0, exceptionData, (*context->nova_math_Nova_Matrix_Nova_cols));
 }
 
+char nova_math_Nova_Matrix_Accessor_Nova_isSquare(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData) == nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData);
+}
+
+
 int nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return this->nova_math_Nova_Matrix_Nova_data->nova_datastruct_list_Nova_Array_Nova_count;
@@ -366,12 +372,6 @@ int nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix* this, nova_e
 int nova_math_Nova_Matrix_Accessor_Nova_cols(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return (int)(((nova_datastruct_list_Nova_DoubleArray*)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->nova_math_Nova_Matrix_Nova_data), exceptionData, 0))->nova_datastruct_list_Nova_Array_Nova_count);
-}
-
-
-char nova_math_Nova_Matrix_Accessor_Nova_isSquare(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData) == nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData);
 }
 
 
