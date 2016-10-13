@@ -198,9 +198,9 @@ public class String implements Comparable<String>
 		return defaultReturnValue
 	}
 
-	public lastIndexOf(String search) -> Int
+	public lastIndexOf(String search, Int defaultReturnValue = -1) -> Int
 	{
-		return indexOf(search, count - 1, -1)
+		return indexOf(search, count - 1, -1, defaultReturnValue: defaultReturnValue)
 	}
 
 	public substring(Int start, Int end = count) -> String
@@ -214,6 +214,10 @@ public class String implements Comparable<String>
 			
             return ""
         }
+		else if (start == 0 && end == count)
+		{
+			return this
+		}
 		
 		[PrimitiveArray]
 		Char buf[] = new Char[end - start + 1]
@@ -246,32 +250,12 @@ public class String implements Comparable<String>
 		return chars[index]
 	}
 
-	public trim() -> String
+	public trim(Int start = 0, Int end = count - 1) -> String
 	{
-		Int start = 0
-		Int end   = count - 1
-
-		while (start < count && whitespace.contains(chars[start]))
-		{
-			start++
-		}
-
-		while (end >= 0 && whitespace.contains(chars[end]))
-		{
-			end--
-		}
-
-		if (end == 0)
-		{
-			return ""
-		}
-
-		if (start == 0 && end == count - 1)
-		{
-			return this
-		}
-
-		return substring(start, end + 1)
+		while (start < count && whitespace.contains(chars[start++]));
+		while (end >= 0 && whitespace.contains(chars[end--]));
+		
+		return end == 0 ? "" : substring(start, end + 1)
 	}
 
 	public toLowerCase() -> String
