@@ -4,7 +4,7 @@ import "math.h"
 
 public class Math
 {
-	[Target c] external double llabs(long number) as extAbs
+	[Target c] external long llabs(long number) as extAbs
 	[Target c] external double fabs(double number) as extFabs
 	[Target c] external double sqrt(double number) as extSqrt
 	[Target c] external double pow(double base, double power) as extPow
@@ -17,7 +17,7 @@ public class Math
 	[Target c] external long floor(double number) as extFloor
 	[Target c] external long ceil(double number) as extCeil
 	
-	[Target not c] external double Math.abs(long number) as extAbs
+	[Target not c] external long Math.abs(long number) as extAbs
 	[Target not c] external double Math.abs(double number) as extFabs
 	[Target not c] external double Math.sqrt(double number) as extSqrt
 	[Target not c] external double Math.pow(double base, double power) as extPow
@@ -34,99 +34,23 @@ public class Math
 
 	visible static Double PI = 3.141592653
 
-	public static max(Long a, Long b) -> Long
-	{
-	    return a > b ? a : b
-	}
-
-	public static min(Long a, Long b) -> Long
-	{
-	    return a < b ? a : b
-	}
-
-	public static sign(Long num) -> Byte
-	{
-		if (num > 0)
-		{
-			return 1
-		}
-		else if (num < 0)
-		{
-			return -1
-		}
-
-		return 0
-	}
-
-	public static random(Long range) -> Int
-	{
-		return extRand() % range
-	}
-
-	public static abs(Long number) -> Long
-	{
-	    return extAbs(number)
-	}
-
-	public static abs(Double number) -> Double
-	{
-		return extFabs(number)
-	}
-
-	public static sqrt(Double number) -> Double
-	{
-		return extSqrt(number)
-	}
-
-	public static pow(Double base, Double power) -> Double
-	{
-		return extPow(base, power)
-	}
-
-	public static sin(Double number) -> Double
-	{
-		return extSin(number)
-	}
-
-	public static cos(Double number) -> Double
-	{
-		return extCos(number)
-	}
-
-	public static tan(Double number) -> Double
-	{
-		return extTan(number)
-	}
-
-	public static asin(Double number) -> Double
-	{
-		return extAsin(number)
-	}
-
-	public static acos(Double number) -> Double
-	{
-		return extAcos(number)
-	}
-
-	public static atan(Double number) -> Double
-	{
-		return extAtan(number)
-	}
-
-	public static round(Double number) -> Long
-	{
-		return floor(number + 0.5)
-	}
-
-	public static floor(Double number) -> Long
-	{
-		return extFloor(number)
-	}
-
-	public static ceil(Double number) -> Long
-	{
-		return extCeil(number)
-	}
+	public static max(Long a, Long b) => a > b ? a : b
+	public static min(Long a, Long b) => a < b ? a : b
+	public static sign(Long num) => num > 0 ? 1 : (num < 0 ? -1 : 0)
+	public static random(Long range) => extRand() % range
+	public static abs(Long number) => extAbs(number)
+	public static abs(Double number) => extFabs(number)
+	public static sqrt(Double number) => extSqrt(number)
+	public static pow(Double base, Double power) => extPow(base, power)
+	public static sin(Double number) => extSin(number)
+	public static cos(Double number) => extCos(number)
+	public static tan(Double number) => extTan(number)
+	public static asin(Double number) => extAsin(number)
+	public static acos(Double number) => extAcos(number)
+	public static atan(Double number) => extAtan(number)
+	public static round(Double number) => floor(number + 0.5)
+	public static floor(Double number) -> Double => extFloor(number)
+	public static ceil(Double number) => extCeil(number)
 
 	/*static pow(Int a, Int b) -> Int
 	{

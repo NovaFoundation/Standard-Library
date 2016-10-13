@@ -323,7 +323,7 @@ void nova_datastruct_list_Nova_Array_1_Nova_increaseSize(nova_datastruct_list_No
 	
 	l1_Nova_tmp = (nova_Nova_Object**)((nova_Nova_Object**)NOVA_MALLOC(sizeof(nova_Nova_Object) * this->nova_datastruct_list_Nova_Array_Nova_capacity));
 	
-	arrayCopy(l1_Nova_tmp, 0, this->nova_datastruct_list_Nova_Array_Nova_data, 0, (int)(this->nova_datastruct_list_Nova_Array_Nova_count), this->nova_datastruct_list_Nova_Array_Nova_capacity, 4);
+	arrayCopy(l1_Nova_tmp, 0, this->nova_datastruct_list_Nova_Array_Nova_data, 0, this->nova_datastruct_list_Nova_Array_Nova_count, this->nova_datastruct_list_Nova_Array_Nova_capacity, 4);
 	
 	this->nova_datastruct_list_Nova_Array_Nova_data = l1_Nova_tmp;
 	

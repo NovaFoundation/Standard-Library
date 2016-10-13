@@ -274,7 +274,7 @@ char nova_io_Nova_File_Accessor_Nova_exists(nova_io_Nova_File* this, nova_except
 
 int nova_io_Nova_File_Accessor_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (int)getMaxOpenFiles();
+	return getMaxOpenFiles();
 }
 
 int nova_io_Nova_File_Mutator_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_io_Nova_File_Nova_value)

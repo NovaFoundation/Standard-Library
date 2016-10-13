@@ -105,7 +105,7 @@ void nova_time_Nova_Time_Nova_this(nova_time_Nova_Time* this, nova_exception_Nov
 
 long_long nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(nova_time_Nova_Time* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (long_long)currentTimeMillis();
+	return currentTimeMillis();
 }
 
 

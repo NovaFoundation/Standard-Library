@@ -232,7 +232,7 @@ double nova_primitive_number_Nova_Double_static_Nova_parseDouble(nova_primitive_
 	char* l1_Nova_pEnd = (char*)nova_null;
 	
 	
-	return (double)strtod((char*)(nova_primitive_number_Nova_Double_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), &l1_Nova_pEnd);
+	return strtod((char*)(nova_primitive_number_Nova_Double_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), &l1_Nova_pEnd);
 }
 
 double nova_primitive_number_Nova_Double_0_Nova_compareTo(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_other)

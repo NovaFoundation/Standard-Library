@@ -169,7 +169,7 @@ void nova_Nova_String_2_Nova_this(nova_Nova_String* this, nova_exception_Nova_Ex
 
 int nova_Nova_String_Nova_calculateSize(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_Nova_String_Nova_chars)
 {
-	return (int)strlen(nova_Nova_String_Nova_chars);
+	return strlen(nova_Nova_String_Nova_chars);
 	
 }
 

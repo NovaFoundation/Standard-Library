@@ -137,7 +137,7 @@ nova_Nova_String* nova_primitive_number_Nova_Int_Nova_toString(nova_primitive_nu
 
 int nova_primitive_number_Nova_Int_static_Nova_parseInt(nova_primitive_number_Nova_Int* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_primitive_number_Nova_Int_Nova_num)
 {
-	return (int)atoi((char*)(nova_primitive_number_Nova_Int_Nova_num->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
+	return atoi((char*)(nova_primitive_number_Nova_Int_Nova_num->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
 }
 
 int nova_primitive_number_Nova_Int_0_Nova_compareTo(nova_primitive_number_Nova_Int* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_primitive_number_Nova_Int_Nova_other)

@@ -120,7 +120,7 @@ nova_Nova_String* nova_Nova_Object_Accessor_Nova_hashCode(nova_Nova_Object* this
 
 long_long nova_Nova_Object_Accessor_Nova_hashCodeLong(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (long_long)strtol(hashCode(this), NULL, 16);
+	return strtol(hashCode(this), NULL, 16);
 }
 
 
