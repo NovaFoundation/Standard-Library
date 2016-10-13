@@ -37,7 +37,6 @@ typedef struct nova_math_Nova_Matrix nova_math_Nova_Matrix;
 #include <nova/nova_Nova_Class.h>
 #include <nova/operators/nova_operators_Nova_Multiply.h>
 #include <nova/exception/nova_exception_Nova_InvalidArgumentException.h>
-#include <nova/datastruct/list/nova_datastruct_list_Nova_ArrayIterator.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 

@@ -176,7 +176,7 @@ double nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exc
 
 double nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
 {
-	return (double)floor(nova_math_Nova_Math_Nova_number);
+	floor(nova_math_Nova_Math_Nova_number);
 }
 
 long_long nova_math_Nova_Math_static_Nova_ceil(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)

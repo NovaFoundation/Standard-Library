@@ -109,12 +109,12 @@ CCLASS_PRIVATE
 
 nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova_getBucket(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_key);
 nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_getPair(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_key);
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda2(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context1* context);
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda3(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context2* context);
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda4(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context3* context);
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda5(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context4* context);
-char nova_datastruct_Nova_HashMap_static_Nova_testLambda6(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_x, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context5* context);
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda7(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context6* context);
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda11(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context1* context);
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda12(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context2* context);
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda13(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context3* context);
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda14(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context4* context);
+char nova_datastruct_Nova_HashMap_Nova_testLambda15(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_x, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context5* context);
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda16(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context6* context);
 void nova_datastruct_Nova_HashMap_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -171,22 +171,22 @@ void nova_datastruct_Nova_HashMap_Nova_this(nova_datastruct_Nova_HashMap* this, 
 
 void nova_datastruct_Nova_HashMap_0_Nova_this(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_Nova_HashMap_Nova_bucketCount, int nova_datastruct_Nova_HashMap_Nova_bucketSize)
 {
-	Context6 contextArg7 = 
+	Context6 contextArg16 = 
 	{
 		&nova_datastruct_Nova_HashMap_Nova_bucketSize,
 	};
 	
-	this->prv->nova_datastruct_Nova_HashMap_Nova_buckets = (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_0_Nova_map((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, nova_datastruct_Nova_HashMap_Nova_bucketCount)), exceptionData, (nova_datastruct_list_Nova_Array_closure3_Nova_mapFunc)&nova_datastruct_Nova_HashMap_static_Nova_testLambda7, this, &contextArg7));
+	this->prv->nova_datastruct_Nova_HashMap_Nova_buckets = (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_0_Nova_map((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, nova_datastruct_Nova_HashMap_Nova_bucketCount)), exceptionData, (nova_datastruct_list_Nova_Array_closure3_Nova_mapFunc)&nova_datastruct_Nova_HashMap_Nova_testLambda16, this, &contextArg16));
 	this->prv->nova_datastruct_Nova_HashMap_Nova_bucketSize = nova_datastruct_Nova_HashMap_Nova_bucketSize;
 }
 
 nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova_toArray(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	Context1 contextArg2 = 
+	Context1 contextArg11 = 
 	{
 	};
 	
-	return (nova_datastruct_list_Nova_Array*)nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_static_Nova_testLambda2, this, &contextArg2);
+	return (nova_datastruct_list_Nova_Array*)nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_Nova_testLambda11, this, &contextArg11);
 }
 
 char nova_datastruct_Nova_HashMap_Nova_contains(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_value)
@@ -353,29 +353,29 @@ nova_Nova_String* nova_datastruct_Nova_HashMap_Nova_join(nova_datastruct_Nova_Ha
 
 nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_skip(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_Nova_HashMap_Nova_num)
 {
-	Context2 contextArg3 = 
+	Context2 contextArg12 = 
 	{
 	};
 	
-	return (nova_datastruct_Nova_Pair*)nova_datastruct_list_Nova_List_virtual_Nova_skip((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_static_Nova_testLambda3, this, &contextArg3)), exceptionData, nova_datastruct_Nova_HashMap_Nova_num);
+	return (nova_datastruct_Nova_Pair*)nova_datastruct_list_Nova_List_virtual_Nova_skip((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_Nova_testLambda12, this, &contextArg12)), exceptionData, nova_datastruct_Nova_HashMap_Nova_num);
 }
 
 nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_take(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_Nova_HashMap_Nova_num)
 {
-	Context3 contextArg4 = 
+	Context3 contextArg13 = 
 	{
 	};
 	
-	return (nova_datastruct_Nova_Pair*)nova_datastruct_list_Nova_List_virtual_Nova_take((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_static_Nova_testLambda4, this, &contextArg4)), exceptionData, nova_datastruct_Nova_HashMap_Nova_num);
+	return (nova_datastruct_Nova_Pair*)nova_datastruct_list_Nova_List_virtual_Nova_take((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_Nova_testLambda13, this, &contextArg13)), exceptionData, nova_datastruct_Nova_HashMap_Nova_num);
 }
 
 nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova_reverse(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	Context4 contextArg5 = 
+	Context4 contextArg14 = 
 	{
 	};
 	
-	return (nova_datastruct_list_Nova_Array*)nova_datastruct_list_Nova_List_virtual_Nova_reverse((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_static_Nova_testLambda5, this, &contextArg5)), exceptionData);
+	return (nova_datastruct_list_Nova_Array*)nova_datastruct_list_Nova_List_virtual_Nova_reverse((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_map(this, exceptionData, (nova_datastruct_Nova_HashMap_closure9_Nova_func)&nova_datastruct_Nova_HashMap_Nova_testLambda14, this, &contextArg14)), exceptionData);
 }
 
 nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_firstWhere(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_HashMap_closure15_Nova_func nova_datastruct_Nova_HashMap_Nova_func, void* nova_datastruct_Nova_HashMap_ref_Nova_func, void* func_context)
@@ -439,12 +439,12 @@ nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova_getBucket(nov
 
 nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_getPair(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_key)
 {
-	Context5 contextArg6 = 
+	Context5 contextArg15 = 
 	{
 		&nova_datastruct_Nova_HashMap_Nova_key,
 	};
 	
-	return (nova_datastruct_Nova_Pair*)nova_datastruct_list_Nova_Array_virtual_Accessor_Nova_first((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_getBucket(this, exceptionData, nova_datastruct_Nova_HashMap_Nova_key)), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_datastruct_Nova_HashMap_static_Nova_testLambda6, this, &contextArg6)), exceptionData);
+	return (nova_datastruct_Nova_Pair*)nova_datastruct_list_Nova_Array_virtual_Accessor_Nova_first((nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_HashMap_Nova_getBucket(this, exceptionData, nova_datastruct_Nova_HashMap_Nova_key)), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_datastruct_Nova_HashMap_Nova_testLambda15, this, &contextArg15)), exceptionData);
 }
 
 nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_remove(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_key)
@@ -497,32 +497,32 @@ nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_set(nova_datastruct_Nova_Has
 	return (nova_Nova_Object*)nova_datastruct_Nova_HashMap_Nova_key;
 }
 
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda2(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context1* context)
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda11(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context1* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_Nova_HashMap_Nova__1;
 }
 
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda3(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context2* context)
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda12(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context2* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_Nova_HashMap_Nova__1;
 }
 
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda4(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context3* context)
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda13(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context3* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_Nova_HashMap_Nova__1;
 }
 
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda5(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context4* context)
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda14(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_Nova_HashMap* nova_datastruct_Nova_HashMap_Nova__3, Context4* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_Nova_HashMap_Nova__1;
 }
 
-char nova_datastruct_Nova_HashMap_static_Nova_testLambda6(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_x, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context5* context)
+char nova_datastruct_Nova_HashMap_Nova_testLambda15(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Pair* nova_datastruct_Nova_HashMap_Nova_x, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context5* context)
 {
 	return nova_datastruct_Nova_HashMap_Nova_x != 0 && nova_datastruct_Nova_HashMap_Nova_x != (nova_datastruct_Nova_Pair*)nova_null && nova_operators_Nova_Equals_virtual_Nova_equals((nova_operators_Nova_Equals*)(nova_datastruct_Nova_HashMap_Nova_x->nova_datastruct_Nova_Pair_Nova_key), exceptionData, (nova_Nova_Object*)((*context->nova_datastruct_Nova_HashMap_Nova_key)));
 }
 
-nova_Nova_Object* nova_datastruct_Nova_HashMap_static_Nova_testLambda7(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context6* context)
+nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_testLambda16(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__1, int nova_datastruct_Nova_HashMap_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova__3, Context6* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, (*context->nova_datastruct_Nova_HashMap_Nova_bucketSize));
 }
