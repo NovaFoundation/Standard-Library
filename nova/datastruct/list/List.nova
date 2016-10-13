@@ -168,6 +168,21 @@ public interface List<Type> extends Iterable<Type>
 
 		return null
 	}
+	
+	public firstNonNull<Out>(func(Type) -> Out) -> Out
+	{
+		for (element in this)
+		{
+			Out value = func(element)
+			
+			if (value != null)
+			{
+				return value
+			}
+		}
+
+		return null
+	}
 
 	public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[]
 	{
