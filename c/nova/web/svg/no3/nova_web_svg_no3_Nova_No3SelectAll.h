@@ -6,8 +6,8 @@ typedef struct nova_web_svg_no3_Nova_No3SelectAll nova_web_svg_no3_Nova_No3Selec
 
 
 #include <Nova.h>
+#include <InterfaceVTAble.h>
 #include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>

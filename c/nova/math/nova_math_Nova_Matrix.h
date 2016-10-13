@@ -6,8 +6,8 @@ typedef struct nova_math_Nova_Matrix nova_math_Nova_Matrix;
 
 
 #include <Nova.h>
+#include <InterfaceVTAble.h>
 #include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>

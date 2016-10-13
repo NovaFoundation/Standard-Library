@@ -1,7 +1,4 @@
 #include <precompiled.h>
-#include <Nova.h>
-#include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
@@ -292,7 +289,6 @@ double nova_math_Nova_Matrix_static_Nova_determinant(nova_math_Nova_Matrix* this
 	{
 		int l6_Nova_j1 = 0;
 		
-		l1_Nova_det = (double)(0);
 		l6_Nova_j1 = (int)0;
 		for (; l6_Nova_j1 < (int)l1_Nova_order; l6_Nova_j1++)
 		{

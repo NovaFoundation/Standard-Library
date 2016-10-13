@@ -19,8 +19,8 @@ typedef char (*nova_datastruct_list_Nova_Array_closure8_Nova_filterFunc)(void*, 
 typedef char (*nova_datastruct_list_Nova_Array_closure9_Nova_filterFunc)(void*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*, int, nova_datastruct_list_Nova_Array*, void*);
 
 #include <Nova.h>
+#include <InterfaceVTAble.h>
 #include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>

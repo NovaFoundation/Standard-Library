@@ -1,7 +1,4 @@
 #include <precompiled.h>
-#include <Nova.h>
-#include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
@@ -111,7 +108,7 @@ void nova_math_Nova_NumericStatement_Nova_destroy(nova_math_Nova_NumericStatemen
 
 void nova_math_Nova_NumericStatement_Nova_this(nova_math_Nova_NumericStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericStatement_Nova_statement)
 {
-	this->prv->nova_math_Nova_NumericStatement_Nova_tree = nova_math_Nova_NumericTree_Nova_construct(0, exceptionData, nova_Nova_String_Nova_trim(nova_math_Nova_NumericStatement_Nova_statement, exceptionData));
+	this->prv->nova_math_Nova_NumericStatement_Nova_tree = nova_math_Nova_NumericTree_Nova_construct(0, exceptionData, nova_Nova_String_Nova_trim(nova_math_Nova_NumericStatement_Nova_statement, exceptionData, (intptr_t)nova_null, (intptr_t)nova_null));
 }
 
 nova_Nova_String* nova_math_Nova_NumericStatement_Nova_toString(nova_math_Nova_NumericStatement* this, nova_exception_Nova_ExceptionData* exceptionData)

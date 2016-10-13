@@ -6,8 +6,8 @@ typedef struct nova_datastruct_Nova_Pair nova_datastruct_Nova_Pair;
 
 
 #include <Nova.h>
+#include <InterfaceVTAble.h>
 #include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>

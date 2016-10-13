@@ -1,7 +1,4 @@
 #include <precompiled.h>
-#include <Nova.h>
-#include <ExceptionHandler.h>
-#include <InterfaceVTable.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
@@ -134,7 +131,7 @@ void nova_math_logic_Nova_WFF_Nova_destroy(nova_math_logic_Nova_WFF** this, nova
 
 void nova_math_logic_Nova_WFF_Nova_this(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_WFF_Nova_wellFormedFormula, nova_datastruct_list_Nova_Array* nova_math_logic_Nova_WFF_Nova_letters)
 {
-	this->prv->nova_math_logic_Nova_WFF_Nova_wff = nova_Nova_String_Nova_trim(nova_math_logic_Nova_WFF_Nova_wellFormedFormula, exceptionData);
+	this->prv->nova_math_logic_Nova_WFF_Nova_wff = nova_Nova_String_Nova_trim(nova_math_logic_Nova_WFF_Nova_wellFormedFormula, exceptionData, (intptr_t)nova_null, (intptr_t)nova_null);
 	this->prv->nova_math_logic_Nova_WFF_Nova_letters = nova_math_logic_Nova_WFF_Nova_letters;
 	this->prv->nova_math_logic_Nova_WFF_Nova_hypotheses = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 	nova_math_logic_Nova_WFF_Nova_decodeFormula(this, exceptionData);
@@ -180,7 +177,7 @@ nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_WFF_Nova_searchForConc
 	nova_math_logic_Nova_Conclusion* l1_Nova_conclusion = (nova_math_logic_Nova_Conclusion*)nova_null;
 	nova_math_logic_Nova_StatementGroup* l1_Nova_group = (nova_math_logic_Nova_StatementGroup*)nova_null;
 	
-	l1_Nova_index = nova_Nova_String_Nova_lastIndexOf(nova_math_logic_Nova_WFF_Nova_wff, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("->")));
+	l1_Nova_index = nova_Nova_String_Nova_lastIndexOf(nova_math_logic_Nova_WFF_Nova_wff, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("->")), (intptr_t)nova_null);
 	if (l1_Nova_index < 0)
 	{
 		return (nova_math_logic_Nova_StatementGroup*)(nova_Nova_Object*)nova_null;
