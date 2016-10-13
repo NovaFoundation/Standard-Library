@@ -257,13 +257,7 @@ public class HashSet<T> implements List<T>
 	}
     
     [Override]
-	public contains(T value) -> Bool
-	{
-		return get(value) != null
-	}
+	public contains(T value) => get(value) != null
 	
-	public toString() -> String
-	{
-	    return "HashSet [#{join(", ")}]"
-	}
+	public toString() => "HashSet [#{join(", ")}]"
 }
