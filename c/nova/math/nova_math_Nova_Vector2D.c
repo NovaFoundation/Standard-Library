@@ -26,6 +26,8 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/math/nova_math_Nova_Vector.h>
+#include <nova/math/nova_math_Nova_Vector3D.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -59,9 +61,10 @@ nova_math_Vector2D_Extension_VTable nova_math_Vector2D_Extension_VTable_val =
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_toString,
+	nova_math_Nova_Vector_Nova_toString,
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
+	nova_math_Nova_Vector2D_Nova_dotProduct,
 };
 
 
@@ -76,6 +79,7 @@ nova_math_Nova_Vector2D* nova_math_Nova_Vector2D_Nova_construct(nova_math_Nova_V
 	CCLASS_NEW(nova_math_Nova_Vector2D, this,);
 	this->vtable = &nova_math_Vector2D_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
+	nova_math_Nova_Vector_Nova_super((nova_math_Nova_Vector*)this, exceptionData);
 	nova_math_Nova_Vector2D_Nova_super(this, exceptionData);
 	
 	{
@@ -98,6 +102,34 @@ void nova_math_Nova_Vector2D_Nova_destroy(nova_math_Nova_Vector2D** this, nova_e
 
 void nova_math_Nova_Vector2D_Nova_this(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
+	nova_math_Nova_Vector_0_Nova_this((nova_math_Nova_Vector*)(this), exceptionData, 2);
+}
+
+double nova_math_Nova_Vector2D_Nova_dotProduct(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Vector3D* nova_math_Nova_Vector2D_Nova_other)
+{
+	return nova_math_Nova_Vector_virtual_Nova_dotProduct((nova_math_Nova_Vector*)(((nova_math_Nova_Vector*)this)), exceptionData, (nova_math_Nova_Vector*)(nova_math_Nova_Vector2D_Nova_other));
+}
+
+double nova_math_Nova_Vector2D_Mutator_Nova_x(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector2D_Nova_value)
+{
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 0, nova_math_Nova_Vector2D_Nova_value);
+	return nova_math_Nova_Vector2D_Nova_value;
+}
+
+double nova_math_Nova_Vector2D_Mutator_Nova_y(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector2D_Nova_value)
+{
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 1, nova_math_Nova_Vector2D_Nova_value);
+	return nova_math_Nova_Vector2D_Nova_value;
+}
+
+double nova_math_Nova_Vector2D_Accessor_Nova_x(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Vector_Nova_data, exceptionData, 0);
+}
+
+double nova_math_Nova_Vector2D_Accessor_Nova_y(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Vector_Nova_data, exceptionData, 1);
 }
 
 void nova_math_Nova_Vector2D_Nova_super(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData)
