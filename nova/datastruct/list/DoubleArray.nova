@@ -90,6 +90,19 @@ public class DoubleArray extends Array<Double>
 		super(data, count)
 	}
 	
+	public sum(func(Double, Int, DoubleArray) -> Double) -> Double
+	{
+		Double sum = 0
+		Int i = 0
+		
+		for (element in this)
+		{
+			sum += func(element, i++, this)
+		}
+		
+		return sum
+	}
+	
 	[Override]
 	public map<Out>(mapFunc(Double, Int, DoubleArray) -> Out) -> Out[]
 	{
