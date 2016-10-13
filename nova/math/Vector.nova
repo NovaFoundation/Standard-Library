@@ -4,6 +4,8 @@ class Vector
 {
 	visible Double[] data
 	
+	visible Double magnitude => Math.sqrt(data.sum(n -> n * n))
+	
 	public construct(Int size)
 	{
 		this(new DoubleArray(size))
@@ -16,16 +18,24 @@ class Vector
 	
 	public dotProduct(Vector other) -> Double
 	{
-		Int sum = 0
-		
-		data.forEach((x, i) -> sum += x * other.data[i])
-		
-		return sum
+		return data.sum((x, i) -> x * other.data[i])
 	}
 	
 	public innerProduct(Vector other) -> Double
 	{
 		return dotProduct(other)
+	}
+	
+	public scale(Double scalar)
+	{
+		data.forEach((n, i, d) -> d[i] = n * scalar)
+	}
+	
+	public normalize()
+	{
+		Double mag = magnitude
+		
+		data.forEach((n, i, d) -> d[i] = n / mag)
 	}
 	
 	public toString() -> String
