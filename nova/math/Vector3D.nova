@@ -2,20 +2,9 @@ package "nova/math"
 
 class Vector3D extends Vector
 {
-	public Double x => data[0]
-	{
-		set { data[0] = value }
-	}
-	
-	public Double y => data[1]
-	{
-		set { data[1] = value }
-	}
-	
-	public Double z => data[2]
-	{
-		set { data[2] = value }
-	}
+	public Double x <=> data[0]
+	public Double y <=> data[1]
+	public Double z <=> data[2]
 	
 	public construct()
 	{
