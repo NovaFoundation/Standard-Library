@@ -1,16 +1,31 @@
 package "nova/math"
 
-class Vector3D
+class Vector3D extends Vector
 {
-	public Double x, y, z
+	public Double x => data[0]
+	{
+		set { data[0] = value }
+	}
+	
+	public Double y => data[1]
+	{
+		set { data[1] = value }
+	}
+	
+	public Double z => data[2]
+	{
+		set { data[2] = value }
+	}
 	
 	public construct()
 	{
-		this(0, 0, 0)
+		super(3)
 	}
 	
 	public construct(Double x, Double y, Double z)
 	{
+		this()
+		
 		this.x = x
 		this.y = y
 		this.z = z
@@ -19,10 +34,5 @@ class Vector3D
 	public crossProduct(Vector3D other) -> Vector3D
 	{
 		return new Vector3D(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x)
-	}
-	
-	public toString() -> String
-	{
-		return "<#x, #y, #z>"
 	}
 }
