@@ -1,0 +1,35 @@
+package "nova/math"
+
+class Vector
+{
+	visible Double[] data
+	
+	public construct(Int size)
+	{
+		this(new DoubleArray(size))
+	}
+	
+	public construct(Double[] data)
+	{
+		this.data = data
+	}
+	
+	public dotProduct(Vector other) -> Double
+	{
+		Int sum = 0
+		
+		data.forEach((x, i) -> sum += x * other.data[i])
+		
+		return sum
+	}
+	
+	public innerProduct(Vector other) -> Double
+	{
+		return dotProduct(other)
+	}
+	
+	public toString() -> String
+	{
+		return "<#{data.join(", ")}>"
+	}
+}
