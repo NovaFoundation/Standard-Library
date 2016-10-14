@@ -14,7 +14,8 @@ class Matrix implements Multiply<Matrix>
 	public construct(Int rows, Int cols)
 	{
 		if (rows <= 0 || cols <= 0)
-			throw new InvalidArgumentException("Invalid matrix size #{rows}x#{cols}. The number of rows and columns must both be positive.")
+			throw new InvalidArgumentException("Invalid matrix size #{rows}x#{cols}. 
+												The number of rows and columns must both be positive.")
 		
 		this(new DoubleArray(rows).map({ new DoubleArray(cols) }))
 	}
@@ -68,7 +69,15 @@ class Matrix implements Multiply<Matrix>
 	public multiply(Matrix other) -> Matrix
 	{
 		if (cols != other.rows)
-			throw new InvalidArgumentException("Matrix with dimensions #{rows}x#{cols} cannot be multiplied with matrix with dimensions #{other.rows}x#{other.cols}. #cols != #other.rows")
+			throw new InvalidArgumentException("Matrix with dimensions #{rows}x#{cols} cannot be multiplied with 
+												matrix with dimensions #{other.rows}x#{other.cols}. #cols != #other.rows")
+		
+		/*return new Matrix(
+			transpose().data.map((outRow, outR) -> {
+	            return other.data.map((row, r) -> {
+	                outR
+	            })
+	        }))*/
 		
 		var result = new Matrix(rows, other.cols)
 		
