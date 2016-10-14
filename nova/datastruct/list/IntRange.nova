@@ -2,56 +2,17 @@ package "nova/datastruct/list"
 
 public class IntRange implements List<Int>
 {
-    visible Int size
-    {
-        get { return end - start }
-        no set
-    }
+    visible Int size => end - start
     
     public Int start, end
     
-    /*[Int index]
-    {
-        get
-        {
-            return this.get(index)
-        }
-        
-        set
-        {
-            this.set(index, value)
-        }
-    }
-    */
-	
 	[Override]
-	visible IntRangeIterator iterator
-	{
-		get
-		{
-			return new IntRangeIterator(this)
-		}
-		
-		no set
-	}
+	visible IntRangeIterator iterator => new IntRangeIterator(this)
     
-    Int first
-    {
-        get { return start }
-        no set
-    }
+    Int first => start
+    Int last => end - 1
     
-    Int last
-    {
-        get { return end - 1 }
-        no set
-    }
-    
-    public construct()
-    {
-        this(0, 0)
-    }
-    
+    public construct() => this(0, 0)
     public construct(Int start, Int end)
     {
         this.start = start
@@ -59,10 +20,7 @@ public class IntRange implements List<Int>
     }
 	
 	[Override]
-	public contains(Int value) -> Bool
-	{
-	    return value >= start && value < end
-	}
+	public contains(Int value) => value >= start && value < end
     
     public toArray() -> Int[]
     {

@@ -20,20 +20,9 @@ public class Thread
 	    run = {}
 	}*/
 	
-	public start()
-	{
-		handle = create_thread(this, startRun)
-	}
-	
-	public join()
-	{
-		lib_nova_thread_join(handle)
-	}
-	
-	public kill()
-	{
-		lib_nova_thread_cancel(handle)
-	}
+	public start() => handle = create_thread(this, startRun)
+	public join() => lib_nova_thread_join(handle)
+	public kill() => lib_nova_thread_cancel(handle)
 	
 	public static sleep(Long millis)
 	{
@@ -46,10 +35,7 @@ public class Thread
 		}
 	}
 	
-	public run()
-	{
-		
-	}
+	public run() {}
 	
 	startRun()
 	{

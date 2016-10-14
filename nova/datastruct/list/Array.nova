@@ -21,59 +21,16 @@ public class Array<E> implements List<E>
 	}
 
 	[Override]
-	visible ArrayIterator<E> iterator
-	{
-		get
-		{
-			return new ArrayIterator(this)
-		}
-
-		no set
-	}
+	visible ArrayIterator<E> iterator => new ArrayIterator(this)
 
 	[Override]
-	public E first
-	{
-		get
-		{
-		    if (count > 0)
-            {
-                return data[0]
-            }
-
-            return null
-        }
-
-        no set
-	}
+	public E first => count > 0 ? this[0] : null
 
 	[Override]
-	public E last
-	{
-	    get
-	    {
-            if (count > 0)
-            {
-                return data[count - 1]
-            }
-
-            return null
-        }
-	}
+	public E last => count > 0 ? this[count - 1] : null
 	
-	this[Int index] -> E
-	{
-		get
-		{
-			return data[index]
-		}
-		
-		set
-		{
-			data[index] = value
-		}
-	}
-
+	this[Int index] <=> data[index]
+	
 	public construct()
 	{
 		this(0)
@@ -277,7 +234,7 @@ public class Array<E> implements List<E>
 
 		return array
 	}
-
+	
 	[Override]
 	public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[]
 	{

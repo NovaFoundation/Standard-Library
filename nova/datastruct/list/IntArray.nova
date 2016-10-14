@@ -5,66 +5,19 @@ import "nova/primitive/number/Integer"
 public class IntArray extends Array<Int>
 {
 	[Override]
-	visible IntArrayIterator iterator
-	{
-		get
-		{
-			return new IntArrayIterator(this)
-		}
-		
-		no set
-	}
+	visible IntArrayIterator iterator => new IntArrayIterator(this)
 	
 	[Override]
-	public Int first
-	{
-		get
-		{
-		    if (count > 0)
-            {
-                return data[0]
-            }
-            
-            return null
-        }
-        
-        no set
-	}
+	public Int first => count > 0 ? this[0] : 0
 	
 	[Override]
-	public Int last
-	{
-	    get
-	    {
-            if (count > 0)
-            {
-                return data[count - 1]
-            }
-            
-            return null
-        }
-	}
+	public Int last => count > 0 ? this[count - 1] : 0
 	
-	public construct()
-	{
-		super()
-	}
+	this[Int index] <=> (([PrimitiveArray] Int[])data)[index]
 	
-	public construct(Int count)
-	{
-	    super(count)
-	}
-	
-	public construct([PrimitiveArray] Int[] data, Int count)
-	{
-		super(data, count)
-	}
-	
-	/*[Override]
-	public get(Int index) -> Int
-	{
-	    return (Int)data[index]
-	}*/
+	public construct() => super()
+	public construct(Int count) => super(count)
+	public construct([PrimitiveArray] Int[] data, Int count) => super(data, count)
 	
 	[Override]
 	public map<Out>(mapFunc(Int, Int, IntArray) -> Out) -> Out[]

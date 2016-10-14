@@ -49,7 +49,7 @@ public class Math
 	public static acos(Double number) => extAcos(number)
 	public static atan(Double number) => extAtan(number)
 	public static round(Double number) => floor(number + 0.5)
-	public static floor(Double number) -> Double => extFloor(number)
+	public static floor(Double number) => extFloor(number)
 	public static ceil(Double number) => extCeil(number)
 
 	/*static pow(Int a, Int b) -> Int

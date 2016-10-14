@@ -6,9 +6,9 @@ import "nova/time/Time"
 public class File
 {
 	external type FILE
-
+	
 	FILE* fp
-
+	
 	external FILE* fopen(char location[], char operation[])
 	external void perror(char name[])
 	external FILE* freopen(char location[], char operation[], FILE* fp)
@@ -23,11 +23,11 @@ public class File
 	external int remove(char name[])
 	external int getMaxOpenFiles() as extGetMaxOpenFiles
 	external void setMaxOpenFiles(int max) as extSetMaxOpenFiles
-
+	
 	external char EOF
-
+	
 	visible String location
-
+	
 	static
 	{
 		File exitLog = new File("log" + Time.currentTimeMillis)

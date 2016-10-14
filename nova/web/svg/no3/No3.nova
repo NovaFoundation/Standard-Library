@@ -10,13 +10,6 @@ package "nova/web/svg/no3"
  */
 public class No3
 {
-    public static select(String selection) -> No3Select
-    {
-        return new No3Select(selection)
-    }
-    
-    public static selectAll(String selection) -> No3SelectAll
-    {
-        return new No3SelectAll(selection)
-    }
+    public static select(String selection) => new No3Select(selection)
+    public static selectAll(String selection) => new No3SelectAll(selection)
 }

@@ -12,29 +12,14 @@ public class Object implements Equals
 
 	external long strtol(char str[], char* a, int base)
 	
-	public String hashCode
-	{
-		get
-		{
-			[Target c] return new String(hashCode(this))
-			[Target js] return new String("No hashcode available in JS")
-		}
-		no set
-	}
+	[Target c]
+	public String hashCode => new String(hashCode(this))
 	
-	public Long hashCodeLong
-	{
-		get { return strtol(hashCode(this), NULL, 16) }
-		no set
-	}
+	[Target not c]
+	public String hashCode => new String("No hashcode available")
 	
-	public toString() -> String
-	{
-		return "[Object @#hashCode]"
-	}
+	public Long hashCodeLong => strtol(hashCode(this), NULL, 16)
 	
-	public equals(Object another) -> Bool
-	{
-		return this == another
-	}
+	public equals(Object another) => this == another
+	public toString() => "[Object @#hashCode]"
 }

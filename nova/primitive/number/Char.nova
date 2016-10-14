@@ -6,30 +6,7 @@ public class Char extends Number implements Comparable<Char>, Integer
 {
 	Char value
 	
-	construct(Char value)
-	{
-		this.value = value
-	}
-	
-	public static toString(Char c) -> String
-	{
-		return new String(c)
-	}
-	
-	public toString() -> String
-	{
-		return toString(value)
-	}
-	
-	public toLowerCase() -> Char
-	{
-		return toLowerCase(value)
-	}
-	
-	public toUpperCase() -> Char
-	{
-		return toUpperCase(value)
-	}
+	construct(Char value) => this.value = value
 	
 	public static toLowerCase(Char c) -> Char
 	{
@@ -55,13 +32,11 @@ public class Char extends Number implements Comparable<Char>, Integer
 		return c
 	}
 	
-	public compareTo(Char other) -> Int
-	{
-		return value - other
-	}
+	public toLowerCase() => toLowerCase(value)
+	public toUpperCase() => toUpperCase(value)
+	public compareTo(Char other) => value - other
+	public multiply(Char value) => this.value * value
+	public toString() => toString(value)
 	
-	public multiply(Char value) -> Char
-	{
-		return this.value * value
-	}
+	public static toString(Char c) => new String(c)
 }

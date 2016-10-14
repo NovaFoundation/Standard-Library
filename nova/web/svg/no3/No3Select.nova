@@ -4,14 +4,8 @@ public class No3Select extends No3Node
 {
     public String selection
     
-    public construct(String selection)
-    {
-        this.selection = selection
-    }
+    public construct(String selection) => this.selection = selection
     
     [Override]
-    public toJs() -> String
-    {
-        return "d3.select('#selection')"
-    }
+    public toJs() => "d3.select('#selection')"
 }

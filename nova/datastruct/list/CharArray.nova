@@ -5,92 +5,43 @@ import "nova/primitive/number/Char"
 public class CharArray extends Array<Char>
 {
 	[Override]
-	visible CharArrayIterator iterator
+	visible CharArrayIterator iterator => new CharArrayIterator(this)
+	
+	[Override] public Char first => count > 0 ? this[0] : (Char)0
+	[Override] public Char last => count > 0 ? this[count - 1] : (Char)0
+	
+	public Long hashCodeLong => recurse((c, i, a, v) -> 31 * v + (Int)c)
+	
+	this[Int index] <=> (([PrimitiveArray] Char[])data)[index]
+	
+	public construct() => super()
+	public construct(Int count) => super(count)
+	public construct([PrimitiveArray] Char[] data, Int count) => super(data, count)
+	
+	public sum(func(Char, Int, CharArray, Long) -> Long) -> Long
 	{
-		get
+		Long sum = 0
+		Int i = 0
+		
+		for (value in this)
 		{
-			return new CharArrayIterator(this)
+			sum += func(value, i++, this, sum)
 		}
 		
-		no set
+		return sum
 	}
 	
-	[Override]
-	public Char first
+	public recurse(func(Char, Int, CharArray, Long) -> Long) -> Long
 	{
-		get
+		Long value = 0
+		Int i = 0
+		
+		for (element in this)
 		{
-		    if (count > 0)
-            {
-                return data[0]
-            }
-            
-            return 0
-        }
-        
-        no set
-	}
-	
-	[Override]
-	public Char last
-	{
-	    get
-	    {
-            if (count > 0)
-            {
-                return data[count - 1]
-            }
-            
-            return 0
-        }
-	}
-	
-	public Long hashCodeLong
-	{
-	    get
-	    {
-            Long hash = 0
-            
-            //forEach((c, i) -> hash = hash + (Int)c * Math.pow(31, count - i - 1))
-            //forEach((c, i) -> hash = 31 * hash + (Int)c)
-            
-            for (i in 0..count)
-            {
-                hash = 31 * hash + (Int)get(i)
-            }
-            
-            return hash
-	    }
-	    
-	    no set
-	}
-	
-	this[Int index] -> Char
-	{
-		get
-		{
-			return (([PrimitiveArray] Char[])data)[index]
+			value = func(element, i++, this, value)
 		}
 		
-		set
-		{
-			(([PrimitiveArray] Char[])data)[index] = value
-		}
-	}
-	
-	public construct()
-	{
-		super()
-	}
-	
-	public construct(Int count)
-	{
-	    super(count)
-	}
-	
-	public construct([PrimitiveArray] Char[] data, Int count)
-	{
-		super(data, count)
+		return value
 	}
 	
 	[Override]

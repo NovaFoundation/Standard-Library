@@ -4,16 +4,9 @@ public class Timer
 {
 	visible Long startTime, endTime
 	
-	visible Long duration
-	{
-		get { return endTime - startTime }
-		no set
-	} 
+	visible Long duration => endTime - startTime
 	
-	public construct()
-	{
-		
-	}
+	public construct() {}
 	
 	public start() -> Timer
 	{
@@ -38,8 +31,5 @@ public class Timer
 	    return this
 	}
 	
-	public toString() -> String
-	{
-	    return "Timer { duration: #duration }"
-	}
+	public toString() => "Timer { duration: #duration }"
 }

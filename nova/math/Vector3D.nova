@@ -6,11 +6,7 @@ class Vector3D extends Vector
 	public Double y <=> data[1]
 	public Double z <=> data[2]
 	
-	public construct()
-	{
-		super(3)
-	}
-	
+	public construct() => super(3)
 	public construct(Double x, Double y, Double z)
 	{
 		this()
@@ -20,8 +16,6 @@ class Vector3D extends Vector
 		this.z = z
 	}
 	
-	public crossProduct(Vector3D other) -> Vector3D
-	{
-		return new Vector3D(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x)
-	}
+	public crossProduct(Vector3D other) =>
+		new Vector3D(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x)
 }

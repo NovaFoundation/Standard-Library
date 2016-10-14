@@ -6,10 +6,7 @@ public class SvgComponent
 {
 	public SvgComponentList children
 	
-	public construct()
-	{
-		children = new SvgComponentList()
-	}
+	public construct() => children = new SvgComponentList()
 	
 	public generateOutput(File file)
 	{

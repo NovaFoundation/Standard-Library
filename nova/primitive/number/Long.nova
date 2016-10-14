@@ -9,27 +9,18 @@ public class Long extends Number implements Comparable<Long>, Integer
 	visible static Long MAX_VALUE =  9223372036854775807
 	visible static Long MIN_VALUE = -9223372036854775808
 	
-	construct(Long value)
-	{
-		this.value = value
-	}
+	construct(Long value) => this.value = value
 	
 	public static numDigits(Long number) -> Int
 	{
-		Int size = 1 
+		Int size = number < 0 ? 2 : 1 
 		
-		if (number < 0)
-		{
-			//return numDigits(-number) + 1
-			
-			size++
-		}
-		
-		number = number / 10
+		number /= 10
 		
 		while (number != 0)
 		{
-			number = number / 10
+			number /= 10
+			
 			size++
 		}
 		
@@ -37,12 +28,10 @@ public class Long extends Number implements Comparable<Long>, Integer
 	}
 	
 	[Target js]
-	public static toString(Long value) -> String
-	{
-		return new String(toCharArray(value))
-	}
+	public static toString(Long value) => new String(toCharArray(value))
 	
 	[PrimitiveArray]
+	[Target js]
 	public static toCharArray(Long value) -> Char[]
 	{
 		external js
@@ -54,8 +43,8 @@ public class Long extends Number implements Comparable<Long>, Integer
 	[Target not js]
 	public static toString(Long value) -> String
 	{
-		Int  charOffset = '0'
-		Int  digits  = numDigits(value)
+		Int charOffset = '0'
+		Int digits = numDigits(value)
 		
 		[PrimitiveArray]
 		Char[] data = new Char[digits + 1]
@@ -83,18 +72,7 @@ public class Long extends Number implements Comparable<Long>, Integer
 		return new String(data)
 	}
 	
-	public toString() -> String
-	{
-		return toString(value)
-	}
-	
-	public compareTo(Long other) -> Long
-	{
-		return value - other
-	}
-	
-	public multiply(Long value) -> Long
-	{
-		return this.value * value
-	}
+	public compareTo(Long other) => value - other
+	public multiply(Long value) => this.value * value
+	public toString() => toString(value)
 }

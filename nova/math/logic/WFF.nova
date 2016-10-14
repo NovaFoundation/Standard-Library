@@ -139,7 +139,7 @@ public class WFF
 	    
 		while (i < wff.count && i >= 0)
 		{
-			Char c = wff.charAt(i)
+			Char c = wff.chars[i]
 			
 			if (containsChar(c, whitespace) != opposite)
 			{
@@ -180,7 +180,7 @@ public class WFF
 		
 		while (i < wff.count && i >= 0)
 		{
-			Char c = wff.charAt(i)
+			Char c = wff.chars[i]
 			
 			if (c == start)
 			{

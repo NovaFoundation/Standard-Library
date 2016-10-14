@@ -11,25 +11,17 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 	
 	Double value
 	
-	construct(Double value)
-	{
-		this.value = value
-	}
+	construct(Double value) => this.value = value
 	
 	public static numDigits(Double number) -> Int
 	{
-		if (number < 0)
-		{
-			return numDigits(-number) + 1
-		}
+		Int size = number < 0 ? 2 : 1
 		
-		number = number / 10
-		
-		Int size = 1
+		number /= 10
 		
 		while (number > 0)
 		{
-			number = number / 10
+			number /= 10
 			
 			size++
 		}
@@ -76,12 +68,6 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return start + 1
 	}
 	
-	[Target js]
-	public static toString(Double value) -> String
-	{
-		return new String(toCharArray(value))
-	}
-	
 	[PrimitiveArray]
 	public static toCharArray(Double value) -> Char[]
 	{
@@ -90,6 +76,9 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 			return #{value}.toString();
 		}
 	}
+	
+	[Target js]
+	public static toString(Double value) => new String(toCharArray(value))
 	
 	[Target not js]
 	public static toString(Double value) -> String
@@ -149,11 +138,6 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return genString(buffer, lastIndex)
 	}
 	
-	public toString() -> String
-	{
-		return toString(value)
-	}
-	
 	public static parseDouble(String str) -> Double
 	{
 	    [PrimitiveArray]
@@ -162,13 +146,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return strtod(str.chars.data, pEnd)
 	}
 	
-	public compareTo(Double other) -> Double
-	{
-		return value - other
-	}
-	
-	public multiply(Double value) -> Double
-	{
-		return this.value * value
-	}
+	public compareTo(Double other) => value - other
+	public multiply(Double value) => this.value * value
+	public toString() => toString(value)
 }

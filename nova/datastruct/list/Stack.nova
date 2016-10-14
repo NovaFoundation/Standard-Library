@@ -6,11 +6,7 @@ public class Stack<E>
 	
 	ListNode<E> top
 	
-	visible Bool empty //=> size <= 0
-	{
-		get { return size <= 0 }
-		no set
-	}
+	visible Bool empty => size <= 0
 	
 	public push(E data)
 	{

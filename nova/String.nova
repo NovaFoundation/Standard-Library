@@ -6,11 +6,11 @@ import "nova/datastruct/list/StringCharArray"
 
 public class String implements Comparable<String>
 {
-	visible Int    count
+	visible Int count
 
 	visible StringCharArray chars
 
-	static Char[]  whitespace = [ ' ', '\t', '\n', '\r' ]
+	static Char[] whitespace = [ ' ', '\t', '\n', '\r' ]
 	
 	external void strcpy(char dst[], char src[])
 	external void strcat(char dst[], char src[])
@@ -19,15 +19,7 @@ public class String implements Comparable<String>
 
 	private static HashSet<String> pool = new HashSet(121, 1)
 
-	public Long hashCodeLong
-	{
-	    get
-	    {
-            return chars.hashCodeLong
-	    }
-
-	    no set
-	}
+	public Long hashCodeLong => chars.hashCodeLong
 	
 	[Target not js]
 	public construct(Char c)
@@ -133,10 +125,7 @@ public class String implements Comparable<String>
 		}
 	}
 	
-	public equals(String other) -> Bool
-	{
-		return compareTo(other) == 0
-	}
+	public equals(String other) => compareTo(other) == 0
 
 	public replace(String search, String replace) -> String
 	{
@@ -152,20 +141,9 @@ public class String implements Comparable<String>
 	    return output
 	}
 
-	public startsWith(String search) -> Bool
-	{
-	    return indexOf(search) == 0
-	}
-
-	public endsWith(String search) -> Bool
-	{
-	    return count > 0 && indexOf(search) == count - search.count - 1
-	}
-
-	public contains(String search) -> Bool
-	{
-	    return indexOf(search) >= 0
-	}
+	public startsWith(String search) => indexOf(search) == 0
+	public contains(String search) => indexOf(search) >= 0
+	public endsWith(String search) => count > 0 && indexOf(search) == count - search.count - 1
 
 	public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int
 	{
@@ -198,18 +176,16 @@ public class String implements Comparable<String>
 		return defaultReturnValue
 	}
 
-	public lastIndexOf(String search, Int defaultReturnValue = -1) -> Int
-	{
-		return indexOf(search, count - 1, -1, defaultReturnValue: defaultReturnValue)
-	}
+	public lastIndexOf(String search, Int start = count - 1, Int defaultReturnValue = -1) =>
+		indexOf(search, start, -1, defaultReturnValue: defaultReturnValue)
 
-	public substring(Int start, Int end = count) -> String
+	public substring(Int start = 0, Int end = count) -> String
 	{
 		if (end - start <= 0)
 		{
 			if (end - start < 0)
             {
-                throw new Exception("Substring bounds of [" + start + ", " + end + "] are invalid")
+                throw new Exception("Substring bounds of [#start, #end] are invalid")
             }
 			
             return ""
@@ -240,16 +216,6 @@ public class String implements Comparable<String>
 		return new String(buf)
 	}
 
-	public lastChar() -> Char
-	{
-		return charAt(count - 1)
-	}
-
-	public charAt(Int index) -> Char
-	{
-		return chars[index]
-	}
-
 	public trim(Int start = 0, Int end = count - 1) -> String
 	{
 		while (start < count && whitespace.contains(chars[start++]));
@@ -257,23 +223,11 @@ public class String implements Comparable<String>
 		
 		return end == 0 ? "" : substring(start, end + 1)
 	}
-
-	public toLowerCase() -> String
-	{
-		return transform(Char.toLowerCase)
-	}
-
-	public toUpperCase() -> String
-	{
-		return transform(Char.toUpperCase)
-	}
-
-	public capitalize() -> String
-	{
-	    if (count == 0) return this
-
-	    return chars[0].toUpperCase() + substring(1)
-	}
+	
+	public lastChar() => count > 0 ? chars[count - 1] : (Char)0
+	public toLowerCase() => transform(Char.toLowerCase)
+	public toUpperCase() => transform(Char.toUpperCase)
+	public capitalize() => count > 0 ? chars[0].toUpperCase() + substring(1) : this
 
 	public transform(transform(Char, Int) -> Char) -> String
 	{
@@ -328,8 +282,5 @@ public class String implements Comparable<String>
 		return count - other.count
 	}
 
-	public toString() -> String
-	{
-		return this
-	}
+	public toString() => this
 }

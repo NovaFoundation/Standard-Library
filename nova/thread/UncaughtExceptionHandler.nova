@@ -2,13 +2,7 @@ package "nova/thread"
 
 public class UncaughtExceptionHandler
 {
-	public construct()
-	{
-		
-	}
+	public construct() {}
 	
-	public uncaughtException(Thread thread, Exception exception)
-	{
-		
-	}
+	public uncaughtException(Thread thread, Exception exception) {}
 }

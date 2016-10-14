@@ -5,13 +5,7 @@ import "nova/operators/Multiply"
 
 public abstract class Number extends Primitive implements Multiply<Number>
 {
-	public static numDigits(Number number) -> Int
-	{
-		return -1
-	}
+	public static numDigits(Number number) => -1
 	
-//	public static toString(Number value) -> String
-//	{
-//		return "[Unimplemented]"
-//	}
+//	public static toString(Number value) => "[Unimplemented]"
 }

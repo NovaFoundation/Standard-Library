@@ -22,15 +22,9 @@ public class Date
 	
 //	static HashMap<String,  
 	
-	public construct()
-	{
-		updateTime()
-	}
+	public construct() => updateTime()
 	
-	public decodeDate(String prototype, String date)
-	{
-		
-	}
+	public decodeDate(String prototype, String date) {}
 	
 	public updateTime()
 	{
@@ -44,12 +38,7 @@ public class Date
 		second = nova_getSecond()
 	}
 	
-	public formatDate(String str) -> String
-	{
-		return formatDate(str, month, day, year, hour, minute, second)
-	}
-	
-	public formatDate(String str, Int first, Int second, Int third, Int fourth, Int fifth, Int sixth) -> String
+	public formatDate(String str, Int first = month, Int second = day, Int third = year, Int fourth = hour, Int fifth = minute, Int sixth = second) -> String
 	{
     	[PrimitiveArray]
 		Char[] data = nova_formatDate(str.chars.data, first, second, third, fourth, fifth, sixth)

@@ -7,10 +7,7 @@ class Vector4D extends Vector
 	public Double z <=> data[2]
 	public Double w <=> data[3]
 	
-	public construct()
-	{
-		super(4)
-	}
+	public construct() => super(4)
 	
 	public construct(Double x, Double y, Double z, Double w)
 	{

@@ -15,13 +15,6 @@ public class SvgCircle extends SvgComponent
 		this.r = r
 	}
 	
-	public generateOutput(File file)
-	{
-		file.write("<circle cx=\"" + x + "\" cy=\"" + y + "\" r=\"" + r + "\" stroke=\"false\" fill=\"black\"/>\n")
-	}
-	
-	public toString() -> String
-	{
-		return "[Circle at (" + x + ", " + y + ") with a radius of " + r + "]"
-	}
+	public generateOutput(File file) => file.write("<circle cx=\"#x\" cy=\"#y\" r=\"#r\" stroke=\"false\" fill=\"black\"/>\n")
+	public toString() => "[Circle at (#x, #y) with a radius of #r]"
 }

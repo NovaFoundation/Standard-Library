@@ -8,46 +8,18 @@ public class Int extends Number implements Comparable<Int>, Integer
 	
 	Int value
 	
+	public Long hashCodeLong => value
+	
 	visible static Int MAX_VALUE =  2147483647
 	visible static Int MIN_VALUE = -2147483648
 	
-	construct(Int value)
-	{
-		this.value = value
-	}
+	construct(Int value) => this.value = value
 	
-	public getHashCodeLong() -> Long
-	{
-		return value
-	}
+	public compareTo(Int other) => value - other
+	public multiply(Int value) => this.value * value
+	public toString() => toString(value)
 	
-	public static numDigits(Int number) -> Int
-	{
-		return Long.numDigits(number)
-	}
-	
-	public static toString(Int value) -> String
-	{
-		return Long.toString(value)
-	}
-	
-	public toString() -> String
-	{
-		return toString(value)
-	}
-	
-	public static parseInt(String num) -> Int
-	{
-		return atoi(num.chars.data)
-	}
-	
-	public compareTo(Int other) -> Int
-	{
-		return value - other
-	}
-	
-	public multiply(Int value) -> Int
-	{
-		return this.value * value
-	}
+	public static numDigits(Int number) => Long.numDigits(number)
+	public static toString(Int value) => Long.toString(value)
+	public static parseInt(String num) => atoi(num.chars.data)
 }

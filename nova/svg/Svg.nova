@@ -6,15 +6,9 @@ public class Svg
 {
 	public SvgMainComponent root
 	
-	public construct()
-	{
-		root = new SvgMainComponent()
-	}
+	public construct() => root = new SvgMainComponent()
 	
-	public generateOutput(File file)
-	{
-		root.generateOutput(file)
-	}
+	public generateOutput(File file) => root.generateOutput(file)
 	
 	public generateHTMLOutput(File file)
 	{
