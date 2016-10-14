@@ -59,10 +59,9 @@ nova_datastruct_list_CharArrayIterator_Extension_VTable nova_datastruct_list_Cha
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_datastruct_list_Nova_CharArrayIterator_Nova_reset,
 	nova_datastruct_list_Nova_CharArrayIterator_Accessor_Nova_hasNext,
@@ -136,7 +135,7 @@ char nova_datastruct_list_Nova_CharArrayIterator_Accessor_Nova_next(nova_datastr
 	{
 		return (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Nova_get(this->prv->nova_datastruct_list_Nova_CharArrayIterator_Nova_array, exceptionData, this->nova_datastruct_list_Nova_CharArrayIterator_Nova_position++);
 	}
-	THROW(2, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
+	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
 	return (char)0;
 }
 

@@ -59,10 +59,9 @@ nova_math_NumericStatement_Extension_VTable nova_math_NumericStatement_Extension
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_math_Nova_NumericStatement_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_math_Nova_NumericStatement_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 

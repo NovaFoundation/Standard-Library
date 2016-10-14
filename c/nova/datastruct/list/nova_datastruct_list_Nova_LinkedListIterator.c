@@ -61,10 +61,9 @@ nova_datastruct_list_LinkedListIterator_Extension_VTable nova_datastruct_list_Li
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_datastruct_list_Nova_LinkedListIterator_Nova_reset,
 	nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_hasNext,
@@ -142,7 +141,7 @@ nova_Nova_Object* nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_nex
 		this->nova_datastruct_list_Nova_LinkedListIterator_Nova_position = this->nova_datastruct_list_Nova_LinkedListIterator_Nova_position->nova_datastruct_list_Nova_ListNode_Nova_next;
 		return (nova_Nova_Object*)l2_Nova_data;
 	}
-	THROW(2, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
+	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
 	return (nova_Nova_Object*)(nova_Nova_Object*)nova_null;
 }
 

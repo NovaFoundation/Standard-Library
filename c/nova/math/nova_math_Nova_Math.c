@@ -58,10 +58,9 @@ nova_math_Math_Extension_VTable nova_math_Math_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
@@ -169,14 +168,14 @@ double nova_math_Nova_Math_static_Nova_atan(nova_math_Nova_Math* this, nova_exce
 	return atan(nova_math_Nova_Math_Nova_number);
 }
 
-double nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+long_long nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
 {
 	return nova_math_Nova_Math_static_Nova_floor(0, exceptionData, nova_math_Nova_Math_Nova_number + 0.5);
 }
 
-double nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+long_long nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
 {
-	floor(nova_math_Nova_Math_Nova_number);
+	return floor(nova_math_Nova_Math_Nova_number);
 }
 
 long_long nova_math_Nova_Math_static_Nova_ceil(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)

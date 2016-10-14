@@ -63,10 +63,9 @@ nova_network_ConnectionSocket_Extension_VTable nova_network_ConnectionSocket_Ext
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 

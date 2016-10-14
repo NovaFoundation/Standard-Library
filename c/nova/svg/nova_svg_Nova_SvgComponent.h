@@ -45,8 +45,8 @@ typedef struct nova_svg_SvgComponent_Extension_VTable nova_svg_SvgComponent_Exte
 struct nova_svg_SvgComponent_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	void (*nova_svg_Nova_SvgComponent_virtual_Nova_generateOutput)(nova_svg_Nova_SvgComponent*, nova_exception_Nova_ExceptionData*, nova_io_Nova_File*);
 };

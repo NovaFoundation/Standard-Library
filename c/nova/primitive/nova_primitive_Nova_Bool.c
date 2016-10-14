@@ -59,10 +59,9 @@ nova_primitive_Bool_Extension_VTable nova_primitive_Bool_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_primitive_Nova_Bool_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_primitive_Nova_Bool_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_primitive_Nova_Bool_0_Nova_compareTo,
 };
@@ -106,13 +105,9 @@ void nova_primitive_Nova_Bool_Nova_this(nova_primitive_Nova_Bool* this, nova_exc
 	this->nova_primitive_Nova_Bool_Nova_value = nova_primitive_Nova_Bool_Nova_value;
 }
 
-nova_Nova_String* nova_primitive_Nova_Bool_static_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_value)
+char nova_primitive_Nova_Bool_0_Nova_compareTo(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_other)
 {
-	if (nova_primitive_Nova_Bool_Nova_value)
-	{
-		return nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("true"));
-	}
-	return nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("false"));
+	return this->nova_primitive_Nova_Bool_Nova_value == nova_primitive_Nova_Bool_Nova_other;
 }
 
 nova_Nova_String* nova_primitive_Nova_Bool_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -120,9 +115,9 @@ nova_Nova_String* nova_primitive_Nova_Bool_Nova_toString(nova_primitive_Nova_Boo
 	return nova_primitive_Nova_Bool_static_Nova_toString(0, exceptionData, this->nova_primitive_Nova_Bool_Nova_value);
 }
 
-char nova_primitive_Nova_Bool_0_Nova_compareTo(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_other)
+nova_Nova_String* nova_primitive_Nova_Bool_static_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_value)
 {
-	return this->nova_primitive_Nova_Bool_Nova_value == nova_primitive_Nova_Bool_Nova_other;
+	return nova_primitive_Nova_Bool_Nova_value ? nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("true")) : nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("false"));
 }
 
 void nova_primitive_Nova_Bool_Nova_super(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -60,10 +60,9 @@ nova_io_File_Extension_VTable nova_io_File_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
@@ -171,13 +170,13 @@ char nova_io_Nova_File_Nova_create(nova_io_Nova_File* this, nova_exception_Nova_
 		this->prv->nova_io_Nova_File_Nova_fp = fopen((char*)(this->nova_io_Nova_File_Nova_location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)("w"));
 		if (!nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
 		{
-			THROW(4, nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this));
+			THROW(5, nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this));
 			return 0;
 		}
 		nova_io_Nova_File_Nova_reopen(this, exceptionData);
 		if (!nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
 		{
-			THROW(4, nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this));
+			THROW(5, nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this));
 			return 0;
 		}
 		return 1;

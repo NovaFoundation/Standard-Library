@@ -59,10 +59,9 @@ nova_datastruct_list_IntRange_Extension_VTable nova_datastruct_list_IntRange_Ext
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_datastruct_list_Nova_IntRange_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_datastruct_list_Nova_IntRange_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_datastruct_list_Nova_IntRange_0_Nova_contains,
 	nova_datastruct_list_Nova_IntRange_Nova_toArray,
@@ -145,9 +144,9 @@ void nova_datastruct_list_Nova_IntRange_0_Nova_this(nova_datastruct_list_Nova_In
 	this->nova_datastruct_list_Nova_IntRange_Nova_end = nova_datastruct_list_Nova_IntRange_Nova_end;
 }
 
-char nova_datastruct_list_Nova_IntRange_0_Nova_contains(nova_datastruct_list_Nova_IntRange* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_list_Nova_IntRange_Nova_value)
+int nova_datastruct_list_Nova_IntRange_0_Nova_contains(nova_datastruct_list_Nova_IntRange* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_list_Nova_IntRange_Nova_value)
 {
-	return (char)nova_datastruct_list_Nova_IntRange_Nova_value >= this->nova_datastruct_list_Nova_IntRange_Nova_start && nova_datastruct_list_Nova_IntRange_Nova_value < this->nova_datastruct_list_Nova_IntRange_Nova_end;
+	return nova_datastruct_list_Nova_IntRange_Nova_value >= this->nova_datastruct_list_Nova_IntRange_Nova_start && nova_datastruct_list_Nova_IntRange_Nova_value < this->nova_datastruct_list_Nova_IntRange_Nova_end;
 }
 
 nova_datastruct_list_Nova_IntArray* nova_datastruct_list_Nova_IntRange_Nova_toArray(nova_datastruct_list_Nova_IntRange* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -159,7 +158,7 @@ nova_datastruct_list_Nova_IntArray* nova_datastruct_list_Nova_IntRange_Nova_toAr
 	l1_Nova_i = this->nova_datastruct_list_Nova_IntRange_Nova_start;
 	while (l1_Nova_i < this->nova_datastruct_list_Nova_IntRange_Nova_end)
 	{
-		nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(l1_Nova_ints), exceptionData, l1_Nova_i - this->nova_datastruct_list_Nova_IntRange_Nova_start, (nova_Nova_Object*)(intptr_t)(l1_Nova_i++));
+		nova_datastruct_list_Nova_IntArray_Nova_set(l1_Nova_ints, exceptionData, l1_Nova_i - this->nova_datastruct_list_Nova_IntRange_Nova_start, l1_Nova_i++);
 	}
 	return l1_Nova_ints;
 }

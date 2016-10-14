@@ -57,10 +57,9 @@ nova_datastruct_Bounds_Extension_VTable nova_datastruct_Bounds_Extension_VTable_
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_datastruct_Nova_Bounds_Nova_toString,
 	nova_datastruct_Nova_Bounds_Nova_equals,
+	nova_datastruct_Nova_Bounds_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 

@@ -63,10 +63,9 @@ nova_math_logic_WFF_Extension_VTable nova_math_logic_WFF_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
@@ -177,7 +176,7 @@ nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_WFF_Nova_searchForConc
 	nova_math_logic_Nova_Conclusion* l1_Nova_conclusion = (nova_math_logic_Nova_Conclusion*)nova_null;
 	nova_math_logic_Nova_StatementGroup* l1_Nova_group = (nova_math_logic_Nova_StatementGroup*)nova_null;
 	
-	l1_Nova_index = nova_Nova_String_Nova_lastIndexOf(nova_math_logic_Nova_WFF_Nova_wff, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("->")), (intptr_t)nova_null);
+	l1_Nova_index = nova_Nova_String_Nova_lastIndexOf(nova_math_logic_Nova_WFF_Nova_wff, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("->")), (intptr_t)nova_null, (intptr_t)nova_null);
 	if (l1_Nova_index < 0)
 	{
 		return (nova_math_logic_Nova_StatementGroup*)(nova_Nova_Object*)nova_null;
@@ -253,7 +252,7 @@ int nova_math_logic_Nova_WFF_1_static_Nova_nextWhitespaceIndex(nova_math_logic_N
 	{
 		char l1_Nova_c = 0;
 		
-		l1_Nova_c = nova_Nova_String_Nova_charAt(nova_math_logic_Nova_WFF_Nova_wff, exceptionData, l1_Nova_i);
+		l1_Nova_c = (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_logic_Nova_WFF_Nova_wff->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_i));
 		if (nova_math_logic_Nova_WFF_static_Nova_containsChar(0, exceptionData, l1_Nova_c, nova_math_logic_Nova_WFF_Nova_whitespace) != nova_math_logic_Nova_WFF_Nova_opposite)
 		{
 			return l1_Nova_i;
@@ -297,7 +296,7 @@ int nova_math_logic_Nova_WFF_static_Nova_findEndingMatch(nova_math_logic_Nova_WF
 	{
 		char l2_Nova_c = 0;
 		
-		l2_Nova_c = nova_Nova_String_Nova_charAt(nova_math_logic_Nova_WFF_Nova_wff, exceptionData, l1_Nova_i);
+		l2_Nova_c = (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(nova_math_logic_Nova_WFF_Nova_wff->nova_Nova_String_Nova_chars), exceptionData, l1_Nova_i));
 		if (l2_Nova_c == nova_math_logic_Nova_WFF_Nova_start)
 		{
 			l1_Nova_scope++;

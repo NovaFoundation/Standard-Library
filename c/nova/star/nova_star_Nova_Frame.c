@@ -57,10 +57,9 @@ nova_star_Frame_Extension_VTable nova_star_Frame_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
@@ -114,25 +113,25 @@ void nova_star_Nova_Frame_Nova_this(nova_star_Nova_Frame* this, nova_exception_N
 
 int nova_star_Nova_Frame_Mutator_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value)
 {
-	nova_star_Nova_Frame_Mutator_Nova_x(this, exceptionData, nova_star_Nova_Frame_Nova_value);
+	this->nova_star_Nova_Frame_Nova_x = nova_star_Nova_Frame_Nova_value;
 	return nova_star_Nova_Frame_Nova_value;
 }
 
 int nova_star_Nova_Frame_Mutator_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value)
 {
-	nova_star_Nova_Frame_Mutator_Nova_y(this, exceptionData, nova_star_Nova_Frame_Nova_value);
+	this->nova_star_Nova_Frame_Nova_y = nova_star_Nova_Frame_Nova_value;
 	return nova_star_Nova_Frame_Nova_value;
 }
 
 int nova_star_Nova_Frame_Mutator_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value)
 {
-	nova_star_Nova_Frame_Mutator_Nova_width(this, exceptionData, nova_star_Nova_Frame_Nova_value);
+	this->nova_star_Nova_Frame_Nova_width = nova_star_Nova_Frame_Nova_value;
 	return nova_star_Nova_Frame_Nova_value;
 }
 
 int nova_star_Nova_Frame_Mutator_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value)
 {
-	nova_star_Nova_Frame_Mutator_Nova_height(this, exceptionData, nova_star_Nova_Frame_Nova_value);
+	this->nova_star_Nova_Frame_Nova_height = nova_star_Nova_Frame_Nova_value;
 	return nova_star_Nova_Frame_Nova_value;
 }
 

@@ -61,10 +61,9 @@ nova_primitive_number_Byte_Extension_VTable nova_primitive_number_Byte_Extension
 		(nova_Nova_Object*(*)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_number_Nova_Byte_Nova_multiply,
 		0,
 		0,
-		0,
 	},
-	nova_primitive_number_Nova_Byte_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_primitive_number_Nova_Byte_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_primitive_number_Nova_Byte_static_Nova_numDigits,
 	nova_primitive_number_Nova_Byte_0_Nova_compareTo,
@@ -111,21 +110,6 @@ void nova_primitive_number_Nova_Byte_Nova_this(nova_primitive_number_Nova_Byte* 
 	this->nova_primitive_number_Nova_Byte_Nova_value = nova_primitive_number_Nova_Byte_Nova_value;
 }
 
-int nova_primitive_number_Nova_Byte_static_Nova_numDigits(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_number)
-{
-	return nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Byte_Nova_number);
-}
-
-nova_Nova_String* nova_primitive_number_Nova_Byte_static_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
-{
-	return nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_primitive_number_Nova_Byte_Nova_value);
-}
-
-nova_Nova_String* nova_primitive_number_Nova_Byte_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return nova_primitive_number_Nova_Byte_static_Nova_toString(0, exceptionData, this->nova_primitive_number_Nova_Byte_Nova_value);
-}
-
 char nova_primitive_number_Nova_Byte_0_Nova_compareTo(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_other)
 {
 	return this->nova_primitive_number_Nova_Byte_Nova_value - nova_primitive_number_Nova_Byte_Nova_other;
@@ -134,6 +118,21 @@ char nova_primitive_number_Nova_Byte_0_Nova_compareTo(nova_primitive_number_Nova
 char nova_primitive_number_Nova_Byte_Nova_multiply(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
 {
 	return this->nova_primitive_number_Nova_Byte_Nova_value * nova_primitive_number_Nova_Byte_Nova_value;
+}
+
+nova_Nova_String* nova_primitive_number_Nova_Byte_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_primitive_number_Nova_Byte_static_Nova_toString(0, exceptionData, this->nova_primitive_number_Nova_Byte_Nova_value);
+}
+
+int nova_primitive_number_Nova_Byte_static_Nova_numDigits(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_number)
+{
+	return nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Byte_Nova_number);
+}
+
+nova_Nova_String* nova_primitive_number_Nova_Byte_static_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
+{
+	return nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_primitive_number_Nova_Byte_Nova_value);
 }
 
 void nova_primitive_number_Nova_Byte_Nova_super(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData)

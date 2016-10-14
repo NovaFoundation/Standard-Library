@@ -46,8 +46,8 @@ typedef struct nova_primitive_Null_Extension_VTable nova_primitive_Null_Extensio
 struct nova_primitive_Null_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*);
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_String*, nova_exception_Nova_ExceptionData*);
 	nova_Nova_String* (*nova_Nova_String_virtual_Nova_concat)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 	int (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
@@ -69,8 +69,8 @@ void nova_primitive_Nova_Null_Nova_init_static(nova_exception_Nova_ExceptionData
 nova_primitive_Nova_Null* nova_primitive_Nova_Null_Nova_construct(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_primitive_Nova_Null_Nova_destroy(nova_primitive_Nova_Null** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_primitive_Nova_Null_Nova_this(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_String* nova_primitive_Nova_Null_Nova_toString(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_primitive_Nova_Null_Nova_concat(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_primitive_Nova_Null_Nova_other);
+nova_Nova_String* nova_primitive_Nova_Null_Nova_toString(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_primitive_Nova_Null_Nova_super(nova_primitive_Nova_Null* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

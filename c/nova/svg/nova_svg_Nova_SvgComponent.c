@@ -59,10 +59,9 @@ nova_svg_SvgComponent_Extension_VTable nova_svg_SvgComponent_Extension_VTable_va
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_svg_Nova_SvgComponent_Nova_generateOutput,
 };

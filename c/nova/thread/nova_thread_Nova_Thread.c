@@ -61,10 +61,9 @@ nova_thread_Thread_Extension_VTable nova_thread_Thread_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_thread_Nova_Thread_Nova_run,
 };
@@ -110,9 +109,9 @@ void nova_thread_Nova_Thread_Nova_destroy(nova_thread_Nova_Thread** this, nova_e
 	NOVA_FREE(*this);
 }
 
-void nova_thread_Nova_Thread_Nova_start(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)
+NOVA_THREAD_HANDLE* nova_thread_Nova_Thread_Nova_start(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->prv->nova_thread_Nova_Thread_Nova_handle = create_thread(this, (nova_thread_Nova_Thread_closure1_Nova_run)&nova_thread_Nova_Thread_Nova_startRun, this, nova_null);
+	return this->prv->nova_thread_Nova_Thread_Nova_handle = create_thread(this, (nova_thread_Nova_Thread_closure1_Nova_run)&nova_thread_Nova_Thread_Nova_startRun, this, nova_null);
 }
 
 void nova_thread_Nova_Thread_Nova_join(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)

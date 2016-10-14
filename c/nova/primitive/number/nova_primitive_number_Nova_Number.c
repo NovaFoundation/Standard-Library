@@ -59,10 +59,9 @@ nova_primitive_number_Number_Extension_VTable nova_primitive_number_Number_Exten
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_primitive_number_Nova_Number_static_Nova_numDigits,
 };
@@ -100,9 +99,9 @@ void nova_primitive_number_Nova_Number_Nova_destroy(nova_primitive_number_Nova_N
 	NOVA_FREE(*this);
 }
 
-int nova_primitive_number_Nova_Number_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number)
+char nova_primitive_number_Nova_Number_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number)
 {
-	return (int)-1;
+	return -1;
 }
 
 void nova_primitive_number_Nova_Number_Nova_this(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -113,7 +112,7 @@ void nova_primitive_number_Nova_Number_Nova_super(nova_primitive_number_Nova_Num
 {
 }
 
-int nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number)
+char nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number)
 {
 	return this->vtable->nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Number_Nova_number);
 }

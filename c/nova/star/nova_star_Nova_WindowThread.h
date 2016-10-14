@@ -46,8 +46,8 @@ typedef struct nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Ex
 struct nova_star_WindowThread_Extension_VTable
 {
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	void (*nova_thread_Nova_Thread_virtual_Nova_run)(nova_star_Nova_WindowThread*, nova_exception_Nova_ExceptionData*);
 };

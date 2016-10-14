@@ -57,10 +57,9 @@ nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExcept
 		0,
 		0,
 		0,
-		0,
 	},
-	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Nova_equals,
+	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_thread_Nova_UncaughtExceptionHandler_Nova_uncaughtException,
 };
