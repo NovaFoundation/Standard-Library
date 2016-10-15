@@ -10,8 +10,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	
 	visible Int size
 	
-	public construct() => this(5, 5)
-	public construct(Int bucketCount, Int bucketSize)
+	public construct(Int bucketCount = 5, Int bucketSize = 5)
 	{
 		buckets = new Array(bucketCount).map({ new Array<Pair<K, V>>(bucketSize) })
 		
@@ -152,7 +151,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	public take(Int num) => map({ _ }).take(num)
 	
 	[Override]
-	public reverse() => n map({ _ }).reverse()
+	public reverse() => map({ _ }).reverse()
 	
 	[Override]
 	public firstWhere(func(Pair<K, V>) -> Bool) -> Pair<K, V>
