@@ -60,6 +60,7 @@ nova_svg_SvgCircle_Extension_VTable nova_svg_SvgCircle_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_svg_Nova_SvgCircle_Nova_toString,

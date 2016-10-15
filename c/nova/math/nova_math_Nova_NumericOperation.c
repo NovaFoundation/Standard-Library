@@ -60,6 +60,7 @@ nova_math_NumericOperation_Extension_VTable nova_math_NumericOperation_Extension
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_NumericOperation_Nova_toString,

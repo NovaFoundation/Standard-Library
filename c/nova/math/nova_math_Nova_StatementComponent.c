@@ -57,6 +57,7 @@ nova_math_StatementComponent_Extension_VTable nova_math_StatementComponent_Exten
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_StatementComponent_Nova_toString,

@@ -60,6 +60,7 @@ nova_String_Extension_VTable nova_String_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_String_Nova_equals,
 	nova_Nova_String_Nova_toString,
@@ -254,9 +255,9 @@ int nova_Nova_String_Nova_indexOf(nova_Nova_String* this, nova_exception_Nova_Ex
 
 int nova_Nova_String_Nova_lastIndexOf(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_search, int nova_Nova_String_Nova_start, int nova_Nova_String_Nova_defaultReturnValue)
 {
-	nova_Nova_String_Nova_start = (int)(nova_Nova_String_Nova_start == (intptr_t)nova_null ? this->nova_Nova_String_Nova_count - 1 : nova_Nova_String_Nova_start);
 	nova_Nova_String_Nova_defaultReturnValue = (int)(nova_Nova_String_Nova_defaultReturnValue == (intptr_t)nova_null ? -1 : nova_Nova_String_Nova_defaultReturnValue);
 	return nova_Nova_String_Nova_indexOf(this, exceptionData, nova_Nova_String_Nova_search, nova_Nova_String_Nova_start, -1, nova_Nova_String_Nova_defaultReturnValue);
+	nova_Nova_String_Nova_start = (int)(nova_Nova_String_Nova_start == (intptr_t)nova_null ? this->nova_Nova_String_Nova_count - 1 : nova_Nova_String_Nova_start);
 }
 
 nova_Nova_String* nova_Nova_String_Nova_substring(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_String_Nova_start, int nova_Nova_String_Nova_end)
