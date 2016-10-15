@@ -153,13 +153,13 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	}
 	
 	[Override]
-	public skip(Int num) -> Pair<K, V>
+	public skip(Int num) -> Pair<K, V>[]
 	{
 	    return map({ _ }).skip(num)
 	}
 	
 	[Override]
-	public take(Int num) -> Pair<K, V>
+	public take(Int num) -> Pair<K, V>[]
 	{
 	    return map({ _ }).take(num)
 	}
