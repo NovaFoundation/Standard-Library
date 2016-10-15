@@ -14,11 +14,7 @@ public class Array<E> implements List<E>
 	[PrimitiveArray]
 	visible E[] data
 
-	visible Bool empty
-	{
-		get { return count <= 0 }
-		no set
-	}
+	visible Bool empty => count <= 0
 
 	[Override]
 	visible ArrayIterator<E> iterator => new ArrayIterator(this)
@@ -60,27 +56,23 @@ public class Array<E> implements List<E>
 		}
 	}
 
-	public fillRemaining(E value) -> Array<E>
+	public fillRemaining(E value) => this
 	{
 	    while (count < capacity)
 	    {
 	        add(value)
 	    }
-
-	    return this
 	}
 
-	public addAll(E[] data) -> Array<E>
+	public addAll(E[] data) => this
 	{
 	    for (d in data)
 	    {
 	        add(d)
 	    }
-
-	    return this
 	}
 
-	public add(E element) -> Array<E>
+	public add(E element) => this
 	{
 		if (position >= capacity)
 		{
@@ -90,11 +82,9 @@ public class Array<E> implements List<E>
 		data[position++] = element
 
 		count = Math.max(position, count)
-
-		return this
 	}
 
-	public add(Int index, E element)
+	public add(Int index, E element) => this
 	{
 		if (index >= capacity)
 		{
@@ -155,7 +145,7 @@ public class Array<E> implements List<E>
 	    return -1
 	}
 
-	shiftRight(Int left, Int right)
+	shiftRight(Int left, Int right) => this
 	{
 	    Int i = right - 1
 
@@ -169,7 +159,7 @@ public class Array<E> implements List<E>
 		data[left] = null
 	}
 
-	shiftLeft(Int left, Int right)
+	shiftLeft(Int left, Int right) => this
 	{
 	    left--
 	    right--
@@ -182,19 +172,19 @@ public class Array<E> implements List<E>
 		data[right] = null
 	}
 
-	public swap(Int index1, Int index2)
+	public swap(Int index1, Int index2) => this
 	{
 		E temp = data[index1]
 		data[index1] = data[index2]
 		data[index2] = temp
 	}
 
-	increaseSize()
+	increaseSize() => this
 	{
 		increaseSize(capacity + 3)
 	}
 
-	increaseSize(Int count)
+	increaseSize(Int count) => this
 	{
 		[Target c]
 		Int offset = count - capacity
@@ -359,8 +349,5 @@ public class Array<E> implements List<E>
         return array
     }
 
-    public toString() -> String
-    {
-        return "Array [#{join(", ")}]"
-    }
+    public toString() => "Array [#{join(", ")}]"
 }

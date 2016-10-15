@@ -36,7 +36,7 @@ public interface List<Type> extends Iterable<Type>
 	    return any({ _ == value })
 	}
 
-	public forEach(func(Type, Int, List<Type>))
+	public forEach(func(Type, Int, List<Type>)) => this
 	{
 	    Int i = 0
 
