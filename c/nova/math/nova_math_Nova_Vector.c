@@ -43,10 +43,17 @@ typedef struct
 } Context3;
 typedef struct
 {
+	/* Double scalar */ double* nova_math_Nova_Vector_Nova_scalar;
 } Context4;
 typedef struct
 {
 } Context5;
+typedef struct
+{
+} Context6;
+typedef struct
+{
+} Context7;
 
 
 nova_math_Vector_Extension_VTable nova_math_Vector_Extension_VTable_val =
@@ -89,7 +96,9 @@ double nova_math_Nova_Vector_Nova_testLambda2(nova_math_Nova_Vector* this, nova_
 double nova_math_Nova_Vector_Nova_testLambda3(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context2* context);
 void nova_math_Nova_Vector_Nova_testLambda4(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context3* context);
 void nova_math_Nova_Vector_Nova_testLambda5(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context4* context);
-double nova_math_Nova_Vector_Nova_testLambda6(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context5* context);
+void nova_math_Nova_Vector_Nova_testLambda6(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context5* context);
+void nova_math_Nova_Vector_Nova_testLambda7(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context6* context);
+double nova_math_Nova_Vector_Nova_testLambda8(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context7* context);
 
 void nova_math_Nova_Vector_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
@@ -166,23 +175,30 @@ double nova_math_Nova_Vector_Nova_innerProduct(nova_math_Nova_Vector* this, nova
 	return nova_math_Nova_Vector_virtual_Nova_dotProduct((nova_math_Nova_Vector*)(this), exceptionData, nova_math_Nova_Vector_Nova_other);
 }
 
-void nova_math_Nova_Vector_Nova_scale(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_scalar)
+nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_scale(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_scalar)
 {
 	Context3 contextArg4 = 
 	{
 		&nova_math_Nova_Vector_Nova_scalar,
 	};
+	Context4 contextArg5 = 
+	{
+		&nova_math_Nova_Vector_Nova_scalar,
+	};
 	
-	nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda4, this, &contextArg4);
+	return (nova_datastruct_list_Nova_DoubleArray*)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda5, this, &contextArg5);
 }
 
-void nova_math_Nova_Vector_Nova_normalize(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_normalize(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	Context4 contextArg5 = 
+	Context5 contextArg6 = 
+	{
+	};
+	Context6 contextArg7 = 
 	{
 	};
 	
-	nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda5, this, &contextArg5);
+	return (nova_datastruct_list_Nova_DoubleArray*)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda7, this, &contextArg7);
 }
 
 nova_Nova_String* nova_math_Nova_Vector_Nova_toString(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -207,6 +223,11 @@ void nova_math_Nova_Vector_Nova_testLambda4(nova_math_Nova_Vector* this, nova_ex
 
 void nova_math_Nova_Vector_Nova_testLambda5(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context4* context)
 {
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Vector_Nova_d, exceptionData, nova_math_Nova_Vector_Nova_i, nova_math_Nova_Vector_Nova_n * (*context->nova_math_Nova_Vector_Nova_scalar));
+}
+
+void nova_math_Nova_Vector_Nova_testLambda6(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context5* context)
+{
 	double nova_zero_check1 = 0;
 	double nova_zero_check2 = 0;
 	
@@ -223,18 +244,36 @@ void nova_math_Nova_Vector_Nova_testLambda5(nova_math_Nova_Vector* this, nova_ex
 	}
 }
 
-double nova_math_Nova_Vector_Nova_testLambda6(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context5* context)
+void nova_math_Nova_Vector_Nova_testLambda7(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context6* context)
+{
+	double nova_zero_check3 = 0;
+	double nova_zero_check4 = 0;
+	
+	nova_zero_check3 = nova_math_Nova_Vector_Accessor_Nova_magnitude(this, exceptionData);
+	if (nova_zero_check3 == 0)
+	{
+		THROW(2, nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
+	}
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Vector_Nova_d, exceptionData, nova_math_Nova_Vector_Nova_i, nova_math_Nova_Vector_Nova_n / nova_zero_check4);
+	nova_zero_check4 = nova_zero_check3;
+	if (nova_zero_check4 == 0)
+	{
+		THROW(2, nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
+	}
+}
+
+double nova_math_Nova_Vector_Nova_testLambda8(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context7* context)
 {
 	return nova_math_Nova_Vector_Nova_n * nova_math_Nova_Vector_Nova_n;
 }
 
 double nova_math_Nova_Vector_Accessor_Nova_magnitude(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	Context5 contextArg6 = 
+	Context7 contextArg8 = 
 	{
 	};
 	
-	return nova_math_Nova_Math_static_Nova_sqrt(0, exceptionData, nova_datastruct_list_Nova_DoubleArray_Nova_sum(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure3_Nova_func)&nova_math_Nova_Vector_Nova_testLambda6, this, &contextArg6));
+	return nova_math_Nova_Math_static_Nova_sqrt(0, exceptionData, nova_datastruct_list_Nova_DoubleArray_Nova_sum(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure3_Nova_func)&nova_math_Nova_Vector_Nova_testLambda8, this, &contextArg8));
 }
 
 

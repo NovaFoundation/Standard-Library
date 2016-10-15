@@ -66,7 +66,7 @@ nova_primitive_number_Byte_Extension_VTable nova_primitive_number_Byte_Extension
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Byte_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_primitive_number_Nova_Byte_static_Nova_numDigits,
+	nova_primitive_number_Nova_Number_static_Nova_numDigits,
 	nova_primitive_number_Nova_Byte_0_Nova_compareTo,
 	nova_primitive_number_Nova_Byte_Nova_multiply,
 };

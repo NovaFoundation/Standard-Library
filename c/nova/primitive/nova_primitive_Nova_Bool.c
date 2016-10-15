@@ -36,7 +36,7 @@
 nova_primitive_Bool_Extension_VTable nova_primitive_Bool_Extension_VTable_val =
 {
 	{
-		(int(*)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_Nova_Bool_0_Nova_compareTo,
+		0,
 		0,
 		0,
 		0,
@@ -64,7 +64,6 @@ nova_primitive_Bool_Extension_VTable nova_primitive_Bool_Extension_VTable_val =
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_Nova_Bool_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_primitive_Nova_Bool_0_Nova_compareTo,
 };
 
 
@@ -106,7 +105,7 @@ void nova_primitive_Nova_Bool_Nova_this(nova_primitive_Nova_Bool* this, nova_exc
 	this->nova_primitive_Nova_Bool_Nova_value = nova_primitive_Nova_Bool_Nova_value;
 }
 
-char nova_primitive_Nova_Bool_0_Nova_compareTo(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_other)
+char nova_primitive_Nova_Bool_Nova_compareTo(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_other)
 {
 	return this->nova_primitive_Nova_Bool_Nova_value == nova_primitive_Nova_Bool_Nova_other;
 }

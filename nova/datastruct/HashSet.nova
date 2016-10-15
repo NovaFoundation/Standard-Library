@@ -140,13 +140,13 @@ public class HashSet<T> implements List<T>
 	}
 
 	[Override]
-	public skip(Int num) -> T
+	public skip(Int num) -> T[]
 	{
 	    return map({ _ }).skip(num)
 	}
 
 	[Override]
-	public take(Int num) -> T
+	public take(Int num) -> T[]
 	{
 	    return map({ _ }).take(num)
 	}
@@ -178,7 +178,7 @@ public class HashSet<T> implements List<T>
 	}
 
 	[Override]
-	public forEach(func(T, Int, HashSet<T>))
+	public forEach(func(T, Int, HashSet<T>)) => this
 	{
 	    //HashSet<T> self = this
 

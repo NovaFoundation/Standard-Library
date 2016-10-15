@@ -10,11 +10,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	
 	visible Int size
 	
-	public construct()
-	{
-	    this(5, 5)
-	}
-	
+	public construct() => this(5, 5)
 	public construct(Int bucketCount, Int bucketSize)
 	{
 		buckets = new Array(bucketCount).map({ new Array<Pair<K, V>>(bucketSize) })
@@ -23,10 +19,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	}
 	
 	[Override]
-	public toArray() -> Pair<K, V>[]
-	{
-	    return map({ _ })
-	}
+	public toArray() => map({ _ })
 	
 	[Override]
 	public contains(Pair<K, V> value) -> Bool
@@ -153,22 +146,13 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	}
 	
 	[Override]
-	public skip(Int num) -> Pair<K, V>[]
-	{
-	    return map({ _ }).skip(num)
-	}
+	public skip(Int num) => map({ _ }).skip(num)
 	
 	[Override]
-	public take(Int num) -> Pair<K, V>[]
-	{
-	    return map({ _ }).take(num)
-	}
+	public take(Int num) => map({ _ }).take(num)
 	
 	[Override]
-	public reverse() -> Pair<K, V>[]
-	{
-	    return map({ _ }).reverse()
-	}
+	public reverse() => n map({ _ }).reverse()
 	
 	[Override]
 	public firstWhere(func(Pair<K, V>) -> Bool) -> Pair<K, V>
@@ -191,7 +175,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	}
 	
 	[Override]
-	public forEach(func(Pair<K, V>, Int, HashMap<K, V>))
+	public forEach(func(Pair<K, V>, Int, HashMap<K, V>)) => this
 	{
 	    //HashMap<K, V> self = this
 	    
@@ -230,7 +214,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 	{
 		get
 		{
-			var pair = getPair(key)
+			var pair = getPair(key)//?.value
 			
 			if (pair != null)
 			{
@@ -242,9 +226,7 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 		
 		set
 		{
-			var bucket = getBucket(key)
-			
-			bucket.add(new Pair<K, V>(key, value))
+			getBucket(key).add(new Pair<K, V>(key, value))
 			
 			return this
 		}

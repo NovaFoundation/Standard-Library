@@ -35,7 +35,7 @@ public class IntArray extends Array<Int>
 	}
 	
 	[Override]
-	public forEach(func(Int, Int, IntArray))
+	public forEach(func(Int, Int, IntArray)) => this
 	{
 		for (i in 0..count)
 		{

@@ -124,7 +124,7 @@ public class LinkedList<E> implements List<E>
 	}
 
 	[Override]
-	public forEach(func(E, Int, LinkedList<E>))
+	public forEach(func(E, Int, LinkedList<E>)) => this
 	{
 		Int i = 0
 

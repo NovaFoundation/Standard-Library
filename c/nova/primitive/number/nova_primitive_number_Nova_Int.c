@@ -66,7 +66,7 @@ nova_primitive_number_Int_Extension_VTable nova_primitive_number_Int_Extension_V
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Int_Nova_toString,
 	nova_primitive_number_Nova_Int_Accessor_Nova_hashCodeLong,
-	nova_primitive_number_Nova_Int_static_Nova_numDigits,
+	nova_primitive_number_Nova_Number_static_Nova_numDigits,
 	nova_primitive_number_Nova_Int_0_Nova_compareTo,
 	nova_primitive_number_Nova_Int_Nova_multiply,
 };

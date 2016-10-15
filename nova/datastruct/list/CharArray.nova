@@ -60,7 +60,7 @@ public class CharArray extends Array<Char>
 	}
 	
 	[Override]
-	public forEach(func(Char, Int, CharArray))
+	public forEach(func(Char, Int, CharArray)) => this
 	{
 		for (i in 0..count)
 		{

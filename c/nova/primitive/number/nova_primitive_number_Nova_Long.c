@@ -38,7 +38,7 @@
 nova_primitive_number_Long_Extension_VTable nova_primitive_number_Long_Extension_VTable_val =
 {
 	{
-		(int(*)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_number_Nova_Long_0_Nova_compareTo,
+		0,
 		0,
 		0,
 		0,
@@ -66,8 +66,7 @@ nova_primitive_number_Long_Extension_VTable nova_primitive_number_Long_Extension
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Long_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_primitive_number_Nova_Long_static_Nova_numDigits,
-	nova_primitive_number_Nova_Long_0_Nova_compareTo,
+	nova_primitive_number_Nova_Number_static_Nova_numDigits,
 	nova_primitive_number_Nova_Long_Nova_multiply,
 };
 
@@ -139,7 +138,7 @@ nova_Nova_String* nova_primitive_number_Nova_Long_static_Nova_toString(nova_prim
 	int l3_Nova_index = 0;
 	
 	l1_Nova_charOffset = (int)('0');
-	l1_Nova_digits = (int)(nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Long_Nova_value));
+	l1_Nova_digits = nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Long_Nova_value);
 	
 	l1_Nova_data = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_digits + 1);
 	l1_Nova_data[l1_Nova_digits] = '\0';
@@ -159,7 +158,7 @@ nova_Nova_String* nova_primitive_number_Nova_Long_static_Nova_toString(nova_prim
 	return nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_data);
 }
 
-long_long nova_primitive_number_Nova_Long_0_Nova_compareTo(nova_primitive_number_Nova_Long* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_primitive_number_Nova_Long_Nova_other)
+long_long nova_primitive_number_Nova_Long_Nova_compareTo(nova_primitive_number_Nova_Long* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_primitive_number_Nova_Long_Nova_other)
 {
 	return this->nova_primitive_number_Nova_Long_Nova_value - nova_primitive_number_Nova_Long_Nova_other;
 }

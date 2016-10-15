@@ -241,7 +241,7 @@ public class Array<E> implements List<E>
 	}
 
 	[Override]
-	public forEach(func(E, Int, Array<E>))
+	public forEach(func(E, Int, Array<E>)) => this
 	{
 		for (i in 0..count)
 		{

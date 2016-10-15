@@ -38,7 +38,7 @@ nova_datastruct_list_StringCharArray_Extension_VTable nova_datastruct_list_Strin
 {
 	{
 		0,
-		(nova_datastruct_list_Nova_Iterator*(*)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*))nova_datastruct_list_Nova_CharArray_Accessor_Nova_iterator,
+		(nova_datastruct_list_Nova_Iterator*(*)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*))nova_datastruct_list_Nova_Array_Accessor_Nova_iterator,
 		0,
 		0,
 		0,
@@ -74,7 +74,7 @@ nova_datastruct_list_StringCharArray_Extension_VTable nova_datastruct_list_Strin
 	nova_datastruct_list_Nova_CharArray_Nova_reverse,
 	nova_datastruct_list_Nova_CharArray_Nova_get,
 	nova_datastruct_list_Nova_CharArray_Nova_set,
-	nova_datastruct_list_Nova_CharArray_Accessor_Nova_iterator,
+	nova_datastruct_list_Nova_Array_Accessor_Nova_iterator,
 	nova_datastruct_list_Nova_CharArray_Accessor_Nova_first,
 	nova_datastruct_list_Nova_CharArray_Accessor_Nova_last,
 	nova_datastruct_list_Nova_CharArray_Nova_any,

@@ -38,7 +38,7 @@
 nova_primitive_number_Double_Extension_VTable nova_primitive_number_Double_Extension_VTable_val =
 {
 	{
-		(int(*)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_number_Nova_Double_0_Nova_compareTo,
+		0,
 		0,
 		0,
 		0,
@@ -66,8 +66,7 @@ nova_primitive_number_Double_Extension_VTable nova_primitive_number_Double_Exten
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Double_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_primitive_number_Nova_Double_static_Nova_numDigits,
-	nova_primitive_number_Nova_Double_0_Nova_compareTo,
+	nova_primitive_number_Nova_Number_static_Nova_numDigits,
 	nova_primitive_number_Nova_Double_Nova_multiply,
 };
 
@@ -226,7 +225,7 @@ double nova_primitive_number_Nova_Double_static_Nova_parseDouble(nova_primitive_
 	return strtod((char*)(nova_primitive_number_Nova_Double_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), &l1_Nova_pEnd);
 }
 
-double nova_primitive_number_Nova_Double_0_Nova_compareTo(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_other)
+double nova_primitive_number_Nova_Double_Nova_compareTo(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_other)
 {
 	return this->nova_primitive_number_Nova_Double_Nova_value - nova_primitive_number_Nova_Double_Nova_other;
 }

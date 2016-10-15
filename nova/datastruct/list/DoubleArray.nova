@@ -54,7 +54,6 @@ public class DoubleArray extends Array<Double>
 		}
 	}
 	
-	
 	public sum(func(Double, Int, DoubleArray) -> Double) -> Double
 	{
 		Double sum = 0
@@ -84,7 +83,7 @@ public class DoubleArray extends Array<Double>
 	}
 	
 	[Override]
-	public forEach(func(Double, Int, DoubleArray))
+	public forEach(func(Double, Int, DoubleArray)) => this
 	{
 		for (i in 0..count)
 		{
