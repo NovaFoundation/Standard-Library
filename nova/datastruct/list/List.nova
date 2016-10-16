@@ -1,17 +1,14 @@
 package "nova/datastruct/list"
 
-public interface List<Type> extends Iterable<Type>
-{
+public interface List<Type> extends Iterable<Type> {
 	visible Int size
-	/*[Int index]
-	{
+	/*[Int index] {
 		get { return this.get(index) }
 		set { this.set(index, value) }
 	}
 	*/
 
-	visible Iterator<Type> iterator
-	{
+	visible Iterator<Type> iterator {// => null
 		get { return null }
 		no set
 	}
@@ -19,53 +16,43 @@ public interface List<Type> extends Iterable<Type>
 	public Type first
 	public Type last
 
-	public toArray() -> Type[]
-	{
+	public toArray() -> Type[] {
 		Type[] array = new Array()
 
-		for (value in this)
-		{
+		for (value in this) {
 			array.add(value)
 		}
 
 		return array
 	}
 
-	public contains(Type value) -> Bool
-	{
+	public contains(Type value) -> Bool {
 	    return any({ _ == value })
 	}
 
-	public forEach(func(Type, Int, List<Type>)) => this
-	{
+	public forEach(func(Type, Int, List<Type>)) => this {
 	    Int i = 0
 
-		for (value in this)
-		{
+		for (value in this) {
 			func(value, i++, this)
 		}
 	}
 
-	public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out>
-	{
+	public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out> {
 		Out[] array = new Array(count)
 
 		Int i = 0
 
-		for (element in this)
-		{
+		for (element in this) {
 			array.add(mapFunc(element, i++, this))
 		}
 
 		return array
 	}
 
-	public any(anyFunc(Type) -> Bool) -> Bool
-	{
-		for (element in this)
-		{
-			if (anyFunc(element))
-			{
+	public any(anyFunc(Type) -> Bool) -> Bool {
+		for (element in this) {
+			if (anyFunc(element)) {
 				return true
 			}
 		}
@@ -73,12 +60,9 @@ public interface List<Type> extends Iterable<Type>
 		return false
 	}
 
-	public all(allFunc(Type) -> Bool) -> Bool
-	{
-		for (element in this)
-		{
-			if (!allFunc(element))
-			{
+	public all(allFunc(Type) -> Bool) -> Bool {
+		for (element in this) {
+			if (!allFunc(element)) {
 				return false
 			}
 		}
@@ -86,16 +70,13 @@ public interface List<Type> extends Iterable<Type>
 		return true
 	}
 
-	public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type>
-	{
+	public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type> {
 		Type[] list = new Array()
 
 		Int i = 0
 
-		for (value in this)
-		{
-			if (filterFunc(value, i++, this))
-			{
+		for (value in this) {
+			if (filterFunc(value, i++, this)) {
 				list.add(value)
 			}
 		}
@@ -103,33 +84,13 @@ public interface List<Type> extends Iterable<Type>
 		return list
 	}
 
-	/*public filter(filterFunc(Type, Int, this<E>) -> Bool) -> this<Type>
-	{
-		this<Type> list = new this()
-
-		Int i = 0
-
-		for (value in this)
-		{
-			if (filterFunc(value, i++, this))
-			{
-				list.add(value)
-			}
-		}
-
-		return list
-	}*/
-
-	public take(Int howMany) -> List<Type>
-	{
+	public take(Int howMany) -> List<Type> {
 		Type[] list = new Array()
 
 		Int i = 0
 
-		for (value in this)
-		{
-			if (i++ >= howMany)
-			{
+		for (value in this) {
+			if (i++ >= howMany) {
 				return list
 			}
 
@@ -139,16 +100,13 @@ public interface List<Type> extends Iterable<Type>
 		return list
 	}
 
-	public skip(Int howMany) -> List<Type>
-	{
+	public skip(Int howMany) -> List<Type> {
 		Type[] list = new Array()
 
 		Int i = 0
 
-		for (value in this)
-		{
-			if (i++ >= howMany)
-			{
+		for (value in this) {
+			if (i++ >= howMany) {
 				list.add(value)
 			}
 		}
@@ -156,12 +114,9 @@ public interface List<Type> extends Iterable<Type>
 		return list
 	}
 
-	public firstWhere(func(Type) -> Bool) -> Type
-	{
-		for (element in this)
-		{
-			if (func(element))
-			{
+	public firstWhere(func(Type) -> Bool) -> Type {
+		for (element in this) {
+			if (func(element)) {
 				return element
 			}
 		}
@@ -169,14 +124,11 @@ public interface List<Type> extends Iterable<Type>
 		return null
 	}
 	
-	public firstNonNull<Out>(func(Type) -> Out) -> Out
-	{
-		for (element in this)
-		{
+	public firstNonNull<Out>(func(Type) -> Out) -> Out {
+		for (element in this) {
 			Out value = func(element)
 			
-			if (value != null)
-			{
+			if (value != null) {
 				return value
 			}
 		}
@@ -184,15 +136,13 @@ public interface List<Type> extends Iterable<Type>
 		return null
 	}
 
-	public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[]
-	{
+	public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[] {
 		Iterator<Type> i1 = iterator
 		Iterator<OtherType> i2 = other.iterator
 
 		Out[] array = new Array()
 
-		while (i1.hasNext && i2.hasNext)
-		{
+		while (i1.hasNext && i2.hasNext) {
 			array.add(zipper(i1.next, i2.next))
 		}
 
@@ -205,26 +155,19 @@ public interface List<Type> extends Iterable<Type>
 	//remove(Type value) -> List<Type>
 	//clone() -> List<Type>
 	public reverse() -> List<Type>
+	
+	public reduce<Out>(func(Out, Type, Int, List) -> Out, Out initialValue) -> Out {
+		Out value = initialValue
+		Int i = 0
+		
+		for (element in this) {
+			value = func(value, element, i++, this)
+		}
+		
+		return value
+	}
 
-    public join(String delimiter) -> String
-    {
-        var str = ""
-        var passed = false
-
-        for (element in this)
-        {
-            if (passed)
-            {
-                str = str + delimiter
-            }
-            else
-            {
-                passed = true
-            }
-
-            str = str + element.toString()
-        }
-
-        return str
-    }
+    public join(String delimiter) =>
+		reduce((str, e, i) -> str + (i > 0 ? delimiter : "") + e, "")
+		//reduce({ _value + (_index > 0 ? delimiter : "") + _element })
 }
