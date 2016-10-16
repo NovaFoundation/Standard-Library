@@ -10,7 +10,7 @@ public class CharArray extends Array<Char>
 	[Override] public Char first => count > 0 ? this[0] : (Char)0
 	[Override] public Char last => count > 0 ? this[count - 1] : (Char)0
 	
-	public Long hashCodeLong => recurse((c, i, a, v) -> 31 * v + (Int)c)
+	public Long hashCodeLong => reduce((v, c, i, a) -> 31 * v + (Int)c, 0)
 	
 	this[Int index] <=> (([PrimitiveArray] Char[])data)[index]
 	
@@ -31,14 +31,14 @@ public class CharArray extends Array<Char>
 		return sum
 	}
 	
-	public recurse(func(Char, Int, CharArray, Long) -> Long) -> Long
+	public reduce(func(Long, Char, Int, CharArray) -> Long, Long initialValue) -> Long
 	{
-		Long value = 0
+		Long value = initialValue
 		Int i = 0
 		
 		for (element in this)
 		{
-			value = func(element, i++, this, value)
+			value = func(value, element, i++, this)
 		}
 		
 		return value
