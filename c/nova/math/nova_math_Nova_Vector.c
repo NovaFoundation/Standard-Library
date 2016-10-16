@@ -35,25 +35,14 @@ typedef struct
 } Context1;
 typedef struct
 {
-	/* Vector other */ nova_math_Nova_Vector** nova_math_Nova_Vector_Nova_other;
+	/* Double scalar */ double* nova_math_Nova_Vector_Nova_scalar;
 } Context2;
 typedef struct
 {
-	/* Double scalar */ double* nova_math_Nova_Vector_Nova_scalar;
 } Context3;
 typedef struct
 {
-	/* Double scalar */ double* nova_math_Nova_Vector_Nova_scalar;
 } Context4;
-typedef struct
-{
-} Context5;
-typedef struct
-{
-} Context6;
-typedef struct
-{
-} Context7;
 
 
 nova_math_Vector_Extension_VTable nova_math_Vector_Extension_VTable_val =
@@ -92,13 +81,10 @@ nova_math_Vector_Extension_VTable nova_math_Vector_Extension_VTable_val =
 
 
 
-double nova_math_Nova_Vector_Nova_testLambda10(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context1* context);
-double nova_math_Nova_Vector_Nova_testLambda11(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context2* context);
-void nova_math_Nova_Vector_Nova_testLambda12(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context3* context);
-void nova_math_Nova_Vector_Nova_testLambda13(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context4* context);
-void nova_math_Nova_Vector_Nova_testLambda14(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context5* context);
-void nova_math_Nova_Vector_Nova_testLambda15(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context6* context);
-double nova_math_Nova_Vector_Nova_testLambda16(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context7* context);
+double nova_math_Nova_Vector_Nova_testLambda8(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context1* context);
+void nova_math_Nova_Vector_Nova_testLambda9(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context2* context);
+void nova_math_Nova_Vector_Nova_testLambda10(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context3* context);
+double nova_math_Nova_Vector_Nova_testLambda11(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context4* context);
 
 void nova_math_Nova_Vector_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
@@ -158,16 +144,12 @@ void nova_math_Nova_Vector_1_Nova_this(nova_math_Nova_Vector* this, nova_excepti
 
 double nova_math_Nova_Vector_Nova_dotProduct(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Vector* nova_math_Nova_Vector_Nova_other)
 {
-	Context1 contextArg10 = 
-	{
-		&nova_math_Nova_Vector_Nova_other,
-	};
-	Context2 contextArg11 = 
+	Context1 contextArg8 = 
 	{
 		&nova_math_Nova_Vector_Nova_other,
 	};
 	
-	return nova_datastruct_list_Nova_DoubleArray_Nova_sum(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure3_Nova_func)&nova_math_Nova_Vector_Nova_testLambda11, this, &contextArg11);
+	return nova_datastruct_list_Nova_DoubleArray_Nova_sum(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure3_Nova_func)&nova_math_Nova_Vector_Nova_testLambda8, this, &contextArg8);
 }
 
 double nova_math_Nova_Vector_Nova_innerProduct(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Vector* nova_math_Nova_Vector_Nova_other)
@@ -177,56 +159,39 @@ double nova_math_Nova_Vector_Nova_innerProduct(nova_math_Nova_Vector* this, nova
 
 nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_scale(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_scalar)
 {
-	Context3 contextArg12 = 
-	{
-		&nova_math_Nova_Vector_Nova_scalar,
-	};
-	Context4 contextArg13 = 
+	Context2 contextArg9 = 
 	{
 		&nova_math_Nova_Vector_Nova_scalar,
 	};
 	
-	return (nova_datastruct_list_Nova_DoubleArray*)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda13, this, &contextArg13);
+	return (nova_datastruct_list_Nova_DoubleArray*)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda9, this, &contextArg9);
 }
 
 nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_normalize(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	Context5 contextArg14 = 
-	{
-	};
-	Context6 contextArg15 = 
+	Context3 contextArg10 = 
 	{
 	};
 	
-	return (nova_datastruct_list_Nova_DoubleArray*)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda15, this, &contextArg15);
+	return (nova_datastruct_list_Nova_DoubleArray*)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_forEach(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure9_Nova_func)&nova_math_Nova_Vector_Nova_testLambda10, this, &contextArg10);
 }
 
 nova_Nova_String* nova_math_Nova_Vector_Nova_toString(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("<")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_datastruct_list_Nova_DoubleArray_Nova_join(this->nova_math_Nova_Vector_Nova_data, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", "))))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(">"))));
+	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("<"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_datastruct_list_Nova_DoubleArray_Nova_join(this->nova_math_Nova_Vector_Nova_data, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", "))))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(">"))));
 }
 
-double nova_math_Nova_Vector_Nova_testLambda10(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context1* context)
+double nova_math_Nova_Vector_Nova_testLambda8(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context1* context)
 {
 	return nova_math_Nova_Vector_Nova_x * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((*context->nova_math_Nova_Vector_Nova_other)->nova_math_Nova_Vector_Nova_data, exceptionData, nova_math_Nova_Vector_Nova_i);
 }
 
-double nova_math_Nova_Vector_Nova_testLambda11(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_x, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context2* context)
-{
-	return nova_math_Nova_Vector_Nova_x * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((*context->nova_math_Nova_Vector_Nova_other)->nova_math_Nova_Vector_Nova_data, exceptionData, nova_math_Nova_Vector_Nova_i);
-}
-
-void nova_math_Nova_Vector_Nova_testLambda12(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context3* context)
+void nova_math_Nova_Vector_Nova_testLambda9(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context2* context)
 {
 	nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Vector_Nova_d, exceptionData, nova_math_Nova_Vector_Nova_i, nova_math_Nova_Vector_Nova_n * (*context->nova_math_Nova_Vector_Nova_scalar));
 }
 
-void nova_math_Nova_Vector_Nova_testLambda13(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context4* context)
-{
-	nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Vector_Nova_d, exceptionData, nova_math_Nova_Vector_Nova_i, nova_math_Nova_Vector_Nova_n * (*context->nova_math_Nova_Vector_Nova_scalar));
-}
-
-void nova_math_Nova_Vector_Nova_testLambda14(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context5* context)
+void nova_math_Nova_Vector_Nova_testLambda10(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context3* context)
 {
 	double nova_zero_check1 = 0;
 	double nova_zero_check2 = 0;
@@ -244,36 +209,18 @@ void nova_math_Nova_Vector_Nova_testLambda14(nova_math_Nova_Vector* this, nova_e
 	}
 }
 
-void nova_math_Nova_Vector_Nova_testLambda15(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova_i, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_d, Context6* context)
-{
-	double nova_zero_check3 = 0;
-	double nova_zero_check4 = 0;
-	
-	nova_zero_check3 = nova_math_Nova_Vector_Accessor_Nova_magnitude(this, exceptionData);
-	if (nova_zero_check3 == 0)
-	{
-		THROW(2, nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
-	}
-	nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Vector_Nova_d, exceptionData, nova_math_Nova_Vector_Nova_i, nova_math_Nova_Vector_Nova_n / nova_zero_check4);
-	nova_zero_check4 = nova_zero_check3;
-	if (nova_zero_check4 == 0)
-	{
-		THROW(2, nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
-	}
-}
-
-double nova_math_Nova_Vector_Nova_testLambda16(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context7* context)
+double nova_math_Nova_Vector_Nova_testLambda11(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector_Nova_n, int nova_math_Nova_Vector_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova__3, Context4* context)
 {
 	return nova_math_Nova_Vector_Nova_n * nova_math_Nova_Vector_Nova_n;
 }
 
 double nova_math_Nova_Vector_Accessor_Nova_magnitude(nova_math_Nova_Vector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	Context7 contextArg16 = 
+	Context4 contextArg11 = 
 	{
 	};
 	
-	return nova_math_Nova_Math_static_Nova_sqrt(0, exceptionData, nova_datastruct_list_Nova_DoubleArray_Nova_sum(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure3_Nova_func)&nova_math_Nova_Vector_Nova_testLambda16, this, &contextArg16));
+	return nova_math_Nova_Math_static_Nova_sqrt(0, exceptionData, nova_datastruct_list_Nova_DoubleArray_Nova_sum(this->nova_math_Nova_Vector_Nova_data, exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure3_Nova_func)&nova_math_Nova_Vector_Nova_testLambda11, this, &contextArg11));
 }
 
 

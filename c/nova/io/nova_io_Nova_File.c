@@ -82,7 +82,7 @@ void nova_io_Nova_File_Nova_init_static(nova_exception_Nova_ExceptionData* excep
 	{
 		nova_io_Nova_File* l1_Nova_exitLog = (nova_io_Nova_File*)nova_null;
 		
-		l1_Nova_exitLog = nova_io_Nova_File_0_Nova_construct(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("log")), exceptionData, nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData))));
+		l1_Nova_exitLog = nova_io_Nova_File_0_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("log"))), exceptionData, nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData))));
 	}
 }
 
@@ -286,7 +286,7 @@ int nova_io_Nova_File_Mutator_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_ex
 	l1_Nova_max = (short)2048;
 	if (nova_io_Nova_File_Nova_value > l1_Nova_max || nova_io_Nova_File_Nova_value < l1_Nova_min)
 	{
-		nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Invalid max number of open files: ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, nova_io_Nova_File_Nova_value)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\nValid values include ")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Short_static_Nova_toString(0, exceptionData, l1_Nova_min)), exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("-")), exceptionData, nova_primitive_number_Nova_Short_static_Nova_toString(0, exceptionData, l1_Nova_max)))))));
+		nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Invalid max number of open files: "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, nova_io_Nova_File_Nova_value)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\nValid values include "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Short_static_Nova_toString(0, exceptionData, l1_Nova_min)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("-"))), exceptionData, nova_primitive_number_Nova_Short_static_Nova_toString(0, exceptionData, l1_Nova_max)))))));
 	}
 	else
 	{

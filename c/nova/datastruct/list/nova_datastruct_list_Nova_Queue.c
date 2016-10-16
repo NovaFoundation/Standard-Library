@@ -153,7 +153,7 @@ nova_Nova_String* nova_datastruct_list_Nova_Queue_Nova_toString(nova_datastruct_
 		{
 			l1_Nova_s = (nova_Nova_String*)(nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(l1_Nova_s), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(", "))));
 		}
-		l1_Nova_s = (nova_Nova_String*)(nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(l1_Nova_s), exceptionData, nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_datastruct_list_Nova_Queue_Nova_data), exceptionData, l1_Nova_i--)), exceptionData)));
+		l1_Nova_s = (nova_Nova_String*)(nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(l1_Nova_s), exceptionData, nova_datastruct_list_Nova_Array_Nova_toString(this->prv->nova_datastruct_list_Nova_Queue_Nova_data, exceptionData)));
 	}
 	return l1_Nova_s;
 }

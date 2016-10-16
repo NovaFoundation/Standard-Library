@@ -95,8 +95,6 @@ public class Node<E>
 		return array
 	}
 	
-	public toString() -> String
-	{
-		return data.toString()
-	}
+	[Override]
+	public toString() => data.toString()
 }

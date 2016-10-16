@@ -121,7 +121,7 @@ void nova_Nova_System_2_static_Nova_exit(nova_Nova_System* this, nova_exception_
 	{
 		nova_io_Nova_File* l1_Nova_f = (nova_io_Nova_File*)nova_null;
 		
-		l1_Nova_f = nova_io_Nova_File_0_Nova_construct(0, exceptionData, nova_Nova_String_Nova_concat(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Log")), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(".txt")))));
+		l1_Nova_f = nova_io_Nova_File_0_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Log"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(".txt")))));
 		if (nova_io_Nova_File_Nova_create(l1_Nova_f, exceptionData))
 		{
 			nova_io_Nova_File_Nova_writeLine(l1_Nova_f, exceptionData, nova_Nova_System_Nova_message);

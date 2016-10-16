@@ -1,14 +1,12 @@
 package "nova/math"
 
-class Vector3D extends Vector
-{
+class Vector3D extends Vector {
 	public Double x <=> data[0]
 	public Double y <=> data[1]
 	public Double z <=> data[2]
 	
 	public construct() => super(3)
-	public construct(Double x, Double y, Double z)
-	{
+	public construct(Double x, Double y, Double z) {
 		this()
 		
 		this.x = x

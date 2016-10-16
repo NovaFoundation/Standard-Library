@@ -1,7 +1,6 @@
 package "nova/math"
 
-class Vector
-{
+class Vector {
 	visible Double[] data
 	
 	visible Double magnitude => Math.sqrt(data.sum(n -> n * n))

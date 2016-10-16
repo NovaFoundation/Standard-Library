@@ -117,7 +117,7 @@ nova_Nova_String* nova_primitive_Nova_Bool_Nova_toString(nova_primitive_Nova_Boo
 
 nova_Nova_String* nova_primitive_Nova_Bool_static_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_value)
 {
-	return nova_primitive_Nova_Bool_Nova_value ? nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("true")) : nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("false"));
+	return (nova_Nova_String*)(nova_primitive_Nova_Bool_Nova_value ? nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("true")) : nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("false")));
 }
 
 void nova_primitive_Nova_Bool_Nova_super(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -118,7 +118,7 @@ int nova_primitive_number_Nova_Long_static_Nova_numDigits(nova_primitive_number_
 {
 	int l1_Nova_size = 0;
 	
-	l1_Nova_size = (int)(nova_primitive_number_Nova_Long_Nova_number < 0 ? 2 : 1);
+	l1_Nova_size = (int)((char)(nova_primitive_number_Nova_Long_Nova_number < 0 ? 2 : 1));
 	nova_primitive_number_Nova_Long_Nova_number /= 10;
 	while (nova_primitive_number_Nova_Long_Nova_number != 0)
 	{
