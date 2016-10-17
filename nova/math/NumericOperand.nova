@@ -4,13 +4,7 @@ public class NumericOperand<Type>
 {
 	Type data
 	
-	public construct(Type data)
-	{
-		this.data = data
-	}
+	public construct(Type data) => this.data = data
 	
-	public toString() -> String
-	{
-		return data.toString()
-	}
+	public toString() => data.toString()
 }

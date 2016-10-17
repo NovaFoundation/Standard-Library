@@ -6,8 +6,7 @@ import "nova/time/Time"
 import "nova/process/Process"
 import "nova/NativeSystem.h"
 
-public class System
-{
+class System {
 	external type FILE
 	
 	external int NULL
@@ -18,24 +17,19 @@ public class System
 	external bool fgets(char buffer[], int length, FILE* pipe)
 	external bool feof(FILE* pipe)
 	
-	public static exit(Int code)
-	{
+	public static exit(Int code) {
 		externalExit(code)
 	}
 	
-	public static exit(Int code, String message)
-	{
+	public static exit(Int code, String message) {
 		exit(code, message, false)
 	}
 	
-	public static exit(Int code, String message, Bool log)
-	{
-		if (log)
-		{
+	public static exit(Int code, String message, Bool log) {
+		if (log) {
 			File f = new File("Log" + Time.currentTimeMillis + ".txt")
 			
-			if (f.create())
-			{
+			if (f.create()) {
 				f.writeLine(message)
 			}
 		}
@@ -45,14 +39,12 @@ public class System
 		exit(code)
 	}
 	
-	public static execute(String command) -> Process
-	{
+	public static execute(String command) -> Process {
 		FILE* pipe = getPipe(command.chars.data, exit)
 		
 		File f = new File(pipe)
 		
-		if (!f.exists)
-		{
+		if (!f.exists) {
 			exit(1, "Unable to open pipe")
 		}
 		

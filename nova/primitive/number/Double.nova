@@ -2,8 +2,7 @@ package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
 
-public class Double extends Number implements Comparable<Double>, RealNumber
-{
+class Double extends Number implements Comparable<Double>, RealNumber {
 	external void sprintf(char buffer[], char format[], double value)
 	external char[] realloc(char buffer[], int size)
 	external int strlen(char buffer[])
@@ -13,14 +12,12 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 	
 	construct(Double value) => this.value = value
 	
-	public static numDigits(Double number) -> Int
-	{
+	public static numDigits(Double number) -> Int {
 		Int size = number < 0 ? 2 : 1
 		
 		number /= 10
 		
-		while (number > 0)
-		{
+		while (number > 0) {
 			number /= 10
 			
 			size++
@@ -29,8 +26,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return size
 	}
 	
-	static genString([PrimitiveArray] Char buffer[], Int lastIndex) -> String
-	{
+	static genString([PrimitiveArray] Char buffer[], Int lastIndex) -> String {
 		buffer = realloc(buffer, ++lastIndex + 1)
 		
 		buffer[lastIndex] = '\0'
@@ -39,8 +35,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 	}
 	
 	[PrimitiveArray]
-	static genBuffer(Double value) -> Char[]
-	{
+	static genBuffer(Double value) -> Char[] {
 		Int  size     = 11 + 1 + 15
 		
 		[PrimitiveArray]
@@ -51,8 +46,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return buffer
 	}
 	
-	static repetition([PrimitiveArray] Char[] buffer, Int start) -> Int
-	{
+	static repetition([PrimitiveArray] Char[] buffer, Int start) -> Int {
 		Int  index = start
 		Char c     = buffer[index]
 		
@@ -61,18 +55,15 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return start - index - 1
 	}
 	
-	static lastSignificantDigit([PrimitiveArray] Char[] buffer, Int start) -> Int
-	{
+	static lastSignificantDigit([PrimitiveArray] Char[] buffer, Int start) -> Int {
 		while (buffer[start--] == '0');
 		
 		return start + 1
 	}
 	
 	[PrimitiveArray]
-	public static toCharArray(Double value) -> Char[]
-	{
-		external js
-		{
+	public static toCharArray(Double value) -> Char[] {
+		external js {
 			return #{value}.toString();
 		}
 	}
@@ -81,8 +72,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 	public static toString(Double value) => new String(toCharArray(value))
 	
 	[Target not js]
-	public static toString(Double value) -> String
-	{
+	public static toString(Double value) -> String {
 	    [PrimitiveArray]
 		Char buffer[]  = genBuffer(value)
 		Int  size      = strlen(buffer)
@@ -90,40 +80,29 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		
 		Char c = buffer[--lastIndex]
 		
-		if (c == '0' || c == '9')
-		{
+		if (c == '0' || c == '9') {
 			while (buffer[lastIndex--] == c);
 			
-			if (buffer[++lastIndex] == '.')
-			{
+			if (buffer[++lastIndex] == '.') {
 				lastIndex++
 				
 				return genString(buffer, lastIndex)
-			}
-			else
-			{
-				if (lastIndex >= size - 3 - 4)
-				{
+			} else {
+				if (lastIndex >= size - 3 - 4) {
 					lastIndex = size - 1
-				}
-				else if (c == '9')
-				{
+				} else if (c == '9') {
 					buffer[lastIndex]++
 					
 					return genString(buffer, lastIndex)
 				}
 			}
-		}
-		else
-		{
+		} else {
 			Int rep = repetition(buffer, lastIndex)
 			
-			if (rep > 5)
-			{
+			if (rep > 5) {
 				buffer[lastIndex] = c
 				
-				if (c >= '5')
-				{
+				if (c >= '5') {
 					c++;
 				}
 				
@@ -138,8 +117,7 @@ public class Double extends Number implements Comparable<Double>, RealNumber
 		return genString(buffer, lastIndex)
 	}
 	
-	public static parseDouble(String str) -> Double
-	{
+	public static parseDouble(String str) -> Double {
 	    [PrimitiveArray]
 		Char[] pEnd
 		

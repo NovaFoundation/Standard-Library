@@ -3,8 +3,7 @@ package "nova/primitive/number"
 import "nova/primitive/Primitive"
 import "nova/operators/Multiply"
 
-public abstract class Number extends Primitive implements Multiply<Number>
-{
+abstract class Number extends Primitive implements Multiply<Number> {
 	public static numDigits(Number number) => -1
 	
 //	public static toString(Number value) => "[Unimplemented]"

@@ -69,7 +69,6 @@ nova_math_Polynomial_Extension_VTable nova_math_Polynomial_Extension_VTable_val 
 char nova_math_Nova_Polynomial_static_Nova_isLetter(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
 char nova_math_Nova_Polynomial_static_Nova_isSymbol(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
 char nova_math_Nova_Polynomial_static_Nova_isWhitespace(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c);
-char nova_math_Nova_Polynomial_static_Nova_contains(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_array, char nova_math_Nova_Polynomial_Nova_c);
 nova_datastruct_list_Nova_CharArray* generated6(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_datastruct_list_Nova_CharArray* generated7(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_SYMBOLS_CHARS;
@@ -146,27 +145,12 @@ char nova_math_Nova_Polynomial_static_Nova_isLetter(nova_math_Nova_Polynomial* t
 
 char nova_math_Nova_Polynomial_static_Nova_isSymbol(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
 {
-	return nova_math_Nova_Polynomial_static_Nova_contains(0, exceptionData, nova_math_Nova_Polynomial_Nova_SYMBOLS_CHARS, nova_math_Nova_Polynomial_Nova_c);
+	return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_Polynomial_Nova_SYMBOLS_CHARS, exceptionData, nova_math_Nova_Polynomial_Nova_c);
 }
 
 char nova_math_Nova_Polynomial_static_Nova_isWhitespace(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_math_Nova_Polynomial_Nova_c)
 {
-	return nova_math_Nova_Polynomial_static_Nova_contains(0, exceptionData, nova_math_Nova_Polynomial_Nova_WHITESPACE_CHARS, nova_math_Nova_Polynomial_Nova_c);
-}
-
-char nova_math_Nova_Polynomial_static_Nova_contains(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_math_Nova_Polynomial_Nova_array, char nova_math_Nova_Polynomial_Nova_c)
-{
-	int l2_Nova_i = 0;
-	
-	l2_Nova_i = (int)0;
-	for (; l2_Nova_i < (int)nova_math_Nova_Polynomial_Nova_array->nova_datastruct_list_Nova_Array_Nova_count; l2_Nova_i++)
-	{
-		if (nova_math_Nova_Polynomial_Nova_c == (char)(intptr_t)nova_math_Nova_Polynomial_Nova_array->nova_datastruct_list_Nova_Array_Nova_data[l2_Nova_i])
-		{
-			return 1;
-		}
-	}
-	return 0;
+	return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_Polynomial_Nova_WHITESPACE_CHARS, exceptionData, nova_math_Nova_Polynomial_Nova_c);
 }
 
 nova_datastruct_list_Nova_CharArray* generated6(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData)

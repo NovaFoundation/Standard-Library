@@ -292,8 +292,8 @@ nova_Nova_String* nova_Nova_String_Nova_trim(nova_Nova_String* this, nova_except
 {
 	nova_Nova_String_Nova_start = (int)(nova_Nova_String_Nova_start == (intptr_t)nova_null ? 0 : nova_Nova_String_Nova_start);
 	nova_Nova_String_Nova_end = (int)(nova_Nova_String_Nova_end == (intptr_t)nova_null ? this->nova_Nova_String_Nova_count - 1 : nova_Nova_String_Nova_end);
-	while (nova_Nova_String_Nova_start < this->nova_Nova_String_Nova_count && nova_datastruct_list_Nova_List_virtual0_Nova_contains((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_whitespace), exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, nova_Nova_String_Nova_start++))));
-	while (nova_Nova_String_Nova_end >= 0 && nova_datastruct_list_Nova_List_virtual0_Nova_contains((nova_datastruct_list_Nova_List*)(nova_Nova_String_Nova_whitespace), exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, nova_Nova_String_Nova_end--))));
+	while (nova_Nova_String_Nova_start < this->nova_Nova_String_Nova_count && nova_datastruct_list_Nova_CharArray_Nova_contains(nova_Nova_String_Nova_whitespace, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, nova_Nova_String_Nova_start++))));
+	while (nova_Nova_String_Nova_end >= 0 && nova_datastruct_list_Nova_CharArray_Nova_contains(nova_Nova_String_Nova_whitespace, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData, nova_Nova_String_Nova_end--))));
 	return (nova_Nova_String*)(nova_Nova_String_Nova_end == 0 ? nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")) : nova_Nova_String_Nova_substring(this, exceptionData, nova_Nova_String_Nova_start, nova_Nova_String_Nova_end + 1));
 }
 
@@ -349,15 +349,8 @@ nova_Nova_String* nova_Nova_String_Nova_getStringBetween(nova_Nova_String* this,
 
 nova_Nova_String* nova_Nova_String_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str, char nova_Nova_String_Nova_symmetrical)
 {
+	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_Nova_String_Nova_str)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(((nova_Nova_String*)(nova_Nova_String_Nova_symmetrical ? nova_Nova_String_2_Nova_construct(0, exceptionData, (nova_datastruct_list_Nova_CharArray*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_reverse((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_str->nova_Nova_String_Nova_chars), exceptionData))) : nova_Nova_String_Nova_str))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")))))));
 	nova_Nova_String_Nova_symmetrical = (char)(nova_Nova_String_Nova_symmetrical == (intptr_t)nova_null ? 0 : nova_Nova_String_Nova_symmetrical);
-	if (nova_Nova_String_Nova_symmetrical)
-	{
-		return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_str), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(this), exceptionData, nova_Nova_String_2_Nova_construct(0, exceptionData, (nova_datastruct_list_Nova_CharArray*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_reverse((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_str->nova_Nova_String_Nova_chars), exceptionData)))));
-	}
-	else
-	{
-		return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_str), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(this), exceptionData, nova_Nova_String_Nova_str));
-	}
 }
 
 int nova_Nova_String_Nova_compareTo(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_other)

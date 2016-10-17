@@ -2,8 +2,7 @@ package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
 
-public class Long extends Number implements Comparable<Long>, Integer
-{
+class Long extends Number implements Comparable<Long>, Integer {
 	Long value
 	
 	visible static Long MAX_VALUE =  9223372036854775807
@@ -11,14 +10,12 @@ public class Long extends Number implements Comparable<Long>, Integer
 	
 	construct(Long value) => this.value = value
 	
-	public static numDigits(Long number) -> Int
-	{
+	public static numDigits(Long number) -> Int {
 		Int size = number < 0 ? 2 : 1 
 		
 		number /= 10
 		
-		while (number != 0)
-		{
+		while (number != 0) {
 			number /= 10
 			
 			size++
@@ -32,17 +29,14 @@ public class Long extends Number implements Comparable<Long>, Integer
 	
 	[PrimitiveArray]
 	[Target js]
-	public static toCharArray(Long value) -> Char[]
-	{
-		external js
-		{
+	public static toCharArray(Long value) -> Char[] {
+		external js {
 			return #{value}.toString();
 		}
 	}
 	
 	[Target not js]
-	public static toString(Long value) -> String
-	{
+	public static toString(Long value) -> String {
 		Int charOffset = '0'
 		Int digits = numDigits(value)
 		
@@ -53,8 +47,7 @@ public class Long extends Number implements Comparable<Long>, Integer
 		
 		Int  offset  = 0
 		
-		if (value < 0)
-		{
+		if (value < 0) {
 			data[0] = '-'
 			
 			offset = 1
@@ -62,8 +55,7 @@ public class Long extends Number implements Comparable<Long>, Integer
 		
 		Int nums = digits-- - offset
 		
-		for (index in 0..nums)
-		{
+		for (index in 0..nums) {
 			data[digits - index] = (Char)(charOffset + Math.abs(value % 10))
 			
 			value = value / 10

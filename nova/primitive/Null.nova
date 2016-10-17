@@ -1,11 +1,7 @@
 package "nova/primitive"
 
-public class Null extends String
-{
-	public construct()
-	{
-		
-	}
+class Null extends String {
+	public construct() {}
 	
 	public concat(String other) => "null#other"
 	public toString() => "null"
