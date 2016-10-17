@@ -467,7 +467,7 @@ nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_remove(nova_datastruct_Nova_
 
 char nova_datastruct_Nova_HashSet_0_Nova_contains(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_value)
 {
-	return (nova_Nova_Object*)nova_datastruct_Nova_HashSet_Nova_get(this, exceptionData, nova_datastruct_Nova_HashSet_Nova_value) != (nova_Nova_Object*)(nova_Nova_Object*)nova_null;
+	return (nova_Nova_Object*)nova_datastruct_Nova_HashSet_Nova_get(this, exceptionData, nova_datastruct_Nova_HashSet_Nova_value) != (nova_Nova_Object*)nova_null;
 }
 
 nova_Nova_String* nova_datastruct_Nova_HashSet_Nova_toString(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData)

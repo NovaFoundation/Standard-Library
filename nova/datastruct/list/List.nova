@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public interface List<Type> extends Iterable<Type> {
+interface List<Type> extends Iterable<Type> {
 	visible Int size
 	/*[Int index] {
 		get { return this.get(index) }
