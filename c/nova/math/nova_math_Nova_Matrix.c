@@ -174,12 +174,12 @@ void nova_math_Nova_Matrix_1_Nova_this(nova_math_Nova_Matrix* this, nova_excepti
 	this->nova_math_Nova_Matrix_Nova_data = nova_math_Nova_Matrix_Nova_data;
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_add(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other, char nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_add(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other, int nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
 {
 	nova_math_Nova_Matrix* l1_Nova_result = (nova_math_Nova_Matrix*)nova_null;
 	int l3_Nova_row = 0;
 	
-	nova_math_Nova_Matrix_Nova_allowUnequalDimensions = (char)(nova_math_Nova_Matrix_Nova_allowUnequalDimensions == (intptr_t)nova_null ? 0 : nova_math_Nova_Matrix_Nova_allowUnequalDimensions);
+	nova_math_Nova_Matrix_Nova_allowUnequalDimensions = (int)(nova_math_Nova_Matrix_Nova_allowUnequalDimensions == (intptr_t)nova_null ? 0 : nova_math_Nova_Matrix_Nova_allowUnequalDimensions);
 	if (!nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
 	{
 		nova_math_Nova_Matrix_Nova_checkUnequalDimensions(this, exceptionData, nova_math_Nova_Matrix_Nova_other);
@@ -199,12 +199,12 @@ nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_add(nova_math_Nova_Matrix* thi
 	return l1_Nova_result;
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_subtract(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other, char nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_subtract(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other, int nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
 {
 	nova_math_Nova_Matrix* l1_Nova_result = (nova_math_Nova_Matrix*)nova_null;
 	int l3_Nova_row = 0;
 	
-	nova_math_Nova_Matrix_Nova_allowUnequalDimensions = (char)(nova_math_Nova_Matrix_Nova_allowUnequalDimensions == (intptr_t)nova_null ? 0 : nova_math_Nova_Matrix_Nova_allowUnequalDimensions);
+	nova_math_Nova_Matrix_Nova_allowUnequalDimensions = (int)(nova_math_Nova_Matrix_Nova_allowUnequalDimensions == (intptr_t)nova_null ? 0 : nova_math_Nova_Matrix_Nova_allowUnequalDimensions);
 	if (!nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
 	{
 		nova_math_Nova_Matrix_Nova_checkUnequalDimensions(this, exceptionData, nova_math_Nova_Matrix_Nova_other);

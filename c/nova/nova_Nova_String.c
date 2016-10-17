@@ -255,9 +255,9 @@ int nova_Nova_String_Nova_indexOf(nova_Nova_String* this, nova_exception_Nova_Ex
 
 int nova_Nova_String_Nova_lastIndexOf(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_search, int nova_Nova_String_Nova_start, int nova_Nova_String_Nova_defaultReturnValue)
 {
+	nova_Nova_String_Nova_start = (int)(nova_Nova_String_Nova_start == (intptr_t)nova_null ? this->nova_Nova_String_Nova_count - 1 : nova_Nova_String_Nova_start);
 	nova_Nova_String_Nova_defaultReturnValue = (int)(nova_Nova_String_Nova_defaultReturnValue == (intptr_t)nova_null ? -1 : nova_Nova_String_Nova_defaultReturnValue);
 	return nova_Nova_String_Nova_indexOf(this, exceptionData, nova_Nova_String_Nova_search, nova_Nova_String_Nova_start, -1, nova_Nova_String_Nova_defaultReturnValue);
-	nova_Nova_String_Nova_start = (int)(nova_Nova_String_Nova_start == (intptr_t)nova_null ? this->nova_Nova_String_Nova_count - 1 : nova_Nova_String_Nova_start);
 }
 
 nova_Nova_String* nova_Nova_String_Nova_substring(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_Nova_String_Nova_start, int nova_Nova_String_Nova_end)
@@ -347,10 +347,10 @@ nova_Nova_String* nova_Nova_String_Nova_getStringBetween(nova_Nova_String* this,
 	return nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""));
 }
 
-nova_Nova_String* nova_Nova_String_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str, char nova_Nova_String_Nova_symmetrical)
+nova_Nova_String* nova_Nova_String_Nova_surroundWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_str, int nova_Nova_String_Nova_symmetrical)
 {
+	nova_Nova_String_Nova_symmetrical = (int)(nova_Nova_String_Nova_symmetrical == (intptr_t)nova_null ? 0 : nova_Nova_String_Nova_symmetrical);
 	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_Nova_String_Nova_str)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(((nova_Nova_String*)(nova_Nova_String_Nova_symmetrical ? nova_Nova_String_2_Nova_construct(0, exceptionData, (nova_datastruct_list_Nova_CharArray*)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_reverse((nova_datastruct_list_Nova_CharArray*)(nova_Nova_String_Nova_str->nova_Nova_String_Nova_chars), exceptionData))) : nova_Nova_String_Nova_str))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")))))));
-	nova_Nova_String_Nova_symmetrical = (char)(nova_Nova_String_Nova_symmetrical == (intptr_t)nova_null ? 0 : nova_Nova_String_Nova_symmetrical);
 }
 
 int nova_Nova_String_Nova_compareTo(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_Nova_String_Nova_other)
