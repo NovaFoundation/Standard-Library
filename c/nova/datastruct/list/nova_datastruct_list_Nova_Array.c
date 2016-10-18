@@ -65,7 +65,6 @@ nova_datastruct_list_Array_Extension_VTable nova_datastruct_list_Array_Extension
 	nova_datastruct_list_Nova_Array_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_datastruct_list_Nova_Array_Nova_toArray,
-	nova_datastruct_list_Nova_Array_Nova_clone,
 	nova_datastruct_list_Nova_Array_0_Nova_map,
 	nova_datastruct_list_Nova_Array_0_Nova_forEach,
 	nova_datastruct_list_Nova_Array_0_Nova_filter,
@@ -350,11 +349,6 @@ nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_Nova_toArray(no
 	return (nova_datastruct_list_Nova_Array*)l1_Nova_array;
 }
 
-nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_Nova_clone(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return (nova_datastruct_list_Nova_Array*)nova_datastruct_list_Nova_List_virtual_Nova_toArray((nova_datastruct_list_Nova_List*)(this), exceptionData);
-}
-
 nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_0_Nova_map(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array_closure3_Nova_mapFunc nova_datastruct_list_Nova_Array_Nova_mapFunc, void* nova_datastruct_list_Nova_Array_ref_Nova_mapFunc, void* mapFunc_context)
 {
 	nova_datastruct_list_Nova_Array* l1_Nova_array = (nova_datastruct_list_Nova_Array*)nova_null;
@@ -515,11 +509,6 @@ void nova_datastruct_list_Nova_Array_Nova_super(nova_datastruct_list_Nova_Array*
 	this->nova_datastruct_list_Nova_Array_Nova_count = 0;
 	this->nova_datastruct_list_Nova_Array_Nova_position = 0;
 	this->nova_datastruct_list_Nova_Array_Nova_data = (nova_Nova_Object**)nova_null;
-}
-
-nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_virtual_Nova_clone(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return this->vtable->nova_datastruct_list_Nova_Array_virtual_Nova_clone((nova_datastruct_list_Nova_Array*)(this), exceptionData);
 }
 
 nova_Nova_Object* nova_datastruct_list_Nova_Array_virtual_Nova_get(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_datastruct_list_Nova_Array_Nova_index)
