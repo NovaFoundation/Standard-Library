@@ -54,22 +54,14 @@ public class NovaLong extends Number implements Comparable, Integer
 	public static int numDigits(long number)
 	{
 		int size;
-		size = 1;
-		if (number < 0)
-		{
-			size++;
-		}
-		number = number / 10;
+		size = number < 0 ? 2 : 1;
+		number /= 10;
 		while (number != 0)
 		{
-			number = number / 10;
+			number /= 10;
 			size++;
 		}
 		return size;
-	}
-	
-	public static char[] toCharArray(long value)
-	{
 	}
 	
 	public static NovaString toString(long value)
@@ -100,11 +92,6 @@ public class NovaLong extends Number implements Comparable, Integer
 		return new NovaString(data);
 	}
 	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
 	public long compareTo(long other)
 	{
 		return value - other;
@@ -113,6 +100,11 @@ public class NovaLong extends Number implements Comparable, Integer
 	public long multiply(long value)
 	{
 		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
 	}
 	
 }

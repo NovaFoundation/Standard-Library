@@ -55,12 +55,12 @@ public class SvgCircle extends SvgComponent
 	
 	public void generateOutput(File file)
 	{
-		file.write(new NovaString("<circle cx=\"").concat(NovaDouble.toString(x).concat(new NovaString("\" cy=\"").concat(NovaDouble.toString(y).concat(new NovaString("\" r=\"").concat(NovaInt.toString(r).concat(new NovaString("\" stroke=\"false\" fill=\"black\"/>\n"))))))));
+		file.write(new NovaString("<circle cx=\"").concat(NovaDouble.toString((x)).concat(new NovaString("\" cy=\"").concat(NovaDouble.toString((y)).concat(new NovaString("\" r=\"").concat(NovaInt.toString((r)).concat(new NovaString("\" stroke=\"false\" fill=\"black\"/>\n"))))))));
 	}
 	
 	public NovaString toString()
 	{
-		return new NovaString("[Circle at (").concat(NovaDouble.toString(x).concat(new NovaString(", ").concat(NovaDouble.toString(y).concat(new NovaString(") with a radius of ").concat(NovaInt.toString(r).concat(new NovaString("]")))))));
+		return new NovaString("[Circle at (").concat(NovaDouble.toString((x)).concat(new NovaString(", ").concat(NovaDouble.toString((y)).concat(new NovaString(") with a radius of ").concat(NovaInt.toString((r)).concat(new NovaString("]")))))));
 	}
 	
 }

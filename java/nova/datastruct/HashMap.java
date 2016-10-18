@@ -42,31 +42,21 @@ public class HashMap extends NovaObject implements List
 	
 	
 	
-	public HashMap()
+	public HashMap(Optional<NovaInt> bucketCount_optional, Optional<NovaInt> bucketSize_optional)
 	{
-		init();
+		init(Optional.ofNullable(bucketCount), Optional.ofNullable(bucketSize));
 	}
 	
-	public HashMap(int bucketCount, int bucketSize)
+	public void init(Optional<NovaInt> bucketCount_optional, Optional<NovaInt> bucketSize_optional)
 	{
-		init(bucketCount, bucketSize);
-	}
-	
-	public void init()
-	{
-		init(5, 5);
-	}
-	
-	public void init(int bucketCount, int bucketSize)
-	{
-		void contextArg6;
-		buckets = new NovaArray(bucketCount).map(testLambda6);
+		int bucketCount = bucketCount_optional == null ? 5 : bucketCount_optional.get();
+		int bucketSize = bucketSize_optional == null ? 5 : bucketSize_optional.get();
+		buckets = new NovaArray(bucketCount).map(testLambda20);
 		this.bucketSize = bucketSize;
 	}
 	
 	public NovaArray toArray()
 	{
-		void contextArg1;
 		return map(testLambda1);
 	}
 	
@@ -81,23 +71,23 @@ public class HashMap extends NovaObject implements List
 		return false;
 	}
 	
-	public boolean any(boolean func)
+	public boolean any(NovaUtilities.Function1<Pair, Bool> func)
 	{
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
 				if (pair != null && pair != 0)
 				{
-					if (func(pair))
+					if (func.call(pair))
 					{
 						return true;
 					}
@@ -107,23 +97,23 @@ public class HashMap extends NovaObject implements List
 		return false;
 	}
 	
-	public boolean all(boolean func)
+	public boolean all(NovaUtilities.Function1<Pair, Bool> func)
 	{
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
 				if (pair != null && pair != 0)
 				{
-					if (!func(pair))
+					if (!func.call(pair))
 					{
 						return false;
 					}
@@ -133,7 +123,7 @@ public class HashMap extends NovaObject implements List
 		return true;
 	}
 	
-	public NovaArray map(NovaObject func)
+	public NovaArray map(NovaUtilities.Function3<Pair, Int, HashMap, Out> func)
 	{
 		NovaArray array;
 		int i;
@@ -141,26 +131,26 @@ public class HashMap extends NovaObject implements List
 		NovaArray bucket;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
 				if (pair != null && pair != 0)
 				{
-					array.add(func(pair, i++, this));
+					array.add(func.call(pair, i++, this));
 				}
 			}
 		}
 		return array;
 	}
 	
-	public NovaArray filter(boolean func)
+	public NovaArray filter(NovaUtilities.Function3<Pair, Int, HashMap, Bool> func)
 	{
 		NovaArray array;
 		int i;
@@ -168,19 +158,19 @@ public class HashMap extends NovaObject implements List
 		NovaArray bucket;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
 				if (pair != null && pair != 0)
 				{
-					if (func(pair, i++, this))
+					if (func.call(pair, i++, this))
 					{
 						array.add(pair);
 					}
@@ -198,13 +188,13 @@ public class HashMap extends NovaObject implements List
 		NovaArray bucket;
 		i = 0;
 		output = new NovaString("");
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
@@ -221,41 +211,38 @@ public class HashMap extends NovaObject implements List
 		return output;
 	}
 	
-	public Pair skip(int num)
+	public NovaArray skip(int num)
 	{
-		void contextArg2;
 		return map(testLambda2).skip(num);
 	}
 	
-	public Pair take(int num)
+	public NovaArray take(int num)
 	{
-		void contextArg3;
 		return map(testLambda3).take(num);
 	}
 	
 	public NovaArray reverse()
 	{
-		void contextArg4;
 		return map(testLambda4).reverse();
 	}
 	
-	public Pair firstWhere(boolean func)
+	public Pair firstWhere(NovaUtilities.Function1<Pair, Bool> func)
 	{
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
 				if (pair != null && pair != 0)
 				{
-					if (func(pair))
+					if (func.call(pair))
 					{
 						return pair;
 					}
@@ -265,28 +252,29 @@ public class HashMap extends NovaObject implements List
 		return null;
 	}
 	
-	public void forEach(void func)
+	public HashMap forEach(NovaUtilities.Consumer3<Pair, Int, HashMap> func)
 	{
 		int i;
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
 		i = 0;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			Pair pair;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				pair = nova_local_1.accessor_next();
 				if (pair != null && pair != 0)
 				{
-					func(pair, i++, this);
+					func.call(pair, i++, this);
 				}
 			}
 		}
+		return this;
 	}
 	
 	private NovaArray getBucket(NovaObject key)
@@ -294,29 +282,9 @@ public class HashMap extends NovaObject implements List
 		return buckets.get((int)(key.hashCodeLong() & (buckets.count - 1)));
 	}
 	
-	public HashMap put(NovaObject key, NovaObject value)
-	{
-		NovaArray bucket;
-		bucket = getBucket(key);
-		bucket.add(new Pair(key, value));
-		return this;
-	}
-	
 	private Pair getPair(NovaObject key)
 	{
-		void contextArg5;
-		return getBucket(key).filter(testLambda5).first();
-	}
-	
-	public NovaObject get(NovaObject key)
-	{
-		Pair pair;
-		pair = getPair(key);
-		if (pair != null)
-		{
-			return pair.value;
-		}
-		return null;
+		return getBucket(key).filter(testLambda19).first();
 	}
 	
 	public NovaObject remove(NovaObject key)
@@ -327,7 +295,7 @@ public class HashMap extends NovaObject implements List
 		Pair pair;
 		bucket = getBucket(key);
 		i = 0;
-		nova_local_0 = (bucket).iterator();
+		nova_local_0 = (bucket).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			pair = nova_local_0.accessor_next();
@@ -344,6 +312,24 @@ public class HashMap extends NovaObject implements List
 	public boolean containsKey(NovaObject key)
 	{
 		return getPair(key) != null;
+	}
+	
+	public NovaObject get(NovaObject key)
+	{
+		Pair pair;
+		pair = getPair(key);
+		if (pair != null)
+		{
+			return pair.value;
+		}
+		return null;
+	}
+	
+	public NovaObject set(NovaObject key, NovaObject value)
+	{
+		getBucket(key).add(new Pair(key, value));
+		return this;
+		return value;
 	}
 	
 	private static NovaObject testLambda1(Pair _1, int _2, HashMap _3)
@@ -366,12 +352,12 @@ public class HashMap extends NovaObject implements List
 		return _1;
 	}
 	
-	private static boolean testLambda5(Pair x, int _2, NovaArray _3)
+	private static boolean testLambda19(Pair x, int _2, NovaArray _3)
 	{
 		return x != 0 && x != null && x.key.equals(key);
 	}
 	
-	private static NovaObject testLambda6(NovaArray _1, int _2, NovaArray _3)
+	private static NovaObject testLambda20(NovaArray _1, int _2, NovaArray _3)
 	{
 		return new NovaArray(bucketSize);
 	}

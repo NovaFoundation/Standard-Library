@@ -54,7 +54,7 @@ public class WFF extends NovaObject
 	
 	public void init(NovaString wellFormedFormula, NovaArray letters)
 	{
-		this.wff = wellFormedFormula.trim();
+		this.wff = wellFormedFormula.trim(null, null);
 		this.letters = letters;
 		hypotheses = new NovaArray();
 		decodeFormula();
@@ -97,7 +97,7 @@ public class WFF extends NovaObject
 		Bounds bounds;
 		Conclusion conclusion;
 		StatementGroup group;
-		index = wff.lastIndexOf(new NovaString("->"));
+		index = wff.lastIndexOf(new NovaString("->"), null, null);
 		if (index < 0)
 		{
 			return null;
@@ -169,7 +169,7 @@ private static int nextWhitespaceIndex(NovaString wff, int index, int direction,
 	while (i < wff.count && i >= 0)
 	{
 		char c;
-		c = wff.charAt(i);
+		c = wff.chars.get(i);
 		if (containsChar(c, whitespace) != opposite)
 		{
 			return i;
@@ -209,7 +209,7 @@ private static int findEndingMatch(NovaString wff, char start, char end, int ind
 	while (i < wff.count && i >= 0)
 	{
 		char c;
-		c = wff.charAt(i);
+		c = wff.chars.get(i);
 		if (c == start)
 		{
 			scope++;

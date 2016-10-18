@@ -79,7 +79,7 @@ public class LinkedList extends NovaObject implements List
 	{
 		ArrayIterator nova_local_0;
 		NovaObject d;
-		nova_local_0 = (data).iterator();
+		nova_local_0 = (data).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			d = nova_local_0.accessor_next();
@@ -132,8 +132,7 @@ public class LinkedList extends NovaObject implements List
 	
 	public boolean contains(NovaObject value)
 	{
-		void contextArg17;
-		return any(testLambda17);
+		return any(testLambda32);
 	}
 	
 	public NovaArray toArray()
@@ -153,7 +152,7 @@ public class LinkedList extends NovaObject implements List
 		return array;
 	}
 	
-	public LinkedList map(NovaObject mapFunc)
+	public LinkedList map(NovaUtilities.Function3<E, Int, LinkedList, Out> mapFunc)
 	{
 		LinkedList array;
 		int i;
@@ -165,12 +164,12 @@ public class LinkedList extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public void forEach(void func)
+	public LinkedList forEach(NovaUtilities.Consumer3<E, Int, LinkedList> func)
 	{
 		int i;
 		LinkedListIterator nova_local_0;
@@ -180,11 +179,12 @@ public class LinkedList extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			func(element, i++, this);
+			func.call(element, i++, this);
 		}
+		return this;
 	}
 	
-	public boolean any(boolean anyFunc)
+	public boolean any(NovaUtilities.Function1<E, Bool> anyFunc)
 	{
 		LinkedListIterator nova_local_0;
 		NovaObject element;
@@ -192,7 +192,7 @@ public class LinkedList extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (anyFunc(element))
+			if (anyFunc.call(element))
 			{
 				return true;
 			}
@@ -200,7 +200,7 @@ public class LinkedList extends NovaObject implements List
 		return false;
 	}
 	
-	public boolean all(boolean allFunc)
+	public boolean all(NovaUtilities.Function1<E, Bool> allFunc)
 	{
 		LinkedListIterator nova_local_0;
 		NovaObject element;
@@ -208,7 +208,7 @@ public class LinkedList extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (!allFunc(element))
+			if (!allFunc.call(element))
 			{
 				return false;
 			}
@@ -216,7 +216,7 @@ public class LinkedList extends NovaObject implements List
 		return true;
 	}
 	
-	public LinkedList filter(boolean filterFunc)
+	public LinkedList filter(NovaUtilities.Function3<E, Int, LinkedList, Bool> filterFunc)
 	{
 		LinkedList filtered;
 		int i;
@@ -228,7 +228,7 @@ public class LinkedList extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (filterFunc(element, i++, this))
+			if (filterFunc.call(element, i++, this))
 			{
 				filtered.add(element);
 			}
@@ -279,7 +279,7 @@ public class LinkedList extends NovaObject implements List
 		return list;
 	}
 	
-	public NovaObject firstWhere(boolean func)
+	public NovaObject firstWhere(NovaUtilities.Function1<E, Bool> func)
 	{
 		LinkedListIterator nova_local_0;
 		NovaObject element;
@@ -287,7 +287,7 @@ public class LinkedList extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (func(element))
+			if (func.call(element))
 			{
 				return element;
 			}
@@ -332,7 +332,7 @@ public class LinkedList extends NovaObject implements List
 	{
 	}
 	
-	private static boolean testLambda17(NovaObject _1)
+	private static boolean testLambda32(NovaObject _1)
 	{
 		return _1 == value;
 	}

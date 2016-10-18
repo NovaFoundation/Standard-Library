@@ -97,7 +97,7 @@ public class Queue extends NovaObject
 			{
 				s = s.concat(new NovaString(", "));
 			}
-			s = s.concat(data.get(i--).toString());
+			s = s.concat(data.toString());
 		}
 		return s;
 	}

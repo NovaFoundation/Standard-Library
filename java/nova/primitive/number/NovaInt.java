@@ -46,15 +46,34 @@ public class NovaInt extends Number implements Comparable, Integer
 		init(value);
 	}
 	
+	public long accessor_hashCodeLong()
+	{
+		return value;
+	}
+	
+	public long mutator_hashCodeLong()
+	{
+	}
+	
 	
 	public void init(int value)
 	{
 		this.value = value;
 	}
 	
-	public long getHashCodeLong()
+	public int compareTo(int other)
 	{
-		return value;
+		return value - other;
+	}
+	
+	public int multiply(int value)
+	{
+		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
 	}
 	
 	public static int numDigits(int number)
@@ -67,24 +86,9 @@ public class NovaInt extends Number implements Comparable, Integer
 		return NovaLong.toString(value);
 	}
 	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
 	public static int parseInt(NovaString num)
 	{
 		return atoi(num.chars.data);
-	}
-	
-	public int compareTo(int other)
-	{
-		return value - other;
-	}
-	
-	public int multiply(int value)
-	{
-		return this.value * value;
 	}
 	
 }

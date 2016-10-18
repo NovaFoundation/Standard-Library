@@ -75,14 +75,15 @@ public class NovaDate extends NovaObject
 		second = nova_getSecond();
 	}
 	
-	public NovaString formatDate(NovaString str)
-	{
-		return formatDate(str, month, day, year, hour, minute, second);
-	}
-	
-	public NovaString formatDate(NovaString str, int first, int second, int third, int fourth, int fifth, int sixth)
+	public NovaString formatDate(NovaString str, Optional<NovaInt> first_optional, Optional<NovaInt> second_optional, Optional<NovaInt> third_optional, Optional<NovaInt> fourth_optional, Optional<NovaInt> fifth_optional, Optional<NovaInt> sixth_optional)
 	{
 		char[] data;
+		int first = first_optional == null ? month : first_optional.get();
+		int second = second_optional == null ? day : second_optional.get();
+		int third = third_optional == null ? year : third_optional.get();
+		int fourth = fourth_optional == null ? hour : fourth_optional.get();
+		int fifth = fifth_optional == null ? minute : fifth_optional.get();
+		int sixth = sixth_optional == null ? second : sixth_optional.get();
 		data = nova_formatDate(str.chars.data, first, second, third, fourth, fifth, sixth);
 		return new NovaString(data);
 	}

@@ -42,14 +42,14 @@ public class DoubleArray extends NovaArray
 		init();
 	}
 	
-	public DoubleArray(int count)
-	{
-		init(count);
-	}
-	
 	public DoubleArray(double[] data, int count)
 	{
 		init(data, count);
+	}
+	
+	public DoubleArray(int count)
+	{
+		init(count);
 	}
 	
 	public DoubleArrayIterator accessor_iterator()
@@ -63,11 +63,7 @@ public class DoubleArray extends NovaArray
 	
 	public double accessor_first()
 	{
-		if (count > 0)
-		{
-			return data[0];
-		}
-		return 0;
+		return count > 0 ? this.get(0) : 0;
 	}
 	
 	private double mutator_first()
@@ -76,11 +72,11 @@ public class DoubleArray extends NovaArray
 	
 	public double accessor_last()
 	{
-		if (count > 0)
-		{
-			return data[count - 1];
-		}
-		return 0;
+		return count > 0 ? this.get(count - 1) : 0;
+	}
+	
+	private double mutator_last()
+	{
 	}
 	
 	public void init()
@@ -88,27 +84,35 @@ public class DoubleArray extends NovaArray
 		init();
 	}
 	
-	public void init(int count)
-	{
-		init(count);
-	}
-	
 	public void init(double[] data, int count)
 	{
 		init(data, count);
 	}
 	
-	public double get(int index)
+	public void init(int count)
 	{
-		return ((double[])data)[index];
+		init(count);
+		
 	}
 	
-	public void set(int index, double value)
+	public double sum(NovaUtilities.Function3<Double, Int, DoubleArray, Double> func)
 	{
-		((double[])data)[index] = value;
+		double sum;
+		int i;
+		DoubleArrayIterator nova_local_0;
+		double element;
+		sum = 0;
+		i = 0;
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
+		{
+			element = nova_local_0.accessor_next();
+			sum += func.call(element, i++, this);
+		}
+		return sum;
 	}
 	
-	public NovaArray map(NovaObject mapFunc)
+	public NovaArray map(NovaUtilities.Function3<Double, Int, DoubleArray, Out> mapFunc)
 	{
 		NovaArray array;
 		int i;
@@ -120,22 +124,23 @@ public class DoubleArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public void forEach(void func)
+	public DoubleArray forEach(NovaUtilities.Consumer3<Double, Int, DoubleArray> func)
 	{
 		int i;
 		i = (int)0;
 		for (; i < (int)count; i++)
 		{
-			func((double)get(i), i, this);
+			func.call((double)get(i), i, this);
 		}
+		return this;
 	}
 	
-	public boolean any(boolean anyFunc)
+	public boolean any(NovaUtilities.Function1<Double, Bool> anyFunc)
 	{
 		DoubleArrayIterator nova_local_0;
 		double element;
@@ -143,7 +148,7 @@ public class DoubleArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (anyFunc(element))
+			if (anyFunc.call(element))
 			{
 				return true;
 			}
@@ -151,7 +156,7 @@ public class DoubleArray extends NovaArray
 		return false;
 	}
 	
-	public boolean all(boolean allFunc)
+	public boolean all(NovaUtilities.Function1<Double, Bool> allFunc)
 	{
 		DoubleArrayIterator nova_local_0;
 		double element;
@@ -159,7 +164,7 @@ public class DoubleArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (!allFunc(element))
+			if (!allFunc.call(element))
 			{
 				return false;
 			}
@@ -167,7 +172,7 @@ public class DoubleArray extends NovaArray
 		return true;
 	}
 	
-	public DoubleArray filter(boolean filterFunc)
+	public DoubleArray filter(NovaUtilities.Function3<Double, Int, DoubleArray, Bool> filterFunc)
 	{
 		DoubleArray filtered;
 		int i;
@@ -179,7 +184,7 @@ public class DoubleArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (filterFunc(element, i++, this))
+			if (filterFunc.call(element, i++, this))
 			{
 				filtered.add(element);
 			}
@@ -217,7 +222,7 @@ public class DoubleArray extends NovaArray
 		return list;
 	}
 	
-	public double firstWhere(boolean func)
+	public double firstWhere(NovaUtilities.Function1<Double, Bool> func)
 	{
 		DoubleArrayIterator nova_local_0;
 		double element;
@@ -225,7 +230,7 @@ public class DoubleArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (func(element))
+			if (func.call(element))
 			{
 				return element;
 			}
@@ -274,6 +279,17 @@ public class DoubleArray extends NovaArray
 			str = str.concat(NovaDouble.toString(element));
 		}
 		return str;
+	}
+	
+	public double get(int index)
+	{
+		return ((double[])data)[index];
+	}
+	
+	public double set(int index, double value)
+	{
+		((double[])data)[index] = value;
+		return value;
 	}
 	
 }

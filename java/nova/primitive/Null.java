@@ -45,14 +45,14 @@ public class Null extends NovaString
 	{
 	}
 	
+	public NovaString concat(NovaString other)
+	{
+		return new NovaString("null").concat((other).concat(new NovaString("")));
+	}
+	
 	public NovaString toString()
 	{
 		return new NovaString("null");
-	}
-	
-	public NovaString concat(NovaString other)
-	{
-		return new NovaString("null").concat(other);
 	}
 	
 }

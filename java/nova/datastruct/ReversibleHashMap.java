@@ -45,7 +45,7 @@ public class ReversibleHashMap extends HashMap
 	
 	public void init()
 	{
-		rev = new HashMap();
+		rev = new HashMap(null, null);
 	}
 	
 	public void put(NovaObject key, NovaObject value)

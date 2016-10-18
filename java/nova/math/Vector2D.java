@@ -28,8 +28,10 @@ import nova.NovaObject;
 import nova.NovaString;
 import nova.System;
 import nova.Class;
+import nova.math.Vector;
+import nova.math.Vector3D;
 
-public class Vector2D extends NovaObject
+public class Vector2D extends Vector
 {
 	
 	
@@ -41,8 +43,48 @@ public class Vector2D extends NovaObject
 		init();
 	}
 	
+	public Vector2D(double x, double y)
+	{
+		init(x, y);
+	}
+	
+	public double accessor_x()
+	{
+		return data.get(0);
+	}
+	
+	public double mutator_x(double value)
+	{
+		data.set(0, value);
+		return value;
+	}
+	
+	public double accessor_y()
+	{
+		return data.get(1);
+	}
+	
+	public double mutator_y(double value)
+	{
+		data.set(1, value);
+		return value;
+	}
+	
 	public void init()
 	{
+		init(2);
+	}
+	
+	public void init(double x, double y)
+	{
+		init();
+		this.mutator_x(x);
+		this.mutator_y(y);
+	}
+	
+	public double dotProduct(Vector3D other)
+	{
+		return ((Vector)this).dotProduct(other);
 	}
 	
 }

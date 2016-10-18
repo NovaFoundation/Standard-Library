@@ -97,7 +97,7 @@ public class IntRange extends NovaObject implements List
 		this.end = end;
 	}
 	
-	public boolean contains(int value)
+	public int contains(int value)
 	{
 		return value >= start && value < end;
 	}
@@ -115,7 +115,7 @@ public class IntRange extends NovaObject implements List
 		return ints;
 	}
 	
-	public void forEach(void func)
+	public void forEach(NovaUtilities.Consumer3<Int, Int, IntRange> func)
 	{
 		int i;
 		IntRangeIterator nova_local_0;
@@ -125,11 +125,11 @@ public class IntRange extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			value = nova_local_0.accessor_next();
-			func(value, i++, this);
+			func.call(value, i++, this);
 		}
 	}
 	
-	public NovaArray map(NovaObject mapFunc)
+	public NovaArray map(NovaUtilities.Function3<Int, Int, IntRange, Out> mapFunc)
 	{
 		NovaArray array;
 		int i;
@@ -141,12 +141,12 @@ public class IntRange extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public boolean any(boolean anyFunc)
+	public boolean any(NovaUtilities.Function1<Int, Bool> anyFunc)
 	{
 		IntRangeIterator nova_local_0;
 		int element;
@@ -154,7 +154,7 @@ public class IntRange extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (anyFunc(element))
+			if (anyFunc.call(element))
 			{
 				return true;
 			}
@@ -162,7 +162,7 @@ public class IntRange extends NovaObject implements List
 		return false;
 	}
 	
-	public boolean all(boolean allFunc)
+	public boolean all(NovaUtilities.Function1<Int, Bool> allFunc)
 	{
 		IntRangeIterator nova_local_0;
 		int element;
@@ -170,7 +170,7 @@ public class IntRange extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (!allFunc(element))
+			if (!allFunc.call(element))
 			{
 				return false;
 			}
@@ -178,7 +178,7 @@ public class IntRange extends NovaObject implements List
 		return true;
 	}
 	
-	public IntArray filter(boolean filterFunc)
+	public IntArray filter(NovaUtilities.Function3<Int, Int, IntRange, Bool> filterFunc)
 	{
 		IntArray list;
 		int i;
@@ -190,7 +190,7 @@ public class IntRange extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			value = nova_local_0.accessor_next();
-			if (filterFunc(value, i++, this))
+			if (filterFunc.call(value, i++, this))
 			{
 				list.add(value);
 			}
@@ -208,7 +208,7 @@ public class IntRange extends NovaObject implements List
 		return new IntRange((int)NovaMath.min(start + howMany, end), end);
 	}
 	
-	public int firstWhere(boolean func)
+	public int firstWhere(NovaUtilities.Function1<Int, Bool> func)
 	{
 		IntRangeIterator nova_local_0;
 		int element;
@@ -216,7 +216,7 @@ public class IntRange extends NovaObject implements List
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (func(element))
+			if (func.call(element))
 			{
 				return element;
 			}

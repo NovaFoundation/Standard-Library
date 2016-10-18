@@ -28,13 +28,11 @@ import nova.NovaObject;
 import nova.NovaString;
 import nova.System;
 import nova.Class;
+import nova.math.Vector;
 
-public class Vector3D extends NovaObject
+public class Vector3D extends Vector
 {
 	
-	public double x;
-	public double y;
-	public double z;
 	
 	
 	
@@ -49,26 +47,55 @@ public class Vector3D extends NovaObject
 		init(x, y, z);
 	}
 	
+	public double accessor_x()
+	{
+		return data.get(0);
+	}
+	
+	public double mutator_x(double value)
+	{
+		data.set(0, value);
+		return value;
+	}
+	
+	public double accessor_y()
+	{
+		return data.get(1);
+	}
+	
+	public double mutator_y(double value)
+	{
+		data.set(1, value);
+		return value;
+	}
+	
+	public double accessor_z()
+	{
+		return data.get(2);
+	}
+	
+	public double mutator_z(double value)
+	{
+		data.set(2, value);
+		return value;
+	}
+	
 	public void init()
 	{
-		init(0, 0, 0);
+		init(3);
 	}
 	
 	public void init(double x, double y, double z)
 	{
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		init();
+		this.mutator_x(x);
+		this.mutator_y(y);
+		this.mutator_z(z);
 	}
 	
 	public Vector3D crossProduct(Vector3D other)
 	{
-		return new Vector3D(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x);
-	}
-	
-	public NovaString toString()
-	{
-		return new NovaString("<").concat(NovaDouble.toString((x)).concat(new NovaString(", ").concat(NovaDouble.toString((y)).concat(new NovaString(", ").concat(NovaDouble.toString((z)).concat(new NovaString(">")))))));
+		return new Vector3D(accessor_y() * other.accessor_z() - accessor_z() * other.accessor_y(), accessor_z() * other.accessor_x() - accessor_x() * other.accessor_z(), accessor_x() * other.accessor_y() - accessor_y() * other.accessor_x());
 	}
 	
 }

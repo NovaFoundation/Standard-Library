@@ -49,21 +49,6 @@ public class NovaFloat extends Number implements Comparable, RealNumber
 		this.value = value;
 	}
 	
-	public static int numDigits(float number)
-	{
-		return NovaDouble.numDigits(number);
-	}
-	
-	public static NovaString toString(float value)
-	{
-		return NovaDouble.toString(value);
-	}
-	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
 	public float compareTo(float other)
 	{
 		return value - other;
@@ -72,6 +57,21 @@ public class NovaFloat extends Number implements Comparable, RealNumber
 	public float multiply(float value)
 	{
 		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
+	}
+	
+	public static int numDigits(float number)
+	{
+		return NovaDouble.numDigits(number);
+	}
+	
+	public static NovaString toString(float value)
+	{
+		return NovaDouble.toString(value);
 	}
 	
 }

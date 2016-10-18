@@ -42,11 +42,11 @@ public class Async extends NovaObject
 		init();
 	}
 	
-	public static AsyncResult execute(void func)
+	public static AsyncResult execute(NovaUtilities.Consumer0<> func)
 	{
 		AsyncResult result;
 		result = new AsyncResult();
-		func();
+		func.call();
 		return result;
 	}
 	

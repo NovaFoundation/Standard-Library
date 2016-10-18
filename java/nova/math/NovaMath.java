@@ -67,18 +67,10 @@ public class NovaMath extends NovaObject
 	
 	public static byte sign(long num)
 	{
-		if (num > 0)
-		{
-			return 1;
-		}
-		else if (num < 0)
-		{
-			return -1;
-		}
-		return 0;
+		return num > 0 ? 1 : (num < 0 ? -1 : 0);
 	}
 	
-	public static int random(long range)
+	public static long random(long range)
 	{
 		return extRand() % range;
 	}

@@ -46,7 +46,7 @@ public class NumericStatement extends Statement
 	
 	public void init(NovaString statement)
 	{
-		tree = new NumericTree(statement.trim());
+		tree = new NumericTree(statement.trim(null, null));
 	}
 	
 	public NovaString toString()
