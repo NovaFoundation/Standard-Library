@@ -2,8 +2,7 @@ package "nova/datastruct/list"
 
 import "nova/primitive/number/Integer"
 
-public class Array<E> implements List<E>
-{
+public class Array<E> implements List<E> {
 	external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
 
 	visible Int capacity
@@ -27,15 +26,13 @@ public class Array<E> implements List<E>
 	
 	this[Int index] <=> data[index]
 	
-	public construct()
-	{
+	public construct() {
 		this(0)
 
 		increaseSize(10)
 	}
 
-	public construct(Int count)
-	{
+	public construct(Int count) {
 	    this.position = 0
 	    this.capacity = 0
 
@@ -46,36 +43,28 @@ public class Array<E> implements List<E>
 		[Target js] data = new E[count]
 	}
 
-	public construct([PrimitiveArray] E[] data, Int count)
-	{
+	public construct([PrimitiveArray] E[] data, Int count) {
 		this(count)
 
-		for (i in 0..count)
-		{
+		for (i in 0..count) {
 			add(data[i])
 		}
 	}
 
-	public fillRemaining(E value) => this
-	{
-	    while (count < capacity)
-	    {
+	public fillRemaining(E value) => this {
+	    while (count < capacity) {
 	        add(value)
 	    }
 	}
 
-	public addAll(E[] data) => this
-	{
-	    for (d in data)
-	    {
+	public addAll(E[] data) => this {
+	    for (d in data) {
 	        add(d)
 	    }
 	}
 
-	public add(E element) => this
-	{
-		if (position >= capacity)
-		{
+	public add(E element) => this {
+		if (position >= capacity) {
 			increaseSize()
 		}
 
@@ -84,10 +73,8 @@ public class Array<E> implements List<E>
 		count = Math.max(position, count)
 	}
 
-	public add(Int index, E element) => this
-	{
-		if (index >= capacity)
-		{
+	public add(Int index, E element) => this {
+		if (index >= capacity) {
 			increaseSize(index + 1)
 		}
 
@@ -97,16 +84,14 @@ public class Array<E> implements List<E>
 
 		data[index] = element
 
-		if (index >= position - 1)
-		{
-			position = index + 1;
+		if (index >= position - 1) {
+			position = index + 1
 		}
-
+		
 		count = Math.max(position, count)
 	}
 
-	public remove(Int index) -> E
-	{
+	public remove(Int index) -> E {
 		E element = data[index]
 
 		shiftLeft(index + 1, position--)
@@ -114,12 +99,10 @@ public class Array<E> implements List<E>
 		return element
 	}
 
-	public remove(E element) -> E
-	{
+	public remove(E element) -> E {
 	    Int index = indexOf(element)
 
-	    if (index >= 0)
-	    {
+	    if (index >= 0) {
             shiftLeft(index + 1, position--)
 
             return element
@@ -128,14 +111,11 @@ public class Array<E> implements List<E>
         return null
 	}
 
-	public indexOf(E element) -> Int
-	{
+	public indexOf(E element) -> Int {
 	    Int i = 0
 
-	    for (e in this)
-	    {
-	        if (element == e)
-	        {
+	    for (e in this) {
+	        if (element == e) {
 	            return i
 	        }
 
@@ -145,12 +125,10 @@ public class Array<E> implements List<E>
 	    return -1
 	}
 
-	shiftRight(Int left, Int right) => this
-	{
+	shiftRight(Int left, Int right) => this {
 	    Int i = right - 1
 
-		while (i > left)
-		{
+		while (i > left) {
 			data[i] = data[i - 1]
 
 			i--
@@ -159,66 +137,55 @@ public class Array<E> implements List<E>
 		data[left] = null
 	}
 
-	shiftLeft(Int left, Int right) => this
-	{
+	shiftLeft(Int left, Int right) => this {
 	    left--
 	    right--
 
-		for (i in left..right)
-		{
+		for (i in left..right) {
 			data[i] = data[i + 1]
 		}
 
 		data[right] = null
 	}
 
-	public swap(Int index1, Int index2) => this
-	{
+	public swap(Int index1, Int index2) => this {
 		E temp = data[index1]
 		data[index1] = data[index2]
 		data[index2] = temp
 	}
 
-	increaseSize() => this
-	{
+	increaseSize() => this {
 		increaseSize(capacity + 3)
 	}
+	
+	[Target not c]
+	increaseSize(Int count) => this {
+		
+	}
 
-	increaseSize(Int count) => this
-	{
-		[Target c]
+	[Target c]
+	increaseSize(Int count) => this {
 		Int offset = count - capacity
-
-		[Target c]
+		
 		capacity = count
-
+		
 		[PrimitiveArray]
-		E[] tmp
-
-		[Target c]
-		tmp = new E[capacity]
-
-		[Target c]
-		arrayCopy(tmp, 0, data, 0, this.count, capacity, 4)
-
-		[Target c]
+		E[] tmp = new E[capacity]
+		
+		arrayCopy(tmp, 0, data, 0, capacity - offset, capacity, 4)
+		
 		data = tmp
-
-		[Target c]
-		for (i in (capacity - offset)..capacity)
-		{
-			[Target c]
+		
+		for (i in (capacity - offset)..capacity) {
 			data[i] = null
 		}
 	}
 
 	[Override]
-	public toArray() -> E[]
-	{
+	public toArray() -> E[] {
 		E[] array = new Array(count)
 
-		for (i in 0..count)
-		{
+		for (i in 0..count) {
 			array[i] = data[i]
 		}
 
@@ -226,14 +193,12 @@ public class Array<E> implements List<E>
 	}
 	
 	[Override]
-	public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[]
-	{
+	public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
 		Out[] array = new Array(count)
 
 		Int i = 0
 
-		for (element in this)
-		{
+		for (element in this) {
 			array.add(mapFunc(element, i++, this))
 		}
 
@@ -241,25 +206,20 @@ public class Array<E> implements List<E>
 	}
 
 	[Override]
-	public forEach(func(E, Int, Array<E>)) => this
-	{
-		for (i in 0..count)
-		{
+	public forEach(func(E, Int, Array<E>)) => this {
+		for (i in 0..count) {
 			func(data[i], i, this)
 		}
 	}
 
 	[Override]
-	public filter(filterFunc(E, Int, Array<E>) -> Bool) -> E[]
-	{
+	public filter(filterFunc(E, Int, Array<E>) -> Bool) -> E[] {
 		E[] filtered = new Array()
 
 		Int i = 0
 
-		for (element in this)
-		{
-			if (filterFunc(element, i++, this))
-			{
+		for (element in this) {
+			if (filterFunc(element, i++, this)) {
 				filtered.add(element)
 			}
 		}
@@ -268,14 +228,12 @@ public class Array<E> implements List<E>
 	}
 
 	[Override]
-    public take(Int howMany) -> E[]
-    {
+    public take(Int howMany) -> E[] {
         howMany = howMany > count ? count : howMany
 
         E[] list = new Array()
 
-        for (i in 0..howMany)
-        {
+        for (i in 0..howMany) {
             list.add(data[i])
         }
 
@@ -283,12 +241,10 @@ public class Array<E> implements List<E>
     }
 
     [Override]
-    public skip(Int howMany) -> E[]
-    {
+    public skip(Int howMany) -> E[] {
         E[] list = new Array()
 
-        for (i in howMany..count)
-        {
+        for (i in howMany..count) {
             list.add(data[i])
         }
 
@@ -296,12 +252,10 @@ public class Array<E> implements List<E>
     }
 
     [RequireGenericType E extends String]
-    public sumSize() -> Long
-    {
+    public sumSize() -> Long {
         Long sum = 0
 
-        for (value in this)
-        {
+        for (value in this) {
             sum = sum + ((String)value).count
         }
 
@@ -309,12 +263,10 @@ public class Array<E> implements List<E>
     }
 
     /*[RequireGenericType E extends Integer]
-    public sum() -> Long
-    {
+    public sum() -> Long {
         Long sum = 0
 
-        for (value in this)
-        {
+        for (value in this) {
             sum = sum + (Long)value
         }
 
@@ -322,12 +274,10 @@ public class Array<E> implements List<E>
     }
 
     [RequireGenericType E extends RealNumber]
-    public sum() -> Double
-    {
+    public sum() -> Double {
         Double sum = 0
 
-        for (value in this)
-        {
+        for (value in this) {
             sum += value
         }
 
@@ -335,14 +285,12 @@ public class Array<E> implements List<E>
     }*/
 
     [Override]
-    public reverse() -> Array<E>
-    {
+    public reverse() -> Array<E> {
         Array<E> array = new Array(count)
 
         Int i = 0
 
-        for (element in this)
-        {
+        for (element in this) {
             array.data[count - ++i] = element
         }
 
