@@ -44,6 +44,7 @@ public class NovaObject implements Equals
 	
 	public NovaString accessor_hashCode()
 	{
+		return new NovaString("No hashcode available");
 	}
 	
 	private NovaString mutator_hashCode()
@@ -61,14 +62,14 @@ public class NovaObject implements Equals
 	
 	
 	
-	public NovaString toString()
-	{
-		return new NovaString("[Object @").concat((accessor_hashCode()).concat(new NovaString("]")));
-	}
-	
 	public boolean equals(NovaObject another)
 	{
 		return this == another;
+	}
+	
+	public NovaString toString()
+	{
+		return new NovaString("[Object @").concat((accessor_hashCode()).concat(new NovaString("]")));
 	}
 	
 	public void init()

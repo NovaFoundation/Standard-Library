@@ -126,7 +126,7 @@ public class NovaString extends NovaObject implements Comparable
 		index = 0;
 		while ((index = output.indexOf(search, null, null, null)) >= 0)
 		{
-			output = output.substring(0, Optional.ofNullable(index)).concat(replace.concat(output.substring(index + search.count, null)));
+			output = output.substring(Optional.ofNullable(0), Optional.ofNullable(index)).concat(replace.concat(output.substring(Optional.ofNullable(index + search.count), null)));
 		}
 		return output;
 	}
@@ -136,14 +136,14 @@ public class NovaString extends NovaObject implements Comparable
 		return indexOf(search, null, null, null) == 0;
 	}
 	
-	public boolean endsWith(NovaString search)
-	{
-		return count > 0 && indexOf(search, null, null, null) == count - search.count - 1;
-	}
-	
-	public boolean contains(NovaString search)
+	public int contains(NovaString search)
 	{
 		return indexOf(search, null, null, null) >= 0;
+	}
+	
+	public int endsWith(NovaString search)
+	{
+		return count > 0 && indexOf(search, null, null, null) == count - search.count - 1;
 	}
 	
 	public int indexOf(NovaString search, Optional<NovaInt> start_optional, Optional<NovaInt> direction_optional, Optional<NovaInt> defaultReturnValue_optional)
@@ -176,23 +176,30 @@ public class NovaString extends NovaObject implements Comparable
 		return defaultReturnValue;
 	}
 	
-	public int lastIndexOf(NovaString search)
+	public int lastIndexOf(NovaString search, Optional<NovaInt> start_optional, Optional<NovaInt> defaultReturnValue_optional)
 	{
-		return indexOf(search, Optional.ofNullable(count - 1), Optional.ofNullable(-1), null);
+		int start = start_optional == null ? count - 1 : start_optional.get();
+		int defaultReturnValue = defaultReturnValue_optional == null ? -1 : defaultReturnValue_optional.get();
+		return indexOf(search, Optional.ofNullable(start), Optional.ofNullable(-1), Optional.ofNullable(defaultReturnValue));
 	}
 	
-	public NovaString substring(int start, Optional<NovaInt> end_optional)
+	public NovaString substring(Optional<NovaInt> start_optional, Optional<NovaInt> end_optional)
 	{
 		char[] buf;
 		char[] arr;
+		int start = start_optional == null ? 0 : start_optional.get();
 		int end = end_optional == null ? count : end_optional.get();
 		if (end - start <= 0)
 		{
 			if (end - start < 0)
 			{
-				throw new Exception(new NovaString("Substring bounds of [").concat(NovaInt.toString(start).concat(new NovaString(", ").concat(NovaInt.toString(end).concat(new NovaString("] are invalid"))))));
+				throw new Exception(new NovaString("Substring bounds of [").concat(NovaInt.toString((start)).concat(new NovaString(", ").concat(NovaInt.toString((end)).concat(new NovaString("] are invalid"))))));
 			}
 			return new NovaString("");
+		}
+		else if (start == 0 && end == count)
+		{
+			return this;
 		}
 		buf = new char[end - start + 1];
 		arr = chars.data;
@@ -200,39 +207,18 @@ public class NovaString extends NovaObject implements Comparable
 		return new NovaString(buf);
 	}
 	
+	public NovaString trim(Optional<NovaInt> start_optional, Optional<NovaInt> end_optional)
+	{
+		int start = start_optional == null ? 0 : start_optional.get();
+		int end = end_optional == null ? count - 1 : end_optional.get();
+		while (start < count && whitespace.contains(chars.get(start++)));
+		while (end >= 0 && whitespace.contains(chars.get(end--)));
+		return end == 0 ? new NovaString("") : substring(Optional.ofNullable(start), Optional.ofNullable(end + 1));
+	}
+	
 	public char lastChar()
 	{
-		return charAt(count - 1);
-	}
-	
-	public char charAt(int index)
-	{
-		return chars.get(index);
-	}
-	
-	public NovaString trim()
-	{
-		int start;
-		int end;
-		start = 0;
-		end = count - 1;
-		while (start < count && whitespace.contains(chars.get(start)))
-		{
-			start++;
-		}
-		while (end >= 0 && whitespace.contains(chars.get(end)))
-		{
-			end--;
-		}
-		if (end == 0)
-		{
-			return new NovaString("");
-		}
-		if (start == 0 && end == count - 1)
-		{
-			return this;
-		}
-		return substring(start, Optional.ofNullable(end + 1));
+		return count > 0 ? chars.get(count - 1) : (char)0;
 	}
 	
 	public NovaString toLowerCase()
@@ -247,14 +233,10 @@ public class NovaString extends NovaObject implements Comparable
 	
 	public NovaString capitalize()
 	{
-		if (count == 0)
-		{
-			return this;
-		}
-		return Char.toString(Char.toUpperCase(chars.get(0))).concat(substring(1, null));
+		return count > 0 ? Char.toString(Char.toUpperCase(chars.get(0))).concat(substring(Optional.ofNullable(1), null)) : this;
 	}
 	
-	public NovaString transform(char transform)
+	public NovaString transform(NovaUtilities.Function2<Char, Int, Char> transform)
 	{
 		char[] newData;
 		int i;
@@ -262,7 +244,7 @@ public class NovaString extends NovaObject implements Comparable
 		i = (int)0;
 		for (; i < (int)count; i++)
 		{
-			newData[i] = transform(chars.get(i), i);
+			newData[i] = transform.call(chars.get(i), i);
 		}
 		return new NovaString(newData);
 	}
@@ -276,7 +258,7 @@ public class NovaString extends NovaObject implements Comparable
 		e = indexOf(after, Optional.ofNullable(s + 1), null, null);
 		if (s >= 0 && e > 0)
 		{
-			return substring(s + before.count, Optional.ofNullable(e));
+			return substring(Optional.ofNullable(s + before.count), Optional.ofNullable(e));
 		}
 		return new NovaString("");
 	}
@@ -284,14 +266,7 @@ public class NovaString extends NovaObject implements Comparable
 	public NovaString surroundWith(NovaString str, Optional<Bool> symmetrical_optional)
 	{
 		boolean symmetrical = symmetrical_optional == null ? false : symmetrical_optional.get();
-		if (symmetrical)
-		{
-			return str.concat(this.concat(new NovaString(str.chars.reverse())));
-		}
-		else
-		{
-			return str.concat(this.concat(str));
-		}
+		return (str).concat(new NovaString("").concat((this).concat(new NovaString("").concat((symmetrical ? new NovaString(str.chars.reverse()) : str).concat(new NovaString(""))))));
 	}
 	
 	public int compareTo(NovaString other)

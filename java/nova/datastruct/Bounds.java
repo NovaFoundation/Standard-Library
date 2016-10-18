@@ -101,7 +101,7 @@ public class Bounds extends NovaObject
 		{
 			return null;
 		}
-		return source.substring(start, Optional.ofNullable(end));
+		return source.substring(Optional.ofNullable(start), Optional.ofNullable(end));
 	}
 	
 	public NovaString extractPreString(NovaString source)
@@ -110,7 +110,7 @@ public class Bounds extends NovaObject
 		{
 			return null;
 		}
-		return source.substring(0, Optional.ofNullable(start));
+		return source.substring(Optional.ofNullable(0), Optional.ofNullable(start));
 	}
 	
 	public NovaString extractPostString(NovaString source)
@@ -119,7 +119,7 @@ public class Bounds extends NovaObject
 		{
 			return source;
 		}
-		return source.substring(end, null);
+		return source.substring(Optional.ofNullable(end), null);
 	}
 	
 	public NovaString trimString(NovaString source)

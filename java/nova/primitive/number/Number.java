@@ -43,7 +43,7 @@ public class Number extends Primitive implements Multiply
 		init();
 	}
 	
-	public static int numDigits(Number number)
+	public static byte numDigits(Number number)
 	{
 		return -1;
 	}

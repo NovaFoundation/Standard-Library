@@ -49,26 +49,6 @@ public class Char extends Number implements Comparable, Integer
 		this.value = value;
 	}
 	
-	public static NovaString toString(char c)
-	{
-		return new NovaString(c);
-	}
-	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
-	public char toLowerCase()
-	{
-		return toLowerCase(value);
-	}
-	
-	public char toUpperCase()
-	{
-		return toUpperCase(value);
-	}
-	
 	public static char toLowerCase(char c)
 	{
 		int id;
@@ -91,7 +71,17 @@ public class Char extends Number implements Comparable, Integer
 		return c;
 	}
 	
-	public int compareTo(char other)
+	public char toLowerCase()
+	{
+		return toLowerCase(value);
+	}
+	
+	public char toUpperCase()
+	{
+		return toUpperCase(value);
+	}
+	
+	public char compareTo(char other)
 	{
 		return value - other;
 	}
@@ -99,6 +89,16 @@ public class Char extends Number implements Comparable, Integer
 	public char multiply(char value)
 	{
 		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
+	}
+	
+	public static NovaString toString(char c)
+	{
+		return new NovaString(c);
 	}
 	
 }

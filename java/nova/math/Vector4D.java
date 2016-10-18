@@ -1,4 +1,4 @@
-package nova.primitive;
+package nova.math;
 
 import java.util.Optional;
 import nova.exception.ExceptionData;
@@ -28,40 +28,81 @@ import nova.NovaObject;
 import nova.NovaString;
 import nova.System;
 import nova.Class;
-import nova.datastruct.Comparable;
-import nova.primitive.Primitive;
+import nova.math.Vector;
 
-public class Bool extends Primitive implements Comparable
+public class Vector4D extends Vector
 {
 	
-	public boolean value;
 	
 	
 	
 	
-	public Bool(boolean value)
+	public Vector4D()
 	{
-		init(value);
+		init();
 	}
 	
-	public void init(boolean value)
+	public Vector4D(double x, double y, double z, double w)
 	{
-		this.value = value;
+		init(x, y, z, w);
 	}
 	
-	public boolean compareTo(boolean other)
+	public double accessor_x()
 	{
-		return value == other;
+		return data.get(0);
 	}
 	
-	public NovaString toString()
+	public double mutator_x(double value)
 	{
-		return toString(value);
+		data.set(0, value);
+		return value;
 	}
 	
-	public static NovaString toString(boolean value)
+	public double accessor_y()
 	{
-		return value ? new NovaString("true") : new NovaString("false");
+		return data.get(1);
+	}
+	
+	public double mutator_y(double value)
+	{
+		data.set(1, value);
+		return value;
+	}
+	
+	public double accessor_z()
+	{
+		return data.get(2);
+	}
+	
+	public double mutator_z(double value)
+	{
+		data.set(2, value);
+		return value;
+	}
+	
+	public double accessor_w()
+	{
+		return data.get(3);
+	}
+	
+	public double mutator_w(double value)
+	{
+		data.set(3, value);
+		return value;
+	}
+	
+	public void init()
+	{
+		init(4);
+	}
+	
+	public void init(double x, double y, double z, double w)
+	{
+		init();
+		this.mutator_x(x);
+		this.mutator_y(y);
+		this.mutator_z(z);
+		this.mutator_w(w);
 	}
 	
 }

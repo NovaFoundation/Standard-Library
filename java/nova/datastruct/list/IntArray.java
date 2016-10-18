@@ -63,11 +63,7 @@ public class IntArray extends NovaArray
 	
 	public int accessor_first()
 	{
-		if (count > 0)
-		{
-			return data[0];
-		}
-		return null;
+		return count > 0 ? this.get(0) : 0;
 	}
 	
 	private int mutator_first()
@@ -76,11 +72,11 @@ public class IntArray extends NovaArray
 	
 	public int accessor_last()
 	{
-		if (count > 0)
-		{
-			return data[count - 1];
-		}
-		return null;
+		return count > 0 ? this.get(count - 1) : 0;
+	}
+	
+	private int mutator_last()
+	{
 	}
 	
 	public void init()
@@ -98,7 +94,7 @@ public class IntArray extends NovaArray
 		init(data, count);
 	}
 	
-	public NovaArray map(NovaObject mapFunc)
+	public NovaArray map(NovaUtilities.Function3<Int, Int, IntArray, Out> mapFunc)
 	{
 		NovaArray array;
 		int i;
@@ -110,22 +106,23 @@ public class IntArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public void forEach(void func)
+	public IntArray forEach(NovaUtilities.Consumer3<Int, Int, IntArray> func)
 	{
 		int i;
 		i = (int)0;
 		for (; i < (int)count; i++)
 		{
-			func((int)get(i), i, this);
+			func.call((int)get(i), i, this);
 		}
+		return this;
 	}
 	
-	public boolean any(boolean anyFunc)
+	public boolean any(NovaUtilities.Function1<Int, Bool> anyFunc)
 	{
 		IntArrayIterator nova_local_0;
 		int element;
@@ -133,7 +130,7 @@ public class IntArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (anyFunc(element))
+			if (anyFunc.call(element))
 			{
 				return true;
 			}
@@ -141,7 +138,7 @@ public class IntArray extends NovaArray
 		return false;
 	}
 	
-	public boolean all(boolean allFunc)
+	public boolean all(NovaUtilities.Function1<Int, Bool> allFunc)
 	{
 		IntArrayIterator nova_local_0;
 		int element;
@@ -149,7 +146,7 @@ public class IntArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (!allFunc(element))
+			if (!allFunc.call(element))
 			{
 				return false;
 			}
@@ -157,7 +154,7 @@ public class IntArray extends NovaArray
 		return true;
 	}
 	
-	public IntArray filter(boolean filterFunc)
+	public IntArray filter(NovaUtilities.Function3<Int, Int, IntArray, Bool> filterFunc)
 	{
 		IntArray filtered;
 		int i;
@@ -169,7 +166,7 @@ public class IntArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (filterFunc(element, i++, this))
+			if (filterFunc.call(element, i++, this))
 			{
 				filtered.add(element);
 			}
@@ -207,7 +204,7 @@ public class IntArray extends NovaArray
 		return list;
 	}
 	
-	public int firstWhere(boolean func)
+	public int firstWhere(NovaUtilities.Function1<Int, Bool> func)
 	{
 		IntArrayIterator nova_local_0;
 		int element;
@@ -215,7 +212,7 @@ public class IntArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (func(element))
+			if (func.call(element))
 			{
 				return element;
 			}
@@ -264,6 +261,17 @@ public class IntArray extends NovaArray
 			str = str.concat(NovaInt.toString(element));
 		}
 		return str;
+	}
+	
+	public int get(int index)
+	{
+		return ((int[])data)[index];
+	}
+	
+	public int set(int index, int value)
+	{
+		((int[])data)[index] = value;
+		return value;
 	}
 	
 }

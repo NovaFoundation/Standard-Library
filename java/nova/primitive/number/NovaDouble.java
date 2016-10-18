@@ -56,15 +56,11 @@ public class NovaDouble extends Number implements Comparable, RealNumber
 	public static int numDigits(double number)
 	{
 		int size;
-		if (number < 0)
-		{
-			return numDigits(-number) + 1;
-		}
-		number = number / 10;
-		size = 1;
+		size = number < 0 ? 2 : 1;
+		number /= 10;
 		while (number > 0)
 		{
-			number = number / 10;
+			number /= 10;
 			size++;
 		}
 		return size;
@@ -157,11 +153,6 @@ public class NovaDouble extends Number implements Comparable, RealNumber
 		return genString(buffer, lastIndex);
 	}
 	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
 	public static double parseDouble(NovaString str)
 	{
 		char[] pEnd;
@@ -176,6 +167,11 @@ public class NovaDouble extends Number implements Comparable, RealNumber
 	public double multiply(double value)
 	{
 		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
 	}
 	
 }

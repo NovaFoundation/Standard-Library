@@ -97,7 +97,7 @@ public class NumericOperation extends NumericOperand
 		{
 			if (type1 == OPERATOR)
 			{
-				throw new InvalidNumericStatementException(new NovaString("Missing left hand operand in operation '").concat(operation.concat(new NovaString("'"))));
+				throw new InvalidNumericStatementException(new NovaString("Missing left hand operand in operation '").concat((operation).concat(new NovaString("'"))));
 			}
 			rh = op;
 			op = new NovaString("*");
@@ -122,11 +122,11 @@ public class NumericOperation extends NumericOperand
 		rightOperator = decodeOperand(right);
 		if (left == null)
 		{
-			throw new Exception(new NovaString("Left operand '").concat(left.concat(new NovaString("' is invalid"))));
+			throw new Exception(new NovaString("Left operand '").concat((left).concat(new NovaString("' is invalid"))));
 		}
 		else if (right == null)
 		{
-			throw new Exception(new NovaString("Right operand '").concat(right.concat(new NovaString("' is invalid"))));
+			throw new Exception(new NovaString("Right operand '").concat((right).concat(new NovaString("' is invalid"))));
 		}
 		init(leftOperand, operator, rightOperand);
 	}
@@ -149,7 +149,7 @@ public class NumericOperation extends NumericOperand
 		{
 			return 0;
 		}
-		return getType(s.chars.get(0));
+		return getType(s.chars.accessor_first());
 	}
 	
 	private static int getType(char c)
@@ -162,7 +162,7 @@ public class NumericOperation extends NumericOperand
 		{
 			return OPERATOR;
 		}
-		if (contains(INVALID_OPERATORS, c))
+		if (INVALID_OPERATORS.contains(c))
 		{
 			return 0;
 		}
@@ -268,36 +268,22 @@ public class NumericOperation extends NumericOperand
 		
 		private static boolean isNumeric(char c)
 		{
-			return contains(NUMERIC_CHARS, c);
+			return NUMERIC_CHARS.contains(c);
 		}
 		
 		private static boolean isOperator(char c)
 		{
-			return contains(VALID_OPERATORS, c);
+			return VALID_OPERATORS.contains(c);
 		}
 		
 		private static boolean isWhitespace(char c)
 		{
-			return contains(WHITESPACE_CHARS, c);
-		}
-		
-		private static boolean contains(CharArray array, char c)
-		{
-			int i;
-			i = (int)0;
-			for (; i < (int)array.count; i++)
-			{
-				if (c == array.get(i))
-				{
-					return true;
-				}
-			}
-			return false;
+			return WHITESPACE_CHARS.contains(c);
 		}
 		
 		public NovaString toString()
 		{
-			return leftOperand.toString().concat(operator.concat(rightOperand.toString()));
+			return (leftOperand).toString().concat(new NovaString("").concat((operator).concat(new NovaString("").concat((rightOperand).toString().concat(new NovaString(""))))));
 		}
 		
 		private static CharArray generated2()

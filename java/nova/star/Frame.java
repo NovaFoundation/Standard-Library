@@ -47,25 +47,25 @@ public class Frame extends NovaObject
 	
 	public int mutator_x(int value)
 	{
-		mutator_x(value);
+		x = value;
 		return value;
 	}
 	
 	public int mutator_y(int value)
 	{
-		mutator_y(value);
+		y = value;
 		return value;
 	}
 	
 	public int mutator_width(int value)
 	{
-		mutator_width(value);
+		width = value;
 		return value;
 	}
 	
 	public int mutator_height(int value)
 	{
-		mutator_height(value);
+		height = value;
 		return value;
 	}
 	

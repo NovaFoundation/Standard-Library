@@ -67,11 +67,10 @@ public class List implements Iterable
 	
 	public boolean contains(NovaObject value)
 	{
-		void contextArg18;
-		return any(testLambda18);
+		return any(testLambda33);
 	}
 	
-	public void forEach(void func)
+	public List forEach(NovaUtilities.Consumer3<Type, Int, List> func)
 	{
 		int i;
 		Iterator nova_local_0;
@@ -81,11 +80,12 @@ public class List implements Iterable
 		while (nova_local_0.hasNext())
 		{
 			value = nova_local_0.next();
-			func(value, i++, this);
+			func.call(value, i++, this);
 		}
+		return this;
 	}
 	
-	public List map(NovaObject mapFunc)
+	public List map(NovaUtilities.Function3<Type, Int, List, Out> mapFunc)
 	{
 		NovaArray array;
 		int i;
@@ -97,12 +97,12 @@ public class List implements Iterable
 		while (nova_local_0.hasNext())
 		{
 			element = nova_local_0.next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public boolean any(boolean anyFunc)
+	public boolean any(NovaUtilities.Function1<Type, Bool> anyFunc)
 	{
 		Iterator nova_local_0;
 		NovaObject element;
@@ -110,7 +110,7 @@ public class List implements Iterable
 		while (nova_local_0.hasNext())
 		{
 			element = nova_local_0.next();
-			if (anyFunc(element))
+			if (anyFunc.call(element))
 			{
 				return true;
 			}
@@ -118,7 +118,7 @@ public class List implements Iterable
 		return false;
 	}
 	
-	public boolean all(boolean allFunc)
+	public boolean all(NovaUtilities.Function1<Type, Bool> allFunc)
 	{
 		Iterator nova_local_0;
 		NovaObject element;
@@ -126,7 +126,7 @@ public class List implements Iterable
 		while (nova_local_0.hasNext())
 		{
 			element = nova_local_0.next();
-			if (!allFunc(element))
+			if (!allFunc.call(element))
 			{
 				return false;
 			}
@@ -134,7 +134,7 @@ public class List implements Iterable
 		return true;
 	}
 	
-	public List filter(boolean filterFunc)
+	public List filter(NovaUtilities.Function3<Type, Int, List, Bool> filterFunc)
 	{
 		NovaArray list;
 		int i;
@@ -146,7 +146,7 @@ public class List implements Iterable
 		while (nova_local_0.hasNext())
 		{
 			value = nova_local_0.next();
-			if (filterFunc(value, i++, this))
+			if (filterFunc.call(value, i++, this))
 			{
 				list.add(value);
 			}
@@ -195,7 +195,7 @@ public class List implements Iterable
 		return list;
 	}
 	
-	public NovaObject firstWhere(boolean func)
+	public NovaObject firstWhere(NovaUtilities.Function1<Type, Bool> func)
 	{
 		Iterator nova_local_0;
 		NovaObject element;
@@ -203,7 +203,7 @@ public class List implements Iterable
 		while (nova_local_0.hasNext())
 		{
 			element = nova_local_0.next();
-			if (func(element))
+			if (func.call(element))
 			{
 				return element;
 			}
@@ -211,7 +211,25 @@ public class List implements Iterable
 		return null;
 	}
 	
-	public NovaArray zip(List other, NovaObject zipper)
+	public NovaObject firstNonNull(NovaUtilities.Function1<Type, Out> func)
+	{
+		Iterator nova_local_0;
+		NovaObject element;
+		nova_local_0 = (this).iterator();
+		while (nova_local_0.hasNext())
+		{
+			NovaObject value;
+			element = nova_local_0.next();
+			value = func.call(element);
+			if (value != null)
+			{
+				return value;
+			}
+		}
+		return null;
+	}
+	
+	public NovaArray zip(List other, NovaUtilities.Function2<Type, OtherType, Out> zipper)
 	{
 		Iterator i1;
 		Iterator i2;
@@ -221,38 +239,40 @@ public class List implements Iterable
 		array = new NovaArray();
 		while (i1.hasNext() && i2.hasNext())
 		{
-			array.add(zipper(i1.next(), i2.next()));
+			array.add(zipper.call(i1.next(), i2.next()));
 		}
 		return array;
 	}
 	
 	
-	public NovaString join(NovaString delimiter)
+	public NovaObject reduce(NovaUtilities.Function4<Out, Type, Int, List, Out> func, NovaObject initialValue)
 	{
-		NovaString str;
-		boolean passed;
+		NovaObject value;
+		int i;
 		Iterator nova_local_0;
 		NovaObject element;
-		str = new NovaString("");
-		passed = false;
+		value = initialValue;
+		i = 0;
 		nova_local_0 = (this).iterator();
 		while (nova_local_0.hasNext())
 		{
 			element = nova_local_0.next();
-			if (passed)
-			{
-				str = str.concat(delimiter);
-			}
-			else
-			{
-				passed = true;
-			}
-			str = str.concat(element.toString());
+			value = func.call(value, element, i++, this);
 		}
-		return str;
+		return value;
 	}
 	
-	private static boolean testLambda18(NovaObject _1)
+	public NovaString join(NovaString delimiter)
+	{
+		return reduce(testLambda5, new NovaString(""));
+	}
+	
+	private static NovaString testLambda5(NovaObject str, NovaObject e, int i, List _4)
+	{
+		return str.toString().concat((i > 0 ? delimiter : new NovaString("")).concat(e.toString()));
+	}
+	
+	private static boolean testLambda33(NovaObject _1)
 	{
 		return _1 == value;
 	}

@@ -49,21 +49,6 @@ public class NovaByte extends Number implements Comparable, Integer
 		this.value = value;
 	}
 	
-	public static int numDigits(byte number)
-	{
-		return NovaLong.numDigits(number);
-	}
-	
-	public static NovaString toString(byte value)
-	{
-		return NovaLong.toString(value);
-	}
-	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
 	public byte compareTo(byte other)
 	{
 		return value - other;
@@ -72,6 +57,21 @@ public class NovaByte extends Number implements Comparable, Integer
 	public byte multiply(byte value)
 	{
 		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
+	}
+	
+	public static int numDigits(byte number)
+	{
+		return NovaLong.numDigits(number);
+	}
+	
+	public static NovaString toString(byte value)
+	{
+		return NovaLong.toString(value);
 	}
 	
 }

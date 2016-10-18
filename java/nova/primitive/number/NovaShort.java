@@ -49,21 +49,6 @@ public class NovaShort extends Number implements Comparable, Integer
 		this.value = value;
 	}
 	
-	public static int numDigits(short number)
-	{
-		return NovaLong.numDigits(number);
-	}
-	
-	public static NovaString toString(short value)
-	{
-		return NovaLong.toString(value);
-	}
-	
-	public NovaString toString()
-	{
-		return toString(value);
-	}
-	
 	public short compareTo(short other)
 	{
 		return value - other;
@@ -72,6 +57,21 @@ public class NovaShort extends Number implements Comparable, Integer
 	public short multiply(short value)
 	{
 		return this.value * value;
+	}
+	
+	public NovaString toString()
+	{
+		return toString(value);
+	}
+	
+	public static int numDigits(short number)
+	{
+		return NovaLong.numDigits(number);
+	}
+	
+	public static NovaString toString(short value)
+	{
+		return NovaLong.toString(value);
 	}
 	
 }

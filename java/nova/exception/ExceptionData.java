@@ -63,8 +63,7 @@ public class ExceptionData extends NovaObject
 		data = this;
 		for (;;)
 		{
-			void contextArg19;
-			if (data.codes.any(testLambda19) || data.parent == null)
+			if (data.codes.any(testLambda34) || data.parent == null)
 			{
 				return data;
 			}
@@ -89,7 +88,7 @@ public class ExceptionData extends NovaObject
 		jump(data.buf, code);
 	}
 	
-	private static boolean testLambda19(int _1)
+	private static boolean testLambda34(int _1)
 	{
 		return _1 == code;
 	}

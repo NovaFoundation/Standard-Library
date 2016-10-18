@@ -77,11 +77,7 @@ public class NovaArray extends NovaObject implements List
 	
 	public NovaObject accessor_first()
 	{
-		if (count > 0)
-		{
-			return data[0];
-		}
-		return null;
+		return count > 0 ? this.get(0) : null;
 	}
 	
 	private NovaObject mutator_first()
@@ -90,11 +86,11 @@ public class NovaArray extends NovaObject implements List
 	
 	public NovaObject accessor_last()
 	{
-		if (count > 0)
-		{
-			return data[count - 1];
-		}
-		return null;
+		return count > 0 ? this.get(count - 1) : null;
+	}
+	
+	private NovaObject mutator_last()
+	{
 	}
 	
 	
@@ -136,7 +132,7 @@ public class NovaArray extends NovaObject implements List
 	{
 		ArrayIterator nova_local_0;
 		NovaObject d;
-		nova_local_0 = (data).iterator();
+		nova_local_0 = (data).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			d = nova_local_0.accessor_next();
@@ -156,7 +152,7 @@ public class NovaArray extends NovaObject implements List
 		return this;
 	}
 	
-	public void add(int index, NovaObject element)
+	public NovaArray add(int index, NovaObject element)
 	{
 		if (index >= capacity)
 		{
@@ -170,6 +166,7 @@ public class NovaArray extends NovaObject implements List
 			position = index + 1;
 		}
 		count = NovaMath.max(position, count);
+		return this;
 	}
 	
 	public NovaObject remove(int index)
@@ -198,7 +195,7 @@ public class NovaArray extends NovaObject implements List
 		ArrayIterator nova_local_0;
 		NovaObject e;
 		i = 0;
-		nova_local_0 = (this).iterator();
+		nova_local_0 = (this).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			e = nova_local_0.accessor_next();
@@ -211,7 +208,7 @@ public class NovaArray extends NovaObject implements List
 		return -1;
 	}
 	
-	private void shiftRight(int left, int right)
+	private NovaArray shiftRight(int left, int right)
 	{
 		int i;
 		i = right - 1;
@@ -221,9 +218,10 @@ public class NovaArray extends NovaObject implements List
 			i--;
 		}
 		data[left] = null;
+		return this;
 	}
 	
-	private void shiftLeft(int left, int right)
+	private NovaArray shiftLeft(int left, int right)
 	{
 		int i;
 		left--;
@@ -234,34 +232,28 @@ public class NovaArray extends NovaObject implements List
 			data[i] = data[i + 1];
 		}
 		data[right] = null;
+		return this;
 	}
 	
-	public void swap(int index1, int index2)
+	public NovaArray swap(int index1, int index2)
 	{
 		NovaObject temp;
 		temp = data[index1];
 		data[index1] = data[index2];
 		data[index2] = temp;
+		return this;
 	}
 	
-	private void increaseSize()
+	private NovaArray increaseSize()
 	{
 		increaseSize(capacity + 3);
+		return this;
 	}
 	
-	private void increaseSize(int count)
+	private NovaArray increaseSize(int count)
 	{
 		NovaObject[] tmp;
-	}
-	
-	public NovaObject get(int index)
-	{
-		return data[index];
-	}
-	
-	public void set(int index, NovaObject value)
-	{
-		data[index] = value;
+		return this;
 	}
 	
 	public NovaArray toArray()
@@ -277,7 +269,7 @@ public class NovaArray extends NovaObject implements List
 		return array;
 	}
 	
-	public NovaArray map(NovaObject mapFunc)
+	public NovaArray map(NovaUtilities.Function3<E, Int, Array, Out> mapFunc)
 	{
 		NovaArray array;
 		int i;
@@ -285,26 +277,27 @@ public class NovaArray extends NovaObject implements List
 		NovaObject element;
 		array = new NovaArray(count);
 		i = 0;
-		nova_local_0 = (this).iterator();
+		nova_local_0 = (this).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public void forEach(void func)
+	public NovaArray forEach(NovaUtilities.Consumer3<E, Int, Array> func)
 	{
 		int i;
 		i = (int)0;
 		for (; i < (int)count; i++)
 		{
-			func(data[i], i, this);
+			func.call(data[i], i, this);
 		}
+		return this;
 	}
 	
-	public NovaArray filter(boolean filterFunc)
+	public NovaArray filter(NovaUtilities.Function3<E, Int, Array, Bool> filterFunc)
 	{
 		NovaArray filtered;
 		int i;
@@ -312,11 +305,11 @@ public class NovaArray extends NovaObject implements List
 		NovaObject element;
 		filtered = new NovaArray();
 		i = 0;
-		nova_local_0 = (this).iterator();
+		nova_local_0 = (this).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (filterFunc(element, i++, this))
+			if (filterFunc.call(element, i++, this))
 			{
 				filtered.add(element);
 			}
@@ -357,7 +350,7 @@ public class NovaArray extends NovaObject implements List
 		ArrayIterator nova_local_0;
 		NovaObject value;
 		sum = 0;
-		nova_local_0 = (this).iterator();
+		nova_local_0 = (this).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			value = nova_local_0.accessor_next();
@@ -374,7 +367,7 @@ public class NovaArray extends NovaObject implements List
 		NovaObject element;
 		array = new NovaArray(count);
 		i = 0;
-		nova_local_0 = (this).iterator();
+		nova_local_0 = (this).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
@@ -386,6 +379,17 @@ public class NovaArray extends NovaObject implements List
 	public NovaString toString()
 	{
 		return new NovaString("Array [").concat((join(new NovaString(", "))).concat(new NovaString("]")));
+	}
+	
+	public NovaObject get(int index)
+	{
+		return data[index];
+	}
+	
+	public NovaObject set(int index, NovaObject value)
+	{
+		data[index] = value;
+		return value;
 	}
 	
 }

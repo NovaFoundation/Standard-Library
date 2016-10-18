@@ -46,9 +46,9 @@ public class Thread extends NovaObject
 	
 	
 	
-	public void start()
+	public NOVA_THREAD_HANDLE start()
 	{
-		handle = create_thread(this, startRun);
+		return handle = create_thread(this, startRun);
 	}
 	
 	public void join()

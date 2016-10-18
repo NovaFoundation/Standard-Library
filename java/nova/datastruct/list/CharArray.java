@@ -63,11 +63,7 @@ public class CharArray extends NovaArray
 	
 	public char accessor_first()
 	{
-		if (count > 0)
-		{
-			return data[0];
-		}
-		return 0;
+		return count > 0 ? this.get(0) : (char)0;
 	}
 	
 	private char mutator_first()
@@ -76,24 +72,16 @@ public class CharArray extends NovaArray
 	
 	public char accessor_last()
 	{
-		if (count > 0)
-		{
-			return data[count - 1];
-		}
-		return 0;
+		return count > 0 ? this.get(count - 1) : (char)0;
+	}
+	
+	private char mutator_last()
+	{
 	}
 	
 	public long accessor_hashCodeLong()
 	{
-		long hash;
-		int i;
-		hash = 0;
-		i = (int)0;
-		for (; i < (int)count; i++)
-		{
-			hash = 31 * hash + (int)get(i);
-		}
-		return hash;
+		return reduce(testLambda6, 0);
 	}
 	
 	private long mutator_hashCodeLong()
@@ -110,22 +98,51 @@ public class CharArray extends NovaArray
 		init(count);
 	}
 	
-	public char get(int index)
-	{
-		return ((char[])data)[index];
-	}
-	
-	public void set(int index, char value)
-	{
-		((char[])data)[index] = value;
-	}
-	
 	public void init(char[] data, int count)
 	{
 		init(data, count);
 	}
 	
-	public NovaArray map(NovaObject mapFunc)
+	public long sum(NovaUtilities.Function4<Char, Int, CharArray, Long, Long> func)
+	{
+		long sum;
+		int i;
+		CharArrayIterator nova_local_0;
+		char value;
+		sum = 0;
+		i = 0;
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
+		{
+			value = nova_local_0.accessor_next();
+			sum += func.call(value, i++, this, sum);
+		}
+		return sum;
+	}
+	
+	public long reduce(NovaUtilities.Function4<Long, Char, Int, CharArray, Long> func, long initialValue)
+	{
+		long value;
+		int i;
+		CharArrayIterator nova_local_0;
+		char element;
+		value = initialValue;
+		i = 0;
+		nova_local_0 = (this).accessor_iterator();
+		while (nova_local_0.accessor_hasNext())
+		{
+			element = nova_local_0.accessor_next();
+			value = func.call(value, element, i++, this);
+		}
+		return value;
+	}
+	
+	public boolean contains(char value)
+	{
+		return any(testLambda31);
+	}
+	
+	public NovaArray map(NovaUtilities.Function3<Char, Int, CharArray, Out> mapFunc)
 	{
 		NovaArray array;
 		int i;
@@ -137,22 +154,23 @@ public class CharArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			array.add(mapFunc(element, i++, this));
+			array.add(mapFunc.call(element, i++, this));
 		}
 		return array;
 	}
 	
-	public void forEach(void func)
+	public CharArray forEach(NovaUtilities.Consumer3<Char, Int, CharArray> func)
 	{
 		int i;
 		i = (int)0;
 		for (; i < (int)count; i++)
 		{
-			func((char)get(i), i, this);
+			func.call((char)get(i), i, this);
 		}
+		return this;
 	}
 	
-	public boolean any(boolean anyFunc)
+	public boolean any(NovaUtilities.Function1<Char, Bool> anyFunc)
 	{
 		CharArrayIterator nova_local_0;
 		char element;
@@ -160,7 +178,7 @@ public class CharArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (anyFunc(element))
+			if (anyFunc.call(element))
 			{
 				return true;
 			}
@@ -168,7 +186,7 @@ public class CharArray extends NovaArray
 		return false;
 	}
 	
-	public boolean all(boolean allFunc)
+	public boolean all(NovaUtilities.Function1<Char, Bool> allFunc)
 	{
 		CharArrayIterator nova_local_0;
 		char element;
@@ -176,7 +194,7 @@ public class CharArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (!allFunc(element))
+			if (!allFunc.call(element))
 			{
 				return false;
 			}
@@ -184,7 +202,7 @@ public class CharArray extends NovaArray
 		return true;
 	}
 	
-	public CharArray filter(boolean filterFunc)
+	public CharArray filter(NovaUtilities.Function3<Char, Int, CharArray, Bool> filterFunc)
 	{
 		CharArray filtered;
 		int i;
@@ -196,7 +214,7 @@ public class CharArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (filterFunc(element, i++, this))
+			if (filterFunc.call(element, i++, this))
 			{
 				filtered.add(element);
 			}
@@ -234,7 +252,7 @@ public class CharArray extends NovaArray
 		return list;
 	}
 	
-	public char firstWhere(boolean func)
+	public char firstWhere(NovaUtilities.Function1<Char, Bool> func)
 	{
 		CharArrayIterator nova_local_0;
 		char element;
@@ -242,7 +260,7 @@ public class CharArray extends NovaArray
 		while (nova_local_0.accessor_hasNext())
 		{
 			element = nova_local_0.accessor_next();
-			if (func(element))
+			if (func.call(element))
 			{
 				return element;
 			}
@@ -265,6 +283,27 @@ public class CharArray extends NovaArray
 			array.set(count - ++i, element);
 		}
 		return array;
+	}
+	
+	public char get(int index)
+	{
+		return ((char[])data)[index];
+	}
+	
+	public char set(int index, char value)
+	{
+		((char[])data)[index] = value;
+		return value;
+	}
+	
+	private static long testLambda6(long v, char c, int i, CharArray a)
+	{
+		return 31 * v + (int)c;
+	}
+	
+	private static boolean testLambda31(char _1)
+	{
+		return _1 == value;
 	}
 	
 }

@@ -58,34 +58,32 @@ public class HashSet extends NovaObject implements List
 	
 	public void init(int bucketCount, int bucketSize)
 	{
-		void contextArg11;
-		buckets = new NovaArray(bucketCount).map(testLambda11);
+		buckets = new NovaArray(bucketCount).map(testLambda25);
 		this.bucketSize = bucketSize;
 	}
 	
 	public NovaArray toArray()
 	{
-		void contextArg7;
-		return map(testLambda7);
+		return map(testLambda21);
 	}
 	
-	public boolean any(boolean func)
+	public boolean any(NovaUtilities.Function1<T, Bool> func)
 	{
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
-					if (func(v))
+					if (func.call(v))
 					{
 						return true;
 					}
@@ -95,23 +93,23 @@ public class HashSet extends NovaObject implements List
 		return false;
 	}
 	
-	public boolean all(boolean func)
+	public boolean all(NovaUtilities.Function1<T, Bool> func)
 	{
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
-					if (!func(v))
+					if (!func.call(v))
 					{
 						return false;
 					}
@@ -121,7 +119,7 @@ public class HashSet extends NovaObject implements List
 		return true;
 	}
 	
-	public NovaArray map(NovaObject func)
+	public NovaArray map(NovaUtilities.Function3<T, Int, HashSet, Out> func)
 	{
 		NovaArray array;
 		int i;
@@ -129,26 +127,26 @@ public class HashSet extends NovaObject implements List
 		NovaArray bucket;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
-					array.add(func(v, i++, this));
+					array.add(func.call(v, i++, this));
 				}
 			}
 		}
 		return array;
 	}
 	
-	public NovaArray filter(boolean func)
+	public NovaArray filter(NovaUtilities.Function3<T, Int, HashSet, Bool> func)
 	{
 		NovaArray array;
 		int i;
@@ -156,19 +154,19 @@ public class HashSet extends NovaObject implements List
 		NovaArray bucket;
 		array = new NovaArray();
 		i = 0;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
-					if (func(v, i++, this))
+					if (func.call(v, i++, this))
 					{
 						array.add(v);
 					}
@@ -186,13 +184,13 @@ public class HashSet extends NovaObject implements List
 		NovaArray bucket;
 		i = 0;
 		output = new NovaString("");
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
@@ -209,41 +207,38 @@ public class HashSet extends NovaObject implements List
 		return output;
 	}
 	
-	public NovaObject skip(int num)
+	public NovaArray skip(int num)
 	{
-		void contextArg8;
-		return map(testLambda8).skip(num);
+		return map(testLambda22).skip(num);
 	}
 	
-	public NovaObject take(int num)
+	public NovaArray take(int num)
 	{
-		void contextArg9;
-		return map(testLambda9).take(num);
+		return map(testLambda23).take(num);
 	}
 	
 	public NovaArray reverse()
 	{
-		void contextArg10;
-		return map(testLambda10).reverse();
+		return map(testLambda24).reverse();
 	}
 	
-	public NovaObject firstWhere(boolean func)
+	public NovaObject firstWhere(NovaUtilities.Function1<T, Bool> func)
 	{
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
-					if (func(v))
+					if (func.call(v))
 					{
 						return v;
 					}
@@ -253,28 +248,29 @@ public class HashSet extends NovaObject implements List
 		return null;
 	}
 	
-	public void forEach(void func)
+	public HashSet forEach(NovaUtilities.Consumer3<T, Int, HashSet> func)
 	{
 		int i;
 		ArrayIterator nova_local_0;
 		NovaArray bucket;
 		i = 0;
-		nova_local_0 = (buckets).iterator();
+		nova_local_0 = (buckets).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			ArrayIterator nova_local_1;
 			NovaObject v;
 			bucket = nova_local_0.accessor_next();
-			nova_local_1 = (bucket).iterator();
+			nova_local_1 = (bucket).accessor_iterator();
 			while (nova_local_1.accessor_hasNext())
 			{
 				v = nova_local_1.accessor_next();
 				if (v != null)
 				{
-					func(v, i++, this);
+					func.call(v, i++, this);
 				}
 			}
 		}
+		return this;
 	}
 	
 	private NovaArray getBucket(NovaObject value)
@@ -292,7 +288,7 @@ public class HashSet extends NovaObject implements List
 	{
 		ArrayIterator nova_local_0;
 		NovaObject v;
-		nova_local_0 = (getBucket(value)).iterator();
+		nova_local_0 = (getBucket(value)).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			v = nova_local_0.accessor_next();
@@ -312,7 +308,7 @@ public class HashSet extends NovaObject implements List
 		NovaObject v;
 		bucket = getBucket(value);
 		i = 0;
-		nova_local_0 = (bucket).iterator();
+		nova_local_0 = (bucket).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			v = nova_local_0.accessor_next();
@@ -336,27 +332,27 @@ public class HashSet extends NovaObject implements List
 		return new NovaString("HashSet [").concat((join(new NovaString(", "))).concat(new NovaString("]")));
 	}
 	
-	private static NovaObject testLambda7(NovaObject _1, int _2, HashSet _3)
+	private static NovaObject testLambda21(NovaObject _1, int _2, HashSet _3)
 	{
 		return _1;
 	}
 	
-	private static NovaObject testLambda8(NovaObject _1, int _2, HashSet _3)
+	private static NovaObject testLambda22(NovaObject _1, int _2, HashSet _3)
 	{
 		return _1;
 	}
 	
-	private static NovaObject testLambda9(NovaObject _1, int _2, HashSet _3)
+	private static NovaObject testLambda23(NovaObject _1, int _2, HashSet _3)
 	{
 		return _1;
 	}
 	
-	private static NovaObject testLambda10(NovaObject _1, int _2, HashSet _3)
+	private static NovaObject testLambda24(NovaObject _1, int _2, HashSet _3)
 	{
 		return _1;
 	}
 	
-	private static NovaObject testLambda11(NovaArray _1, int _2, NovaArray _3)
+	private static NovaObject testLambda25(NovaArray _1, int _2, NovaArray _3)
 	{
 		return new NovaArray(bucketSize);
 	}

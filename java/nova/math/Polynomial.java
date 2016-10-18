@@ -81,26 +81,12 @@ public class Polynomial extends NovaObject
 	
 	private static boolean isSymbol(char c)
 	{
-		return contains(SYMBOLS_CHARS, c);
+		return SYMBOLS_CHARS.contains(c);
 	}
 	
 	private static boolean isWhitespace(char c)
 	{
-		return contains(WHITESPACE_CHARS, c);
-	}
-	
-	private static boolean contains(CharArray array, char c)
-	{
-		int i;
-		i = (int)0;
-		for (; i < (int)array.count; i++)
-		{
-			if (c == array.data[i])
-			{
-				return true;
-			}
-		}
-		return false;
+		return WHITESPACE_CHARS.contains(c);
 	}
 	
 	private static CharArray generated6()

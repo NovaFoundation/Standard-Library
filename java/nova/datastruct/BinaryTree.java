@@ -50,10 +50,10 @@ public class BinaryTree extends Tree
 		return ((Tree)this).root;
 	}
 	
-	public BinaryNode mutator_root(BinaryNode node)
+	public BinaryNode mutator_root(BinaryNode value)
 	{
-		((Tree)this).root = node;
-		return node;
+		((Tree)this).root = value;
+		return value;
 	}
 	
 	public void init(NovaArray data)
@@ -78,7 +78,7 @@ public class BinaryTree extends Tree
 	{
 		ArrayIterator nova_local_0;
 		Comparable d;
-		nova_local_0 = (data).iterator();
+		nova_local_0 = (data).accessor_iterator();
 		while (nova_local_0.accessor_hasNext())
 		{
 			d = nova_local_0.accessor_next();

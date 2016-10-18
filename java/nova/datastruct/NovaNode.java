@@ -67,9 +67,8 @@ public class NovaNode extends NovaObject
 	
 	private void preorder(NovaArray array)
 	{
-		void contextArg12;
 		array.add(data);
-		children.filter(notNull).forEach(testLambda12);
+		children.filter(notNull).forEach(testLambda26);
 	}
 	
 	public NovaArray inorder()
@@ -82,12 +81,10 @@ public class NovaNode extends NovaObject
 	private NovaArray inorder(NovaArray array)
 	{
 		int half;
-		void contextArg13;
-		void contextArg14;
 		half = NovaMath.ceil(children.count / 2.0);
-		children.take(half).filter(notNull).forEach(testLambda13);
+		children.take(half).filter(notNull).forEach(testLambda27);
 		array.add(data);
-		children.skip(half).filter(notNull).forEach(testLambda14);
+		children.skip(half).filter(notNull).forEach(testLambda28);
 		return array;
 	}
 	
@@ -100,8 +97,7 @@ public class NovaNode extends NovaObject
 	
 	private NovaArray postorder(NovaArray array)
 	{
-		void contextArg15;
-		children.filter(notNull).forEach(testLambda15);
+		children.filter(notNull).forEach(testLambda29);
 		array.add(data);
 		return array;
 	}
@@ -116,14 +112,13 @@ public class NovaNode extends NovaObject
 	private NovaArray levelorder(NovaArray array)
 	{
 		Queue queue;
-		queue = new Queue(generated9());
+		queue = new Queue(generated10());
 		while (!queue.accessor_empty())
 		{
 			NovaNode current;
-			void contextArg16;
 			current = queue.dequeue();
 			array.add(current.data);
-			current.children.filter(notNull).forEach(testLambda16);
+			current.children.filter(notNull).forEach(testLambda30);
 		}
 		return array;
 	}
@@ -133,27 +128,27 @@ public class NovaNode extends NovaObject
 		return data.toString();
 	}
 	
-	private static void testLambda12(NovaNode _1, int _2, NovaArray _3)
+	private static void testLambda26(NovaNode _1, int _2, NovaArray _3)
 	{
 		_1.preorder(array);
 	}
 	
-	private static void testLambda13(NovaNode _1, int _2, NovaArray _3)
+	private static void testLambda27(NovaNode _1, int _2, NovaArray _3)
 	{
 		_1.inorder(array);
 	}
 	
-	private static void testLambda14(NovaNode _1, int _2, NovaArray _3)
+	private static void testLambda28(NovaNode _1, int _2, NovaArray _3)
 	{
 		_1.inorder(array);
 	}
 	
-	private static void testLambda15(NovaNode _1, int _2, NovaArray _3)
+	private static void testLambda29(NovaNode _1, int _2, NovaArray _3)
 	{
 		_1.postorder(array);
 	}
 	
-	private NovaArray generated9()
+	private NovaArray generated10()
 	{
 		NovaNode[] temp;
 		temp = new NovaNode[1];
@@ -161,7 +156,7 @@ public class NovaNode extends NovaObject
 		return new NovaArray(temp, 1);
 	}
 	
-	private static void testLambda16(NovaNode _1, int _2, NovaArray _3)
+	private static void testLambda30(NovaNode _1, int _2, NovaArray _3)
 	{
 		queue.enqueue(_1);
 	}
