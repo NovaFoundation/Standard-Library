@@ -191,12 +191,6 @@ nova_datastruct_Nova_Bounds* nova_datastruct_Nova_Bounds_Nova_clone(nova_datastr
 	return nova_datastruct_Nova_Bounds_1_Nova_construct(0, exceptionData, this->nova_datastruct_Nova_Bounds_Nova_start, this->nova_datastruct_Nova_Bounds_Nova_end);
 }
 
-int nova_datastruct_Nova_Bounds_Accessor_Nova_size(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return this->nova_datastruct_Nova_Bounds_Nova_end - this->nova_datastruct_Nova_Bounds_Nova_start;
-}
-
-
 char nova_datastruct_Nova_Bounds_Accessor_Nova_valid(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return (char)this->nova_datastruct_Nova_Bounds_Nova_start >= 0 && this->nova_datastruct_Nova_Bounds_Nova_end > 0;
@@ -212,6 +206,12 @@ char nova_datastruct_Nova_Bounds_Accessor_Nova_endless(nova_datastruct_Nova_Boun
 char nova_datastruct_Nova_Bounds_Accessor_Nova_optional(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return this->nova_datastruct_Nova_Bounds_Nova_start == 0;
+}
+
+
+int nova_datastruct_Nova_Bounds_Accessor_Nova_size(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return this->nova_datastruct_Nova_Bounds_Nova_end - this->nova_datastruct_Nova_Bounds_Nova_start;
 }
 
 

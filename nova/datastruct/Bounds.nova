@@ -16,10 +16,7 @@ public class Bounds {
      * 
      * @return The size of the Bounds.
      */
-    visible Int size //<=> end - start {
-        get { return end - start }
-        no set
-    }
+    visible Int size => end - start
     
     /**
      * Get whether or not the bounds are positive and that they have

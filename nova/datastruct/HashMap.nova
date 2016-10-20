@@ -134,7 +134,8 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     [Override]
     public firstWhere(func(Pair<K, V>) -> Bool) -> Pair<K, V>//=>
-    //buckets.firstNonNull({ _.firstWhere(pair -> pair != null && pair != 0 && func(pair)) }) {
+    //buckets.firstNonNull({ _.firstWhere(pair -> pair != null && pair != 0 && func(pair)) })
+    {
         for (bucket in buckets) {
             for (pair in bucket) {
                 if (pair != null && pair != 0 && func(pair)) {

@@ -1,18 +1,9 @@
 package "nova/datastruct/list"
 
 public class Queue<E> {
-    visible Int size {
-        get {
-            return data.position
-        }
-        
-        no set
-    }
+    visible Int size => data.position
     
-    visible Bool empty //=> size <= 0 {
-        get { return size <= 0 }
-        no set
-    }
+    visible Bool empty => size <= 0
     
     E[] data
     
