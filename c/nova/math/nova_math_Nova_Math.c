@@ -121,12 +121,12 @@ long_long nova_math_Nova_Math_static_Nova_random(nova_math_Nova_Math* this, nova
 
 long_long nova_math_Nova_Math_0_static_Nova_abs(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_math_Nova_Math_Nova_number)
 {
-	return llabs(nova_math_Nova_Math_Nova_number);
+	return (long_long)(nova_math_Nova_Math_Nova_number < 0 ? -nova_math_Nova_Math_Nova_number : nova_math_Nova_Math_Nova_number);
 }
 
 double nova_math_Nova_Math_1_static_Nova_abs(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
 {
-	return fabs(nova_math_Nova_Math_Nova_number);
+	return (double)(nova_math_Nova_Math_Nova_number < 0 ? -nova_math_Nova_Math_Nova_number : nova_math_Nova_Math_Nova_number);
 }
 
 double nova_math_Nova_Math_static_Nova_sqrt(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)

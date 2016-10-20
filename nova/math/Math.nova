@@ -37,8 +37,8 @@ class Math {
     public static min(Long a, Long b) => a < b ? a : b
     public static sign(Long num) => num > 0 ? 1 : (num < 0 ? -1 : 0)
     public static random(Long range) => extRand() % range
-    public static abs(Long number) => extAbs(number)
-    public static abs(Double number) => extFabs(number)
+    public static abs(Long number) => number < 0 ? -number : number
+    public static abs(Double number) => number < 0 ? -number : number
     public static sqrt(Double number) => extSqrt(number)
     public static pow(Double base, Double power) => extPow(base, power)
     public static sin(Double number) => extSin(number)
