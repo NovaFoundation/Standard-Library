@@ -2,7 +2,7 @@ package "nova/datastruct"
 
 import "nova/datastruct/list/List"
 
-public class HashMap<K, V> implements List<Pair<K, V>>
+class HashMap<K, V> implements List<Pair<K, V>>
 {
 	Pair<K, V>[][] buckets
 	
@@ -40,12 +40,9 @@ public class HashMap<K, V> implements List<Pair<K, V>>
         {
             for (pair in bucket)
             {
-                if (pair != null && pair != 0)
+                if (pair != null && pair != 0 && func(pair))
                 {
-                    if (func(pair))
-                    {
-                        return true
-                    }
+                    return true
                 }
             }
         }
@@ -60,12 +57,9 @@ public class HashMap<K, V> implements List<Pair<K, V>>
         {
             for (pair in bucket)
             {
-                if (pair != null && pair != 0)
+                if (pair != null && pair != 0 && !func(pair))
                 {
-                    if (!func(pair))
-                    {
-                        return false
-                    }
+                    return false
                 }
             }
         }
@@ -105,12 +99,9 @@ public class HashMap<K, V> implements List<Pair<K, V>>
         {
             for (pair in bucket)
             {
-                if (pair != null && pair != 0)
+                if (pair != null && pair != 0 && func(pair, i++, this))
                 {
-                    if (func(pair, i++, this))
-                    {
-                        array.add(pair)
-                    }
+                    array.add(pair)
                 }
             }
         }
@@ -144,14 +135,9 @@ public class HashMap<K, V> implements List<Pair<K, V>>
         return output
 	}
 	
-	[Override]
-	public skip(Int num) => map({ _ }).skip(num)
-	
-	[Override]
-	public take(Int num) => map({ _ }).take(num)
-	
-	[Override]
-	public reverse() => map({ _ }).reverse()
+	[Override] public skip(Int num) => map({ _ }).skip(num)
+	[Override] public take(Int num) => map({ _ }).take(num)
+	[Override] public reverse() => map({ _ }).reverse()
 	
 	[Override]
 	public firstWhere(func(Pair<K, V>) -> Bool) -> Pair<K, V>
@@ -160,12 +146,9 @@ public class HashMap<K, V> implements List<Pair<K, V>>
         {
             for (pair in bucket)
             {
-                if (pair != null && pair != 0)
+                if (pair != null && pair != 0 && func(pair))
                 {
-                    if (func(pair))
-                    {
-                        return pair
-                    }
+                    return pair
                 }
             }
         }
@@ -257,8 +240,5 @@ public class HashMap<K, V> implements List<Pair<K, V>>
 		return null
 	}
 	
-	public containsKey(K key) -> Bool
-	{
-		return getPair(key) != null
-	}
+	public containsKey(K key) => getPair(key) != null
 }
