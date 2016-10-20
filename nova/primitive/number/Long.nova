@@ -3,68 +3,68 @@ package "nova/primitive/number"
 import "nova/datastruct/Comparable"
 
 class Long extends Number implements Comparable<Long>, Integer {
-	Long value
-	
-	visible static Long MAX_VALUE =  9223372036854775807
-	visible static Long MIN_VALUE = -9223372036854775808
-	
-	construct(Long value) => this.value = value
-	
-	public static numDigits(Long number) -> Int {
-		Int size = number < 0 ? 2 : 1 
-		
-		number /= 10
-		
-		while (number != 0) {
-			number /= 10
-			
-			size++
-		}
-		
-		return size
-	}
-	
-	[Target js]
-	public static toString(Long value) => new String(toCharArray(value))
-	
-	[PrimitiveArray]
-	[Target js]
-	public static toCharArray(Long value) -> Char[] {
-		external js {
-			return #{value}.toString();
-		}
-	}
-	
-	[Target not js]
-	public static toString(Long value) -> String {
-		Int charOffset = '0'
-		Int digits = numDigits(value)
-		
-		[PrimitiveArray]
-		Char[] data = new Char[digits + 1]
-		
-		data[digits] = '\0'
-		
-		Int  offset  = 0
-		
-		if (value < 0) {
-			data[0] = '-'
-			
-			offset = 1
-		}
-		
-		Int nums = digits-- - offset
-		
-		for (index in 0..nums) {
-			data[digits - index] = (Char)(charOffset + Math.abs(value % 10))
-			
-			value = value / 10
-		}
-		
-		return new String(data)
-	}
-	
-	public compareTo(Long other) => value - other
-	public multiply(Long value) => this.value * value
-	public toString() => toString(value)
+    Long value
+    
+    visible static Long MAX_VALUE =  9223372036854775807
+    visible static Long MIN_VALUE = -9223372036854775808
+    
+    construct(Long value) => this.value = value
+    
+    public static numDigits(Long number) -> Int {
+        Int size = number < 0 ? 2 : 1 
+        
+        number /= 10
+        
+        while (number != 0) {
+            number /= 10
+            
+            size++
+        }
+        
+        return size
+    }
+    
+    [Target js]
+    public static toString(Long value) => new String(toCharArray(value))
+    
+    [PrimitiveArray]
+    [Target js]
+    public static toCharArray(Long value) -> Char[] {
+        external js {
+            return #{value}.toString();
+        }
+    }
+    
+    [Target not js]
+    public static toString(Long value) -> String {
+        Int charOffset = '0'
+        Int digits = numDigits(value)
+        
+        [PrimitiveArray]
+        Char[] data = new Char[digits + 1]
+        
+        data[digits] = '\0'
+        
+        Int  offset  = 0
+        
+        if (value < 0) {
+            data[0] = '-'
+            
+            offset = 1
+        }
+        
+        Int nums = digits-- - offset
+        
+        for (index in 0..nums) {
+            data[digits - index] = (Char)(charOffset + Math.abs(value % 10))
+            
+            value = value / 10
+        }
+        
+        return new String(data)
+    }
+    
+    public compareTo(Long other) => value - other
+    public multiply(Long value) => this.value * value
+    public toString() => toString(value)
 }

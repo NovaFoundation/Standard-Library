@@ -1,6 +1,5 @@
 package "nova/datastruct/list"
 
-public class CompiledList<Type>
-{
-	
+public class CompiledList<Type> {
+    
 }

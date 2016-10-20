@@ -1,31 +1,21 @@
 package "nova/datastruct"
 
-public class BinaryTree<E extends Comparable> extends Tree<E>
-{
-	public BinaryNode<E> root <=> (BinaryNode)super.root
-	
-	public construct(Comparable[] data)
-	{
-	    addNodes(data)
-	}
-	
-	public addNode(Comparable data) => this
-	{
-		if (root == null)
-		{
-			root = new BinaryNode(data)
-		}
-		else
-		{
-			root.addChild(data)
-		}
-	}
-	
-	public addNodes(Comparable[] data) => this
-	{
-	    for (d in data)
-	    {
-	        addNode(d)
-	    }
-	}
+class BinaryTree<E extends Comparable> extends Tree<E> {
+    public BinaryNode<E> root <=> (BinaryNode)super.root
+    
+    public construct(Comparable[] data) {
+        addNodes(data)
+    }
+    
+    public addNode(Comparable data) => this {
+        if (root == null) {
+            root = new BinaryNode(data)
+        } else {
+            root.addChild(data)
+        }
+    }
+    
+    public addNodes(Comparable[] data) => this {
+        data.forEach({ addNode(_) })
+    }
 }

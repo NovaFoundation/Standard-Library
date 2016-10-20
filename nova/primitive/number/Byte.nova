@@ -3,19 +3,19 @@ package "nova/primitive/number"
 import "nova/datastruct/Comparable"
 
 class Byte extends Number implements Comparable<Byte>, Integer {
-	Byte value
-	
-	construct(Byte value) => this.value = value
-	
-	public compareTo(Byte other) => value - other
-	public multiply(Byte value) => this.value * value
-	public toString() => toString(value)
-	
-	public static numDigits(Byte number) => Long.numDigits(number)
-	public static toString(Byte value) => Long.toString(value)
-	
-//	public static getHashCode(Byte value) => new String(hashCode(this))
-//	public static getHashCodeLong(Byte value) => strtol(hashCode(value), 0, 16)
-//	public static toString(Byte value) => "[Object @" + getHashCode(value) + "]"
-//	public static equals(Byte value, Byte another) => this == another
+    Byte value
+    
+    construct(Byte value) => this.value = value
+    
+    public compareTo(Byte other) => value - other
+    public multiply(Byte value) => this.value * value
+    public toString() => toString(value)
+    
+    public static numDigits(Byte number) => Long.numDigits(number)
+    public static toString(Byte value) => Long.toString(value)
+    
+//    public static getHashCode(Byte value) => new String(hashCode(this))
+//    public static getHashCodeLong(Byte value) => strtol(hashCode(value), 0, 16)
+//    public static toString(Byte value) => "[Object @" + getHashCode(value) + "]"
+//    public static equals(Byte value, Byte another) => this == another
 }

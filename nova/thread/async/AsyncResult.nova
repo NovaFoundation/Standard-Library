@@ -1,6 +1,5 @@
 package "nova/thread/async"
 
-public class AsyncResult
-{
+public class AsyncResult {
     
 }

@@ -2,108 +2,85 @@ package "nova/datastruct"
 
 import "nova/datastruct/list/List"
 
-public class HashSet<T> implements List<T>
-{
-	T[][] buckets
+public class HashSet<T> implements List<T> {
+    T[][] buckets
 
-	Int bucketSize
+    Int bucketSize
 
-	visible Int size
+    visible Int size
 
-	public construct()
-	{
-	    this(5, 5)
-	}
+    public construct() {
+        this(5, 5)
+    }
 
-	public construct(Int bucketCount, Int bucketSize)
-	{
-		buckets = new Array(bucketCount).map({ new Array<T>(bucketSize) })
+    public construct(Int bucketCount, Int bucketSize) {
+        buckets = new Array(bucketCount).map({ new Array<T>(bucketSize) })
 
-		this.bucketSize = bucketSize
-	}
+        this.bucketSize = bucketSize
+    }
 
-	[Override]
-	public toArray() -> T[]
-	{
-	    return map({ _ })
-	}
+    [Override]
+    public toArray() -> T[] {
+        return map({ _ })
+    }
 
-	[Override]
-	public any(func(T) -> Bool) -> Bool
-	{
-        for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
-                    if (func(v))
-                    {
+    [Override]
+    public any(func(T) -> Bool) -> Bool {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
+                    if (func(v)) {
                         return true
                     }
                 }
             }
         }
 
-	    return false
-	}
+        return false
+    }
 
-	[Override]
-	public all(func(T) -> Bool) -> Bool
-	{
-        for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
-                    if (!func(v))
-                    {
+    [Override]
+    public all(func(T) -> Bool) -> Bool {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
+                    if (!func(v)) {
                         return false
                     }
                 }
             }
         }
 
-	    return true
-	}
+        return true
+    }
 
-	[Override]
-	public map<Out>(func(T, Int, HashSet<T>) -> Out) -> Out[]
-	{
-	    Out[] array = new Array()
+    [Override]
+    public map<Out>(func(T, Int, HashSet<T>) -> Out) -> Out[] {
+        Out[] array = new Array()
         
-	    Int i = 0
+        Int i = 0
         
-        for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
                     array.add(func(v, i++, this))
                 }
             }
         }
         
         return array
-	}
+    }
 
-	[Override]
-	public filter(func(T, Int, HashSet<T>) -> Bool) -> T[]
-	{
-	    T[] array = new Array()
+    [Override]
+    public filter(func(T, Int, HashSet<T>) -> Bool) -> T[] {
+        T[] array = new Array()
         
-	    Int i = 0
+        Int i = 0
         
-        for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
-                    if (func(v, i++, this))
-                    {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
+                    if (func(v, i++, this)) {
                         array.add(v)
                     }
                 }
@@ -111,23 +88,18 @@ public class HashSet<T> implements List<T>
         }
 
         return array
-	}
+    }
 
-	[Override]
-	public join(String delimiter) -> String
-	{
-	    Int i = 0
+    [Override]
+    public join(String delimiter) -> String {
+        Int i = 0
 
-	    String output = ""
+        String output = ""
 
-	    for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
-                    if (i > 0)
-                    {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
+                    if (i > 0) {
                         output = output + delimiter
                     }
 
@@ -137,37 +109,29 @@ public class HashSet<T> implements List<T>
         }
 
         return output
-	}
+    }
 
-	[Override]
-	public skip(Int num) -> T[]
-	{
-	    return map({ _ }).skip(num)
-	}
+    [Override]
+    public skip(Int num) -> T[] {
+        return map({ _ }).skip(num)
+    }
 
-	[Override]
-	public take(Int num) -> T[]
-	{
-	    return map({ _ }).take(num)
-	}
+    [Override]
+    public take(Int num) -> T[] {
+        return map({ _ }).take(num)
+    }
 
-	[Override]
-	public reverse() -> T[]
-	{
-	    return map({ _ }).reverse()
-	}
+    [Override]
+    public reverse() -> T[] {
+        return map({ _ }).reverse()
+    }
 
-	[Override]
-	public firstWhere(func(T) -> Bool) -> T
-	{
-	    for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
-                    if (func(v))
-                    {
+    [Override]
+    public firstWhere(func(T) -> Bool) -> T {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
+                    if (func(v)) {
                         return v
                     }
                 }
@@ -175,89 +139,74 @@ public class HashSet<T> implements List<T>
         }
 
         return null
-	}
+    }
 
-	[Override]
-	public forEach(func(T, Int, HashSet<T>)) => this
-	{
-	    //HashSet<T> self = this
+    [Override]
+    public forEach(func(T, Int, HashSet<T>)) => this {
+        //HashSet<T> self = this
 
-	    /*buckets.forEach(
-	    {
-	        _.forEach(pair ->
-	        {
-                if (v != null)
-                {
+        /*buckets.forEach( {
+            _.forEach(pair -> {
+                if (v != null) {
                     func(v, i++, self)
                 }
             })
         })*/
 
-	    Int i = 0
+        Int i = 0
 
-        for (bucket in buckets)
-        {
-            for (v in bucket)
-            {
-                if (v != null)
-                {
+        for (bucket in buckets) {
+            for (v in bucket) {
+                if (v != null) {
                     func(v, i++, this)
                 }
             }
         }
-	}
+    }
 
-	getBucket(T value) -> T[]
-	{
-	    //return buckets[(Int)(value.hashCodeLong % buckets.count)]
-	    return buckets[(Int)(value.hashCodeLong & (buckets.count - 1))]
-	}
+    getBucket(T value) -> T[] {
+        //return buckets[(Int)(value.hashCodeLong % buckets.count)]
+        return buckets[(Int)(value.hashCodeLong & (buckets.count - 1))]
+    }
 
-	public add(T value) -> HashSet
-	{
-	    getBucket(value).add(value)
+    public add(T value) -> HashSet {
+        getBucket(value).add(value)
         
-		return this
-	}
+        return this
+    }
     
-	public get(T value) -> T
-	{
-	    //return getBucket(value).filter(x -> x != 0 && x != null && x.equals(value)).first
-	    
-	    for (v in getBucket(value))
-	    {
-	        if (v.equals(value))
-	        {
-	            return v
-	        }
-	    }
-	    
-	    return null
-	}
+    public get(T value) -> T {
+        //return getBucket(value).filter(x -> x != 0 && x != null && x.equals(value)).first
+        
+        for (v in getBucket(value)) {
+            if (v.equals(value)) {
+                return v
+            }
+        }
+        
+        return null
+    }
     
-	public remove(T value) -> T
-	{
-		T[] bucket = getBucket(value)
+    public remove(T value) -> T {
+        T[] bucket = getBucket(value)
         
-		Int i = 0
+        Int i = 0
         
-		for (v in bucket)
-		{
-		    if (v.equals(value))
-		    {
-		        bucket.remove(i)
+        for (v in bucket) {
+            if (v.equals(value)) {
+                bucket.remove(i)
                 
-		        return v
-		    }
+                return v
+            }
             
-		    i++
-		}
+            i++
+        }
         
-		return null
-	}
+        return null
+    }
     
     [Override]
-	public contains(T value) => get(value) != null
-	
-	public toString() => "HashSet [#{join(", ")}]"
+    public contains(T value) => get(value) != null
+    
+    public toString() => "HashSet [#{join(", ")}]"
 }

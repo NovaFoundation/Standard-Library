@@ -3,23 +3,22 @@ package "nova"
 import "nova/NativeObject.h"
 import "nova/operators/Equals"
 
-public class Object implements Equals
-{
-	external char[] hashCode(Object obj)
-	/*char** endptr*/
+public class Object implements Equals {
+    external char[] hashCode(Object obj)
+    /*char** endptr*/
 
-	external char* NULL
+    external char* NULL
 
-	external long strtol(char str[], char* a, int base)
-	
-	[Target c]
-	public String hashCode => new String(hashCode(this))
-	
-	[Target not c]
-	public String hashCode => new String("No hashcode available")
-	
-	public Long hashCodeLong => strtol(hashCode(this), NULL, 16)
-	
-	public equals(Object another) => this == another
-	public toString() => "[Object @#hashCode]"
+    external long strtol(char str[], char* a, int base)
+    
+    [Target c]
+    public String hashCode => new String(hashCode(this))
+    
+    [Target not c]
+    public String hashCode => new String("No hashcode available")
+    
+    public Long hashCodeLong => strtol(hashCode(this), NULL, 16)
+    
+    public equals(Object another) => this == another
+    public toString() => "[Object @#hashCode]"
 }

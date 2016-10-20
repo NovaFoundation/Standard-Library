@@ -38,7 +38,6 @@ typedef struct nova_datastruct_Nova_BinaryTree nova_datastruct_Nova_BinaryTree;
 #include <nova/datastruct/nova_datastruct_Nova_BinaryNode.h>
 #include <nova/datastruct/nova_datastruct_Nova_Comparable.h>
 #include <nova/datastruct/nova_datastruct_Nova_Tree.h>
-#include <nova/datastruct/list/nova_datastruct_list_Nova_ArrayIterator.h>
 #include <nova/datastruct/nova_datastruct_Nova_Node.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>

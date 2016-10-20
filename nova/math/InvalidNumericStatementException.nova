@@ -1,6 +1,5 @@
 package "nova/math"
 
-public class InvalidNumericStatementException extends Exception
-{
-	public construct(String message) => super(message)
+public class InvalidNumericStatementException extends Exception {
+    public construct(String message) => super(message)
 }

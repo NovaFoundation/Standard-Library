@@ -3,22 +3,22 @@ package "nova/primitive/number"
 import "nova/datastruct/Comparable"
 
 class Int extends Number implements Comparable<Int>, Integer {
-	external int atoi(char str[])
-	
-	Int value
-	
-	public Long hashCodeLong => value
-	
-	visible static Int MAX_VALUE =  2147483647
-	visible static Int MIN_VALUE = -2147483648
-	
-	construct(Int value) => this.value = value
-	
-	public compareTo(Int other) => value - other
-	public multiply(Int value) => this.value * value
-	public toString() => toString(value)
-	
-	public static numDigits(Int number) => Long.numDigits(number)
-	public static toString(Int value) => Long.toString(value)
-	public static parseInt(String num) => atoi(num.chars.data)
+    external int atoi(char str[])
+    
+    Int value
+    
+    public Long hashCodeLong => value
+    
+    visible static Int MAX_VALUE =  2147483647
+    visible static Int MIN_VALUE = -2147483648
+    
+    construct(Int value) => this.value = value
+    
+    public compareTo(Int other) => value - other
+    public multiply(Int value) => this.value * value
+    public toString() => toString(value)
+    
+    public static numDigits(Int number) => Long.numDigits(number)
+    public static toString(Int value) => Long.toString(value)
+    public static parseInt(String num) => atoi(num.chars.data)
 }

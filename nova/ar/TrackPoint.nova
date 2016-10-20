@@ -1,6 +1,5 @@
 package "nova/ar"
 
-class TrackPoint
-{
-	
+class TrackPoint {
+    
 }

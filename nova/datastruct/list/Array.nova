@@ -3,231 +3,231 @@ package "nova/datastruct/list"
 import "nova/primitive/number/Integer"
 
 public class Array<E> implements List<E> {
-	external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
+    external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
 
-	visible Int capacity
+    visible Int capacity
 
-	visible Int	count
-	visible Int position
+    visible Int    count
+    visible Int position
 
-	[PrimitiveArray]
-	visible E[] data
+    [PrimitiveArray]
+    visible E[] data
 
-	visible Bool empty => count <= 0
+    visible Bool empty => count <= 0
 
-	[Override]
-	visible ArrayIterator<E> iterator => new ArrayIterator(this)
+    [Override]
+    visible ArrayIterator<E> iterator => new ArrayIterator(this)
 
-	[Override]
-	public E first => count > 0 ? this[0] : null
+    [Override]
+    public E first => count > 0 ? this[0] : null
 
-	[Override]
-	public E last => count > 0 ? this[count - 1] : null
-	
-	this[Int index] <=> data[index]
-	
-	public construct() {
-		this(0)
+    [Override]
+    public E last => count > 0 ? this[count - 1] : null
+    
+    this[Int index] <=> data[index]
+    
+    public construct() {
+        this(0)
 
-		increaseSize(10)
-	}
+        increaseSize(10)
+    }
 
-	public construct(Int count) {
-	    this.position = 0
-	    this.capacity = 0
+    public construct(Int count) {
+        this.position = 0
+        this.capacity = 0
 
-		increaseSize(count)
+        increaseSize(count)
 
-		this.count = count
+        this.count = count
 
-		[Target js] data = new E[count]
-	}
+        [Target js] data = new E[count]
+    }
 
-	public construct([PrimitiveArray] E[] data, Int count) {
-		this(count)
+    public construct([PrimitiveArray] E[] data, Int count) {
+        this(count)
 
-		for (i in 0..count) {
-			add(data[i])
-		}
-	}
+        for (i in 0..count) {
+            add(data[i])
+        }
+    }
 
-	public fillRemaining(E value) => this {
-	    while (count < capacity) {
-	        add(value)
-	    }
-	}
+    public fillRemaining(E value) => this {
+        while (count < capacity) {
+            add(value)
+        }
+    }
 
-	public addAll(E[] data) => this {
-	    for (d in data) {
-	        add(d)
-	    }
-	}
+    public addAll(E[] data) => this {
+        for (d in data) {
+            add(d)
+        }
+    }
 
-	public add(E element) => this {
-		if (position >= capacity) {
-			increaseSize()
-		}
+    public add(E element) => this {
+        if (position >= capacity) {
+            increaseSize()
+        }
 
-		data[position++] = element
+        data[position++] = element
 
-		count = Math.max(position, count)
-	}
+        count = Math.max(position, count)
+    }
 
-	public add(Int index, E element) => this {
-		if (index >= capacity) {
-			increaseSize(index + 1)
-		}
+    public add(Int index, E element) => this {
+        if (index >= capacity) {
+            increaseSize(index + 1)
+        }
 
-		add(null)
+        add(null)
 
-		shiftRight(index, position)
+        shiftRight(index, position)
 
-		data[index] = element
+        data[index] = element
 
-		if (index >= position - 1) {
-			position = index + 1
-		}
-		
-		count = Math.max(position, count)
-	}
+        if (index >= position - 1) {
+            position = index + 1
+        }
+        
+        count = Math.max(position, count)
+    }
 
-	public remove(Int index) -> E {
-		E element = data[index]
+    public remove(Int index) -> E {
+        E element = data[index]
 
-		shiftLeft(index + 1, position--)
+        shiftLeft(index + 1, position--)
 
-		return element
-	}
+        return element
+    }
 
-	public remove(E element) -> E {
-	    Int index = indexOf(element)
+    public remove(E element) -> E {
+        Int index = indexOf(element)
 
-	    if (index >= 0) {
+        if (index >= 0) {
             shiftLeft(index + 1, position--)
 
             return element
         }
 
         return null
-	}
+    }
 
-	public indexOf(E element) -> Int {
-	    Int i = 0
+    public indexOf(E element) -> Int {
+        Int i = 0
 
-	    for (e in this) {
-	        if (element == e) {
-	            return i
-	        }
+        for (e in this) {
+            if (element == e) {
+                return i
+            }
 
-	        i++
-	    }
+            i++
+        }
 
-	    return -1
-	}
+        return -1
+    }
 
-	shiftRight(Int left, Int right) => this {
-	    Int i = right - 1
+    shiftRight(Int left, Int right) => this {
+        Int i = right - 1
 
-		while (i > left) {
-			data[i] = data[i - 1]
+        while (i > left) {
+            data[i] = data[i - 1]
 
-			i--
-		}
+            i--
+        }
 
-		data[left] = null
-	}
+        data[left] = null
+    }
 
-	shiftLeft(Int left, Int right) => this {
-	    left--
-	    right--
+    shiftLeft(Int left, Int right) => this {
+        left--
+        right--
 
-		for (i in left..right) {
-			data[i] = data[i + 1]
-		}
+        for (i in left..right) {
+            data[i] = data[i + 1]
+        }
 
-		data[right] = null
-	}
+        data[right] = null
+    }
 
-	public swap(Int index1, Int index2) => this {
-		E temp = data[index1]
-		data[index1] = data[index2]
-		data[index2] = temp
-	}
+    public swap(Int index1, Int index2) => this {
+        E temp = data[index1]
+        data[index1] = data[index2]
+        data[index2] = temp
+    }
 
-	increaseSize() => this {
-		increaseSize(capacity + 3)
-	}
-	
-	[Target not c]
-	increaseSize(Int count) => this {
-		
-	}
+    increaseSize() => this {
+        increaseSize(capacity + 3)
+    }
+    
+    [Target not c]
+    increaseSize(Int count) => this {
+        
+    }
 
-	[Target c]
-	increaseSize(Int count) => this {
-		Int offset = count - capacity
-		
-		capacity = count
-		
-		[PrimitiveArray]
-		E[] tmp = new E[capacity]
-		
-		arrayCopy(tmp, 0, data, 0, capacity - offset, capacity, 4)
-		
-		data = tmp
-		
-		for (i in (capacity - offset)..capacity) {
-			data[i] = null
-		}
-	}
+    [Target c]
+    increaseSize(Int count) => this {
+        Int offset = count - capacity
+        
+        capacity = count
+        
+        [PrimitiveArray]
+        E[] tmp = new E[capacity]
+        
+        arrayCopy(tmp, 0, data, 0, capacity - offset, capacity, 4)
+        
+        data = tmp
+        
+        for (i in (capacity - offset)..capacity) {
+            data[i] = null
+        }
+    }
 
-	[Override]
-	public toArray() -> E[] {
-		E[] array = new Array(count)
-		
-		for (i in 0..count) {
-			array[i] = data[i]
-		}
-		
-		return array
-	}
-	
-	[Override]
-	public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
-		Out[] array = new Array(count)
+    [Override]
+    public toArray() -> E[] {
+        E[] array = new Array(count)
+        
+        for (i in 0..count) {
+            array[i] = data[i]
+        }
+        
+        return array
+    }
+    
+    [Override]
+    public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
+        Out[] array = new Array(count)
 
-		Int i = 0
+        Int i = 0
 
-		for (element in this) {
-			array.add(mapFunc(element, i++, this))
-		}
+        for (element in this) {
+            array.add(mapFunc(element, i++, this))
+        }
 
-		return array
-	}
+        return array
+    }
 
-	[Override]
-	public forEach(func(E, Int, Array<E>)) => this {
-		for (i in 0..count) {
-			func(data[i], i, this)
-		}
-	}
+    [Override]
+    public forEach(func(E, Int, Array<E>)) => this {
+        for (i in 0..count) {
+            func(data[i], i, this)
+        }
+    }
 
-	[Override]
-	public filter(filterFunc(E, Int, Array<E>) -> Bool) -> E[] {
-		E[] filtered = new Array()
+    [Override]
+    public filter(filterFunc(E, Int, Array<E>) -> Bool) -> E[] {
+        E[] filtered = new Array()
 
-		Int i = 0
+        Int i = 0
 
-		for (element in this) {
-			if (filterFunc(element, i++, this)) {
-				filtered.add(element)
-			}
-		}
+        for (element in this) {
+            if (filterFunc(element, i++, this)) {
+                filtered.add(element)
+            }
+        }
 
-		return filtered
-	}
+        return filtered
+    }
 
-	[Override]
+    [Override]
     public take(Int howMany) -> E[] {
         howMany = howMany > count ? count : howMany
 

@@ -3,14 +3,14 @@ package "nova/primitive/number"
 import "nova/datastruct/Comparable"
 
 class Float extends Number implements Comparable<Float>, RealNumber {
-	Float value
-	
-	construct(Int value) => this.value = value
-	
-	public compareTo(Float other) => value - other
-	public multiply(Float value) => this.value * value
-	public toString() => toString(value)
-	
-	public static numDigits(Float number) => Double.numDigits(number)
-	public static toString(Float value) => Double.toString(value)
+    Float value
+    
+    construct(Int value) => this.value = value
+    
+    public compareTo(Float other) => value - other
+    public multiply(Float value) => this.value * value
+    public toString() => toString(value)
+    
+    public static numDigits(Float number) => Double.numDigits(number)
+    public static toString(Float value) => Double.toString(value)
 }

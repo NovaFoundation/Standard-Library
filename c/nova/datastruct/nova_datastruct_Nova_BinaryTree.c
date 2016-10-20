@@ -29,11 +29,13 @@
 #include <nova/datastruct/nova_datastruct_Nova_BinaryNode.h>
 #include <nova/datastruct/nova_datastruct_Nova_Comparable.h>
 #include <nova/datastruct/nova_datastruct_Nova_Tree.h>
-#include <nova/datastruct/list/nova_datastruct_list_Nova_ArrayIterator.h>
 #include <nova/datastruct/nova_datastruct_Nova_Node.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
+typedef struct
+{
+} Context1;
 
 
 nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension_VTable_val =
@@ -70,6 +72,8 @@ nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension
 };
 
 
+
+void nova_datastruct_Nova_BinaryTree_Nova_testLambda20(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* nova_datastruct_Nova_BinaryTree_Nova__1, int nova_datastruct_Nova_BinaryTree_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_BinaryTree_Nova__3, Context1* context);
 void nova_datastruct_Nova_BinaryTree_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -122,16 +126,17 @@ nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNode(no
 
 nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNodes(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_BinaryTree_Nova_data)
 {
-	nova_datastruct_list_Nova_ArrayIterator* nova_local_0 = (nova_datastruct_list_Nova_ArrayIterator*)nova_null;
-	nova_datastruct_Nova_Comparable* l1_Nova_d = (nova_datastruct_Nova_Comparable*)nova_null;
-	
-	nova_local_0 = (nova_datastruct_list_Nova_ArrayIterator*)(nova_datastruct_list_Nova_Array_Accessor_Nova_iterator((nova_datastruct_list_Nova_Array*)((nova_datastruct_Nova_BinaryTree_Nova_data)), exceptionData));
-	while (nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext((nova_datastruct_list_Nova_ArrayIterator*)(nova_local_0), exceptionData))
+	Context1 contextArg20 = 
 	{
-		l1_Nova_d = (nova_datastruct_Nova_Comparable*)(nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next((nova_datastruct_list_Nova_ArrayIterator*)(nova_local_0), exceptionData));
-		nova_datastruct_Nova_BinaryTree_Nova_addNode(this, exceptionData, l1_Nova_d);
-	}
+	};
+	
+	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(nova_datastruct_Nova_BinaryTree_Nova_data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_BinaryTree_Nova_testLambda20, this, &contextArg20);
 	return this;
+}
+
+void nova_datastruct_Nova_BinaryTree_Nova_testLambda20(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* nova_datastruct_Nova_BinaryTree_Nova__1, int nova_datastruct_Nova_BinaryTree_Nova__2, nova_datastruct_list_Nova_Array* nova_datastruct_Nova_BinaryTree_Nova__3, Context1* context)
+{
+	nova_datastruct_Nova_BinaryTree_Nova_addNode(this, exceptionData, nova_datastruct_Nova_BinaryTree_Nova__1);
 }
 
 nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Accessor_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData)

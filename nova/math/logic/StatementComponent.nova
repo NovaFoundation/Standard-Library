@@ -1,6 +1,5 @@
 package "nova/math/logic"
 
-public class StatementComponent
-{
-	
+public class StatementComponent {
+    
 }

@@ -1,9 +1,7 @@
 package "nova/exception"
 
-class InvalidArgumentException extends Exception
-{
-	public construct(String message)
-	{
-		super(message)
-	}
+class InvalidArgumentException extends Exception {
+    public construct(String message) {
+        super(message)
+    }
 }
