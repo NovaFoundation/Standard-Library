@@ -184,11 +184,11 @@ public class Array<E> implements List<E> {
 	[Override]
 	public toArray() -> E[] {
 		E[] array = new Array(count)
-
+		
 		for (i in 0..count) {
 			array[i] = data[i]
 		}
-
+		
 		return array
 	}
 	
