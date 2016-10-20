@@ -72,7 +72,7 @@ class Node<E> {
     levelorder(E[] array) -> E[] {
         var queue = new Queue<Node<E>>([this])
         
-        while (!queue.empty) {Console.writeLine("Queueeueue: #queue")
+        while (!queue.empty) {
             Node<E> current = queue.dequeue()
             
             array.add(current.data)
