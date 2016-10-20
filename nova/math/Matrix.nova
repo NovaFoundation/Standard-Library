@@ -2,14 +2,44 @@ package "nova/math"
 
 import "nova/operators/Multiply"
 import "nova/exception/InvalidArgumentException"
+import "nova/exception/InvalidOperationException"
 
 class Matrix implements Multiply<Matrix> {
-	public Double[][] data
+	Double[][] data
 	
 	visible Bool isSquare => cols == rows
 	visible Int rows => data.count
 	visible Int cols => data[0].count
 	
+	this[Int index] <=> data[index]
+	
+	static Double TOLERANCE = 0.0001
+	static Double LOWER_TOLERANCE = 1 - TOLERANCE
+	static Double UPPER_TOLERANCE = 1 + TOLERANCE
+	
+	visible Bool isIdentity {
+		get {
+			// return data.all({ _x == _y && (_d < LOWER_TOLERANCE || _d > UPPER_TOLERANCE) ... })
+			if (!isSquare) return false
+			
+			for (row in 0..rows) {
+				for (col in 0..cols) {
+					var d = data[row][col]
+					
+					if (row == col && (d < LOWER_TOLERANCE || d > UPPER_TOLERANCE) || // if diagonal make sure its 1
+						row != col && (d < -TOLERANCE || d > TOLERANCE)) { // if not diagonal make sure its 0
+						return false
+					}
+				}
+			}
+			
+			return true
+		}
+		
+		no set
+	}
+	
+	public construct(Int order) => this(order, order)
 	public construct(Int rows, Int cols) {
 		if (rows <= 0 || cols <= 0)
 			throw new InvalidArgumentException("Invalid matrix size #{rows}x#{cols}. 
@@ -25,6 +55,8 @@ class Matrix implements Multiply<Matrix> {
 		this.data = data
 	}
 	
+	public clone() => new Matrix(rows, cols).add(this)
+	
 	public static identity(Int order) -> Matrix {
 		Double[][] data = new DoubleArray(order).map({ new DoubleArray(order) })
 		
@@ -35,6 +67,60 @@ class Matrix implements Multiply<Matrix> {
 		return new Matrix(data)
 	}
 	
+	public inverse() -> Matrix {
+		if (!isSquare)
+			throw new InvalidOperationException("Cannot take the inverse of a non-square matrix")
+		
+		Matrix i = identity(rows)
+		Matrix current = clone()
+		Int j = 0
+		
+		while (!current.isIdentity) { // magic goes in here
+			//while (current)
+			i.swapRows(j % 2, j % 3)
+			
+			if (j++ > 100) {
+				break
+			}
+		}
+		
+		return i
+	}
+	
+	public swapRows(Int row1, Int row2) {
+		if (row1 == row2) return
+		
+		for (col in 0..cols) {
+			var temp = data[row1][col]
+			data[row1][col] = data[row2][col]
+			data[row2][col] = temp
+		}
+	}
+	
+	public multiplyRow(Int sourceRow, Int destinationRow = sourceRow, Double scalar = 1) {
+		if (sourceRow == destinationRow) { // quick and easy multiply by scalar
+			for (col in 0..cols) {
+				data[sourceRow][col] *= scalar
+			}
+		} else { // multiply then add
+			for (col in 0..cols) {
+				data[destinationRow][col] += data[sourceRow][col] * scalar
+			}
+		}
+	}
+	
+	public addRow(Int sourceRow, Int destinationRow = sourceRow) {
+		for (col in 0..cols) {
+			data[destinationRow][col] += data[sourceRow][col]
+		}
+	}
+	
+	public subtractRow(Int sourceRow, Int destinationRow = sourceRow) {
+		for (col in 0..cols) {
+			data[destinationRow][col] -= data[sourceRow][col]
+		}
+	}
+	
 	public add(Matrix other, Bool allowUnequalDimensions = false) -> Matrix {
 		if (!allowUnequalDimensions) checkUnequalDimensions(other)
 		
@@ -43,7 +129,7 @@ class Matrix implements Multiply<Matrix> {
 		
 		for (row in 0..Math.min(rows, other.rows)) {
 			for (col in 0..Math.min(cols, other.cols)) {
-				result.data[row][col] = data[row][col] + other.data[row][col]
+				result[row][col] = data[row][col] + other[row][col]
 			}
 		}
 		
@@ -58,7 +144,7 @@ class Matrix implements Multiply<Matrix> {
 		
 		for (row in 0..Math.min(rows, other.rows)) {
 			for (col in 0..Math.min(cols, other.cols)) {
-				result.data[row][col] = data[row][col] - other.data[row][col]
+				result[row][col] = data[row][col] - other[row][col]
 			}
 		}
 		
@@ -87,7 +173,7 @@ class Matrix implements Multiply<Matrix> {
 		result.data.forEach((outRow, outR) -> {
             data.forEach((row, r) -> {
                 for (c in 0..cols) {
-                    result.data[r][outR] += row[c] * other.data[c][outR]
+                    result[r][outR] += row[c] * other[c][outR]
                 }
             })
         })
@@ -100,7 +186,7 @@ class Matrix implements Multiply<Matrix> {
 		
 		data.forEach((row, r) -> {
 			for (c in 0..cols) {
-				result.data[c][r] = row[c]
+				result[c][r] = row[c]
 			}
 		})
 		
