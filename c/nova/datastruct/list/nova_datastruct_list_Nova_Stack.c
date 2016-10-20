@@ -124,7 +124,7 @@ nova_Nova_Object* nova_datastruct_list_Nova_Stack_Nova_pop(nova_datastruct_list_
 	
 	if (nova_datastruct_list_Nova_Stack_Accessor_Nova_empty(this, exceptionData))
 	{
-		THROW(4, nova_datastruct_list_Nova_EmptyStackException_0_Nova_construct(0, exceptionData));
+		THROW(4, nova_datastruct_list_Nova_EmptyStackException_Nova_construct(0, exceptionData, 0));
 	}
 	l1_Nova_data = this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_data;
 	this->prv->nova_datastruct_list_Nova_Stack_Nova_top = this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_next;

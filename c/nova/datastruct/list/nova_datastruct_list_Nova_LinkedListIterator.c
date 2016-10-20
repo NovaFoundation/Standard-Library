@@ -142,7 +142,7 @@ nova_Nova_Object* nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_nex
 		this->nova_datastruct_list_Nova_LinkedListIterator_Nova_position = this->nova_datastruct_list_Nova_LinkedListIterator_Nova_position->nova_datastruct_list_Nova_ListNode_Nova_next;
 		return (nova_Nova_Object*)l2_Nova_data;
 	}
-	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
+	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_Nova_construct(0, exceptionData, 0));
 	return (nova_Nova_Object*)(nova_Nova_Object*)nova_null;
 }
 

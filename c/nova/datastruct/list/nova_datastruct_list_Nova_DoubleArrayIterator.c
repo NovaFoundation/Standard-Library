@@ -136,7 +136,7 @@ double nova_datastruct_list_Nova_DoubleArrayIterator_Accessor_Nova_next(nova_dat
 	{
 		return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->prv->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array, exceptionData, this->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_position++);
 	}
-	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
+	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_Nova_construct(0, exceptionData, 0));
 	return (double)0;
 }
 

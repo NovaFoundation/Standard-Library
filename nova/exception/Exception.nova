@@ -3,6 +3,5 @@ package "nova/exception"
 class Exception {
     visible String message
     
-    public construct() => this("")
-    public construct(String message) => this.message = message
+    public construct(String message = "") => this.message = message
 }

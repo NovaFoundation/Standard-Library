@@ -136,7 +136,7 @@ int nova_datastruct_list_Nova_IntRangeIterator_Accessor_Nova_next(nova_datastruc
 	{
 		return this->nova_datastruct_list_Nova_IntRangeIterator_Nova_position++;
 	}
-	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
+	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_Nova_construct(0, exceptionData, 0));
 	return (int)(nova_Nova_Object*)nova_null;
 }
 
