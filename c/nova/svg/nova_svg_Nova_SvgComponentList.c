@@ -100,24 +100,24 @@ void nova_svg_Nova_SvgComponentList_Nova_destroy(nova_svg_Nova_SvgComponentList*
 	NOVA_FREE(*this);
 }
 
-void nova_svg_Nova_SvgComponentList_Nova_generateOutput(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_svg_Nova_SvgComponentList_Nova_file)
+void nova_svg_Nova_SvgComponentList_Nova_generateOutput(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
 {
 	nova_svg_Nova_SvgComponentNode* l1_Nova_current = (nova_svg_Nova_SvgComponentNode*)nova_null;
 	
 	l1_Nova_current = this->nova_svg_Nova_SvgComponentList_Nova_start;
 	while (l1_Nova_current != (nova_svg_Nova_SvgComponentNode*)nova_null)
 	{
-		nova_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_svg_Nova_SvgComponent*)(l1_Nova_current->nova_svg_Nova_SvgComponentNode_Nova_component), exceptionData, nova_svg_Nova_SvgComponentList_Nova_file);
+		nova_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_svg_Nova_SvgComponent*)(l1_Nova_current->nova_svg_Nova_SvgComponentNode_Nova_component), exceptionData, file);
 		l1_Nova_current = l1_Nova_current->nova_svg_Nova_SvgComponentNode_Nova_next;
 	}
 }
 
-void nova_svg_Nova_SvgComponentList_Nova_addChild(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_svg_Nova_SvgComponent* nova_svg_Nova_SvgComponentList_Nova_component)
+void nova_svg_Nova_SvgComponentList_Nova_addChild(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_svg_Nova_SvgComponent* component)
 {
 	nova_svg_Nova_SvgComponentNode* l1_Nova_node = (nova_svg_Nova_SvgComponentNode*)nova_null;
 	
 	l1_Nova_node = nova_svg_Nova_SvgComponentNode_Nova_construct(0, exceptionData);
-	l1_Nova_node->nova_svg_Nova_SvgComponentNode_Nova_component = nova_svg_Nova_SvgComponentList_Nova_component;
+	l1_Nova_node->nova_svg_Nova_SvgComponentNode_Nova_component = component;
 	if (this->nova_svg_Nova_SvgComponentList_Nova_start == (nova_svg_Nova_SvgComponentNode*)nova_null)
 	{
 		this->nova_svg_Nova_SvgComponentList_Nova_start = l1_Nova_node;

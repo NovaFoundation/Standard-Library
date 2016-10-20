@@ -97,12 +97,12 @@ void nova_security_Nova_MD5_Nova_destroy(nova_security_Nova_MD5** this, nova_exc
 	NOVA_FREE(*this);
 }
 
-nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_security_Nova_MD5_Nova_str)
+nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str)
 {
 	char* l1_Nova_data = (char*)nova_null;
 	
 	
-	l1_Nova_data = (char*)(nova_md5((char*)(nova_security_Nova_MD5_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)));
+	l1_Nova_data = (char*)(nova_md5((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)));
 	if (l1_Nova_data == 0)
 	{
 		return (nova_Nova_String*)(nova_Nova_Object*)nova_null;

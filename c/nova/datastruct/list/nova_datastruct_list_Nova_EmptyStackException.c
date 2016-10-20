@@ -72,7 +72,7 @@ void nova_datastruct_list_Nova_EmptyStackException_Nova_init_static(nova_excepti
 	}
 }
 
-nova_datastruct_list_Nova_EmptyStackException* nova_datastruct_list_Nova_EmptyStackException_Nova_construct(nova_datastruct_list_Nova_EmptyStackException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_datastruct_list_Nova_EmptyStackException_Nova_message)
+nova_datastruct_list_Nova_EmptyStackException* nova_datastruct_list_Nova_EmptyStackException_Nova_construct(nova_datastruct_list_Nova_EmptyStackException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_EmptyStackException, this,);
 	this->vtable = &nova_datastruct_list_EmptyStackException_Extension_VTable_val;
@@ -82,7 +82,7 @@ nova_datastruct_list_Nova_EmptyStackException* nova_datastruct_list_Nova_EmptySt
 	nova_datastruct_list_Nova_EmptyStackException_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_EmptyStackException_Nova_this(this, exceptionData, nova_datastruct_list_Nova_EmptyStackException_Nova_message);
+		nova_datastruct_list_Nova_EmptyStackException_Nova_this(this, exceptionData, message);
 	}
 	
 	return this;
@@ -99,10 +99,10 @@ void nova_datastruct_list_Nova_EmptyStackException_Nova_destroy(nova_datastruct_
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_EmptyStackException_Nova_this(nova_datastruct_list_Nova_EmptyStackException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_datastruct_list_Nova_EmptyStackException_Nova_message)
+void nova_datastruct_list_Nova_EmptyStackException_Nova_this(nova_datastruct_list_Nova_EmptyStackException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
-	nova_datastruct_list_Nova_EmptyStackException_Nova_message = (nova_Nova_String*)(nova_datastruct_list_Nova_EmptyStackException_Nova_message == 0 ? (nova_Nova_Object*)nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")) : (nova_Nova_Object*)nova_datastruct_list_Nova_EmptyStackException_Nova_message);
-	nova_datastruct_list_Nova_NoSuchElementException_Nova_this((nova_datastruct_list_Nova_NoSuchElementException*)(this), exceptionData, nova_datastruct_list_Nova_EmptyStackException_Nova_message);
+	message = (nova_Nova_String*)(message == 0 ? (nova_Nova_Object*)nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")) : (nova_Nova_Object*)message);
+	nova_datastruct_list_Nova_NoSuchElementException_Nova_this((nova_datastruct_list_Nova_NoSuchElementException*)(this), exceptionData, message);
 }
 
 void nova_datastruct_list_Nova_EmptyStackException_Nova_super(nova_datastruct_list_Nova_EmptyStackException* this, nova_exception_Nova_ExceptionData* exceptionData)

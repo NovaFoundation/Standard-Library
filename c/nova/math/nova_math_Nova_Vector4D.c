@@ -88,7 +88,7 @@ nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_0_Nova_construct(nova_math_Nova
 	return this;
 }
 
-nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_1_Nova_construct(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_x, double nova_math_Nova_Vector4D_Nova_y, double nova_math_Nova_Vector4D_Nova_z, double nova_math_Nova_Vector4D_Nova_w)
+nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_1_Nova_construct(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z, double w)
 {
 	CCLASS_NEW(nova_math_Nova_Vector4D, this,);
 	this->vtable = &nova_math_Vector4D_Extension_VTable_val;
@@ -97,7 +97,7 @@ nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_1_Nova_construct(nova_math_Nova
 	nova_math_Nova_Vector4D_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Vector4D_0_Nova_this(this, exceptionData, nova_math_Nova_Vector4D_Nova_x, nova_math_Nova_Vector4D_Nova_y, nova_math_Nova_Vector4D_Nova_z, nova_math_Nova_Vector4D_Nova_w);
+		nova_math_Nova_Vector4D_0_Nova_this(this, exceptionData, x, y, z, w);
 	}
 	
 	return this;
@@ -119,13 +119,13 @@ void nova_math_Nova_Vector4D_Nova_this(nova_math_Nova_Vector4D* this, nova_excep
 	nova_math_Nova_Vector_0_Nova_this((nova_math_Nova_Vector*)(this), exceptionData, 4);
 }
 
-void nova_math_Nova_Vector4D_0_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_x, double nova_math_Nova_Vector4D_Nova_y, double nova_math_Nova_Vector4D_Nova_z, double nova_math_Nova_Vector4D_Nova_w)
+void nova_math_Nova_Vector4D_0_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z, double w)
 {
 	nova_math_Nova_Vector4D_Nova_this(this, exceptionData);
-	nova_math_Nova_Vector4D_Mutator_Nova_x(this, exceptionData, nova_math_Nova_Vector4D_Nova_x);
-	nova_math_Nova_Vector4D_Mutator_Nova_y(this, exceptionData, nova_math_Nova_Vector4D_Nova_y);
-	nova_math_Nova_Vector4D_Mutator_Nova_z(this, exceptionData, nova_math_Nova_Vector4D_Nova_z);
-	nova_math_Nova_Vector4D_Mutator_Nova_w(this, exceptionData, nova_math_Nova_Vector4D_Nova_w);
+	nova_math_Nova_Vector4D_Mutator_Nova_x(this, exceptionData, x);
+	nova_math_Nova_Vector4D_Mutator_Nova_y(this, exceptionData, y);
+	nova_math_Nova_Vector4D_Mutator_Nova_z(this, exceptionData, z);
+	nova_math_Nova_Vector4D_Mutator_Nova_w(this, exceptionData, w);
 }
 
 double nova_math_Nova_Vector4D_Accessor_Nova_x(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -133,10 +133,10 @@ double nova_math_Nova_Vector4D_Accessor_Nova_x(nova_math_Nova_Vector4D* this, no
 	return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Vector_Nova_data, exceptionData, 0);
 }
 
-double nova_math_Nova_Vector4D_Mutator_Nova_x(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value)
+double nova_math_Nova_Vector4D_Mutator_Nova_x(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
-	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 0, nova_math_Nova_Vector4D_Nova_value);
-	return nova_math_Nova_Vector4D_Nova_value;
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 0, value);
+	return value;
 }
 
 double nova_math_Nova_Vector4D_Accessor_Nova_y(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -144,10 +144,10 @@ double nova_math_Nova_Vector4D_Accessor_Nova_y(nova_math_Nova_Vector4D* this, no
 	return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Vector_Nova_data, exceptionData, 1);
 }
 
-double nova_math_Nova_Vector4D_Mutator_Nova_y(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value)
+double nova_math_Nova_Vector4D_Mutator_Nova_y(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
-	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 1, nova_math_Nova_Vector4D_Nova_value);
-	return nova_math_Nova_Vector4D_Nova_value;
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 1, value);
+	return value;
 }
 
 double nova_math_Nova_Vector4D_Accessor_Nova_z(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -155,10 +155,10 @@ double nova_math_Nova_Vector4D_Accessor_Nova_z(nova_math_Nova_Vector4D* this, no
 	return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Vector_Nova_data, exceptionData, 2);
 }
 
-double nova_math_Nova_Vector4D_Mutator_Nova_z(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value)
+double nova_math_Nova_Vector4D_Mutator_Nova_z(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
-	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 2, nova_math_Nova_Vector4D_Nova_value);
-	return nova_math_Nova_Vector4D_Nova_value;
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 2, value);
+	return value;
 }
 
 double nova_math_Nova_Vector4D_Accessor_Nova_w(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -166,10 +166,10 @@ double nova_math_Nova_Vector4D_Accessor_Nova_w(nova_math_Nova_Vector4D* this, no
 	return (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Vector_Nova_data, exceptionData, 3);
 }
 
-double nova_math_Nova_Vector4D_Mutator_Nova_w(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value)
+double nova_math_Nova_Vector4D_Mutator_Nova_w(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
-	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 3, nova_math_Nova_Vector4D_Nova_value);
-	return nova_math_Nova_Vector4D_Nova_value;
+	nova_datastruct_list_Nova_DoubleArray_Nova_set(this->nova_math_Nova_Vector_Nova_data, exceptionData, 3, value);
+	return value;
 }
 
 void nova_math_Nova_Vector4D_Nova_super(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)

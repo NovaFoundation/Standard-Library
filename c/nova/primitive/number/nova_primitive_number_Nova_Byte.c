@@ -78,7 +78,7 @@ void nova_primitive_number_Nova_Byte_Nova_init_static(nova_exception_Nova_Except
 	}
 }
 
-nova_primitive_number_Nova_Byte* nova_primitive_number_Nova_Byte_Nova_construct(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
+nova_primitive_number_Nova_Byte* nova_primitive_number_Nova_Byte_Nova_construct(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
 	CCLASS_NEW(nova_primitive_number_Nova_Byte, this,);
 	this->vtable = &nova_primitive_number_Byte_Extension_VTable_val;
@@ -88,7 +88,7 @@ nova_primitive_number_Nova_Byte* nova_primitive_number_Nova_Byte_Nova_construct(
 	nova_primitive_number_Nova_Byte_Nova_super(this, exceptionData);
 	
 	{
-		nova_primitive_number_Nova_Byte_Nova_this(this, exceptionData, nova_primitive_number_Nova_Byte_Nova_value);
+		nova_primitive_number_Nova_Byte_Nova_this(this, exceptionData, value);
 	}
 	
 	return this;
@@ -106,19 +106,19 @@ void nova_primitive_number_Nova_Byte_Nova_destroy(nova_primitive_number_Nova_Byt
 	NOVA_FREE(*this);
 }
 
-void nova_primitive_number_Nova_Byte_Nova_this(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
+void nova_primitive_number_Nova_Byte_Nova_this(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
-	this->nova_primitive_number_Nova_Byte_Nova_value = nova_primitive_number_Nova_Byte_Nova_value;
+	this->nova_primitive_number_Nova_Byte_Nova_value = value;
 }
 
-char nova_primitive_number_Nova_Byte_0_Nova_compareTo(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_other)
+char nova_primitive_number_Nova_Byte_0_Nova_compareTo(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char other)
 {
-	return this->nova_primitive_number_Nova_Byte_Nova_value - nova_primitive_number_Nova_Byte_Nova_other;
+	return this->nova_primitive_number_Nova_Byte_Nova_value - other;
 }
 
-char nova_primitive_number_Nova_Byte_Nova_multiply(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
+char nova_primitive_number_Nova_Byte_Nova_multiply(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
-	return this->nova_primitive_number_Nova_Byte_Nova_value * nova_primitive_number_Nova_Byte_Nova_value;
+	return this->nova_primitive_number_Nova_Byte_Nova_value * value;
 }
 
 nova_Nova_String* nova_primitive_number_Nova_Byte_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -126,14 +126,14 @@ nova_Nova_String* nova_primitive_number_Nova_Byte_Nova_toString(nova_primitive_n
 	return nova_primitive_number_Nova_Byte_static_Nova_toString(0, exceptionData, this->nova_primitive_number_Nova_Byte_Nova_value);
 }
 
-int nova_primitive_number_Nova_Byte_static_Nova_numDigits(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_number)
+int nova_primitive_number_Nova_Byte_static_Nova_numDigits(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char number)
 {
-	return nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Byte_Nova_number);
+	return nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, number);
 }
 
-nova_Nova_String* nova_primitive_number_Nova_Byte_static_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_number_Nova_Byte_Nova_value)
+nova_Nova_String* nova_primitive_number_Nova_Byte_static_Nova_toString(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
-	return nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_primitive_number_Nova_Byte_Nova_value);
+	return nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, value);
 }
 
 void nova_primitive_number_Nova_Byte_Nova_super(nova_primitive_number_Nova_Byte* this, nova_exception_Nova_ExceptionData* exceptionData)

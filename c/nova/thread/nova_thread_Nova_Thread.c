@@ -125,10 +125,10 @@ void nova_thread_Nova_Thread_Nova_kill(nova_thread_Nova_Thread* this, nova_excep
 	lib_nova_thread_cancel(*this->prv->nova_thread_Nova_Thread_Nova_handle);
 }
 
-void nova_thread_Nova_Thread_static_Nova_sleep(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_thread_Nova_Thread_Nova_millis)
+void nova_thread_Nova_Thread_static_Nova_sleep(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData, long_long millis)
 {
 	
-	lib_nova_thread_sleep(nova_thread_Nova_Thread_Nova_millis);
+	lib_nova_thread_sleep(millis);
 }
 
 void nova_thread_Nova_Thread_Nova_run(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)

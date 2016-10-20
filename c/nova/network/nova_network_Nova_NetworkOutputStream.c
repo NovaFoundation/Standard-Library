@@ -84,7 +84,7 @@ void nova_network_Nova_NetworkOutputStream_Nova_init_static(nova_exception_Nova_
 	}
 }
 
-nova_network_Nova_NetworkOutputStream* nova_network_Nova_NetworkOutputStream_Nova_construct(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_network_Nova_ConnectionSocket* nova_network_Nova_NetworkOutputStream_Nova_socket)
+nova_network_Nova_NetworkOutputStream* nova_network_Nova_NetworkOutputStream_Nova_construct(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_network_Nova_ConnectionSocket* socket)
 {
 	CCLASS_NEW(nova_network_Nova_NetworkOutputStream, this);
 	this->vtable = &nova_network_NetworkOutputStream_Extension_VTable_val;
@@ -93,7 +93,7 @@ nova_network_Nova_NetworkOutputStream* nova_network_Nova_NetworkOutputStream_Nov
 	nova_network_Nova_NetworkOutputStream_Nova_super(this, exceptionData);
 	
 	{
-		nova_network_Nova_NetworkOutputStream_Nova_this(this, exceptionData, nova_network_Nova_NetworkOutputStream_Nova_socket);
+		nova_network_Nova_NetworkOutputStream_Nova_this(this, exceptionData, socket);
 	}
 	
 	return this;
@@ -112,17 +112,17 @@ void nova_network_Nova_NetworkOutputStream_Nova_destroy(nova_network_Nova_Networ
 	NOVA_FREE(*this);
 }
 
-void nova_network_Nova_NetworkOutputStream_Nova_this(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_network_Nova_ConnectionSocket* nova_network_Nova_NetworkOutputStream_Nova_socket)
+void nova_network_Nova_NetworkOutputStream_Nova_this(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_network_Nova_ConnectionSocket* socket)
 {
-	this->prv->nova_network_Nova_NetworkOutputStream_Nova_socket = nova_network_Nova_NetworkOutputStream_Nova_socket;
+	this->prv->nova_network_Nova_NetworkOutputStream_Nova_socket = socket;
 }
 
-char nova_network_Nova_NetworkOutputStream_0_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_network_Nova_NetworkOutputStream_Nova_data)
+char nova_network_Nova_NetworkOutputStream_0_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data)
 {
-	return nova_network_Nova_ConnectionSocket_Nova_write(this->prv->nova_network_Nova_NetworkOutputStream_Nova_socket, exceptionData, nova_network_Nova_NetworkOutputStream_Nova_data);
+	return nova_network_Nova_ConnectionSocket_Nova_write(this->prv->nova_network_Nova_NetworkOutputStream_Nova_socket, exceptionData, data);
 }
 
-char nova_network_Nova_NetworkOutputStream_1_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_network_Nova_NetworkOutputStream_Nova_data)
+char nova_network_Nova_NetworkOutputStream_1_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
 	return 0;
 }

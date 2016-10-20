@@ -82,7 +82,7 @@ void nova_star_Nova_WindowThread_Nova_init_static(nova_exception_Nova_ExceptionD
 	}
 }
 
-nova_star_Nova_WindowThread* nova_star_Nova_WindowThread_Nova_construct(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* nova_star_Nova_WindowThread_Nova_window)
+nova_star_Nova_WindowThread* nova_star_Nova_WindowThread_Nova_construct(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* window)
 {
 	CCLASS_NEW(nova_star_Nova_WindowThread, this);
 	this->vtable = &nova_star_WindowThread_Extension_VTable_val;
@@ -91,7 +91,7 @@ nova_star_Nova_WindowThread* nova_star_Nova_WindowThread_Nova_construct(nova_sta
 	nova_star_Nova_WindowThread_Nova_super(this, exceptionData);
 	
 	{
-		nova_star_Nova_WindowThread_Nova_this(this, exceptionData, nova_star_Nova_WindowThread_Nova_window);
+		nova_star_Nova_WindowThread_Nova_this(this, exceptionData, window);
 	}
 	
 	return this;
@@ -110,9 +110,9 @@ void nova_star_Nova_WindowThread_Nova_destroy(nova_star_Nova_WindowThread** this
 	NOVA_FREE(*this);
 }
 
-void nova_star_Nova_WindowThread_Nova_this(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* nova_star_Nova_WindowThread_Nova_window)
+void nova_star_Nova_WindowThread_Nova_this(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData, nova_star_Nova_Window* window)
 {
-	this->prv->nova_star_Nova_WindowThread_Nova_window = nova_star_Nova_WindowThread_Nova_window;
+	this->prv->nova_star_Nova_WindowThread_Nova_window = window;
 }
 
 void nova_star_Nova_WindowThread_Nova_run(nova_star_Nova_WindowThread* this, nova_exception_Nova_ExceptionData* exceptionData)

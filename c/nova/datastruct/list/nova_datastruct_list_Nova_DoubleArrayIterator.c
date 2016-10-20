@@ -84,7 +84,7 @@ void nova_datastruct_list_Nova_DoubleArrayIterator_Nova_init_static(nova_excepti
 	}
 }
 
-nova_datastruct_list_Nova_DoubleArrayIterator* nova_datastruct_list_Nova_DoubleArrayIterator_Nova_construct(nova_datastruct_list_Nova_DoubleArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array)
+nova_datastruct_list_Nova_DoubleArrayIterator* nova_datastruct_list_Nova_DoubleArrayIterator_Nova_construct(nova_datastruct_list_Nova_DoubleArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* array)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_DoubleArrayIterator, this);
 	this->vtable = &nova_datastruct_list_DoubleArrayIterator_Extension_VTable_val;
@@ -92,7 +92,7 @@ nova_datastruct_list_Nova_DoubleArrayIterator* nova_datastruct_list_Nova_DoubleA
 	nova_datastruct_list_Nova_DoubleArrayIterator_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_DoubleArrayIterator_Nova_this(this, exceptionData, nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array);
+		nova_datastruct_list_Nova_DoubleArrayIterator_Nova_this(this, exceptionData, array);
 	}
 	
 	return this;
@@ -112,9 +112,9 @@ void nova_datastruct_list_Nova_DoubleArrayIterator_Nova_destroy(nova_datastruct_
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_DoubleArrayIterator_Nova_this(nova_datastruct_list_Nova_DoubleArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array)
+void nova_datastruct_list_Nova_DoubleArrayIterator_Nova_this(nova_datastruct_list_Nova_DoubleArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* array)
 {
-	this->prv->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array = nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array;
+	this->prv->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array = array;
 	nova_datastruct_list_Nova_DoubleArrayIterator_Nova_reset(this, exceptionData);
 }
 

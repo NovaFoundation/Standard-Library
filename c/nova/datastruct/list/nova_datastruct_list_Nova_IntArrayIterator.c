@@ -84,7 +84,7 @@ void nova_datastruct_list_Nova_IntArrayIterator_Nova_init_static(nova_exception_
 	}
 }
 
-nova_datastruct_list_Nova_IntArrayIterator* nova_datastruct_list_Nova_IntArrayIterator_Nova_construct(nova_datastruct_list_Nova_IntArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_IntArray* nova_datastruct_list_Nova_IntArrayIterator_Nova_array)
+nova_datastruct_list_Nova_IntArrayIterator* nova_datastruct_list_Nova_IntArrayIterator_Nova_construct(nova_datastruct_list_Nova_IntArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_IntArray* array)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_IntArrayIterator, this);
 	this->vtable = &nova_datastruct_list_IntArrayIterator_Extension_VTable_val;
@@ -92,7 +92,7 @@ nova_datastruct_list_Nova_IntArrayIterator* nova_datastruct_list_Nova_IntArrayIt
 	nova_datastruct_list_Nova_IntArrayIterator_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_IntArrayIterator_Nova_this(this, exceptionData, nova_datastruct_list_Nova_IntArrayIterator_Nova_array);
+		nova_datastruct_list_Nova_IntArrayIterator_Nova_this(this, exceptionData, array);
 	}
 	
 	return this;
@@ -112,9 +112,9 @@ void nova_datastruct_list_Nova_IntArrayIterator_Nova_destroy(nova_datastruct_lis
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_IntArrayIterator_Nova_this(nova_datastruct_list_Nova_IntArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_IntArray* nova_datastruct_list_Nova_IntArrayIterator_Nova_array)
+void nova_datastruct_list_Nova_IntArrayIterator_Nova_this(nova_datastruct_list_Nova_IntArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_IntArray* array)
 {
-	this->prv->nova_datastruct_list_Nova_IntArrayIterator_Nova_array = nova_datastruct_list_Nova_IntArrayIterator_Nova_array;
+	this->prv->nova_datastruct_list_Nova_IntArrayIterator_Nova_array = array;
 	nova_datastruct_list_Nova_IntArrayIterator_Nova_reset(this, exceptionData);
 }
 

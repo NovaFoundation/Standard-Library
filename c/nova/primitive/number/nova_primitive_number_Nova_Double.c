@@ -77,7 +77,7 @@ void nova_primitive_number_Nova_Double_Nova_init_static(nova_exception_Nova_Exce
 	}
 }
 
-nova_primitive_number_Nova_Double* nova_primitive_number_Nova_Double_Nova_construct(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_value)
+nova_primitive_number_Nova_Double* nova_primitive_number_Nova_Double_Nova_construct(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
 	CCLASS_NEW(nova_primitive_number_Nova_Double, this,);
 	this->vtable = &nova_primitive_number_Double_Extension_VTable_val;
@@ -87,7 +87,7 @@ nova_primitive_number_Nova_Double* nova_primitive_number_Nova_Double_Nova_constr
 	nova_primitive_number_Nova_Double_Nova_super(this, exceptionData);
 	
 	{
-		nova_primitive_number_Nova_Double_Nova_this(this, exceptionData, nova_primitive_number_Nova_Double_Nova_value);
+		nova_primitive_number_Nova_Double_Nova_this(this, exceptionData, value);
 	}
 	
 	return this;
@@ -105,33 +105,33 @@ void nova_primitive_number_Nova_Double_Nova_destroy(nova_primitive_number_Nova_D
 	NOVA_FREE(*this);
 }
 
-void nova_primitive_number_Nova_Double_Nova_this(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_value)
+void nova_primitive_number_Nova_Double_Nova_this(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
-	this->nova_primitive_number_Nova_Double_Nova_value = nova_primitive_number_Nova_Double_Nova_value;
+	this->nova_primitive_number_Nova_Double_Nova_value = value;
 }
 
-int nova_primitive_number_Nova_Double_static_Nova_numDigits(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_number)
+int nova_primitive_number_Nova_Double_static_Nova_numDigits(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
 	int l1_Nova_size = 0;
 	
-	l1_Nova_size = (int)((char)(nova_primitive_number_Nova_Double_Nova_number < 0 ? 2 : 1));
-	nova_primitive_number_Nova_Double_Nova_number /= 10;
-	while (nova_primitive_number_Nova_Double_Nova_number > 0)
+	l1_Nova_size = (int)((char)(number < 0 ? 2 : 1));
+	number /= 10;
+	while (number > 0)
 	{
-		nova_primitive_number_Nova_Double_Nova_number /= 10;
+		number /= 10;
 		l1_Nova_size++;
 	}
 	return l1_Nova_size;
 }
 
-nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_genString(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_primitive_number_Nova_Double_Nova_buffer, int nova_primitive_number_Nova_Double_Nova_lastIndex)
+nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_genString(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, char* buffer, int lastIndex)
 {
-	nova_primitive_number_Nova_Double_Nova_buffer = (char*)(realloc(nova_primitive_number_Nova_Double_Nova_buffer, ++nova_primitive_number_Nova_Double_Nova_lastIndex + 1));
-	nova_primitive_number_Nova_Double_Nova_buffer[nova_primitive_number_Nova_Double_Nova_lastIndex] = '\0';
-	return nova_Nova_String_1_Nova_construct(0, exceptionData, nova_primitive_number_Nova_Double_Nova_buffer);
+	buffer = (char*)(realloc(buffer, ++lastIndex + 1));
+	buffer[lastIndex] = '\0';
+	return nova_Nova_String_1_Nova_construct(0, exceptionData, buffer);
 }
 
-char* nova_primitive_number_Nova_Double_static_Nova_genBuffer(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_value)
+char* nova_primitive_number_Nova_Double_static_Nova_genBuffer(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
 	int l1_Nova_size = 0;
 	char* l1_Nova_buffer = (char*)nova_null;
@@ -139,32 +139,32 @@ char* nova_primitive_number_Nova_Double_static_Nova_genBuffer(nova_primitive_num
 	l1_Nova_size = (int)(11 + 1 + 15);
 	
 	l1_Nova_buffer = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_size);
-	sprintf(l1_Nova_buffer, (char*)("%.15f"), nova_primitive_number_Nova_Double_Nova_value);
+	sprintf(l1_Nova_buffer, (char*)("%.15f"), value);
 	return l1_Nova_buffer;
 }
 
-int nova_primitive_number_Nova_Double_static_Nova_repetition(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_primitive_number_Nova_Double_Nova_buffer, int nova_primitive_number_Nova_Double_Nova_start)
+int nova_primitive_number_Nova_Double_static_Nova_repetition(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, char* buffer, int start)
 {
 	int l1_Nova_index = 0;
 	char l1_Nova_c = 0;
 	
-	l1_Nova_index = nova_primitive_number_Nova_Double_Nova_start;
-	l1_Nova_c = nova_primitive_number_Nova_Double_Nova_buffer[l1_Nova_index];
-	while (nova_primitive_number_Nova_Double_Nova_buffer[--l1_Nova_index] == l1_Nova_c);
-	return nova_primitive_number_Nova_Double_Nova_start - l1_Nova_index - 1;
+	l1_Nova_index = start;
+	l1_Nova_c = buffer[l1_Nova_index];
+	while (buffer[--l1_Nova_index] == l1_Nova_c);
+	return start - l1_Nova_index - 1;
 }
 
-int nova_primitive_number_Nova_Double_static_Nova_lastSignificantDigit(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, char* nova_primitive_number_Nova_Double_Nova_buffer, int nova_primitive_number_Nova_Double_Nova_start)
+int nova_primitive_number_Nova_Double_static_Nova_lastSignificantDigit(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, char* buffer, int start)
 {
-	while (nova_primitive_number_Nova_Double_Nova_buffer[nova_primitive_number_Nova_Double_Nova_start--] == '0');
-	return nova_primitive_number_Nova_Double_Nova_start + 1;
+	while (buffer[start--] == '0');
+	return start + 1;
 }
 
-char* nova_primitive_number_Nova_Double_static_Nova_toCharArray(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_value)
+char* nova_primitive_number_Nova_Double_static_Nova_toCharArray(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
 }
 
-nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_toString(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_value)
+nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_toString(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
 	char* l1_Nova_buffer = (char*)nova_null;
 	int l1_Nova_size = 0;
@@ -172,7 +172,7 @@ nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_toString(nova_pr
 	char l1_Nova_c = 0;
 	
 	
-	l1_Nova_buffer = nova_primitive_number_Nova_Double_static_Nova_genBuffer(0, exceptionData, nova_primitive_number_Nova_Double_Nova_value);
+	l1_Nova_buffer = nova_primitive_number_Nova_Double_static_Nova_genBuffer(0, exceptionData, value);
 	l1_Nova_size = (int)(strlen(l1_Nova_buffer));
 	l1_Nova_lastIndex = l1_Nova_size - 1;
 	l1_Nova_c = l1_Nova_buffer[--l1_Nova_lastIndex];
@@ -217,22 +217,22 @@ nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_toString(nova_pr
 	return nova_primitive_number_Nova_Double_static_Nova_genString(0, exceptionData, l1_Nova_buffer, l1_Nova_lastIndex);
 }
 
-double nova_primitive_number_Nova_Double_static_Nova_parseDouble(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_primitive_number_Nova_Double_Nova_str)
+double nova_primitive_number_Nova_Double_static_Nova_parseDouble(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str)
 {
 	char* l1_Nova_pEnd = (char*)nova_null;
 	
 	
-	return strtod((char*)(nova_primitive_number_Nova_Double_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), &l1_Nova_pEnd);
+	return strtod((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), &l1_Nova_pEnd);
 }
 
-double nova_primitive_number_Nova_Double_Nova_compareTo(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_other)
+double nova_primitive_number_Nova_Double_Nova_compareTo(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double other)
 {
-	return this->nova_primitive_number_Nova_Double_Nova_value - nova_primitive_number_Nova_Double_Nova_other;
+	return this->nova_primitive_number_Nova_Double_Nova_value - other;
 }
 
-double nova_primitive_number_Nova_Double_Nova_multiply(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_primitive_number_Nova_Double_Nova_value)
+double nova_primitive_number_Nova_Double_Nova_multiply(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, double value)
 {
-	return this->nova_primitive_number_Nova_Double_Nova_value * nova_primitive_number_Nova_Double_Nova_value;
+	return this->nova_primitive_number_Nova_Double_Nova_value * value;
 }
 
 nova_Nova_String* nova_primitive_number_Nova_Double_Nova_toString(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData)

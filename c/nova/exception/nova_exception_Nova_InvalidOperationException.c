@@ -71,7 +71,7 @@ void nova_exception_Nova_InvalidOperationException_Nova_init_static(nova_excepti
 	}
 }
 
-nova_exception_Nova_InvalidOperationException* nova_exception_Nova_InvalidOperationException_Nova_construct(nova_exception_Nova_InvalidOperationException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_exception_Nova_InvalidOperationException_Nova_message)
+nova_exception_Nova_InvalidOperationException* nova_exception_Nova_InvalidOperationException_Nova_construct(nova_exception_Nova_InvalidOperationException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
 	CCLASS_NEW(nova_exception_Nova_InvalidOperationException, this,);
 	this->vtable = &nova_exception_InvalidOperationException_Extension_VTable_val;
@@ -80,7 +80,7 @@ nova_exception_Nova_InvalidOperationException* nova_exception_Nova_InvalidOperat
 	nova_exception_Nova_InvalidOperationException_Nova_super(this, exceptionData);
 	
 	{
-		nova_exception_Nova_InvalidOperationException_Nova_this(this, exceptionData, nova_exception_Nova_InvalidOperationException_Nova_message);
+		nova_exception_Nova_InvalidOperationException_Nova_this(this, exceptionData, message);
 	}
 	
 	return this;
@@ -97,9 +97,9 @@ void nova_exception_Nova_InvalidOperationException_Nova_destroy(nova_exception_N
 	NOVA_FREE(*this);
 }
 
-void nova_exception_Nova_InvalidOperationException_Nova_this(nova_exception_Nova_InvalidOperationException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_exception_Nova_InvalidOperationException_Nova_message)
+void nova_exception_Nova_InvalidOperationException_Nova_this(nova_exception_Nova_InvalidOperationException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
-	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, nova_exception_Nova_InvalidOperationException_Nova_message);
+	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, message);
 }
 
 void nova_exception_Nova_InvalidOperationException_Nova_super(nova_exception_Nova_InvalidOperationException* this, nova_exception_Nova_ExceptionData* exceptionData)

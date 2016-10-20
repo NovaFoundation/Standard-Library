@@ -68,8 +68,8 @@ void nova_datastruct_Nova_Comparable_Nova_init_static(nova_exception_Nova_Except
 }
 
 
-int nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Comparable_Nova_other)
+int nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* other)
 {
-	return this->vtable->itable.nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo((nova_datastruct_Nova_Comparable*)(this), exceptionData, nova_datastruct_Nova_Comparable_Nova_other);
+	return this->vtable->itable.nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo((nova_datastruct_Nova_Comparable*)(this), exceptionData, other);
 }
 

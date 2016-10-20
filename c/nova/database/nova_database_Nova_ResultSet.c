@@ -71,7 +71,7 @@ void nova_database_Nova_ResultSet_Nova_init_static(nova_exception_Nova_Exception
 	}
 }
 
-nova_database_Nova_ResultSet* nova_database_Nova_ResultSet_Nova_construct(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows, int nova_database_Nova_ResultSet_Nova_numCols)
+nova_database_Nova_ResultSet* nova_database_Nova_ResultSet_Nova_construct(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* rows, int numCols)
 {
 	CCLASS_NEW(nova_database_Nova_ResultSet, this,);
 	this->vtable = &nova_database_ResultSet_Extension_VTable_val;
@@ -79,7 +79,7 @@ nova_database_Nova_ResultSet* nova_database_Nova_ResultSet_Nova_construct(nova_d
 	nova_database_Nova_ResultSet_Nova_super(this, exceptionData);
 	
 	{
-		nova_database_Nova_ResultSet_Nova_this(this, exceptionData, nova_database_Nova_ResultSet_Nova_rows, nova_database_Nova_ResultSet_Nova_numCols);
+		nova_database_Nova_ResultSet_Nova_this(this, exceptionData, rows, numCols);
 	}
 	
 	return this;
@@ -98,10 +98,10 @@ void nova_database_Nova_ResultSet_Nova_destroy(nova_database_Nova_ResultSet** th
 	NOVA_FREE(*this);
 }
 
-void nova_database_Nova_ResultSet_Nova_this(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows, int nova_database_Nova_ResultSet_Nova_numCols)
+void nova_database_Nova_ResultSet_Nova_this(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* rows, int numCols)
 {
-	this->nova_database_Nova_ResultSet_Nova_rows = nova_database_Nova_ResultSet_Nova_rows;
-	this->nova_database_Nova_ResultSet_Nova_numCols = nova_database_Nova_ResultSet_Nova_numCols;
+	this->nova_database_Nova_ResultSet_Nova_rows = rows;
+	this->nova_database_Nova_ResultSet_Nova_numCols = numCols;
 }
 
 int nova_database_Nova_ResultSet_Accessor_Nova_numRows(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData)

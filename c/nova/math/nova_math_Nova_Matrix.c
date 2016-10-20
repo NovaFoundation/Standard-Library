@@ -105,14 +105,14 @@ CCLASS_PRIVATE
 	
 )
 
-void nova_math_Nova_Matrix_Nova_checkUnequalDimensions(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other);
-nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda8(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context1* context);
-nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda41(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova__3, Context2* context);
-void nova_math_Nova_Matrix_Nova_testLambda42(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_outRow, int nova_math_Nova_Matrix_Nova_outR, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context3* context);
-void nova_math_Nova_Matrix_Nova_testLambda43(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_row, int nova_math_Nova_Matrix_Nova_r, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context4* context);
-void nova_math_Nova_Matrix_Nova_testLambda44(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_row, int nova_math_Nova_Matrix_Nova_r, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context5* context);
-nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda45(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context6* context);
-nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda46(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova__3, Context7* context);
+void nova_math_Nova_Matrix_Nova_checkUnequalDimensions(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* other);
+nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda8(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
+nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda41(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double _1, int _2, nova_datastruct_list_Nova_DoubleArray* _3, Context2* context);
+void nova_math_Nova_Matrix_Nova_testLambda42(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* outRow, int outR, nova_datastruct_list_Nova_Array* _3, Context3* context);
+void nova_math_Nova_Matrix_Nova_testLambda43(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* row, int r, nova_datastruct_list_Nova_Array* _3, Context4* context);
+void nova_math_Nova_Matrix_Nova_testLambda44(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* row, int r, nova_datastruct_list_Nova_Array* _3, Context5* context);
+nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda45(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context6* context);
+nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda46(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double _1, int _2, nova_datastruct_list_Nova_DoubleArray* _3, Context7* context);
 
 
 
@@ -129,7 +129,7 @@ void nova_math_Nova_Matrix_Nova_init_static(nova_exception_Nova_ExceptionData* e
 	}
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_0_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_order)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_0_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int order)
 {
 	CCLASS_NEW(nova_math_Nova_Matrix, this);
 	this->vtable = &nova_math_Matrix_Extension_VTable_val;
@@ -137,13 +137,13 @@ nova_math_Nova_Matrix* nova_math_Nova_Matrix_0_Nova_construct(nova_math_Nova_Mat
 	nova_math_Nova_Matrix_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Matrix_0_Nova_this(this, exceptionData, nova_math_Nova_Matrix_Nova_order);
+		nova_math_Nova_Matrix_0_Nova_this(this, exceptionData, order);
 	}
 	
 	return this;
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_1_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_rows, int nova_math_Nova_Matrix_Nova_cols)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_1_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int rows, int cols)
 {
 	CCLASS_NEW(nova_math_Nova_Matrix, this);
 	this->vtable = &nova_math_Matrix_Extension_VTable_val;
@@ -151,13 +151,13 @@ nova_math_Nova_Matrix* nova_math_Nova_Matrix_1_Nova_construct(nova_math_Nova_Mat
 	nova_math_Nova_Matrix_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Matrix_1_Nova_this(this, exceptionData, nova_math_Nova_Matrix_Nova_rows, nova_math_Nova_Matrix_Nova_cols);
+		nova_math_Nova_Matrix_1_Nova_this(this, exceptionData, rows, cols);
 	}
 	
 	return this;
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_2_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova_data)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_2_Nova_construct(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
 {
 	CCLASS_NEW(nova_math_Nova_Matrix, this);
 	this->vtable = &nova_math_Matrix_Extension_VTable_val;
@@ -165,7 +165,7 @@ nova_math_Nova_Matrix* nova_math_Nova_Matrix_2_Nova_construct(nova_math_Nova_Mat
 	nova_math_Nova_Matrix_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Matrix_2_Nova_this(this, exceptionData, nova_math_Nova_Matrix_Nova_data);
+		nova_math_Nova_Matrix_2_Nova_this(this, exceptionData, data);
 	}
 	
 	return this;
@@ -184,32 +184,32 @@ void nova_math_Nova_Matrix_Nova_destroy(nova_math_Nova_Matrix** this, nova_excep
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_Matrix_0_Nova_this(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_order)
+void nova_math_Nova_Matrix_0_Nova_this(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int order)
 {
-	nova_math_Nova_Matrix_1_Nova_this(this, exceptionData, nova_math_Nova_Matrix_Nova_order, nova_math_Nova_Matrix_Nova_order);
+	nova_math_Nova_Matrix_1_Nova_this(this, exceptionData, order, order);
 }
 
-void nova_math_Nova_Matrix_1_Nova_this(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_rows, int nova_math_Nova_Matrix_Nova_cols)
+void nova_math_Nova_Matrix_1_Nova_this(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int rows, int cols)
 {
 	Context7 contextArg46 = 
 	{
-		&nova_math_Nova_Matrix_Nova_cols,
+		&cols,
 	};
 	
-	if (nova_math_Nova_Matrix_Nova_rows <= 0 || nova_math_Nova_Matrix_Nova_cols <= 0)
+	if (rows <= 0 || cols <= 0)
 	{
-		THROW(7, nova_exception_Nova_InvalidArgumentException_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Invalid matrix size "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Nova_rows))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("x"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Nova_cols))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(". The number of rows and columns must both be positive."))))))));
+		THROW(7, nova_exception_Nova_InvalidArgumentException_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Invalid matrix size "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (rows))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("x"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (cols))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(". The number of rows and columns must both be positive."))))))));
 	}
-	nova_math_Nova_Matrix_2_Nova_this(this, exceptionData, (nova_datastruct_list_Nova_Array*)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_map(nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Nova_rows), exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure6_Nova_mapFunc)(intptr_t)&nova_math_Nova_Matrix_Nova_testLambda46, this, &contextArg46)));
+	nova_math_Nova_Matrix_2_Nova_this(this, exceptionData, (nova_datastruct_list_Nova_Array*)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_map(nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, rows), exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure6_Nova_mapFunc)(intptr_t)&nova_math_Nova_Matrix_Nova_testLambda46, this, &contextArg46)));
 }
 
-void nova_math_Nova_Matrix_2_Nova_this(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova_data)
+void nova_math_Nova_Matrix_2_Nova_this(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
 {
-	if (nova_math_Nova_Matrix_Nova_data == (nova_datastruct_list_Nova_Array*)nova_null || nova_math_Nova_Matrix_Nova_data->nova_datastruct_list_Nova_Array_Nova_count == 0)
+	if (data == (nova_datastruct_list_Nova_Array*)nova_null || data->nova_datastruct_list_Nova_Array_Nova_count == 0)
 	{
 		THROW(7, nova_exception_Nova_InvalidArgumentException_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Matrix size must be greater than 0 rows and columns"))));
 	}
-	this->prv->nova_math_Nova_Matrix_Nova_data = nova_math_Nova_Matrix_Nova_data;
+	this->prv->nova_math_Nova_Matrix_Nova_data = data;
 }
 
 nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_clone(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -217,18 +217,18 @@ nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_clone(nova_math_Nova_Matrix* t
 	return nova_math_Nova_Matrix_Nova_add(nova_math_Nova_Matrix_1_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData)), exceptionData, this, (intptr_t)nova_null);
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_static_Nova_identity(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_order)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_static_Nova_identity(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int order)
 {
 	nova_datastruct_list_Nova_Array* l1_Nova_data = (nova_datastruct_list_Nova_Array*)nova_null;
 	Context2 contextArg41 = 
 	{
-		&nova_math_Nova_Matrix_Nova_order,
+		&order,
 	};
 	int l2_Nova_i = 0;
 	
-	l1_Nova_data = (nova_datastruct_list_Nova_Array*)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_map(nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Nova_order), exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure6_Nova_mapFunc)(intptr_t)&nova_math_Nova_Matrix_static_Nova_testLambda41, nova_null, &contextArg41));
+	l1_Nova_data = (nova_datastruct_list_Nova_Array*)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_map(nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, order), exceptionData, (nova_datastruct_list_Nova_DoubleArray_closure6_Nova_mapFunc)(intptr_t)&nova_math_Nova_Matrix_static_Nova_testLambda41, nova_null, &contextArg41));
 	l2_Nova_i = (int)0;
-	for (; l2_Nova_i < (int)nova_math_Nova_Matrix_Nova_order; l2_Nova_i++)
+	for (; l2_Nova_i < (int)order; l2_Nova_i++)
 	{
 		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(l1_Nova_data), exceptionData, l2_Nova_i)), exceptionData, l2_Nova_i, 1);
 	}
@@ -259,11 +259,11 @@ nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_inverse(nova_math_Nova_Matrix*
 	return l1_Nova_i;
 }
 
-void nova_math_Nova_Matrix_Nova_swapRows(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_row1, int nova_math_Nova_Matrix_Nova_row2)
+void nova_math_Nova_Matrix_Nova_swapRows(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int row1, int row2)
 {
 	int l3_Nova_col = 0;
 	
-	if (nova_math_Nova_Matrix_Nova_row1 == nova_math_Nova_Matrix_Nova_row2)
+	if (row1 == row2)
 	{
 		return;
 	}
@@ -272,24 +272,24 @@ void nova_math_Nova_Matrix_Nova_swapRows(nova_math_Nova_Matrix* this, nova_excep
 	{
 		double l3_Nova_temp = 0;
 		
-		l3_Nova_temp = (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_row1)), exceptionData, l3_Nova_col));
-		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_row1)), exceptionData, l3_Nova_col, (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_row2)), exceptionData, l3_Nova_col)));
-		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_row2)), exceptionData, l3_Nova_col, l3_Nova_temp);
+		l3_Nova_temp = (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, row1)), exceptionData, l3_Nova_col));
+		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, row1)), exceptionData, l3_Nova_col, (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, row2)), exceptionData, l3_Nova_col)));
+		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, row2)), exceptionData, l3_Nova_col, l3_Nova_temp);
 	}
 }
 
-void nova_math_Nova_Matrix_Nova_multiplyRow(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_sourceRow, int nova_math_Nova_Matrix_Nova_destinationRow, double nova_math_Nova_Matrix_Nova_scalar)
+void nova_math_Nova_Matrix_Nova_multiplyRow(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int sourceRow, int destinationRow, double scalar)
 {
-	nova_math_Nova_Matrix_Nova_destinationRow = (int)(nova_math_Nova_Matrix_Nova_destinationRow == (intptr_t)nova_null ? nova_math_Nova_Matrix_Nova_sourceRow : nova_math_Nova_Matrix_Nova_destinationRow);
-	nova_math_Nova_Matrix_Nova_scalar = (double)(nova_math_Nova_Matrix_Nova_scalar == (intptr_t)nova_null ? 1 : nova_math_Nova_Matrix_Nova_scalar);
-	if (nova_math_Nova_Matrix_Nova_sourceRow == nova_math_Nova_Matrix_Nova_destinationRow)
+	destinationRow = (int)(destinationRow == (intptr_t)nova_null ? sourceRow : destinationRow);
+	scalar = (double)(scalar == (intptr_t)nova_null ? 1 : scalar);
+	if (sourceRow == destinationRow)
 	{
 		int l3_Nova_col = 0;
 		
 		l3_Nova_col = (int)0;
 		for (; l3_Nova_col < (int)nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData); l3_Nova_col++)
 		{
-			nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_sourceRow)), exceptionData, l3_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_sourceRow)), exceptionData, l3_Nova_col) * nova_math_Nova_Matrix_Nova_scalar);
+			nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, sourceRow)), exceptionData, l3_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, sourceRow)), exceptionData, l3_Nova_col) * scalar);
 		}
 	}
 	else
@@ -299,107 +299,107 @@ void nova_math_Nova_Matrix_Nova_multiplyRow(nova_math_Nova_Matrix* this, nova_ex
 		l6_Nova_col = (int)0;
 		for (; l6_Nova_col < (int)nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData); l6_Nova_col++)
 		{
-			nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_destinationRow)), exceptionData, l6_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_destinationRow)), exceptionData, l6_Nova_col) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_sourceRow)), exceptionData, l6_Nova_col) * nova_math_Nova_Matrix_Nova_scalar);
+			nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, destinationRow)), exceptionData, l6_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, destinationRow)), exceptionData, l6_Nova_col) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, sourceRow)), exceptionData, l6_Nova_col) * scalar);
 		}
 	}
 }
 
-void nova_math_Nova_Matrix_Nova_addRow(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_sourceRow, int nova_math_Nova_Matrix_Nova_destinationRow)
+void nova_math_Nova_Matrix_Nova_addRow(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int sourceRow, int destinationRow)
 {
 	int l2_Nova_col = 0;
 	
-	nova_math_Nova_Matrix_Nova_destinationRow = (int)(nova_math_Nova_Matrix_Nova_destinationRow == (intptr_t)nova_null ? nova_math_Nova_Matrix_Nova_sourceRow : nova_math_Nova_Matrix_Nova_destinationRow);
+	destinationRow = (int)(destinationRow == (intptr_t)nova_null ? sourceRow : destinationRow);
 	l2_Nova_col = (int)0;
 	for (; l2_Nova_col < (int)nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData); l2_Nova_col++)
 	{
-		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_destinationRow)), exceptionData, l2_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_destinationRow)), exceptionData, l2_Nova_col) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_sourceRow)), exceptionData, l2_Nova_col));
+		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, destinationRow)), exceptionData, l2_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, destinationRow)), exceptionData, l2_Nova_col) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, sourceRow)), exceptionData, l2_Nova_col));
 	}
 }
 
-void nova_math_Nova_Matrix_Nova_subtractRow(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_sourceRow, int nova_math_Nova_Matrix_Nova_destinationRow)
+void nova_math_Nova_Matrix_Nova_subtractRow(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int sourceRow, int destinationRow)
 {
 	int l2_Nova_col = 0;
 	
-	nova_math_Nova_Matrix_Nova_destinationRow = (int)(nova_math_Nova_Matrix_Nova_destinationRow == (intptr_t)nova_null ? nova_math_Nova_Matrix_Nova_sourceRow : nova_math_Nova_Matrix_Nova_destinationRow);
+	destinationRow = (int)(destinationRow == (intptr_t)nova_null ? sourceRow : destinationRow);
 	l2_Nova_col = (int)0;
 	for (; l2_Nova_col < (int)nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData); l2_Nova_col++)
 	{
-		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_destinationRow)), exceptionData, l2_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_destinationRow)), exceptionData, l2_Nova_col) - (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_sourceRow)), exceptionData, l2_Nova_col));
+		nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, destinationRow)), exceptionData, l2_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, destinationRow)), exceptionData, l2_Nova_col) - (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, sourceRow)), exceptionData, l2_Nova_col));
 	}
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_add(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other, int nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_add(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* other, int allowUnequalDimensions)
 {
 	nova_math_Nova_Matrix* l1_Nova_result = (nova_math_Nova_Matrix*)nova_null;
 	int l3_Nova_row = 0;
 	
-	nova_math_Nova_Matrix_Nova_allowUnequalDimensions = (int)(nova_math_Nova_Matrix_Nova_allowUnequalDimensions == (intptr_t)nova_null ? 0 : nova_math_Nova_Matrix_Nova_allowUnequalDimensions);
-	if (!nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
+	allowUnequalDimensions = (int)(allowUnequalDimensions == (intptr_t)nova_null ? 0 : allowUnequalDimensions);
+	if (!allowUnequalDimensions)
 	{
-		nova_math_Nova_Matrix_Nova_checkUnequalDimensions(this, exceptionData, nova_math_Nova_Matrix_Nova_other);
+		nova_math_Nova_Matrix_Nova_checkUnequalDimensions(this, exceptionData, other);
 	}
 	l1_Nova_result = nova_math_Nova_Matrix_1_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData));
 	l3_Nova_row = (int)0;
-	for (; l3_Nova_row < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix_Nova_other, exceptionData))); l3_Nova_row++)
+	for (; l3_Nova_row < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_rows(other, exceptionData))); l3_Nova_row++)
 	{
 		int l5_Nova_col = 0;
 		
 		l5_Nova_col = (int)0;
-		for (; l5_Nova_col < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_cols(nova_math_Nova_Matrix_Nova_other, exceptionData))); l5_Nova_col++)
+		for (; l5_Nova_col < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_cols(other, exceptionData))); l5_Nova_col++)
 		{
-			nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get(l1_Nova_result, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, l3_Nova_row)), exceptionData, l5_Nova_col) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get(nova_math_Nova_Matrix_Nova_other, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col));
+			nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get(l1_Nova_result, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, l3_Nova_row)), exceptionData, l5_Nova_col) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get(other, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col));
 		}
 	}
 	return l1_Nova_result;
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_subtract(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other, int nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_subtract(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* other, int allowUnequalDimensions)
 {
 	nova_math_Nova_Matrix* l1_Nova_result = (nova_math_Nova_Matrix*)nova_null;
 	int l3_Nova_row = 0;
 	
-	nova_math_Nova_Matrix_Nova_allowUnequalDimensions = (int)(nova_math_Nova_Matrix_Nova_allowUnequalDimensions == (intptr_t)nova_null ? 0 : nova_math_Nova_Matrix_Nova_allowUnequalDimensions);
-	if (!nova_math_Nova_Matrix_Nova_allowUnequalDimensions)
+	allowUnequalDimensions = (int)(allowUnequalDimensions == (intptr_t)nova_null ? 0 : allowUnequalDimensions);
+	if (!allowUnequalDimensions)
 	{
-		nova_math_Nova_Matrix_Nova_checkUnequalDimensions(this, exceptionData, nova_math_Nova_Matrix_Nova_other);
+		nova_math_Nova_Matrix_Nova_checkUnequalDimensions(this, exceptionData, other);
 	}
 	l1_Nova_result = nova_math_Nova_Matrix_1_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData));
 	l3_Nova_row = (int)0;
-	for (; l3_Nova_row < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix_Nova_other, exceptionData))); l3_Nova_row++)
+	for (; l3_Nova_row < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_rows(other, exceptionData))); l3_Nova_row++)
 	{
 		int l5_Nova_col = 0;
 		
 		l5_Nova_col = (int)0;
-		for (; l5_Nova_col < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_cols(nova_math_Nova_Matrix_Nova_other, exceptionData))); l5_Nova_col++)
+		for (; l5_Nova_col < (int)nova_math_Nova_Math_static_Nova_min(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData), (long_long)(nova_math_Nova_Matrix_Accessor_Nova_cols(other, exceptionData))); l5_Nova_col++)
 		{
-			nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get(l1_Nova_result, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, l3_Nova_row)), exceptionData, l5_Nova_col) - (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get(nova_math_Nova_Matrix_Nova_other, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col));
+			nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get(l1_Nova_result, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col, (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, l3_Nova_row)), exceptionData, l5_Nova_col) - (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get(other, exceptionData, l3_Nova_row), exceptionData, l5_Nova_col));
 		}
 	}
 	return l1_Nova_result;
 }
 
-void nova_math_Nova_Matrix_Nova_checkUnequalDimensions(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other)
+void nova_math_Nova_Matrix_Nova_checkUnequalDimensions(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* other)
 {
-	if (nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData) != nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix_Nova_other, exceptionData) || nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData) != nova_math_Nova_Matrix_Accessor_Nova_cols(nova_math_Nova_Matrix_Nova_other, exceptionData))
+	if (nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData) != nova_math_Nova_Matrix_Accessor_Nova_rows(other, exceptionData) || nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData) != nova_math_Nova_Matrix_Accessor_Nova_cols(other, exceptionData))
 	{
 		THROW(7, nova_exception_Nova_InvalidArgumentException_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("The matrices' sizes must be equal to perform this operation"))));
 	}
 }
 
-nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_multiply(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_other)
+nova_math_Nova_Matrix* nova_math_Nova_Matrix_Nova_multiply(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Matrix* other)
 {
 	nova_math_Nova_Matrix* l1_Nova_result = (nova_math_Nova_Matrix*)nova_null;
 	Context3 contextArg43 = 
 	{
 		&l1_Nova_result,
-		&nova_math_Nova_Matrix_Nova_other,
+		&other,
 	};
 	
-	if (nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData) != nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix_Nova_other, exceptionData))
+	if (nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData) != nova_math_Nova_Matrix_Accessor_Nova_rows(other, exceptionData))
 	{
-		THROW(7, nova_exception_Nova_InvalidArgumentException_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Matrix with dimensions "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("x"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" cannot be multiplied with matrix with dimensions "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix_Nova_other, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("x"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_cols(nova_math_Nova_Matrix_Nova_other, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(". "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" != "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_rows(nova_math_Nova_Matrix_Nova_other, exceptionData)))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))))))))))))))));
+		THROW(7, nova_exception_Nova_InvalidArgumentException_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Matrix with dimensions "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("x"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" cannot be multiplied with matrix with dimensions "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_rows(other, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("x"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_cols(other, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(". "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData)))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" != "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (nova_math_Nova_Matrix_Accessor_Nova_rows(other, exceptionData)))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))))))))))))))));
 	}
-	l1_Nova_result = nova_math_Nova_Matrix_1_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), nova_math_Nova_Matrix_Accessor_Nova_cols(nova_math_Nova_Matrix_Nova_other, exceptionData));
+	l1_Nova_result = nova_math_Nova_Matrix_1_Nova_construct(0, exceptionData, nova_math_Nova_Matrix_Accessor_Nova_rows(this, exceptionData), nova_math_Nova_Matrix_Accessor_Nova_cols(other, exceptionData));
 	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(l1_Nova_result->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_math_Nova_Matrix_Nova_testLambda42, this, &contextArg43);
 	return l1_Nova_result;
 }
@@ -426,20 +426,20 @@ double nova_math_Nova_Matrix_Nova_determinant(nova_math_Nova_Matrix* this, nova_
 	return nova_math_Nova_Matrix_static_Nova_determinant(0, exceptionData, this->prv->nova_math_Nova_Matrix_Nova_data);
 }
 
-double nova_math_Nova_Matrix_static_Nova_determinant(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova_data)
+double nova_math_Nova_Matrix_static_Nova_determinant(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
 {
 	int l1_Nova_order = 0;
 	double l1_Nova_det = 0;
 	
-	l1_Nova_order = nova_math_Nova_Matrix_Nova_data->nova_datastruct_list_Nova_Array_Nova_count;
+	l1_Nova_order = data->nova_datastruct_list_Nova_Array_Nova_count;
 	l1_Nova_det = (double)(0);
 	if (l1_Nova_order == 1)
 	{
-		l1_Nova_det = (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, 0)), exceptionData, 0));
+		l1_Nova_det = (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, 0)), exceptionData, 0));
 	}
 	else if (l1_Nova_order == 2)
 	{
-		l1_Nova_det = (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, 0)), exceptionData, 0) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, 1)), exceptionData, 1) - (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, 1)), exceptionData, 0) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, 0)), exceptionData, 1);
+		l1_Nova_det = (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, 0)), exceptionData, 0) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, 1)), exceptionData, 1) - (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, 1)), exceptionData, 0) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, 0)), exceptionData, 1);
 	}
 	else
 	{
@@ -468,11 +468,11 @@ double nova_math_Nova_Matrix_static_Nova_determinant(nova_math_Nova_Matrix* this
 				{
 					if (l10_Nova_j != l6_Nova_j1)
 					{
-						nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(l6_Nova_m), exceptionData, l8_Nova_i - 1)), exceptionData, l8_Nova_j2++, (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, l8_Nova_i)), exceptionData, l10_Nova_j)));
+						nova_datastruct_list_Nova_DoubleArray_Nova_set((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(l6_Nova_m), exceptionData, l8_Nova_i - 1)), exceptionData, l8_Nova_j2++, (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, l8_Nova_i)), exceptionData, l10_Nova_j)));
 					}
 				}
 			}
-			l1_Nova_det += nova_math_Nova_Math_static_Nova_pow(0, exceptionData, -1.0, 1.0 + l6_Nova_j1 + 1.0) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(nova_math_Nova_Matrix_Nova_data), exceptionData, 0)), exceptionData, l6_Nova_j1) * nova_math_Nova_Matrix_static_Nova_determinant(0, exceptionData, l6_Nova_m);
+			l1_Nova_det += nova_math_Nova_Math_static_Nova_pow(0, exceptionData, -1.0, 1.0 + l6_Nova_j1 + 1.0) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get((nova_datastruct_list_Nova_DoubleArray*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(data), exceptionData, 0)), exceptionData, l6_Nova_j1) * nova_math_Nova_Matrix_static_Nova_determinant(0, exceptionData, l6_Nova_m);
 		}
 	}
 	return l1_Nova_det;
@@ -487,67 +487,67 @@ nova_Nova_String* nova_math_Nova_Matrix_Nova_toString(nova_math_Nova_Matrix* thi
 	return nova_datastruct_list_Nova_List_virtual_Nova_join((nova_datastruct_list_Nova_List*)(nova_datastruct_list_Nova_List_virtual0_Nova_map((nova_datastruct_list_Nova_List*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, (nova_datastruct_list_Nova_List_closure6_Nova_mapFunc)&nova_math_Nova_Matrix_Nova_testLambda8, this, &contextArg8)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\n")));
 }
 
-nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_get(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_index)
+nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_get(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int index)
 {
-	return (nova_datastruct_list_Nova_DoubleArray*)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_index);
+	return (nova_datastruct_list_Nova_DoubleArray*)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, index);
 }
 
-nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_set(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Matrix_Nova_index, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_value)
+nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_set(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, int index, nova_datastruct_list_Nova_DoubleArray* value)
 {
-	nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, nova_math_Nova_Matrix_Nova_index, (nova_Nova_Object*)(nova_math_Nova_Matrix_Nova_value));
-	return nova_math_Nova_Matrix_Nova_value;
+	nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, index, (nova_Nova_Object*)(value));
+	return value;
 }
 
-nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda8(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context1* context)
+nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda8(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
 {
-	return (nova_Nova_Object*)nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("[ "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_datastruct_list_Nova_DoubleArray_Nova_join(nova_math_Nova_Matrix_Nova__1, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\t"))))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" ]"))));
+	return (nova_Nova_Object*)nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("[ "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_datastruct_list_Nova_DoubleArray_Nova_join(_1, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\t"))))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" ]"))));
 }
 
-nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda41(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova__3, Context2* context)
+nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda41(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double _1, int _2, nova_datastruct_list_Nova_DoubleArray* _3, Context2* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, (*context->nova_math_Nova_Matrix_Nova_order));
 }
 
-void nova_math_Nova_Matrix_Nova_testLambda42(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_outRow, int nova_math_Nova_Matrix_Nova_outR, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context3* context)
+void nova_math_Nova_Matrix_Nova_testLambda42(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* outRow, int outR, nova_datastruct_list_Nova_Array* _3, Context3* context)
 {
 	Context4 contextArg42 = 
 	{
 		context->nova_math_Nova_Matrix_Nova_result,
-		&nova_math_Nova_Matrix_Nova_outR,
+		&outR,
 		context->nova_math_Nova_Matrix_Nova_other,
 	};
 	
 	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(this->prv->nova_math_Nova_Matrix_Nova_data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_math_Nova_Matrix_Nova_testLambda43, this, &contextArg42);
 }
 
-void nova_math_Nova_Matrix_Nova_testLambda43(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_row, int nova_math_Nova_Matrix_Nova_r, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context4* context)
+void nova_math_Nova_Matrix_Nova_testLambda43(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* row, int r, nova_datastruct_list_Nova_Array* _3, Context4* context)
 {
 	int l2_Nova_c = 0;
 	
 	l2_Nova_c = (int)0;
 	for (; l2_Nova_c < (int)nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData); l2_Nova_c++)
 	{
-		nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_result), exceptionData, nova_math_Nova_Matrix_Nova_r), exceptionData, (*context->nova_math_Nova_Matrix_Nova_outR), (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_result), exceptionData, nova_math_Nova_Matrix_Nova_r), exceptionData, (*context->nova_math_Nova_Matrix_Nova_outR)) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_row, exceptionData, l2_Nova_c) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_other), exceptionData, l2_Nova_c), exceptionData, (*context->nova_math_Nova_Matrix_Nova_outR)));
+		nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_result), exceptionData, r), exceptionData, (*context->nova_math_Nova_Matrix_Nova_outR), (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_result), exceptionData, r), exceptionData, (*context->nova_math_Nova_Matrix_Nova_outR)) + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(row, exceptionData, l2_Nova_c) * (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_other), exceptionData, l2_Nova_c), exceptionData, (*context->nova_math_Nova_Matrix_Nova_outR)));
 	}
 }
 
-void nova_math_Nova_Matrix_Nova_testLambda44(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova_row, int nova_math_Nova_Matrix_Nova_r, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context5* context)
+void nova_math_Nova_Matrix_Nova_testLambda44(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* row, int r, nova_datastruct_list_Nova_Array* _3, Context5* context)
 {
 	int l2_Nova_c = 0;
 	
 	l2_Nova_c = (int)0;
 	for (; l2_Nova_c < (int)nova_math_Nova_Matrix_Accessor_Nova_cols(this, exceptionData); l2_Nova_c++)
 	{
-		nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_result), exceptionData, l2_Nova_c), exceptionData, nova_math_Nova_Matrix_Nova_r, (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get(nova_math_Nova_Matrix_Nova_row, exceptionData, l2_Nova_c)));
+		nova_datastruct_list_Nova_DoubleArray_Nova_set(nova_math_Nova_Matrix_Nova_get((*context->nova_math_Nova_Matrix_Nova_result), exceptionData, l2_Nova_c), exceptionData, r, (double)(intptr_t)(nova_datastruct_list_Nova_DoubleArray_Nova_get(row, exceptionData, l2_Nova_c)));
 	}
 }
 
-nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda45(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_Array* nova_math_Nova_Matrix_Nova__3, Context6* context)
+nova_Nova_Object* nova_math_Nova_Matrix_static_Nova_testLambda45(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context6* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, (*context->nova_math_Nova_Matrix_Nova_order) - 1);
 }
 
-nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda46(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Matrix_Nova__1, int nova_math_Nova_Matrix_Nova__2, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Matrix_Nova__3, Context7* context)
+nova_Nova_Object* nova_math_Nova_Matrix_Nova_testLambda46(nova_math_Nova_Matrix* this, nova_exception_Nova_ExceptionData* exceptionData, double _1, int _2, nova_datastruct_list_Nova_DoubleArray* _3, Context7* context)
 {
 	return (nova_Nova_Object*)nova_datastruct_list_Nova_DoubleArray_2_Nova_construct(0, exceptionData, (*context->nova_math_Nova_Matrix_Nova_cols));
 }

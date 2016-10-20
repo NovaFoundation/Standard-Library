@@ -75,14 +75,14 @@ void nova_io_Nova_StreamReader_Nova_init_static(nova_exception_Nova_ExceptionDat
 	}
 }
 
-nova_io_Nova_StreamReader* nova_io_Nova_StreamReader_Nova_construct(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_StreamReader_Nova_file)
+nova_io_Nova_StreamReader* nova_io_Nova_StreamReader_Nova_construct(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
 {
 	CCLASS_NEW(nova_io_Nova_StreamReader, this);
 	this->vtable = &nova_io_StreamReader_Extension_VTable_val;
 	nova_io_Nova_StreamReader_Nova_super(this, exceptionData);
 	
 	{
-		nova_io_Nova_StreamReader_Nova_this(this, exceptionData, nova_io_Nova_StreamReader_Nova_file);
+		nova_io_Nova_StreamReader_Nova_this(this, exceptionData, file);
 	}
 	
 	return this;
@@ -101,9 +101,9 @@ void nova_io_Nova_StreamReader_Nova_destroy(nova_io_Nova_StreamReader** this, no
 	NOVA_FREE(*this);
 }
 
-void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_StreamReader_Nova_file)
+void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
 {
-	this->prv->nova_io_Nova_StreamReader_Nova_file = nova_io_Nova_StreamReader_Nova_file;
+	this->prv->nova_io_Nova_StreamReader_Nova_file = file;
 }
 
 nova_datastruct_list_Nova_Array* nova_io_Nova_StreamReader_Nova_readBytes(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)

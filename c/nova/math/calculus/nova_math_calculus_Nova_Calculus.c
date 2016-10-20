@@ -97,7 +97,7 @@ void nova_math_calculus_Nova_Calculus_Nova_destroy(nova_math_calculus_Nova_Calcu
 	NOVA_FREE(*this);
 }
 
-nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_static_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_Nova_statement)
+nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_static_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* statement)
 {
 	return (nova_math_Nova_NumericStatement*)(nova_Nova_Object*)nova_null;
 }

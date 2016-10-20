@@ -108,7 +108,7 @@ void nova_time_Nova_Date_Nova_this(nova_time_Nova_Date* this, nova_exception_Nov
 	nova_time_Nova_Date_Nova_updateTime(this, exceptionData);
 }
 
-void nova_time_Nova_Date_Nova_decodeDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_time_Nova_Date_Nova_prototype, nova_Nova_String* nova_time_Nova_Date_Nova_date)
+void nova_time_Nova_Date_Nova_decodeDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* prototype, nova_Nova_String* date)
 {
 }
 
@@ -123,18 +123,18 @@ void nova_time_Nova_Date_Nova_updateTime(nova_time_Nova_Date* this, nova_excepti
 	this->nova_time_Nova_Date_Nova_second = (int)(nova_getSecond());
 }
 
-nova_Nova_String* nova_time_Nova_Date_Nova_formatDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_time_Nova_Date_Nova_str, int nova_time_Nova_Date_Nova_first, int nova_time_Nova_Date_Nova_second, int nova_time_Nova_Date_Nova_third, int nova_time_Nova_Date_Nova_fourth, int nova_time_Nova_Date_Nova_fifth, int nova_time_Nova_Date_Nova_sixth)
+nova_Nova_String* nova_time_Nova_Date_Nova_formatDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str, int first, int second, int third, int fourth, int fifth, int sixth)
 {
 	char* l1_Nova_data = (char*)nova_null;
 	
-	nova_time_Nova_Date_Nova_first = (int)(nova_time_Nova_Date_Nova_first == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_month : nova_time_Nova_Date_Nova_first);
-	nova_time_Nova_Date_Nova_second = (int)(nova_time_Nova_Date_Nova_second == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_day : nova_time_Nova_Date_Nova_second);
-	nova_time_Nova_Date_Nova_third = (int)(nova_time_Nova_Date_Nova_third == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_year : nova_time_Nova_Date_Nova_third);
-	nova_time_Nova_Date_Nova_fourth = (int)(nova_time_Nova_Date_Nova_fourth == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_hour : nova_time_Nova_Date_Nova_fourth);
-	nova_time_Nova_Date_Nova_fifth = (int)(nova_time_Nova_Date_Nova_fifth == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_minute : nova_time_Nova_Date_Nova_fifth);
-	nova_time_Nova_Date_Nova_sixth = (int)(nova_time_Nova_Date_Nova_sixth == (intptr_t)nova_null ? nova_time_Nova_Date_Nova_second : nova_time_Nova_Date_Nova_sixth);
+	first = (int)(first == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_month : first);
+	second = (int)(second == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_day : second);
+	third = (int)(third == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_year : third);
+	fourth = (int)(fourth == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_hour : fourth);
+	fifth = (int)(fifth == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_minute : fifth);
+	sixth = (int)(sixth == (intptr_t)nova_null ? second : sixth);
 	
-	l1_Nova_data = (char*)(nova_formatDate((char*)(nova_time_Nova_Date_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), nova_time_Nova_Date_Nova_first, nova_time_Nova_Date_Nova_second, nova_time_Nova_Date_Nova_third, nova_time_Nova_Date_Nova_fourth, nova_time_Nova_Date_Nova_fifth, nova_time_Nova_Date_Nova_sixth));
+	l1_Nova_data = (char*)(nova_formatDate((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), first, second, third, fourth, fifth, sixth));
 	return nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_data);
 }
 

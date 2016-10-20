@@ -79,7 +79,7 @@ void nova_math_logic_Nova_LogicalStatement_Nova_init_static(nova_exception_Nova_
 	}
 }
 
-nova_math_logic_Nova_LogicalStatement* nova_math_logic_Nova_LogicalStatement_Nova_construct(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_LogicalStatement_Nova_statement)
+nova_math_logic_Nova_LogicalStatement* nova_math_logic_Nova_LogicalStatement_Nova_construct(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement)
 {
 	CCLASS_NEW(nova_math_logic_Nova_LogicalStatement, this);
 	this->vtable = &nova_math_logic_LogicalStatement_Extension_VTable_val;
@@ -88,7 +88,7 @@ nova_math_logic_Nova_LogicalStatement* nova_math_logic_Nova_LogicalStatement_Nov
 	nova_math_logic_Nova_LogicalStatement_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_logic_Nova_LogicalStatement_Nova_this(this, exceptionData, nova_math_logic_Nova_LogicalStatement_Nova_statement);
+		nova_math_logic_Nova_LogicalStatement_Nova_this(this, exceptionData, statement);
 	}
 	
 	return this;
@@ -108,9 +108,9 @@ void nova_math_logic_Nova_LogicalStatement_Nova_destroy(nova_math_logic_Nova_Log
 	NOVA_FREE(*this);
 }
 
-void nova_math_logic_Nova_LogicalStatement_Nova_this(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_LogicalStatement_Nova_statement)
+void nova_math_logic_Nova_LogicalStatement_Nova_this(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement)
 {
-	this->prv->nova_math_logic_Nova_LogicalStatement_Nova_statement = nova_math_logic_Nova_LogicalStatement_Nova_statement;
+	this->prv->nova_math_logic_Nova_LogicalStatement_Nova_statement = statement;
 	this->prv->nova_math_logic_Nova_LogicalStatement_Nova_components = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 }
 

@@ -115,9 +115,9 @@ void nova_network_Nova_ServerSocket_Nova_this(nova_network_Nova_ServerSocket* th
 	this->nova_network_Nova_ServerSocket_Nova_open = 0;
 }
 
-char nova_network_Nova_ServerSocket_Nova_start(nova_network_Nova_ServerSocket* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_network_Nova_ServerSocket_Nova_port)
+char nova_network_Nova_ServerSocket_Nova_start(nova_network_Nova_ServerSocket* this, nova_exception_Nova_ExceptionData* exceptionData, int port)
 {
-	this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket = nova_serversocket_start(nova_network_Nova_ServerSocket_Nova_port);
+	this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket = nova_serversocket_start(port);
 	if (this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket == 0)
 	{
 		return 0;

@@ -67,10 +67,10 @@ CCLASS_CLASS
 )
 
 void nova_svg_Nova_SvgCircle_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_svg_Nova_SvgCircle* nova_svg_Nova_SvgCircle_Nova_construct(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_svg_Nova_SvgCircle_Nova_x, double nova_svg_Nova_SvgCircle_Nova_y, int nova_svg_Nova_SvgCircle_Nova_r);
+nova_svg_Nova_SvgCircle* nova_svg_Nova_SvgCircle_Nova_construct(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, int r);
 void nova_svg_Nova_SvgCircle_Nova_destroy(nova_svg_Nova_SvgCircle** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_svg_Nova_SvgCircle_Nova_this(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_svg_Nova_SvgCircle_Nova_x, double nova_svg_Nova_SvgCircle_Nova_y, int nova_svg_Nova_SvgCircle_Nova_r);
-void nova_svg_Nova_SvgCircle_Nova_generateOutput(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_svg_Nova_SvgCircle_Nova_file);
+void nova_svg_Nova_SvgCircle_Nova_this(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, int r);
+void nova_svg_Nova_SvgCircle_Nova_generateOutput(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 nova_Nova_String* nova_svg_Nova_SvgCircle_Nova_toString(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_svg_Nova_SvgCircle_Nova_super(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData);
 

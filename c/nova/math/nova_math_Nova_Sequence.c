@@ -73,7 +73,7 @@ void nova_math_Nova_Sequence_Nova_init_static(nova_exception_Nova_ExceptionData*
 	}
 }
 
-nova_math_Nova_Sequence* nova_math_Nova_Sequence_Nova_construct(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Sequence_Nova_values)
+nova_math_Nova_Sequence* nova_math_Nova_Sequence_Nova_construct(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* values)
 {
 	CCLASS_NEW(nova_math_Nova_Sequence, this,);
 	this->vtable = &nova_math_Sequence_Extension_VTable_val;
@@ -81,7 +81,7 @@ nova_math_Nova_Sequence* nova_math_Nova_Sequence_Nova_construct(nova_math_Nova_S
 	nova_math_Nova_Sequence_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Sequence_Nova_this(this, exceptionData, nova_math_Nova_Sequence_Nova_values);
+		nova_math_Nova_Sequence_Nova_this(this, exceptionData, values);
 	}
 	
 	return this;
@@ -99,19 +99,19 @@ void nova_math_Nova_Sequence_Nova_destroy(nova_math_Nova_Sequence** this, nova_e
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_Sequence_Nova_this(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Sequence_Nova_values)
+void nova_math_Nova_Sequence_Nova_this(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_DoubleArray* values)
 {
-	this->nova_math_Nova_Sequence_Nova_values = nova_math_Nova_Sequence_Nova_values;
+	this->nova_math_Nova_Sequence_Nova_values = values;
 }
 
-double nova_math_Nova_Sequence_static_Nova_sum(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_math_Nova_Sequence_Nova_num)
+double nova_math_Nova_Sequence_static_Nova_sum(nova_math_Nova_Sequence* this, nova_exception_Nova_ExceptionData* exceptionData, int num)
 {
 	double l1_Nova_value = 0;
 	int l2_Nova_i = 0;
 	
 	l1_Nova_value = (double)(0);
 	l2_Nova_i = (int)0;
-	for (; l2_Nova_i < (int)nova_math_Nova_Sequence_Nova_num; l2_Nova_i++)
+	for (; l2_Nova_i < (int)num; l2_Nova_i++)
 	{
 		l1_Nova_value = l1_Nova_value + (double)(intptr_t)nova_datastruct_list_Nova_DoubleArray_Nova_get(this->nova_math_Nova_Sequence_Nova_values, exceptionData, l2_Nova_i);
 	}

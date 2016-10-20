@@ -61,9 +61,9 @@ CCLASS_CLASS
 )
 
 void nova_math_Nova_NumericTree_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_Nova_NumericTree* nova_math_Nova_NumericTree_Nova_construct(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericTree_Nova_statement);
+nova_math_Nova_NumericTree* nova_math_Nova_NumericTree_Nova_construct(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement);
 void nova_math_Nova_NumericTree_Nova_destroy(nova_math_Nova_NumericTree** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_NumericTree_Nova_this(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericTree_Nova_statement);
+void nova_math_Nova_NumericTree_Nova_this(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement);
 nova_Nova_String* nova_math_Nova_NumericTree_Nova_toString(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_math_Nova_NumericTree_Nova_super(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData);
 

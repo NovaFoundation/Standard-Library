@@ -63,13 +63,13 @@ CCLASS_CLASS
 )
 
 void nova_star_Nova_Frame_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_star_Nova_Frame* nova_star_Nova_Frame_Nova_construct(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_x, int nova_star_Nova_Frame_Nova_y, int nova_star_Nova_Frame_Nova_width, int nova_star_Nova_Frame_Nova_height);
+nova_star_Nova_Frame* nova_star_Nova_Frame_Nova_construct(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int x, int y, int width, int height);
 void nova_star_Nova_Frame_Nova_destroy(nova_star_Nova_Frame** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_star_Nova_Frame_Nova_this(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_x, int nova_star_Nova_Frame_Nova_y, int nova_star_Nova_Frame_Nova_width, int nova_star_Nova_Frame_Nova_height);
-int nova_star_Nova_Frame_Mutator_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value);
-int nova_star_Nova_Frame_Mutator_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value);
-int nova_star_Nova_Frame_Mutator_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value);
-int nova_star_Nova_Frame_Mutator_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_star_Nova_Frame_Nova_value);
+void nova_star_Nova_Frame_Nova_this(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int x, int y, int width, int height);
+int nova_star_Nova_Frame_Mutator_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutator_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutator_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutator_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
 void nova_star_Nova_Frame_Nova_super(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

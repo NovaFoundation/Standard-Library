@@ -72,7 +72,7 @@ void nova_math_logic_Nova_StatementGroup_Nova_init_static(nova_exception_Nova_Ex
 	}
 }
 
-nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_StatementGroup_Nova_construct(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement, nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds)
+nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_StatementGroup_Nova_construct(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* statement, nova_datastruct_Nova_Bounds* bounds)
 {
 	CCLASS_NEW(nova_math_logic_Nova_StatementGroup, this,);
 	this->vtable = &nova_math_logic_StatementGroup_Extension_VTable_val;
@@ -80,7 +80,7 @@ nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_StatementGroup_Nova_co
 	nova_math_logic_Nova_StatementGroup_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_logic_Nova_StatementGroup_Nova_this(this, exceptionData, nova_math_logic_Nova_StatementGroup_Nova_statement, nova_math_logic_Nova_StatementGroup_Nova_bounds);
+		nova_math_logic_Nova_StatementGroup_Nova_this(this, exceptionData, statement, bounds);
 	}
 	
 	return this;
@@ -99,10 +99,10 @@ void nova_math_logic_Nova_StatementGroup_Nova_destroy(nova_math_logic_Nova_State
 	NOVA_FREE(*this);
 }
 
-void nova_math_logic_Nova_StatementGroup_Nova_this(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement, nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds)
+void nova_math_logic_Nova_StatementGroup_Nova_this(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* statement, nova_datastruct_Nova_Bounds* bounds)
 {
-	this->nova_math_logic_Nova_StatementGroup_Nova_statement = nova_math_logic_Nova_StatementGroup_Nova_statement;
-	this->nova_math_logic_Nova_StatementGroup_Nova_bounds = nova_math_logic_Nova_StatementGroup_Nova_bounds;
+	this->nova_math_logic_Nova_StatementGroup_Nova_statement = statement;
+	this->nova_math_logic_Nova_StatementGroup_Nova_bounds = bounds;
 }
 
 void nova_math_logic_Nova_StatementGroup_Nova_super(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData)

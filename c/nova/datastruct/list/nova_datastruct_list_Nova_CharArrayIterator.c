@@ -84,7 +84,7 @@ void nova_datastruct_list_Nova_CharArrayIterator_Nova_init_static(nova_exception
 	}
 }
 
-nova_datastruct_list_Nova_CharArrayIterator* nova_datastruct_list_Nova_CharArrayIterator_Nova_construct(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_datastruct_list_Nova_CharArrayIterator_Nova_array)
+nova_datastruct_list_Nova_CharArrayIterator* nova_datastruct_list_Nova_CharArrayIterator_Nova_construct(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* array)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_CharArrayIterator, this);
 	this->vtable = &nova_datastruct_list_CharArrayIterator_Extension_VTable_val;
@@ -92,7 +92,7 @@ nova_datastruct_list_Nova_CharArrayIterator* nova_datastruct_list_Nova_CharArray
 	nova_datastruct_list_Nova_CharArrayIterator_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_CharArrayIterator_Nova_this(this, exceptionData, nova_datastruct_list_Nova_CharArrayIterator_Nova_array);
+		nova_datastruct_list_Nova_CharArrayIterator_Nova_this(this, exceptionData, array);
 	}
 	
 	return this;
@@ -112,9 +112,9 @@ void nova_datastruct_list_Nova_CharArrayIterator_Nova_destroy(nova_datastruct_li
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_CharArrayIterator_Nova_this(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* nova_datastruct_list_Nova_CharArrayIterator_Nova_array)
+void nova_datastruct_list_Nova_CharArrayIterator_Nova_this(nova_datastruct_list_Nova_CharArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_CharArray* array)
 {
-	this->prv->nova_datastruct_list_Nova_CharArrayIterator_Nova_array = nova_datastruct_list_Nova_CharArrayIterator_Nova_array;
+	this->prv->nova_datastruct_list_Nova_CharArrayIterator_Nova_array = array;
 	nova_datastruct_list_Nova_CharArrayIterator_Nova_reset(this, exceptionData);
 }
 

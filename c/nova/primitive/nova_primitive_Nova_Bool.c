@@ -73,7 +73,7 @@ void nova_primitive_Nova_Bool_Nova_init_static(nova_exception_Nova_ExceptionData
 	}
 }
 
-nova_primitive_Nova_Bool* nova_primitive_Nova_Bool_Nova_construct(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_value)
+nova_primitive_Nova_Bool* nova_primitive_Nova_Bool_Nova_construct(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
 	CCLASS_NEW(nova_primitive_Nova_Bool, this,);
 	this->vtable = &nova_primitive_Bool_Extension_VTable_val;
@@ -82,7 +82,7 @@ nova_primitive_Nova_Bool* nova_primitive_Nova_Bool_Nova_construct(nova_primitive
 	nova_primitive_Nova_Bool_Nova_super(this, exceptionData);
 	
 	{
-		nova_primitive_Nova_Bool_Nova_this(this, exceptionData, nova_primitive_Nova_Bool_Nova_value);
+		nova_primitive_Nova_Bool_Nova_this(this, exceptionData, value);
 	}
 	
 	return this;
@@ -100,14 +100,14 @@ void nova_primitive_Nova_Bool_Nova_destroy(nova_primitive_Nova_Bool** this, nova
 	NOVA_FREE(*this);
 }
 
-void nova_primitive_Nova_Bool_Nova_this(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_value)
+void nova_primitive_Nova_Bool_Nova_this(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
-	this->nova_primitive_Nova_Bool_Nova_value = nova_primitive_Nova_Bool_Nova_value;
+	this->nova_primitive_Nova_Bool_Nova_value = value;
 }
 
-char nova_primitive_Nova_Bool_Nova_compareTo(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_other)
+char nova_primitive_Nova_Bool_Nova_compareTo(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char other)
 {
-	return this->nova_primitive_Nova_Bool_Nova_value == nova_primitive_Nova_Bool_Nova_other;
+	return this->nova_primitive_Nova_Bool_Nova_value == other;
 }
 
 nova_Nova_String* nova_primitive_Nova_Bool_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -115,9 +115,9 @@ nova_Nova_String* nova_primitive_Nova_Bool_Nova_toString(nova_primitive_Nova_Boo
 	return nova_primitive_Nova_Bool_static_Nova_toString(0, exceptionData, this->nova_primitive_Nova_Bool_Nova_value);
 }
 
-nova_Nova_String* nova_primitive_Nova_Bool_static_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char nova_primitive_Nova_Bool_Nova_value)
+nova_Nova_String* nova_primitive_Nova_Bool_static_Nova_toString(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
 {
-	return (nova_Nova_String*)(nova_primitive_Nova_Bool_Nova_value ? nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("true")) : nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("false")));
+	return (nova_Nova_String*)(value ? nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("true")) : nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("false")));
 }
 
 void nova_primitive_Nova_Bool_Nova_super(nova_primitive_Nova_Bool* this, nova_exception_Nova_ExceptionData* exceptionData)

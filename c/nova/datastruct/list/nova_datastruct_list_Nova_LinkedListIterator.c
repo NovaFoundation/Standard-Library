@@ -86,7 +86,7 @@ void nova_datastruct_list_Nova_LinkedListIterator_Nova_init_static(nova_exceptio
 	}
 }
 
-nova_datastruct_list_Nova_LinkedListIterator* nova_datastruct_list_Nova_LinkedListIterator_Nova_construct(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_LinkedList* nova_datastruct_list_Nova_LinkedListIterator_Nova_list)
+nova_datastruct_list_Nova_LinkedListIterator* nova_datastruct_list_Nova_LinkedListIterator_Nova_construct(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_LinkedList* list)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_LinkedListIterator, this);
 	this->vtable = &nova_datastruct_list_LinkedListIterator_Extension_VTable_val;
@@ -94,7 +94,7 @@ nova_datastruct_list_Nova_LinkedListIterator* nova_datastruct_list_Nova_LinkedLi
 	nova_datastruct_list_Nova_LinkedListIterator_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_LinkedListIterator_Nova_this(this, exceptionData, nova_datastruct_list_Nova_LinkedListIterator_Nova_list);
+		nova_datastruct_list_Nova_LinkedListIterator_Nova_this(this, exceptionData, list);
 	}
 	
 	return this;
@@ -114,9 +114,9 @@ void nova_datastruct_list_Nova_LinkedListIterator_Nova_destroy(nova_datastruct_l
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_LinkedListIterator_Nova_this(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_LinkedList* nova_datastruct_list_Nova_LinkedListIterator_Nova_list)
+void nova_datastruct_list_Nova_LinkedListIterator_Nova_this(nova_datastruct_list_Nova_LinkedListIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_LinkedList* list)
 {
-	this->prv->nova_datastruct_list_Nova_LinkedListIterator_Nova_list = nova_datastruct_list_Nova_LinkedListIterator_Nova_list;
+	this->prv->nova_datastruct_list_Nova_LinkedListIterator_Nova_list = list;
 	nova_datastruct_list_Nova_LinkedListIterator_Nova_reset(this, exceptionData);
 }
 

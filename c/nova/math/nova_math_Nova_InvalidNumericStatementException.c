@@ -71,7 +71,7 @@ void nova_math_Nova_InvalidNumericStatementException_Nova_init_static(nova_excep
 	}
 }
 
-nova_math_Nova_InvalidNumericStatementException* nova_math_Nova_InvalidNumericStatementException_Nova_construct(nova_math_Nova_InvalidNumericStatementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_InvalidNumericStatementException_Nova_message)
+nova_math_Nova_InvalidNumericStatementException* nova_math_Nova_InvalidNumericStatementException_Nova_construct(nova_math_Nova_InvalidNumericStatementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
 	CCLASS_NEW(nova_math_Nova_InvalidNumericStatementException, this,);
 	this->vtable = &nova_math_InvalidNumericStatementException_Extension_VTable_val;
@@ -80,7 +80,7 @@ nova_math_Nova_InvalidNumericStatementException* nova_math_Nova_InvalidNumericSt
 	nova_math_Nova_InvalidNumericStatementException_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_InvalidNumericStatementException_Nova_this(this, exceptionData, nova_math_Nova_InvalidNumericStatementException_Nova_message);
+		nova_math_Nova_InvalidNumericStatementException_Nova_this(this, exceptionData, message);
 	}
 	
 	return this;
@@ -97,9 +97,9 @@ void nova_math_Nova_InvalidNumericStatementException_Nova_destroy(nova_math_Nova
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_InvalidNumericStatementException_Nova_this(nova_math_Nova_InvalidNumericStatementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_InvalidNumericStatementException_Nova_message)
+void nova_math_Nova_InvalidNumericStatementException_Nova_this(nova_math_Nova_InvalidNumericStatementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
-	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, nova_math_Nova_InvalidNumericStatementException_Nova_message);
+	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, message);
 }
 
 void nova_math_Nova_InvalidNumericStatementException_Nova_super(nova_math_Nova_InvalidNumericStatementException* this, nova_exception_Nova_ExceptionData* exceptionData)

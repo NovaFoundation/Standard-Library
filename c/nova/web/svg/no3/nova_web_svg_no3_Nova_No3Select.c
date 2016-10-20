@@ -73,7 +73,7 @@ void nova_web_svg_no3_Nova_No3Select_Nova_init_static(nova_exception_Nova_Except
 	}
 }
 
-nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3Select_Nova_construct(nova_web_svg_no3_Nova_No3Select* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3Select_Nova_selection)
+nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3Select_Nova_construct(nova_web_svg_no3_Nova_No3Select* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* selection)
 {
 	CCLASS_NEW(nova_web_svg_no3_Nova_No3Select, this,);
 	this->vtable = &nova_web_svg_no3_No3Select_Extension_VTable_val;
@@ -82,7 +82,7 @@ nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3Select_Nova_construct(
 	nova_web_svg_no3_Nova_No3Select_Nova_super(this, exceptionData);
 	
 	{
-		nova_web_svg_no3_Nova_No3Select_Nova_this(this, exceptionData, nova_web_svg_no3_Nova_No3Select_Nova_selection);
+		nova_web_svg_no3_Nova_No3Select_Nova_this(this, exceptionData, selection);
 	}
 	
 	return this;
@@ -100,9 +100,9 @@ void nova_web_svg_no3_Nova_No3Select_Nova_destroy(nova_web_svg_no3_Nova_No3Selec
 	NOVA_FREE(*this);
 }
 
-void nova_web_svg_no3_Nova_No3Select_Nova_this(nova_web_svg_no3_Nova_No3Select* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3Select_Nova_selection)
+void nova_web_svg_no3_Nova_No3Select_Nova_this(nova_web_svg_no3_Nova_No3Select* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* selection)
 {
-	this->nova_web_svg_no3_Nova_No3Select_Nova_selection = nova_web_svg_no3_Nova_No3Select_Nova_selection;
+	this->nova_web_svg_no3_Nova_No3Select_Nova_selection = selection;
 }
 
 nova_Nova_String* nova_web_svg_no3_Nova_No3Select_Nova_toJs(nova_web_svg_no3_Nova_No3Select* this, nova_exception_Nova_ExceptionData* exceptionData)
