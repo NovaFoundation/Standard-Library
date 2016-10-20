@@ -5,7 +5,7 @@ import "nova/network/NativeSocket.h"
 import "nova/io/OutputStream"
 import "nova/io/InputStream"
 
-public class ClientSocket extends Socket {
+class ClientSocket extends Socket {
     external type SOCKET_ID_TYPE
     
     external SOCKET_ID_TYPE nova_clientsocket_connect(char ipAddress[], int port)

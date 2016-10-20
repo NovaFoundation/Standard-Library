@@ -1,6 +1,6 @@
 package "nova/math"
 
-public class ArithmeticSequence extends Sequence {
+class ArithmeticSequence extends Sequence {
     
     
     public construct() {

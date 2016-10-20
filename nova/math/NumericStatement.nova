@@ -1,6 +1,6 @@
 package "nova/math"
 
-public class NumericStatement extends Statement {
+class NumericStatement extends Statement {
     NumericTree tree
     
     public construct(String statement) {

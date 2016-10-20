@@ -1,6 +1,6 @@
 package "nova/database"
 
-public class ResultSet {
+class ResultSet {
     visible Int numRows {
         get { return rows.count }
     }

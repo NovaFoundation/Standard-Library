@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class IntRangeIterator implements Iterator<Int> {
+class IntRangeIterator implements Iterator<Int> {
     IntRange range
     
     visible Int position

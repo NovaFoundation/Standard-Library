@@ -2,7 +2,7 @@ package "nova/security"
 
 import "nova/security/NativeMD5.h"
 
-public class MD5 {
+class MD5 {
     external char[] nova_md5(char[] input)
     
     public static encrypt(String str) -> String {

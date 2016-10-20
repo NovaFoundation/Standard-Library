@@ -1,14 +1,11 @@
 package "nova/datastruct/list"
 
-public class ArrayIterator<E> implements Iterator<E> {
+class ArrayIterator<E> implements Iterator<E> {
     E[] array
     
     visible Int position
     
-    visible Bool hasNext {
-        get { return array.count > position }
-        no set
-    }
+    visible Bool hasNext => array.count > position
     
     visible E next {
         get {

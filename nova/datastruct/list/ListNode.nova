@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class ListNode<E> {
+class ListNode<E> {
     visible E            data
     
     public ListNode<E>    next

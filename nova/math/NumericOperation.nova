@@ -2,7 +2,7 @@ package "nova/math"
 
 import "nova/datastruct/Bounds"
 
-public class NumericOperation extends NumericOperand<Object> {
+class NumericOperation extends NumericOperand<Object> {
     NumericOperand leftOperand
     NumericOperand rightOperand
     

@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class IntArrayIterator implements Iterator<Int> {
+class IntArrayIterator implements Iterator<Int> {
     IntArray array
     
     visible Int position

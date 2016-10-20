@@ -7,7 +7,7 @@ package "nova/datastruct"
  * @since    v0.2.33 Sep 28, 2014 at 6:28:45 PM
  * @version    v0.2.33 Sep 28, 2014 at 6:28:45 PM
  */
-public class Bounds {
+class Bounds {
     public Int start
     public Int end
     

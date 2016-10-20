@@ -2,7 +2,7 @@ package "nova/math/calculus"
 
 import "nova/math/NumericStatement"
 
-public class Calculus {
+class Calculus {
     public static derivative(NumericStatement statement) -> NumericStatement {
         return null
     }

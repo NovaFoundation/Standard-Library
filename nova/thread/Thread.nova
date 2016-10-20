@@ -2,7 +2,7 @@ package "nova/thread"
 
 import "nova/thread/NativeThread.h"
 
-public class Thread {
+class Thread {
     external type NOVA_THREAD_HANDLE
     
     external void lib_nova_thread_sleep(long millis)

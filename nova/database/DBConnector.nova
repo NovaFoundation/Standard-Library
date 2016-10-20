@@ -2,7 +2,7 @@ package "nova/database"
 
 import "nova/database/NativeDBConnector.h"
 
-public class DBConnector {
+class DBConnector {
     external type MYSQL
     external type MYSQL_RES
     

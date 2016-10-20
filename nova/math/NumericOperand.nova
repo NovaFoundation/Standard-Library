@@ -1,6 +1,6 @@
 package "nova/math"
 
-public class NumericOperand<Type> {
+class NumericOperand<Type> {
     Type data
     
     public construct(Type data) => this.data = data

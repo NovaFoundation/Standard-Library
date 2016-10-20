@@ -1,6 +1,6 @@
 package "nova/math"
 
-public class Sequence {
+class Sequence {
     visible static Int INFINITE = -1
     
     visible Double[] values

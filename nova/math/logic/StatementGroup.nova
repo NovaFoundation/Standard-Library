@@ -2,7 +2,7 @@ package "nova/math/logic"
 
 import "nova/datastruct/Bounds"
 
-public class StatementGroup<Type> {
+class StatementGroup<Type> {
     visible Type   statement
     
     visible Bounds bounds

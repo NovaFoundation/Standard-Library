@@ -1,6 +1,6 @@
 package "nova"
 
-public class Class {
+class Class {
     Int id
     
     

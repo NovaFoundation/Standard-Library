@@ -3,7 +3,7 @@ package "nova"
 import "nova/NativeObject.h"
 import "nova/operators/Equals"
 
-public class Object implements Equals {
+class Object implements Equals {
     external char[] hashCode(Object obj)
     /*char** endptr*/
 

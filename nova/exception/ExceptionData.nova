@@ -1,6 +1,6 @@
 package "nova/exception"
 
-public class ExceptionData {
+class ExceptionData {
     external type buffer
     external buffer* NULL
     

@@ -2,7 +2,7 @@ package "nova/svg"
 
 import "nova/io/File"
 
-public class SvgCircle extends SvgComponent {
+class SvgCircle extends SvgComponent {
     visible Double x
     visible Double y
     visible Int r

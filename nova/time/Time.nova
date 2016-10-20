@@ -2,7 +2,7 @@ package "nova/time"
 
 import "nova/time/NativeTime.h"
 
-public class Time {
+class Time {
     [Target c] external long currentTimeMillis() as extCurrentTimeMillis
     [Target java] external long System.currentTimeMillis() as extCurrentTimeMillis
     [Target js] external long "new Date().getTime"() as extCurrentTimeMillis

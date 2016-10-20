@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class IntRange implements List<Int> {
+class IntRange implements List<Int> {
     visible Int size => end - start
     
     public Int start, end

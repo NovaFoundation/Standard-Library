@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class Stack<E> {
+class Stack<E> {
     visible Int size
     
     ListNode<E> top

@@ -1,6 +1,6 @@
 package "nova/datastruct"
 
-public class ReversibleHashMap<K, V> extends HashMap<K, V> {
+class ReversibleHashMap<K, V> extends HashMap<K, V> {
     HashMap<V, K> rev
     
     public construct() {

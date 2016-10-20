@@ -2,7 +2,7 @@ package "nova/time"
 
 import "nova/time/NativeDate.h"
 
-public class Date {
+class Date {
     external void nova_updateTime()
     external char[] nova_formatDate(char str[], int o, int t, int tt, int f, int ff, int s)
     external int nova_getYear()

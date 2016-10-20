@@ -1,5 +1,5 @@
 package "nova/math"
 
-public class VariableOperand {
+class VariableOperand {
     
 }

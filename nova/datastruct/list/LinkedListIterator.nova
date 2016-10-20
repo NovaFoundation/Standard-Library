@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class LinkedListIterator<E> implements Iterator<E> {
+class LinkedListIterator<E> implements Iterator<E> {
     LinkedList<E> list
     
     visible ListNode position

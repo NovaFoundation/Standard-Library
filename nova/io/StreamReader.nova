@@ -1,6 +1,6 @@
 package "nova/io"
 
-public class StreamReader extends InputStream {
+class StreamReader extends InputStream {
     File    file
     
     public construct(File file) {

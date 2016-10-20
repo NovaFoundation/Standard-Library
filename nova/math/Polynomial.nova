@@ -1,6 +1,6 @@
 package "nova/math"
 
-public class Polynomial {
+class Polynomial {
     visible Double[] coefficients
     visible Double[] degrees
     visible Byte[]   signs

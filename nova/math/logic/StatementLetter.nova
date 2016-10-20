@@ -1,6 +1,6 @@
 package "nova/math/logic"
 
-public class StatementLetter extends StatementComponent {
+class StatementLetter extends StatementComponent {
     String letter
     String representation
     

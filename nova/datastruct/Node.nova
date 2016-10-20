@@ -2,7 +2,7 @@ package "nova/datastruct"
 
 import "nova/datastruct/list/Queue"
 
-public class Node<E> {
+class Node<E> {
     public E data
     
     visible Node<E>[] children
@@ -72,7 +72,7 @@ public class Node<E> {
     levelorder(E[] array) -> E[] {
         var queue = new Queue<Node<E>>([this])
         
-        while (!queue.empty) {
+        while (!queue.empty) {Console.writeLine("Queueeueue: #queue")
             Node<E> current = queue.dequeue()
             
             array.add(current.data)
@@ -84,5 +84,5 @@ public class Node<E> {
     }
     
     [Override]
-    public toString() => data.toString()
+    public toString() => "#data"
 }

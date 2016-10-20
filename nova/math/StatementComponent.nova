@@ -1,6 +1,6 @@
 package "nova/math"
 
-public class StatementComponent<E> {
+class StatementComponent<E> {
     visible E data
     
     public StatementComponent<E> next

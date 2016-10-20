@@ -1,6 +1,6 @@
 package "nova/math/logic"
 
-public class Conclusion extends LogicalStatement {
+class Conclusion extends LogicalStatement {
     public construct(String statement) {
         super(statement)
     }

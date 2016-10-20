@@ -2,7 +2,7 @@ package "nova/math"
 
 import "math.h"
 
-public class Math {
+class Math {
     [Target c] external long llabs(long number) as extAbs
     [Target c] external double fabs(double number) as extFabs
     [Target c] external double sqrt(double number) as extSqrt

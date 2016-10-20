@@ -4,7 +4,7 @@ import "stdio.h"
 import "stdlib.h"
 import "nova/io/NativeConsole.h"
 
-public class Console {
+class Console {
     external type FILE
 
     external FILE* stdin

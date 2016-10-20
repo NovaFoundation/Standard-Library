@@ -1,6 +1,6 @@
 package "nova/datastruct"
 
-public class Pair<Key, Value> {
+class Pair<Key, Value> {
     public Key key
     public Value value
     

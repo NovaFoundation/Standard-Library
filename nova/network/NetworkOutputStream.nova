@@ -3,7 +3,7 @@ package "nova/network"
 import "nova/network/NativeSocket.h"
 import "nova/io/OutputStream"
 
-public class NetworkOutputStream extends OutputStream {
+class NetworkOutputStream extends OutputStream {
     ConnectionSocket socket
     
     public construct(ConnectionSocket socket) {

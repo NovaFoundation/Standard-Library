@@ -2,7 +2,7 @@ package "nova/datastruct/list"
 
 import "nova/primitive/number/Double"
 
-public class DoubleArray extends Array<Double> {
+class DoubleArray extends Array<Double> {
     [Override]
     visible DoubleArrayIterator iterator => new DoubleArrayIterator(this)
     

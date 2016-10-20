@@ -2,7 +2,7 @@ package "nova/gc"
 
 import "nova/gc/NativeGC.h"
 
-public class GC {
+class GC {
     external void nova_gc_init()
     external void nova_gc_collect()
     external void nova_gc_enableIncremental()

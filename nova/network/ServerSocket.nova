@@ -5,7 +5,7 @@ import "nova/network/NativeSocket.h"
 import "nova/io/InputStream"
 import "nova/io/OutputStream"
 
-public class ServerSocket extends Socket {
+class ServerSocket extends Socket {
     external type SOCKET_ID_TYPE
     
     external SOCKET_ID_TYPE nova_serversocket_start(int port)

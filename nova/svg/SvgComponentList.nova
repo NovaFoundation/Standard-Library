@@ -2,7 +2,7 @@ package "nova/svg"
 
 import "nova/io/File"
 
-public class SvgComponentList {
+class SvgComponentList {
     public SvgComponentNode start
     
     public generateOutput(File file) {

@@ -1,5 +1,5 @@
 package "nova/exception"
 
-public class DivideByZeroException extends Exception {
+class DivideByZeroException extends Exception {
     
 }

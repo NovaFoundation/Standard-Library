@@ -1,6 +1,6 @@
 package "nova/exception"
 
-public class UnimplementedOperationException extends Exception {
+class UnimplementedOperationException extends Exception {
     public construct(String message) {
         super(message)
     }

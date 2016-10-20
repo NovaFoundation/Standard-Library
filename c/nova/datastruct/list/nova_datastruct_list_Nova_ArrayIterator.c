@@ -65,8 +65,8 @@ nova_datastruct_list_ArrayIterator_Extension_VTable nova_datastruct_list_ArrayIt
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 	nova_datastruct_list_Nova_ArrayIterator_Nova_reset,
-	nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext,
 	nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next,
+	nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext,
 };
 
 
@@ -124,12 +124,6 @@ nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_ArrayIterator_Nova
 	return (nova_datastruct_list_Nova_Iterator*)this;
 }
 
-char nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return (char)this->prv->nova_datastruct_list_Nova_ArrayIterator_Nova_array->nova_datastruct_list_Nova_Array_Nova_count > this->nova_datastruct_list_Nova_ArrayIterator_Nova_position;
-}
-
-
 nova_Nova_Object* nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	if (nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(this, exceptionData))
@@ -138,6 +132,12 @@ nova_Nova_Object* nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nov
 	}
 	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(0, exceptionData));
 	return (nova_Nova_Object*)(nova_Nova_Object*)nova_null;
+}
+
+
+char nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return (char)this->prv->nova_datastruct_list_Nova_ArrayIterator_Nova_array->nova_datastruct_list_Nova_Array_Nova_count > this->nova_datastruct_list_Nova_ArrayIterator_Nova_position;
 }
 
 

@@ -4,7 +4,7 @@ import "nova/io/InputStream"
 import "nova/io/OutputStream"
 import "nova/datastruct/list/Queue"
 
-public class ConnectionSocket extends Socket {
+class ConnectionSocket extends Socket {
     visible Bool connected
     
     external type SOCKET_ID_TYPE

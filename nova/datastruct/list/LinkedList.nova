@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-public class LinkedList<E> implements List<E> {
+class LinkedList<E> implements List<E> {
     ListNode<E>    start
     ListNode<E>    current
 
