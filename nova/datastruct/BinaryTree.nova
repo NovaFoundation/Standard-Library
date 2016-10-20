@@ -2,7 +2,7 @@ package "nova/datastruct"
 
 public class BinaryTree<E extends Comparable> extends Tree<E>
 {
-	public BinaryNode<E> root <=> super.root
+	public BinaryNode<E> root <=> (BinaryNode)super.root
 	
 	public construct(Comparable[] data)
 	{
