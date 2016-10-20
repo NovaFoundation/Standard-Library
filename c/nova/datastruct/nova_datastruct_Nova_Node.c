@@ -233,7 +233,6 @@ nova_datastruct_list_Nova_Array* nova_datastruct_Nova_Node_1_Nova_levelorder(nov
 		};
 		
 		l1_Nova_current = (nova_datastruct_Nova_Node*)(nova_datastruct_list_Nova_Queue_Nova_dequeue((nova_datastruct_list_Nova_Queue*)(l1_Nova_queue), exceptionData));
-		printf("in level order.... %p\n", l1_Nova_current);
 		nova_datastruct_list_Nova_Array_0_Nova_add(nova_datastruct_Nova_Node_Nova_array, exceptionData, l1_Nova_current->nova_datastruct_Nova_Node_Nova_data);
 		nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_datastruct_Nova_Node_Nova_children), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_datastruct_Nova_Node_static_Nova_notNull, this, nova_null)), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_Node_Nova_testLambda30, this, &contextArg30);
 	}

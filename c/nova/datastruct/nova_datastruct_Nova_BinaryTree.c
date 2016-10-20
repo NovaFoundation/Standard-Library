@@ -136,7 +136,7 @@ nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNodes(n
 
 nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Accessor_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (nova_datastruct_Nova_BinaryNode*)((nova_datastruct_Nova_Tree*)this)->nova_datastruct_Nova_Tree_Nova_root;
+	return (nova_datastruct_Nova_BinaryNode*)(nova_datastruct_Nova_BinaryNode*)((nova_datastruct_Nova_Tree*)this)->nova_datastruct_Nova_Tree_Nova_root;
 }
 
 nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Mutator_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Nova_value)

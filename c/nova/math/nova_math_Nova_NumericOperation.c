@@ -215,7 +215,7 @@ void nova_math_Nova_NumericOperation_Nova_this(nova_math_Nova_NumericOperation* 
 	{
 		if (l2_Nova_type1 == nova_math_Nova_NumericOperation_Nova_OPERATOR)
 		{
-			THROW(7, nova_math_Nova_InvalidNumericStatementException_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Missing left hand operand in operation '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_math_Nova_NumericOperation_Nova_operation)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
+			THROW(8, nova_math_Nova_InvalidNumericStatementException_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Missing left hand operand in operation '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_math_Nova_NumericOperation_Nova_operation)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
 		}
 		l2_Nova_rh = l2_Nova_op;
 		l2_Nova_op = nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("*"));
