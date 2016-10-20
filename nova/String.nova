@@ -55,8 +55,7 @@ class String implements Comparable<String> {
 
         /*if (pool.contains(this)) {
             Console.writeLine("Duplicate string #this created")
-        }
-        else {
+        } else {
             //pool.add(this)
         }*/
     }

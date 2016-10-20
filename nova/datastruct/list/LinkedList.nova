@@ -38,8 +38,7 @@ class LinkedList<E> implements List<E> {
         if (start == null) {
             start   = node
             current = node
-        }
-        else {
+        } else {
             current.next = node
         }
 

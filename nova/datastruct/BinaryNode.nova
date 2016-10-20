@@ -46,8 +46,7 @@ class BinaryNode<E extends Comparable> extends Node<E> {
                 left = new BinaryNode(data)
             else
                 left.addChild(data)
-        }
-        else {
+        } else {
             if (right == null)
                 right = new BinaryNode(data)
             else

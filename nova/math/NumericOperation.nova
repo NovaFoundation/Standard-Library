@@ -63,8 +63,7 @@ class NumericOperation extends NumericOperand<Object> {
         
         if (left == null) {
             throw new Exception("Left operand '#left' is invalid")
-        }
-        else if (right == null) {
+        } else if (right == null) {
             throw new Exception("Right operand '#right' is invalid")
         }
         

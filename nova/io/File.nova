@@ -50,8 +50,7 @@ class File {
 
             if (value > max || value < min) {
                 Console.writeLine("Invalid max number of open files: " + value + "\nValid values include " + min + "-" + max)
-            }
-            else {
+            } else {
                 extSetMaxOpenFiles(value)
             }
         }

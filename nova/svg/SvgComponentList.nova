@@ -22,8 +22,7 @@ class SvgComponentList {
         
         if (start == null) {
             start = node
-        }
-        else {
+        } else {
             SvgComponentNode current = start
             
             while (current.next != null) {

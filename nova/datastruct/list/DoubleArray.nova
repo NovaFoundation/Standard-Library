@@ -173,8 +173,7 @@ class DoubleArray extends Array<Double> {
         for (element in this) {
             if (passed) {
                 str = str + delimiter
-            }
-            else {
+            } else {
                 passed = true
             }
             

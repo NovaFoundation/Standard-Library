@@ -160,8 +160,7 @@ class WFF {
             
             if (c == start) {
                 scope++
-            }
-            else if (c == end) {
+            } else if (c == end) {
                 scope--
             }
             
