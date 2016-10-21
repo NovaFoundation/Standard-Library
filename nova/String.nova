@@ -8,6 +8,8 @@ class String implements Comparable<String> {
     visible Int count
 
     visible StringCharArray chars
+    
+    this[Int index] <=> chars[index]
 
     static Char[] whitespace = [ ' ', '\t', '\n', '\r' ]
     
