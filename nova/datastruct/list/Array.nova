@@ -182,15 +182,7 @@ class Array<E> implements List<E> {
     }
 
     [Override]
-    public toArray() -> E[] {
-        E[] array = new Array(count)
-        
-        for (i in 0..count) {
-            array[i] = data[i]
-        }
-        
-        return array
-    }
+    public toArray() => map({ _ })
     
     [Override]
     public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
@@ -285,8 +277,8 @@ class Array<E> implements List<E> {
     }*/
 
     [Override]
-    public reverse() -> Array<E> {
-        Array<E> array = new Array(count)
+    public reverse() -> E[] {
+        E[] array = new Array(count)
 
         Int i = 0
 
