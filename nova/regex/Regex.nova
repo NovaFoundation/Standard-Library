@@ -1,0 +1,7 @@
+package "nova/regex"
+
+class Regex {
+    public static containsMatch(String regex, String search) -> Bool {
+        return false
+    }
+}

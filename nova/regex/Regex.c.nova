@@ -1,0 +1,11 @@
+package "nova/regex"
+
+import "regex.h"
+
+class Regex {
+    public static containsMatch(String regex, String search) -> Bool {
+        external {
+            return 1;
+        }
+    }
+}
