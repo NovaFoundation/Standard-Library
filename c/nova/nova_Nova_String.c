@@ -211,12 +211,12 @@ char nova_Nova_String_Nova_startsWith(nova_Nova_String* this, nova_exception_Nov
 	return nova_Nova_String_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == 0;
 }
 
-int nova_Nova_String_Nova_contains(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
+char nova_Nova_String_Nova_contains(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
 {
 	return nova_Nova_String_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) >= 0;
 }
 
-int nova_Nova_String_Nova_endsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
+char nova_Nova_String_Nova_endsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
 {
 	return this->nova_Nova_String_Nova_count > 0 && nova_Nova_String_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == this->nova_Nova_String_Nova_count - search->nova_Nova_String_Nova_count - 1;
 }

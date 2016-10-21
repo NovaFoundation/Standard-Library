@@ -137,7 +137,7 @@ nova_Nova_Object* nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nov
 
 char nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (char)this->prv->nova_datastruct_list_Nova_ArrayIterator_Nova_array->nova_datastruct_list_Nova_Array_Nova_count > this->nova_datastruct_list_Nova_ArrayIterator_Nova_position;
+	return this->prv->nova_datastruct_list_Nova_ArrayIterator_Nova_array->nova_datastruct_list_Nova_Array_Nova_count > this->nova_datastruct_list_Nova_ArrayIterator_Nova_position;
 }
 
 

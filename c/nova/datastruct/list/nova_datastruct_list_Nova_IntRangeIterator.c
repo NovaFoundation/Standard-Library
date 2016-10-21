@@ -126,7 +126,7 @@ nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_IntRangeIterator_N
 
 char nova_datastruct_list_Nova_IntRangeIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_IntRangeIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (char)this->nova_datastruct_list_Nova_IntRangeIterator_Nova_position < this->prv->nova_datastruct_list_Nova_IntRangeIterator_Nova_range->nova_datastruct_list_Nova_IntRange_Nova_end;
+	return this->nova_datastruct_list_Nova_IntRangeIterator_Nova_position < this->prv->nova_datastruct_list_Nova_IntRangeIterator_Nova_range->nova_datastruct_list_Nova_IntRange_Nova_end;
 }
 
 

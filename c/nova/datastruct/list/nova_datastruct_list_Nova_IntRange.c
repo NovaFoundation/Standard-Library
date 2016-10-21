@@ -42,7 +42,7 @@ nova_datastruct_list_IntRange_Extension_VTable nova_datastruct_list_IntRange_Ext
 		0,
 		0,
 		(nova_datastruct_list_Nova_Array*(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*))nova_datastruct_list_Nova_IntRange_Nova_toArray,
-		(char(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_datastruct_list_Nova_List_0_Nova_contains,
+		(char(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_datastruct_list_Nova_IntRange_0_Nova_contains,
 		(nova_datastruct_list_Nova_List*(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_datastruct_list_Nova_List_closure3_Nova_func nova_datastruct_list_Nova_List_Nova_func, void* nova_datastruct_list_Nova_List_ref_Nova_func, void* func_context))nova_datastruct_list_Nova_List_0_Nova_forEach,
 		(nova_datastruct_list_Nova_List*(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_datastruct_list_Nova_List_closure6_Nova_mapFunc nova_datastruct_list_Nova_List_Nova_mapFunc, void* nova_datastruct_list_Nova_List_ref_Nova_mapFunc, void* mapFunc_context))nova_datastruct_list_Nova_IntRange_0_Nova_map,
 		(char(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_datastruct_list_Nova_List_closure9_Nova_anyFunc nova_datastruct_list_Nova_List_Nova_anyFunc, void* nova_datastruct_list_Nova_List_ref_Nova_anyFunc, void* anyFunc_context))nova_datastruct_list_Nova_IntRange_0_Nova_any,
@@ -64,6 +64,7 @@ nova_datastruct_list_IntRange_Extension_VTable nova_datastruct_list_IntRange_Ext
 	nova_Nova_Object_Nova_equals,
 	nova_datastruct_list_Nova_IntRange_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
+	nova_datastruct_list_Nova_IntRange_0_Nova_contains,
 	nova_datastruct_list_Nova_IntRange_Nova_toArray,
 	nova_datastruct_list_Nova_IntRange_0_Nova_map,
 	nova_datastruct_list_Nova_IntRange_0_Nova_any,
@@ -143,7 +144,7 @@ void nova_datastruct_list_Nova_IntRange_0_Nova_this(nova_datastruct_list_Nova_In
 	this->nova_datastruct_list_Nova_IntRange_Nova_end = end;
 }
 
-int nova_datastruct_list_Nova_IntRange_Nova_contains(nova_datastruct_list_Nova_IntRange* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
+char nova_datastruct_list_Nova_IntRange_0_Nova_contains(nova_datastruct_list_Nova_IntRange* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
 {
 	return value >= this->nova_datastruct_list_Nova_IntRange_Nova_start && value < this->nova_datastruct_list_Nova_IntRange_Nova_end;
 }

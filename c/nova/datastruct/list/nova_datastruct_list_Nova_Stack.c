@@ -138,7 +138,7 @@ void nova_datastruct_list_Nova_Stack_Nova_this(nova_datastruct_list_Nova_Stack* 
 
 char nova_datastruct_list_Nova_Stack_Accessor_Nova_empty(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (char)this->nova_datastruct_list_Nova_Stack_Nova_size <= 0;
+	return this->nova_datastruct_list_Nova_Stack_Nova_size <= 0;
 }
 
 

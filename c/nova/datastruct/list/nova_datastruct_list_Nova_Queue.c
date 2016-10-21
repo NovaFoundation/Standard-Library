@@ -163,7 +163,7 @@ int nova_datastruct_list_Nova_Queue_Accessor_Nova_size(nova_datastruct_list_Nova
 
 char nova_datastruct_list_Nova_Queue_Accessor_Nova_empty(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (char)nova_datastruct_list_Nova_Queue_Accessor_Nova_size(this, exceptionData) <= 0;
+	return nova_datastruct_list_Nova_Queue_Accessor_Nova_size(this, exceptionData) <= 0;
 }
 
 
