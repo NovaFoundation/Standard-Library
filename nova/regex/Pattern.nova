@@ -1,0 +1,9 @@
+package "nova/regex"
+
+class Pattern {
+    public String pattern
+    
+    public construct(String pattern) {
+        this.pattern = pattern
+    }
+}
