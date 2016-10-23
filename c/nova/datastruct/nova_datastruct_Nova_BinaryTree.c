@@ -65,6 +65,7 @@ nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -73,7 +74,7 @@ nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension
 
 
 
-void nova_datastruct_Nova_BinaryTree_Nova_testLambda21(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
+void nova_datastruct_Nova_BinaryTree_Nova_testLambda27(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
 void nova_datastruct_Nova_BinaryTree_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -113,38 +114,38 @@ void nova_datastruct_Nova_BinaryTree_Nova_this(nova_datastruct_Nova_BinaryTree* 
 
 nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNode(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* data)
 {
-	if (nova_datastruct_Nova_BinaryTree_Accessor_func_Nova_root(this, exceptionData) == (nova_datastruct_Nova_BinaryNode*)nova_null)
+	if (nova_datastruct_Nova_BinaryTree_Accessorfunc_Nova_root(this, exceptionData) == (nova_datastruct_Nova_BinaryNode*)nova_null)
 	{
-		nova_datastruct_Nova_BinaryTree_Mutator_func_Nova_root(this, exceptionData, (nova_datastruct_Nova_BinaryNode*)(nova_datastruct_Nova_BinaryNode_0_Nova_construct(0, exceptionData, (nova_datastruct_Nova_Comparable*)(data))));
+		nova_datastruct_Nova_BinaryTree_Mutatorfunc_Nova_root(this, exceptionData, (nova_datastruct_Nova_BinaryNode*)(nova_datastruct_Nova_BinaryNode_0_Nova_construct(0, exceptionData, (nova_datastruct_Nova_Comparable*)(data))));
 	}
 	else
 	{
-		nova_datastruct_Nova_BinaryNode_Nova_addChild(nova_datastruct_Nova_BinaryTree_Accessor_func_Nova_root(this, exceptionData), exceptionData, (nova_datastruct_Nova_Comparable*)(data));
+		nova_datastruct_Nova_BinaryNode_Nova_addChild(nova_datastruct_Nova_BinaryTree_Accessorfunc_Nova_root(this, exceptionData), exceptionData, (nova_datastruct_Nova_Comparable*)(data));
 	}
 	return this;
 }
 
 nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNodes(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
 {
-	Context1 contextArg21 = 
+	Context1 contextArg27 = 
 	{
 	};
 	
-	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_BinaryTree_Nova_testLambda21, this, &contextArg21);
+	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_BinaryTree_Nova_testLambda27, this, &contextArg27);
 	return this;
 }
 
-void nova_datastruct_Nova_BinaryTree_Nova_testLambda21(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
+void nova_datastruct_Nova_BinaryTree_Nova_testLambda27(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
 {
 	nova_datastruct_Nova_BinaryTree_Nova_addNode(this, exceptionData, _1);
 }
 
-nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Accessor_func_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Accessorfunc_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return (nova_datastruct_Nova_BinaryNode*)(nova_datastruct_Nova_BinaryNode*)((nova_datastruct_Nova_Tree*)this)->nova_datastruct_Nova_Tree_Nova_root;
 }
 
-nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Mutator_func_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_BinaryNode* value)
+nova_datastruct_Nova_BinaryNode* nova_datastruct_Nova_BinaryTree_Mutatorfunc_Nova_root(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_BinaryNode* value)
 {
 	((nova_datastruct_Nova_Tree*)this)->nova_datastruct_Nova_Tree_Nova_root = (nova_datastruct_Nova_Node*)(value);
 	return value;

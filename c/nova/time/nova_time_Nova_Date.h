@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_time_Nova_Date, 
 	
 	nova_time_Date_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_time_Nova_Date_Nova_year;
 	int nova_time_Nova_Date_Nova_month;
 	int nova_time_Nova_Date_Nova_day;

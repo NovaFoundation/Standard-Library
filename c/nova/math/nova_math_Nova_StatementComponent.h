@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_math_Nova_StatementComponent, 
 	
 	nova_math_StatementComponent_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_math_Nova_StatementComponent_Nova_data;
 	nova_math_Nova_StatementComponent* nova_math_Nova_StatementComponent_Nova_next;
 )

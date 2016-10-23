@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_svg_no3_Nova_No3Selection, 
 	
 	nova_svg_no3_No3Selection_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_svg_no3_Nova_No3Selection_Nova_selection;
 )
 

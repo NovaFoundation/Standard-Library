@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_exception_Nova_ExceptionData, 
 	
 	nova_exception_ExceptionData_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	buffer* nova_exception_Nova_ExceptionData_Nova_buf;
 	nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_parent;
 	nova_datastruct_list_Nova_IntArray* nova_exception_Nova_ExceptionData_Nova_codes;

@@ -59,6 +59,7 @@ CCLASS_CLASS
 	nova_primitive_number_Nova_Number, 
 	
 	nova_primitive_number_Number_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_primitive_number_Nova_Number_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

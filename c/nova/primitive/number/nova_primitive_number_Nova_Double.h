@@ -62,6 +62,7 @@ CCLASS_CLASS
 	nova_primitive_number_Nova_Double, 
 	
 	nova_primitive_number_Double_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	double nova_primitive_number_Nova_Double_Nova_value;
 )
 

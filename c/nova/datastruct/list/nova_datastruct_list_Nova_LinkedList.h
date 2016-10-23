@@ -94,6 +94,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_LinkedList, 
 	
 	nova_datastruct_list_LinkedList_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_LinkedList_Nova_size;
 	struct Private* prv;
 )

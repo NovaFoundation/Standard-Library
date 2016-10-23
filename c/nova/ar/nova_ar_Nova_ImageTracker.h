@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_ar_Nova_ImageTracker, 
 	
 	nova_ar_ImageTracker_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_ar_Nova_ImageTracker_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

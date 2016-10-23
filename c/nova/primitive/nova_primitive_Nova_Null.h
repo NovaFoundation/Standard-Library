@@ -38,6 +38,9 @@ typedef struct nova_primitive_Nova_Null nova_primitive_Nova_Null;
 #include <nova/datastruct/nova_datastruct_Nova_Comparable.h>
 #include <nova/datastruct/nova_datastruct_Nova_HashSet.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_StringCharArray.h>
+#include <nova/regex/nova_regex_Nova_Regex.h>
+#include <nova/regex/nova_regex_Nova_Match.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -61,6 +64,7 @@ CCLASS_CLASS
 	nova_primitive_Nova_Null, 
 	
 	nova_primitive_Null_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_Nova_String_Nova_count;
 	nova_datastruct_list_Nova_StringCharArray* nova_Nova_String_Nova_chars;
 )

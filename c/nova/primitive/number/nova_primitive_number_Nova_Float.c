@@ -62,6 +62,7 @@ nova_primitive_number_Float_Extension_VTable nova_primitive_number_Float_Extensi
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Float_Nova_toString,

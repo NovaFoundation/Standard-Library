@@ -61,6 +61,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_IntArrayIterator, 
 	
 	nova_datastruct_list_IntArrayIterator_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_IntArrayIterator_Nova_position;
 	struct Private* prv;
 )

@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_math_Nova_NumericStatement, 
 	
 	nova_math_NumericStatement_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 

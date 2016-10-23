@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_svg_Nova_Svg, 
 	
 	nova_svg_Svg_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_svg_Nova_SvgMainComponent* nova_svg_Nova_Svg_Nova_root;
 )
 

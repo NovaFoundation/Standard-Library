@@ -60,6 +60,7 @@ CCLASS_CLASS
 	nova_network_Nova_ClientSocket, 
 	
 	nova_network_ClientSocket_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_network_Nova_Socket_Nova_ip;
 	int nova_network_Nova_Socket_Nova_port;
 	nova_network_Nova_ConnectionSocket* nova_network_Nova_ClientSocket_Nova_connection;

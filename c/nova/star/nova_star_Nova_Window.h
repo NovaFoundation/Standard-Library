@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_star_Nova_Window, 
 	
 	nova_star_Window_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_star_Nova_Window_Nova_x;
 	int nova_star_Nova_Window_Nova_y;
 	int nova_star_Nova_Window_Nova_width;

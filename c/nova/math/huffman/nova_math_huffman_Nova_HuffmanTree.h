@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_math_huffman_Nova_HuffmanTree, 
 	
 	nova_math_huffman_HuffmanTree_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_Nova_Node* nova_datastruct_Nova_Tree_Nova_root;
 )
 

@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_star_Nova_Frame, 
 	
 	nova_star_Frame_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_star_Nova_Frame_Nova_x;
 	int nova_star_Nova_Frame_Nova_y;
 	int nova_star_Nova_Frame_Nova_width;
@@ -66,10 +67,10 @@ void nova_star_Nova_Frame_Nova_init_static(nova_exception_Nova_ExceptionData* ex
 nova_star_Nova_Frame* nova_star_Nova_Frame_Nova_construct(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int x, int y, int width, int height);
 void nova_star_Nova_Frame_Nova_destroy(nova_star_Nova_Frame** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_star_Nova_Frame_Nova_this(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int x, int y, int width, int height);
-int nova_star_Nova_Frame_Mutator_func_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
-int nova_star_Nova_Frame_Mutator_func_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
-int nova_star_Nova_Frame_Mutator_func_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
-int nova_star_Nova_Frame_Mutator_func_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutatorfunc_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutatorfunc_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutatorfunc_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_star_Nova_Frame_Mutatorfunc_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
 void nova_star_Nova_Frame_Nova_super(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

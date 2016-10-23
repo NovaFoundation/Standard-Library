@@ -59,6 +59,7 @@ CCLASS_CLASS
 	nova_math_logic_Nova_Conclusion, 
 	
 	nova_math_logic_Conclusion_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 

@@ -58,6 +58,7 @@ nova_star_Frame_Extension_VTable nova_star_Frame_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -106,31 +107,31 @@ void nova_star_Nova_Frame_Nova_this(nova_star_Nova_Frame* this, nova_exception_N
 	y = (int)(y == (intptr_t)nova_null ? 0 : y);
 	width = (int)(width == (intptr_t)nova_null ? 800 : width);
 	height = (int)(height == (intptr_t)nova_null ? 600 : height);
-	nova_star_Nova_Frame_Mutator_func_Nova_x(this, exceptionData, x);
-	nova_star_Nova_Frame_Mutator_func_Nova_y(this, exceptionData, y);
-	nova_star_Nova_Frame_Mutator_func_Nova_width(this, exceptionData, width);
-	nova_star_Nova_Frame_Mutator_func_Nova_height(this, exceptionData, height);
+	nova_star_Nova_Frame_Mutatorfunc_Nova_x(this, exceptionData, x);
+	nova_star_Nova_Frame_Mutatorfunc_Nova_y(this, exceptionData, y);
+	nova_star_Nova_Frame_Mutatorfunc_Nova_width(this, exceptionData, width);
+	nova_star_Nova_Frame_Mutatorfunc_Nova_height(this, exceptionData, height);
 }
 
-int nova_star_Nova_Frame_Mutator_func_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
+int nova_star_Nova_Frame_Mutatorfunc_Nova_x(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
 {
 	this->nova_star_Nova_Frame_Nova_x = value;
 	return value;
 }
 
-int nova_star_Nova_Frame_Mutator_func_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
+int nova_star_Nova_Frame_Mutatorfunc_Nova_y(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
 {
 	this->nova_star_Nova_Frame_Nova_y = value;
 	return value;
 }
 
-int nova_star_Nova_Frame_Mutator_func_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
+int nova_star_Nova_Frame_Mutatorfunc_Nova_width(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
 {
 	this->nova_star_Nova_Frame_Nova_width = value;
 	return value;
 }
 
-int nova_star_Nova_Frame_Mutator_func_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
+int nova_star_Nova_Frame_Mutatorfunc_Nova_height(nova_star_Nova_Frame* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
 {
 	this->nova_star_Nova_Frame_Nova_height = value;
 	return value;

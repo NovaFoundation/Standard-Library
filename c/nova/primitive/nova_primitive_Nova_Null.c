@@ -29,6 +29,9 @@
 #include <nova/datastruct/nova_datastruct_Nova_Comparable.h>
 #include <nova/datastruct/nova_datastruct_Nova_HashSet.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_StringCharArray.h>
+#include <nova/regex/nova_regex_Nova_Regex.h>
+#include <nova/regex/nova_regex_Nova_Match.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -57,6 +60,7 @@ nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_equals,
+		0,
 		0,
 		0,
 		0,

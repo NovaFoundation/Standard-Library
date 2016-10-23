@@ -60,6 +60,7 @@ CCLASS_CLASS
 	nova_star_Nova_WindowThread, 
 	
 	nova_star_WindowThread_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 

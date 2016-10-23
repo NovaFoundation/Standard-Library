@@ -60,6 +60,7 @@ CCLASS_CLASS
 	nova_web_svg_Nova_SvgCircle, 
 	
 	nova_web_svg_SvgCircle_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_web_svg_Nova_SvgComponentList* nova_web_svg_Nova_SvgComponent_Nova_children;
 	double nova_web_svg_Nova_SvgCircle_Nova_x;
 	double nova_web_svg_Nova_SvgCircle_Nova_y;

@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_security_Nova_MD5, 
 	
 	nova_security_MD5_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_security_Nova_MD5_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

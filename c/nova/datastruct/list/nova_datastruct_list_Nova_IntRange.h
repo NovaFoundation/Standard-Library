@@ -92,6 +92,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_IntRange, 
 	
 	nova_datastruct_list_IntRange_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_IntRange_Nova_start;
 	int nova_datastruct_list_Nova_IntRange_Nova_end;
 )

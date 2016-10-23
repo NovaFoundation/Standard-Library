@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_primitive_Nova_Bool, 
 	
 	nova_primitive_Bool_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	char nova_primitive_Nova_Bool_Nova_value;
 )
 

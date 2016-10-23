@@ -62,6 +62,7 @@ CCLASS_CLASS
 	nova_network_Nova_NetworkOutputStream, 
 	
 	nova_network_NetworkOutputStream_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 

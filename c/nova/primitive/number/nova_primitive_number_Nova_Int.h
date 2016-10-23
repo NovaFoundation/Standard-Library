@@ -63,6 +63,7 @@ CCLASS_CLASS
 	nova_primitive_number_Nova_Int, 
 	
 	nova_primitive_number_Int_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_primitive_number_Nova_Int_Nova_value;
 )
 extern int nova_primitive_number_Nova_Int_Nova_MAX_VALUE;

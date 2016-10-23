@@ -56,7 +56,9 @@ CCLASS_CLASS
 	nova_Nova_Object, 
 	
 	nova_Object_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
+extern nova_Nova_Class* nova_Nova_Object_Nova_class;
 
 void nova_Nova_Object_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_Object* nova_Nova_Object_Nova_construct(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);

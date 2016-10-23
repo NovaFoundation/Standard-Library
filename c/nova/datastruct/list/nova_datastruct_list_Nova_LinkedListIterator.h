@@ -63,6 +63,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_LinkedListIterator, 
 	
 	nova_datastruct_list_LinkedListIterator_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_list_Nova_ListNode* nova_datastruct_list_Nova_LinkedListIterator_Nova_position;
 	struct Private* prv;
 )

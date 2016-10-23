@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_math_logic_Nova_StatementGroup, 
 	
 	nova_math_logic_StatementGroup_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement;
 	nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds;
 )

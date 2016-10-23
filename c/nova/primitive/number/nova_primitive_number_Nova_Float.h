@@ -62,6 +62,7 @@ CCLASS_CLASS
 	nova_primitive_number_Nova_Float, 
 	
 	nova_primitive_number_Float_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	float nova_primitive_number_Nova_Float_Nova_value;
 )
 

@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_datastruct_Nova_Tree, 
 	
 	nova_datastruct_Tree_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_Nova_Node* nova_datastruct_Nova_Tree_Nova_root;
 )
 

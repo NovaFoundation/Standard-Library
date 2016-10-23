@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_io_Nova_FileNotFoundException, 
 	
 	nova_io_FileNotFoundException_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 

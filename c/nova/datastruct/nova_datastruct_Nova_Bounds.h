@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_datastruct_Nova_Bounds, 
 	
 	nova_datastruct_Bounds_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_Nova_Bounds_Nova_start;
 	int nova_datastruct_Nova_Bounds_Nova_end;
 )

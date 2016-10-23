@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_thread_Nova_UncaughtExceptionHandler, 
 	
 	nova_thread_UncaughtExceptionHandler_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_thread_Nova_UncaughtExceptionHandler_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

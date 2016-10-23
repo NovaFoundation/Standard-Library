@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_Stack, 
 	
 	nova_datastruct_list_Stack_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_Stack_Nova_size;
 	struct Private* prv;
 )

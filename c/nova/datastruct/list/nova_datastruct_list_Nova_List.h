@@ -99,7 +99,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_List, 
 	
 	nova_datastruct_list_List_Extension_VTable* vtable;
-	int nova_datastruct_list_Nova_List_Nova_size;
+	int nova_datastruct_list_Nova_List_Nova_count;
 	nova_Nova_Object* nova_datastruct_list_Nova_List_Nova_first;
 	nova_Nova_Object* nova_datastruct_list_Nova_List_Nova_last;
 )

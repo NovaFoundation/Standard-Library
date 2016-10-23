@@ -62,6 +62,7 @@ CCLASS_CLASS
 	nova_thread_async_Nova_Async, 
 	
 	nova_thread_async_Async_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_thread_async_Nova_Async_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

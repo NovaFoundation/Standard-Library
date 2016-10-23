@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_math_Nova_Diekstra, 
 	
 	nova_math_Diekstra_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_math_Nova_Diekstra_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

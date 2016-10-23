@@ -60,6 +60,7 @@ nova_math_Vector2D_Extension_VTable nova_math_Vector2D_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_Vector_Nova_toString,
@@ -129,7 +130,7 @@ void nova_math_Nova_Vector2D_0_Nova_this(nova_math_Nova_Vector2D* this, nova_exc
 
 double nova_math_Nova_Vector2D_Nova_dotProduct(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Vector3D* other)
 {
-	return nova_math_Nova_Vector_virtual_Nova_dotProduct((nova_math_Nova_Vector*)(((nova_math_Nova_Vector*)this)), exceptionData, (nova_math_Nova_Vector*)(other));
+	return nova_math_Nova_Vector_Nova_dotProduct(((nova_math_Nova_Vector*)this), exceptionData, (nova_math_Nova_Vector*)(other));
 }
 
 double nova_math_Nova_Vector2D_Accessor_Nova_x(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData)

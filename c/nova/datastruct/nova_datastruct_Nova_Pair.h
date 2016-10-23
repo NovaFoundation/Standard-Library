@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_datastruct_Nova_Pair, 
 	
 	nova_datastruct_Pair_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_key;
 	nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_value;
 )

@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_web_svg_Nova_SvgComponentNode, 
 	
 	nova_web_svg_SvgComponentNode_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_web_svg_Nova_SvgComponentNode* nova_web_svg_Nova_SvgComponentNode_Nova_next;
 	nova_web_svg_Nova_SvgComponent* nova_web_svg_Nova_SvgComponentNode_Nova_component;
 )

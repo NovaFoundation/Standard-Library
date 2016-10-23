@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_web_svg_no3_Nova_No3, 
 	
 	nova_web_svg_no3_No3_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_web_svg_no3_Nova_No3_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

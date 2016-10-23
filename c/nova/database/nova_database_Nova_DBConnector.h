@@ -58,6 +58,7 @@ CCLASS_CLASS
 	nova_database_Nova_DBConnector, 
 	
 	nova_database_DBConnector_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_database_Nova_DBConnector_Nova_error;
 	struct Private* prv;
 )

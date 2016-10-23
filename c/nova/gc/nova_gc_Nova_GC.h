@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_gc_Nova_GC, 
 	
 	nova_gc_GC_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_gc_Nova_GC_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

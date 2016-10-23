@@ -59,6 +59,7 @@ CCLASS_CLASS
 	nova_math_Nova_Vector2D, 
 	
 	nova_math_Vector2D_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_data;
 )
 

@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_math_calculus_Nova_Calculus, 
 	
 	nova_math_calculus_Calculus_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_math_calculus_Nova_Calculus_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

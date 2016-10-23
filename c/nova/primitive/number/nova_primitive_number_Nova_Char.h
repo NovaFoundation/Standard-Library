@@ -63,6 +63,7 @@ CCLASS_CLASS
 	nova_primitive_number_Nova_Char, 
 	
 	nova_primitive_number_Char_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	char nova_primitive_number_Nova_Char_Nova_value;
 )
 

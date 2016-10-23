@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_exception_Nova_DivideByZeroException, 
 	
 	nova_exception_DivideByZeroException_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 

@@ -83,6 +83,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_Array, 
 	
 	nova_datastruct_list_Array_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_Array_Nova_capacity;
 	int nova_datastruct_list_Nova_Array_Nova_count;
 	int nova_datastruct_list_Nova_Array_Nova_position;

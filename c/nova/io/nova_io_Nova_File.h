@@ -59,6 +59,7 @@ CCLASS_CLASS
 	nova_io_Nova_File, 
 	
 	nova_io_File_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_io_Nova_File_Nova_location;
 	struct Private* prv;
 )

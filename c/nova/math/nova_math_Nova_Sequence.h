@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_math_Nova_Sequence, 
 	
 	nova_math_Sequence_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Sequence_Nova_values;
 )
 extern int nova_math_Nova_Sequence_Nova_INFINITE;

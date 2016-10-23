@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_thread_async_Nova_AsyncResult, 
 	
 	nova_thread_async_AsyncResult_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_thread_async_Nova_AsyncResult_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

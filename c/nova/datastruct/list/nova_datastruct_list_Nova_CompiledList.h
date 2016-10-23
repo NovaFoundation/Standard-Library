@@ -56,6 +56,7 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_CompiledList, 
 	
 	nova_datastruct_list_CompiledList_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_datastruct_list_Nova_CompiledList_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

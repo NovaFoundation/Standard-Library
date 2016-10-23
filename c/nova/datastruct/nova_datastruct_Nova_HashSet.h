@@ -92,6 +92,7 @@ CCLASS_CLASS
 	nova_datastruct_Nova_HashSet, 
 	
 	nova_datastruct_HashSet_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_Nova_HashSet_Nova_size;
 	struct Private* prv;
 )

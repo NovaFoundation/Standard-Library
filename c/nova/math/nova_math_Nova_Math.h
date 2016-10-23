@@ -57,6 +57,7 @@ CCLASS_CLASS
 	nova_math_Nova_Math, 
 	
 	nova_math_Math_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 extern double nova_math_Nova_Math_Nova_PI;
 

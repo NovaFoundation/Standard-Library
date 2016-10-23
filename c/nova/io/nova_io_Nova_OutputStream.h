@@ -59,6 +59,7 @@ CCLASS_CLASS
 	nova_io_Nova_OutputStream, 
 	
 	nova_io_OutputStream_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 
