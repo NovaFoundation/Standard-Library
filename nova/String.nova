@@ -3,6 +3,9 @@ package "nova"
 import "nova/datastruct/Comparable"
 import "nova/datastruct/HashSet"
 import "nova/datastruct/list/StringCharArray"
+import "nova/regex/Regex"
+import "nova/regex/Match"
+import "nova/regex/Pattern"
 
 class String implements Comparable<String> {
     visible Int count
@@ -11,7 +14,7 @@ class String implements Comparable<String> {
     
     this[Int index] <=> chars[index]
 
-    static Char[] whitespace = [ ' ', '\t', '\n', '\r' ]
+    static Char[] WHITESPACE = [ ' ', '\t', '\n', '\r' ]
     
     external void strcpy(char dst[], char src[])
     external void strcat(char dst[], char src[])
@@ -111,7 +114,20 @@ class String implements Comparable<String> {
     }
     
     public equals(String other) => compareTo(other) == 0
-
+    
+    public replace(Pattern pattern, String replace) -> String {
+    	String output = this
+    	
+        Int offset = 0
+        
+        Regex.getMatches(pattern.pattern, this).forEach(match -> {
+        	output = output.substring(0, match.start + offset) + replace + output.substring(match.end + offset)
+        	offset += replace.count - match.count
+        })
+        
+        return output
+    }
+    
     public replace(String search, String replace) -> String {
         String output = this
 
@@ -123,7 +139,39 @@ class String implements Comparable<String> {
 
         return output
     }
-
+    
+    public containsWord(String search, Int start = 0) => nextWordIndex(search, start) >= 0
+    public nextWordIndex(String search, Int start = 0, Int defaultReturnValue = -1) -> Int {
+    	var index = indexOf(search, start)
+    	
+    	while (index >= 0) {
+    		if ((index == 0 || WHITESPACE.contains(chars[index - 1])) &&
+    			(index + search.count >= count || WHITESPACE.contains(chars[index + search.count]))) {
+    			return index
+    		}
+    		
+    		index = indexOf(search, index + search.count + 1)
+    	}
+    	
+    	return defaultReturnValue
+    }
+    
+	public nextNonWhitespaceIndex(Int start = 0, Int defaultReturnValue = -1) =>
+		nextIndexThatContains(WHITESPACE, start, true, defaultReturnValue)
+	
+	public nextWhitespaceIndex(Int start = 0, Int defaultReturnValue = -1) =>
+		nextIndexThatContains(WHITESPACE, start, false, defaultReturnValue)
+	
+	public nextIndexThatContains(Char[] searchChars, Int start = 0, Bool opposite = false, Int defaultReturnValue = -1) -> Int {
+		while (start < count && searchChars.contains(chars[start]) == opposite) start++
+		
+		if (start <= count) {
+			return start
+		}
+		
+		return defaultReturnValue
+	}
+    
     public startsWith(String search) => indexOf(search) == 0
     public contains(String search) => indexOf(search) >= 0
     public endsWith(String search) => count > 0 && indexOf(search) == count - search.count - 1
@@ -188,10 +236,10 @@ class String implements Comparable<String> {
     }
 
     public trim(Int start = 0, Int end = count - 1) -> String {
-        while (start < count && whitespace.contains(chars[start++]));
-        while (end >= 0 && whitespace.contains(chars[end--]));
+        while (start < count && WHITESPACE.contains(chars[start++]));
+        while (end >= 0 && WHITESPACE.contains(chars[end--]));
         
-        return end == 0 ? "" : substring(start, end + 1)
+        return end == 0 ? "" : substring(start - 1, end + 2)
     }
     
     public lastChar() => count > 0 ? chars[count - 1] : (Char)0
@@ -234,6 +282,22 @@ class String implements Comparable<String> {
         }
 
         return count - other.count
+    }
+    
+    public split(String regex) -> String[] {
+    	String[] strs = new Array()
+    	
+    	Int start = 0
+    	
+    	Regex.getMatches(regex, this).forEach(match -> {
+    		strs.add(substring(start, match.start))
+    		
+    		start = match.end
+    	})
+    	
+    	strs.add(substring(start))
+    	
+    	return strs
     }
 
     public toString() => this
