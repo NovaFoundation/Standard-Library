@@ -1,7 +1,7 @@
 package "nova/datastruct/list"
 
 interface List<Type> extends Iterable<Type> {
-    visible Int size
+    visible Int count
     /*[Int index] {
         get { return this.get(index) }
         set { this.set(index, value) }
