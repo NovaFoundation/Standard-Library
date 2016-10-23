@@ -48,6 +48,7 @@ typedef char (*nova_datastruct_list_Nova_Array_closure9_Nova_filterFunc)(void*, 
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_ArrayIterator.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_List.h>
 #include <nova/NativeObject.h>

@@ -1,12 +1,14 @@
 package "nova/regex"
 
 class Regex {
+    public static containsMatch(Pattern pattern, String search) => containsMatch(pattern.pattern, search)
     public static containsMatch(String regex, String search) -> Bool {
         var matches = getMatches(regex, search)
         
         return matches != null && matches.count > 0
     }
     
+    public static getMatches(Pattern pattern, String search) => getMatches(pattern.pattern, search)
     public static getMatches(String regex, String search) -> Match[] {
         return null
     }

@@ -35,6 +35,7 @@ typedef struct nova_time_Nova_Date nova_time_Nova_Date;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/time/NativeDate.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>

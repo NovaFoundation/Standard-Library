@@ -35,6 +35,7 @@ typedef struct nova_math_Nova_NumericStatement nova_math_Nova_NumericStatement;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_NumericTree.h>
 #include <nova/math/nova_math_Nova_Statement.h>
 #include <nova/NativeObject.h>

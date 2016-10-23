@@ -284,12 +284,12 @@ class String implements Comparable<String> {
         return count - other.count
     }
     
-    public split(String regex) -> String[] {
+    public split(Pattern regex) -> String[] {
     	String[] strs = new Array()
     	
     	Int start = 0
     	
-    	Regex.getMatches(regex, this).forEach(match -> {
+    	Regex.getMatches(regex.pattern, this).forEach(match -> {
     		strs.add(substring(start, match.start))
     		
     		start = match.end

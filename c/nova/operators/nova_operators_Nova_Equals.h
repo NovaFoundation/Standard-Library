@@ -35,6 +35,7 @@ typedef struct nova_operators_Nova_Equals nova_operators_Nova_Equals;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 typedef struct nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable;

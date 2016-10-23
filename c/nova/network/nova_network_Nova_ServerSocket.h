@@ -35,6 +35,7 @@ typedef struct nova_network_Nova_ServerSocket nova_network_Nova_ServerSocket;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/network/NativeServerSocket.h>
 #include <nova/network/NativeSocket.h>
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>

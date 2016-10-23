@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3Select.h>
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3SelectAll.h>
 #include <nova/NativeObject.h>

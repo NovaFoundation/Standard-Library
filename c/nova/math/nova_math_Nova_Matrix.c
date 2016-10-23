@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/operators/nova_operators_Nova_Multiply.h>
 #include <nova/exception/nova_exception_Nova_InvalidArgumentException.h>
 #include <nova/exception/nova_exception_Nova_InvalidOperationException.h>

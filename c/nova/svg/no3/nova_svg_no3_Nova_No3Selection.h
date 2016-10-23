@@ -35,6 +35,7 @@ typedef struct nova_svg_no3_Nova_No3Selection nova_svg_no3_Nova_No3Selection;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/svg/no3/nova_svg_no3_Nova_No3Node.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>

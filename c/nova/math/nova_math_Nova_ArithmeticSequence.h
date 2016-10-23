@@ -35,6 +35,7 @@ typedef struct nova_math_Nova_ArithmeticSequence nova_math_Nova_ArithmeticSequen
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_Sequence.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>

@@ -35,6 +35,7 @@ typedef struct nova_math_Nova_Vector2D nova_math_Nova_Vector2D;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_Vector.h>
 #include <nova/math/nova_math_Nova_Vector3D.h>
 #include <nova/NativeObject.h>

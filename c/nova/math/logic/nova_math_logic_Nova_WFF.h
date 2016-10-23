@@ -35,6 +35,7 @@ typedef struct nova_math_logic_Nova_WFF nova_math_logic_Nova_WFF;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Bounds.h>
 #include <nova/math/logic/nova_math_logic_Nova_Conclusion.h>
 #include <nova/math/logic/nova_math_logic_Nova_Hypothesis.h>

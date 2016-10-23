@@ -35,6 +35,7 @@ typedef struct nova_regex_Nova_Regex nova_regex_Nova_Regex;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/regex/nova_regex_Nova_Match.h>
 #include <pcre/pcre2.h>
 #include <nova/NativeObject.h>
@@ -64,7 +65,9 @@ CCLASS_CLASS
 void nova_regex_Nova_Regex_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_regex_Nova_Regex* nova_regex_Nova_Regex_Nova_construct(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_regex_Nova_Regex_Nova_destroy(nova_regex_Nova_Regex** this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_regex_Nova_Regex_static_Nova_containsMatch(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* regex, nova_Nova_String* search);
+char nova_regex_Nova_Regex_0_static_Nova_containsMatch(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* pattern, nova_Nova_String* search);
+char nova_regex_Nova_Regex_1_static_Nova_containsMatch(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* regex, nova_Nova_String* search);
+nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_0_static_Nova_getMatches(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* pattern, nova_Nova_String* search);
 nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* regex, nova_Nova_String* search);
 void nova_regex_Nova_Regex_Nova_this(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_regex_Nova_Regex_Nova_super(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData);

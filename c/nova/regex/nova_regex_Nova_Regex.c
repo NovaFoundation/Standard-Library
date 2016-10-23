@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/regex/nova_regex_Nova_Match.h>
 #include <pcre/pcre2.h>
 #include <nova/NativeObject.h>
@@ -99,12 +100,22 @@ void nova_regex_Nova_Regex_Nova_destroy(nova_regex_Nova_Regex** this, nova_excep
 	NOVA_FREE(*this);
 }
 
-char nova_regex_Nova_Regex_static_Nova_containsMatch(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* regex, nova_Nova_String* search)
+char nova_regex_Nova_Regex_0_static_Nova_containsMatch(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* pattern, nova_Nova_String* search)
+{
+	return nova_regex_Nova_Regex_1_static_Nova_containsMatch(0, exceptionData, pattern->nova_regex_Nova_Pattern_Nova_pattern, search);
+}
+
+char nova_regex_Nova_Regex_1_static_Nova_containsMatch(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* regex, nova_Nova_String* search)
 {
 	nova_datastruct_list_Nova_Array* l1_Nova_matches = (nova_datastruct_list_Nova_Array*)nova_null;
 	
 	l1_Nova_matches = nova_regex_Nova_Regex_static_Nova_getMatches(0, exceptionData, regex, search);
 	return l1_Nova_matches != (nova_datastruct_list_Nova_Array*)nova_null && l1_Nova_matches->nova_datastruct_list_Nova_Array_Nova_count > 0;
+}
+
+nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_0_static_Nova_getMatches(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* pattern, nova_Nova_String* search)
+{
+	return nova_regex_Nova_Regex_static_Nova_getMatches(0, exceptionData, pattern->nova_regex_Nova_Pattern_Nova_pattern, search);
 }
 
 nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* regex, nova_Nova_String* search)

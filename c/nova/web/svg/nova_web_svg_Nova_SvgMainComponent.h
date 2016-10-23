@@ -35,6 +35,7 @@ typedef struct nova_web_svg_Nova_SvgMainComponent nova_web_svg_Nova_SvgMainCompo
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponent.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponentList.h>

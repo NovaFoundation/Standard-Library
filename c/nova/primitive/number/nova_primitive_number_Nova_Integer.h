@@ -35,6 +35,7 @@ typedef struct nova_primitive_number_Nova_Integer nova_primitive_number_Nova_Int
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 typedef struct nova_primitive_number_Integer_Extension_VTable nova_primitive_number_Integer_Extension_VTable;
