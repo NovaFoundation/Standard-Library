@@ -233,29 +233,55 @@ nova_Nova_String* nova_Nova_String_1_Nova_replace(nova_Nova_String* this, nova_e
 	
 	l1_Nova_output = this;
 	l1_Nova_index = (int)(0);
-	while ((l1_Nova_index = nova_Nova_String_Nova_indexOf(l1_Nova_output, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null)) >= 0)
+	while ((l1_Nova_index = nova_Nova_String_1_Nova_indexOf(l1_Nova_output, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null)) >= 0)
 	{
 		l1_Nova_output = (nova_Nova_String*)(nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_Nova_substring(l1_Nova_output, exceptionData, 0, l1_Nova_index)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(replace), exceptionData, nova_Nova_String_Nova_substring(l1_Nova_output, exceptionData, l1_Nova_index + search->nova_Nova_String_Nova_count, (intptr_t)nova_null))));
 	}
 	return l1_Nova_output;
 }
 
-char nova_Nova_String_Nova_startsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
+char nova_Nova_String_0_Nova_startsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
 {
-	return nova_Nova_String_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == 0;
+	return nova_Nova_String_1_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == 0;
 }
 
-char nova_Nova_String_Nova_contains(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
+char nova_Nova_String_1_Nova_startsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* search)
 {
-	return nova_Nova_String_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) >= 0;
+	return nova_Nova_String_0_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == 0;
 }
 
-char nova_Nova_String_Nova_endsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
+char nova_Nova_String_0_Nova_contains(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
 {
-	return this->nova_Nova_String_Nova_count > 0 && nova_Nova_String_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == this->nova_Nova_String_Nova_count - search->nova_Nova_String_Nova_count - 1;
+	return nova_Nova_String_1_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) >= 0;
 }
 
-int nova_Nova_String_Nova_indexOf(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search, int start, int direction, int defaultReturnValue)
+char nova_Nova_String_1_Nova_contains(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* search)
+{
+	return nova_Nova_String_0_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) >= 0;
+}
+
+char nova_Nova_String_0_Nova_endsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search)
+{
+	return this->nova_Nova_String_Nova_count > 0 && nova_Nova_String_1_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == this->nova_Nova_String_Nova_count - search->nova_Nova_String_Nova_count - 1;
+}
+
+char nova_Nova_String_1_Nova_endsWith(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* search)
+{
+	return this->nova_Nova_String_Nova_count > 0 && nova_Nova_String_0_Nova_indexOf(this, exceptionData, search, (intptr_t)nova_null, (intptr_t)nova_null, (intptr_t)nova_null) == this->nova_Nova_String_Nova_count - search->nova_regex_Nova_Pattern_Nova_pattern->nova_Nova_String_Nova_count - 1;
+}
+
+int nova_Nova_String_0_Nova_indexOf(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Pattern* search, int start, int direction, int defaultReturnValue)
+{
+	int l1_Nova_nova_local_0 = 0;
+	nova_regex_Nova_Match* l1_Nova_nova_local_1 = (nova_regex_Nova_Match*)nova_null;
+	
+	start = (int)(start == (intptr_t)nova_null ? 0 : start);
+	direction = (int)(direction == (intptr_t)nova_null ? 1 : direction);
+	defaultReturnValue = (int)(defaultReturnValue == (intptr_t)nova_null ? -1 : defaultReturnValue);
+	return (int)((l1_Nova_nova_local_0 = (int)((l1_Nova_nova_local_1 = (nova_regex_Nova_Match*)(nova_datastruct_list_Nova_Array_virtual_Accessor_Nova_first((nova_datastruct_list_Nova_Array*)(nova_regex_Nova_Regex_0_static_Nova_getMatches(0, exceptionData, search, this)), exceptionData))) != (nova_regex_Nova_Match*)nova_null ? (l1_Nova_nova_local_1->nova_regex_Nova_Match_Nova_start) : 0)) != (int)nova_null ? l1_Nova_nova_local_0 : (int)0);
+}
+
+int nova_Nova_String_1_Nova_indexOf(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* search, int start, int direction, int defaultReturnValue)
 {
 	int l1_Nova_i = 0;
 	
@@ -291,7 +317,7 @@ int nova_Nova_String_Nova_lastIndexOf(nova_Nova_String* this, nova_exception_Nov
 {
 	start = (int)(start == (intptr_t)nova_null ? this->nova_Nova_String_Nova_count - 1 : start);
 	defaultReturnValue = (int)(defaultReturnValue == (intptr_t)nova_null ? -1 : defaultReturnValue);
-	return nova_Nova_String_Nova_indexOf(this, exceptionData, search, start, -1, defaultReturnValue);
+	return nova_Nova_String_1_Nova_indexOf(this, exceptionData, search, start, -1, defaultReturnValue);
 }
 
 nova_Nova_String* nova_Nova_String_Nova_substring(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, int start, int end)
@@ -372,8 +398,8 @@ nova_Nova_String* nova_Nova_String_Nova_getStringBetween(nova_Nova_String* this,
 	int l1_Nova_e = 0;
 	
 	start = (int)(start == (intptr_t)nova_null ? 0 : start);
-	l1_Nova_s = nova_Nova_String_Nova_indexOf(this, exceptionData, before, start, (intptr_t)nova_null, (intptr_t)nova_null);
-	l1_Nova_e = nova_Nova_String_Nova_indexOf(this, exceptionData, after, l1_Nova_s + 1, (intptr_t)nova_null, (intptr_t)nova_null);
+	l1_Nova_s = nova_Nova_String_1_Nova_indexOf(this, exceptionData, before, start, (intptr_t)nova_null, (intptr_t)nova_null);
+	l1_Nova_e = nova_Nova_String_1_Nova_indexOf(this, exceptionData, after, l1_Nova_s + 1, (intptr_t)nova_null, (intptr_t)nova_null);
 	if (l1_Nova_s >= 0 && l1_Nova_e > 0)
 	{
 		return nova_Nova_String_Nova_substring(this, exceptionData, l1_Nova_s + before->nova_Nova_String_Nova_count, l1_Nova_e);

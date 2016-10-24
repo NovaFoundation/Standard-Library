@@ -141,9 +141,15 @@ class String implements Comparable<String> {
     }
     
     public startsWith(String search) => indexOf(search) == 0
+    public startsWith(Pattern search) => indexOf(search) == 0
     public contains(String search) => indexOf(search) >= 0
+    public contains(Pattern search) => indexOf(search) >= 0
     public endsWith(String search) => count > 0 && indexOf(search) == count - search.count - 1
+    public endsWith(Pattern search) => count > 0 && indexOf(search) == count - search.pattern.count - 1
 
+    public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) =>
+    	Regex.getMatches(search, this).first?.start ?: 0
+    
     public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
         Int i = start
 
