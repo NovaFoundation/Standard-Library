@@ -140,38 +140,6 @@ class String implements Comparable<String> {
         return output
     }
     
-    public containsWord(String search, Int start = 0) => nextWordIndex(search, start) >= 0
-    public nextWordIndex(String search, Int start = 0, Int defaultReturnValue = -1) -> Int {
-    	var index = indexOf(search, start)
-    	
-    	while (index >= 0) {
-    		if ((index == 0 || WHITESPACE.contains(chars[index - 1])) &&
-    			(index + search.count >= count || WHITESPACE.contains(chars[index + search.count]))) {
-    			return index
-    		}
-    		
-    		index = indexOf(search, index + search.count + 1)
-    	}
-    	
-    	return defaultReturnValue
-    }
-    
-	public nextNonWhitespaceIndex(Int start = 0, Int defaultReturnValue = -1) =>
-		nextIndexThatContains(WHITESPACE, start, true, defaultReturnValue)
-	
-	public nextWhitespaceIndex(Int start = 0, Int defaultReturnValue = -1) =>
-		nextIndexThatContains(WHITESPACE, start, false, defaultReturnValue)
-	
-	public nextIndexThatContains(Char[] searchChars, Int start = 0, Bool opposite = false, Int defaultReturnValue = -1) -> Int {
-		while (start < count && searchChars.contains(chars[start]) == opposite) start++
-		
-		if (start <= count) {
-			return start
-		}
-		
-		return defaultReturnValue
-	}
-    
     public startsWith(String search) => indexOf(search) == 0
     public contains(String search) => indexOf(search) >= 0
     public endsWith(String search) => count > 0 && indexOf(search) == count - search.count - 1

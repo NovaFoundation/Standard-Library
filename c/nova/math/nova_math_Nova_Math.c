@@ -171,19 +171,19 @@ double nova_math_Nova_Math_static_Nova_atan(nova_math_Nova_Math* this, nova_exce
 	return atan(number);
 }
 
-long_long nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
+double nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
 	return nova_math_Nova_Math_static_Nova_floor(0, exceptionData, number + 0.5);
 }
 
-long_long nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
+double nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return floor(number);
+	return (long_long)((double)(number < 0 && (long_long)number != number ? number - 1 : number));
 }
 
-long_long nova_math_Nova_Math_static_Nova_ceil(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
+double nova_math_Nova_Math_static_Nova_ceil(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return ceil(number);
+	return (long_long)((double)(number >= 0 && (long_long)number != number ? number + 1 : number));
 }
 
 void nova_math_Nova_Math_Nova_this(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData)

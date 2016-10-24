@@ -113,12 +113,12 @@ void nova_math_Nova_Polynomial_Nova_destroy(nova_math_Nova_Polynomial** this, no
 
 void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* polynomial)
 {
-	int l2_Nova_start = 0;
-	char l2_Nova_reading = 0;
+	int l1_Nova_start = 0;
+	char l1_Nova_reading = 0;
 	int l2_Nova_i = 0;
 	
-	l2_Nova_start = (int)(0);
-	l2_Nova_reading = 0;
+	l1_Nova_start = (int)(0);
+	l1_Nova_reading = 0;
 	this->nova_math_Nova_Polynomial_Nova_coefficients = nova_datastruct_list_Nova_DoubleArray_0_Nova_construct(0, exceptionData);
 	this->nova_math_Nova_Polynomial_Nova_degrees = nova_datastruct_list_Nova_DoubleArray_0_Nova_construct(0, exceptionData);
 	this->nova_math_Nova_Polynomial_Nova_signs = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
@@ -127,12 +127,12 @@ void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_e
 	{
 		if (!nova_math_Nova_Polynomial_static_Nova_isLetter(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(polynomial->nova_Nova_String_Nova_chars), exceptionData, l2_Nova_i))))
 		{
-			l2_Nova_reading = 0;
+			l1_Nova_reading = 0;
 		}
-		else if (!l2_Nova_reading)
+		else if (!l1_Nova_reading)
 		{
-			l2_Nova_start = l2_Nova_i;
-			l2_Nova_reading = 1;
+			l1_Nova_start = l2_Nova_i;
+			l1_Nova_reading = 1;
 		}
 		else
 		{
