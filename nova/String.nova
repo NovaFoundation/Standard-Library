@@ -146,9 +146,21 @@ class String implements Comparable<String> {
     public contains(Pattern search) => indexOf(search) >= 0
     public endsWith(String search) => count > 0 && indexOf(search) == count - search.count - 1
     public endsWith(Pattern search) => count > 0 && indexOf(search) == count - search.pattern.count - 1
+    public matches(Pattern pattern) -> Bool {
+    	var matches = Regex.getMatches(pattern, this)
+    	
+    	return matches.count == 1 && matches[0].start == 0 && matches[0].end == count
+    }
 
-    public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) =>
-    	Regex.getMatches(search, this).first?.start ?: 0
+    public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
+    	var first = Regex.getMatches(search, this).first
+    	
+    	if (first != null) {
+    		return first.start
+    	}
+    	
+    	return defaultReturnValue
+    }
     
     public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
         Int i = start
@@ -210,10 +222,10 @@ class String implements Comparable<String> {
     }
 
     public trim(Int start = 0, Int end = count - 1) -> String {
-        while (start < count && WHITESPACE.contains(chars[start++]));
-        while (end >= 0 && WHITESPACE.contains(chars[end--]));
+        while (start <= end && WHITESPACE.contains(chars[start])) start++
+        while (end >= start && WHITESPACE.contains(chars[end])) end--
         
-        return end == 0 ? "" : substring(start - 1, end + 2)
+        return start > end ? "" : substring(start, end + 1)
     }
     
     public lastChar() => count > 0 ? chars[count - 1] : (Char)0
