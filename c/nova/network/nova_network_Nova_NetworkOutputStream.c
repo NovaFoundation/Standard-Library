@@ -62,8 +62,6 @@ nova_network_NetworkOutputStream_Extension_VTable nova_network_NetworkOutputStre
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

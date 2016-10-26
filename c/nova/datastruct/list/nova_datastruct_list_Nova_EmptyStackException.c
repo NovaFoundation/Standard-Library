@@ -59,8 +59,6 @@ nova_datastruct_list_EmptyStackException_Extension_VTable nova_datastruct_list_E
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

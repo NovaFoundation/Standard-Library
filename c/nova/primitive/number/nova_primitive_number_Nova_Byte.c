@@ -62,8 +62,6 @@ nova_primitive_number_Byte_Extension_VTable nova_primitive_number_Byte_Extension
 		(nova_Nova_Object*(*)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_number_Nova_Byte_Nova_multiply,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Byte_Nova_toString,
