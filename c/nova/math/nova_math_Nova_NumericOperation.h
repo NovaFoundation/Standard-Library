@@ -35,6 +35,7 @@ typedef struct nova_math_Nova_NumericOperation nova_math_Nova_NumericOperation;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Bounds.h>
 #include <nova/math/nova_math_Nova_InvalidNumericStatementException.h>
 #include <nova/math/nova_math_Nova_NumericOperand.h>
@@ -59,16 +60,17 @@ CCLASS_CLASS
 	nova_math_Nova_NumericOperation, 
 	
 	nova_math_NumericOperation_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 
 void nova_math_Nova_NumericOperation_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_0_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operation);
-nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_1_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_left, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operator, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_right);
+nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_0_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* operation);
+nova_math_Nova_NumericOperation* nova_math_Nova_NumericOperation_1_Nova_construct(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* left, nova_Nova_String* operator, nova_Nova_String* right);
 void nova_math_Nova_NumericOperation_Nova_destroy(nova_math_Nova_NumericOperation** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_NumericOperation_Nova_this(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operation);
-void nova_math_Nova_NumericOperation_0_Nova_this(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_left, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operator, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_right);
-void nova_math_Nova_NumericOperation_1_Nova_this(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericOperand* nova_math_Nova_NumericOperation_Nova_left, nova_Nova_String* nova_math_Nova_NumericOperation_Nova_operator, nova_math_Nova_NumericOperand* nova_math_Nova_NumericOperation_Nova_right);
+void nova_math_Nova_NumericOperation_Nova_this(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* operation);
+void nova_math_Nova_NumericOperation_0_Nova_this(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* left, nova_Nova_String* operator, nova_Nova_String* right);
+void nova_math_Nova_NumericOperation_1_Nova_this(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericOperand* left, nova_Nova_String* operator, nova_math_Nova_NumericOperand* right);
 nova_Nova_String* nova_math_Nova_NumericOperation_Nova_toString(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_math_Nova_NumericOperation_Nova_super(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData);
 

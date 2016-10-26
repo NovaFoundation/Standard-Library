@@ -35,6 +35,7 @@ typedef struct nova_math_logic_Nova_StatementLetter nova_math_logic_Nova_Stateme
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/logic/nova_math_logic_Nova_StatementComponent.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,13 +58,14 @@ CCLASS_CLASS
 	nova_math_logic_Nova_StatementLetter, 
 	
 	nova_math_logic_StatementLetter_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 
 void nova_math_logic_Nova_StatementLetter_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_logic_Nova_StatementLetter* nova_math_logic_Nova_StatementLetter_Nova_construct(nova_math_logic_Nova_StatementLetter* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_StatementLetter_Nova_letter, nova_Nova_String* nova_math_logic_Nova_StatementLetter_Nova_representation);
+nova_math_logic_Nova_StatementLetter* nova_math_logic_Nova_StatementLetter_Nova_construct(nova_math_logic_Nova_StatementLetter* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* letter, nova_Nova_String* representation);
 void nova_math_logic_Nova_StatementLetter_Nova_destroy(nova_math_logic_Nova_StatementLetter** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_logic_Nova_StatementLetter_Nova_this(nova_math_logic_Nova_StatementLetter* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_StatementLetter_Nova_letter, nova_Nova_String* nova_math_logic_Nova_StatementLetter_Nova_representation);
+void nova_math_logic_Nova_StatementLetter_Nova_this(nova_math_logic_Nova_StatementLetter* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* letter, nova_Nova_String* representation);
 void nova_math_logic_Nova_StatementLetter_Nova_super(nova_math_logic_Nova_StatementLetter* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

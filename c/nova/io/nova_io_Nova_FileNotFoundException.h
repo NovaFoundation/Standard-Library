@@ -35,6 +35,7 @@ typedef struct nova_io_Nova_FileNotFoundException nova_io_Nova_FileNotFoundExcep
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,13 +58,14 @@ CCLASS_CLASS
 	nova_io_Nova_FileNotFoundException, 
 	
 	nova_io_FileNotFoundException_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 
 void nova_io_Nova_FileNotFoundException_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_construct(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file);
+nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_construct(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 void nova_io_Nova_FileNotFoundException_Nova_destroy(nova_io_Nova_FileNotFoundException** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_io_Nova_FileNotFoundException_Nova_this(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file);
+void nova_io_Nova_FileNotFoundException_Nova_this(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 void nova_io_Nova_FileNotFoundException_Nova_super(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

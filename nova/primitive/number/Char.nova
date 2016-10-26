@@ -3,35 +3,35 @@ package "nova/primitive/number"
 import "nova/datastruct/Comparable"
 
 class Char extends Number implements Comparable<Char>, Integer {
-	Char value
-	
-	construct(Char value) => this.value = value
-	
-	public static toLowerCase(Char c) -> Char {
-		Int id = (Int)c
-		
-		if (id >= 65 && id <= 90) {
-			return (Char)(id + 32)
-		}
-		
-		return c
-	}
-	
-	public static toUpperCase(Char c) -> Char {
-		Int id = (Int)c
-		
-		if (id >= 97 && id <= 122) {
-			return (Char)(id - 32)
-		}
-		
-		return c
-	}
-	
-	public toLowerCase() => toLowerCase(value)
-	public toUpperCase() => toUpperCase(value)
-	public compareTo(Char other) => value - other
-	public multiply(Char value) => this.value * value
-	public toString() => toString(value)
-	
-	public static toString(Char c) => new String(c)
+    Char value
+    
+    construct(Char value) => this.value = value
+    
+    public static toLowerCase(Char c) -> Char {
+        Int id = (Int)c
+        
+        if (id >= 65 && id <= 90) {
+            return (Char)(id + 32)
+        }
+        
+        return c
+    }
+    
+    public static toUpperCase(Char c) -> Char {
+        Int id = (Int)c
+        
+        if (id >= 97 && id <= 122) {
+            return (Char)(id - 32)
+        }
+        
+        return c
+    }
+    
+    public toLowerCase() => toLowerCase(value)
+    public toUpperCase() => toUpperCase(value)
+    public compareTo(Char other) => value - other
+    public multiply(Char value) => this.value * value
+    public toString() => toString(value)
+    
+    public static toString(Char c) => new String(c)
 }

@@ -35,6 +35,7 @@ typedef struct nova_primitive_number_Nova_Number nova_primitive_number_Nova_Numb
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/primitive/nova_primitive_Nova_Primitive.h>
 #include <nova/operators/nova_operators_Nova_Multiply.h>
 #include <nova/NativeObject.h>
@@ -59,14 +60,15 @@ CCLASS_CLASS
 	nova_primitive_number_Nova_Number, 
 	
 	nova_primitive_number_Number_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_primitive_number_Nova_Number_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_construct(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_primitive_number_Nova_Number_Nova_destroy(nova_primitive_number_Nova_Number** this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_primitive_number_Nova_Number_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number);
+char nova_primitive_number_Nova_Number_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* number);
 void nova_primitive_number_Nova_Number_Nova_this(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_primitive_number_Nova_Number_Nova_super(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number);
+char nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* number);
 
 #endif

@@ -35,6 +35,7 @@ typedef struct nova_math_logic_Nova_LogicalStatement nova_math_logic_Nova_Logica
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_Statement.h>
 #include <nova/math/logic/nova_math_logic_Nova_StatementComponent.h>
 #include <nova/NativeObject.h>
@@ -58,13 +59,14 @@ CCLASS_CLASS
 	nova_math_logic_Nova_LogicalStatement, 
 	
 	nova_math_logic_LogicalStatement_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 
 void nova_math_logic_Nova_LogicalStatement_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_logic_Nova_LogicalStatement* nova_math_logic_Nova_LogicalStatement_Nova_construct(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_LogicalStatement_Nova_statement);
+nova_math_logic_Nova_LogicalStatement* nova_math_logic_Nova_LogicalStatement_Nova_construct(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement);
 void nova_math_logic_Nova_LogicalStatement_Nova_destroy(nova_math_logic_Nova_LogicalStatement** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_logic_Nova_LogicalStatement_Nova_this(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_LogicalStatement_Nova_statement);
+void nova_math_logic_Nova_LogicalStatement_Nova_this(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement);
 nova_Nova_String* nova_math_logic_Nova_LogicalStatement_Nova_toString(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_math_logic_Nova_LogicalStatement_Nova_super(nova_math_logic_Nova_LogicalStatement* this, nova_exception_Nova_ExceptionData* exceptionData);
 

@@ -35,6 +35,7 @@ typedef struct nova_datastruct_Nova_Pair nova_datastruct_Nova_Pair;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -56,14 +57,15 @@ CCLASS_CLASS
 	nova_datastruct_Nova_Pair, 
 	
 	nova_datastruct_Pair_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_key;
 	nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_value;
 )
 
 void nova_datastruct_Nova_Pair_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_datastruct_Nova_Pair* nova_datastruct_Nova_Pair_Nova_construct(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_key, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_value);
+nova_datastruct_Nova_Pair* nova_datastruct_Nova_Pair_Nova_construct(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* key, nova_Nova_Object* value);
 void nova_datastruct_Nova_Pair_Nova_destroy(nova_datastruct_Nova_Pair** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_datastruct_Nova_Pair_Nova_this(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_key, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_value);
+void nova_datastruct_Nova_Pair_Nova_this(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* key, nova_Nova_Object* value);
 nova_Nova_String* nova_datastruct_Nova_Pair_Nova_toString(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_Nova_Pair_Nova_super(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData);
 

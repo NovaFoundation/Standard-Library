@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -58,6 +59,7 @@ nova_datastruct_list_ListNode_Extension_VTable nova_datastruct_list_ListNode_Ext
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -71,7 +73,7 @@ void nova_datastruct_list_Nova_ListNode_Nova_init_static(nova_exception_Nova_Exc
 	}
 }
 
-nova_datastruct_list_Nova_ListNode* nova_datastruct_list_Nova_ListNode_Nova_construct(nova_datastruct_list_Nova_ListNode* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_ListNode_Nova_data)
+nova_datastruct_list_Nova_ListNode* nova_datastruct_list_Nova_ListNode_Nova_construct(nova_datastruct_list_Nova_ListNode* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_ListNode, this,);
 	this->vtable = &nova_datastruct_list_ListNode_Extension_VTable_val;
@@ -79,7 +81,7 @@ nova_datastruct_list_Nova_ListNode* nova_datastruct_list_Nova_ListNode_Nova_cons
 	nova_datastruct_list_Nova_ListNode_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_ListNode_Nova_this(this, exceptionData, nova_datastruct_list_Nova_ListNode_Nova_data);
+		nova_datastruct_list_Nova_ListNode_Nova_this(this, exceptionData, data);
 	}
 	
 	return this;
@@ -98,9 +100,9 @@ void nova_datastruct_list_Nova_ListNode_Nova_destroy(nova_datastruct_list_Nova_L
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_ListNode_Nova_this(nova_datastruct_list_Nova_ListNode* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_list_Nova_ListNode_Nova_data)
+void nova_datastruct_list_Nova_ListNode_Nova_this(nova_datastruct_list_Nova_ListNode* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
-	this->nova_datastruct_list_Nova_ListNode_Nova_data = nova_datastruct_list_Nova_ListNode_Nova_data;
+	this->nova_datastruct_list_Nova_ListNode_Nova_data = data;
 }
 
 nova_datastruct_list_Nova_ListNode* nova_datastruct_list_Nova_ListNode_Nova_clone(nova_datastruct_list_Nova_ListNode* this, nova_exception_Nova_ExceptionData* exceptionData)

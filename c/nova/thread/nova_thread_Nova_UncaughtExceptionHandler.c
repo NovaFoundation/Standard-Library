@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -54,6 +55,7 @@ nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExcept
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -101,7 +103,7 @@ void nova_thread_Nova_UncaughtExceptionHandler_Nova_this(nova_thread_Nova_Uncaug
 {
 }
 
-void nova_thread_Nova_UncaughtExceptionHandler_Nova_uncaughtException(nova_thread_Nova_UncaughtExceptionHandler* this, nova_exception_Nova_ExceptionData* exceptionData, nova_thread_Nova_Thread* nova_thread_Nova_UncaughtExceptionHandler_Nova_thread, nova_exception_Nova_Exception* nova_thread_Nova_UncaughtExceptionHandler_Nova_exception)
+void nova_thread_Nova_UncaughtExceptionHandler_Nova_uncaughtException(nova_thread_Nova_UncaughtExceptionHandler* this, nova_exception_Nova_ExceptionData* exceptionData, nova_thread_Nova_Thread* thread, nova_exception_Nova_Exception* exception)
 {
 }
 
@@ -109,8 +111,8 @@ void nova_thread_Nova_UncaughtExceptionHandler_Nova_super(nova_thread_Nova_Uncau
 {
 }
 
-void nova_thread_Nova_UncaughtExceptionHandler_virtual_Nova_uncaughtException(nova_thread_Nova_UncaughtExceptionHandler* this, nova_exception_Nova_ExceptionData* exceptionData, nova_thread_Nova_Thread* nova_thread_Nova_UncaughtExceptionHandler_Nova_thread, nova_exception_Nova_Exception* nova_thread_Nova_UncaughtExceptionHandler_Nova_exception)
+void nova_thread_Nova_UncaughtExceptionHandler_virtual_Nova_uncaughtException(nova_thread_Nova_UncaughtExceptionHandler* this, nova_exception_Nova_ExceptionData* exceptionData, nova_thread_Nova_Thread* thread, nova_exception_Nova_Exception* exception)
 {
-	this->vtable->nova_thread_Nova_UncaughtExceptionHandler_virtual_Nova_uncaughtException((nova_thread_Nova_UncaughtExceptionHandler*)(this), exceptionData, nova_thread_Nova_UncaughtExceptionHandler_Nova_thread, nova_thread_Nova_UncaughtExceptionHandler_Nova_exception);
+	this->vtable->nova_thread_Nova_UncaughtExceptionHandler_virtual_Nova_uncaughtException((nova_thread_Nova_UncaughtExceptionHandler*)(this), exceptionData, thread, exception);
 }
 

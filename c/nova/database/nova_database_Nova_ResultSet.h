@@ -35,6 +35,7 @@ typedef struct nova_database_Nova_ResultSet nova_database_Nova_ResultSet;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -56,14 +57,15 @@ CCLASS_CLASS
 	nova_database_Nova_ResultSet, 
 	
 	nova_database_ResultSet_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_database_Nova_ResultSet_Nova_numCols;
 	nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows;
 )
 
 void nova_database_Nova_ResultSet_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_database_Nova_ResultSet* nova_database_Nova_ResultSet_Nova_construct(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows, int nova_database_Nova_ResultSet_Nova_numCols);
+nova_database_Nova_ResultSet* nova_database_Nova_ResultSet_Nova_construct(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* rows, int numCols);
 void nova_database_Nova_ResultSet_Nova_destroy(nova_database_Nova_ResultSet** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_database_Nova_ResultSet_Nova_this(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_database_Nova_ResultSet_Nova_rows, int nova_database_Nova_ResultSet_Nova_numCols);
+void nova_database_Nova_ResultSet_Nova_this(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* rows, int numCols);
 int nova_database_Nova_ResultSet_Accessor_Nova_numRows(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_database_Nova_ResultSet_Nova_super(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData);
 

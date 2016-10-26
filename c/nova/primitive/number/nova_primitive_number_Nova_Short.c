@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Comparable.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Integer.h>
 #include <nova/primitive/nova_primitive_Nova_Primitive.h>
@@ -62,6 +63,7 @@ nova_primitive_number_Short_Extension_VTable nova_primitive_number_Short_Extensi
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Short_Nova_toString,
@@ -78,7 +80,7 @@ void nova_primitive_number_Nova_Short_Nova_init_static(nova_exception_Nova_Excep
 	}
 }
 
-nova_primitive_number_Nova_Short* nova_primitive_number_Nova_Short_Nova_construct(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short nova_primitive_number_Nova_Short_Nova_value)
+nova_primitive_number_Nova_Short* nova_primitive_number_Nova_Short_Nova_construct(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short value)
 {
 	CCLASS_NEW(nova_primitive_number_Nova_Short, this,);
 	this->vtable = &nova_primitive_number_Short_Extension_VTable_val;
@@ -88,7 +90,7 @@ nova_primitive_number_Nova_Short* nova_primitive_number_Nova_Short_Nova_construc
 	nova_primitive_number_Nova_Short_Nova_super(this, exceptionData);
 	
 	{
-		nova_primitive_number_Nova_Short_Nova_this(this, exceptionData, nova_primitive_number_Nova_Short_Nova_value);
+		nova_primitive_number_Nova_Short_Nova_this(this, exceptionData, value);
 	}
 	
 	return this;
@@ -106,19 +108,19 @@ void nova_primitive_number_Nova_Short_Nova_destroy(nova_primitive_number_Nova_Sh
 	NOVA_FREE(*this);
 }
 
-void nova_primitive_number_Nova_Short_Nova_this(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short nova_primitive_number_Nova_Short_Nova_value)
+void nova_primitive_number_Nova_Short_Nova_this(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short value)
 {
-	this->nova_primitive_number_Nova_Short_Nova_value = nova_primitive_number_Nova_Short_Nova_value;
+	this->nova_primitive_number_Nova_Short_Nova_value = value;
 }
 
-short nova_primitive_number_Nova_Short_0_Nova_compareTo(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short nova_primitive_number_Nova_Short_Nova_other)
+short nova_primitive_number_Nova_Short_0_Nova_compareTo(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short other)
 {
-	return this->nova_primitive_number_Nova_Short_Nova_value - nova_primitive_number_Nova_Short_Nova_other;
+	return this->nova_primitive_number_Nova_Short_Nova_value - other;
 }
 
-short nova_primitive_number_Nova_Short_Nova_multiply(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short nova_primitive_number_Nova_Short_Nova_value)
+short nova_primitive_number_Nova_Short_Nova_multiply(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short value)
 {
-	return this->nova_primitive_number_Nova_Short_Nova_value * nova_primitive_number_Nova_Short_Nova_value;
+	return this->nova_primitive_number_Nova_Short_Nova_value * value;
 }
 
 nova_Nova_String* nova_primitive_number_Nova_Short_Nova_toString(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -126,14 +128,14 @@ nova_Nova_String* nova_primitive_number_Nova_Short_Nova_toString(nova_primitive_
 	return nova_primitive_number_Nova_Short_static_Nova_toString(0, exceptionData, this->nova_primitive_number_Nova_Short_Nova_value);
 }
 
-int nova_primitive_number_Nova_Short_static_Nova_numDigits(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short nova_primitive_number_Nova_Short_Nova_number)
+int nova_primitive_number_Nova_Short_static_Nova_numDigits(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short number)
 {
-	return nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Short_Nova_number);
+	return nova_primitive_number_Nova_Long_static_Nova_numDigits(0, exceptionData, number);
 }
 
-nova_Nova_String* nova_primitive_number_Nova_Short_static_Nova_toString(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short nova_primitive_number_Nova_Short_Nova_value)
+nova_Nova_String* nova_primitive_number_Nova_Short_static_Nova_toString(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData, short value)
 {
-	return nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_primitive_number_Nova_Short_Nova_value);
+	return nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, value);
 }
 
 void nova_primitive_number_Nova_Short_Nova_super(nova_primitive_number_Nova_Short* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -1,6 +1,5 @@
 package "nova/operators"
 
-public interface Multiply<E>
-{
-	public multiply(E value) -> E
+public interface Multiply<E> {
+    public multiply(E value) -> E
 }

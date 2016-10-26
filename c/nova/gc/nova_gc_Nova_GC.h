@@ -35,6 +35,7 @@ typedef struct nova_gc_Nova_GC nova_gc_Nova_GC;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/gc/NativeGC.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,6 +58,7 @@ CCLASS_CLASS
 	nova_gc_Nova_GC, 
 	
 	nova_gc_GC_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_gc_Nova_GC_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

@@ -26,12 +26,14 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 
 nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable_val =
 {
 	{
+		0,
 		0,
 		0,
 		0,

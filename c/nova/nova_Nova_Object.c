@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -58,6 +59,7 @@ nova_Object_Extension_VTable nova_Object_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -68,6 +70,7 @@ nova_Object_Extension_VTable nova_Object_Extension_VTable_val =
 
 
 
+nova_Nova_Class* nova_Nova_Object_Nova_class;
 void nova_Nova_Object_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -94,13 +97,14 @@ void nova_Nova_Object_Nova_destroy(nova_Nova_Object** this, nova_exception_Nova_
 		return;
 	}
 	
+	nova_Nova_Class_Nova_destroy(&(*this)->nova_Nova_Object_Nova_class, exceptionData);
 	
 	NOVA_FREE(*this);
 }
 
-char nova_Nova_Object_Nova_equals(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_Nova_Object_Nova_another)
+char nova_Nova_Object_Nova_equals(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another)
 {
-	return this == nova_Nova_Object_Nova_another;
+	return this == another;
 }
 
 nova_Nova_String* nova_Nova_Object_Nova_toString(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -126,6 +130,7 @@ long_long nova_Nova_Object_Accessor_Nova_hashCodeLong(nova_Nova_Object* this, no
 
 void nova_Nova_Object_Nova_super(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
+	this->nova_Nova_Object_Nova_class = (nova_Nova_Class*)nova_null;
 }
 
 nova_Nova_String* nova_Nova_Object_virtual_Nova_toString(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData)

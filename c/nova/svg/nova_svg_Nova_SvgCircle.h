@@ -35,6 +35,7 @@ typedef struct nova_svg_Nova_SvgCircle nova_svg_Nova_SvgCircle;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/svg/nova_svg_Nova_SvgComponent.h>
 #include <nova/svg/nova_svg_Nova_SvgComponentList.h>
@@ -60,6 +61,7 @@ CCLASS_CLASS
 	nova_svg_Nova_SvgCircle, 
 	
 	nova_svg_SvgCircle_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_svg_Nova_SvgComponentList* nova_svg_Nova_SvgComponent_Nova_children;
 	double nova_svg_Nova_SvgCircle_Nova_x;
 	double nova_svg_Nova_SvgCircle_Nova_y;
@@ -67,10 +69,10 @@ CCLASS_CLASS
 )
 
 void nova_svg_Nova_SvgCircle_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_svg_Nova_SvgCircle* nova_svg_Nova_SvgCircle_Nova_construct(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_svg_Nova_SvgCircle_Nova_x, double nova_svg_Nova_SvgCircle_Nova_y, int nova_svg_Nova_SvgCircle_Nova_r);
+nova_svg_Nova_SvgCircle* nova_svg_Nova_SvgCircle_Nova_construct(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, int r);
 void nova_svg_Nova_SvgCircle_Nova_destroy(nova_svg_Nova_SvgCircle** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_svg_Nova_SvgCircle_Nova_this(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_svg_Nova_SvgCircle_Nova_x, double nova_svg_Nova_SvgCircle_Nova_y, int nova_svg_Nova_SvgCircle_Nova_r);
-void nova_svg_Nova_SvgCircle_Nova_generateOutput(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_svg_Nova_SvgCircle_Nova_file);
+void nova_svg_Nova_SvgCircle_Nova_this(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, int r);
+void nova_svg_Nova_SvgCircle_Nova_generateOutput(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 nova_Nova_String* nova_svg_Nova_SvgCircle_Nova_toString(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_svg_Nova_SvgCircle_Nova_super(nova_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData);
 

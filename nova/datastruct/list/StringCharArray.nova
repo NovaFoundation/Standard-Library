@@ -1,33 +1,26 @@
 package "nova/datastruct/list"
 
-class StringCharArray extends CharArray
-{
-	public construct(Char[] data)
-	{
-		super(data.data, data.count)
-		
-		external js
-		{
-			#{this.data} = #{data.data}.join("");
-		}
-	}
+class StringCharArray extends CharArray {
+    public construct(Char[] data) {
+        super(data.data, data.count)
+        
+        external js {
+            #{this.data} = #{data.data}.join("");
+        }
+    }
 
-	public construct([PrimitiveArray] Char[] data, Int count)
-	{
-		super(data, count)
-		
-		external js
-		{
-			#{this.data} = typeof #{data} === 'string' ? #{data} : #{data}.join("");
-		}
-	}
-	
-	[Target js]
-	public get(Int index) -> Char
-	{
-		external
-		{
-			return #{data}.charAt(#{index});
-		}
-	}
+    public construct([PrimitiveArray] Char[] data, Int count) {
+        super(data, count)
+        
+        external js {
+            #{this.data} = typeof #{data} === 'string' ? #{data} : #{data}.join("");
+        }
+    }
+    
+    [Target js]
+    public get(Int index) -> Char {
+        external {
+            return #{data}.charAt(#{index});
+        }
+    }
 }

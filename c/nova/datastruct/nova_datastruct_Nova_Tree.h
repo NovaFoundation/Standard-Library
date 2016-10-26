@@ -35,6 +35,7 @@ typedef struct nova_datastruct_Nova_Tree nova_datastruct_Nova_Tree;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Node.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,6 +58,7 @@ CCLASS_CLASS
 	nova_datastruct_Nova_Tree, 
 	
 	nova_datastruct_Tree_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_Nova_Node* nova_datastruct_Nova_Tree_Nova_root;
 )
 

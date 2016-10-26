@@ -35,6 +35,7 @@ typedef struct nova_process_Nova_Process nova_process_Nova_Process;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_StreamReader.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,13 +58,14 @@ CCLASS_CLASS
 	nova_process_Nova_Process, 
 	
 	nova_process_Process_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_io_Nova_StreamReader* nova_process_Nova_Process_Nova_reader;
 )
 
 void nova_process_Nova_Process_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* nova_process_Nova_Process_Nova_reader);
+nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* reader);
 void nova_process_Nova_Process_Nova_destroy(nova_process_Nova_Process** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_process_Nova_Process_Nova_this(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* nova_process_Nova_Process_Nova_reader);
+void nova_process_Nova_Process_Nova_this(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* reader);
 void nova_process_Nova_Process_Nova_super(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

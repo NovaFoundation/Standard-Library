@@ -35,6 +35,7 @@ typedef struct nova_network_Nova_ConnectionSocket nova_network_Nova_ConnectionSo
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_InputStream.h>
 #include <nova/io/nova_io_Nova_OutputStream.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_Queue.h>
@@ -62,6 +63,7 @@ CCLASS_CLASS
 	nova_network_Nova_ConnectionSocket, 
 	
 	nova_network_ConnectionSocket_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_network_Nova_Socket_Nova_ip;
 	int nova_network_Nova_Socket_Nova_port;
 	char nova_network_Nova_ConnectionSocket_Nova_connected;
@@ -71,13 +73,13 @@ CCLASS_CLASS
 )
 
 void nova_network_Nova_ConnectionSocket_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_network_Nova_ConnectionSocket* nova_network_Nova_ConnectionSocket_Nova_construct(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, SOCKET_ID_TYPE nova_network_Nova_ConnectionSocket_Nova_socket);
+nova_network_Nova_ConnectionSocket* nova_network_Nova_ConnectionSocket_Nova_construct(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, SOCKET_ID_TYPE socket);
 void nova_network_Nova_ConnectionSocket_Nova_destroy(nova_network_Nova_ConnectionSocket** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_network_Nova_ConnectionSocket_Nova_this(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, SOCKET_ID_TYPE nova_network_Nova_ConnectionSocket_Nova_socket);
+void nova_network_Nova_ConnectionSocket_Nova_this(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, SOCKET_ID_TYPE socket);
 void nova_network_Nova_ConnectionSocket_Nova_close(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
 char nova_network_Nova_ConnectionSocket_Nova_validateConnection(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_network_Nova_ConnectionSocket_0_Nova_readString(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_network_Nova_ConnectionSocket_Nova_write(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_network_Nova_ConnectionSocket_Nova_data);
+char nova_network_Nova_ConnectionSocket_Nova_write(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data);
 void nova_network_Nova_ConnectionSocket_Nova_super(nova_network_Nova_ConnectionSocket* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

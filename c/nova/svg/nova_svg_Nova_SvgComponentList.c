@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/svg/nova_svg_Nova_SvgComponent.h>
 #include <nova/svg/nova_svg_Nova_SvgComponentNode.h>
@@ -57,6 +58,7 @@ nova_svg_SvgComponentList_Extension_VTable nova_svg_SvgComponentList_Extension_V
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -100,24 +102,24 @@ void nova_svg_Nova_SvgComponentList_Nova_destroy(nova_svg_Nova_SvgComponentList*
 	NOVA_FREE(*this);
 }
 
-void nova_svg_Nova_SvgComponentList_Nova_generateOutput(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_svg_Nova_SvgComponentList_Nova_file)
+void nova_svg_Nova_SvgComponentList_Nova_generateOutput(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
 {
 	nova_svg_Nova_SvgComponentNode* l1_Nova_current = (nova_svg_Nova_SvgComponentNode*)nova_null;
 	
 	l1_Nova_current = this->nova_svg_Nova_SvgComponentList_Nova_start;
 	while (l1_Nova_current != (nova_svg_Nova_SvgComponentNode*)nova_null)
 	{
-		nova_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_svg_Nova_SvgComponent*)(l1_Nova_current->nova_svg_Nova_SvgComponentNode_Nova_component), exceptionData, nova_svg_Nova_SvgComponentList_Nova_file);
+		nova_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_svg_Nova_SvgComponent*)(l1_Nova_current->nova_svg_Nova_SvgComponentNode_Nova_component), exceptionData, file);
 		l1_Nova_current = l1_Nova_current->nova_svg_Nova_SvgComponentNode_Nova_next;
 	}
 }
 
-void nova_svg_Nova_SvgComponentList_Nova_addChild(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_svg_Nova_SvgComponent* nova_svg_Nova_SvgComponentList_Nova_component)
+void nova_svg_Nova_SvgComponentList_Nova_addChild(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_svg_Nova_SvgComponent* component)
 {
 	nova_svg_Nova_SvgComponentNode* l1_Nova_node = (nova_svg_Nova_SvgComponentNode*)nova_null;
 	
 	l1_Nova_node = nova_svg_Nova_SvgComponentNode_Nova_construct(0, exceptionData);
-	l1_Nova_node->nova_svg_Nova_SvgComponentNode_Nova_component = nova_svg_Nova_SvgComponentList_Nova_component;
+	l1_Nova_node->nova_svg_Nova_SvgComponentNode_Nova_component = component;
 	if (this->nova_svg_Nova_SvgComponentList_Nova_start == (nova_svg_Nova_SvgComponentNode*)nova_null)
 	{
 		this->nova_svg_Nova_SvgComponentList_Nova_start = l1_Nova_node;

@@ -35,6 +35,7 @@ typedef struct nova_time_Nova_Timer nova_time_Nova_Timer;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/time/nova_time_Nova_Time.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,6 +58,7 @@ CCLASS_CLASS
 	nova_time_Nova_Timer, 
 	
 	nova_time_Timer_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	long_long nova_time_Nova_Timer_Nova_startTime;
 	long_long nova_time_Nova_Timer_Nova_endTime;
 )

@@ -1,16 +1,16 @@
 package "nova/math"
 
 class Vector {
-	visible Double[] data
-	
-	visible Double magnitude => Math.sqrt(data.sum(n -> n * n))
-	
-	public construct(Int size) => this(new DoubleArray(size))
-	public construct(Double[] data) => this.data = data
-	
-	public dotProduct(Vector other) => data.sum((x, i) -> x * other.data[i])
-	public innerProduct(Vector other) => dotProduct(other)
-	public scale(Double scalar) => data.forEach((n, i, d) -> d[i] = n * scalar)
-	public normalize() => data.forEach((n, i, d) -> d[i] = n / magnitude)
-	public toString() => "<#{data.join(", ")}>"
+    visible Double[] data
+    
+    visible Double magnitude => Math.sqrt(data.sum(n -> n * n))
+    
+    public construct(Int size) => this(new DoubleArray(size))
+    public construct(Double[] data) => this.data = data
+    
+    public dotProduct(Vector other) => data.sum((x, i) -> x * other.data[i])
+    public innerProduct(Vector other) => dotProduct(other)
+    public scale(Double scalar) => data.forEach((n, i, d) -> d[i] = n * scalar)
+    public normalize() => data.forEach((n, i, d) -> d[i] = n / magnitude)
+    public toString() => "<#{data.join(", ")}>"
 }

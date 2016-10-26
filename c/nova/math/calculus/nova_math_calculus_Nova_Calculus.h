@@ -35,6 +35,7 @@ typedef struct nova_math_calculus_Nova_Calculus nova_math_calculus_Nova_Calculus
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_NumericStatement.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,12 +58,13 @@ CCLASS_CLASS
 	nova_math_calculus_Nova_Calculus, 
 	
 	nova_math_calculus_Calculus_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_math_calculus_Nova_Calculus_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_math_calculus_Nova_Calculus* nova_math_calculus_Nova_Calculus_Nova_construct(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_math_calculus_Nova_Calculus_Nova_destroy(nova_math_calculus_Nova_Calculus** this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_static_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_Nova_statement);
+nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_static_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* statement);
 void nova_math_calculus_Nova_Calculus_Nova_this(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_math_calculus_Nova_Calculus_Nova_super(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData);
 

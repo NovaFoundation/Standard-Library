@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_NumericStatement.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -55,6 +56,7 @@ nova_math_calculus_Calculus_Extension_VTable nova_math_calculus_Calculus_Extensi
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -97,7 +99,7 @@ void nova_math_calculus_Nova_Calculus_Nova_destroy(nova_math_calculus_Nova_Calcu
 	NOVA_FREE(*this);
 }
 
-nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_static_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_Nova_statement)
+nova_math_Nova_NumericStatement* nova_math_calculus_Nova_Calculus_static_Nova_derivative(nova_math_calculus_Nova_Calculus* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_NumericStatement* statement)
 {
 	return (nova_math_Nova_NumericStatement*)(nova_Nova_Object*)nova_null;
 }

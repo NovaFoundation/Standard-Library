@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -58,6 +59,7 @@ nova_math_StatementComponent_Extension_VTable nova_math_StatementComponent_Exten
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_StatementComponent_Nova_toString,
@@ -71,7 +73,7 @@ void nova_math_Nova_StatementComponent_Nova_init_static(nova_exception_Nova_Exce
 	}
 }
 
-nova_math_Nova_StatementComponent* nova_math_Nova_StatementComponent_Nova_construct(nova_math_Nova_StatementComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_Nova_StatementComponent_Nova_data)
+nova_math_Nova_StatementComponent* nova_math_Nova_StatementComponent_Nova_construct(nova_math_Nova_StatementComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
 	CCLASS_NEW(nova_math_Nova_StatementComponent, this,);
 	this->vtable = &nova_math_StatementComponent_Extension_VTable_val;
@@ -79,7 +81,7 @@ nova_math_Nova_StatementComponent* nova_math_Nova_StatementComponent_Nova_constr
 	nova_math_Nova_StatementComponent_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_StatementComponent_Nova_this(this, exceptionData, nova_math_Nova_StatementComponent_Nova_data);
+		nova_math_Nova_StatementComponent_Nova_this(this, exceptionData, data);
 	}
 	
 	return this;
@@ -98,9 +100,9 @@ void nova_math_Nova_StatementComponent_Nova_destroy(nova_math_Nova_StatementComp
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_StatementComponent_Nova_this(nova_math_Nova_StatementComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_Nova_StatementComponent_Nova_data)
+void nova_math_Nova_StatementComponent_Nova_this(nova_math_Nova_StatementComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
-	this->nova_math_Nova_StatementComponent_Nova_data = nova_math_Nova_StatementComponent_Nova_data;
+	this->nova_math_Nova_StatementComponent_Nova_data = data;
 }
 
 nova_Nova_String* nova_math_Nova_StatementComponent_Nova_toString(nova_math_Nova_StatementComponent* this, nova_exception_Nova_ExceptionData* exceptionData)

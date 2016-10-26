@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/database/NativeDBConnector.h>
 #include <nova/database/nova_database_Nova_ResultSet.h>
 #include <nova/NativeObject.h>
@@ -56,6 +57,7 @@ nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_V
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -113,21 +115,21 @@ void nova_database_Nova_DBConnector_Nova_this(nova_database_Nova_DBConnector* th
 	this->nova_database_Nova_DBConnector_Nova_error = nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""));
 }
 
-void nova_database_Nova_DBConnector_0_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_host, nova_Nova_String* nova_database_Nova_DBConnector_Nova_user, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password)
+void nova_database_Nova_DBConnector_0_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* host, nova_Nova_String* user, nova_Nova_String* password)
 {
-	this->prv->nova_database_Nova_DBConnector_Nova_mysql = nova_db_connect1((char*)(nova_database_Nova_DBConnector_Nova_host->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_user->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
+	this->prv->nova_database_Nova_DBConnector_Nova_mysql = nova_db_connect1((char*)(host->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(user->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
 	nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
 }
 
-void nova_database_Nova_DBConnector_1_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_host, nova_Nova_String* nova_database_Nova_DBConnector_Nova_user, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password, nova_Nova_String* nova_database_Nova_DBConnector_Nova_database)
+void nova_database_Nova_DBConnector_1_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* host, nova_Nova_String* user, nova_Nova_String* password, nova_Nova_String* database)
 {
-	this->prv->nova_database_Nova_DBConnector_Nova_mysql = nova_db_connect2((char*)(nova_database_Nova_DBConnector_Nova_host->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_user->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_database->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
+	this->prv->nova_database_Nova_DBConnector_Nova_mysql = nova_db_connect2((char*)(host->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(user->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(database->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
 	nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
 }
 
-void nova_database_Nova_DBConnector_2_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_host, nova_Nova_String* nova_database_Nova_DBConnector_Nova_user, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password, nova_Nova_String* nova_database_Nova_DBConnector_Nova_database, int nova_database_Nova_DBConnector_Nova_port, nova_Nova_String* nova_database_Nova_DBConnector_Nova_unixSocket, int nova_database_Nova_DBConnector_Nova_clientFlag)
+void nova_database_Nova_DBConnector_2_Nova_connect(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* host, nova_Nova_String* user, nova_Nova_String* password, nova_Nova_String* database, int port, nova_Nova_String* unixSocket, int clientFlag)
 {
-	this->prv->nova_database_Nova_DBConnector_Nova_mysql = nova_db_connect3((char*)(nova_database_Nova_DBConnector_Nova_host->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_user->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_database->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), nova_database_Nova_DBConnector_Nova_port, (char*)(nova_database_Nova_DBConnector_Nova_unixSocket->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), nova_database_Nova_DBConnector_Nova_clientFlag);
+	this->prv->nova_database_Nova_DBConnector_Nova_mysql = nova_db_connect3((char*)(host->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(user->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(database->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), port, (char*)(unixSocket->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), clientFlag);
 	nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
 }
 
@@ -136,17 +138,17 @@ void nova_database_Nova_DBConnector_Nova_updateError(nova_database_Nova_DBConnec
 	this->nova_database_Nova_DBConnector_Nova_error = nova_Nova_String_1_Nova_construct(0, exceptionData, nova_db_error(this->prv->nova_database_Nova_DBConnector_Nova_mysql));
 }
 
-void nova_database_Nova_DBConnector_Nova_changeUser(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_username, nova_Nova_String* nova_database_Nova_DBConnector_Nova_password, nova_Nova_String* nova_database_Nova_DBConnector_Nova_database)
+void nova_database_Nova_DBConnector_Nova_changeUser(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* username, nova_Nova_String* password, nova_Nova_String* database)
 {
-	nova_user_select(this->prv->nova_database_Nova_DBConnector_Nova_mysql, (char*)(nova_database_Nova_DBConnector_Nova_username->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(nova_database_Nova_DBConnector_Nova_database->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
+	nova_user_select(this->prv->nova_database_Nova_DBConnector_Nova_mysql, (char*)(username->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(password->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)(database->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
 	nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
 }
 
-nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_database_Nova_DBConnector_Nova_query)
+nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* query)
 {
 	char*** l1_Nova_arrays = (char***)nova_null;
 	
-	this->prv->nova_database_Nova_DBConnector_Nova_result = nova_exec_query(this->prv->nova_database_Nova_DBConnector_Nova_mysql, (char*)(nova_database_Nova_DBConnector_Nova_query->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
+	this->prv->nova_database_Nova_DBConnector_Nova_result = nova_exec_query(this->prv->nova_database_Nova_DBConnector_Nova_mysql, (char*)(query->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data));
 	if (this->prv->nova_database_Nova_DBConnector_Nova_result == 0)
 	{
 		nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);

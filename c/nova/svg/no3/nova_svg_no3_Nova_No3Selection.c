@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/svg/no3/nova_svg_no3_Nova_No3Node.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -59,6 +60,7 @@ nova_svg_no3_No3Selection_Extension_VTable nova_svg_no3_No3Selection_Extension_V
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -73,7 +75,7 @@ void nova_svg_no3_Nova_No3Selection_Nova_init_static(nova_exception_Nova_Excepti
 	}
 }
 
-nova_svg_no3_Nova_No3Selection* nova_svg_no3_Nova_No3Selection_Nova_construct(nova_svg_no3_Nova_No3Selection* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_svg_no3_Nova_No3Selection_Nova_selection)
+nova_svg_no3_Nova_No3Selection* nova_svg_no3_Nova_No3Selection_Nova_construct(nova_svg_no3_Nova_No3Selection* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* selection)
 {
 	CCLASS_NEW(nova_svg_no3_Nova_No3Selection, this,);
 	this->vtable = &nova_svg_no3_No3Selection_Extension_VTable_val;
@@ -82,7 +84,7 @@ nova_svg_no3_Nova_No3Selection* nova_svg_no3_Nova_No3Selection_Nova_construct(no
 	nova_svg_no3_Nova_No3Selection_Nova_super(this, exceptionData);
 	
 	{
-		nova_svg_no3_Nova_No3Selection_Nova_this(this, exceptionData, nova_svg_no3_Nova_No3Selection_Nova_selection);
+		nova_svg_no3_Nova_No3Selection_Nova_this(this, exceptionData, selection);
 	}
 	
 	return this;
@@ -100,9 +102,9 @@ void nova_svg_no3_Nova_No3Selection_Nova_destroy(nova_svg_no3_Nova_No3Selection*
 	NOVA_FREE(*this);
 }
 
-void nova_svg_no3_Nova_No3Selection_Nova_this(nova_svg_no3_Nova_No3Selection* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_svg_no3_Nova_No3Selection_Nova_selection)
+void nova_svg_no3_Nova_No3Selection_Nova_this(nova_svg_no3_Nova_No3Selection* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* selection)
 {
-	this->nova_svg_no3_Nova_No3Selection_Nova_selection = nova_svg_no3_Nova_No3Selection_Nova_selection;
+	this->nova_svg_no3_Nova_No3Selection_Nova_selection = selection;
 }
 
 nova_Nova_String* nova_svg_no3_Nova_No3Selection_Nova_toJs(nova_svg_no3_Nova_No3Selection* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -1,8 +1,7 @@
 package "nova/network"
 
-public class Socket
-{
-	visible String ip
-	
-	visible Int    port
+class Socket {
+    visible String ip
+    
+    visible Int    port
 }

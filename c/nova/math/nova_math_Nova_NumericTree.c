@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_NumericOperation.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -59,6 +60,7 @@ nova_math_NumericTree_Extension_VTable nova_math_NumericTree_Extension_VTable_va
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_NumericTree_Nova_toString,
@@ -77,7 +79,7 @@ void nova_math_Nova_NumericTree_Nova_init_static(nova_exception_Nova_ExceptionDa
 	}
 }
 
-nova_math_Nova_NumericTree* nova_math_Nova_NumericTree_Nova_construct(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericTree_Nova_statement)
+nova_math_Nova_NumericTree* nova_math_Nova_NumericTree_Nova_construct(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement)
 {
 	CCLASS_NEW(nova_math_Nova_NumericTree, this);
 	this->vtable = &nova_math_NumericTree_Extension_VTable_val;
@@ -85,7 +87,7 @@ nova_math_Nova_NumericTree* nova_math_Nova_NumericTree_Nova_construct(nova_math_
 	nova_math_Nova_NumericTree_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_NumericTree_Nova_this(this, exceptionData, nova_math_Nova_NumericTree_Nova_statement);
+		nova_math_Nova_NumericTree_Nova_this(this, exceptionData, statement);
 	}
 	
 	return this;
@@ -104,14 +106,14 @@ void nova_math_Nova_NumericTree_Nova_destroy(nova_math_Nova_NumericTree** this, 
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_NumericTree_Nova_this(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_NumericTree_Nova_statement)
+void nova_math_Nova_NumericTree_Nova_this(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement)
 {
-	this->prv->nova_math_Nova_NumericTree_Nova_root = nova_math_Nova_NumericOperation_0_Nova_construct(0, exceptionData, nova_math_Nova_NumericTree_Nova_statement);
+	this->prv->nova_math_Nova_NumericTree_Nova_root = nova_math_Nova_NumericOperation_0_Nova_construct(0, exceptionData, statement);
 }
 
 nova_Nova_String* nova_math_Nova_NumericTree_Nova_toString(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_math_Nova_NumericOperation_Nova_toString(this->prv->nova_math_Nova_NumericTree_Nova_root, exceptionData);
+	return nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)(this->prv->nova_math_Nova_NumericTree_Nova_root), exceptionData);
 }
 
 void nova_math_Nova_NumericTree_Nova_super(nova_math_Nova_NumericTree* this, nova_exception_Nova_ExceptionData* exceptionData)

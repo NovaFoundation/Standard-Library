@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -58,6 +59,7 @@ nova_exception_InvalidArgumentException_Extension_VTable nova_exception_InvalidA
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -71,7 +73,7 @@ void nova_exception_Nova_InvalidArgumentException_Nova_init_static(nova_exceptio
 	}
 }
 
-nova_exception_Nova_InvalidArgumentException* nova_exception_Nova_InvalidArgumentException_Nova_construct(nova_exception_Nova_InvalidArgumentException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_exception_Nova_InvalidArgumentException_Nova_message)
+nova_exception_Nova_InvalidArgumentException* nova_exception_Nova_InvalidArgumentException_Nova_construct(nova_exception_Nova_InvalidArgumentException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
 	CCLASS_NEW(nova_exception_Nova_InvalidArgumentException, this,);
 	this->vtable = &nova_exception_InvalidArgumentException_Extension_VTable_val;
@@ -80,7 +82,7 @@ nova_exception_Nova_InvalidArgumentException* nova_exception_Nova_InvalidArgumen
 	nova_exception_Nova_InvalidArgumentException_Nova_super(this, exceptionData);
 	
 	{
-		nova_exception_Nova_InvalidArgumentException_Nova_this(this, exceptionData, nova_exception_Nova_InvalidArgumentException_Nova_message);
+		nova_exception_Nova_InvalidArgumentException_Nova_this(this, exceptionData, message);
 	}
 	
 	return this;
@@ -97,9 +99,9 @@ void nova_exception_Nova_InvalidArgumentException_Nova_destroy(nova_exception_No
 	NOVA_FREE(*this);
 }
 
-void nova_exception_Nova_InvalidArgumentException_Nova_this(nova_exception_Nova_InvalidArgumentException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_exception_Nova_InvalidArgumentException_Nova_message)
+void nova_exception_Nova_InvalidArgumentException_Nova_this(nova_exception_Nova_InvalidArgumentException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
-	nova_exception_Nova_Exception_0_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, nova_exception_Nova_InvalidArgumentException_Nova_message);
+	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, message);
 }
 
 void nova_exception_Nova_InvalidArgumentException_Nova_super(nova_exception_Nova_InvalidArgumentException* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -35,6 +35,7 @@ typedef struct nova_web_svg_Nova_SvgComponentNode nova_web_svg_Nova_SvgComponent
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponent.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,6 +58,7 @@ CCLASS_CLASS
 	nova_web_svg_Nova_SvgComponentNode, 
 	
 	nova_web_svg_SvgComponentNode_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_web_svg_Nova_SvgComponentNode* nova_web_svg_Nova_SvgComponentNode_Nova_next;
 	nova_web_svg_Nova_SvgComponent* nova_web_svg_Nova_SvgComponentNode_Nova_component;
 )

@@ -35,6 +35,7 @@ typedef struct nova_datastruct_list_Nova_ArrayIterator nova_datastruct_list_Nova
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_Iterator.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_NoSuchElementException.h>
 #include <nova/NativeObject.h>
@@ -49,8 +50,8 @@ struct nova_datastruct_list_ArrayIterator_Extension_VTable
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	nova_datastruct_list_Nova_Iterator* (*nova_datastruct_list_Nova_Iterator_virtual_Nova_reset)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
-	char (*nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
 	nova_Nova_Object* (*nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
+	char (*nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext)(nova_datastruct_list_Nova_ArrayIterator*, nova_exception_Nova_ExceptionData*);
 };
 
 extern nova_datastruct_list_ArrayIterator_Extension_VTable nova_datastruct_list_ArrayIterator_Extension_VTable_val;
@@ -61,17 +62,18 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_ArrayIterator, 
 	
 	nova_datastruct_list_ArrayIterator_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_ArrayIterator_Nova_position;
 	struct Private* prv;
 )
 
 void nova_datastruct_list_Nova_ArrayIterator_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_datastruct_list_Nova_ArrayIterator* nova_datastruct_list_Nova_ArrayIterator_Nova_construct(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_ArrayIterator_Nova_array);
+nova_datastruct_list_Nova_ArrayIterator* nova_datastruct_list_Nova_ArrayIterator_Nova_construct(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* array);
 void nova_datastruct_list_Nova_ArrayIterator_Nova_destroy(nova_datastruct_list_Nova_ArrayIterator** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_datastruct_list_Nova_ArrayIterator_Nova_this(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_ArrayIterator_Nova_array);
+void nova_datastruct_list_Nova_ArrayIterator_Nova_this(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* array);
 nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_ArrayIterator_Nova_reset(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_Object* nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData);
+char nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_ArrayIterator_Nova_super(nova_datastruct_list_Nova_ArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

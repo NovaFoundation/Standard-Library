@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -59,6 +60,7 @@ nova_io_FileNotFoundException_Extension_VTable nova_io_FileNotFoundException_Ext
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -72,7 +74,7 @@ void nova_io_Nova_FileNotFoundException_Nova_init_static(nova_exception_Nova_Exc
 	}
 }
 
-nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_construct(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file)
+nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_construct(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
 {
 	CCLASS_NEW(nova_io_Nova_FileNotFoundException, this,);
 	this->vtable = &nova_io_FileNotFoundException_Extension_VTable_val;
@@ -81,7 +83,7 @@ nova_io_Nova_FileNotFoundException* nova_io_Nova_FileNotFoundException_Nova_cons
 	nova_io_Nova_FileNotFoundException_Nova_super(this, exceptionData);
 	
 	{
-		nova_io_Nova_FileNotFoundException_Nova_this(this, exceptionData, nova_io_Nova_FileNotFoundException_Nova_file);
+		nova_io_Nova_FileNotFoundException_Nova_this(this, exceptionData, file);
 	}
 	
 	return this;
@@ -98,9 +100,9 @@ void nova_io_Nova_FileNotFoundException_Nova_destroy(nova_io_Nova_FileNotFoundEx
 	NOVA_FREE(*this);
 }
 
-void nova_io_Nova_FileNotFoundException_Nova_this(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_FileNotFoundException_Nova_file)
+void nova_io_Nova_FileNotFoundException_Nova_this(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
 {
-	nova_exception_Nova_Exception_0_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("File at location '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_io_Nova_FileNotFoundException_Nova_file->nova_io_Nova_File_Nova_location), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("' does not exist")))));
+	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("File at location '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(file->nova_io_Nova_File_Nova_location), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("' does not exist")))));
 }
 
 void nova_io_Nova_FileNotFoundException_Nova_super(nova_io_Nova_FileNotFoundException* this, nova_exception_Nova_ExceptionData* exceptionData)

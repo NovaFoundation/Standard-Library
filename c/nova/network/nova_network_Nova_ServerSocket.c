@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/network/NativeServerSocket.h>
 #include <nova/network/NativeSocket.h>
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>
@@ -58,6 +59,7 @@ nova_network_ServerSocket_Extension_VTable nova_network_ServerSocket_Extension_V
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -115,9 +117,9 @@ void nova_network_Nova_ServerSocket_Nova_this(nova_network_Nova_ServerSocket* th
 	this->nova_network_Nova_ServerSocket_Nova_open = 0;
 }
 
-char nova_network_Nova_ServerSocket_Nova_start(nova_network_Nova_ServerSocket* this, nova_exception_Nova_ExceptionData* exceptionData, int nova_network_Nova_ServerSocket_Nova_port)
+char nova_network_Nova_ServerSocket_Nova_start(nova_network_Nova_ServerSocket* this, nova_exception_Nova_ExceptionData* exceptionData, int port)
 {
-	this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket = nova_serversocket_start(nova_network_Nova_ServerSocket_Nova_port);
+	this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket = nova_serversocket_start(port);
 	if (this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket == 0)
 	{
 		return 0;

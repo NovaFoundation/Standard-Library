@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -55,6 +56,7 @@ nova_io_OutputStream_Extension_VTable nova_io_OutputStream_Extension_VTable_val 
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -117,13 +119,13 @@ void nova_io_Nova_OutputStream_Nova_super(nova_io_Nova_OutputStream* this, nova_
 	this->prv->nova_io_Nova_OutputStream_Nova_stream = (nova_io_Nova_File*)nova_null;
 }
 
-char nova_io_Nova_OutputStream_virtual0_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_io_Nova_OutputStream_Nova_data)
+char nova_io_Nova_OutputStream_virtual0_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data)
 {
-	return this->vtable->nova_io_Nova_OutputStream_virtual0_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, nova_io_Nova_OutputStream_Nova_data);
+	return this->vtable->nova_io_Nova_OutputStream_virtual0_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, data);
 }
 
-char nova_io_Nova_OutputStream_virtual1_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_io_Nova_OutputStream_Nova_data)
+char nova_io_Nova_OutputStream_virtual1_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
-	return this->vtable->nova_io_Nova_OutputStream_virtual1_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, nova_io_Nova_OutputStream_Nova_data);
+	return this->vtable->nova_io_Nova_OutputStream_virtual1_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, data);
 }
 

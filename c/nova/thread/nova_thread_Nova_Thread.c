@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/thread/NativeThread.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -58,6 +59,7 @@ nova_thread_Thread_Extension_VTable nova_thread_Thread_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -125,10 +127,10 @@ void nova_thread_Nova_Thread_Nova_kill(nova_thread_Nova_Thread* this, nova_excep
 	lib_nova_thread_cancel(*this->prv->nova_thread_Nova_Thread_Nova_handle);
 }
 
-void nova_thread_Nova_Thread_static_Nova_sleep(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_thread_Nova_Thread_Nova_millis)
+void nova_thread_Nova_Thread_static_Nova_sleep(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData, long_long millis)
 {
 	
-	lib_nova_thread_sleep(nova_thread_Nova_Thread_Nova_millis);
+	lib_nova_thread_sleep(millis);
 }
 
 void nova_thread_Nova_Thread_Nova_run(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)

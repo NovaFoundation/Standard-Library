@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/primitive/nova_primitive_Nova_Primitive.h>
 #include <nova/operators/nova_operators_Nova_Multiply.h>
 #include <nova/NativeObject.h>
@@ -56,6 +57,7 @@ nova_primitive_number_Number_Extension_VTable nova_primitive_number_Number_Exten
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -100,7 +102,7 @@ void nova_primitive_number_Nova_Number_Nova_destroy(nova_primitive_number_Nova_N
 	NOVA_FREE(*this);
 }
 
-char nova_primitive_number_Nova_Number_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number)
+char nova_primitive_number_Nova_Number_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* number)
 {
 	return -1;
 }
@@ -113,8 +115,8 @@ void nova_primitive_number_Nova_Number_Nova_super(nova_primitive_number_Nova_Num
 {
 }
 
-char nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* nova_primitive_number_Nova_Number_Nova_number)
+char nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(nova_primitive_number_Nova_Number* this, nova_exception_Nova_ExceptionData* exceptionData, nova_primitive_number_Nova_Number* number)
 {
-	return this->vtable->nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(0, exceptionData, nova_primitive_number_Nova_Number_Nova_number);
+	return this->vtable->nova_primitive_number_Nova_Number_virtual_static_Nova_numDigits(0, exceptionData, number);
 }
 

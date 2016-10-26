@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_StreamReader.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -59,6 +60,7 @@ nova_process_Process_Extension_VTable nova_process_Process_Extension_VTable_val 
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -72,7 +74,7 @@ void nova_process_Nova_Process_Nova_init_static(nova_exception_Nova_ExceptionDat
 	}
 }
 
-nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* nova_process_Nova_Process_Nova_reader)
+nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* reader)
 {
 	CCLASS_NEW(nova_process_Nova_Process, this,);
 	this->vtable = &nova_process_Process_Extension_VTable_val;
@@ -80,7 +82,7 @@ nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process
 	nova_process_Nova_Process_Nova_super(this, exceptionData);
 	
 	{
-		nova_process_Nova_Process_Nova_this(this, exceptionData, nova_process_Nova_Process_Nova_reader);
+		nova_process_Nova_Process_Nova_this(this, exceptionData, reader);
 	}
 	
 	return this;
@@ -98,9 +100,9 @@ void nova_process_Nova_Process_Nova_destroy(nova_process_Nova_Process** this, no
 	NOVA_FREE(*this);
 }
 
-void nova_process_Nova_Process_Nova_this(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* nova_process_Nova_Process_Nova_reader)
+void nova_process_Nova_Process_Nova_this(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* reader)
 {
-	this->nova_process_Nova_Process_Nova_reader = nova_process_Nova_Process_Nova_reader;
+	this->nova_process_Nova_Process_Nova_reader = reader;
 }
 
 void nova_process_Nova_Process_Nova_super(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData)

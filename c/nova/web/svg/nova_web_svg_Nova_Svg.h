@@ -35,6 +35,7 @@ typedef struct nova_web_svg_Nova_Svg nova_web_svg_Nova_Svg;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgMainComponent.h>
 #include <nova/NativeObject.h>
@@ -58,6 +59,7 @@ CCLASS_CLASS
 	nova_web_svg_Nova_Svg, 
 	
 	nova_web_svg_Svg_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_web_svg_Nova_SvgMainComponent* nova_web_svg_Nova_Svg_Nova_root;
 )
 
@@ -65,8 +67,8 @@ void nova_web_svg_Nova_Svg_Nova_init_static(nova_exception_Nova_ExceptionData* e
 nova_web_svg_Nova_Svg* nova_web_svg_Nova_Svg_Nova_construct(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_web_svg_Nova_Svg_Nova_destroy(nova_web_svg_Nova_Svg** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_web_svg_Nova_Svg_Nova_this(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_web_svg_Nova_Svg_Nova_generateOutput(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_web_svg_Nova_Svg_Nova_file);
-void nova_web_svg_Nova_Svg_Nova_generateHTMLOutput(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_web_svg_Nova_Svg_Nova_file);
+void nova_web_svg_Nova_Svg_Nova_generateOutput(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
+void nova_web_svg_Nova_Svg_Nova_generateHTMLOutput(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 void nova_web_svg_Nova_Svg_Nova_super(nova_web_svg_Nova_Svg* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

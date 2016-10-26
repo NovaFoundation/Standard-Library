@@ -35,6 +35,7 @@ typedef struct nova_io_Nova_StreamReader nova_io_Nova_StreamReader;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/io/nova_io_Nova_InputStream.h>
 
@@ -59,9 +60,9 @@ CCLASS_CLASS
 )
 
 void nova_io_Nova_StreamReader_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_io_Nova_StreamReader* nova_io_Nova_StreamReader_Nova_construct(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_StreamReader_Nova_file);
+nova_io_Nova_StreamReader* nova_io_Nova_StreamReader_Nova_construct(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 void nova_io_Nova_StreamReader_Nova_destroy(nova_io_Nova_StreamReader** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_io_Nova_StreamReader_Nova_file);
+void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
 nova_datastruct_list_Nova_Array* nova_io_Nova_StreamReader_Nova_readBytes(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_Nova_String* nova_io_Nova_StreamReader_Nova_readString(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_StreamReader_Nova_super(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData);

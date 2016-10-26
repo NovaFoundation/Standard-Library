@@ -35,6 +35,7 @@ typedef struct nova_datastruct_Nova_Comparable nova_datastruct_Nova_Comparable;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 typedef struct nova_datastruct_Comparable_Extension_VTable nova_datastruct_Comparable_Extension_VTable;
@@ -55,6 +56,6 @@ CCLASS_CLASS
 )
 
 void nova_datastruct_Nova_Comparable_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-int nova_datastruct_Nova_Comparable_0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Comparable_Nova_other);int nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Comparable_Nova_other);
+int nova_datastruct_Nova_Comparable_0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* other);int nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* other);
 
 #endif

@@ -35,6 +35,7 @@ typedef struct nova_math_logic_Nova_StatementGroup nova_math_logic_Nova_Statemen
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Bounds.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,14 +58,15 @@ CCLASS_CLASS
 	nova_math_logic_Nova_StatementGroup, 
 	
 	nova_math_logic_StatementGroup_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement;
 	nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds;
 )
 
 void nova_math_logic_Nova_StatementGroup_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_StatementGroup_Nova_construct(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement, nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds);
+nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_StatementGroup_Nova_construct(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* statement, nova_datastruct_Nova_Bounds* bounds);
 void nova_math_logic_Nova_StatementGroup_Nova_destroy(nova_math_logic_Nova_StatementGroup** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_logic_Nova_StatementGroup_Nova_this(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement, nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds);
+void nova_math_logic_Nova_StatementGroup_Nova_this(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* statement, nova_datastruct_Nova_Bounds* bounds);
 void nova_math_logic_Nova_StatementGroup_Nova_super(nova_math_logic_Nova_StatementGroup* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

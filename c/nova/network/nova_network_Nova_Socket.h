@@ -35,6 +35,7 @@ typedef struct nova_network_Nova_Socket nova_network_Nova_Socket;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -56,6 +57,7 @@ CCLASS_CLASS
 	nova_network_Nova_Socket, 
 	
 	nova_network_Socket_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_network_Nova_Socket_Nova_ip;
 	int nova_network_Nova_Socket_Nova_port;
 )

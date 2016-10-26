@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -58,6 +59,7 @@ nova_datastruct_Pair_Extension_VTable nova_datastruct_Pair_Extension_VTable_val 
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_datastruct_Nova_Pair_Nova_toString,
@@ -71,7 +73,7 @@ void nova_datastruct_Nova_Pair_Nova_init_static(nova_exception_Nova_ExceptionDat
 	}
 }
 
-nova_datastruct_Nova_Pair* nova_datastruct_Nova_Pair_Nova_construct(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_key, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_value)
+nova_datastruct_Nova_Pair* nova_datastruct_Nova_Pair_Nova_construct(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* key, nova_Nova_Object* value)
 {
 	CCLASS_NEW(nova_datastruct_Nova_Pair, this,);
 	this->vtable = &nova_datastruct_Pair_Extension_VTable_val;
@@ -79,7 +81,7 @@ nova_datastruct_Nova_Pair* nova_datastruct_Nova_Pair_Nova_construct(nova_datastr
 	nova_datastruct_Nova_Pair_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_Nova_Pair_Nova_this(this, exceptionData, nova_datastruct_Nova_Pair_Nova_key, nova_datastruct_Nova_Pair_Nova_value);
+		nova_datastruct_Nova_Pair_Nova_this(this, exceptionData, key, value);
 	}
 	
 	return this;
@@ -98,10 +100,10 @@ void nova_datastruct_Nova_Pair_Nova_destroy(nova_datastruct_Nova_Pair** this, no
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_Nova_Pair_Nova_this(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_key, nova_Nova_Object* nova_datastruct_Nova_Pair_Nova_value)
+void nova_datastruct_Nova_Pair_Nova_this(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* key, nova_Nova_Object* value)
 {
-	this->nova_datastruct_Nova_Pair_Nova_key = nova_datastruct_Nova_Pair_Nova_key;
-	this->nova_datastruct_Nova_Pair_Nova_value = nova_datastruct_Nova_Pair_Nova_value;
+	this->nova_datastruct_Nova_Pair_Nova_key = key;
+	this->nova_datastruct_Nova_Pair_Nova_value = value;
 }
 
 nova_Nova_String* nova_datastruct_Nova_Pair_Nova_toString(nova_datastruct_Nova_Pair* this, nova_exception_Nova_ExceptionData* exceptionData)

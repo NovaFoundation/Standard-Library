@@ -35,6 +35,7 @@ typedef struct nova_math_Nova_Polynomial nova_math_Nova_Polynomial;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -56,15 +57,16 @@ CCLASS_CLASS
 	nova_math_Nova_Polynomial, 
 	
 	nova_math_Polynomial_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Polynomial_Nova_coefficients;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Polynomial_Nova_degrees;
 	nova_datastruct_list_Nova_Array* nova_math_Nova_Polynomial_Nova_signs;
 )
 
 void nova_math_Nova_Polynomial_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_Nova_Polynomial* nova_math_Nova_Polynomial_Nova_construct(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_Polynomial_Nova_polynomial);
+nova_math_Nova_Polynomial* nova_math_Nova_Polynomial_Nova_construct(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* polynomial);
 void nova_math_Nova_Polynomial_Nova_destroy(nova_math_Nova_Polynomial** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_Nova_Polynomial_Nova_polynomial);
+void nova_math_Nova_Polynomial_Nova_this(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* polynomial);
 void nova_math_Nova_Polynomial_Nova_super(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

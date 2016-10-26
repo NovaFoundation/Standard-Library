@@ -40,6 +40,7 @@ typedef void (*nova_thread_async_Nova_Async_closure3_Nova_func)(void*, nova_exce
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/thread/async/nova_thread_async_Nova_AsyncResult.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -62,6 +63,7 @@ CCLASS_CLASS
 	nova_thread_async_Nova_Async, 
 	
 	nova_thread_async_Async_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 )
 
 void nova_thread_async_Nova_Async_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

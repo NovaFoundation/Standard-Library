@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <math.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -55,6 +56,7 @@ nova_math_Math_Extension_VTable nova_math_Math_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -99,89 +101,89 @@ void nova_math_Nova_Math_Nova_destroy(nova_math_Nova_Math** this, nova_exception
 	NOVA_FREE(*this);
 }
 
-long_long nova_math_Nova_Math_static_Nova_max(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_math_Nova_Math_Nova_a, long_long nova_math_Nova_Math_Nova_b)
+long_long nova_math_Nova_Math_static_Nova_max(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long a, long_long b)
 {
-	return (long_long)(nova_math_Nova_Math_Nova_a > nova_math_Nova_Math_Nova_b ? nova_math_Nova_Math_Nova_a : nova_math_Nova_Math_Nova_b);
+	return (long_long)(a > b ? a : b);
 }
 
-long_long nova_math_Nova_Math_static_Nova_min(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_math_Nova_Math_Nova_a, long_long nova_math_Nova_Math_Nova_b)
+long_long nova_math_Nova_Math_static_Nova_min(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long a, long_long b)
 {
-	return (long_long)(nova_math_Nova_Math_Nova_a < nova_math_Nova_Math_Nova_b ? nova_math_Nova_Math_Nova_a : nova_math_Nova_Math_Nova_b);
+	return (long_long)(a < b ? a : b);
 }
 
-char nova_math_Nova_Math_static_Nova_sign(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_math_Nova_Math_Nova_num)
+char nova_math_Nova_Math_static_Nova_sign(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long num)
 {
-	return (char)(nova_math_Nova_Math_Nova_num > 0 ? 1 : ((char)(nova_math_Nova_Math_Nova_num < 0 ? -1 : 0)));
+	return (char)(num > 0 ? 1 : ((char)(num < 0 ? -1 : 0)));
 }
 
-long_long nova_math_Nova_Math_static_Nova_random(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_math_Nova_Math_Nova_range)
+long_long nova_math_Nova_Math_static_Nova_random(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long range)
 {
-	return rand() % nova_math_Nova_Math_Nova_range;
+	return rand() % range;
 }
 
-long_long nova_math_Nova_Math_0_static_Nova_abs(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long nova_math_Nova_Math_Nova_number)
+long_long nova_math_Nova_Math_0_static_Nova_abs(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, long_long number)
 {
-	return llabs(nova_math_Nova_Math_Nova_number);
+	return (long_long)(number < 0 ? -number : number);
 }
 
-double nova_math_Nova_Math_1_static_Nova_abs(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_1_static_Nova_abs(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return fabs(nova_math_Nova_Math_Nova_number);
+	return (double)(number < 0 ? -number : number);
 }
 
-double nova_math_Nova_Math_static_Nova_sqrt(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_sqrt(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return sqrt(nova_math_Nova_Math_Nova_number);
+	return sqrt(number);
 }
 
-double nova_math_Nova_Math_static_Nova_pow(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_base, double nova_math_Nova_Math_Nova_power)
+double nova_math_Nova_Math_static_Nova_pow(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double base, double power)
 {
-	return pow(nova_math_Nova_Math_Nova_base, nova_math_Nova_Math_Nova_power);
+	return pow(base, power);
 }
 
-double nova_math_Nova_Math_static_Nova_sin(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_sin(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return sin(nova_math_Nova_Math_Nova_number);
+	return sin(number);
 }
 
-double nova_math_Nova_Math_static_Nova_cos(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_cos(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return cos(nova_math_Nova_Math_Nova_number);
+	return cos(number);
 }
 
-double nova_math_Nova_Math_static_Nova_tan(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_tan(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return tan(nova_math_Nova_Math_Nova_number);
+	return tan(number);
 }
 
-double nova_math_Nova_Math_static_Nova_asin(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_asin(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return asin(nova_math_Nova_Math_Nova_number);
+	return asin(number);
 }
 
-double nova_math_Nova_Math_static_Nova_acos(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_acos(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return acos(nova_math_Nova_Math_Nova_number);
+	return acos(number);
 }
 
-double nova_math_Nova_Math_static_Nova_atan(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_atan(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return atan(nova_math_Nova_Math_Nova_number);
+	return atan(number);
 }
 
-long_long nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_round(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return nova_math_Nova_Math_static_Nova_floor(0, exceptionData, nova_math_Nova_Math_Nova_number + 0.5);
+	return nova_math_Nova_Math_static_Nova_floor(0, exceptionData, number + 0.5);
 }
 
-long_long nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_floor(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return floor(nova_math_Nova_Math_Nova_number);
+	return (long_long)((double)(number < 0 && (long_long)number != number ? number - 1 : number));
 }
 
-long_long nova_math_Nova_Math_static_Nova_ceil(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Math_Nova_number)
+double nova_math_Nova_Math_static_Nova_ceil(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData, double number)
 {
-	return ceil(nova_math_Nova_Math_Nova_number);
+	return (long_long)((double)(number >= 0 && (long_long)number != number ? number + 1 : number));
 }
 
 void nova_math_Nova_Math_Nova_this(nova_math_Nova_Math* this, nova_exception_Nova_ExceptionData* exceptionData)

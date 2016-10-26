@@ -1,10 +1,9 @@
 package "nova/math"
 
-public class NumericTree
-{
-	NumericOperation root
-	
-	public construct(String statement) => root = new NumericOperation(statement)
-	
-	public toString() => root.toString()
+class NumericTree {
+    NumericOperation root
+    
+    public construct(String statement) => root = new NumericOperation(statement)
+    
+    public toString() => root.toString()
 }

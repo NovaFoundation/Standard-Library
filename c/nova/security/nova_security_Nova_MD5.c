@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/security/NativeMD5.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -55,6 +56,7 @@ nova_security_MD5_Extension_VTable nova_security_MD5_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -97,12 +99,12 @@ void nova_security_Nova_MD5_Nova_destroy(nova_security_Nova_MD5** this, nova_exc
 	NOVA_FREE(*this);
 }
 
-nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_security_Nova_MD5_Nova_str)
+nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_MD5* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str)
 {
 	char* l1_Nova_data = (char*)nova_null;
 	
 	
-	l1_Nova_data = (char*)(nova_md5((char*)(nova_security_Nova_MD5_Nova_str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)));
+	l1_Nova_data = (char*)(nova_md5((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)));
 	if (l1_Nova_data == 0)
 	{
 		return (nova_Nova_String*)(nova_Nova_Object*)nova_null;

@@ -35,6 +35,7 @@ typedef struct nova_math_Nova_Vector4D nova_math_Nova_Vector4D;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/math/nova_math_Nova_Vector.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -58,23 +59,24 @@ CCLASS_CLASS
 	nova_math_Nova_Vector4D, 
 	
 	nova_math_Vector4D_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_list_Nova_DoubleArray* nova_math_Nova_Vector_Nova_data;
 )
 
 void nova_math_Nova_Vector4D_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_0_Nova_construct(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_1_Nova_construct(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_x, double nova_math_Nova_Vector4D_Nova_y, double nova_math_Nova_Vector4D_Nova_z, double nova_math_Nova_Vector4D_Nova_w);
+nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_1_Nova_construct(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z, double w);
 void nova_math_Nova_Vector4D_Nova_destroy(nova_math_Nova_Vector4D** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_math_Nova_Vector4D_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_Vector4D_0_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_x, double nova_math_Nova_Vector4D_Nova_y, double nova_math_Nova_Vector4D_Nova_z, double nova_math_Nova_Vector4D_Nova_w);
+void nova_math_Nova_Vector4D_0_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z, double w);
 double nova_math_Nova_Vector4D_Accessor_Nova_x(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
-double nova_math_Nova_Vector4D_Mutator_Nova_x(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value);
+double nova_math_Nova_Vector4D_Mutator_Nova_x(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value);
 double nova_math_Nova_Vector4D_Accessor_Nova_y(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
-double nova_math_Nova_Vector4D_Mutator_Nova_y(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value);
+double nova_math_Nova_Vector4D_Mutator_Nova_y(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value);
 double nova_math_Nova_Vector4D_Accessor_Nova_z(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
-double nova_math_Nova_Vector4D_Mutator_Nova_z(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value);
+double nova_math_Nova_Vector4D_Mutator_Nova_z(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value);
 double nova_math_Nova_Vector4D_Accessor_Nova_w(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
-double nova_math_Nova_Vector4D_Mutator_Nova_w(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double nova_math_Nova_Vector4D_Nova_value);
+double nova_math_Nova_Vector4D_Mutator_Nova_w(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double value);
 void nova_math_Nova_Vector4D_Nova_super(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

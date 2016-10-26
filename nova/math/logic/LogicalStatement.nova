@@ -2,21 +2,18 @@ package "nova/math/logic"
 
 import "nova/math/Statement"
 
-public class LogicalStatement extends Statement
-{
-	String statement
-	
-	StatementComponent[] components
-	
-	public construct(String statement)
-	{
-		this.statement = statement
-		
-		components = new Array()
-	}
-	
-	public toString() -> String
-	{
-		return statement
-	}
+class LogicalStatement extends Statement {
+    String statement
+    
+    StatementComponent[] components
+    
+    public construct(String statement) {
+        this.statement = statement
+        
+        components = new Array()
+    }
+    
+    public toString() -> String {
+        return statement
+    }
 }

@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -58,6 +59,7 @@ nova_datastruct_list_NoSuchElementException_Extension_VTable nova_datastruct_lis
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -71,7 +73,7 @@ void nova_datastruct_list_Nova_NoSuchElementException_Nova_init_static(nova_exce
 	}
 }
 
-nova_datastruct_list_Nova_NoSuchElementException* nova_datastruct_list_Nova_NoSuchElementException_0_Nova_construct(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_datastruct_list_Nova_NoSuchElementException* nova_datastruct_list_Nova_NoSuchElementException_Nova_construct(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
 	CCLASS_NEW(nova_datastruct_list_Nova_NoSuchElementException, this,);
 	this->vtable = &nova_datastruct_list_NoSuchElementException_Extension_VTable_val;
@@ -80,22 +82,7 @@ nova_datastruct_list_Nova_NoSuchElementException* nova_datastruct_list_Nova_NoSu
 	nova_datastruct_list_Nova_NoSuchElementException_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_NoSuchElementException_Nova_this(this, exceptionData);
-	}
-	
-	return this;
-}
-
-nova_datastruct_list_Nova_NoSuchElementException* nova_datastruct_list_Nova_NoSuchElementException_1_Nova_construct(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_datastruct_list_Nova_NoSuchElementException_Nova_message)
-{
-	CCLASS_NEW(nova_datastruct_list_Nova_NoSuchElementException, this,);
-	this->vtable = &nova_datastruct_list_NoSuchElementException_Extension_VTable_val;
-	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
-	nova_exception_Nova_Exception_Nova_super((nova_exception_Nova_Exception*)this, exceptionData);
-	nova_datastruct_list_Nova_NoSuchElementException_Nova_super(this, exceptionData);
-	
-	{
-		nova_datastruct_list_Nova_NoSuchElementException_0_Nova_this(this, exceptionData, nova_datastruct_list_Nova_NoSuchElementException_Nova_message);
+		nova_datastruct_list_Nova_NoSuchElementException_Nova_this(this, exceptionData, message);
 	}
 	
 	return this;
@@ -112,14 +99,10 @@ void nova_datastruct_list_Nova_NoSuchElementException_Nova_destroy(nova_datastru
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_NoSuchElementException_Nova_this(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_NoSuchElementException_Nova_this(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message)
 {
-	nova_datastruct_list_Nova_NoSuchElementException_0_Nova_this(this, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("No such element")));
-}
-
-void nova_datastruct_list_Nova_NoSuchElementException_0_Nova_this(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_datastruct_list_Nova_NoSuchElementException_Nova_message)
-{
-	nova_exception_Nova_Exception_0_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, nova_datastruct_list_Nova_NoSuchElementException_Nova_message);
+	message = (nova_Nova_String*)(message == 0 ? (nova_Nova_Object*)nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("No such element")) : (nova_Nova_Object*)message);
+	nova_exception_Nova_Exception_Nova_this((nova_exception_Nova_Exception*)(this), exceptionData, message);
 }
 
 void nova_datastruct_list_Nova_NoSuchElementException_Nova_super(nova_datastruct_list_Nova_NoSuchElementException* this, nova_exception_Nova_ExceptionData* exceptionData)

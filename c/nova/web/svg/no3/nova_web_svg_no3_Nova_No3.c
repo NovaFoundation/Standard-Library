@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3Select.h>
 #include <nova/web/svg/no3/nova_web_svg_no3_Nova_No3SelectAll.h>
 #include <nova/NativeObject.h>
@@ -56,6 +57,7 @@ nova_web_svg_no3_No3_Extension_VTable nova_web_svg_no3_No3_Extension_VTable_val 
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -98,14 +100,14 @@ void nova_web_svg_no3_Nova_No3_Nova_destroy(nova_web_svg_no3_Nova_No3** this, no
 	NOVA_FREE(*this);
 }
 
-nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3_static_Nova_select(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3_Nova_selection)
+nova_web_svg_no3_Nova_No3Select* nova_web_svg_no3_Nova_No3_static_Nova_select(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* selection)
 {
-	return nova_web_svg_no3_Nova_No3Select_Nova_construct(0, exceptionData, nova_web_svg_no3_Nova_No3_Nova_selection);
+	return nova_web_svg_no3_Nova_No3Select_Nova_construct(0, exceptionData, selection);
 }
 
-nova_web_svg_no3_Nova_No3SelectAll* nova_web_svg_no3_Nova_No3_static_Nova_selectAll(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_web_svg_no3_Nova_No3_Nova_selection)
+nova_web_svg_no3_Nova_No3SelectAll* nova_web_svg_no3_Nova_No3_static_Nova_selectAll(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* selection)
 {
-	return nova_web_svg_no3_Nova_No3SelectAll_Nova_construct(0, exceptionData, nova_web_svg_no3_Nova_No3_Nova_selection);
+	return nova_web_svg_no3_Nova_No3SelectAll_Nova_construct(0, exceptionData, selection);
 }
 
 void nova_web_svg_no3_Nova_No3_Nova_this(nova_web_svg_no3_Nova_No3* this, nova_exception_Nova_ExceptionData* exceptionData)

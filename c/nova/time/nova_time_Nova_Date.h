@@ -35,6 +35,7 @@ typedef struct nova_time_Nova_Date nova_time_Nova_Date;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/time/NativeDate.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -57,6 +58,7 @@ CCLASS_CLASS
 	nova_time_Nova_Date, 
 	
 	nova_time_Date_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_time_Nova_Date_Nova_year;
 	int nova_time_Nova_Date_Nova_month;
 	int nova_time_Nova_Date_Nova_day;
@@ -69,9 +71,9 @@ void nova_time_Nova_Date_Nova_init_static(nova_exception_Nova_ExceptionData* exc
 nova_time_Nova_Date* nova_time_Nova_Date_Nova_construct(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_time_Nova_Date_Nova_destroy(nova_time_Nova_Date** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_time_Nova_Date_Nova_this(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_time_Nova_Date_Nova_decodeDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_time_Nova_Date_Nova_prototype, nova_Nova_String* nova_time_Nova_Date_Nova_date);
+void nova_time_Nova_Date_Nova_decodeDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* prototype, nova_Nova_String* date);
 void nova_time_Nova_Date_Nova_updateTime(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_String* nova_time_Nova_Date_Nova_formatDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_time_Nova_Date_Nova_str, int nova_time_Nova_Date_Nova_first, int nova_time_Nova_Date_Nova_second, int nova_time_Nova_Date_Nova_third, int nova_time_Nova_Date_Nova_fourth, int nova_time_Nova_Date_Nova_fifth, int nova_time_Nova_Date_Nova_sixth);
+nova_Nova_String* nova_time_Nova_Date_Nova_formatDate(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str, int first, int second, int third, int fourth, int fifth, int sixth);
 void nova_time_Nova_Date_Nova_super(nova_time_Nova_Date* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

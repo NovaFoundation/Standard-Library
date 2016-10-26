@@ -26,6 +26,7 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/network/NativeClientSocket.h>
 #include <nova/network/NativeSocket.h>
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>
@@ -58,6 +59,7 @@ nova_network_ClientSocket_Extension_VTable nova_network_ClientSocket_Extension_V
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -113,9 +115,9 @@ void nova_network_Nova_ClientSocket_Nova_this(nova_network_Nova_ClientSocket* th
 {
 }
 
-char nova_network_Nova_ClientSocket_Nova_connect(nova_network_Nova_ClientSocket* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_network_Nova_ClientSocket_Nova_ipAddress, int nova_network_Nova_ClientSocket_Nova_port)
+char nova_network_Nova_ClientSocket_Nova_connect(nova_network_Nova_ClientSocket* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* ipAddress, int port)
 {
-	this->prv->nova_network_Nova_ClientSocket_Nova_socket = nova_clientsocket_connect((char*)(nova_network_Nova_ClientSocket_Nova_ipAddress->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), nova_network_Nova_ClientSocket_Nova_port);
+	this->prv->nova_network_Nova_ClientSocket_Nova_socket = nova_clientsocket_connect((char*)(ipAddress->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), port);
 	if (this->prv->nova_network_Nova_ClientSocket_Nova_socket == 0)
 	{
 		return 0;

@@ -35,6 +35,7 @@ typedef struct nova_math_huffman_Nova_HuffmanTree nova_math_huffman_Nova_Huffman
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Tree.h>
 #include <nova/datastruct/nova_datastruct_Nova_Node.h>
 #include <nova/NativeObject.h>
@@ -58,6 +59,7 @@ CCLASS_CLASS
 	nova_math_huffman_Nova_HuffmanTree, 
 	
 	nova_math_huffman_HuffmanTree_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_Nova_Node* nova_datastruct_Nova_Tree_Nova_root;
 )
 

@@ -35,6 +35,7 @@ typedef struct nova_math_logic_Nova_InvalidFormulaException nova_math_logic_Nova
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -56,13 +57,14 @@ CCLASS_CLASS
 	nova_math_logic_Nova_InvalidFormulaException, 
 	
 	nova_math_logic_InvalidFormulaException_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_String* nova_exception_Nova_Exception_Nova_message;
 )
 
 void nova_math_logic_Nova_InvalidFormulaException_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_logic_Nova_InvalidFormulaException* nova_math_logic_Nova_InvalidFormulaException_Nova_construct(nova_math_logic_Nova_InvalidFormulaException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_InvalidFormulaException_Nova_message);
+nova_math_logic_Nova_InvalidFormulaException* nova_math_logic_Nova_InvalidFormulaException_Nova_construct(nova_math_logic_Nova_InvalidFormulaException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message);
 void nova_math_logic_Nova_InvalidFormulaException_Nova_destroy(nova_math_logic_Nova_InvalidFormulaException** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_logic_Nova_InvalidFormulaException_Nova_this(nova_math_logic_Nova_InvalidFormulaException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_InvalidFormulaException_Nova_message);
+void nova_math_logic_Nova_InvalidFormulaException_Nova_this(nova_math_logic_Nova_InvalidFormulaException* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message);
 void nova_math_logic_Nova_InvalidFormulaException_Nova_super(nova_math_logic_Nova_InvalidFormulaException* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

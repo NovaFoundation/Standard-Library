@@ -35,6 +35,7 @@ typedef struct nova_math_logic_Nova_WFF nova_math_logic_Nova_WFF;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/nova_datastruct_Nova_Bounds.h>
 #include <nova/math/logic/nova_math_logic_Nova_Conclusion.h>
 #include <nova/math/logic/nova_math_logic_Nova_Hypothesis.h>
@@ -62,13 +63,14 @@ CCLASS_CLASS
 	nova_math_logic_Nova_WFF, 
 	
 	nova_math_logic_WFF_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	struct Private* prv;
 )
 
 void nova_math_logic_Nova_WFF_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_math_logic_Nova_WFF* nova_math_logic_Nova_WFF_Nova_construct(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_WFF_Nova_wellFormedFormula, nova_datastruct_list_Nova_Array* nova_math_logic_Nova_WFF_Nova_letters);
+nova_math_logic_Nova_WFF* nova_math_logic_Nova_WFF_Nova_construct(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* wellFormedFormula, nova_datastruct_list_Nova_Array* letters);
 void nova_math_logic_Nova_WFF_Nova_destroy(nova_math_logic_Nova_WFF** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_logic_Nova_WFF_Nova_this(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* nova_math_logic_Nova_WFF_Nova_wellFormedFormula, nova_datastruct_list_Nova_Array* nova_math_logic_Nova_WFF_Nova_letters);
+void nova_math_logic_Nova_WFF_Nova_this(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* wellFormedFormula, nova_datastruct_list_Nova_Array* letters);
 void nova_math_logic_Nova_WFF_Nova_super(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

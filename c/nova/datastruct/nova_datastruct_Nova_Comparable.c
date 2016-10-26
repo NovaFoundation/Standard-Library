@@ -26,12 +26,14 @@
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 
 nova_datastruct_Comparable_Extension_VTable nova_datastruct_Comparable_Extension_VTable_val =
 {
 	{
+		0,
 		0,
 		0,
 		0,
@@ -68,8 +70,8 @@ void nova_datastruct_Nova_Comparable_Nova_init_static(nova_exception_Nova_Except
 }
 
 
-int nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_datastruct_Nova_Comparable_Nova_other)
+int nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo(nova_datastruct_Nova_Comparable* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* other)
 {
-	return this->vtable->itable.nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo((nova_datastruct_Nova_Comparable*)(this), exceptionData, nova_datastruct_Nova_Comparable_Nova_other);
+	return this->vtable->itable.nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo((nova_datastruct_Nova_Comparable*)(this), exceptionData, other);
 }
 

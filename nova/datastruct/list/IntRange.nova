@@ -1,71 +1,60 @@
 package "nova/datastruct/list"
 
-public class IntRange implements List<Int>
-{
+class IntRange implements List<Int> {
     visible Int size => end - start
     
     public Int start, end
     
-	[Override]
-	visible IntRangeIterator iterator => new IntRangeIterator(this)
+    [Override]
+    visible IntRangeIterator iterator => new IntRangeIterator(this)
     
     Int first => start
     Int last => end - 1
     
     public construct() => this(0, 0)
-    public construct(Int start, Int end)
-    {
+    public construct(Int start, Int end) {
         this.start = start
         this.end = end
     }
-	
-	[Override]
-	public contains(Int value) => value >= start && value < end
     
-    public toArray() -> Int[]
-    {
+    [Override]
+    public contains(Int value) => value >= start && value < end
+    
+    public toArray() -> Int[] {
         Int[] ints = new IntArray(size)
         
         Int i = start
         
-        while (i < end)
-        {
+        while (i < end) {
             ints.set(i - start, i++)
         }
         
         return ints
     }
     
-    public forEach(func(Int, Int, IntRange))
-    {
+    public forEach(func(Int, Int, IntRange)) {
         Int i = 0
         
-        for (value in this)
-        {
+        for (value in this) {
             func(value, i++, this)
         }
     }
     
-    public map<Out>(mapFunc(Int, Int, IntRange) -> Out) -> Out[]
-    {
+    public map<Out>(mapFunc(Int, Int, IntRange) -> Out) -> Out[] {
         Out[] array = new Array()
         
         Int i = 0
 
-        for (element in this)
-        {
+        for (element in this) {
             array.add(mapFunc(element, i++, this))
         }
         
         return array
     }
     
-    public any(anyFunc(Int) -> Bool) -> Bool
-    {
-        for (element in this)
-        {
-            if (anyFunc(element))
-            {
+    public any(anyFunc(Int) -> Bool) -> Bool {
+        for (element in this) {
+            if (anyFunc(element)) {
                 return true
             }
         }
@@ -73,12 +62,9 @@ public class IntRange implements List<Int>
         return false
     }
     
-    public all(allFunc(Int) -> Bool) -> Bool
-    {
-        for (element in this)
-        {
-            if (!allFunc(element))
-            {
+    public all(allFunc(Int) -> Bool) -> Bool {
+        for (element in this) {
+            if (!allFunc(element)) {
                 return false
             }
         }
@@ -86,16 +72,13 @@ public class IntRange implements List<Int>
         return true
     }
     
-    public filter(filterFunc(Int, Int, IntRange) -> Bool) -> IntArray
-    {
+    public filter(filterFunc(Int, Int, IntRange) -> Bool) -> IntArray {
         IntArray list = new IntArray()
         
         Int i = 0
         
-        for (value in this)
-        {
-            if (filterFunc(value, i++, this))
-            {
+        for (value in this) {
+            if (filterFunc(value, i++, this)) {
                 list.add(value)
             }
         }
@@ -103,22 +86,17 @@ public class IntRange implements List<Int>
         return list
     }
     
-    public take(Int howMany) -> IntRange
-    {
+    public take(Int howMany) -> IntRange {
         return new IntRange(start, (Int)Math.min(start + howMany, end))
     }
     
-    public skip(Int howMany) -> IntRange
-    {
+    public skip(Int howMany) -> IntRange {
         return new IntRange((Int)Math.min(start + howMany, end), end)
     }
     
-    public firstWhere(func(Int) -> Bool) -> Int
-    {
-        for (element in this)
-        {
-            if (func(element))
-            {
+    public firstWhere(func(Int) -> Bool) -> Int {
+        for (element in this) {
+            if (func(element)) {
                 return element
             }
         }
@@ -132,36 +110,29 @@ public class IntRange implements List<Int>
     //remove(Int value) -> IntRange
     //clone() -> IntRange
     
-    public reverse() -> IntRange
-    {
+    public reverse() -> IntRange {
         return new IntRange(end, start)
     }
     
-    public join(String delimiter) -> String
-    {
-    	String str = ""
-    	
-    	Bool passed = false
-    	
-    	for (element in this)
-    	{
-    		if (passed)
-    		{
-    			str = str + delimiter
-    		}
-    		else
-    		{
-    			passed = true
-    		}
-    		
-    		str = str + element.toString()
-    	}
-    	
-    	return str
+    public join(String delimiter) -> String {
+        String str = ""
+        
+        Bool passed = false
+        
+        for (element in this) {
+            if (passed) {
+                str = str + delimiter
+            } else {
+                passed = true
+            }
+            
+            str = str + element.toString()
+        }
+        
+        return str
     }
     
-    public toString() -> String
-    {
+    public toString() -> String {
         return "#{start}..#{end}"
     }
 }

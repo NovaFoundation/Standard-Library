@@ -1,25 +1,25 @@
 package "nova/time"
 
 class Timer {
-	visible Long startTime, endTime
-	
-	visible Long duration => endTime - startTime
-	
-	public construct() {}
-	
-	public start() => this {
-		startTime = Time.currentTimeMillis
-		endTime = 0
-	}
-	
-	public stop() => this {
-		endTime = Time.currentTimeMillis
-	}
-	
-	public reset() => this {
-	    startTime = 0
-	    endTime = 0
-	}
-	
-	public toString() => "Timer { duration: #duration }"
+    visible Long startTime, endTime
+    
+    visible Long duration => endTime - startTime
+    
+    public construct() {}
+    
+    public start() => this {
+        startTime = Time.currentTimeMillis
+        endTime = 0
+    }
+    
+    public stop() => this {
+        endTime = Time.currentTimeMillis
+    }
+    
+    public reset() => this {
+        startTime = 0
+        endTime = 0
+    }
+    
+    public toString() => "Timer { duration: #duration }"
 }

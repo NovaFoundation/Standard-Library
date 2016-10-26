@@ -35,6 +35,7 @@ typedef struct nova_svg_Nova_SvgComponentList nova_svg_Nova_SvgComponentList;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/nova_io_Nova_File.h>
 #include <nova/svg/nova_svg_Nova_SvgComponent.h>
 #include <nova/svg/nova_svg_Nova_SvgComponentNode.h>
@@ -59,14 +60,15 @@ CCLASS_CLASS
 	nova_svg_Nova_SvgComponentList, 
 	
 	nova_svg_SvgComponentList_Extension_VTable* vtable;
+	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_svg_Nova_SvgComponentNode* nova_svg_Nova_SvgComponentList_Nova_start;
 )
 
 void nova_svg_Nova_SvgComponentList_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 nova_svg_Nova_SvgComponentList* nova_svg_Nova_SvgComponentList_Nova_construct(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_svg_Nova_SvgComponentList_Nova_destroy(nova_svg_Nova_SvgComponentList** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_svg_Nova_SvgComponentList_Nova_generateOutput(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* nova_svg_Nova_SvgComponentList_Nova_file);
-void nova_svg_Nova_SvgComponentList_Nova_addChild(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_svg_Nova_SvgComponent* nova_svg_Nova_SvgComponentList_Nova_component);
+void nova_svg_Nova_SvgComponentList_Nova_generateOutput(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
+void nova_svg_Nova_SvgComponentList_Nova_addChild(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_svg_Nova_SvgComponent* component);
 void nova_svg_Nova_SvgComponentList_Nova_this(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_svg_Nova_SvgComponentList_Nova_super(nova_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData);
 

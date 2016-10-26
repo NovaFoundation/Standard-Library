@@ -1,173 +1,173 @@
 package "nova/datastruct/list"
 
 interface List<Type> extends Iterable<Type> {
-	visible Int size
-	/*[Int index] {
-		get { return this.get(index) }
-		set { this.set(index, value) }
-	}
-	*/
+    visible Int count
+    /*[Int index] {
+        get { return this.get(index) }
+        set { this.set(index, value) }
+    }
+    */
 
-	visible Iterator<Type> iterator {// => null
-		get { return null }
-		no set
-	}
+    visible Iterator<Type> iterator {// => null
+        get { return null }
+        no set
+    }
 
-	public Type first
-	public Type last
+    public Type first
+    public Type last
 
-	public toArray() -> Type[] {
-		Type[] array = new Array()
+    public toArray() -> Type[] {
+        Type[] array = new Array()
 
-		for (value in this) {
-			array.add(value)
-		}
+        for (value in this) {
+            array.add(value)
+        }
 
-		return array
-	}
+        return array
+    }
 
-	public contains(Type value) -> Bool {
-	    return any({ _ == value })
-	}
+    public contains(Type value) -> Bool {
+        return any({ _ == value })
+    }
 
-	public forEach(func(Type, Int, List<Type>)) => this {
-	    Int i = 0
+    public forEach(func(Type, Int, List<Type>)) => this {
+        Int i = 0
 
-		for (value in this) {
-			func(value, i++, this)
-		}
-	}
+        for (value in this) {
+            func(value, i++, this)
+        }
+    }
 
-	public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out> {
-		Out[] array = new Array(count)
+    public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out> {
+        Out[] array = new Array(count)
 
-		Int i = 0
+        Int i = 0
 
-		for (element in this) {
-			array.add(mapFunc(element, i++, this))
-		}
+        for (element in this) {
+            array.add(mapFunc(element, i++, this))
+        }
 
-		return array
-	}
+        return array
+    }
 
-	public any(anyFunc(Type) -> Bool) -> Bool {
-		for (element in this) {
-			if (anyFunc(element)) {
-				return true
-			}
-		}
+    public any(anyFunc(Type) -> Bool) -> Bool {
+        for (element in this) {
+            if (anyFunc(element)) {
+                return true
+            }
+        }
 
-		return false
-	}
+        return false
+    }
 
-	public all(allFunc(Type) -> Bool) -> Bool {
-		for (element in this) {
-			if (!allFunc(element)) {
-				return false
-			}
-		}
+    public all(allFunc(Type) -> Bool) -> Bool {
+        for (element in this) {
+            if (!allFunc(element)) {
+                return false
+            }
+        }
 
-		return true
-	}
+        return true
+    }
 
-	public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type> {
-		Type[] list = new Array()
+    public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type> {
+        Type[] list = new Array()
 
-		Int i = 0
+        Int i = 0
 
-		for (value in this) {
-			if (filterFunc(value, i++, this)) {
-				list.add(value)
-			}
-		}
+        for (value in this) {
+            if (filterFunc(value, i++, this)) {
+                list.add(value)
+            }
+        }
 
-		return list
-	}
+        return list
+    }
 
-	public take(Int howMany) -> List<Type> {
-		Type[] list = new Array()
+    public take(Int howMany) -> List<Type> {
+        Type[] list = new Array()
 
-		Int i = 0
+        Int i = 0
 
-		for (value in this) {
-			if (i++ >= howMany) {
-				return list
-			}
+        for (value in this) {
+            if (i++ >= howMany) {
+                return list
+            }
 
-			list.add(value)
-		}
+            list.add(value)
+        }
 
-		return list
-	}
+        return list
+    }
 
-	public skip(Int howMany) -> List<Type> {
-		Type[] list = new Array()
+    public skip(Int howMany) -> List<Type> {
+        Type[] list = new Array()
 
-		Int i = 0
+        Int i = 0
 
-		for (value in this) {
-			if (i++ >= howMany) {
-				list.add(value)
-			}
-		}
+        for (value in this) {
+            if (i++ >= howMany) {
+                list.add(value)
+            }
+        }
 
-		return list
-	}
+        return list
+    }
 
-	public firstWhere(func(Type) -> Bool) -> Type {
-		for (element in this) {
-			if (func(element)) {
-				return element
-			}
-		}
+    public firstWhere(func(Type) -> Bool) -> Type {
+        for (element in this) {
+            if (func(element)) {
+                return element
+            }
+        }
 
-		return null
-	}
-	
-	public firstNonNull<Out>(func(Type) -> Out) -> Out {
-		for (element in this) {
-			Out value = func(element)
-			
-			if (value != null) {
-				return value
-			}
-		}
+        return null
+    }
+    
+    public firstNonNull<Out>(func(Type) -> Out) -> Out {
+        for (element in this) {
+            Out value = func(element)
+            
+            if (value != null) {
+                return value
+            }
+        }
 
-		return null
-	}
+        return null
+    }
 
-	public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[] {
-		Iterator<Type> i1 = iterator
-		Iterator<OtherType> i2 = other.iterator
+    public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[] {
+        Iterator<Type> i1 = iterator
+        Iterator<OtherType> i2 = other.iterator
 
-		Out[] array = new Array()
+        Out[] array = new Array()
 
-		while (i1.hasNext && i2.hasNext) {
-			array.add(zipper(i1.next, i2.next))
-		}
+        while (i1.hasNext && i2.hasNext) {
+            array.add(zipper(i1.next, i2.next))
+        }
 
-		return array
-	}
+        return array
+    }
 
-	//get(Int index) -> Type
-	//set(Int index, Type value) -> List<Type>
-	//add(Type value) -> List<Type>
-	//remove(Type value) -> List<Type>
-	//clone() -> List<Type>
-	public reverse() -> List<Type>
-	
-	public reduce<Out>(func(Out, Type, Int, List) -> Out, Out initialValue) -> Out {
-		Out value = initialValue
-		Int i = 0
-		
-		for (element in this) {
-			value = func(value, element, i++, this)
-		}
-		
-		return value
-	}
+    //get(Int index) -> Type
+    //set(Int index, Type value) -> List<Type>
+    //add(Type value) -> List<Type>
+    //remove(Type value) -> List<Type>
+    //clone() -> List<Type>
+    public reverse() -> List<Type>
+    
+    public reduce<Out>(func(Out, Type, Int, List) -> Out, Out initialValue) -> Out {
+        Out value = initialValue
+        Int i = 0
+        
+        for (element in this) {
+            value = func(value, element, i++, this)
+        }
+        
+        return value
+    }
 
     public join(String delimiter) =>
-		reduce((str, e, i) -> str + (i > 0 ? delimiter : "") + e, "")
-		//reduce({ _value + (_index > 0 ? delimiter : "") + _element })
+        reduce((str, e, i) -> str + (i > 0 ? delimiter : "") + e, "")
+        //reduce({ _value + (_index > 0 ? delimiter : "") + _element })
 }

@@ -8,7 +8,6 @@ package "nova/svg/no3"
  * Used in special purpose fuels. Under prolonged exposure to intense heat the
  * container may rupture violently and rocket.
  */
-public class No3
-{
+class No3 {
     public static select(String selection) => new No3Selection(selection)
 }

@@ -35,6 +35,7 @@ typedef struct nova_operators_Nova_Multiply nova_operators_Nova_Multiply;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 typedef struct nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTable;
@@ -55,6 +56,6 @@ CCLASS_CLASS
 )
 
 void nova_operators_Nova_Multiply_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_Object* nova_operators_Nova_Multiply_0_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value);nova_Nova_Object* nova_operators_Nova_Multiply_virtual0_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Multiply_Nova_value);
+nova_Nova_Object* nova_operators_Nova_Multiply_0_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* value);nova_Nova_Object* nova_operators_Nova_Multiply_virtual0_Nova_multiply(nova_operators_Nova_Multiply* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* value);
 
 #endif

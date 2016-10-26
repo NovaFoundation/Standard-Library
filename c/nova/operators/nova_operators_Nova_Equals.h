@@ -35,6 +35,7 @@ typedef struct nova_operators_Nova_Equals nova_operators_Nova_Equals;
 #include <nova/nova_Nova_String.h>
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
+#include <nova/regex/nova_regex_Nova_Pattern.h>
 
 
 typedef struct nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable;
@@ -55,6 +56,6 @@ CCLASS_CLASS
 )
 
 void nova_operators_Nova_Equals_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-char nova_operators_Nova_Equals_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Equals_Nova_another);char nova_operators_Nova_Equals_virtual_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* nova_operators_Nova_Equals_Nova_another);
+char nova_operators_Nova_Equals_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another);char nova_operators_Nova_Equals_virtual_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another);
 
 #endif
