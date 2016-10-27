@@ -11,13 +11,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     this[K key] -> V {
         get {
-            var pair = getPair(key)//?.value
-            
-            if (pair != null) {
-                return pair.value
-            }
-            
-            return null
+            return getPair(key)?.value
         }
         
         set {
@@ -28,7 +22,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     }
     
     public construct(Int bucketCount = 5, Int bucketSize = 5) {
-        buckets = new Array(bucketCount).map({ new Array<Pair<K, V>>(bucketSize) })
+        buckets = new Pair<K, V>[bucketCount][bucketSize]
         
         this.bucketSize = bucketSize
     }
