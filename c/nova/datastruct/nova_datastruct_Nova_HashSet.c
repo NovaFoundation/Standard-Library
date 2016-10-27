@@ -76,6 +76,8 @@ nova_datastruct_HashSet_Extension_VTable nova_datastruct_HashSet_Extension_VTabl
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_datastruct_Nova_HashSet_Nova_toString,
@@ -260,7 +262,7 @@ nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashSet_0_Nova_map(nova_da
 			l2_Nova_v = (nova_Nova_Object*)(nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nova_local_1, exceptionData));
 			if (l2_Nova_v != (nova_Nova_Object*)nova_null)
 			{
-				nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_datastruct_Nova_HashSet_Nova_func(nova_datastruct_Nova_HashSet_ref_Nova_func, exceptionData, (nova_Nova_Object*)(l2_Nova_v), l1_Nova_i++, this, func_context)));
+				nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_Nova_Object*)(nova_datastruct_Nova_HashSet_Nova_func(nova_datastruct_Nova_HashSet_ref_Nova_func, exceptionData, (nova_Nova_Object*)(l2_Nova_v), l1_Nova_i++, this, func_context)));
 			}
 		}
 	}

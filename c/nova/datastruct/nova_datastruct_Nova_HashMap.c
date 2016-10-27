@@ -81,6 +81,8 @@ nova_datastruct_HashMap_Extension_VTable nova_datastruct_HashMap_Extension_VTabl
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -256,7 +258,7 @@ nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashMap_Nova_map(nova_data
 			l2_Nova_pair = (nova_datastruct_Nova_Pair*)(nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next((nova_datastruct_list_Nova_ArrayIterator*)(nova_local_1), exceptionData));
 			if (l2_Nova_pair != (nova_datastruct_Nova_Pair*)nova_null && l2_Nova_pair != 0)
 			{
-				nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_datastruct_Nova_HashMap_Nova_func(nova_datastruct_Nova_HashMap_ref_Nova_func, exceptionData, l2_Nova_pair, l1_Nova_i++, this, func_context)));
+				nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_Nova_Object*)(nova_datastruct_Nova_HashMap_Nova_func(nova_datastruct_Nova_HashMap_ref_Nova_func, exceptionData, l2_Nova_pair, l1_Nova_i++, this, func_context)));
 			}
 		}
 	}
@@ -449,14 +451,9 @@ char nova_datastruct_Nova_HashMap_Nova_containsKey(nova_datastruct_Nova_HashMap*
 
 nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_get(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* key)
 {
-	nova_datastruct_Nova_Pair* l1_Nova_pair = (nova_datastruct_Nova_Pair*)nova_null;
+	nova_datastruct_Nova_Pair* l1_Nova_nova_local_0 = (nova_datastruct_Nova_Pair*)nova_null;
 	
-	l1_Nova_pair = nova_datastruct_Nova_HashMap_Nova_getPair(this, exceptionData, key);
-	if (l1_Nova_pair != (nova_datastruct_Nova_Pair*)nova_null)
-	{
-		return (nova_Nova_Object*)l1_Nova_pair->nova_datastruct_Nova_Pair_Nova_value;
-	}
-	return (nova_Nova_Object*)(nova_Nova_Object*)nova_null;
+	return (nova_Nova_Object*)(nova_Nova_Object*)((l1_Nova_nova_local_0 = nova_datastruct_Nova_HashMap_Nova_getPair(this, exceptionData, key)) != (nova_datastruct_Nova_Pair*)nova_null ? (l1_Nova_nova_local_0->nova_datastruct_Nova_Pair_Nova_value) : (nova_Nova_Object*)nova_null);
 }
 
 nova_Nova_Object* nova_datastruct_Nova_HashMap_Nova_set(nova_datastruct_Nova_HashMap* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* key, nova_Nova_Object* value)

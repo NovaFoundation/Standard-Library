@@ -94,6 +94,8 @@ nova_datastruct_Node_Extension_VTable nova_datastruct_Node_Extension_VTable_val 
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_datastruct_Nova_Node_Nova_toString,
@@ -250,17 +252,8 @@ nova_datastruct_list_Nova_Array* nova_datastruct_Nova_Node_1_Nova_levelorder(nov
 		};
 		
 		l1_Nova_current = (nova_datastruct_Nova_Node*)(nova_datastruct_list_Nova_Queue_Nova_dequeue((nova_datastruct_list_Nova_Queue*)(l1_Nova_queue), exceptionData));
-<<<<<<< HEAD
-		nova_datastruct_list_Nova_Array_0_Nova_add(nova_datastruct_Nova_Node_Nova_array, exceptionData, l1_Nova_current->nova_datastruct_Nova_Node_Nova_data);
-		nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_datastruct_Nova_Node_Nova_children), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_datastruct_Nova_Node_static_Nova_notNull, this, nova_null)), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_Node_Nova_testLambda30, this, &contextArg30);
-=======
 		nova_datastruct_list_Nova_Array_0_Nova_add(array, exceptionData, l1_Nova_current->nova_datastruct_Nova_Node_Nova_data);
-<<<<<<< HEAD
 		nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_datastruct_Nova_Node_Nova_children), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_datastruct_Nova_Node_Nova_testLambda37, this, &contextArg37)), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_Node_Nova_testLambda38, this, &contextArg38);
-=======
-		nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_datastruct_Nova_Node_Nova_children), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_datastruct_Nova_Node_Nova_testLambda42, this, &contextArg42)), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_Node_Nova_testLambda43, this, &contextArg43);
->>>>>>> origin/master
->>>>>>> 04b4697a796103dfbdf36b020010ca7f5f0c2abe
 	}
 	return (nova_datastruct_list_Nova_Array*)array;
 }

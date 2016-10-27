@@ -61,6 +61,8 @@ nova_datastruct_list_IntArray_Extension_VTable nova_datastruct_list_IntArray_Ext
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_datastruct_list_Nova_Array_Nova_toString,
@@ -178,7 +180,7 @@ nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_IntArray_Nova_map(nov
 	while (nova_datastruct_list_Nova_IntArrayIterator_Accessor_Nova_hasNext(nova_local_0, exceptionData))
 	{
 		l1_Nova_element = (int)(intptr_t)(nova_datastruct_list_Nova_IntArrayIterator_Accessor_Nova_next(nova_local_0, exceptionData));
-		nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_IntArray_Nova_mapFunc(nova_datastruct_list_Nova_IntArray_ref_Nova_mapFunc, exceptionData, l1_Nova_element, l1_Nova_i++, this, mapFunc_context)));
+		nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_Nova_Object*)(intptr_t)(nova_datastruct_list_Nova_IntArray_Nova_mapFunc(nova_datastruct_list_Nova_IntArray_ref_Nova_mapFunc, exceptionData, l1_Nova_element, l1_Nova_i++, this, mapFunc_context)));
 	}
 	return (nova_datastruct_list_Nova_Array*)l1_Nova_array;
 }

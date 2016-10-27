@@ -91,6 +91,8 @@ nova_math_Matrix_Extension_VTable nova_math_Matrix_Extension_VTable_val =
 		(nova_Nova_Object*(*)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_math_Nova_Matrix_Nova_multiply,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_Matrix_Nova_toString,

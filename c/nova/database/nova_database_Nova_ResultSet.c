@@ -58,6 +58,8 @@ nova_database_ResultSet_Extension_VTable nova_database_ResultSet_Extension_VTabl
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

@@ -74,6 +74,8 @@ nova_String_Extension_VTable nova_String_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_String_Nova_equals,
 	nova_Nova_String_Nova_toString,

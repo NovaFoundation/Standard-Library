@@ -60,6 +60,8 @@ nova_datastruct_list_IntRangeIterator_Extension_VTable nova_datastruct_list_IntR
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

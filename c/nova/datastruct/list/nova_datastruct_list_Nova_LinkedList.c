@@ -66,6 +66,8 @@ nova_datastruct_list_LinkedList_Extension_VTable nova_datastruct_list_LinkedList
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -231,7 +233,7 @@ nova_datastruct_list_Nova_LinkedList* nova_datastruct_list_Nova_LinkedList_0_Nov
 	while (nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_hasNext(nova_local_0, exceptionData))
 	{
 		l1_Nova_element = (nova_Nova_Object*)(nova_datastruct_list_Nova_LinkedListIterator_Accessor_Nova_next(nova_local_0, exceptionData));
-		nova_datastruct_list_Nova_LinkedList_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_datastruct_list_Nova_LinkedList_Nova_mapFunc(nova_datastruct_list_Nova_LinkedList_ref_Nova_mapFunc, exceptionData, (nova_Nova_Object*)(l1_Nova_element), l1_Nova_i++, this, mapFunc_context)));
+		nova_datastruct_list_Nova_LinkedList_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_Nova_Object*)(nova_datastruct_list_Nova_LinkedList_Nova_mapFunc(nova_datastruct_list_Nova_LinkedList_ref_Nova_mapFunc, exceptionData, (nova_Nova_Object*)(l1_Nova_element), l1_Nova_i++, this, mapFunc_context)));
 	}
 	return l1_Nova_array;
 }

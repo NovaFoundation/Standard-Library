@@ -58,6 +58,8 @@ nova_regex_Match_Extension_VTable nova_regex_Match_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_regex_Nova_Match_Nova_toString,

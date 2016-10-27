@@ -66,6 +66,8 @@ nova_datastruct_list_List_Extension_VTable nova_datastruct_list_List_Extension_V
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_datastruct_list_Nova_List_Nova_toArray,
 	nova_datastruct_list_Nova_List_0_Nova_contains,
@@ -148,7 +150,7 @@ nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_0_Nova_map(nova_d
 	while (nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext((nova_datastruct_list_Nova_Iterator*)(nova_local_0), exceptionData))
 	{
 		l2_Nova_element = (nova_Nova_Object*)(nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next((nova_datastruct_list_Nova_Iterator*)(nova_local_0), exceptionData));
-		nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_datastruct_list_Nova_List_Nova_mapFunc(nova_datastruct_list_Nova_List_ref_Nova_mapFunc, exceptionData, (nova_Nova_Object*)(l2_Nova_element), l1_Nova_i++, this, mapFunc_context)));
+		nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_Nova_Object*)(nova_datastruct_list_Nova_List_Nova_mapFunc(nova_datastruct_list_Nova_List_ref_Nova_mapFunc, exceptionData, (nova_Nova_Object*)(l2_Nova_element), l1_Nova_i++, this, mapFunc_context)));
 	}
 	return (nova_datastruct_list_Nova_List*)l1_Nova_array;
 }
@@ -299,7 +301,7 @@ nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_List_Nova_zip(nova_da
 	l1_Nova_array = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 	while (nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext((nova_datastruct_list_Nova_Iterator*)(l1_Nova_i1), exceptionData) && nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_hasNext((nova_datastruct_list_Nova_Iterator*)(l1_Nova_i2), exceptionData))
 	{
-		nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_datastruct_list_Nova_List_Nova_zipper(nova_datastruct_list_Nova_List_ref_Nova_zipper, exceptionData, (nova_Nova_Object*)(nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next((nova_datastruct_list_Nova_Iterator*)(l1_Nova_i1), exceptionData)), (OtherType*)(nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next((nova_datastruct_list_Nova_Iterator*)(l1_Nova_i2), exceptionData)), zipper_context)));
+		nova_datastruct_list_Nova_Array_0_Nova_add(l1_Nova_array, exceptionData, (nova_Nova_Object*)(nova_Nova_Object*)(nova_datastruct_list_Nova_List_Nova_zipper(nova_datastruct_list_Nova_List_ref_Nova_zipper, exceptionData, (nova_Nova_Object*)(nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next((nova_datastruct_list_Nova_Iterator*)(l1_Nova_i1), exceptionData)), (OtherType*)(nova_datastruct_list_Nova_Iterator_virtual_Accessor_Nova_next((nova_datastruct_list_Nova_Iterator*)(l1_Nova_i2), exceptionData)), zipper_context)));
 	}
 	return (nova_datastruct_list_Nova_Array*)l1_Nova_array;
 }
@@ -361,27 +363,27 @@ char nova_datastruct_list_Nova_List_virtual0_Nova_contains(nova_datastruct_list_
 
 nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_virtual0_Nova_forEach(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_List_closure3_Nova_func nova_datastruct_list_Nova_List_Nova_func, void* nova_datastruct_list_Nova_List_ref_Nova_func, void* func_context)
 {
-	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_datastruct_list_Nova_List_Nova_func, nova_datastruct_list_Nova_List_ref_Nova_func, func_context);
+	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)nova_datastruct_list_Nova_List_Nova_func, nova_datastruct_list_Nova_List_ref_Nova_func, func_context);
 }
 
 nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_virtual0_Nova_map(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_List_closure6_Nova_mapFunc nova_datastruct_list_Nova_List_Nova_mapFunc, void* nova_datastruct_list_Nova_List_ref_Nova_mapFunc, void* mapFunc_context)
 {
-	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_map((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_datastruct_list_Nova_List_Nova_mapFunc, nova_datastruct_list_Nova_List_ref_Nova_mapFunc, mapFunc_context);
+	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_map((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure6_Nova_mapFunc)nova_datastruct_list_Nova_List_Nova_mapFunc, nova_datastruct_list_Nova_List_ref_Nova_mapFunc, mapFunc_context);
 }
 
 char nova_datastruct_list_Nova_List_virtual0_Nova_any(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_List_closure9_Nova_anyFunc nova_datastruct_list_Nova_List_Nova_anyFunc, void* nova_datastruct_list_Nova_List_ref_Nova_anyFunc, void* anyFunc_context)
 {
-	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_datastruct_list_Nova_List_Nova_anyFunc, nova_datastruct_list_Nova_List_ref_Nova_anyFunc, anyFunc_context);
+	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)nova_datastruct_list_Nova_List_Nova_anyFunc, nova_datastruct_list_Nova_List_ref_Nova_anyFunc, anyFunc_context);
 }
 
 char nova_datastruct_list_Nova_List_virtual0_Nova_all(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_List_closure12_Nova_allFunc nova_datastruct_list_Nova_List_Nova_allFunc, void* nova_datastruct_list_Nova_List_ref_Nova_allFunc, void* allFunc_context)
 {
-	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_all((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_datastruct_list_Nova_List_Nova_allFunc, nova_datastruct_list_Nova_List_ref_Nova_allFunc, allFunc_context);
+	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_all((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure12_Nova_allFunc)nova_datastruct_list_Nova_List_Nova_allFunc, nova_datastruct_list_Nova_List_ref_Nova_allFunc, allFunc_context);
 }
 
 nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_virtual0_Nova_filter(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_List_closure15_Nova_filterFunc nova_datastruct_list_Nova_List_Nova_filterFunc, void* nova_datastruct_list_Nova_List_ref_Nova_filterFunc, void* filterFunc_context)
 {
-	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_datastruct_list_Nova_List_Nova_filterFunc, nova_datastruct_list_Nova_List_ref_Nova_filterFunc, filterFunc_context);
+	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)nova_datastruct_list_Nova_List_Nova_filterFunc, nova_datastruct_list_Nova_List_ref_Nova_filterFunc, filterFunc_context);
 }
 
 nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_virtual_Nova_take(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, int howMany)
@@ -396,7 +398,7 @@ nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_virtual_Nova_skip
 
 nova_Nova_Object* nova_datastruct_list_Nova_List_virtual0_Nova_firstWhere(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_List_closure18_Nova_func nova_datastruct_list_Nova_List_Nova_func, void* nova_datastruct_list_Nova_List_ref_Nova_func, void* func_context)
 {
-	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_firstWhere((nova_datastruct_list_Nova_List*)(this), exceptionData, nova_datastruct_list_Nova_List_Nova_func, nova_datastruct_list_Nova_List_ref_Nova_func, func_context);
+	return this->vtable->itable.nova_datastruct_list_Nova_List_virtual0_Nova_firstWhere((nova_datastruct_list_Nova_List*)(this), exceptionData, (nova_datastruct_list_Nova_List_closure18_Nova_func)nova_datastruct_list_Nova_List_Nova_func, nova_datastruct_list_Nova_List_ref_Nova_func, func_context);
 }
 
 nova_datastruct_list_Nova_List* nova_datastruct_list_Nova_List_virtual_Nova_reverse(nova_datastruct_list_Nova_List* this, nova_exception_Nova_ExceptionData* exceptionData)

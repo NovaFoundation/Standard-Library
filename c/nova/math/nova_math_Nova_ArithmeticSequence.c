@@ -59,6 +59,8 @@ nova_math_ArithmeticSequence_Extension_VTable nova_math_ArithmeticSequence_Exten
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
