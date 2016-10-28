@@ -135,7 +135,7 @@ class Regex {
             #{matchCount} = currentSize;
             
             #{
-                Array<Match> matches = new Array(matchCount)
+                var matches = new Array<Match>(matchCount)
             }
             
             #{values} = matchBoundaries;   
