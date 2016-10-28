@@ -223,7 +223,7 @@ nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(no
 	{
 		nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(l1_Nova_matches), exceptionData, l5_Nova_m, (nova_Nova_Object*)(nova_regex_Nova_Match_Nova_construct(0, exceptionData, search, l1_Nova_values[l5_Nova_m * 2], l1_Nova_values[l5_Nova_m * 2 + 1])));
 	}
-	return l1_Nova_matches;
+	return (nova_datastruct_list_Nova_Array*)l1_Nova_matches;
 }
 
 void nova_regex_Nova_Regex_Nova_this(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData)

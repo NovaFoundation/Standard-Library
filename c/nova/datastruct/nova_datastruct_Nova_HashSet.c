@@ -109,7 +109,7 @@ nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda24(nova_datastruct
 nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda25(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* _1, int _2, nova_datastruct_Nova_HashSet* _3, Context2* context);
 nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda26(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* _1, int _2, nova_datastruct_Nova_HashSet* _3, Context3* context);
 nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda27(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* _1, int _2, nova_datastruct_Nova_HashSet* _3, Context4* context);
-nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda28(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context5* context);
+nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashSet_Nova_testLambda28(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context5* context);
 void nova_datastruct_Nova_HashSet_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -497,9 +497,9 @@ nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda27(nova_datastruct
 	return _1;
 }
 
-nova_Nova_Object* nova_datastruct_Nova_HashSet_Nova_testLambda28(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context5* context)
+nova_datastruct_list_Nova_Array* nova_datastruct_Nova_HashSet_Nova_testLambda28(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context5* context)
 {
-	return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, (*context->nova_datastruct_Nova_HashSet_Nova_bucketSize));
+	return (nova_datastruct_list_Nova_Array*)nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, (*context->nova_datastruct_Nova_HashSet_Nova_bucketSize));
 }
 
 void nova_datastruct_Nova_HashSet_Nova_super(nova_datastruct_Nova_HashSet* this, nova_exception_Nova_ExceptionData* exceptionData)
