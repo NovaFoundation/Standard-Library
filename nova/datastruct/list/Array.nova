@@ -32,11 +32,11 @@ class Array<E> implements List<E> {
         increaseSize(10)
     }
 
-    public construct(Int count) {
+    public construct(Int count, Int initialCapacity = count) {
         this.position = 0
         this.capacity = 0
 
-        increaseSize(count)
+        increaseSize(initialCapacity)
 
         this.count = count
 
