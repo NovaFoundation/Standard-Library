@@ -1,11 +1,11 @@
 package "nova/datastruct/list"
 
 class Stack<E> {
-    visible Int size
+    visible Int count
     
     ListNode<E> top
     
-    visible Bool empty => size <= 0
+    visible Bool isEmpty => count <= 0
     
     public push(E data) {
         ListNode<E> node = new ListNode(data)
@@ -13,11 +13,11 @@ class Stack<E> {
         node.next = top
         top       = node
         
-        size++
+        count++
     }
     
     public pop() -> E {
-        if (empty) {
+        if (isEmpty) {
             throw new EmptyStackException()
         }
         
@@ -25,8 +25,12 @@ class Stack<E> {
         
         top = top.next
         
-        size--
+        count--
         
         return data
+    }
+    
+    public peek() -> E {
+    	return isEmpty ? null : top.data
     }
 }
