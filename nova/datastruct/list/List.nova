@@ -60,9 +60,11 @@ interface List<Type> extends Iterable<Type> {
         return false
     }
 
-    public all(allFunc(Type) -> Bool) -> Bool {
+    public all(allFunc(Type, Int, List<Type>) -> Bool) -> Bool {
+        Int i = 0
+        
         for (element in this) {
-            if (!allFunc(element)) {
+            if (!allFunc(element, i++, this)) {
                 return false
             }
         }
