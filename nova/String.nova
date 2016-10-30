@@ -162,6 +162,8 @@ class String implements Comparable<String> {
     	return defaultReturnValue
     }
     
+    public indexOf(Char search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) =>
+    	indexOf("#search", start, direction, defaultReturnValue)
     public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
         Int i = start
 
