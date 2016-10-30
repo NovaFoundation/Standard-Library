@@ -59,8 +59,6 @@ nova_security_MD5_Extension_VTable nova_security_MD5_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -105,7 +103,7 @@ nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_
 	
 	
 	l1_Nova_data = (char*)(nova_md5((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)));
-	if (l1_Nova_data == 0)
+	if ((nova_primitive_number_Nova_Byte*)l1_Nova_data == (nova_primitive_number_Nova_Byte*)0)
 	{
 		return (nova_Nova_String*)(nova_Nova_Object*)nova_null;
 	}

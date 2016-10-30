@@ -64,8 +64,6 @@ nova_network_ConnectionSocket_Extension_VTable nova_network_ConnectionSocket_Ext
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -162,7 +160,7 @@ nova_Nova_String* nova_network_Nova_ConnectionSocket_1_Nova_readString(nova_netw
 		
 		
 		l1_Nova_data = (char*)(nova_socket_receive(this->prv->nova_network_Nova_ConnectionSocket_Nova_socket));
-		if (l1_Nova_data == 0)
+		if ((nova_primitive_number_Nova_Byte*)l1_Nova_data == (nova_primitive_number_Nova_Byte*)0)
 		{
 			this->nova_network_Nova_ConnectionSocket_Nova_connected = 0;
 			return (nova_Nova_String*)(nova_Nova_Object*)nova_null;

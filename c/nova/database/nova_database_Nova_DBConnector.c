@@ -60,8 +60,6 @@ nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_V
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -156,7 +154,7 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 	}
 	
 	l1_Nova_arrays = (char***)(nova_get_results(this->prv->nova_database_Nova_DBConnector_Nova_mysql, this->prv->nova_database_Nova_DBConnector_Nova_result));
-	if (l1_Nova_arrays != 0)
+	if ((nova_primitive_number_Nova_Byte*)l1_Nova_arrays != (nova_primitive_number_Nova_Byte*)0)
 	{
 		int l2_Nova_numRows = 0;
 		int l2_Nova_numCols = 0;
@@ -166,13 +164,13 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 		
 		l2_Nova_numRows = (int)nova_num_rows(this->prv->nova_database_Nova_DBConnector_Nova_mysql);
 		l2_Nova_numCols = (int)nova_num_cols(this->prv->nova_database_Nova_DBConnector_Nova_result);
-		l2_Nova_rows = nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numRows);
+		l2_Nova_rows = nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numRows, (intptr_t)nova_null);
 		l4_Nova_i = (int)0;
 		for (; l4_Nova_i < (int)l2_Nova_numRows; l4_Nova_i++)
 		{
 			int l6_Nova_j = 0;
 			
-			nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numCols)));
+			nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(l2_Nova_rows), exceptionData, l4_Nova_i, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l2_Nova_numCols, (intptr_t)nova_null)));
 			l6_Nova_j = (int)0;
 			for (; l6_Nova_j < (int)l2_Nova_numCols; l6_Nova_j++)
 			{

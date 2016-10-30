@@ -59,8 +59,6 @@ nova_math_logic_StatementLetter_Extension_VTable nova_math_logic_StatementLetter
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

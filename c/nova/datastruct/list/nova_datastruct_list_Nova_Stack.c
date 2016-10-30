@@ -60,8 +60,6 @@ nova_datastruct_list_Stack_Extension_VTable nova_datastruct_list_Stack_Extension
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -117,36 +115,41 @@ void nova_datastruct_list_Nova_Stack_Nova_push(nova_datastruct_list_Nova_Stack* 
 	l1_Nova_node = nova_datastruct_list_Nova_ListNode_Nova_construct(0, exceptionData, data);
 	l1_Nova_node->nova_datastruct_list_Nova_ListNode_Nova_next = this->prv->nova_datastruct_list_Nova_Stack_Nova_top;
 	this->prv->nova_datastruct_list_Nova_Stack_Nova_top = l1_Nova_node;
-	this->nova_datastruct_list_Nova_Stack_Nova_size++;
+	this->nova_datastruct_list_Nova_Stack_Nova_count++;
 }
 
 nova_Nova_Object* nova_datastruct_list_Nova_Stack_Nova_pop(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	nova_Nova_Object* l1_Nova_data = (nova_Nova_Object*)nova_null;
 	
-	if (nova_datastruct_list_Nova_Stack_Accessor_Nova_empty(this, exceptionData))
+	if (nova_datastruct_list_Nova_Stack_Accessor_Nova_isEmpty(this, exceptionData))
 	{
 		THROW(4, nova_datastruct_list_Nova_EmptyStackException_Nova_construct(0, exceptionData, 0));
 	}
 	l1_Nova_data = this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_data;
 	this->prv->nova_datastruct_list_Nova_Stack_Nova_top = this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_next;
-	this->nova_datastruct_list_Nova_Stack_Nova_size--;
+	this->nova_datastruct_list_Nova_Stack_Nova_count--;
 	return (nova_Nova_Object*)l1_Nova_data;
+}
+
+nova_Nova_Object* nova_datastruct_list_Nova_Stack_Nova_peek(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return (nova_Nova_Object*)(nova_Nova_Object*)(nova_datastruct_list_Nova_Stack_Accessor_Nova_isEmpty(this, exceptionData) ? (nova_Nova_Object*)nova_null : this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_data);
 }
 
 void nova_datastruct_list_Nova_Stack_Nova_this(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 
-char nova_datastruct_list_Nova_Stack_Accessor_Nova_empty(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
+char nova_datastruct_list_Nova_Stack_Accessor_Nova_isEmpty(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return this->nova_datastruct_list_Nova_Stack_Nova_size <= 0;
+	return this->nova_datastruct_list_Nova_Stack_Nova_count <= 0;
 }
 
 
 void nova_datastruct_list_Nova_Stack_Nova_super(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->nova_datastruct_list_Nova_Stack_Nova_size = 0;
+	this->nova_datastruct_list_Nova_Stack_Nova_count = 0;
 	this->prv->nova_datastruct_list_Nova_Stack_Nova_top = (nova_datastruct_list_Nova_ListNode*)nova_null;
 }
 

@@ -58,8 +58,6 @@ nova_network_Socket_Extension_VTable nova_network_Socket_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

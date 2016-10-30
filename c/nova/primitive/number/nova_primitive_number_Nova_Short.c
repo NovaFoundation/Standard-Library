@@ -62,8 +62,6 @@ nova_primitive_number_Short_Extension_VTable nova_primitive_number_Short_Extensi
 		(nova_Nova_Object*(*)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_number_Nova_Short_Nova_multiply,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Short_Nova_toString,

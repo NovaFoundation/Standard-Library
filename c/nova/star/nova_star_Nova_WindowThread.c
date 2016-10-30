@@ -61,8 +61,6 @@ nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable_
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

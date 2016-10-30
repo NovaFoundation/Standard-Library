@@ -60,8 +60,6 @@ nova_regex_Regex_Extension_VTable nova_regex_Regex_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -215,7 +213,7 @@ nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(no
 	l1_Nova_matchCount = (int)(0);
 	
 	l1_Nova_matchCount = currentSize;
-	l1_Nova_matches = nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l1_Nova_matchCount);
+	l1_Nova_matches = nova_datastruct_list_Nova_Array_1_Nova_construct(0, exceptionData, l1_Nova_matchCount, (intptr_t)nova_null);
 	
 	l1_Nova_values = matchBoundaries;
 	l5_Nova_m = (int)0;

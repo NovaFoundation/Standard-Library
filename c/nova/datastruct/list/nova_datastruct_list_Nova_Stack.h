@@ -60,7 +60,7 @@ CCLASS_CLASS
 	
 	nova_datastruct_list_Stack_Extension_VTable* vtable;
 	nova_Nova_Class* nova_Nova_Object_Nova_class;
-	int nova_datastruct_list_Nova_Stack_Nova_size;
+	int nova_datastruct_list_Nova_Stack_Nova_count;
 	struct Private* prv;
 )
 
@@ -69,8 +69,9 @@ nova_datastruct_list_Nova_Stack* nova_datastruct_list_Nova_Stack_Nova_construct(
 void nova_datastruct_list_Nova_Stack_Nova_destroy(nova_datastruct_list_Nova_Stack** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_Stack_Nova_push(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data);
 nova_Nova_Object* nova_datastruct_list_Nova_Stack_Nova_pop(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_Object* nova_datastruct_list_Nova_Stack_Nova_peek(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_Stack_Nova_this(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_datastruct_list_Nova_Stack_Accessor_Nova_empty(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData);
+char nova_datastruct_list_Nova_Stack_Accessor_Nova_isEmpty(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_datastruct_list_Nova_Stack_Nova_super(nova_datastruct_list_Nova_Stack* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

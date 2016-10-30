@@ -58,8 +58,6 @@ nova_thread_async_AsyncResult_Extension_VTable nova_thread_async_AsyncResult_Ext
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
