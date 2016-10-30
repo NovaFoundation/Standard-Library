@@ -40,6 +40,13 @@ class CharArray extends Array<Char> {
     }
     
     [Override]
+    public addUnique(Char element) => this {
+        if (!contains(element)) {
+            add(element)
+        }
+    }
+    
+    [Override]
     public contains(Char value) -> Bool {
         return any({ _ == value })
     }

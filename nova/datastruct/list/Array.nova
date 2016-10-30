@@ -62,7 +62,13 @@ class Array<E> implements List<E> {
             add(d)
         }
     }
-
+    
+    public addUnique(E element) => this {
+        if (!contains(element)) {
+            add(element)
+        }
+    }
+    
     public add(E element) => this {
         if (position >= capacity) {
             increaseSize()

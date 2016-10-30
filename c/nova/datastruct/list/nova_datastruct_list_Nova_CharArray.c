@@ -72,6 +72,7 @@ nova_datastruct_list_CharArray_Extension_VTable nova_datastruct_list_CharArray_E
 	nova_Nova_Object_Nova_equals,
 	nova_datastruct_list_Nova_Array_Nova_toString,
 	nova_datastruct_list_Nova_CharArray_Accessor_Nova_hashCodeLong,
+	nova_datastruct_list_Nova_CharArray_Nova_addUnique,
 	nova_datastruct_list_Nova_Array_Nova_toArray,
 	nova_datastruct_list_Nova_CharArray_Nova_map,
 	nova_datastruct_list_Nova_CharArray_Nova_forEach,
@@ -209,6 +210,15 @@ long_long nova_datastruct_list_Nova_CharArray_Nova_reduce(nova_datastruct_list_N
 		l1_Nova_value = nova_datastruct_list_Nova_CharArray_Nova_func(nova_datastruct_list_Nova_CharArray_ref_Nova_func, exceptionData, l1_Nova_value, l1_Nova_element, l1_Nova_i++, this, func_context);
 	}
 	return l1_Nova_value;
+}
+
+nova_datastruct_list_Nova_CharArray* nova_datastruct_list_Nova_CharArray_Nova_addUnique(nova_datastruct_list_Nova_CharArray* this, nova_exception_Nova_ExceptionData* exceptionData, char element)
+{
+	if (!nova_datastruct_list_Nova_CharArray_Nova_contains(this, exceptionData, element))
+	{
+		nova_datastruct_list_Nova_Array_0_Nova_add((nova_datastruct_list_Nova_Array*)(this), exceptionData, (nova_Nova_Object*)(intptr_t)(element));
+	}
+	return this;
 }
 
 char nova_datastruct_list_Nova_CharArray_Nova_contains(nova_datastruct_list_Nova_CharArray* this, nova_exception_Nova_ExceptionData* exceptionData, char value)
