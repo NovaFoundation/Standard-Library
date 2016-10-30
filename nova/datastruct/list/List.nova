@@ -85,6 +85,21 @@ interface List<Type> extends Iterable<Type> {
 
         return list
     }
+    
+    [RequireGenericType Type extends String]
+    public filterEmpty() -> List<String> {
+        String[] list = new String[]
+        
+        Int i = 0
+        
+        for (value in this) {
+            if (value != null && ((String)value).count > 0) {
+                list.add(value)
+            }
+        }
+
+        return list
+    }
 
     public take(Int howMany) -> List<Type> {
         Type[] list = new Array()
