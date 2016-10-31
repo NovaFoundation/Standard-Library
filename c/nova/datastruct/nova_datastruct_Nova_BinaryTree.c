@@ -65,6 +65,8 @@ nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
@@ -73,7 +75,7 @@ nova_datastruct_BinaryTree_Extension_VTable nova_datastruct_BinaryTree_Extension
 
 
 
-void nova_datastruct_Nova_BinaryTree_Nova_testLambda24(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
+void nova_datastruct_Nova_BinaryTree_Nova_testLambda25(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
 void nova_datastruct_Nova_BinaryTree_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -126,15 +128,15 @@ nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNode(no
 
 nova_datastruct_Nova_BinaryTree* nova_datastruct_Nova_BinaryTree_Nova_addNodes(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
 {
-	Context1 contextArg24 = 
+	Context1 contextArg25 = 
 	{
 	};
 	
-	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_BinaryTree_Nova_testLambda24, this, &contextArg24);
+	nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(data), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_datastruct_Nova_BinaryTree_Nova_testLambda25, this, &contextArg25);
 	return this;
 }
 
-void nova_datastruct_Nova_BinaryTree_Nova_testLambda24(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
+void nova_datastruct_Nova_BinaryTree_Nova_testLambda25(nova_datastruct_Nova_BinaryTree* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_Nova_Comparable* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
 {
 	nova_datastruct_Nova_BinaryTree_Nova_addNode(this, exceptionData, _1);
 }
