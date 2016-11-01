@@ -288,6 +288,18 @@ int nova_datastruct_list_Nova_Array_Nova_indexOf(nova_datastruct_list_Nova_Array
 	return (int)-1;
 }
 
+nova_Nova_Object* nova_datastruct_list_Nova_Array_Nova_replace(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* element, nova_Nova_Object* other)
+{
+	int l1_Nova_index = 0;
+	
+	l1_Nova_index = nova_datastruct_list_Nova_Array_Nova_indexOf(this, exceptionData, element);
+	if (l1_Nova_index >= 0)
+	{
+		nova_datastruct_list_Nova_Array_virtual_Nova_set((nova_datastruct_list_Nova_Array*)(this), exceptionData, l1_Nova_index, other);
+	}
+	return (nova_Nova_Object*)other;
+}
+
 nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_Nova_shiftRight(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, int left, int right)
 {
 	int l1_Nova_i = 0;

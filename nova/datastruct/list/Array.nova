@@ -130,6 +130,14 @@ class Array<E> implements List<E> {
 
         return -1
     }
+    
+    public replace(E element, E other) => other {
+        var index = indexOf(element)
+        
+        if (index >= 0) {
+            this[index] = other
+        }
+    }
 
     shiftRight(Int left, Int right) => this {
         Int i = right - 1
