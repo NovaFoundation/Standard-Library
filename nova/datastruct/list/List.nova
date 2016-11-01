@@ -56,33 +56,37 @@ interface List<Type> extends Iterable<Type> {
                 return true
             }
         }
-
+        
         return false
     }
 
-    public all(allFunc(Type, Int, List<Type>) -> Bool) -> Bool {
+    public all(allFunc(Type, Int, List<Type>) -> Bool, Bool stopOnContradiction = true) -> Bool {
         Int i = 0
+        
+        var contradiction = false
         
         for (element in this) {
             if (!allFunc(element, i++, this)) {
-                return false
+                if (stopOnContradiction) return false
+                
+                contradiction = true
             }
         }
-
-        return true
+        
+        return !contradiction
     }
 
     public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type> {
         Type[] list = new Array()
-
+        
         Int i = 0
-
+        
         for (value in this) {
             if (filterFunc(value, i++, this)) {
                 list.add(value)
             }
         }
-
+        
         return list
     }
     

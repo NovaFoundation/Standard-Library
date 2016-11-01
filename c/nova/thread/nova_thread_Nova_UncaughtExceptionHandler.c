@@ -60,6 +60,7 @@ nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExcept
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

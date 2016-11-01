@@ -64,6 +64,7 @@ nova_primitive_number_Int_Extension_VTable nova_primitive_number_Int_Extension_V
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Int_Nova_toString,

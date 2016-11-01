@@ -60,6 +60,7 @@ nova_exception_InvalidArgumentException_Extension_VTable nova_exception_InvalidA
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

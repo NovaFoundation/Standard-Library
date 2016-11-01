@@ -61,6 +61,7 @@ nova_web_svg_no3_No3Select_Extension_VTable nova_web_svg_no3_No3Select_Extension
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

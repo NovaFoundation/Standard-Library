@@ -62,6 +62,7 @@ nova_web_svg_SvgComponent_Extension_VTable nova_web_svg_SvgComponent_Extension_V
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,

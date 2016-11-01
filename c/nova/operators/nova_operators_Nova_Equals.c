@@ -58,6 +58,7 @@ nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable_va
 		0,
 		0,
 		0,
+		0,
 	},
 	nova_operators_Nova_Equals_virtual_Nova_equals,
 };
