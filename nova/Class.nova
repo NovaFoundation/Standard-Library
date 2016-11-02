@@ -1,7 +1,52 @@
 package "nova"
 
 class Class {
-    Int id
+    visible Class extension
+    visible Class[] interfaces = new Class[]
     
+    visible Bool isInterface
     
+    visible String location
+    visible String package => location.substring(0, location.lastIndexOf("/", defaultReturnValue: 0))
+    visible String name => location.substring(location.lastIndexOf("/") + 1)
+    
+    public construct(String location, Bool isInterface) {
+        this.location = location
+        this.isInterface = isInterface
+    }
+    
+    public isOfType(Class other) =>
+        other.isInterface ?
+            isOfTypeInterface(other) :
+            isOfTypeClass(other)
+    
+    isOfTypeClass(Class other) -> Bool {
+        var current = this
+        
+        while (current != null) {
+            if (current == other) {
+                return true
+            }
+            
+            current = current.extension
+        }
+        
+        return false
+    }
+    
+    isOfTypeInterface(Class other) -> Bool {
+        var current = this
+        
+        while (current != null) {
+            if (current.interfaces.any({ _ == other })) {
+                return true
+            }
+            
+            current = current.extension
+        }
+        
+        return false
+    }
+    
+    public toString() => "Class #name #package \"#location\""
 }
