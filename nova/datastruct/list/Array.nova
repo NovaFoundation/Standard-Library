@@ -131,11 +131,15 @@ class Array<E> implements List<E> {
         return -1
     }
     
-    public replace(E element, E other) => other {
+    public replace(E element, E other) -> Bool {
         var index = indexOf(element)
         
         if (index >= 0) {
             this[index] = other
+            
+            return true
+        } else {
+            return false
         }
     }
 
