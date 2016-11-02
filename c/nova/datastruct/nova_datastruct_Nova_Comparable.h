@@ -42,6 +42,7 @@ typedef struct nova_datastruct_Nova_Comparable nova_datastruct_Nova_Comparable;
 typedef struct nova_datastruct_Comparable_Extension_VTable nova_datastruct_Comparable_Extension_VTable;
 struct nova_datastruct_Comparable_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	int (*nova_datastruct_Nova_Comparable_virtual0_Nova_compareTo)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };

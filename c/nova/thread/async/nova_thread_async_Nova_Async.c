@@ -35,6 +35,7 @@
 
 nova_thread_async_Async_Extension_VTable nova_thread_async_Async_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

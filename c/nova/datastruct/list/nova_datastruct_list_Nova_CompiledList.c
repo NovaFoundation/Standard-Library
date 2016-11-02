@@ -34,6 +34,7 @@
 
 nova_datastruct_list_CompiledList_Extension_VTable nova_datastruct_list_CompiledList_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

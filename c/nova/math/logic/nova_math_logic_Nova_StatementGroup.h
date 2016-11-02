@@ -45,6 +45,7 @@ typedef struct nova_math_logic_Nova_StatementGroup nova_math_logic_Nova_Statemen
 typedef struct nova_math_logic_StatementGroup_Extension_VTable nova_math_logic_StatementGroup_Extension_VTable;
 struct nova_math_logic_StatementGroup_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -59,7 +60,6 @@ CCLASS_CLASS
 	nova_math_logic_Nova_StatementGroup, 
 	
 	nova_math_logic_StatementGroup_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_math_logic_Nova_StatementGroup_Nova_statement;
 	nova_datastruct_Nova_Bounds* nova_math_logic_Nova_StatementGroup_Nova_bounds;
 )

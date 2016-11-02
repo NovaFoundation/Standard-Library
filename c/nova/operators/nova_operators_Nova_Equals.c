@@ -32,6 +32,7 @@
 
 nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

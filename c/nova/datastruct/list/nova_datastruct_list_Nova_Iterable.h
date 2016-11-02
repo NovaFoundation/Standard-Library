@@ -43,6 +43,7 @@ typedef struct nova_datastruct_list_Nova_Iterable nova_datastruct_list_Nova_Iter
 typedef struct nova_datastruct_list_Iterable_Extension_VTable nova_datastruct_list_Iterable_Extension_VTable;
 struct nova_datastruct_list_Iterable_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	nova_datastruct_list_Nova_Iterator* (*nova_datastruct_list_Nova_Iterable_virtual_Accessor_Nova_iterator)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*);
 };

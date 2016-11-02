@@ -37,6 +37,7 @@
 
 nova_datastruct_list_IntArray_Extension_VTable nova_datastruct_list_IntArray_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		(nova_datastruct_list_Nova_Iterator*(*)(nova_datastruct_list_Nova_Iterable*, nova_exception_Nova_ExceptionData*))nova_datastruct_list_Nova_Array_Accessor_Nova_iterator,

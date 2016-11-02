@@ -35,6 +35,7 @@
 
 nova_io_OutputStream_Extension_VTable nova_io_OutputStream_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

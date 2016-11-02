@@ -48,6 +48,7 @@ typedef struct nova_web_js_json_Nova_Json nova_web_js_json_Nova_Json;
 typedef struct nova_web_js_json_Json_Extension_VTable nova_web_js_json_Json_Extension_VTable;
 struct nova_web_js_json_Json_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_web_js_json_Nova_Json*, nova_exception_Nova_ExceptionData*);
@@ -74,7 +75,6 @@ CCLASS_CLASS
 	nova_web_js_json_Nova_Json, 
 	
 	nova_web_js_json_Json_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_Nova_HashMap_Nova_size;
 	struct Private* prv;
 )

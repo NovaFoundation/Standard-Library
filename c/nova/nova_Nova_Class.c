@@ -30,10 +30,15 @@
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
+typedef struct
+{
+	/* Class other */ nova_Nova_Class** nova_Nova_Class_Nova_other;
+} Context1;
 
 
 nova_Class_Extension_VTable nova_Class_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,
@@ -63,31 +68,32 @@ nova_Class_Extension_VTable nova_Class_Extension_VTable_val =
 		0,
 	},
 	nova_Nova_Object_Nova_equals,
-	nova_Nova_Object_Nova_toString,
+	nova_Nova_Class_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
 
-CCLASS_PRIVATE
-(
-	int nova_Nova_Class_Nova_id;
-	
-)
+
+char nova_Nova_Class_Nova_isOfTypeClass(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other);
+char nova_Nova_Class_Nova_isOfTypeInterface(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other);
+char nova_Nova_Class_Nova_testLambda28(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context);
+
+
 void nova_Nova_Class_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
 	}
 }
 
-nova_Nova_Class* nova_Nova_Class_Nova_construct(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_Nova_Class* nova_Nova_Class_Nova_construct(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location, char isInterface)
 {
-	CCLASS_NEW(nova_Nova_Class, this);
+	CCLASS_NEW(nova_Nova_Class, this,);
 	this->vtable = &nova_Class_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_Nova_Class_Nova_super(this, exceptionData);
 	
 	{
-		nova_Nova_Class_Nova_this(this, exceptionData);
+		nova_Nova_Class_Nova_this(this, exceptionData, location, isInterface);
 	}
 	
 	return this;
@@ -100,18 +106,90 @@ void nova_Nova_Class_Nova_destroy(nova_Nova_Class** this, nova_exception_Nova_Ex
 		return;
 	}
 	
+	nova_Nova_Class_Nova_destroy(&(*this)->nova_Nova_Class_Nova_extension, exceptionData);
+	nova_datastruct_list_Nova_Array_Nova_destroy(&(*this)->nova_Nova_Class_Nova_interfaces, exceptionData);
 	
-	NOVA_FREE((*this)->prv);
+	nova_Nova_String_Nova_destroy(&(*this)->nova_Nova_Class_Nova_location, exceptionData);
 	
 	NOVA_FREE(*this);
 }
 
-void nova_Nova_Class_Nova_this(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_Nova_Class_Nova_this(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location, char isInterface)
 {
+	this->nova_Nova_Class_Nova_location = location;
+	this->nova_Nova_Class_Nova_isInterface = isInterface;
 }
+
+char nova_Nova_Class_Nova_isOfType(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other)
+{
+	return (char)(other->nova_Nova_Class_Nova_isInterface ? nova_Nova_Class_Nova_isOfTypeInterface(this, exceptionData, other) : nova_Nova_Class_Nova_isOfTypeClass(this, exceptionData, other));
+}
+
+char nova_Nova_Class_Nova_isOfTypeClass(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other)
+{
+	nova_Nova_Class* l1_Nova_current = (nova_Nova_Class*)nova_null;
+	
+	l1_Nova_current = this;
+	while (l1_Nova_current != (nova_Nova_Class*)nova_null)
+	{
+		if (l1_Nova_current == other)
+		{
+			return 1;
+		}
+		l1_Nova_current = l1_Nova_current->nova_Nova_Class_Nova_extension;
+	}
+	return 0;
+}
+
+char nova_Nova_Class_Nova_isOfTypeInterface(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other)
+{
+	nova_Nova_Class* l1_Nova_current = (nova_Nova_Class*)nova_null;
+	
+	l1_Nova_current = this;
+	while (l1_Nova_current != (nova_Nova_Class*)nova_null)
+	{
+		Context1 contextArg28 = 
+		{
+			&other,
+		};
+		
+		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_Nova_Class_Nova_interfaces), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_Nova_Class_Nova_testLambda28, this, &contextArg28))
+		{
+			return 1;
+		}
+		l1_Nova_current = l1_Nova_current->nova_Nova_Class_Nova_extension;
+	}
+	return 0;
+}
+
+nova_Nova_String* nova_Nova_Class_Nova_toString(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Class "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_Nova_Class_Accessor_Nova_name(this, exceptionData))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" "))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_Nova_Class_Accessor_Nova_package(this, exceptionData))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(" \""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this->nova_Nova_Class_Nova_location)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\""))))))));
+}
+
+char nova_Nova_Class_Nova_testLambda28(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context)
+{
+	return _1 == (*context->nova_Nova_Class_Nova_other);
+}
+
+nova_Nova_String* nova_Nova_Class_Accessor_Nova_package(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, 0, nova_Nova_String_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, 0));
+}
+
+
+nova_Nova_String* nova_Nova_Class_Accessor_Nova_name(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, (intptr_t)nova_null) + 1, (intptr_t)nova_null);
+}
+
 
 void nova_Nova_Class_Nova_super(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->prv->nova_Nova_Class_Nova_id = 0;
+	this->nova_Nova_Class_Nova_extension = (nova_Nova_Class*)nova_null;
+	this->nova_Nova_Class_Nova_interfaces = (nova_datastruct_list_Nova_Array*)nova_null;
+	this->nova_Nova_Class_Nova_isInterface = 0;
+	this->nova_Nova_Class_Nova_location = (nova_Nova_String*)nova_null;
+	this->nova_Nova_Class_Nova_interfaces = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 }
 

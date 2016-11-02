@@ -47,6 +47,7 @@ typedef struct nova_web_svg_Nova_SvgCircle nova_web_svg_Nova_SvgCircle;
 typedef struct nova_web_svg_SvgCircle_Extension_VTable nova_web_svg_SvgCircle_Extension_VTable;
 struct nova_web_svg_SvgCircle_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_web_svg_Nova_SvgCircle*, nova_exception_Nova_ExceptionData*);
@@ -62,7 +63,6 @@ CCLASS_CLASS
 	nova_web_svg_Nova_SvgCircle, 
 	
 	nova_web_svg_SvgCircle_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_web_svg_Nova_SvgComponentList* nova_web_svg_Nova_SvgComponent_Nova_children;
 	double nova_web_svg_Nova_SvgCircle_Nova_x;
 	double nova_web_svg_Nova_SvgCircle_Nova_y;

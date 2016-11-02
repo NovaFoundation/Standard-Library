@@ -45,6 +45,7 @@ typedef struct nova_network_Nova_NetworkInputStream nova_network_Nova_NetworkInp
 typedef struct nova_network_NetworkInputStream_Extension_VTable nova_network_NetworkInputStream_Extension_VTable;
 struct nova_network_NetworkInputStream_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_io_Nova_InputStream_virtual_Nova_readString)(nova_network_Nova_NetworkInputStream*, nova_exception_Nova_ExceptionData*);
 	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual_Nova_readBytes)(nova_network_Nova_NetworkInputStream*, nova_exception_Nova_ExceptionData*);

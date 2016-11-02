@@ -46,6 +46,7 @@ typedef struct nova_regex_Nova_Regex nova_regex_Nova_Regex;
 typedef struct nova_regex_Regex_Extension_VTable nova_regex_Regex_Extension_VTable;
 struct nova_regex_Regex_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -60,7 +61,7 @@ CCLASS_CLASS
 	nova_regex_Nova_Regex, 
 	
 	nova_regex_Regex_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
+	nova_Nova_Class* nova_regex_Nova_Regex_Nova_class;
 )
 
 void nova_regex_Nova_Regex_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

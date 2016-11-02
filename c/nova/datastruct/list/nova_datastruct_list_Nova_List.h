@@ -77,6 +77,7 @@ typedef nova_Nova_Object* (*nova_datastruct_list_Nova_List_closure27_Nova_func)(
 typedef struct nova_datastruct_list_List_Extension_VTable nova_datastruct_list_List_Extension_VTable;
 struct nova_datastruct_list_List_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	nova_datastruct_list_Nova_Array* (*nova_datastruct_list_Nova_List_virtual_Nova_toArray)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*);
 	char (*nova_datastruct_list_Nova_List_virtual0_Nova_contains)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);

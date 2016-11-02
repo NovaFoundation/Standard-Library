@@ -4,9 +4,6 @@ import "nova/NativeObject.h"
 import "nova/operators/Equals"
 
 class Object implements Equals {
-	visible Class class
-	visible static Class class
-	
     external char[] hashCode(Object obj)
     /*char** endptr*/
 

@@ -38,6 +38,7 @@
 
 nova_datastruct_list_LinkedListIterator_Extension_VTable nova_datastruct_list_LinkedListIterator_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

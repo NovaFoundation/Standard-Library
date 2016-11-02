@@ -45,6 +45,7 @@ typedef struct nova_datastruct_Nova_Tree nova_datastruct_Nova_Tree;
 typedef struct nova_datastruct_Tree_Extension_VTable nova_datastruct_Tree_Extension_VTable;
 struct nova_datastruct_Tree_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
@@ -59,7 +60,6 @@ CCLASS_CLASS
 	nova_datastruct_Nova_Tree, 
 	
 	nova_datastruct_Tree_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_datastruct_Nova_Node* nova_datastruct_Nova_Tree_Nova_root;
 )
 

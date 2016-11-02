@@ -75,6 +75,7 @@ typedef char (*nova_datastruct_list_Nova_CharArray_closure24_Nova_func)(void*, n
 typedef struct nova_datastruct_list_CharArray_Extension_VTable nova_datastruct_list_CharArray_Extension_VTable;
 struct nova_datastruct_list_CharArray_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_datastruct_list_Nova_Array*, nova_exception_Nova_ExceptionData*);
@@ -106,7 +107,6 @@ CCLASS_CLASS
 	nova_datastruct_list_Nova_CharArray, 
 	
 	nova_datastruct_list_CharArray_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_datastruct_list_Nova_Array_Nova_capacity;
 	int nova_datastruct_list_Nova_Array_Nova_count;
 	int nova_datastruct_list_Nova_Array_Nova_position;

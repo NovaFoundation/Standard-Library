@@ -37,6 +37,7 @@
 
 nova_svg_SvgCircle_Extension_VTable nova_svg_SvgCircle_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

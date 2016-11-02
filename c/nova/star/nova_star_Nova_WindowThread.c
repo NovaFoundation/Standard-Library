@@ -37,6 +37,7 @@
 
 nova_star_WindowThread_Extension_VTable nova_star_WindowThread_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

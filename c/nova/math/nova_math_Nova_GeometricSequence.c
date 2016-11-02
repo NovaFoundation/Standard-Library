@@ -34,6 +34,7 @@
 
 nova_math_GeometricSequence_Extension_VTable nova_math_GeometricSequence_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

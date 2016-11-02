@@ -42,6 +42,7 @@ typedef struct nova_operators_Nova_Equals nova_operators_Nova_Equals;
 typedef struct nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable;
 struct nova_operators_Equals_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };

@@ -36,6 +36,7 @@
 
 nova_database_DBConnector_Extension_VTable nova_database_DBConnector_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

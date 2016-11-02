@@ -40,6 +40,12 @@ typedef struct nova_primitive_number_Nova_Integer nova_primitive_number_Nova_Int
 
 
 typedef struct nova_primitive_number_Integer_Extension_VTable nova_primitive_number_Integer_Extension_VTable;
+struct nova_primitive_number_Integer_Extension_VTable
+{
+	nova_Nova_Class* classInstance;
+	nova_Interface_VTable itable;
+};
+
 extern nova_primitive_number_Integer_Extension_VTable nova_primitive_number_Integer_Extension_VTable_val;
 
 

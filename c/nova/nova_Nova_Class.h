@@ -44,9 +44,10 @@ typedef struct nova_Nova_Class nova_Nova_Class;
 typedef struct nova_Class_Extension_VTable nova_Class_Extension_VTable;
 struct nova_Class_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
-	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Class*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -58,14 +59,20 @@ CCLASS_CLASS
 	nova_Nova_Class, 
 	
 	nova_Class_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
-	struct Private* prv;
+	nova_Nova_Class* nova_Nova_Class_Nova_extension;
+	nova_datastruct_list_Nova_Array* nova_Nova_Class_Nova_interfaces;
+	char nova_Nova_Class_Nova_isInterface;
+	nova_Nova_String* nova_Nova_Class_Nova_location;
 )
 
 void nova_Nova_Class_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_Class* nova_Nova_Class_Nova_construct(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_Class* nova_Nova_Class_Nova_construct(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location, char isInterface);
 void nova_Nova_Class_Nova_destroy(nova_Nova_Class** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_Nova_Class_Nova_this(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_Nova_Class_Nova_this(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location, char isInterface);
+char nova_Nova_Class_Nova_isOfType(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other);
+nova_Nova_String* nova_Nova_Class_Nova_toString(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_String* nova_Nova_Class_Accessor_Nova_package(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_String* nova_Nova_Class_Accessor_Nova_name(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_Nova_Class_Nova_super(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

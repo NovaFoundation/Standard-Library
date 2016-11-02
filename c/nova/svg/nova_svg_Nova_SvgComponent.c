@@ -36,6 +36,7 @@
 
 nova_svg_SvgComponent_Extension_VTable nova_svg_SvgComponent_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

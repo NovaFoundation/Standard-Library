@@ -39,6 +39,7 @@
 
 nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable_val =
 {
+	0,
 	{
 		(int(*)(nova_datastruct_Nova_Comparable*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_String_Nova_compareTo,
 		0,

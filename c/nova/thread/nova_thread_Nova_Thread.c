@@ -38,6 +38,7 @@ typedef void (*nova_thread_Nova_Thread_closure1_Nova_run)(void*, nova_exception_
 
 nova_thread_Thread_Extension_VTable nova_thread_Thread_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

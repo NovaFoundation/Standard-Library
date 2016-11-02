@@ -42,6 +42,7 @@ typedef struct nova_io_Nova_InputStream nova_io_Nova_InputStream;
 typedef struct nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable;
 struct nova_io_InputStream_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_io_Nova_InputStream_virtual_Nova_readString)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);
 	nova_datastruct_list_Nova_Array* (*nova_io_Nova_InputStream_virtual_Nova_readBytes)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*);

@@ -40,6 +40,12 @@ typedef struct nova_primitive_number_Nova_RealNumber nova_primitive_number_Nova_
 
 
 typedef struct nova_primitive_number_RealNumber_Extension_VTable nova_primitive_number_RealNumber_Extension_VTable;
+struct nova_primitive_number_RealNumber_Extension_VTable
+{
+	nova_Nova_Class* classInstance;
+	nova_Interface_VTable itable;
+};
+
 extern nova_primitive_number_RealNumber_Extension_VTable nova_primitive_number_RealNumber_Extension_VTable_val;
 
 

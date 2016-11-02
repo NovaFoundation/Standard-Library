@@ -35,6 +35,7 @@
 
 nova_time_Timer_Extension_VTable nova_time_Timer_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

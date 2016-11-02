@@ -34,6 +34,7 @@
 
 nova_exception_Backtraces_Extension_VTable nova_exception_Backtraces_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,
@@ -95,6 +96,7 @@ void nova_exception_Nova_Backtraces_Nova_destroy(nova_exception_Nova_Backtraces*
 		return;
 	}
 	
+	nova_Nova_Class_Nova_destroy(&(*this)->nova_exception_Nova_Backtraces_Nova_class, exceptionData);
 	
 	NOVA_FREE(*this);
 }
@@ -105,5 +107,6 @@ void nova_exception_Nova_Backtraces_Nova_this(nova_exception_Nova_Backtraces* th
 
 void nova_exception_Nova_Backtraces_Nova_super(nova_exception_Nova_Backtraces* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
+	this->nova_exception_Nova_Backtraces_Nova_class = (nova_Nova_Class*)nova_null;
 }
 

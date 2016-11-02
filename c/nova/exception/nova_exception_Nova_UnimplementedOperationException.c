@@ -34,6 +34,7 @@
 
 nova_exception_UnimplementedOperationException_Extension_VTable nova_exception_UnimplementedOperationException_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

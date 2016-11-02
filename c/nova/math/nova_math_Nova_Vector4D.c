@@ -35,6 +35,7 @@
 
 nova_math_Vector4D_Extension_VTable nova_math_Vector4D_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

@@ -47,6 +47,7 @@ typedef struct nova_datastruct_Nova_BinaryNode nova_datastruct_Nova_BinaryNode;
 typedef struct nova_datastruct_BinaryNode_Extension_VTable nova_datastruct_BinaryNode_Extension_VTable;
 struct nova_datastruct_BinaryNode_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_datastruct_Nova_Node*, nova_exception_Nova_ExceptionData*);
@@ -61,7 +62,6 @@ CCLASS_CLASS
 	nova_datastruct_Nova_BinaryNode, 
 	
 	nova_datastruct_BinaryNode_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	nova_Nova_Object* nova_datastruct_Nova_Node_Nova_data;
 	nova_datastruct_list_Nova_Array* nova_datastruct_Nova_Node_Nova_children;
 )

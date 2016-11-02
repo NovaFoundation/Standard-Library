@@ -36,6 +36,7 @@
 
 nova_regex_Regex_Extension_VTable nova_regex_Regex_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,
@@ -97,6 +98,7 @@ void nova_regex_Nova_Regex_Nova_destroy(nova_regex_Nova_Regex** this, nova_excep
 		return;
 	}
 	
+	nova_Nova_Class_Nova_destroy(&(*this)->nova_regex_Nova_Regex_Nova_class, exceptionData);
 	
 	NOVA_FREE(*this);
 }
@@ -233,5 +235,6 @@ void nova_regex_Nova_Regex_Nova_this(nova_regex_Nova_Regex* this, nova_exception
 
 void nova_regex_Nova_Regex_Nova_super(nova_regex_Nova_Regex* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
+	this->nova_regex_Nova_Regex_Nova_class = (nova_Nova_Class*)nova_null;
 }
 

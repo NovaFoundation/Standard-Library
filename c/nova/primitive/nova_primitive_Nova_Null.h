@@ -49,6 +49,7 @@ typedef struct nova_primitive_Nova_Null nova_primitive_Nova_Null;
 typedef struct nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable;
 struct nova_primitive_Null_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_String*, nova_exception_Nova_ExceptionData*, nova_Nova_String*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_primitive_Nova_Null*, nova_exception_Nova_ExceptionData*);
@@ -65,7 +66,6 @@ CCLASS_CLASS
 	nova_primitive_Nova_Null, 
 	
 	nova_primitive_Null_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	int nova_Nova_String_Nova_count;
 	nova_datastruct_list_Nova_StringCharArray* nova_Nova_String_Nova_chars;
 )

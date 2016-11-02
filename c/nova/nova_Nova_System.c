@@ -43,6 +43,7 @@ typedef void (*nova_Nova_System_closure1_Nova_exit)(void*, nova_exception_Nova_E
 
 nova_System_Extension_VTable nova_System_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

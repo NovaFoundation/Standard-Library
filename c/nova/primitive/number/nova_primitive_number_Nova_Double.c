@@ -38,6 +38,7 @@
 
 nova_primitive_number_Double_Extension_VTable nova_primitive_number_Double_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

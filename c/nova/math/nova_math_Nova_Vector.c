@@ -48,6 +48,7 @@ typedef struct
 
 nova_math_Vector_Extension_VTable nova_math_Vector_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,

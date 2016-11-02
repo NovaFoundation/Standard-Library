@@ -46,6 +46,7 @@ typedef struct nova_primitive_Nova_Bool nova_primitive_Nova_Bool;
 typedef struct nova_primitive_Bool_Extension_VTable nova_primitive_Bool_Extension_VTable;
 struct nova_primitive_Bool_Extension_VTable
 {
+	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
 	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_primitive_Nova_Bool*, nova_exception_Nova_ExceptionData*);
@@ -60,7 +61,6 @@ CCLASS_CLASS
 	nova_primitive_Nova_Bool, 
 	
 	nova_primitive_Bool_Extension_VTable* vtable;
-	nova_Nova_Class* nova_Nova_Object_Nova_class;
 	char nova_primitive_Nova_Bool_Nova_value;
 )
 

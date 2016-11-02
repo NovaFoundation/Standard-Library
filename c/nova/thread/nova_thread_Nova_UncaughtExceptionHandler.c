@@ -34,6 +34,7 @@
 
 nova_thread_UncaughtExceptionHandler_Extension_VTable nova_thread_UncaughtExceptionHandler_Extension_VTable_val =
 {
+	0,
 	{
 		0,
 		0,
