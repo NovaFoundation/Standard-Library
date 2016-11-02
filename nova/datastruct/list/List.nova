@@ -188,7 +188,7 @@ interface List<Type> extends Iterable<Type> {
         return value
     }
 
-    public join(String delimiter) =>
+    public join(String delimiter = "") =>
         reduce((str, e, i) -> str + (i > 0 ? delimiter : "") + e, "")
         //reduce({ _value + (_index > 0 ? delimiter : "") + _element })
 }
