@@ -55,7 +55,7 @@ nova_Object_Extension_VTable nova_Object_Extension_VTable_val =
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
 		0,
@@ -63,7 +63,6 @@ nova_Object_Extension_VTable nova_Object_Extension_VTable_val =
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
@@ -85,7 +84,7 @@ nova_Nova_Object* nova_Nova_Object_Nova_construct(nova_Nova_Object* this, nova_e
 	nova_Nova_Object_Nova_super(this, exceptionData);
 	
 	{
-		nova_Nova_Object_Nova_this(this, exceptionData);
+		nova_Nova_Object_3_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -102,7 +101,7 @@ void nova_Nova_Object_Nova_destroy(nova_Nova_Object** this, nova_exception_Nova_
 	NOVA_FREE(*this);
 }
 
-char nova_Nova_Object_Nova_equals(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another)
+char nova_Nova_Object_0_Nova_equals(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another)
 {
 	return this == another;
 }
@@ -112,7 +111,7 @@ nova_Nova_String* nova_Nova_Object_Nova_toString(nova_Nova_Object* this, nova_ex
 	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("[Object @"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((nova_Nova_Object_Accessor_Nova_hashCode(this, exceptionData))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("]"))));
 }
 
-void nova_Nova_Object_Nova_this(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_Nova_Object_3_Nova_this(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 

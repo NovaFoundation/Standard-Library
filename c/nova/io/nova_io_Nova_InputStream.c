@@ -61,8 +61,6 @@ nova_io_InputStream_Extension_VTable nova_io_InputStream_Extension_VTable_val =
 		0,
 		0,
 	},
-	nova_io_Nova_InputStream_virtual_Nova_readString,
-	nova_io_Nova_InputStream_virtual_Nova_readBytes,
 };
 
 

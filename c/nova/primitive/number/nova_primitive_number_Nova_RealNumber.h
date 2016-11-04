@@ -49,6 +49,12 @@ struct nova_primitive_number_RealNumber_Extension_VTable
 extern nova_primitive_number_RealNumber_Extension_VTable nova_primitive_number_RealNumber_Extension_VTable_val;
 
 
+CCLASS_CLASS
+(
+	nova_primitive_number_Nova_RealNumber, 
+	
+	nova_primitive_number_RealNumber_Extension_VTable* vtable;
+)
 
 void nova_primitive_number_Nova_RealNumber_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
 

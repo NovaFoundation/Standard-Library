@@ -63,7 +63,6 @@ nova_datastruct_Bounds_Extension_VTable nova_datastruct_Bounds_Extension_VTable_
 		0,
 		0,
 	},
-	nova_datastruct_Nova_Bounds_Nova_equals,
 	nova_datastruct_Nova_Bounds_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
@@ -88,7 +87,7 @@ nova_datastruct_Nova_Bounds* nova_datastruct_Nova_Bounds_0_Nova_construct(nova_d
 	nova_datastruct_Nova_Bounds_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_Nova_Bounds_Nova_this(this, exceptionData);
+		nova_datastruct_Nova_Bounds_3_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -102,7 +101,7 @@ nova_datastruct_Nova_Bounds* nova_datastruct_Nova_Bounds_1_Nova_construct(nova_d
 	nova_datastruct_Nova_Bounds_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_Nova_Bounds_0_Nova_this(this, exceptionData, start, end);
+		nova_datastruct_Nova_Bounds_4_Nova_this(this, exceptionData, start, end);
 	}
 	
 	return this;
@@ -121,12 +120,12 @@ void nova_datastruct_Nova_Bounds_Nova_destroy(nova_datastruct_Nova_Bounds** this
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_Nova_Bounds_Nova_this(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_Nova_Bounds_3_Nova_this(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	nova_datastruct_Nova_Bounds_0_Nova_this(this, exceptionData, 0, 0);
+	nova_datastruct_Nova_Bounds_4_Nova_this(this, exceptionData, 0, 0);
 }
 
-void nova_datastruct_Nova_Bounds_0_Nova_this(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData, int start, int end)
+void nova_datastruct_Nova_Bounds_4_Nova_this(nova_datastruct_Nova_Bounds* this, nova_exception_Nova_ExceptionData* exceptionData, int start, int end)
 {
 	this->nova_datastruct_Nova_Bounds_Nova_start = start;
 	this->nova_datastruct_Nova_Bounds_Nova_end = end;

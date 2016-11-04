@@ -61,7 +61,6 @@ nova_operators_Equals_Extension_VTable nova_operators_Equals_Extension_VTable_va
 		0,
 		0,
 	},
-	nova_operators_Nova_Equals_virtual_Nova_equals,
 };
 
 
@@ -72,8 +71,8 @@ void nova_operators_Nova_Equals_Nova_init_static(nova_exception_Nova_ExceptionDa
 }
 
 
-char nova_operators_Nova_Equals_virtual_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another)
+char nova_operators_Nova_Equals_virtual1_Nova_equals(nova_operators_Nova_Equals* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another)
 {
-	return this->vtable->itable.nova_operators_Nova_Equals_virtual_Nova_equals((nova_operators_Nova_Equals*)(this), exceptionData, another);
+	return this->vtable->itable.nova_operators_Nova_Equals_virtual1_Nova_equals((nova_operators_Nova_Equals*)(this), exceptionData, another);
 }
 

@@ -44,7 +44,6 @@ struct nova_operators_Multiply_Extension_VTable
 {
 	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
-	nova_Nova_Object* (*nova_operators_Nova_Multiply_virtual0_Nova_multiply)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 };
 
 extern nova_operators_Multiply_Extension_VTable nova_operators_Multiply_Extension_VTable_val;

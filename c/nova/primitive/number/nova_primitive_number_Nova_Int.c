@@ -59,7 +59,7 @@ nova_primitive_number_Int_Extension_VTable nova_primitive_number_Int_Extension_V
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		(nova_Nova_Object*(*)(nova_operators_Nova_Multiply*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_primitive_number_Nova_Int_Nova_multiply,
 		0,
 		0,
@@ -67,12 +67,9 @@ nova_primitive_number_Int_Extension_VTable nova_primitive_number_Int_Extension_V
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_equals,
 	nova_primitive_number_Nova_Int_Nova_toString,
 	nova_primitive_number_Nova_Int_Accessor_Nova_hashCodeLong,
 	nova_primitive_number_Nova_Number_static_Nova_numDigits,
-	nova_primitive_number_Nova_Int_0_Nova_compareTo,
-	nova_primitive_number_Nova_Int_Nova_multiply,
 };
 
 

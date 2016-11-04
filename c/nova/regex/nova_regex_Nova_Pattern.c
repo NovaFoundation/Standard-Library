@@ -55,7 +55,7 @@ nova_regex_Pattern_Extension_VTable nova_regex_Pattern_Extension_VTable_val =
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
 		0,
@@ -63,7 +63,6 @@ nova_regex_Pattern_Extension_VTable nova_regex_Pattern_Extension_VTable_val =
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };

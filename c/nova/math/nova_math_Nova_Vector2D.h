@@ -48,7 +48,6 @@ struct nova_math_Vector2D_Extension_VTable
 {
 	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
-	char (*nova_operators_Nova_Equals_virtual_Nova_equals)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*);
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_math_Nova_Vector*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	double (*nova_math_Nova_Vector_virtual_Nova_dotProduct)(nova_math_Nova_Vector2D*, nova_exception_Nova_ExceptionData*, nova_math_Nova_Vector3D*);
@@ -69,8 +68,8 @@ void nova_math_Nova_Vector2D_Nova_init_static(nova_exception_Nova_ExceptionData*
 nova_math_Nova_Vector2D* nova_math_Nova_Vector2D_0_Nova_construct(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_math_Nova_Vector2D* nova_math_Nova_Vector2D_1_Nova_construct(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y);
 void nova_math_Nova_Vector2D_Nova_destroy(nova_math_Nova_Vector2D** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_Vector2D_Nova_this(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_Vector2D_0_Nova_this(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y);
+void nova_math_Nova_Vector2D_3_Nova_this(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_math_Nova_Vector2D_4_Nova_this(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y);
 double nova_math_Nova_Vector2D_Nova_dotProduct(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Vector3D* other);
 double nova_math_Nova_Vector2D_Accessor_Nova_x(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData);
 double nova_math_Nova_Vector2D_Mutator_Nova_x(nova_math_Nova_Vector2D* this, nova_exception_Nova_ExceptionData* exceptionData, double value);

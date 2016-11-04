@@ -61,9 +61,6 @@ nova_datastruct_list_Iterator_Extension_VTable nova_datastruct_list_Iterator_Ext
 		0,
 		0,
 	},
-	nova_datastruct_list_Nova_Iterator_virtual_Nova_reset,
-	nova_datastruct_list_Nova_Iterator_Accessor_Nova_hasNext,
-	nova_datastruct_list_Nova_Iterator_Accessor_Nova_next,
 };
 
 

@@ -113,7 +113,7 @@ class String implements Comparable<String> {
         }
     }
     
-    public equals(String other) => count == other.count && compareTo(other) == 0
+    public equals(String other) => other != null && count == other.count && compareTo(other) == 0
     
     public replace(Pattern pattern, String replace) -> String {
     	String output = this

@@ -58,7 +58,7 @@ nova_math_NumericOperation_Extension_VTable nova_math_NumericOperation_Extension
 		0,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
 		0,
@@ -66,7 +66,6 @@ nova_math_NumericOperation_Extension_VTable nova_math_NumericOperation_Extension
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_equals,
 	nova_math_Nova_NumericOperation_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
@@ -272,7 +271,7 @@ int nova_math_Nova_NumericOperation_0_static_Nova_getType(nova_math_Nova_Numeric
 	{
 		return (int)0;
 	}
-	return nova_math_Nova_NumericOperation_1_static_Nova_getType(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Accessor_Nova_first((nova_datastruct_list_Nova_CharArray*)(s->nova_Nova_String_Nova_chars), exceptionData)));
+	return nova_math_Nova_NumericOperation_1_static_Nova_getType(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Accessorfunc_Nova_first((nova_datastruct_list_Nova_CharArray*)(s->nova_Nova_String_Nova_chars), exceptionData)));
 }
 
 int nova_math_Nova_NumericOperation_1_static_Nova_getType(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)

@@ -57,7 +57,7 @@ nova_datastruct_Tuple_Extension_VTable nova_datastruct_Tuple_Extension_VTable_va
 		(nova_Nova_String*(*)(nova_datastruct_list_Nova_List*, nova_exception_Nova_ExceptionData*, nova_Nova_String*))nova_datastruct_list_Nova_List_Nova_join,
 		0,
 		0,
-		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_Nova_equals,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
 		0,
@@ -65,21 +65,8 @@ nova_datastruct_Tuple_Extension_VTable nova_datastruct_Tuple_Extension_VTable_va
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_equals,
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_datastruct_Nova_Tuple_0_Nova_contains,
-	nova_datastruct_Nova_Tuple_Nova_toArray,
-	nova_datastruct_Nova_Tuple_0_Nova_forEach,
-	nova_datastruct_Nova_Tuple_0_Nova_any,
-	nova_datastruct_Nova_Tuple_0_Nova_all,
-	nova_datastruct_Nova_Tuple_0_Nova_filter,
-	nova_datastruct_Nova_Tuple_Nova_take,
-	nova_datastruct_Nova_Tuple_Nova_skip,
-	nova_datastruct_Nova_Tuple_0_Nova_firstWhere,
-	nova_datastruct_Nova_Tuple_Nova_reverse,
-	nova_datastruct_Nova_Tuple_0_Nova_map,
-	nova_datastruct_Nova_Tuple_Accessor_Nova_iterator,
 };
 
 
@@ -185,15 +172,15 @@ nova_datastruct_list_Nova_ArrayIterator* nova_datastruct_Nova_Tuple_Accessor_Nov
 }
 
 
-nova_Nova_Object* nova_datastruct_Nova_Tuple_Accessor_Nova_first(nova_datastruct_Nova_Tuple* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_Nova_Object* nova_datastruct_Nova_Tuple_Accessorfunc_Nova_first(nova_datastruct_Nova_Tuple* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_virtual_Accessor_Nova_first((nova_datastruct_list_Nova_Array*)(this->nova_datastruct_Nova_Tuple_Nova_items), exceptionData);
+	return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_virtual_Accessorfunc_Nova_first((nova_datastruct_list_Nova_Array*)(this->nova_datastruct_Nova_Tuple_Nova_items), exceptionData);
 }
 
 
-nova_Nova_Object* nova_datastruct_Nova_Tuple_Accessor_Nova_last(nova_datastruct_Nova_Tuple* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_Nova_Object* nova_datastruct_Nova_Tuple_Accessorfunc_Nova_last(nova_datastruct_Nova_Tuple* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_virtual_Accessor_Nova_last((nova_datastruct_list_Nova_Array*)(this->nova_datastruct_Nova_Tuple_Nova_items), exceptionData);
+	return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_virtual_Accessorfunc_Nova_last((nova_datastruct_list_Nova_Array*)(this->nova_datastruct_Nova_Tuple_Nova_items), exceptionData);
 }
 
 
