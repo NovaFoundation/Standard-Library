@@ -141,7 +141,7 @@ nova_process_Nova_Process* nova_Nova_System_static_Nova_execute(nova_Nova_System
 	
 	l1_Nova_pipe = getPipe((char*)(command->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (nova_Nova_System_closure1_Nova_exit)&nova_Nova_System_2_static_Nova_exit, nova_null, nova_null);
 	l1_Nova_f = nova_io_Nova_File_1_Nova_construct(0, exceptionData, l1_Nova_pipe);
-	if (!nova_io_Nova_File_Accessor_Nova_exists(l1_Nova_f, exceptionData))
+	if (!nova_io_Nova_File_Accessorfunc_Nova_exists(l1_Nova_f, exceptionData))
 	{
 		nova_Nova_System_1_static_Nova_exit(0, exceptionData, 1, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Unable to open pipe")));
 	}

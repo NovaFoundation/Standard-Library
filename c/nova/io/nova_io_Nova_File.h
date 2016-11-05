@@ -39,6 +39,7 @@ typedef struct nova_io_Nova_File nova_io_Nova_File;
 #include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/NativeFile.h>
 #include <nova/time/nova_time_Nova_Time.h>
+#include <tinydir.h>
 #include <nova/io/nova_io_Nova_FileNotFoundException.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -61,7 +62,10 @@ CCLASS_CLASS
 	nova_io_Nova_File, 
 	
 	nova_io_File_Extension_VTable* vtable;
+	nova_Nova_Class* nova_io_Nova_File_Nova_class;
 	nova_Nova_String* nova_io_Nova_File_Nova_location;
+	char nova_io_Nova_File_Nova_exists;
+	int nova_io_Nova_File_Nova_maxOpenFiles;
 	struct Private* prv;
 )
 
@@ -71,6 +75,8 @@ nova_io_Nova_File* nova_io_Nova_File_1_Nova_construct(nova_io_Nova_File* this, n
 void nova_io_Nova_File_Nova_destroy(nova_io_Nova_File** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_0_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location);
 void nova_io_Nova_File_1_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, FILE* fp);
+nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_directoryContents(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location);
+nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_listFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location);
 char nova_io_Nova_File_Nova_delete(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_Nova_reopen(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_Nova_rewind(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
@@ -82,9 +88,9 @@ void nova_io_Nova_File_Nova_writeLine(nova_io_Nova_File* this, nova_exception_No
 void nova_io_Nova_File_Nova_write(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data);
 void nova_io_Nova_File_Nova_flush(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_Nova_close(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_io_Nova_File_Accessor_Nova_exists(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
-int nova_io_Nova_File_Accessor_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
-int nova_io_Nova_File_Mutator_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+int nova_io_Nova_File_Accessorfunc_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
+int nova_io_Nova_File_Mutatorfunc_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
+char nova_io_Nova_File_Accessorfunc_Nova_exists(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_File_Nova_super(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

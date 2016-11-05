@@ -29,6 +29,7 @@
 #include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/io/NativeFile.h>
 #include <nova/time/nova_time_Nova_Time.h>
+#include <tinydir.h>
 #include <nova/io/nova_io_Nova_FileNotFoundException.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -126,7 +127,10 @@ void nova_io_Nova_File_Nova_destroy(nova_io_Nova_File** this, nova_exception_Nov
 	
 	
 	NOVA_FREE((*this)->prv);
+	nova_Nova_Class_Nova_destroy(&(*this)->nova_io_Nova_File_Nova_class, exceptionData);
 	nova_Nova_String_Nova_destroy(&(*this)->nova_io_Nova_File_Nova_location, exceptionData);
+	
+	
 	
 	NOVA_FREE(*this);
 }
@@ -140,6 +144,47 @@ void nova_io_Nova_File_0_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_
 void nova_io_Nova_File_1_Nova_this(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, FILE* fp)
 {
 	this->prv->nova_io_Nova_File_Nova_fp = fp;
+}
+
+nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_directoryContents(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location)
+{
+	tinydir_dir dir;
+	tinydir_open(&dir, (char*)location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data);
+	while (dir.has_next) {
+		tinydir_file file;
+		tinydir_readfile(&dir, &file);
+		printf("%s", file.name);
+		if (file.is_dir) {
+			printf("/");
+		}
+		printf("\n");
+		tinydir_next(&dir);
+	}
+	tinydir_close(&dir);
+	return (nova_datastruct_list_Nova_Array*)(nova_Nova_Object*)nova_null;
+}
+
+nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_listFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location)
+{
+	nova_datastruct_list_Nova_Array* l1_Nova_names = (nova_datastruct_list_Nova_Array*)nova_null;
+	char* l1_Nova_current = (char*)nova_null;
+	
+	l1_Nova_names = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
+	
+	tinydir_dir dir;
+	tinydir_open(&dir, (char*)location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data);
+	while (dir.has_next) {
+		tinydir_file file;
+		tinydir_readfile(&dir, &file);
+		if (!file.is_dir) {
+			l1_Nova_current = file.name;
+			nova_datastruct_list_Nova_Array_0_Nova_add((nova_datastruct_list_Nova_Array*)(l1_Nova_names), exceptionData, (nova_Nova_Object*)(nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_current)));
+			
+		}
+		tinydir_next(&dir);
+	}
+	tinydir_close(&dir);
+	return (nova_datastruct_list_Nova_Array*)l1_Nova_names;
 }
 
 char nova_io_Nova_File_Nova_delete(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -161,7 +206,7 @@ void nova_io_Nova_File_Nova_rewind(nova_io_Nova_File* this, nova_exception_Nova_
 
 void nova_io_Nova_File_Nova_clearContents(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
+	if (nova_io_Nova_File_Accessorfunc_Nova_exists(this, exceptionData))
 	{
 		this->prv->nova_io_Nova_File_Nova_fp = fopen((char*)(this->nova_io_Nova_File_Nova_location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)("w"));
 	}
@@ -169,16 +214,16 @@ void nova_io_Nova_File_Nova_clearContents(nova_io_Nova_File* this, nova_exceptio
 
 char nova_io_Nova_File_Nova_create(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (!nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
+	if (!nova_io_Nova_File_Accessorfunc_Nova_exists(this, exceptionData))
 	{
 		this->prv->nova_io_Nova_File_Nova_fp = fopen((char*)(this->nova_io_Nova_File_Nova_location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)("w"));
-		if (!nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
+		if (!nova_io_Nova_File_Accessorfunc_Nova_exists(this, exceptionData))
 		{
 			THROW(5, nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this));
 			return 0;
 		}
 		nova_io_Nova_File_Nova_reopen(this, exceptionData);
-		if (!nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
+		if (!nova_io_Nova_File_Accessorfunc_Nova_exists(this, exceptionData))
 		{
 			THROW(5, nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this));
 			return 0;
@@ -263,24 +308,18 @@ void nova_io_Nova_File_Nova_flush(nova_io_Nova_File* this, nova_exception_Nova_E
 
 void nova_io_Nova_File_Nova_close(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_io_Nova_File_Accessor_Nova_exists(this, exceptionData))
+	if (nova_io_Nova_File_Accessorfunc_Nova_exists(this, exceptionData))
 	{
 		fclose(this->prv->nova_io_Nova_File_Nova_fp);
 	}
 }
 
-char nova_io_Nova_File_Accessor_Nova_exists(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return this->prv->nova_io_Nova_File_Nova_fp != 0;
-}
-
-
-int nova_io_Nova_File_Accessor_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
+int nova_io_Nova_File_Accessorfunc_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return getMaxOpenFiles();
 }
 
-int nova_io_Nova_File_Mutator_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
+int nova_io_Nova_File_Mutatorfunc_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, int value)
 {
 	short l1_Nova_min = 0;
 	short l1_Nova_max = 0;
@@ -298,9 +337,18 @@ int nova_io_Nova_File_Mutator_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_ex
 	return value;
 }
 
+char nova_io_Nova_File_Accessorfunc_Nova_exists(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return this->prv->nova_io_Nova_File_Nova_fp != 0;
+}
+
+
 void nova_io_Nova_File_Nova_super(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
+	this->nova_io_Nova_File_Nova_class = (nova_Nova_Class*)nova_null;
 	this->nova_io_Nova_File_Nova_location = (nova_Nova_String*)nova_null;
+	this->nova_io_Nova_File_Nova_exists = 0;
+	this->nova_io_Nova_File_Nova_maxOpenFiles = 0;
 	this->prv->nova_io_Nova_File_Nova_fp = 0;
 }
 

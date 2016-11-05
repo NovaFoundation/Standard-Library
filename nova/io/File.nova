@@ -2,6 +2,7 @@ package "nova/io"
 
 import "nova/io/NativeFile.h"
 import "nova/time/Time"
+import "tinydir.h"
 
 class File {
     external type FILE
@@ -31,13 +32,7 @@ class File {
         File exitLog = new File("log" + Time.currentTimeMillis)
     }
 
-    visible Bool exists {
-        get {
-            return fp != 0
-        }
-
-        no set
-    }
+    visible Bool exists => fp != 0
 
     public Int maxOpenFiles {
         get {
@@ -65,7 +60,15 @@ class File {
     public construct(FILE* fp) {
         this.fp = fp
     }
-
+    
+    public directoryContents(String location) -> String[] {
+        return null
+    }
+    
+    public listFiles(String location) -> String[] {
+        return null
+    }
+    
     public delete() -> Bool {
         close()
 
