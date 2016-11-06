@@ -14,7 +14,7 @@ class File {
     visible String location
     
     static {
-        File exitLog = new File("log" + Time.currentTimeMillis)
+        File exitLog = new File("log#Time.currentTimeMillis")
     }
     
     visible Bool exists => access(location.chars.data, F_OK) != -1

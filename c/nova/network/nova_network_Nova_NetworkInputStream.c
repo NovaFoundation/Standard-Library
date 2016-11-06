@@ -63,8 +63,6 @@ nova_network_NetworkInputStream_Extension_VTable nova_network_NetworkInputStream
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 };
 

@@ -95,8 +95,6 @@ nova_math_Matrix_Extension_VTable nova_math_Matrix_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_math_Nova_Matrix_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

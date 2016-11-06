@@ -66,8 +66,6 @@ nova_primitive_number_Long_Extension_VTable nova_primitive_number_Long_Extension
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_primitive_number_Nova_Long_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

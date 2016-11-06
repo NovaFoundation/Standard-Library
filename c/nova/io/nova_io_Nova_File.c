@@ -65,8 +65,6 @@ nova_io_File_Extension_VTable nova_io_File_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -82,7 +80,7 @@ void nova_io_Nova_File_Nova_init_static(nova_exception_Nova_ExceptionData* excep
 	{
 		nova_io_Nova_File* l1_Nova_exitLog = (nova_io_Nova_File*)nova_null;
 		
-		l1_Nova_exitLog = nova_io_Nova_File_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("log"))), exceptionData, nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData))));
+		l1_Nova_exitLog = nova_io_Nova_File_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("log"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Long_static_Nova_toString(0, exceptionData, (nova_time_Nova_Time_Accessor_static_Nova_currentTimeMillis(0, exceptionData)))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")))));
 	}
 }
 

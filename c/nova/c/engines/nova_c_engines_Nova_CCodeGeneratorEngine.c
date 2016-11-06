@@ -27,12 +27,14 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
+#include <compiler/engines/compiler_engines_Nova_CodeGeneratorEngine.h>
+#include <compiler/compiler_Nova_Compiler.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 
-nova_math_GeometricSequence_Extension_VTable nova_math_GeometricSequence_Extension_VTable_val =
+nova_c_engines_CCodeGeneratorEngine_Extension_VTable nova_c_engines_CCodeGeneratorEngine_Extension_VTable_val =
 {
 	0,
 	{
@@ -65,30 +67,33 @@ nova_math_GeometricSequence_Extension_VTable nova_math_GeometricSequence_Extensi
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
+	nova_c_engines_Nova_CCodeGeneratorEngine_Nova_writeFiles,
+	nova_c_engines_Nova_CCodeGeneratorEngine_Nova_insertMainMethod,
 };
 
 
-void nova_math_Nova_GeometricSequence_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
+void nova_c_engines_Nova_CCodeGeneratorEngine_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
 	}
 }
 
-nova_math_Nova_GeometricSequence* nova_math_Nova_GeometricSequence_Nova_construct(nova_math_Nova_GeometricSequence* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_c_engines_Nova_CCodeGeneratorEngine* nova_c_engines_Nova_CCodeGeneratorEngine_Nova_construct(nova_c_engines_Nova_CCodeGeneratorEngine* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	CCLASS_NEW(nova_math_Nova_GeometricSequence, this,);
-	this->vtable = &nova_math_GeometricSequence_Extension_VTable_val;
+	CCLASS_NEW(nova_c_engines_Nova_CCodeGeneratorEngine, this,);
+	this->vtable = &nova_c_engines_CCodeGeneratorEngine_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
-	nova_math_Nova_GeometricSequence_Nova_super(this, exceptionData);
+	compiler_engines_Nova_CodeGeneratorEngine_Nova_super((compiler_engines_Nova_CodeGeneratorEngine*)this, exceptionData);
+	nova_c_engines_Nova_CCodeGeneratorEngine_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_GeometricSequence_Nova_this(this, exceptionData);
+		nova_c_engines_Nova_CCodeGeneratorEngine_Nova_this(this, exceptionData);
 	}
 	
 	return this;
 }
 
-void nova_math_Nova_GeometricSequence_Nova_destroy(nova_math_Nova_GeometricSequence** this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_c_engines_Nova_CCodeGeneratorEngine_Nova_destroy(nova_c_engines_Nova_CCodeGeneratorEngine** this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	if (!*this)
 	{
@@ -99,11 +104,19 @@ void nova_math_Nova_GeometricSequence_Nova_destroy(nova_math_Nova_GeometricSeque
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_GeometricSequence_Nova_this(nova_math_Nova_GeometricSequence* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_c_engines_Nova_CCodeGeneratorEngine_Nova_writeFiles(nova_c_engines_Nova_CCodeGeneratorEngine* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 
-void nova_math_Nova_GeometricSequence_Nova_super(nova_math_Nova_GeometricSequence* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_c_engines_Nova_CCodeGeneratorEngine_Nova_insertMainMethod(nova_c_engines_Nova_CCodeGeneratorEngine* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+}
+
+void nova_c_engines_Nova_CCodeGeneratorEngine_Nova_this(nova_c_engines_Nova_CCodeGeneratorEngine* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+}
+
+void nova_c_engines_Nova_CCodeGeneratorEngine_Nova_super(nova_c_engines_Nova_CCodeGeneratorEngine* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 

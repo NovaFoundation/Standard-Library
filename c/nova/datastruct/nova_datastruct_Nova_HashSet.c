@@ -80,8 +80,6 @@ nova_datastruct_HashSet_Extension_VTable nova_datastruct_HashSet_Extension_VTabl
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_datastruct_Nova_HashSet_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

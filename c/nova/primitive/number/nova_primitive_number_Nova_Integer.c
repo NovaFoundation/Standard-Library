@@ -60,8 +60,6 @@ nova_primitive_number_Integer_Extension_VTable nova_primitive_number_Integer_Ext
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 };
 
