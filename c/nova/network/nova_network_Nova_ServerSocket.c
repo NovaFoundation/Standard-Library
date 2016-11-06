@@ -160,7 +160,6 @@ void nova_network_Nova_ServerSocket_Nova_super(nova_network_Nova_ServerSocket* t
 {
 	this->nova_network_Nova_ServerSocket_Nova_open = 0;
 	this->nova_network_Nova_ServerSocket_Nova_requests = (nova_datastruct_list_Nova_Array*)nova_null;
-	this->prv->nova_network_Nova_ServerSocket_Nova_serverSocket = 0;
 	this->nova_network_Nova_ServerSocket_Nova_requests = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 }
 

@@ -167,7 +167,6 @@ void nova_thread_Nova_Thread_Nova_this(nova_thread_Nova_Thread* this, nova_excep
 
 void nova_thread_Nova_Thread_Nova_super(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->prv->nova_thread_Nova_Thread_Nova_handle = 0;
 }
 
 void nova_thread_Nova_Thread_virtual_Nova_run(nova_thread_Nova_Thread* this, nova_exception_Nova_ExceptionData* exceptionData)

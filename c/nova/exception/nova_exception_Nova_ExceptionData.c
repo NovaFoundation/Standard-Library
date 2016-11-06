@@ -166,7 +166,6 @@ char nova_exception_Nova_ExceptionData_Nova_testLambda65(nova_exception_Nova_Exc
 
 void nova_exception_Nova_ExceptionData_Nova_super(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->nova_exception_Nova_ExceptionData_Nova_buf = 0;
 	this->nova_exception_Nova_ExceptionData_Nova_parent = (nova_exception_Nova_ExceptionData*)nova_null;
 	this->nova_exception_Nova_ExceptionData_Nova_codes = (nova_datastruct_list_Nova_IntArray*)nova_null;
 	this->nova_exception_Nova_ExceptionData_Nova_thrownException = (nova_exception_Nova_Exception*)nova_null;

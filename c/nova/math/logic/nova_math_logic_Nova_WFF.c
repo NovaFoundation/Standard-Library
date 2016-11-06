@@ -180,7 +180,7 @@ nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_WFF_Nova_searchForConc
 	nova_math_logic_Nova_Conclusion* l1_Nova_conclusion = (nova_math_logic_Nova_Conclusion*)nova_null;
 	nova_math_logic_Nova_StatementGroup* l1_Nova_group = (nova_math_logic_Nova_StatementGroup*)nova_null;
 	
-	l1_Nova_index = nova_Nova_String_Nova_lastIndexOf(wff, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("->")), (intptr_t)nova_null, (intptr_t)nova_null);
+	l1_Nova_index = nova_Nova_String_1_Nova_lastIndexOf(wff, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("->")), (intptr_t)nova_null, (intptr_t)nova_null);
 	if (l1_Nova_index < 0)
 	{
 		return (nova_math_logic_Nova_StatementGroup*)(nova_Nova_Object*)nova_null;

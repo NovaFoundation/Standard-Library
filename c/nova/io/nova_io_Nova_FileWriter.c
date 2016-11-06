@@ -137,7 +137,7 @@ void nova_io_Nova_FileWriter_0_Nova_this(nova_io_Nova_FileWriter* this, nova_exc
 
 void nova_io_Nova_FileWriter_1_Nova_this(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* location)
 {
-	nova_io_Nova_FileWriter_0_Nova_this(this, exceptionData, nova_io_Nova_File_Nova_construct(0, exceptionData, location));
+	nova_io_Nova_FileWriter_0_Nova_this(this, exceptionData, nova_io_Nova_File_1_Nova_construct(0, exceptionData, location));
 }
 
 char nova_io_Nova_FileWriter_Nova_delete(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -230,6 +230,5 @@ char nova_io_Nova_FileWriter_Accessor_Nova_open(nova_io_Nova_FileWriter* this, n
 void nova_io_Nova_FileWriter_Nova_super(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	this->nova_io_Nova_FileWriter_Nova_file = (nova_io_Nova_File*)nova_null;
-	this->prv->nova_io_Nova_FileWriter_Nova_fp = 0;
 }
 

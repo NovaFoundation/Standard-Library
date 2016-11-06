@@ -219,6 +219,5 @@ char nova_io_Nova_FileReader_Accessor_Nova_open(nova_io_Nova_FileReader* this, n
 void nova_io_Nova_FileReader_Nova_super(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	this->nova_io_Nova_FileReader_Nova_file = (nova_io_Nova_File*)nova_null;
-	this->prv->nova_io_Nova_FileReader_Nova_fp = 0;
 }
 

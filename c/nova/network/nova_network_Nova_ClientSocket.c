@@ -142,6 +142,5 @@ char nova_network_Nova_ClientSocket_Nova_close(nova_network_Nova_ClientSocket* t
 void nova_network_Nova_ClientSocket_Nova_super(nova_network_Nova_ClientSocket* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	this->nova_network_Nova_ClientSocket_Nova_connection = (nova_network_Nova_ConnectionSocket*)nova_null;
-	this->prv->nova_network_Nova_ClientSocket_Nova_socket = 0;
 }
 

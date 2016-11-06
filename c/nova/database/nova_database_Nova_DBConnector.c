@@ -197,7 +197,5 @@ void nova_database_Nova_DBConnector_Nova_close(nova_database_Nova_DBConnector* t
 void nova_database_Nova_DBConnector_Nova_super(nova_database_Nova_DBConnector* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	this->nova_database_Nova_DBConnector_Nova_error = (nova_Nova_String*)nova_null;
-	this->prv->nova_database_Nova_DBConnector_Nova_mysql = 0;
-	this->prv->nova_database_Nova_DBConnector_Nova_result = 0;
 }
 

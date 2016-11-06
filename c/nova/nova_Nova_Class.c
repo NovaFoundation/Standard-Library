@@ -173,13 +173,13 @@ char nova_Nova_Class_Nova_testLambda42(nova_Nova_Class* this, nova_exception_Nov
 
 nova_Nova_String* nova_Nova_Class_Accessor_Nova_package(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, 0, nova_Nova_String_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, 0));
+	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, 0, nova_Nova_String_1_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, 0));
 }
 
 
 nova_Nova_String* nova_Nova_Class_Accessor_Nova_name(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, (intptr_t)nova_null) + 1, (intptr_t)nova_null);
+	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, (intptr_t)nova_null) + 1, (intptr_t)nova_null);
 }
 
 

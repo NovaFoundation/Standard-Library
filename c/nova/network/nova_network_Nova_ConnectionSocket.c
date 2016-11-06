@@ -187,7 +187,6 @@ void nova_network_Nova_ConnectionSocket_Nova_super(nova_network_Nova_ConnectionS
 	this->nova_network_Nova_ConnectionSocket_Nova_in = (nova_io_Nova_InputStream*)nova_null;
 	this->nova_network_Nova_ConnectionSocket_Nova_out = (nova_io_Nova_OutputStream*)nova_null;
 	this->prv->nova_network_Nova_ConnectionSocket_Nova_inputBuffer = (nova_datastruct_list_Nova_Queue*)nova_null;
-	this->prv->nova_network_Nova_ConnectionSocket_Nova_socket = 0;
 	this->prv->nova_network_Nova_ConnectionSocket_Nova_inputBuffer = nova_datastruct_list_Nova_Queue_0_Nova_construct(0, exceptionData);
 }
 

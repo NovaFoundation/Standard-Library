@@ -190,6 +190,8 @@ class String implements Comparable<String> {
         return defaultReturnValue
     }
 
+    public lastIndexOf(Char search, Int start = count - 1, Int defaultReturnValue = -1) =>
+        lastIndexOf("#search", start, defaultReturnValue)
     public lastIndexOf(String search, Int start = count - 1, Int defaultReturnValue = -1) =>
         indexOf(search, start, -1, defaultReturnValue: defaultReturnValue)
 
