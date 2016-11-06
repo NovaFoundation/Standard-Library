@@ -1,0 +1,109 @@
+package "nova/io"
+
+class FileWriter extends OutputStream {
+    external type FILE
+    
+    FILE* fp
+    
+    external FILE* fopen(char location[], char operation[])
+    external void perror(char name[])
+    external FILE* freopen(char location[], char operation[], FILE* fp)
+    external void fprintf(FILE* fp, char data[])
+    external void fputs(char str[], FILE* stream)
+    external void fflush(FILE* fp)
+    external int fclose(FILE* fp)
+    external void fgets(char buffer[], int size, FILE* fp)
+    external char[] realloc(char buffer[], int size)
+    external char getc(FILE* fp)
+    external void rewind(FILE* fp) as extRewind
+    external int remove(char name[])
+    
+    visible File file
+    
+    visible Bool open => fp != 0
+    
+    external char EOF
+    
+    public construct(File file) {
+        external c {
+            #{fp} = fopen((char*)#{file.location.chars.data}, "r+");
+        }
+        
+        this.file = file
+    }
+    
+    public construct(String location) {
+        this(new File(location))
+    }
+    
+    public delete() -> Bool {
+        close()
+
+        return remove(file.location.chars.data) == 0
+    }
+    
+    public reopen() {
+        close()
+        
+        fp = fopen(file.location.chars.data, "r+")
+    }
+    
+    public rewind() {
+        extRewind(fp)
+    }
+    
+    public clearContents() -> Bool {
+        if (file.exists) {
+            fp = fopen(file.location.chars.data, "w")
+            
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    public create() -> Bool {
+        if (!file.exists) {
+            fp = fopen(file.location.chars.data, "w")
+            
+            if (!file.exists) {
+                throw new FileNotFoundException(file)
+                
+                return false
+            }
+            
+            reopen()
+            
+            if (!file.exists) {
+                throw new FileNotFoundException(file)
+                
+                return false
+            }
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    public writeLine(String line) => write("#line\n")
+    //public write(Object data) => write("#data")
+    public write(String data) => true {
+        fputs(data.chars.data, fp)
+        flush()
+    }
+    
+    public flush() {
+        fflush(fp)
+    }
+    
+    public close() -> Bool {
+        if (open) {
+            fclose(fp)
+            
+            return true
+        } else {
+            return false
+        }
+    }
+}
