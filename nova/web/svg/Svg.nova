@@ -1,19 +1,19 @@
 package "nova/web/svg"
 
-import "nova/io/File"
+import "nova/io/FileWriter"
 
 class Svg {
     public SvgMainComponent root
     
     public construct() => root = new SvgMainComponent()
     
-    public generateOutput(File file) => root.generateOutput(file)
+    public generateOutput(FileWriter writer) => root.generateOutput(writer)
     
-    public generateHTMLOutput(File file) {
-        file.write("<html>\n")
+    public generateHTMLOutput(FileWriter writer) {
+        writer.write("<html>\n")
         
-        generateOutput(file)
+        generateOutput(writer)
         
-        file.write("</html>")
+        writer.write("</html>")
     }
 }

@@ -1,6 +1,6 @@
 package "nova/web/svg"
 
-import "nova/io/File"
+import "nova/io/FileWriter"
 
 class SvgCircle extends SvgComponent {
     visible Double x
@@ -13,6 +13,6 @@ class SvgCircle extends SvgComponent {
         this.r = r
     }
     
-    public generateOutput(File file) => file.write("<circle cx=\"#x\" cy=\"#y\" r=\"#r\" stroke=\"false\" fill=\"black\"/>\n")
+    public generateOutput(FileWriter writer) => writer.write("<circle cx=\"#x\" cy=\"#y\" r=\"#r\" stroke=\"false\" fill=\"black\"/>\n")
     public toString() => "[Circle at (#x, #y) with a radius of #r]"
 }

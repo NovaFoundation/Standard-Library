@@ -1,11 +1,11 @@
 package "nova/web/svg"
 
-import "nova/io/File"
+import "nova/io/FileWriter"
 
 class SvgComponent {
     public SvgComponentList children
     
     public construct() => children = new SvgComponentList()
     
-    public generateOutput(File file) => Console.writeLine("This is wrong")
+    public generateOutput(FileWriter writer) => Console.writeLine("This is wrong")
 }

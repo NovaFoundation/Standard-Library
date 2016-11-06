@@ -1,15 +1,15 @@
 package "nova/web/svg"
 
-import "nova/io/File"
+import "nova/io/FileWriter"
 
 class SvgComponentList {
     public SvgComponentNode start
     
-    public generateOutput(File file) {
+    public generateOutput(FileWriter writer) {
         SvgComponentNode current = start
         
         while (current != null) {
-            current.component.generateOutput(file)
+            current.component.generateOutput(writer)
             
             current = current.next
         }

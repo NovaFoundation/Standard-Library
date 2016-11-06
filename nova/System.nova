@@ -2,6 +2,8 @@ package "nova"
 
 import "nova/io/StreamReader"
 import "nova/io/File"
+import "nova/io/FileWriter"
+import "nova/io/FileReader"
 import "nova/time/Time"
 import "nova/process/Process"
 import "nova/NativeSystem.h"
@@ -27,7 +29,7 @@ class System {
     
     public static exit(Int code, String message, Bool log) {
         if (log) {
-            File f = new File("Log" + Time.currentTimeMillis + ".txt")
+            var f = new FileWriter("Log" + Time.currentTimeMillis + ".txt")
             
             if (f.create()) {
                 f.writeLine(message)
@@ -42,12 +44,10 @@ class System {
     public static execute(String command) -> Process {
         FILE* pipe = getPipe(command.chars.data, exit)
         
-        File f = new File(pipe)
-        
-        if (!f.exists) {
+        if (pipe == 0) {
             exit(1, "Unable to open pipe")
         }
         
-        return new Process(new StreamReader(f))
+        return new Process(new FileReader(pipe))
     }
 }
