@@ -1,9 +1,9 @@
 package "nova/process"
 
-import "nova/io/StreamReader"
+import "nova/io/InputStream"
 
 class Process {
-    visible StreamReader    reader
+    visible InputStream reader
     
-    public construct(StreamReader reader) => this.reader = reader
+    public construct(InputStream reader) => this.reader = reader
 }
