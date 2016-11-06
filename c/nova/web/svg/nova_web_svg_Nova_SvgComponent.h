@@ -37,7 +37,7 @@ typedef struct nova_web_svg_Nova_SvgComponent nova_web_svg_Nova_SvgComponent;
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_File.h>
+#include <nova/io/nova_io_Nova_FileWriter.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponentList.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -50,7 +50,7 @@ struct nova_web_svg_SvgComponent_Extension_VTable
 	nova_Interface_VTable itable;
 	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
-	void (*nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput)(nova_web_svg_Nova_SvgComponent*, nova_exception_Nova_ExceptionData*, nova_io_Nova_File*);
+	void (*nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput)(nova_web_svg_Nova_SvgComponent*, nova_exception_Nova_ExceptionData*, nova_io_Nova_FileWriter*);
 };
 
 extern nova_web_svg_SvgComponent_Extension_VTable nova_web_svg_SvgComponent_Extension_VTable_val;
@@ -68,8 +68,8 @@ void nova_web_svg_Nova_SvgComponent_Nova_init_static(nova_exception_Nova_Excepti
 nova_web_svg_Nova_SvgComponent* nova_web_svg_Nova_SvgComponent_Nova_construct(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_web_svg_Nova_SvgComponent_Nova_destroy(nova_web_svg_Nova_SvgComponent** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_web_svg_Nova_SvgComponent_Nova_this(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_web_svg_Nova_SvgComponent_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
+void nova_web_svg_Nova_SvgComponent_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_FileWriter* writer);
 void nova_web_svg_Nova_SvgComponent_Nova_super(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file);
+void nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_FileWriter* writer);
 
 #endif

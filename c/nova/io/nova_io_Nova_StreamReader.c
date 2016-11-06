@@ -27,8 +27,8 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_File.h>
-#include <nova/io/nova_io_Nova_InputStream.h>
+#include <nova/NativeObject.h>
+#include <nova/operators/nova_operators_Nova_Equals.h>
 
 
 
@@ -53,8 +53,10 @@ nova_io_StreamReader_Extension_VTable nova_io_StreamReader_Extension_VTable_val 
 		0,
 		0,
 		0,
-		(nova_Nova_String*(*)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*))nova_io_Nova_StreamReader_Nova_readString,
-		(nova_datastruct_list_Nova_Array*(*)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*))nova_io_Nova_StreamReader_Nova_readBytes,
+		0,
+		0,
+		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
 		0,
 		0,
 		0,
@@ -63,28 +65,26 @@ nova_io_StreamReader_Extension_VTable nova_io_StreamReader_Extension_VTable_val 
 		0,
 		0,
 	},
+	nova_Nova_Object_Nova_toString,
+	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 
 
-CCLASS_PRIVATE
-(
-	nova_io_Nova_File* nova_io_Nova_StreamReader_Nova_file;
-	
-)
 void nova_io_Nova_StreamReader_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
 	}
 }
 
-nova_io_Nova_StreamReader* nova_io_Nova_StreamReader_Nova_construct(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
+nova_io_Nova_StreamReader* nova_io_Nova_StreamReader_Nova_construct(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	CCLASS_NEW(nova_io_Nova_StreamReader, this);
+	CCLASS_NEW(nova_io_Nova_StreamReader, this,);
 	this->vtable = &nova_io_StreamReader_Extension_VTable_val;
+	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_StreamReader_Nova_super(this, exceptionData);
 	
 	{
-		nova_io_Nova_StreamReader_Nova_this(this, exceptionData, file);
+		nova_io_Nova_StreamReader_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -97,32 +97,15 @@ void nova_io_Nova_StreamReader_Nova_destroy(nova_io_Nova_StreamReader** this, no
 		return;
 	}
 	
-	nova_io_Nova_File_Nova_destroy(&(*this)->prv->nova_io_Nova_StreamReader_Nova_file, exceptionData);
-	NOVA_FREE((*this)->prv);
 	
 	NOVA_FREE(*this);
 }
 
-void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
+void nova_io_Nova_StreamReader_Nova_this(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->prv->nova_io_Nova_StreamReader_Nova_file = file;
-}
-
-nova_datastruct_list_Nova_Array* nova_io_Nova_StreamReader_Nova_readBytes(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	return (nova_datastruct_list_Nova_Array*)(nova_Nova_Object*)nova_null;
-}
-
-nova_Nova_String* nova_io_Nova_StreamReader_Nova_readString(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)
-{
-	nova_Nova_String* l1_Nova_output = (nova_Nova_String*)nova_null;
-	
-	l1_Nova_output = nova_io_Nova_File_Nova_readAllContents(this->prv->nova_io_Nova_StreamReader_Nova_file, exceptionData);
-	return l1_Nova_output;
 }
 
 void nova_io_Nova_StreamReader_Nova_super(nova_io_Nova_StreamReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->prv->nova_io_Nova_StreamReader_Nova_file = (nova_io_Nova_File*)nova_null;
 }
 

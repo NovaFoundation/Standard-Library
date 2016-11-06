@@ -66,6 +66,8 @@ nova_web_js_json_Json_Extension_VTable nova_web_js_json_Json_Extension_VTable_va
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_web_js_json_Nova_Json_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

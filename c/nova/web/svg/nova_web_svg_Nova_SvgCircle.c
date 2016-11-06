@@ -27,7 +27,7 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_File.h>
+#include <nova/io/nova_io_Nova_FileWriter.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponent.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponentList.h>
 #include <nova/NativeObject.h>
@@ -65,10 +65,12 @@ nova_web_svg_SvgCircle_Extension_VTable nova_web_svg_SvgCircle_Extension_VTable_
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_web_svg_Nova_SvgCircle_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_web_svg_Nova_SvgCircle_Nova_generateOutput,
+	nova_web_svg_Nova_SvgComponent_Nova_generateOutput,
 };
 
 
@@ -114,9 +116,9 @@ void nova_web_svg_Nova_SvgCircle_Nova_this(nova_web_svg_Nova_SvgCircle* this, no
 	this->nova_web_svg_Nova_SvgCircle_Nova_r = r;
 }
 
-void nova_web_svg_Nova_SvgCircle_Nova_generateOutput(nova_web_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
+char nova_web_svg_Nova_SvgCircle_Nova_generateOutput(nova_web_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_FileWriter* writer)
 {
-	nova_io_Nova_File_Nova_write(file, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("<circle cx=\""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Double_static_Nova_toString(0, exceptionData, (this->nova_web_svg_Nova_SvgCircle_Nova_x))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\" cy=\""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Double_static_Nova_toString(0, exceptionData, (this->nova_web_svg_Nova_SvgCircle_Nova_y))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\" r=\""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (this->nova_web_svg_Nova_SvgCircle_Nova_r))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\" stroke=\"false\" fill=\"black\"/>\n")))))))));
+	return nova_io_Nova_FileWriter_Nova_write(writer, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("<circle cx=\""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Double_static_Nova_toString(0, exceptionData, (this->nova_web_svg_Nova_SvgCircle_Nova_x))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\" cy=\""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Double_static_Nova_toString(0, exceptionData, (this->nova_web_svg_Nova_SvgCircle_Nova_y))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\" r=\""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_primitive_number_Nova_Int_static_Nova_toString(0, exceptionData, (this->nova_web_svg_Nova_SvgCircle_Nova_r))), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\" stroke=\"false\" fill=\"black\"/>\n")))))))));
 }
 
 nova_Nova_String* nova_web_svg_Nova_SvgCircle_Nova_toString(nova_web_svg_Nova_SvgCircle* this, nova_exception_Nova_ExceptionData* exceptionData)

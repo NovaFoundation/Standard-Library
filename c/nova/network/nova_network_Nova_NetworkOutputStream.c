@@ -30,7 +30,6 @@
 #include <nova/network/NativeSocket.h>
 #include <nova/io/nova_io_Nova_OutputStream.h>
 #include <nova/network/nova_network_Nova_ConnectionSocket.h>
-#include <nova/io/nova_io_Nova_File.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -66,18 +65,17 @@ nova_network_NetworkOutputStream_Extension_VTable nova_network_NetworkOutputStre
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_network_Nova_NetworkOutputStream_0_Nova_write,
-	nova_network_Nova_NetworkOutputStream_1_Nova_write,
+	nova_network_Nova_NetworkOutputStream_Nova_write,
 };
 
 
 CCLASS_PRIVATE
 (
-	nova_io_Nova_File* nova_io_Nova_OutputStream_Nova_stream;
-	
 	nova_network_Nova_ConnectionSocket* nova_network_Nova_NetworkOutputStream_Nova_socket;
 	
 )
@@ -120,12 +118,12 @@ void nova_network_Nova_NetworkOutputStream_Nova_this(nova_network_Nova_NetworkOu
 	this->prv->nova_network_Nova_NetworkOutputStream_Nova_socket = socket;
 }
 
-char nova_network_Nova_NetworkOutputStream_0_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data)
+char nova_network_Nova_NetworkOutputStream_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data)
 {
 	return nova_network_Nova_ConnectionSocket_Nova_write(this->prv->nova_network_Nova_NetworkOutputStream_Nova_socket, exceptionData, data);
 }
 
-char nova_network_Nova_NetworkOutputStream_1_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
+char nova_network_Nova_NetworkOutputStream_0_Nova_write(nova_network_Nova_NetworkOutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
 {
 	return 0;
 }

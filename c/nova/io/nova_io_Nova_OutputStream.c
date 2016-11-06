@@ -27,7 +27,6 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_File.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -63,19 +62,15 @@ nova_io_OutputStream_Extension_VTable nova_io_OutputStream_Extension_VTable_val 
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
-	nova_io_Nova_OutputStream_virtual0_Nova_write,
-	nova_io_Nova_OutputStream_virtual1_Nova_write,
+	nova_io_Nova_OutputStream_virtual_Nova_write,
 };
 
 
-CCLASS_PRIVATE
-(
-	nova_io_Nova_File* nova_io_Nova_OutputStream_Nova_stream;
-	
-)
 void nova_io_Nova_OutputStream_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -84,7 +79,7 @@ void nova_io_Nova_OutputStream_Nova_init_static(nova_exception_Nova_ExceptionDat
 
 nova_io_Nova_OutputStream* nova_io_Nova_OutputStream_Nova_construct(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	CCLASS_NEW(nova_io_Nova_OutputStream, this);
+	CCLASS_NEW(nova_io_Nova_OutputStream, this,);
 	this->vtable = &nova_io_OutputStream_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
 	nova_io_Nova_OutputStream_Nova_super(this, exceptionData);
@@ -103,12 +98,9 @@ void nova_io_Nova_OutputStream_Nova_destroy(nova_io_Nova_OutputStream** this, no
 		return;
 	}
 	
-	nova_io_Nova_File_Nova_destroy(&(*this)->prv->nova_io_Nova_OutputStream_Nova_stream, exceptionData);
-	NOVA_FREE((*this)->prv);
 	
 	NOVA_FREE(*this);
 }
-
 
 
 void nova_io_Nova_OutputStream_Nova_this(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -117,16 +109,10 @@ void nova_io_Nova_OutputStream_Nova_this(nova_io_Nova_OutputStream* this, nova_e
 
 void nova_io_Nova_OutputStream_Nova_super(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->prv->nova_io_Nova_OutputStream_Nova_stream = (nova_io_Nova_File*)nova_null;
 }
 
-char nova_io_Nova_OutputStream_virtual0_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data)
+char nova_io_Nova_OutputStream_virtual_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data)
 {
-	return this->vtable->nova_io_Nova_OutputStream_virtual0_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, data);
-}
-
-char nova_io_Nova_OutputStream_virtual1_Nova_write(nova_io_Nova_OutputStream* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* data)
-{
-	return this->vtable->nova_io_Nova_OutputStream_virtual1_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, data);
+	return this->vtable->nova_io_Nova_OutputStream_virtual_Nova_write((nova_io_Nova_OutputStream*)(this), exceptionData, data);
 }
 

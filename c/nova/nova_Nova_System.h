@@ -37,8 +37,8 @@ typedef struct nova_Nova_System nova_Nova_System;
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_StreamReader.h>
-#include <nova/io/nova_io_Nova_File.h>
+#include <nova/io/nova_io_Nova_FileWriter.h>
+#include <nova/io/nova_io_Nova_FileReader.h>
 #include <nova/time/nova_time_Nova_Time.h>
 #include <nova/process/nova_process_Nova_Process.h>
 #include <nova/NativeSystem.h>

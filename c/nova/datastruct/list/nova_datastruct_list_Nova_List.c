@@ -70,6 +70,8 @@ nova_datastruct_list_List_Extension_VTable nova_datastruct_list_List_Extension_V
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 };
 

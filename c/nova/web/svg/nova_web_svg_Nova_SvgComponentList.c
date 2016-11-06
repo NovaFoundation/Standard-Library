@@ -27,7 +27,7 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_File.h>
+#include <nova/io/nova_io_Nova_FileWriter.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponent.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponentNode.h>
 #include <nova/NativeObject.h>
@@ -59,6 +59,8 @@ nova_web_svg_SvgComponentList_Extension_VTable nova_web_svg_SvgComponentList_Ext
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
+		0,
 		0,
 		0,
 		0,
@@ -103,14 +105,14 @@ void nova_web_svg_Nova_SvgComponentList_Nova_destroy(nova_web_svg_Nova_SvgCompon
 	NOVA_FREE(*this);
 }
 
-void nova_web_svg_Nova_SvgComponentList_Nova_generateOutput(nova_web_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
+void nova_web_svg_Nova_SvgComponentList_Nova_generateOutput(nova_web_svg_Nova_SvgComponentList* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_FileWriter* writer)
 {
 	nova_web_svg_Nova_SvgComponentNode* l1_Nova_current = (nova_web_svg_Nova_SvgComponentNode*)nova_null;
 	
 	l1_Nova_current = this->nova_web_svg_Nova_SvgComponentList_Nova_start;
 	while (l1_Nova_current != (nova_web_svg_Nova_SvgComponentNode*)nova_null)
 	{
-		nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_web_svg_Nova_SvgComponent*)(l1_Nova_current->nova_web_svg_Nova_SvgComponentNode_Nova_component), exceptionData, file);
+		nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_web_svg_Nova_SvgComponent*)(l1_Nova_current->nova_web_svg_Nova_SvgComponentNode_Nova_component), exceptionData, writer);
 		l1_Nova_current = l1_Nova_current->nova_web_svg_Nova_SvgComponentNode_Nova_next;
 	}
 }

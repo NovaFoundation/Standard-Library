@@ -27,7 +27,7 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_File.h>
+#include <nova/io/nova_io_Nova_FileWriter.h>
 #include <nova/web/svg/nova_web_svg_Nova_SvgComponentList.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
@@ -58,6 +58,8 @@ nova_web_svg_SvgComponent_Extension_VTable nova_web_svg_SvgComponent_Extension_V
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
+		0,
+		0,
 		0,
 		0,
 		0,
@@ -108,7 +110,7 @@ void nova_web_svg_Nova_SvgComponent_Nova_this(nova_web_svg_Nova_SvgComponent* th
 	this->nova_web_svg_Nova_SvgComponent_Nova_children = nova_web_svg_Nova_SvgComponentList_Nova_construct(0, exceptionData);
 }
 
-void nova_web_svg_Nova_SvgComponent_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
+void nova_web_svg_Nova_SvgComponent_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_FileWriter* writer)
 {
 	nova_io_Nova_Console_1_static_Nova_writeLine(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("This is wrong")));
 }
@@ -118,8 +120,8 @@ void nova_web_svg_Nova_SvgComponent_Nova_super(nova_web_svg_Nova_SvgComponent* t
 	this->nova_web_svg_Nova_SvgComponent_Nova_children = (nova_web_svg_Nova_SvgComponentList*)nova_null;
 }
 
-void nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file)
+void nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput(nova_web_svg_Nova_SvgComponent* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_FileWriter* writer)
 {
-	this->vtable->nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_web_svg_Nova_SvgComponent*)(this), exceptionData, file);
+	this->vtable->nova_web_svg_Nova_SvgComponent_virtual_Nova_generateOutput((nova_web_svg_Nova_SvgComponent*)(this), exceptionData, writer);
 }
 

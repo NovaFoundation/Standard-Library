@@ -27,7 +27,7 @@
 #include <nova/nova_Nova_System.h>
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
-#include <nova/io/nova_io_Nova_StreamReader.h>
+#include <nova/io/nova_io_Nova_InputStream.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -63,6 +63,8 @@ nova_process_Process_Extension_VTable nova_process_Process_Extension_VTable_val 
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -75,7 +77,7 @@ void nova_process_Nova_Process_Nova_init_static(nova_exception_Nova_ExceptionDat
 	}
 }
 
-nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* reader)
+nova_process_Nova_Process* nova_process_Nova_Process_Nova_construct(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_InputStream* reader)
 {
 	CCLASS_NEW(nova_process_Nova_Process, this,);
 	this->vtable = &nova_process_Process_Extension_VTable_val;
@@ -96,18 +98,18 @@ void nova_process_Nova_Process_Nova_destroy(nova_process_Nova_Process** this, no
 		return;
 	}
 	
-	nova_io_Nova_StreamReader_Nova_destroy(&(*this)->nova_process_Nova_Process_Nova_reader, exceptionData);
+	
 	
 	NOVA_FREE(*this);
 }
 
-void nova_process_Nova_Process_Nova_this(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_StreamReader* reader)
+void nova_process_Nova_Process_Nova_this(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_InputStream* reader)
 {
 	this->nova_process_Nova_Process_Nova_reader = reader;
 }
 
 void nova_process_Nova_Process_Nova_super(nova_process_Nova_Process* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	this->nova_process_Nova_Process_Nova_reader = (nova_io_Nova_StreamReader*)nova_null;
+	this->nova_process_Nova_Process_Nova_reader = (nova_io_Nova_InputStream*)nova_null;
 }
 

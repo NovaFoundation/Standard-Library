@@ -63,6 +63,8 @@ nova_time_Timer_Extension_VTable nova_time_Timer_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_time_Nova_Timer_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
