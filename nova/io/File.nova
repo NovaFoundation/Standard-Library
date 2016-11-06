@@ -11,19 +11,76 @@ class File {
     
     external int F_OK
     
+    external type tinydir_file
+    
+    tinydir_file* file
+    
     visible String location
+    visible String name => location.substring(location.lastIndexOf('/') + 1)
+    
+    visible Bool isHidden => name.startsWith(".");
+    
+    [Target c]
+    visible Bool isDirectory {
+        get {
+            external {
+                return #{file}->is_dir;
+            }
+        }
+        
+        no set
+    }
+    
+    [Target c]
+    visible Bool exists => access(location.chars.data, F_OK) != -1
+    
+    [Target not c]
+    visible Bool exists => false
+    
+    [Target c]
+    visible File[] files {
+        get {
+            if (!isDirectory) {
+                throw new Exception("Must be a directory to list files")
+            }
+            
+            var list = new File[]
+            
+            [PrimitiveArray]
+            Char[] current
+            tinydir_file* f
+            
+            external {
+                tinydir_dir dir;
+                tinydir_open(&dir, (char*)#{location.chars.data});
+                
+                while (dir.has_next) {
+                    #{f} = NOVA_MALLOC(sizeof(tinydir_file));
+                    tinydir_readfile(&dir, #{f});
+                    
+                    //if (!file.is_dir) {
+                        #{current} = #{f}->name;
+                        
+                        #{
+                            list.add(new File(location + "/" + new String(current), f))
+                        }
+                    //}
+                    
+                    tinydir_next(&dir);
+                }
+                
+                tinydir_close(&dir);
+            }
+            
+            return list
+        }
+    }
     
     static {
         File exitLog = new File("log#Time.currentTimeMillis")
     }
     
-    visible Bool exists => access(location.chars.data, F_OK) != -1
-    
-    public Int maxOpenFiles {
-        get {
-            return extGetMaxOpenFiles()
-        }
-
+    public Int maxOpenFiles => extGetMaxOpenFiles() {
         set {
             Short min = (Short)20
             Short max = (Short)2048
@@ -36,21 +93,38 @@ class File {
         }
     }
 
+    construct(String location, tinydir_file* file) {
+        this.location = location
+        this.file = file
+    }
+
     public construct(String location) {
         this.location = location
+        
+        external c {
+            errno = 0;
+            
+            #{file} = NOVA_MALLOC(sizeof(tinydir_file));
+            
+            tinydir_file_open(#{file}, (char*)#{location.chars.data});
+        }
     }
 
     /*public construct(FILE* fp) {
         this.fp = fp
     }*/
     
-    public directoryContents(String location) -> String[] {
-        return null
+    public getChildFiles(Bool recursive = false, Bool includeHidden = false) -> File[] {
+        var list = files
+        
+        var directories = list.filter(file -> { file.isDirectory && (includeHidden || !file.isHidden) && !file.name.equals(".") && !file.name.equals("..") })
+        
+        if (recursive) {
+            directories.forEach({ list.addAll(_.getChildFiles(recursive: true)) })
+        }
+        
+        return list.filter(file -> { !file.isDirectory && (includeHidden || !file.isHidden) })
     }
     
-    public listFiles(String location) -> String[] {
-        return null
-    }
-    
-    
+    public toString() => "{File \"#location\"}"
 }
