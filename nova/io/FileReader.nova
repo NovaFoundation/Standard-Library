@@ -1,0 +1,110 @@
+package "nova/io"
+
+class FileReader extends InputStream {
+    external type FILE
+    
+    FILE* fp
+    
+    external FILE* fopen(char location[], char operation[])
+    external void perror(char name[])
+    external FILE* freopen(char location[], char operation[], FILE* fp)
+    external void fprintf(FILE* fp, char data[])
+    external void fputs(char str[], FILE* stream)
+    external void fflush(FILE* fp)
+    external int fclose(FILE* fp)
+    external void fgets(char buffer[], int size, FILE* fp)
+    external char[] realloc(char buffer[], int size)
+    external char getc(FILE* fp)
+    external void rewind(FILE* fp) as extRewind
+    external int remove(char name[])
+    
+    external char EOF
+    
+    visible Bool open => fp != 0
+    
+    public readString() => readLine()
+    public readBytes() => null
+    
+    visible File file
+    
+    public construct(File file) {
+        this.file = file
+        
+        open()
+    }
+    
+    [Target c]
+    public construct(FILE* fp) {
+        this.fp = fp
+    }
+    
+    public open() {
+        external c {
+            #{fp} = fopen((char*)#{file.location.chars.data}, "r+");
+        }
+    }
+    
+    public readAllContents() -> String {
+        String data = ""
+        
+        String line = readLine()
+        
+        while (line != null) {
+            if (data.count > 0) {
+                data = data + "\n"
+            }
+            
+            data = data + line
+            
+            line = readLine()
+        }
+        
+        return data
+    }
+    
+    public readLine() -> String {
+        Int buf  = 5
+        Int size = buf
+        
+        [PrimitiveArray]
+        Char[] line = new Char[size]
+        
+        Char c = getc(fp)
+        
+        if (c == EOF) {
+            return null
+        }
+        
+        Int index = 0
+        
+        while (c != '\n' && c != EOF) {
+            if (index >= size) {
+                size = size + buf
+                
+                line = realloc(line, size)
+            }
+            
+            line[index++] = c
+            
+            c = getc(fp)
+        }
+        
+        if (index >= size) {
+            size++
+            
+            line = realloc(line, size)
+        }
+        
+        line[index++] = '\0'
+        
+        line = realloc(line, index)
+        
+        return new String(line)
+    }
+    
+    public close() {
+        if (open) {
+            fclose(fp)
+        }
+    }
+}
