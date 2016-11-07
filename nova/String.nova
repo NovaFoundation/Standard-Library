@@ -225,9 +225,9 @@ class String implements Comparable<String> {
         return new String(buf)
     }
 
-    public trim(Int start = 0, Int end = count - 1) -> String {
-        while (start <= end && WHITESPACE.contains(chars[start])) start++
-        while (end >= start && WHITESPACE.contains(chars[end])) end--
+    public trim(Int start = 0, Int end = count - 1, Char[] charsToTrim = WHITESPACE) -> String {
+        while (start <= end && charsToTrim.contains(chars[start])) start++
+        while (end >= start && charsToTrim.contains(chars[end])) end--
         
         return start > end ? "" : substring(start, end + 1)
     }
