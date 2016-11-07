@@ -64,6 +64,7 @@ CCLASS_CLASS
 	nova_Nova_Class* nova_io_Nova_File_Nova_class;
 	nova_Nova_String* nova_io_Nova_File_Nova_location;
 	nova_Nova_String* nova_io_Nova_File_Nova_name;
+	nova_Nova_String* nova_io_Nova_File_Nova_extension;
 	char nova_io_Nova_File_Nova_isHidden;
 	char nova_io_Nova_File_Nova_isDirectory;
 	char nova_io_Nova_File_Nova_exists;
@@ -85,6 +86,7 @@ char nova_io_Nova_File_Accessorfunc_Nova_isDirectory(nova_io_Nova_File* this, no
 nova_datastruct_list_Nova_Array* nova_io_Nova_File_Accessorfunc_Nova_files(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 int nova_io_Nova_File_Mutatorfunc_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, int value);
 nova_Nova_String* nova_io_Nova_File_Accessorfunc_Nova_name(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
+nova_Nova_String* nova_io_Nova_File_Accessorfunc_Nova_extension(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 char nova_io_Nova_File_Accessorfunc_Nova_isHidden(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 char nova_io_Nova_File_Accessorfunc_Nova_exists(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);
 int nova_io_Nova_File_Accessorfunc_Nova_maxOpenFiles(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData);

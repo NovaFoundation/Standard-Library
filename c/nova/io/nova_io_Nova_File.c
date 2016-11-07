@@ -98,6 +98,7 @@ char nova_io_Nova_File_Nova_testLambda69(nova_io_Nova_File* this, nova_exception
 
 
 
+
 void nova_io_Nova_File_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -149,6 +150,7 @@ void nova_io_Nova_File_Nova_destroy(nova_io_Nova_File** this, nova_exception_Nov
 	nova_Nova_Class_Nova_destroy(&(*this)->nova_io_Nova_File_Nova_class, exceptionData);
 	nova_Nova_String_Nova_destroy(&(*this)->nova_io_Nova_File_Nova_location, exceptionData);
 	nova_Nova_String_Nova_destroy(&(*this)->nova_io_Nova_File_Nova_name, exceptionData);
+	nova_Nova_String_Nova_destroy(&(*this)->nova_io_Nova_File_Nova_extension, exceptionData);
 	
 	
 	
@@ -318,6 +320,12 @@ nova_Nova_String* nova_io_Nova_File_Accessorfunc_Nova_name(nova_io_Nova_File* th
 }
 
 
+nova_Nova_String* nova_io_Nova_File_Accessorfunc_Nova_extension(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_Nova_String_Nova_substring(this->nova_io_Nova_File_Nova_location, exceptionData, nova_Nova_String_0_Nova_lastIndexOf(this->nova_io_Nova_File_Nova_location, exceptionData, '.', (intptr_t)nova_null, this->nova_io_Nova_File_Nova_location->nova_Nova_String_Nova_count), (intptr_t)nova_null);
+}
+
+
 char nova_io_Nova_File_Accessorfunc_Nova_isHidden(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return nova_Nova_String_0_Nova_startsWith(nova_io_Nova_File_Accessorfunc_Nova_name(this, exceptionData), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(".")));
@@ -340,6 +348,7 @@ void nova_io_Nova_File_Nova_super(nova_io_Nova_File* this, nova_exception_Nova_E
 	this->nova_io_Nova_File_Nova_class = (nova_Nova_Class*)nova_null;
 	this->nova_io_Nova_File_Nova_location = (nova_Nova_String*)nova_null;
 	this->nova_io_Nova_File_Nova_name = (nova_Nova_String*)nova_null;
+	this->nova_io_Nova_File_Nova_extension = (nova_Nova_String*)nova_null;
 	this->nova_io_Nova_File_Nova_isHidden = 0;
 	this->nova_io_Nova_File_Nova_isDirectory = 0;
 	this->nova_io_Nova_File_Nova_exists = 0;
