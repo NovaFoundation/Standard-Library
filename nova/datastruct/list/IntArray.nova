@@ -50,14 +50,20 @@ class IntArray extends Array<Int> {
     }
     
     [Override]
-    public all(allFunc(Int) -> Bool) -> Bool {
+    public all(allFunc(Int, Int, List<Int>) -> Bool, Bool stopOnContradiction = true) -> Bool {
+        Int i = 0
+        
+        var contradiction = false
+        
         for (element in this) {
-            if (!allFunc(element)) {
-                return false
+            if (!allFunc(element, i++, this)) {
+                if (stopOnContradiction) return false
+                
+                contradiction = true
             }
         }
         
-        return true
+        return !contradiction
     }
     
     [Override]
