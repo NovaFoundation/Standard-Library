@@ -113,7 +113,7 @@ void nova_math_Nova_NumericStatement_Nova_destroy(nova_math_Nova_NumericStatemen
 
 void nova_math_Nova_NumericStatement_Nova_this(nova_math_Nova_NumericStatement* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* statement)
 {
-	this->prv->nova_math_Nova_NumericStatement_Nova_tree = nova_math_Nova_NumericTree_Nova_construct(0, exceptionData, nova_Nova_String_Nova_trim(statement, exceptionData, (intptr_t)nova_null, (intptr_t)nova_null));
+	this->prv->nova_math_Nova_NumericStatement_Nova_tree = nova_math_Nova_NumericTree_Nova_construct(0, exceptionData, nova_Nova_String_Nova_trim(statement, exceptionData, (intptr_t)nova_null, (intptr_t)nova_null, 0));
 }
 
 nova_Nova_String* nova_math_Nova_NumericStatement_Nova_toString(nova_math_Nova_NumericStatement* this, nova_exception_Nova_ExceptionData* exceptionData)

@@ -48,5 +48,5 @@ class Class {
         return false
     }
     
-    public toString() => "Class #name #package \"#location\""
+    public toString() => "Class \"#location\""
 }

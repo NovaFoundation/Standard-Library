@@ -136,7 +136,7 @@ void nova_math_logic_Nova_WFF_Nova_destroy(nova_math_logic_Nova_WFF** this, nova
 
 void nova_math_logic_Nova_WFF_Nova_this(nova_math_logic_Nova_WFF* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* wellFormedFormula, nova_datastruct_list_Nova_Array* letters)
 {
-	this->prv->nova_math_logic_Nova_WFF_Nova_wff = nova_Nova_String_Nova_trim(wellFormedFormula, exceptionData, (intptr_t)nova_null, (intptr_t)nova_null);
+	this->prv->nova_math_logic_Nova_WFF_Nova_wff = nova_Nova_String_Nova_trim(wellFormedFormula, exceptionData, (intptr_t)nova_null, (intptr_t)nova_null, 0);
 	this->prv->nova_math_logic_Nova_WFF_Nova_letters = letters;
 	this->prv->nova_math_logic_Nova_WFF_Nova_hypotheses = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 	nova_math_logic_Nova_WFF_Nova_decodeFormula(this, exceptionData);

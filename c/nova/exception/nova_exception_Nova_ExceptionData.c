@@ -77,7 +77,6 @@ nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Exten
 
 
 
-nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDataByCode(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int code);
 char nova_exception_Nova_ExceptionData_Nova_testLambda66(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int _1, Context1* context);
 void nova_exception_Nova_ExceptionData_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
