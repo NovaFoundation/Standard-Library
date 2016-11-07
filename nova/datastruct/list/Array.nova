@@ -7,7 +7,7 @@ class Array<E> implements List<E> {
 
     visible Int capacity
 
-    visible Int    count
+    visible Int count <=> count
     visible Int position
 
     [PrimitiveArray]
