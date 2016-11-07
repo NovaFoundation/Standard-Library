@@ -61,6 +61,8 @@ nova_math_logic_WFF_Extension_VTable nova_math_logic_WFF_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
@@ -158,7 +160,7 @@ void nova_math_logic_Nova_WFF_Nova_decodeFormula(nova_math_logic_Nova_WFF* this,
 	this->prv->nova_math_logic_Nova_WFF_Nova_wff = nova_datastruct_Nova_Bounds_Nova_extractPreString(l1_Nova_conclusionGroup->nova_math_logic_Nova_StatementGroup_Nova_bounds, exceptionData, this->prv->nova_math_logic_Nova_WFF_Nova_wff);
 	l1_Nova_statements = nova_math_logic_Nova_WFF_Nova_decodeHypotheses(this, exceptionData, this->prv->nova_math_logic_Nova_WFF_Nova_wff);
 	l4_Nova_i = (int)0;
-	for (; l4_Nova_i < (int)l1_Nova_statements->nova_datastruct_list_Nova_Array_Nova_count; l4_Nova_i++)
+	for (; l4_Nova_i < (int)nova_datastruct_list_Nova_Array_Accessorfunc_Nova_count((nova_datastruct_list_Nova_Array*)(l1_Nova_statements), exceptionData); l4_Nova_i++)
 	{
 		nova_math_logic_Nova_StatementGroup* l4_Nova_group = (nova_math_logic_Nova_StatementGroup*)nova_null;
 		
@@ -166,7 +168,7 @@ void nova_math_logic_Nova_WFF_Nova_decodeFormula(nova_math_logic_Nova_WFF* this,
 		nova_datastruct_list_Nova_Array_0_Nova_add((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_logic_Nova_WFF_Nova_hypotheses), exceptionData, (nova_Nova_Object*)(l4_Nova_group->nova_math_logic_Nova_StatementGroup_Nova_statement));
 	}
 	l6_Nova_n = (int)0;
-	for (; l6_Nova_n < (int)this->prv->nova_math_logic_Nova_WFF_Nova_hypotheses->nova_datastruct_list_Nova_Array_Nova_count; l6_Nova_n++)
+	for (; l6_Nova_n < (int)nova_datastruct_list_Nova_Array_Accessorfunc_Nova_count((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_logic_Nova_WFF_Nova_hypotheses), exceptionData); l6_Nova_n++)
 	{
 		nova_io_Nova_Console_2_static_Nova_writeLine(0, exceptionData, (nova_Nova_Object*)(nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_math_logic_Nova_WFF_Nova_hypotheses), exceptionData, l6_Nova_n)));
 	}
@@ -271,7 +273,7 @@ char nova_math_logic_Nova_WFF_static_Nova_containsChar(nova_math_logic_Nova_WFF*
 	int l2_Nova_i = 0;
 	
 	l2_Nova_i = (int)0;
-	for (; l2_Nova_i < (int)chars->nova_datastruct_list_Nova_Array_Nova_count; l2_Nova_i++)
+	for (; l2_Nova_i < (int)nova_datastruct_list_Nova_Array_Accessorfunc_Nova_count((nova_datastruct_list_Nova_Array*)(chars), exceptionData); l2_Nova_i++)
 	{
 		if (needle == (char)(intptr_t)chars->nova_datastruct_list_Nova_Array_Nova_data[l2_Nova_i])
 		{

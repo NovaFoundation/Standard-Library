@@ -55,6 +55,8 @@ nova_database_ResultSet_Extension_VTable nova_database_ResultSet_Extension_VTabl
 		0,
 		0,
 		0,
+		0,
+		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
@@ -109,7 +111,7 @@ void nova_database_Nova_ResultSet_Nova_this(nova_database_Nova_ResultSet* this, 
 
 int nova_database_Nova_ResultSet_Accessor_Nova_numRows(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return this->nova_database_Nova_ResultSet_Nova_rows->nova_datastruct_list_Nova_Array_Nova_count;
+	return nova_datastruct_list_Nova_Array_Accessorfunc_Nova_count((nova_datastruct_list_Nova_Array*)(this->nova_database_Nova_ResultSet_Nova_rows), exceptionData);
 }
 
 void nova_database_Nova_ResultSet_Nova_super(nova_database_Nova_ResultSet* this, nova_exception_Nova_ExceptionData* exceptionData)

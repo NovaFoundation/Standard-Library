@@ -53,6 +53,8 @@ nova_io_FileReader_Extension_VTable nova_io_FileReader_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 		(nova_Nova_String*(*)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*))nova_io_Nova_FileReader_Nova_readString,
 		0,
 		0,

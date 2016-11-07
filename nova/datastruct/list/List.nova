@@ -1,7 +1,9 @@
 package "nova/datastruct/list"
 
 interface List<Type> extends Iterable<Type> {
-    visible Int count
+    visible Int count => 0 {
+        set {}
+    }
     /*[Int index] {
         get { return this.get(index) }
         set { this.set(index, value) }
@@ -118,6 +120,26 @@ interface List<Type> extends Iterable<Type> {
             list.add(value)
         }
 
+        return list
+    }
+
+    public takeLast(Int howMany) -> Type[] {
+        var list = new Type[]
+        
+        Int startIndex = Math.max(0, count - howMany)
+        
+        if (startIndex == count) {
+            return list
+        }
+        
+        Int i = 0
+                
+        for (value in this) {
+            if (i++ >= startIndex) {
+                list.add(value)
+            }
+        }
+        
         return list
     }
 

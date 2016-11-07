@@ -57,6 +57,8 @@ nova_datastruct_list_DoubleArrayIterator_Extension_VTable nova_datastruct_list_D
 		0,
 		0,
 		0,
+		0,
+		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
 		0,
@@ -126,7 +128,7 @@ nova_datastruct_list_Nova_Iterator* nova_datastruct_list_Nova_DoubleArrayIterato
 
 char nova_datastruct_list_Nova_DoubleArrayIterator_Accessor_Nova_hasNext(nova_datastruct_list_Nova_DoubleArrayIterator* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return this->prv->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array->nova_datastruct_list_Nova_Array_Nova_count > this->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_position;
+	return nova_datastruct_list_Nova_Array_Accessorfunc_Nova_count((nova_datastruct_list_Nova_Array*)(this->prv->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_array), exceptionData) > this->nova_datastruct_list_Nova_DoubleArrayIterator_Nova_position;
 }
 
 
