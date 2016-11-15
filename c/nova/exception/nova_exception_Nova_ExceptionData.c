@@ -77,7 +77,7 @@ nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Exten
 
 
 
-char nova_exception_Nova_ExceptionData_Nova_testLambda66(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int _1, Context1* context);
+char nova_exception_Nova_ExceptionData_Nova_testLambda68(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int _1, Context1* context);
 void nova_exception_Nova_ExceptionData_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -131,12 +131,12 @@ nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDat
 	l1_Nova_data = this;
 	for (;;)
 	{
-		Context1 contextArg66 = 
+		Context1 contextArg68 = 
 		{
 			&code,
 		};
 		
-		if (nova_datastruct_list_Nova_IntArray_Nova_any(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_codes, exceptionData, (nova_datastruct_list_Nova_IntArray_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_Nova_testLambda66, this, &contextArg66) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
+		if (nova_datastruct_list_Nova_IntArray_Nova_any(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_codes, exceptionData, (nova_datastruct_list_Nova_IntArray_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_Nova_testLambda68, this, &contextArg68) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
 		{
 			return l1_Nova_data;
 		}
@@ -162,7 +162,7 @@ void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_Exc
 	jump(*l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_buf, code);
 }
 
-char nova_exception_Nova_ExceptionData_Nova_testLambda66(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int _1, Context1* context)
+char nova_exception_Nova_ExceptionData_Nova_testLambda68(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int _1, Context1* context)
 {
 	return _1 == (*context->nova_exception_Nova_ExceptionData_Nova_code);
 }

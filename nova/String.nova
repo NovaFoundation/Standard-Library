@@ -140,6 +140,7 @@ class String implements Comparable<String> {
         return output
     }
     
+    public startsWith(Char search) => indexOf(search) == 0
     public startsWith(String search) => indexOf(search) == 0
     public startsWith(Pattern search) => indexOf(search) == 0
     public contains(String search) => indexOf(search) >= 0
@@ -151,7 +152,14 @@ class String implements Comparable<String> {
     	
     	return matches.count == 1 && matches[0].start == 0 && matches[0].end == count
     }
-
+    
+    /// Get the first index at or after the start index that the given pattern occurs.
+    /// 
+    /// search: The pattern to search for a match for.
+    /// start: The index in the string to start the search at.
+    /// direction: The direction to search in, positive = to the right, negative = to the left.
+    /// defaultReturnValue: The default value returned if no match is met.
+    /// return: The index of the match.
     public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
     	var first = Regex.getMatches(search, this).first
     	
