@@ -6,7 +6,7 @@ typedef struct nova_network_Nova_ConnectionSocket nova_network_Nova_ConnectionSo
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

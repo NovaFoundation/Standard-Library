@@ -39,7 +39,7 @@ typedef nova_Nova_Object* (*nova_datastruct_list_Nova_List_closure26_Nova_func)(
 typedef nova_Nova_Object* (*nova_datastruct_list_Nova_List_closure27_Nova_func)(void*, nova_exception_Nova_ExceptionData*, Out*, nova_Nova_Object*, int, nova_datastruct_list_Nova_List*, void*);
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

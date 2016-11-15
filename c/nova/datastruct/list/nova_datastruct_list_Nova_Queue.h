@@ -6,7 +6,7 @@ typedef struct nova_datastruct_list_Nova_Queue nova_datastruct_list_Nova_Queue;
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

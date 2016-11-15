@@ -6,7 +6,7 @@ typedef struct nova_math_Nova_GeometricSequence nova_math_Nova_GeometricSequence
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

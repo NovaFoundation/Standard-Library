@@ -6,7 +6,7 @@ typedef struct nova_thread_async_Nova_AsyncResult nova_thread_async_Nova_AsyncRe
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

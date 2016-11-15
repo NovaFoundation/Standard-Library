@@ -28,7 +28,7 @@ typedef char (*nova_datastruct_list_Nova_LinkedList_closure17_Nova_func)(void*, 
 typedef char (*nova_datastruct_list_Nova_LinkedList_closure18_Nova_func)(void*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*, void*);
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

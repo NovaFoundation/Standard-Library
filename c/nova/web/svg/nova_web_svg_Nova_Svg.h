@@ -6,7 +6,7 @@ typedef struct nova_web_svg_Nova_Svg nova_web_svg_Nova_Svg;
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

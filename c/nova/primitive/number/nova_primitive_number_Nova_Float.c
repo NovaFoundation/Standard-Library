@@ -68,6 +68,8 @@ nova_primitive_number_Float_Extension_VTable nova_primitive_number_Float_Extensi
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_primitive_number_Nova_Float_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

@@ -29,7 +29,7 @@ typedef char (*nova_datastruct_list_Nova_IntArray_closure17_Nova_func)(void*, no
 typedef char (*nova_datastruct_list_Nova_IntArray_closure18_Nova_func)(void*, nova_exception_Nova_ExceptionData*, int, void*);
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

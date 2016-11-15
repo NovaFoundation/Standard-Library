@@ -6,7 +6,7 @@ typedef struct nova_exception_Nova_DivideByZeroException nova_exception_Nova_Div
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

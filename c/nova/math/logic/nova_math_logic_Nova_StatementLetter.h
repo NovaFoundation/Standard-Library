@@ -6,7 +6,7 @@ typedef struct nova_math_logic_Nova_StatementLetter nova_math_logic_Nova_Stateme
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

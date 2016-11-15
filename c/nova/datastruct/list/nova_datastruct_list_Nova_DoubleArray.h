@@ -31,7 +31,7 @@ typedef char (*nova_datastruct_list_Nova_DoubleArray_closure20_Nova_func)(void*,
 typedef char (*nova_datastruct_list_Nova_DoubleArray_closure21_Nova_func)(void*, nova_exception_Nova_ExceptionData*, double, void*);
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

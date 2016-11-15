@@ -29,7 +29,7 @@ typedef nova_Nova_Object* (*nova_datastruct_Nova_Tuple_closure17_Nova_mapFunc)(v
 typedef nova_Nova_Object* (*nova_datastruct_Nova_Tuple_closure18_Nova_mapFunc)(void*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*, int, nova_datastruct_list_Nova_List*, void*);
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>

@@ -6,7 +6,7 @@ typedef struct nova_primitive_number_Nova_Number nova_primitive_number_Nova_Numb
 
 
 #include <Nova.h>
-#include <InterfaceVTAble.h>
+#include <InterfaceVTable.h>
 #include <ExceptionHandler.h>
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
