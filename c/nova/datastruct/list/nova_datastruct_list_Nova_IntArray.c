@@ -28,8 +28,8 @@
 #include <nova/nova_Nova_Class.h>
 #include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_IntArrayIterator.h>
-#include <nova/datastruct/list/nova_datastruct_list_Nova_List.h>
 #include <nova/datastruct/list/nova_datastruct_list_Nova_ArrayIterator.h>
+#include <nova/datastruct/list/nova_datastruct_list_Nova_List.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
@@ -61,8 +61,6 @@ nova_datastruct_list_IntArray_Extension_VTable nova_datastruct_list_IntArray_Ext
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
 		0,
 		0,
 		0,
@@ -222,7 +220,7 @@ char nova_datastruct_list_Nova_IntArray_Nova_all(nova_datastruct_list_Nova_IntAr
 	while (nova_datastruct_list_Nova_IntArrayIterator_Accessor_Nova_hasNext(nova_local_0, exceptionData))
 	{
 		l1_Nova_element = (int)(intptr_t)(nova_datastruct_list_Nova_IntArrayIterator_Accessor_Nova_next(nova_local_0, exceptionData));
-		if (!nova_datastruct_list_Nova_IntArray_Nova_allFunc(nova_datastruct_list_Nova_IntArray_ref_Nova_allFunc, exceptionData, l1_Nova_element, l1_Nova_i++, (nova_datastruct_list_Nova_List*)(this), allFunc_context))
+		if (!nova_datastruct_list_Nova_IntArray_Nova_allFunc(nova_datastruct_list_Nova_IntArray_ref_Nova_allFunc, exceptionData, l1_Nova_element, l1_Nova_i++, this, allFunc_context))
 		{
 			if (stopOnContradiction)
 			{

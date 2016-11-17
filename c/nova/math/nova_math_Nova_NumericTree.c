@@ -65,8 +65,6 @@ nova_math_NumericTree_Extension_VTable nova_math_NumericTree_Extension_VTable_va
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_math_Nova_NumericTree_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

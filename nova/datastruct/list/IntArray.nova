@@ -50,7 +50,7 @@ class IntArray extends Array<Int> {
     }
     
     [Override]
-    public all(allFunc(Int, Int, List<Int>) -> Bool, Bool stopOnContradiction = true) -> Bool {
+    public all(allFunc(Int, Int, IntArray) -> Bool, Bool stopOnContradiction = true) -> Bool {
         Int i = 0
         
         var contradiction = false

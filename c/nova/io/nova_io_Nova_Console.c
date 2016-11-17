@@ -67,8 +67,6 @@ nova_io_Console_Extension_VTable nova_io_Console_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -107,6 +105,12 @@ void nova_io_Nova_Console_Nova_destroy(nova_io_Nova_Console** this, nova_excepti
 	
 	
 	NOVA_FREE(*this);
+}
+
+void nova_io_Nova_Console_static_Nova_log(nova_io_Nova_Console* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* obj)
+{
+	obj = (nova_Nova_Object*)(obj == 0 ? (nova_Nova_Object*)nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")) : (nova_Nova_Object*)obj);
+	nova_io_Nova_Console_2_static_Nova_writeLine(0, exceptionData, obj);
 }
 
 void nova_io_Nova_Console_0_static_Nova_writeLine(nova_io_Nova_Console* this, nova_exception_Nova_ExceptionData* exceptionData)

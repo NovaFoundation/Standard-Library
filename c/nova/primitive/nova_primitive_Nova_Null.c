@@ -69,8 +69,6 @@ nova_primitive_Null_Extension_VTable nova_primitive_Null_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_primitive_Nova_Null_Nova_toString,
 	nova_Nova_String_Accessor_Nova_hashCodeLong,

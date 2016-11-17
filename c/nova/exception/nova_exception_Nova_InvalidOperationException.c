@@ -64,8 +64,6 @@ nova_exception_InvalidOperationException_Extension_VTable nova_exception_Invalid
 		0,
 		0,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
