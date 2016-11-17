@@ -22,7 +22,11 @@ class Console {
     external void nova_setEcho(Bool echo)
     external void nova_clearScreen()
     external void fflush(FILE* stream)
-
+    
+    public static log(Object obj = "") {
+        writeLine(obj)
+    }
+    
     public static writeLine() {
         writeLine("")
     }
