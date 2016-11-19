@@ -65,7 +65,7 @@ nova_exception_UnimplementedOperationException_Extension_VTable nova_exception_U
 		0,
 		0,
 	},
-	nova_Nova_Object_Nova_toString,
+	nova_exception_Nova_Exception_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
 };
 

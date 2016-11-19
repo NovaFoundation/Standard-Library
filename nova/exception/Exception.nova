@@ -4,4 +4,6 @@ class Exception {
     visible String message
     
     public construct(String message = "") => this.message = message
+    
+    public toString() => this.class.name + (message != null ? ": #message" : "")
 }

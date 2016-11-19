@@ -46,7 +46,7 @@ struct nova_exception_Exception_Extension_VTable
 {
 	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
-	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
+	nova_Nova_String* (*nova_Nova_Object_virtual_Nova_toString)(nova_exception_Nova_Exception*, nova_exception_Nova_ExceptionData*);
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
@@ -65,6 +65,7 @@ void nova_exception_Nova_Exception_Nova_init_static(nova_exception_Nova_Exceptio
 nova_exception_Nova_Exception* nova_exception_Nova_Exception_Nova_construct(nova_exception_Nova_Exception* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message);
 void nova_exception_Nova_Exception_Nova_destroy(nova_exception_Nova_Exception** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_exception_Nova_Exception_Nova_this(nova_exception_Nova_Exception* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* message);
+nova_Nova_String* nova_exception_Nova_Exception_Nova_toString(nova_exception_Nova_Exception* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_exception_Nova_Exception_Nova_super(nova_exception_Nova_Exception* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif
