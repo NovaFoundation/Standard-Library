@@ -1,6 +1,7 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -72,9 +73,6 @@ nova_math_Vector_Extension_VTable nova_math_Vector_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
-		0,
 		0,
 		0,
 		0,
@@ -204,13 +202,13 @@ void nova_math_Nova_Vector_Nova_testLambda12(nova_math_Nova_Vector* this, nova_e
 	nova_zero_check1 = nova_math_Nova_Vector_Accessor_Nova_magnitude(this, exceptionData);
 	if (nova_zero_check1 == 0)
 	{
-		THROW(2, nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
+		THROW(nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
 	}
 	nova_datastruct_list_Nova_DoubleArray_Nova_set(d, exceptionData, i, n / nova_zero_check2);
 	nova_zero_check2 = nova_zero_check1;
 	if (nova_zero_check2 == 0)
 	{
-		THROW(2, nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
+		THROW(nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
 	}
 }
 

@@ -1,6 +1,7 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -60,9 +61,6 @@ nova_regex_Regex_Extension_VTable nova_regex_Regex_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
-		0,
 		0,
 		0,
 		0,
@@ -149,7 +147,7 @@ nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(no
 		&erroroffset,
 	NULL);
 	if (re == NULL) {
-		THROW(1, nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Failed to compile regex '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((regex)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
+		THROW(nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Failed to compile regex '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((regex)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
 		
 		return (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_Array*)nova_null;
 	}
@@ -195,7 +193,7 @@ nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(no
 			continue;
 		}
 		if (rc < 0) {
-			THROW(1, nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Matching error for regex '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((regex)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
+			THROW(nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Matching error for regex '"))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((regex)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("'"))))));
 			
 		}
 		ovector = ovector == 0 ? pcre2_get_ovector_pointer(match_data) : ovector;
@@ -212,7 +210,7 @@ nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(no
 		}
 		currentSize += rc;
 		if (rc == 0) {
-			THROW(1, nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Regex returned too many results to be stored variable"))));
+			THROW(nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Regex returned too many results to be stored variable"))));
 			
 		}
 	}

@@ -11,6 +11,7 @@ typedef struct nova_exception_Nova_ExceptionData nova_exception_Nova_ExceptionDa
 #include <NovaClassData.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -62,7 +63,7 @@ CCLASS_CLASS
 	nova_exception_ExceptionData_Extension_VTable* vtable;
 	buffer* nova_exception_Nova_ExceptionData_Nova_buf;
 	nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_parent;
-	nova_datastruct_list_Nova_IntArray* nova_exception_Nova_ExceptionData_Nova_codes;
+	nova_datastruct_list_Nova_Array* nova_exception_Nova_ExceptionData_Nova_caught;
 	nova_exception_Nova_Exception* nova_exception_Nova_ExceptionData_Nova_thrownException;
 )
 
@@ -70,9 +71,9 @@ void nova_exception_Nova_ExceptionData_Nova_init_static(nova_exception_Nova_Exce
 nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_construct(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, buffer* buf);
 void nova_exception_Nova_ExceptionData_Nova_destroy(nova_exception_Nova_ExceptionData** this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_exception_Nova_ExceptionData_Nova_this(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, buffer* buf);
-void nova_exception_Nova_ExceptionData_Nova_addCode(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int code);
-nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDataByCode(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int code);
-void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, int code);
+void nova_exception_Nova_ExceptionData_Nova_addCaught(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* exceptionClass);
+nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDataByException(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_Exception* exception);
+void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_Exception* exception);
 void nova_exception_Nova_ExceptionData_Nova_super(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

@@ -1,6 +1,7 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -60,9 +61,6 @@ nova_datastruct_list_ArrayIterator_Extension_VTable nova_datastruct_list_ArrayIt
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
-		0,
 		0,
 		0,
 		0,
@@ -132,7 +130,7 @@ nova_Nova_Object* nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nov
 	{
 		return (nova_Nova_Object*)nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(this->prv->nova_datastruct_list_Nova_ArrayIterator_Nova_array), exceptionData, this->nova_datastruct_list_Nova_ArrayIterator_Nova_position++);
 	}
-	THROW(3, nova_datastruct_list_Nova_NoSuchElementException_Nova_construct(0, exceptionData, 0));
+	THROW(nova_datastruct_list_Nova_NoSuchElementException_Nova_construct(0, exceptionData, 0));
 	return (nova_Nova_Object*)(nova_Nova_Object*)nova_null;
 }
 

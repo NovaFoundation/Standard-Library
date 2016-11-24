@@ -1,6 +1,7 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
+#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -60,9 +61,6 @@ nova_datastruct_list_Stack_Extension_VTable nova_datastruct_list_Stack_Extension
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
-		0,
 		0,
 		0,
 		0,
@@ -129,7 +127,7 @@ nova_Nova_Object* nova_datastruct_list_Nova_Stack_Nova_pop(nova_datastruct_list_
 	
 	if (nova_datastruct_list_Nova_Stack_Accessor_Nova_isEmpty(this, exceptionData))
 	{
-		THROW(4, nova_datastruct_list_Nova_EmptyStackException_Nova_construct(0, exceptionData, 0));
+		THROW(nova_datastruct_list_Nova_EmptyStackException_Nova_construct(0, exceptionData, 0));
 	}
 	l1_Nova_data = this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_data;
 	this->prv->nova_datastruct_list_Nova_Stack_Nova_top = this->prv->nova_datastruct_list_Nova_Stack_Nova_top->nova_datastruct_list_Nova_ListNode_Nova_next;
