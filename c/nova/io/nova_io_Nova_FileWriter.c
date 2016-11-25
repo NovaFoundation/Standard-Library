@@ -1,7 +1,6 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
-#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -62,8 +61,6 @@ nova_io_FileWriter_Extension_VTable nova_io_FileWriter_Extension_VTable_val =
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
 		0,
 	},
 	nova_Nova_Object_Nova_toString,
@@ -177,13 +174,13 @@ char nova_io_Nova_FileWriter_Nova_create(nova_io_Nova_FileWriter* this, nova_exc
 		this->prv->nova_io_Nova_FileWriter_Nova_fp = fopen((char*)(this->nova_io_Nova_FileWriter_Nova_file->nova_io_Nova_File_Nova_location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), (char*)("w"));
 		if (!nova_io_Nova_File_Accessorfunc_Nova_exists(this->nova_io_Nova_FileWriter_Nova_file, exceptionData))
 		{
-			THROW(nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this->nova_io_Nova_FileWriter_Nova_file));
+			THROW(nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this->nova_io_Nova_FileWriter_Nova_file), 0);
 			return 0;
 		}
 		nova_io_Nova_FileWriter_Nova_reopen(this, exceptionData);
 		if (!nova_io_Nova_File_Accessorfunc_Nova_exists(this->nova_io_Nova_FileWriter_Nova_file, exceptionData))
 		{
-			THROW(nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this->nova_io_Nova_FileWriter_Nova_file));
+			THROW(nova_io_Nova_FileNotFoundException_Nova_construct(0, exceptionData, this->nova_io_Nova_FileWriter_Nova_file), 0);
 			return 0;
 		}
 		return 1;

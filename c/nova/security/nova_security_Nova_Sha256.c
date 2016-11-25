@@ -1,7 +1,6 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
-#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -62,8 +61,6 @@ nova_security_Sha256_Extension_VTable nova_security_Sha256_Extension_VTable_val 
 		0,
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
-		0,
-		0,
 		0,
 	},
 	nova_Nova_Object_Nova_toString,
@@ -147,13 +144,13 @@ nova_Nova_String* nova_security_Nova_Sha256_Nova_digest(nova_security_Nova_Sha25
 	nova_zero_check3 = (long_long)nova_math_Nova_Math_static_Nova_pow(0, exceptionData, 2, 32);
 	if (nova_zero_check3 == 0)
 	{
-		THROW(nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
+		THROW(nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData), 0);
 	}
 	nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(l1_Nova_M), exceptionData, l1_Nova_n - 1);
 	nova_zero_check4 = nova_zero_check3;
 	if (nova_zero_check4 == 0)
 	{
-		THROW(nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData));
+		THROW(nova_exception_Nova_DivideByZeroException_Nova_construct(0, exceptionData), 0);
 	}
 	nova_datastruct_list_Nova_Array_virtual_Nova_get((nova_datastruct_list_Nova_Array*)(l1_Nova_M), exceptionData, l1_Nova_n - 1);
 	l10_Nova_i = (int)0;

@@ -1,7 +1,6 @@
 #include <precompiled.h>
 #include <nova/exception/nova_exception_Nova_ExceptionData.h>
 #include <nova/exception/nova_exception_Nova_Exception.h>
-#include <nova/exception/nova_exception_Nova_SoftException.h>
 #include <nova/exception/nova_exception_Nova_DivideByZeroException.h>
 #include <nova/io/nova_io_Nova_Console.h>
 #include <nova/primitive/number/nova_primitive_number_Nova_Number.h>
@@ -30,11 +29,13 @@
 #include <nova/regex/nova_regex_Nova_Pattern.h>
 #include <signal.h>
 #include <NovaExceptionHandling.h>
+#include <nova/exception/nova_exception_Nova_CaughtException.h>
 #include <nova/NativeObject.h>
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
 typedef struct
 {
+	/* Bool soft = false */ int* nova_exception_Nova_ExceptionData_Nova_soft;
 	/* Exception exception */ nova_exception_Nova_Exception** nova_exception_Nova_ExceptionData_Nova_exception;
 } Context1;
 
@@ -66,8 +67,6 @@ nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Exten
 		0,
 		(char(*)(nova_operators_Nova_Equals*, nova_exception_Nova_ExceptionData*, nova_Nova_Object*))nova_Nova_Object_0_Nova_equals,
 		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -75,7 +74,7 @@ nova_exception_ExceptionData_Extension_VTable nova_exception_ExceptionData_Exten
 
 
 
-char nova_exception_Nova_ExceptionData_Nova_testLambda37(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context);
+char nova_exception_Nova_ExceptionData_Nova_testLambda37(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_CaughtException* c, Context1* context);
 void nova_exception_Nova_ExceptionData_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
@@ -117,42 +116,50 @@ void nova_exception_Nova_ExceptionData_Nova_this(nova_exception_Nova_ExceptionDa
 	this->nova_exception_Nova_ExceptionData_Nova_caught = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 }
 
-void nova_exception_Nova_ExceptionData_Nova_addCaught(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* exceptionClass)
+void nova_exception_Nova_ExceptionData_Nova_addCaught(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* type, int soft)
 {
-	nova_datastruct_list_Nova_Array_0_Nova_add((nova_datastruct_list_Nova_Array*)(this->nova_exception_Nova_ExceptionData_Nova_caught), exceptionData, (nova_Nova_Object*)(exceptionClass));
+	soft = (int)(soft == (intptr_t)nova_null ? 0 : soft);
+	nova_datastruct_list_Nova_Array_0_Nova_add((nova_datastruct_list_Nova_Array*)(this->nova_exception_Nova_ExceptionData_Nova_caught), exceptionData, (nova_Nova_Object*)(nova_exception_Nova_CaughtException_Nova_construct(0, exceptionData, type, soft)));
 }
 
-nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDataByException(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_Exception* exception)
+nova_exception_Nova_ExceptionData* nova_exception_Nova_ExceptionData_Nova_getDataByException(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_Exception* exception, int soft)
 {
 	nova_exception_Nova_ExceptionData* l1_Nova_data = (nova_exception_Nova_ExceptionData*)nova_null;
 	
+	soft = (int)(soft == (intptr_t)nova_null ? 0 : soft);
 	l1_Nova_data = this;
 	for (;;)
 	{
 		Context1 contextArg37 = 
 		{
+			&soft,
 			&exception,
 		};
 		
-		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_caught), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_Nova_testLambda37, this, &contextArg37) || l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
+		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_caught), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_exception_Nova_ExceptionData_Nova_testLambda37, this, &contextArg37))
 		{
 			return l1_Nova_data;
+		}
+		else if (l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent == (nova_exception_Nova_ExceptionData*)nova_null)
+		{
+			return (nova_exception_Nova_ExceptionData*)(soft ? (nova_Nova_Object*)nova_null : (nova_Nova_Object*)l1_Nova_data);
 		}
 		l1_Nova_data = l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_parent;
 	}
 }
 
-void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_Exception* exception)
+void nova_exception_Nova_ExceptionData_Nova_jumpToBuffer(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_Exception* exception, int soft)
 {
 	nova_exception_Nova_ExceptionData* l1_Nova_data = (nova_exception_Nova_ExceptionData*)nova_null;
 	
-	l1_Nova_data = nova_exception_Nova_ExceptionData_Nova_getDataByException(this, exceptionData, exception);
+	soft = (int)(soft == (intptr_t)nova_null ? 0 : soft);
+	l1_Nova_data = nova_exception_Nova_ExceptionData_Nova_getDataByException(this, exceptionData, exception, soft);
 	jump(*l1_Nova_data->nova_exception_Nova_ExceptionData_Nova_buf, (intptr_t)exception);
 }
 
-char nova_exception_Nova_ExceptionData_Nova_testLambda37(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context)
+char nova_exception_Nova_ExceptionData_Nova_testLambda37(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData, nova_exception_Nova_CaughtException* c, Context1* context)
 {
-	return nova_Nova_Class_Nova_isOfType((*context->nova_exception_Nova_ExceptionData_Nova_exception)->vtable->classInstance, exceptionData, _1);
+	return (!(*context->nova_exception_Nova_ExceptionData_Nova_soft) || c->nova_exception_Nova_CaughtException_Nova_soft) && nova_Nova_Class_Nova_isOfType((*context->nova_exception_Nova_ExceptionData_Nova_exception)->vtable->classInstance, exceptionData, c->nova_exception_Nova_CaughtException_Nova_type);
 }
 
 void nova_exception_Nova_ExceptionData_Nova_super(nova_exception_Nova_ExceptionData* this, nova_exception_Nova_ExceptionData* exceptionData)

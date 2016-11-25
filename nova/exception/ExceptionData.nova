@@ -11,37 +11,35 @@ class ExceptionData {
     
     visible ExceptionData parent
     
-    visible Class[] caught
+    visible CaughtException[] caught
     
     public Exception thrownException
     
     public construct(buffer* buf) {
         this.buf = buf
-        this.caught = new Class[]
+        this.caught = new CaughtException[]
     }
     
-    public addCaught(Class exceptionClass) {
-        caught.add(exceptionClass)
+    public addCaught(Class type, Bool soft = false) {
+        caught.add(new CaughtException(type, soft))
     }
     
-    public getDataByException(Exception exception) -> ExceptionData {
-        ExceptionData data = this
+    public getDataByException(Exception exception, Bool soft = false) -> ExceptionData {
+        var data = this
         
         repeat {
-            if (data.caught.any({ exception.class.isOfType(_) }) || data.parent == null) {
+            if (data.caught.any(c -> { (!soft || c.soft) && exception.class.isOfType(c.type) })) {
                 return data
+            } else if (data.parent == null) {
+                return soft ? null : data
             }
             
             data = data.parent
         }
     }
     
-    public jumpToBuffer(Exception exception) {
-        ExceptionData data = getDataByException(exception)
-        
-        /*if (data.parent == null) {
-            exception = null
-        }*/
+    public jumpToBuffer(Exception exception, Bool soft = false) {
+        var data = getDataByException(exception, soft)
         
         external c {
             jump(*#{data.buf}, (intptr_t)#{exception});
