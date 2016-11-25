@@ -60,6 +60,14 @@ nova_network_NetworkInputStream_Extension_VTable nova_network_NetworkInputStream
 		(nova_datastruct_list_Nova_Array*(*)(nova_io_Nova_InputStream*, nova_exception_Nova_ExceptionData*))nova_network_Nova_NetworkInputStream_Nova_readBytes,
 		0,
 		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 	},
 };
 
