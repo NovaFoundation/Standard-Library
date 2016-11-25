@@ -1,0 +1,11 @@
+package "nova/exception"
+
+class CaughtException {
+    visible Bool soft
+    visible Class type
+    
+    public construct(Class type, Bool soft = true) {
+        this.type = type
+        this.soft = soft
+    }
+}
