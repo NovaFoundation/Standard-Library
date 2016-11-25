@@ -70,6 +70,7 @@ CCLASS_CLASS
 	int nova_datastruct_list_Nova_Array_Nova_count;
 	int nova_datastruct_list_Nova_Array_Nova_position;
 	nova_Nova_Object** nova_datastruct_list_Nova_Array_Nova_data;
+	struct Private* prv;
 )
 
 void nova_datastruct_list_Nova_StringCharArray_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);

@@ -3,6 +3,8 @@ package "nova/datastruct/list"
 class CharArrayIterator implements Iterator<Char> {
     CharArray array
     
+    Int indexSize
+    
     visible Int position
     
     visible Bool hasNext {
@@ -13,7 +15,7 @@ class CharArrayIterator implements Iterator<Char> {
     visible Char next {
         get {
             if (hasNext) {
-                return array.get(position++)
+                return array.get(position++ * indexSize)
             }
             
             throw new NoSuchElementException()
@@ -24,8 +26,9 @@ class CharArrayIterator implements Iterator<Char> {
         no set
     }
     
-    public construct(CharArray array) {
+    public construct(CharArray array, Int indexSize) {
         this.array = array
+        this.indexSize = indexSize
         
         reset()
     }
