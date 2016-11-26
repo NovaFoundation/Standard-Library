@@ -361,134 +361,132 @@ int nova_math_Nova_NumericOperation_static_Nova_getOperatorRank(nova_math_Nova_N
 		return nova_math_Nova_NumericOperation_Nova_EXPONENT;
 		case '[':
 		case '(':
-			return nova_math_Nova_NumericOperation_Nova_GROUPING;
-			default:
-			return nova_math_Nova_NumericOperation_Nova_INVALID;
-		}
+		return nova_math_Nova_NumericOperation_Nova_GROUPING;
+		default:
+		return nova_math_Nova_NumericOperation_Nova_INVALID;
 	}
-	
-	int nova_math_Nova_NumericOperation_static_Nova_nextNonWhitespaceIndex(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str, int start, int direction)
+}
+
+int nova_math_Nova_NumericOperation_static_Nova_nextNonWhitespaceIndex(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str, int start, int direction)
+{
+	while (start >= 0 && start < str->nova_Nova_String_Nova_count && nova_math_Nova_NumericOperation_static_Nova_isWhitespace(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(str->nova_Nova_String_Nova_chars), exceptionData, start))))
 	{
-		while (start >= 0 && start < str->nova_Nova_String_Nova_count && nova_math_Nova_NumericOperation_static_Nova_isWhitespace(0, exceptionData, (char)(intptr_t)(nova_datastruct_list_Nova_CharArray_Nova_get((nova_datastruct_list_Nova_CharArray*)(str->nova_Nova_String_Nova_chars), exceptionData, start))))
-		{
-			start = start + direction;
-		}
-		if (start < 0 || start >= str->nova_Nova_String_Nova_count)
-		{
-			return (int)-1;
-		}
-		else
-		{
-			return start - direction;
-		}
+		start = start + direction;
 	}
-	
-	char nova_math_Nova_NumericOperation_static_Nova_isLetter(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
+	if (start < 0 || start >= str->nova_Nova_String_Nova_count)
 	{
-		return !nova_math_Nova_NumericOperation_static_Nova_isOperator(0, exceptionData, c) && !nova_math_Nova_NumericOperation_static_Nova_isWhitespace(0, exceptionData, c);
+		return (int)-1;
 	}
-	
-	char nova_math_Nova_NumericOperation_static_Nova_isNumeric(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
+	else
 	{
-		return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_NumericOperation_Nova_NUMERIC_CHARS, exceptionData, c);
+		return start - direction;
 	}
+}
+
+char nova_math_Nova_NumericOperation_static_Nova_isLetter(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
+{
+	return !nova_math_Nova_NumericOperation_static_Nova_isOperator(0, exceptionData, c) && !nova_math_Nova_NumericOperation_static_Nova_isWhitespace(0, exceptionData, c);
+}
+
+char nova_math_Nova_NumericOperation_static_Nova_isNumeric(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
+{
+	return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_NumericOperation_Nova_NUMERIC_CHARS, exceptionData, c);
+}
+
+char nova_math_Nova_NumericOperation_static_Nova_isOperator(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
+{
+	return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_NumericOperation_Nova_VALID_OPERATORS, exceptionData, c);
+}
+
+char nova_math_Nova_NumericOperation_static_Nova_isWhitespace(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
+{
+	return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_NumericOperation_Nova_WHITESPACE_CHARS, exceptionData, c);
+}
+
+nova_Nova_String* nova_math_Nova_NumericOperation_Nova_toString(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)((this->prv->nova_math_Nova_NumericOperation_Nova_leftOperand)), exceptionData)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this->prv->nova_math_Nova_NumericOperation_Nova_operator)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)((this->prv->nova_math_Nova_NumericOperation_Nova_rightOperand)), exceptionData)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")))))));
+}
+
+nova_datastruct_list_Nova_CharArray* generated2(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	char* l1_Nova_temp = (char*)nova_null;
 	
-	char nova_math_Nova_NumericOperation_static_Nova_isOperator(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
-	{
-		return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_NumericOperation_Nova_VALID_OPERATORS, exceptionData, c);
-	}
+	l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 14);
+	l1_Nova_temp[0] = '-';
+	l1_Nova_temp[1] = '+';
+	l1_Nova_temp[2] = '!';
+	l1_Nova_temp[3] = '=';
+	l1_Nova_temp[4] = '%';
+	l1_Nova_temp[5] = '^';
+	l1_Nova_temp[6] = '*';
+	l1_Nova_temp[7] = '/';
+	l1_Nova_temp[8] = '>';
+	l1_Nova_temp[9] = '<';
+	l1_Nova_temp[10] = '[';
+	l1_Nova_temp[11] = ']';
+	l1_Nova_temp[12] = '(';
+l1_Nova_temp[13] = ')';
+return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 14);}
+
+nova_datastruct_list_Nova_CharArray* generated3(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	char* l1_Nova_temp = (char*)nova_null;
 	
-	char nova_math_Nova_NumericOperation_static_Nova_isWhitespace(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
-	{
-		return nova_datastruct_list_Nova_CharArray_Nova_contains(nova_math_Nova_NumericOperation_Nova_WHITESPACE_CHARS, exceptionData, c);
-	}
+	l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 16);
+	l1_Nova_temp[0] = '`';
+	l1_Nova_temp[1] = '~';
+	l1_Nova_temp[2] = '@';
+	l1_Nova_temp[3] = '#';
+	l1_Nova_temp[4] = '$';
+	l1_Nova_temp[5] = '&';
+	l1_Nova_temp[6] = '_';
+	l1_Nova_temp[7] = ';';
+	l1_Nova_temp[8] = ':';
+	l1_Nova_temp[9] = '\'';
+	l1_Nova_temp[10] = '"';
+	l1_Nova_temp[11] = '|';
+	l1_Nova_temp[12] = '\\';
+	l1_Nova_temp[13] = ',';
+	l1_Nova_temp[14] = '.';
+	l1_Nova_temp[15] = '?';
+	return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 16);
+}
+
+nova_datastruct_list_Nova_CharArray* generated4(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	char* l1_Nova_temp = (char*)nova_null;
 	
-	nova_Nova_String* nova_math_Nova_NumericOperation_Nova_toString(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
-	{
-		return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)((this->prv->nova_math_Nova_NumericOperation_Nova_leftOperand)), exceptionData)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this->prv->nova_math_Nova_NumericOperation_Nova_operator)), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_Object_virtual_Nova_toString((nova_Nova_Object*)((this->prv->nova_math_Nova_NumericOperation_Nova_rightOperand)), exceptionData)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("")))))));
-	}
+	l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 4);
+	l1_Nova_temp[0] = ' ';
+	l1_Nova_temp[1] = '\n';
+	l1_Nova_temp[2] = '\r';
+	l1_Nova_temp[3] = '\t';
+	return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 4);
+}
+
+nova_datastruct_list_Nova_CharArray* generated5(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	char* l1_Nova_temp = (char*)nova_null;
 	
-	nova_datastruct_list_Nova_CharArray* generated2(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
-	{
-		char* l1_Nova_temp = (char*)nova_null;
-		
-		l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 14);
-		l1_Nova_temp[0] = '-';
-		l1_Nova_temp[1] = '+';
-		l1_Nova_temp[2] = '!';
-		l1_Nova_temp[3] = '=';
-		l1_Nova_temp[4] = '%';
-		l1_Nova_temp[5] = '^';
-		l1_Nova_temp[6] = '*';
-		l1_Nova_temp[7] = '/';
-		l1_Nova_temp[8] = '>';
-		l1_Nova_temp[9] = '<';
-		l1_Nova_temp[10] = '[';
-		l1_Nova_temp[11] = ']';
-		l1_Nova_temp[12] = '(';
-		l1_Nova_temp[13] = ')';
-		return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 14);
-	}
-	
-	nova_datastruct_list_Nova_CharArray* generated3(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
-	{
-		char* l1_Nova_temp = (char*)nova_null;
-		
-		l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 16);
-		l1_Nova_temp[0] = '`';
-		l1_Nova_temp[1] = '~';
-		l1_Nova_temp[2] = '@';
-		l1_Nova_temp[3] = '#';
-		l1_Nova_temp[4] = '$';
-		l1_Nova_temp[5] = '&';
-		l1_Nova_temp[6] = '_';
-		l1_Nova_temp[7] = ';';
-		l1_Nova_temp[8] = ':';
-		l1_Nova_temp[9] = '\'';
-		l1_Nova_temp[10] = '"';
-		l1_Nova_temp[11] = '|';
-		l1_Nova_temp[12] = '\\';
-		l1_Nova_temp[13] = ',';
-		l1_Nova_temp[14] = '.';
-		l1_Nova_temp[15] = '?';
-		return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 16);
-	}
-	
-	nova_datastruct_list_Nova_CharArray* generated4(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
-	{
-		char* l1_Nova_temp = (char*)nova_null;
-		
-		l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 4);
-		l1_Nova_temp[0] = ' ';
-		l1_Nova_temp[1] = '\n';
-		l1_Nova_temp[2] = '\r';
-		l1_Nova_temp[3] = '\t';
-		return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 4);
-	}
-	
-	nova_datastruct_list_Nova_CharArray* generated5(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
-	{
-		char* l1_Nova_temp = (char*)nova_null;
-		
-		l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 10);
-		l1_Nova_temp[0] = '0';
-		l1_Nova_temp[1] = '1';
-		l1_Nova_temp[2] = '2';
-		l1_Nova_temp[3] = '3';
-		l1_Nova_temp[4] = '4';
-		l1_Nova_temp[5] = '5';
-		l1_Nova_temp[6] = '6';
-		l1_Nova_temp[7] = '7';
-		l1_Nova_temp[8] = '8';
-		l1_Nova_temp[9] = '9';
-		return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 10);
-	}
-	
-	void nova_math_Nova_NumericOperation_Nova_super(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
-	{
-		this->prv->nova_math_Nova_NumericOperation_Nova_leftOperand = (nova_math_Nova_NumericOperand*)nova_null;
-		this->prv->nova_math_Nova_NumericOperation_Nova_rightOperand = (nova_math_Nova_NumericOperand*)nova_null;
-		this->prv->nova_math_Nova_NumericOperation_Nova_operator = (nova_Nova_String*)nova_null;
-	}
-	
-		
+	l1_Nova_temp = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 10);
+	l1_Nova_temp[0] = '0';
+	l1_Nova_temp[1] = '1';
+	l1_Nova_temp[2] = '2';
+	l1_Nova_temp[3] = '3';
+	l1_Nova_temp[4] = '4';
+	l1_Nova_temp[5] = '5';
+	l1_Nova_temp[6] = '6';
+	l1_Nova_temp[7] = '7';
+	l1_Nova_temp[8] = '8';
+	l1_Nova_temp[9] = '9';
+	return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 10);
+}
+
+void nova_math_Nova_NumericOperation_Nova_super(nova_math_Nova_NumericOperation* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	this->prv->nova_math_Nova_NumericOperation_Nova_leftOperand = (nova_math_Nova_NumericOperand*)nova_null;
+	this->prv->nova_math_Nova_NumericOperation_Nova_rightOperand = (nova_math_Nova_NumericOperand*)nova_null;
+	this->prv->nova_math_Nova_NumericOperation_Nova_operator = (nova_Nova_String*)nova_null;
+}
+

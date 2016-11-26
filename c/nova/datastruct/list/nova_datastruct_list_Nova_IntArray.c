@@ -352,7 +352,7 @@ nova_Nova_String* nova_datastruct_list_Nova_IntArray_Nova_join(nova_datastruct_l
 
 int nova_datastruct_list_Nova_IntArray_Nova_get(nova_datastruct_list_Nova_IntArray* this, nova_exception_Nova_ExceptionData* exceptionData, int index)
 {
-	return (int)(intptr_t)((int*)this->nova_datastruct_list_Nova_Array_Nova_data)[index];
+	return ((int*)this->nova_datastruct_list_Nova_Array_Nova_data)[index];
 }
 
 int nova_datastruct_list_Nova_IntArray_Nova_set(nova_datastruct_list_Nova_IntArray* this, nova_exception_Nova_ExceptionData* exceptionData, int index, int value)

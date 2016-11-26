@@ -194,8 +194,7 @@ nova_math_logic_Nova_StatementGroup* nova_math_logic_Nova_WFF_Nova_searchForConc
 {
 	int l2_Nova_first = 0;
 	
-	l2_Nova_first = nova_math_logic_Nova_WFF_static_Nova_findEndingMatch(0, exceptionData, wff, '(', ')', wff->nova_Nova_String_Nova_count - 1, -1);
-}
+	l2_Nova_first = nova_math_logic_Nova_WFF_static_Nova_findEndingMatch(0, exceptionData, wff, '(', ')', wff->nova_Nova_String_Nova_count - 1, -1);}
 l1_Nova_conclusionStart = nova_math_logic_Nova_WFF_static_Nova_nextNonWhitespaceIndex(0, exceptionData, wff, l1_Nova_index + 2, 1);
 l1_Nova_bounds = nova_datastruct_Nova_Bounds_1_Nova_construct(0, exceptionData, l1_Nova_conclusionStart, wff->nova_Nova_String_Nova_count);
 l1_Nova_conclusion = nova_math_logic_Nova_Conclusion_Nova_construct(0, exceptionData, nova_datastruct_Nova_Bounds_Nova_extractString(l1_Nova_bounds, exceptionData, wff));

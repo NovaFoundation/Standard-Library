@@ -185,12 +185,10 @@ nova_datastruct_list_Nova_CharArray* generated6(nova_math_Nova_Polynomial* this,
 	l1_Nova_temp[16] = '[';
 	l1_Nova_temp[17] = ']';
 	l1_Nova_temp[18] = '{';
-	l1_Nova_temp[19] = '}';
-	l1_Nova_temp[20] = ';';
-	l1_Nova_temp[21] = '(';
-	l1_Nova_temp[22] = ')';
-	return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 23);
-}
+l1_Nova_temp[19] = '}';
+l1_Nova_temp[20] = ';';
+l1_Nova_temp[21] = '(';l1_Nova_temp[22] = ')';
+return nova_datastruct_list_Nova_CharArray_2_Nova_construct(0, exceptionData, l1_Nova_temp, 23);}
 
 nova_datastruct_list_Nova_CharArray* generated7(nova_math_Nova_Polynomial* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
