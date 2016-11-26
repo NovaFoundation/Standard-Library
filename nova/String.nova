@@ -113,6 +113,9 @@ class String implements Comparable<String> {
         }
     }
     
+    public repeat(Int times) =>
+        new String[times].map({ this }).join()
+    
     public equals(String other) => other != null && count == other.count && compareTo(other) == 0
     
     public replace(Pattern pattern, String replace) -> String {
