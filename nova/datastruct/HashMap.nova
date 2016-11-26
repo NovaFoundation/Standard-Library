@@ -27,6 +27,8 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         this.bucketSize = bucketSize
     }
     
+    public put(K key, V value) => this[key] = value
+    
     [Override]
     public toArray() => map({ _ })
     

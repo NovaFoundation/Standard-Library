@@ -74,6 +74,7 @@ nova_datastruct_ReversibleHashMap_Extension_VTable nova_datastruct_ReversibleHas
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
+	nova_datastruct_Nova_HashMap_Nova_put,
 };
 
 
