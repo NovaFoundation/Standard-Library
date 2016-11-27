@@ -100,6 +100,8 @@ nova_Nova_String* nova_Nova_String_Nova_testLambda1(nova_Nova_String* this, nova
 void nova_Nova_String_Nova_testLambda49(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Match* match, int _2, nova_datastruct_list_Nova_Array* _3, Context2* context);
 void nova_Nova_String_Nova_testLambda50(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, nova_regex_Nova_Match* match, int _2, nova_datastruct_list_Nova_Array* _3, Context3* context);
 
+
+
 nova_datastruct_list_Nova_CharArray* nova_Nova_String_Nova_WHITESPACE;
 nova_datastruct_Nova_HashSet* nova_Nova_String_Nova_pool;
 void nova_Nova_String_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
@@ -548,6 +550,18 @@ void nova_Nova_String_Nova_testLambda50(nova_Nova_String* this, nova_exception_N
 	nova_datastruct_list_Nova_Array_0_Nova_add((nova_datastruct_list_Nova_Array*)((*context->nova_Nova_String_Nova_strs)), exceptionData, (nova_Nova_Object*)(nova_Nova_String_Nova_substring(this, exceptionData, (*context->nova_Nova_String_Nova_start), match->nova_regex_Nova_Match_Nova_start)));
 	(*context->nova_Nova_String_Nova_start) = match->nova_regex_Nova_Match_Nova_end;
 }
+
+char nova_Nova_String_Accessor_Nova_first(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Accessorfunc_Nova_first((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData);
+}
+
+
+char nova_Nova_String_Accessor_Nova_last(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData)
+{
+	return (char)(intptr_t)nova_datastruct_list_Nova_CharArray_Accessorfunc_Nova_last((nova_datastruct_list_Nova_CharArray*)(this->nova_Nova_String_Nova_chars), exceptionData);
+}
+
 
 long_long nova_Nova_String_Accessor_Nova_hashCodeLong(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData)
 {

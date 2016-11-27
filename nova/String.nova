@@ -9,20 +9,23 @@ import "nova/regex/Pattern"
 
 class String implements Comparable<String> {
     visible Int count
-
+    
     visible StringCharArray chars
     
+    visible Char first => chars.first
+    visible Char last => chars.last
+    
     this[Int index] <=> chars[index]
-
+    
     static Char[] WHITESPACE = [ ' ', '\t', '\n', '\r' ]
     
     external void strcpy(char dst[], char src[])
     external void strcat(char dst[], char src[])
     external int strlen(char chars[])
     external void memcpy(char dst[], char* src[], int count)
-
+    
     private static HashSet<String> pool = new HashSet(121, 1)
-
+    
     public Long hashCodeLong => chars.hashCodeLong
     
     [Target not js]
