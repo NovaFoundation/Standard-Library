@@ -27,7 +27,7 @@ class ExceptionData {
     public getDataByException(Exception exception, Bool soft = false) -> ExceptionData {
         var data = this
         
-        repeat {
+        while (true) {
             if (data.caught.any(c -> { (!soft || c.soft) && exception.class.isOfType(c.type) })) {
                 return data
             } else if (data.parent == null) {
