@@ -1,0 +1,41 @@
+package "nova"
+
+import "nova/datastruct/list/StringCharArray"
+import "nova/regex/Regex"
+import "nova/regex/Match"
+import "nova/regex/Pattern"
+
+class Substring extends String {
+    visible String source
+    
+    visible Int start
+    visible Int end => start + count
+    
+    public construct(String source, Int start, Int end) {
+        this.source = source
+        this.start = start
+        this.count = end - start
+        
+        [PrimitiveArray]
+        Char[] buf
+        
+        external c {
+            #{buf} = &((char*)#{source.chars.data})[#{start}];
+        }
+        
+        this.chars = new StringCharArray(buf, count)
+    }
+    
+    [Override]
+    public substring(Int start = 0, Int end = count) -> String {
+        if (!validateSubstringBounds(start, end, true)) {
+            return null
+        } else if (start == end) {
+            return ""
+        } else if (start == 0 && end == count) {
+            return this
+        }
+        
+        return new Substring(source, this.start + start, this.start + end)
+    }
+}
