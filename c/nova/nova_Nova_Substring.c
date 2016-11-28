@@ -99,7 +99,6 @@ nova_Nova_Substring* nova_Nova_Substring_Nova_construct(nova_Nova_Substring* thi
 	nova_Nova_Substring_Nova_super(this, exceptionData);
 	
 	{
-		
 		nova_Nova_Substring_Nova_this(this, exceptionData, source, start, end);
 	}
 	
@@ -126,7 +125,6 @@ void nova_Nova_Substring_Nova_this(nova_Nova_Substring* this, nova_exception_Nov
 	this->nova_Nova_Substring_Nova_source = source;
 	this->nova_Nova_Substring_Nova_start = start;
 	this->nova_Nova_String_Nova_count = end - start;
-	
 	l1_Nova_buf = &((char*)source->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)[start];
 	this->nova_Nova_String_Nova_chars = nova_datastruct_list_Nova_StringCharArray_1_Nova_construct(0, exceptionData, l1_Nova_buf, this->nova_Nova_String_Nova_count);
 }

@@ -121,7 +121,6 @@ nova_Nova_String* nova_Nova_String_0_Nova_construct(nova_Nova_String* this, nova
 	nova_Nova_String_Nova_super(this, exceptionData);
 	
 	{
-		
 		nova_Nova_String_0_Nova_this(this, exceptionData, c);
 	}
 	
@@ -186,7 +185,6 @@ void nova_Nova_String_Nova_destroy(nova_Nova_String** this, nova_exception_Nova_
 void nova_Nova_String_0_Nova_this(nova_Nova_String* this, nova_exception_Nova_ExceptionData* exceptionData, char c)
 {
 	char* l1_Nova_chars = (char*)nova_null;
-	
 	
 	l1_Nova_chars = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 2);
 	l1_Nova_chars[0] = c;
@@ -254,7 +252,6 @@ nova_Nova_String* nova_Nova_String_Nova_concat(nova_Nova_String* this, nova_exce
 		memcpy(c, l1_Nova_data2, str->nova_Nova_String_Nova_count);
 		l1_Nova_data2 = c;
 	}
-	
 	l1_Nova_newData = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_sz);
 	strncpy(l1_Nova_newData, l1_Nova_data1, this->nova_Nova_String_Nova_count);
 	strncat(l1_Nova_newData, l1_Nova_data2, str->nova_Nova_String_Nova_count);
@@ -495,7 +492,6 @@ nova_Nova_String* nova_Nova_String_Nova_transform(nova_Nova_String* this, nova_e
 {
 	char* l1_Nova_newData = (char*)nova_null;
 	int l2_Nova_i = 0;
-	
 	
 	l1_Nova_newData = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * this->nova_Nova_String_Nova_count);
 	l2_Nova_i = (int)0;

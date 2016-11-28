@@ -356,7 +356,6 @@ nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_1_Nova_increase
 	
 	l1_Nova_offset = count - this->nova_datastruct_list_Nova_Array_Nova_capacity;
 	this->nova_datastruct_list_Nova_Array_Nova_capacity = count;
-	
 	l1_Nova_tmp = (nova_Nova_Object**)((nova_Nova_Object**)NOVA_MALLOC(sizeof(nova_Nova_Object) * this->nova_datastruct_list_Nova_Array_Nova_capacity));
 	arrayCopy(l1_Nova_tmp, 0, this->nova_datastruct_list_Nova_Array_Nova_data, 0, this->nova_datastruct_list_Nova_Array_Nova_capacity - l1_Nova_offset, this->nova_datastruct_list_Nova_Array_Nova_capacity, 4);
 	this->nova_datastruct_list_Nova_Array_Nova_data = l1_Nova_tmp;

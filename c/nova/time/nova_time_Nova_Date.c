@@ -143,7 +143,6 @@ nova_Nova_String* nova_time_Nova_Date_Nova_formatDate(nova_time_Nova_Date* this,
 	fourth = (int)(fourth == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_hour : fourth);
 	fifth = (int)(fifth == (intptr_t)nova_null ? this->nova_time_Nova_Date_Nova_minute : fifth);
 	sixth = (int)(sixth == (intptr_t)nova_null ? second : sixth);
-	
 	l1_Nova_data = (char*)(nova_formatDate((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), first, second, third, fourth, fifth, sixth));
 	return nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_data);
 }

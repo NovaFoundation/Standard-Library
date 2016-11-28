@@ -146,7 +146,6 @@ char* nova_primitive_number_Nova_Double_static_Nova_genBuffer(nova_primitive_num
 	char* l1_Nova_buffer = (char*)nova_null;
 	
 	l1_Nova_size = (int)(11 + 1 + 15);
-	
 	l1_Nova_buffer = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_size);
 	sprintf(l1_Nova_buffer, (char*)("%.15f"), value);
 	return l1_Nova_buffer;
@@ -179,7 +178,6 @@ nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_toString(nova_pr
 	int l1_Nova_size = 0;
 	int l1_Nova_lastIndex = 0;
 	char l1_Nova_c = 0;
-	
 	
 	l1_Nova_buffer = nova_primitive_number_Nova_Double_static_Nova_genBuffer(0, exceptionData, value);
 	l1_Nova_size = (int)(strlen(l1_Nova_buffer));
@@ -229,7 +227,6 @@ nova_Nova_String* nova_primitive_number_Nova_Double_static_Nova_toString(nova_pr
 double nova_primitive_number_Nova_Double_static_Nova_parseDouble(nova_primitive_number_Nova_Double* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* str)
 {
 	char* l1_Nova_pEnd = (char*)nova_null;
-	
 	
 	return strtod((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data), &l1_Nova_pEnd);
 }

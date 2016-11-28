@@ -168,7 +168,6 @@ nova_Nova_String* nova_network_Nova_ConnectionSocket_1_Nova_readString(nova_netw
 	{
 		char* l1_Nova_data = (char*)nova_null;
 		
-		
 		l1_Nova_data = (char*)(nova_socket_receive(this->prv->nova_network_Nova_ConnectionSocket_Nova_socket));
 		if ((nova_primitive_number_Nova_Byte*)l1_Nova_data == (nova_primitive_number_Nova_Byte*)0)
 		{

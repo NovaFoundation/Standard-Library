@@ -252,7 +252,6 @@ nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_listFiles(nova_io_Nova_F
 	char* l1_Nova_current = (char*)nova_null;
 	
 	l1_Nova_names = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
-	
 	tinydir_dir dir;
 	tinydir_open(&dir, (char*)location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data);
 	while (dir.has_next) {
@@ -286,7 +285,6 @@ nova_datastruct_list_Nova_Array* nova_io_Nova_File_Accessorfunc_Nova_files(nova_
 		THROW(nova_exception_Nova_Exception_Nova_construct(0, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Must be a directory to list files"))), 0);
 	}
 	l1_Nova_list = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
-	
 	tinydir_dir dir;
 	tinydir_open(&dir, (char*)this->nova_io_Nova_File_Nova_location->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data);
 	while (dir.has_next) {

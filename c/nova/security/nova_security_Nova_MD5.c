@@ -111,7 +111,6 @@ nova_Nova_String* nova_security_Nova_MD5_static_Nova_encrypt(nova_security_Nova_
 {
 	char* l1_Nova_data = (char*)nova_null;
 	
-	
 	l1_Nova_data = (char*)(nova_md5((char*)(str->nova_Nova_String_Nova_chars->nova_datastruct_list_Nova_Array_Nova_data)));
 	if ((nova_primitive_number_Nova_Byte*)l1_Nova_data == (nova_primitive_number_Nova_Byte*)0)
 	{

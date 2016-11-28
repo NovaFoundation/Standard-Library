@@ -131,7 +131,6 @@ nova_datastruct_list_Nova_Array* nova_regex_Nova_Regex_static_Nova_getMatches(no
 	nova_datastruct_list_Nova_Array* l1_Nova_matches = (nova_datastruct_list_Nova_Array*)nova_null;
 	int l5_Nova_m = 0;
 	
-	
 	int crlf_is_newline;
 	int errornumber;
 	int rc;

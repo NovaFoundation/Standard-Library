@@ -257,7 +257,6 @@ nova_Nova_String* nova_io_Nova_Console_static_Nova_readLine(nova_io_Nova_Console
 	char* l1_Nova_line = (char*)nova_null;
 	nova_Nova_String* l1_Nova_s = (nova_Nova_String*)nova_null;
 	
-	
 	l1_Nova_line = (char*)(ufgets(stdin));
 	l1_Nova_s = nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_line);
 	return l1_Nova_s;
@@ -289,7 +288,6 @@ void nova_io_Nova_Console_static_Nova_waitForEnter(nova_io_Nova_Console* this, n
 	char* l1_Nova_c = (char*)nova_null;
 	
 	nova_io_Nova_Console_static_Nova_flushInput(0, exceptionData);
-	
 	l1_Nova_c = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * 2);
 	fgets(l1_Nova_c, 2, stdin);
 }

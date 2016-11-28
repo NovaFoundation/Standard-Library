@@ -162,7 +162,6 @@ nova_database_Nova_ResultSet* nova_database_Nova_DBConnector_Nova_query(nova_dat
 		nova_database_Nova_DBConnector_Nova_updateError(this, exceptionData);
 		return (nova_database_Nova_ResultSet*)(nova_Nova_Object*)nova_null;
 	}
-	
 	l1_Nova_arrays = (char***)(nova_get_results(this->prv->nova_database_Nova_DBConnector_Nova_mysql, this->prv->nova_database_Nova_DBConnector_Nova_result));
 	if ((nova_primitive_number_Nova_Byte*)l1_Nova_arrays != (nova_primitive_number_Nova_Byte*)0)
 	{

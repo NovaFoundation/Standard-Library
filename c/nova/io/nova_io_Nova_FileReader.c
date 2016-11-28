@@ -181,7 +181,6 @@ nova_Nova_String* nova_io_Nova_FileReader_Nova_readLine(nova_io_Nova_FileReader*
 	
 	l1_Nova_buf = (int)(5);
 	l1_Nova_size = l1_Nova_buf;
-	
 	l1_Nova_line = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_size);
 	l1_Nova_c = (char)(getc(this->prv->nova_io_Nova_FileReader_Nova_fp));
 	if (l1_Nova_c == EOF)
