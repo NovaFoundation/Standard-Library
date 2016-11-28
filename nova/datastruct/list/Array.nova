@@ -4,22 +4,22 @@ import "nova/primitive/number/Integer"
 
 class Array<E> implements List<E> {
     external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
-
+    
     [~] Int capacity
-
+    
     [~] Int count <=> count
     [~] Int position
-
+    
     [~] [PrimitiveArray] E[] data
-
+    
     [~] Bool empty => count <= 0
-
+    
     [~] [Override]
     ArrayIterator<E> iterator => new ArrayIterator(this)
-
+    
     [+] [Override]
     E first => count > 0 ? this[0] : null
-
+    
     [+] [Override]
     E last => count > 0 ? this[count - 1] : null
     
@@ -28,31 +28,31 @@ class Array<E> implements List<E> {
     [+]
     construct() {
         this(0)
-
+        
         increaseSize(10)
     }
-
+    
     [+]
     construct(Int count, Int initialCapacity = count) {
         this.position = 0
         this.capacity = 0
-
+        
         increaseSize(initialCapacity)
-
+        
         this.count = count
-
+        
         [Target js] data = new E[count]
     }
-
+    
     [+]
     construct([PrimitiveArray] E[] data, Int count) {
         this(count)
-
+        
         for (i in 0..count) {
             add(data[i])
         }
     }
-
+    
     [+]
     fillRemaining(E value) => this {
         while (count < capacity) {
@@ -79,65 +79,65 @@ class Array<E> implements List<E> {
         if (position >= capacity) {
             increaseSize()
         }
-
+        
         data[position++] = element
-
+        
         count = Math.max(position, count)
     }
-
+    
     [+]
     add(Int index, E element) => this {
         if (index >= capacity) {
             increaseSize(index + 1)
         }
-
+        
         add(null)
-
+        
         shiftRight(index, position)
-
+        
         data[index] = element
-
+        
         if (index >= position - 1) {
             position = index + 1
         }
         
         count = Math.max(position, count)
     }
-
+    
     [+]
     remove(Int index) -> E {
         E element = data[index]
-
+        
         shiftLeft(index + 1, position--)
-
+        
         return element
     }
-
+    
     [+]
     remove(E element) -> E {
         Int index = indexOf(element)
-
+        
         if (index >= 0) {
             shiftLeft(index + 1, position--)
-
+            
             return element
         }
-
+        
         return null
     }
-
+    
     [+]
     indexOf(E element) -> Int {
         Int i = 0
-
+        
         for (e in this) {
             if (element == e) {
                 return i
             }
-
+            
             i++
         }
-
+        
         return -1
     }
     
@@ -153,37 +153,37 @@ class Array<E> implements List<E> {
             return false
         }
     }
-
+    
     shiftRight(Int left, Int right) => this {
         Int i = right - 1
-
+        
         while (i > left) {
             data[i] = data[i - 1]
-
+            
             i--
         }
-
+        
         data[left] = null
     }
-
+    
     shiftLeft(Int left, Int right) => this {
         left--
         right--
-
+        
         for (i in left..right) {
             data[i] = data[i + 1]
         }
-
+        
         data[right] = null
     }
-
+    
     [+]
     swap(Int index1, Int index2) => this {
         E temp = data[index1]
         data[index1] = data[index2]
         data[index2] = temp
     }
-
+    
     increaseSize() => this {
         increaseSize(capacity + 3)
     }
@@ -192,7 +192,7 @@ class Array<E> implements List<E> {
     increaseSize(Int count) => this {
         
     }
-
+    
     [Target c]
     increaseSize(Int count) => this {
         Int offset = count - capacity
@@ -217,13 +217,13 @@ class Array<E> implements List<E> {
     [+] [Override]
     map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
         Out[] array = new Array(count)
-
+        
         Int i = 0
-
+        
         for (element in this) {
             array.add(mapFunc(element, i++, this))
         }
-
+        
         return array
     }
     
@@ -233,89 +233,67 @@ class Array<E> implements List<E> {
             func(data[i], i, this)
         }
     }
-
+    
     [+] [Override]
     filter(filterFunc(E, Int, Array<E>) -> Bool) -> E[] {
         E[] filtered = new Array()
-
+        
         Int i = 0
-
+        
         for (element in this) {
             if (filterFunc(element, i++, this)) {
                 filtered.add(element)
             }
         }
-
+        
         return filtered
     }
     
     [+] [Override]
     take(Int howMany) -> E[] {
         howMany = howMany > count ? count : howMany
-
+        
         E[] list = new Array()
-
+        
         for (i in 0..howMany) {
             list.add(data[i])
         }
-
+        
         return list
     }
     
     [+] [Override]
     skip(Int howMany) -> E[] {
         E[] list = new Array()
-
+        
         for (i in howMany..count) {
             list.add(data[i])
         }
-
+        
         return list
     }
-
+    
     [+] [RequireGenericType E extends String]
     sumSize() -> Long {
         Long sum = 0
-
+        
         for (value in this) {
             sum += ((String)value).count
         }
-
+        
         return sum
     }
-    
-    /*[RequireGenericType E extends Integer]
-    [+] sum() -> Long {
-        Long sum = 0
-
-        for (value in this) {
-            sum = sum + (Long)value
-        }
-
-        return sum
-    }
-    
-    [RequireGenericType E extends RealNumber]
-    [+] sum() -> Double {
-        Double sum = 0
-
-        for (value in this) {
-            sum += value
-        }
-
-        return sum
-    }*/
     
     [+] [Override]
     reverse() -> E[] {
         E[] array = new Array(count)
-
+        
         Int i = 0
-
+        
         for (element in this) {
             array.data[count - ++i] = element
         }
-
+        
         return array
     }
     
