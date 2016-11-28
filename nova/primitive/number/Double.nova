@@ -26,7 +26,7 @@ class Double extends Number implements Comparable<Double>, RealNumber {
         return size
     }
     
-    static genString([PrimitiveArray] Char buffer[], Int lastIndex) -> String {
+    static genString([Native] Char buffer[], Int lastIndex) -> String {
         buffer = realloc(buffer, ++lastIndex + 1)
         
         buffer[lastIndex] = '\0'
@@ -34,11 +34,11 @@ class Double extends Number implements Comparable<Double>, RealNumber {
         return new String(buffer)
     }
     
-    [PrimitiveArray]
+    [Native]
     static genBuffer(Double value) -> Char[] {
         Int  size     = 11 + 1 + 15
         
-        [PrimitiveArray]
+        [Native]
         Char[] buffer = new Char[size]
         
         sprintf(buffer, "%.15f", value)
@@ -46,7 +46,7 @@ class Double extends Number implements Comparable<Double>, RealNumber {
         return buffer
     }
     
-    static repetition([PrimitiveArray] Char[] buffer, Int start) -> Int {
+    static repetition([Native] Char[] buffer, Int start) -> Int {
         Int  index = start
         Char c     = buffer[index]
         
@@ -55,13 +55,13 @@ class Double extends Number implements Comparable<Double>, RealNumber {
         return start - index - 1
     }
     
-    static lastSignificantDigit([PrimitiveArray] Char[] buffer, Int start) -> Int {
+    static lastSignificantDigit([Native] Char[] buffer, Int start) -> Int {
         while (buffer[start--] == '0');
         
         return start + 1
     }
     
-    [PrimitiveArray]
+    [Native]
     public static toCharArray(Double value) -> Char[] {
         external js {
             return #{value}.toString();
@@ -73,7 +73,7 @@ class Double extends Number implements Comparable<Double>, RealNumber {
     
     [Target not js]
     public static toString(Double value) -> String {
-        [PrimitiveArray]
+        [Native]
         Char buffer[]  = genBuffer(value)
         Int  size      = strlen(buffer)
         Int  lastIndex = size - 1
@@ -118,7 +118,7 @@ class Double extends Number implements Comparable<Double>, RealNumber {
     }
     
     public static parseDouble(String str) -> Double {
-        [PrimitiveArray]
+        [Native]
         Char[] pEnd
         
         return strtod(str.chars.data, pEnd)

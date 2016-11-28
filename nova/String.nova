@@ -30,7 +30,7 @@ class String implements Comparable<String> {
     
     [Target not js]
     public construct(Char c) {
-        [PrimitiveArray]
+        [Native]
         Char[] chars = new Char[2]
 
         chars[0] = c
@@ -41,7 +41,7 @@ class String implements Comparable<String> {
     
     [Target js]
     public construct(Char c) {
-        [PrimitiveArray]
+        [Native]
         Char[] chars
         
         external {
@@ -52,7 +52,7 @@ class String implements Comparable<String> {
     }
     
     [Target not js]
-    public construct([PrimitiveArray] Char[] chars) {
+    public construct([Native] Char[] chars) {
         count = calculateSize(chars)
         
         if (chars[count] != '\0') {
@@ -63,13 +63,13 @@ class String implements Comparable<String> {
     }
     
     [Target not js]
-    construct([PrimitiveArray] Char[] chars, Int count) {
+    construct([Native] Char[] chars, Int count) {
         this.count = count
         this.chars = new StringCharArray(chars, count)
     }
     
     [Target js]
-    public construct([PrimitiveArray] Char[] chars) {
+    public construct([Native] Char[] chars) {
         count = calculateSize(chars)
 
         this.chars = new StringCharArray(chars, count)
@@ -81,7 +81,7 @@ class String implements Comparable<String> {
         this.chars = new StringCharArray(chars)
     }
 
-    calculateSize([PrimitiveArray] Char[] chars) -> Int {
+    calculateSize([Native] Char[] chars) -> Int {
         [Target c] return strlen(chars)
         
         external js {
@@ -124,7 +124,7 @@ class String implements Comparable<String> {
             }
         }
         
-        [PrimitiveArray]
+        [Native]
         Char[] newData = new Char[sz]
 
         strncpy(newData, data1, count)
@@ -258,10 +258,10 @@ class String implements Comparable<String> {
             return this
         }
         
-        // [PrimitiveArray]
+        // [Native]
         // Char[] buf = new Char[end - start + 1]
         
-        // [PrimitiveArray]
+        // [Native]
         // Char[] arr = chars.data
         
         // external c {
@@ -292,7 +292,7 @@ class String implements Comparable<String> {
     public capitalize() => count > 0 ? chars[0].toUpperCase() + substring(1) : this
 
     public transform(transform(Char, Int) -> Char) -> String {
-        [PrimitiveArray]
+        [Native]
         Char[] newData = new Char[count]
 
         for (i in 0..count) {

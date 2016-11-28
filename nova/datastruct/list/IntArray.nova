@@ -12,11 +12,11 @@ class IntArray extends Array<Int> {
     [Override]
     public Int last => count > 0 ? this[count - 1] : 0
     
-    this[Int index] <=> (([PrimitiveArray] Int[])data)[index]
+    this[Int index] <=> (([Native] Int[])data)[index]
     
     public construct() => super()
     public construct(Int count) => super(count)
-    public construct([PrimitiveArray] Int[] data, Int count) => super(data, count)
+    public construct([Native] Int[] data, Int count) => super(data, count)
     
     [Override]
     public map<Out>(mapFunc(Int, Int, IntArray) -> Out) -> Out[] {

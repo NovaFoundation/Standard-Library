@@ -13,7 +13,7 @@ class DoubleArray extends Array<Double> {
     public Double last => count > 0 ? this[count - 1] : 0
     
     [Target not c]
-    this[Int index] <=> (([PrimitiveArray] Double[])data)[index]
+    this[Int index] <=> (([Native] Double[])data)[index]
     
     [Target c]
     this[Int index] -> Double {
@@ -31,7 +31,7 @@ class DoubleArray extends Array<Double> {
     }
     
     public construct() => super()
-    public construct([PrimitiveArray] Double[] data, Int count) => super(data, count)
+    public construct([Native] Double[] data, Int count) => super(data, count)
     public construct(Int count) {
         super(count)
         

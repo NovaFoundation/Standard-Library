@@ -65,7 +65,7 @@ class DBConnector {
             return null
         }
         
-        [PrimitiveArray]
+        [Native]
         Char arrays[][][] = nova_get_results(mysql, result)
         
         if (arrays != 0) {

@@ -11,7 +11,7 @@ class CharArray extends Array<Char> {
     
     public Long hashCodeLong => reduce((v, c) -> 31 * v + (Int)c, 0)
     
-    this[Int index] <=> (([PrimitiveArray] Char[])data)[index]
+    this[Int index] <=> (([Native] Char[])data)[index]
     
     Int indexSize
     
@@ -27,7 +27,7 @@ class CharArray extends Array<Char> {
         indexSize = 4
     }
     
-    public construct([PrimitiveArray] Char[] data, Int count) {
+    public construct([Native] Char[] data, Int count) {
         super(data, count)
         
         indexSize = 1

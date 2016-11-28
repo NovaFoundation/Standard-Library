@@ -4,7 +4,7 @@ import "pcre/pcre2.h"
 
 class Regex {
     public static getMatches(String regex, String search) -> Match[] {
-        [PrimitiveArray]
+        [Native]
         Int[] values
         
         external {

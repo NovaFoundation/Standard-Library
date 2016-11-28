@@ -47,7 +47,7 @@ class File {
             
             var list = new File[]
             
-            [PrimitiveArray]
+            [Native]
             Char[] current
             tinydir_file* f
             

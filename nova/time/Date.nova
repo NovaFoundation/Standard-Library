@@ -37,7 +37,7 @@ class Date {
     }
     
     public formatDate(String str, Int first = month, Int second = day, Int third = year, Int fourth = hour, Int fifth = minute, Int sixth = second) -> String {
-        [PrimitiveArray]
+        [Native]
         Char[] data = nova_formatDate(str.chars.data, first, second, third, fourth, fifth, sixth)
         
         return new String(data)

@@ -34,7 +34,7 @@ class File {
     public listFiles(String location) -> String[] {
         var names = new String[]
         
-        [PrimitiveArray]
+        [Native]
         Char[] current
         
         external {

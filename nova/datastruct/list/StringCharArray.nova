@@ -9,7 +9,7 @@ class StringCharArray extends CharArray {
         }
     }
 
-    public construct([PrimitiveArray] Char[] data, Int count) {
+    public construct([Native] Char[] data, Int count) {
         super(data, count)
         
         external js {

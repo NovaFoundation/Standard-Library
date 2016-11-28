@@ -10,7 +10,7 @@ class Array<E> implements List<E> {
     [~] Int count <=> count
     [~] Int position
     
-    [~] [PrimitiveArray] E[] data
+    [~] [Native] E[] data
     
     [~] Bool empty => count <= 0
     
@@ -45,7 +45,7 @@ class Array<E> implements List<E> {
     }
     
     [+]
-    construct([PrimitiveArray] E[] data, Int count) {
+    construct([Native] E[] data, Int count) {
         this(count)
         
         for (i in 0..count) {
@@ -199,7 +199,7 @@ class Array<E> implements List<E> {
         
         capacity = count
         
-        [PrimitiveArray]
+        [Native]
         E[] tmp = new E[capacity]
         
         arrayCopy(tmp, 0, data, 0, capacity - offset, capacity, 4)
@@ -297,6 +297,6 @@ class Array<E> implements List<E> {
         return array
     }
     
-    [+]
+    [+] [Override]
     toString() => "Array [#{join(", ")}]"
 }

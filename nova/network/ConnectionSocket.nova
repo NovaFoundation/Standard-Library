@@ -55,7 +55,7 @@ class ConnectionSocket extends Socket {
     
     readString(Bool checkBuffer) -> String {
         if (!checkBuffer || inputBuffer.empty) {
-            [PrimitiveArray]
+            [Native]
             Char[] data = nova_socket_receive(socket)
             
             if (data == 0) {

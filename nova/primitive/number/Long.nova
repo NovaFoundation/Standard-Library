@@ -27,7 +27,7 @@ class Long extends Number implements Comparable<Long>, Integer {
     [Target js]
     public static toString(Long value) => new String(toCharArray(value))
     
-    [PrimitiveArray]
+    [Native]
     [Target js]
     public static toCharArray(Long value) -> Char[] {
         external js {
@@ -40,7 +40,7 @@ class Long extends Number implements Comparable<Long>, Integer {
         Int charOffset = '0'
         Int digits = numDigits(value)
         
-        [PrimitiveArray]
+        [Native]
         Char[] data = new Char[digits + 1]
         
         data[digits] = '\0'
