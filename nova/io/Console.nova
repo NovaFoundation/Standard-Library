@@ -3,6 +3,7 @@ package "nova/io"
 import "stdio.h"
 import "stdlib.h"
 import "nova/io/NativeConsole.h"
+import "nova/Substring"
 
 class Console {
     external type FILE
@@ -14,6 +15,7 @@ class Console {
     [Target c] external void fgets(char buf[], int size, FILE* stream) as extReadLine
     external void fseek(FILE* stream, int offset, int origin)
     [Target c] external void fputs(char str[], FILE* stream) as writeExternal
+    [Target c] external void fwrite(char str[], int size, int count, FILE* stream)
     [Target js] external void console.log(char str[]) as writeExternal
     external char scanf(char buf[], double* num)
     external char getchar()
@@ -69,8 +71,8 @@ class Console {
 
     public static write(String text) {
         Char cText[] = text.chars
-
-        [Target c] writeExternal(cText.data, stdout)
+        
+        [Target c] fwrite(cText.data, 1, text.count, stdout)
         [Target js] writeExternal(cText.data)
 
         flushOutput()
