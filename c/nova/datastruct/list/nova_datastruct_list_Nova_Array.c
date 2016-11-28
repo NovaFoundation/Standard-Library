@@ -467,7 +467,7 @@ long_long nova_datastruct_list_Nova_Array_Nova_sumSize(nova_datastruct_list_Nova
 	while (nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_hasNext(nova_local_0, exceptionData))
 	{
 		l1_Nova_value = (nova_Nova_Object*)(nova_datastruct_list_Nova_ArrayIterator_Accessor_Nova_next(nova_local_0, exceptionData));
-		l1_Nova_sum = l1_Nova_sum + ((nova_Nova_String*)l1_Nova_value)->nova_Nova_String_Nova_count;
+		l1_Nova_sum += ((nova_Nova_String*)l1_Nova_value)->nova_Nova_String_Nova_count;
 	}
 	return l1_Nova_sum;
 }
