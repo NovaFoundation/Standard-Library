@@ -15,16 +15,16 @@ class String implements Comparable<String> {
     visible Char first => chars.first
     visible Char last => chars.last
     
-    this[Int index] <=> chars[index]
+    this[Int index] => chars[index]
     
     static Char[] WHITESPACE = [ ' ', '\t', '\n', '\r' ]
     
     external void strcpy(char dst[], char src[])
+    external void strncpy(char dst[], char src[], int count)
     external void strcat(char dst[], char src[])
+    external void strncat(char dst[], char src[], int count)
     external int strlen(char chars[])
     external void memcpy(char dst[], char* src[], int count)
-    
-    private static HashSet<String> pool = new HashSet(121, 1)
     
     public Long hashCodeLong => chars.hashCodeLong
     
@@ -54,18 +54,18 @@ class String implements Comparable<String> {
     [Target not js]
     public construct([PrimitiveArray] Char[] chars) {
         count = calculateSize(chars)
-
-        this.chars = new StringCharArray(chars, count)
         
         if (chars[count] != '\0') {
             chars[count] = '\0'
         }
-
-        /*if (pool.contains(this)) {
-            Console.writeLine("Duplicate string #this created")
-        } else {
-            //pool.add(this)
-        }*/
+        
+        this(chars, count)
+    }
+    
+    [Target not js]
+    construct([PrimitiveArray] Char[] chars, Int count) {
+        this.count = count
+        this.chars = new StringCharArray(chars, count)
     }
     
     [Target js]
@@ -94,17 +94,45 @@ class String implements Comparable<String> {
 
     [Target not js]
     public concat(String str) -> String {
+        if (str.count == 0) return this
+        
         Int sz = str.count + count + 1
-
+        
+        var data1 = chars.data
+        var data2 = str.chars.data
+        
+        if (this.class.isOfType(Substring)) {
+            var sub = (Substring)this
+            
+            external c {
+                char* c = malloc(#{count});
+                
+                memcpy(c, #{data1}, #{count});
+                
+                #{data1} = c;
+            }
+        }
+        if (str.class.isOfType(Substring)) {
+            var sub = (Substring)str
+            
+            external c {
+                char* c = malloc(#{str.count});
+                
+                memcpy(c, #{data2}, #{str.count});
+                
+                #{data2} = c;
+            }
+        }
+        
         [PrimitiveArray]
         Char[] newData = new Char[sz]
 
-        strcpy(newData, chars.data)
-        strcat(newData, str.chars.data)
+        strncpy(newData, data1, count)
+        strncat(newData, data2, str.count)
 
         newData[sz - 1] = '\0'
-
-        return new String(newData)
+        
+        return new String(newData, sz - 1)
     }
     
     [Target js]
@@ -209,34 +237,46 @@ class String implements Comparable<String> {
     public lastIndexOf(String search, Int start = count - 1, Int defaultReturnValue = -1) =>
         indexOf(search, start, -1, defaultReturnValue: defaultReturnValue)
 
-    public substring(Int start = 0, Int end = count) -> String {
+    public validateSubstringBounds(Int start, Int end, Bool throwException = false) => true {
         if (end - start <= 0) {
             if (end - start < 0) {
-                throw new Exception("Substring bounds of [#start, #end] are invalid")
+                if (throwException) {
+                    throw new Exception("Substring bounds of [#start, #end] are invalid")
+                }
+                
+                return false
             }
-            
+        }
+    }
+    
+    public substring(Int start = 0, Int end = count) -> String {
+        if (!validateSubstringBounds(start, end, true)) {
+            return null
+        } else if (start == end) {
             return ""
         } else if (start == 0 && end == count) {
             return this
         }
         
-        [PrimitiveArray]
-        Char buf[] = new Char[end - start + 1]
+        // [PrimitiveArray]
+        // Char[] buf = new Char[end - start + 1]
         
-        [PrimitiveArray]
-        Char[] arr = chars.data
+        // [PrimitiveArray]
+        // Char[] arr = chars.data
         
-        external c {
-            memcpy(#{buf}, &#{arr[start]}, #{end - start});
+        // external c {
+        //     memcpy(#{buf}, &#{arr[start]}, #{end - start});
             
-            #{buf[end - start] = '\0'};
-        }
+        //     #{buf[end - start] = '\0'};
+        // }
         
-        external js {
-            #{buf} = #{arr}.slice(#{start}, #{end});
-        }
+        // external js {
+        //     #{buf} = #{arr}.slice(#{start}, #{end});
+        // }
         
-        return new String(buf)
+        // return new String(buf)
+        
+        return new Substring(this, start, end)
     }
 
     public trim(Int start = 0, Int end = count - 1, Char[] charsToTrim = WHITESPACE) -> String {

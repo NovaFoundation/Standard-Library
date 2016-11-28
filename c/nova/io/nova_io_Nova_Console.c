@@ -70,6 +70,8 @@ nova_io_Console_Extension_VTable nova_io_Console_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -171,7 +173,7 @@ void nova_io_Nova_Console_0_static_Nova_write(nova_io_Nova_Console* this, nova_e
 	nova_datastruct_list_Nova_CharArray* l1_Nova_cText = (nova_datastruct_list_Nova_CharArray*)nova_null;
 	
 	l1_Nova_cText = (nova_datastruct_list_Nova_CharArray*)(text->nova_Nova_String_Nova_chars);
-	fputs((char*)(l1_Nova_cText->nova_datastruct_list_Nova_Array_Nova_data), stdout);
+	fwrite((char*)(l1_Nova_cText->nova_datastruct_list_Nova_Array_Nova_data), 1, text->nova_Nova_String_Nova_count, stdout);
 	nova_io_Nova_Console_static_Nova_flushOutput(0, exceptionData);
 }
 

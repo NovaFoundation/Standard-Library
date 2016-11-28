@@ -67,6 +67,8 @@ nova_regex_Match_Extension_VTable nova_regex_Match_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_regex_Nova_Match_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -130,7 +132,7 @@ int nova_regex_Nova_Match_Accessor_Nova_count(nova_regex_Nova_Match* this, nova_
 
 nova_Nova_String* nova_regex_Nova_Match_Accessor_Nova_match(nova_regex_Nova_Match* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_Nova_substring(this->nova_regex_Nova_Match_Nova_source, exceptionData, this->nova_regex_Nova_Match_Nova_start, this->nova_regex_Nova_Match_Nova_end);
+	return nova_Nova_String_virtual_Nova_substring((nova_Nova_String*)(this->nova_regex_Nova_Match_Nova_source), exceptionData, this->nova_regex_Nova_Match_Nova_start, this->nova_regex_Nova_Match_Nova_end);
 }
 
 

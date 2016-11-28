@@ -70,6 +70,8 @@ nova_datastruct_list_DoubleArray_Extension_VTable nova_datastruct_list_DoubleArr
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_datastruct_list_Nova_Array_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -100,7 +102,7 @@ nova_datastruct_list_Nova_DoubleArray* nova_datastruct_list_Nova_DoubleArray_0_N
 	nova_datastruct_list_Nova_DoubleArray_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_DoubleArray_3_Nova_this(this, exceptionData);
+		nova_datastruct_list_Nova_DoubleArray_4_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -115,7 +117,7 @@ nova_datastruct_list_Nova_DoubleArray* nova_datastruct_list_Nova_DoubleArray_1_N
 	nova_datastruct_list_Nova_DoubleArray_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_DoubleArray_4_Nova_this(this, exceptionData, data, count);
+		nova_datastruct_list_Nova_DoubleArray_5_Nova_this(this, exceptionData, data, count);
 	}
 	
 	return this;
@@ -130,7 +132,7 @@ nova_datastruct_list_Nova_DoubleArray* nova_datastruct_list_Nova_DoubleArray_2_N
 	nova_datastruct_list_Nova_DoubleArray_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_DoubleArray_5_Nova_this(this, exceptionData, count);
+		nova_datastruct_list_Nova_DoubleArray_6_Nova_this(this, exceptionData, count);
 	}
 	
 	return this;
@@ -147,19 +149,19 @@ void nova_datastruct_list_Nova_DoubleArray_Nova_destroy(nova_datastruct_list_Nov
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_DoubleArray_3_Nova_this(nova_datastruct_list_Nova_DoubleArray* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_DoubleArray_4_Nova_this(nova_datastruct_list_Nova_DoubleArray* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	nova_datastruct_list_Nova_Array_3_Nova_this((nova_datastruct_list_Nova_Array*)(this), exceptionData);
+	nova_datastruct_list_Nova_Array_4_Nova_this((nova_datastruct_list_Nova_Array*)(this), exceptionData);
 }
 
-void nova_datastruct_list_Nova_DoubleArray_4_Nova_this(nova_datastruct_list_Nova_DoubleArray* this, nova_exception_Nova_ExceptionData* exceptionData, double* data, int count)
+void nova_datastruct_list_Nova_DoubleArray_5_Nova_this(nova_datastruct_list_Nova_DoubleArray* this, nova_exception_Nova_ExceptionData* exceptionData, double* data, int count)
 {
-	nova_datastruct_list_Nova_Array_5_Nova_this((nova_datastruct_list_Nova_Array*)(this), exceptionData, (nova_Nova_Object**)(data), count);
+	nova_datastruct_list_Nova_Array_6_Nova_this((nova_datastruct_list_Nova_Array*)(this), exceptionData, (nova_Nova_Object**)(data), count);
 }
 
-void nova_datastruct_list_Nova_DoubleArray_5_Nova_this(nova_datastruct_list_Nova_DoubleArray* this, nova_exception_Nova_ExceptionData* exceptionData, int count)
+void nova_datastruct_list_Nova_DoubleArray_6_Nova_this(nova_datastruct_list_Nova_DoubleArray* this, nova_exception_Nova_ExceptionData* exceptionData, int count)
 {
-	nova_datastruct_list_Nova_Array_4_Nova_this((nova_datastruct_list_Nova_Array*)(this), exceptionData, count, (intptr_t)nova_null);
+	nova_datastruct_list_Nova_Array_5_Nova_this((nova_datastruct_list_Nova_Array*)(this), exceptionData, count, (intptr_t)nova_null);
 	this->nova_datastruct_list_Nova_Array_Nova_data = (nova_Nova_Object**)NOVA_MALLOC(sizeof(double) * count);
 }
 

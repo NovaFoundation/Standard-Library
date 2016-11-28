@@ -67,8 +67,8 @@ void nova_math_Nova_Vector3D_Nova_init_static(nova_exception_Nova_ExceptionData*
 nova_math_Nova_Vector3D* nova_math_Nova_Vector3D_0_Nova_construct(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData);
 nova_math_Nova_Vector3D* nova_math_Nova_Vector3D_1_Nova_construct(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z);
 void nova_math_Nova_Vector3D_Nova_destroy(nova_math_Nova_Vector3D** this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_Vector3D_3_Nova_this(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_math_Nova_Vector3D_4_Nova_this(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z);
+void nova_math_Nova_Vector3D_4_Nova_this(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_math_Nova_Vector3D_5_Nova_this(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z);
 nova_math_Nova_Vector3D* nova_math_Nova_Vector3D_Nova_crossProduct(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData, nova_math_Nova_Vector3D* other);
 double nova_math_Nova_Vector3D_Accessor_Nova_x(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData);
 double nova_math_Nova_Vector3D_Mutator_Nova_x(nova_math_Nova_Vector3D* this, nova_exception_Nova_ExceptionData* exceptionData, double value);

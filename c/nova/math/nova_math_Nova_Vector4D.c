@@ -68,6 +68,8 @@ nova_math_Vector4D_Extension_VTable nova_math_Vector4D_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_math_Nova_Vector_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -90,7 +92,7 @@ nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_0_Nova_construct(nova_math_Nova
 	nova_math_Nova_Vector4D_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Vector4D_3_Nova_this(this, exceptionData);
+		nova_math_Nova_Vector4D_4_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -105,7 +107,7 @@ nova_math_Nova_Vector4D* nova_math_Nova_Vector4D_1_Nova_construct(nova_math_Nova
 	nova_math_Nova_Vector4D_Nova_super(this, exceptionData);
 	
 	{
-		nova_math_Nova_Vector4D_4_Nova_this(this, exceptionData, x, y, z, w);
+		nova_math_Nova_Vector4D_5_Nova_this(this, exceptionData, x, y, z, w);
 	}
 	
 	return this;
@@ -122,14 +124,14 @@ void nova_math_Nova_Vector4D_Nova_destroy(nova_math_Nova_Vector4D** this, nova_e
 	NOVA_FREE(*this);
 }
 
-void nova_math_Nova_Vector4D_3_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_math_Nova_Vector4D_4_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	nova_math_Nova_Vector_0_Nova_this((nova_math_Nova_Vector*)(this), exceptionData, 4);
 }
 
-void nova_math_Nova_Vector4D_4_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z, double w)
+void nova_math_Nova_Vector4D_5_Nova_this(nova_math_Nova_Vector4D* this, nova_exception_Nova_ExceptionData* exceptionData, double x, double y, double z, double w)
 {
-	nova_math_Nova_Vector4D_3_Nova_this(this, exceptionData);
+	nova_math_Nova_Vector4D_4_Nova_this(this, exceptionData);
 	nova_math_Nova_Vector4D_Mutator_Nova_x(this, exceptionData, x);
 	nova_math_Nova_Vector4D_Mutator_Nova_y(this, exceptionData, y);
 	nova_math_Nova_Vector4D_Mutator_Nova_z(this, exceptionData, z);

@@ -71,6 +71,8 @@ nova_Class_Extension_VTable nova_Class_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Class_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -80,7 +82,7 @@ nova_Class_Extension_VTable nova_Class_Extension_VTable_val =
 
 char nova_Nova_Class_Nova_isOfTypeClass(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other);
 char nova_Nova_Class_Nova_isOfTypeInterface(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* other);
-char nova_Nova_Class_Nova_testLambda48(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context);
+char nova_Nova_Class_Nova_testLambda51(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context);
 
 
 void nova_Nova_Class_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
@@ -152,12 +154,12 @@ char nova_Nova_Class_Nova_isOfTypeInterface(nova_Nova_Class* this, nova_exceptio
 	l1_Nova_current = this;
 	while (l1_Nova_current != (nova_Nova_Class*)nova_null)
 	{
-		Context1 contextArg48 = 
+		Context1 contextArg51 = 
 		{
 			&other,
 		};
 		
-		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_Nova_Class_Nova_interfaces), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_Nova_Class_Nova_testLambda48, this, &contextArg48))
+		if (nova_datastruct_list_Nova_List_virtual0_Nova_any((nova_datastruct_list_Nova_List*)(l1_Nova_current->nova_Nova_Class_Nova_interfaces), exceptionData, (nova_datastruct_list_Nova_List_closure9_Nova_anyFunc)&nova_Nova_Class_Nova_testLambda51, this, &contextArg51))
 		{
 			return 1;
 		}
@@ -171,20 +173,20 @@ nova_Nova_String* nova_Nova_Class_Nova_toString(nova_Nova_Class* this, nova_exce
 	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("Class \""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this->nova_Nova_Class_Nova_location)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\""))));
 }
 
-char nova_Nova_Class_Nova_testLambda48(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context)
+char nova_Nova_Class_Nova_testLambda51(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Class* _1, Context1* context)
 {
 	return _1 == (*context->nova_Nova_Class_Nova_other);
 }
 
 nova_Nova_String* nova_Nova_Class_Accessor_Nova_package(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, 0, nova_Nova_String_1_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, 0));
+	return nova_Nova_String_virtual_Nova_substring((nova_Nova_String*)(this->nova_Nova_Class_Nova_location), exceptionData, 0, nova_Nova_String_1_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, 0));
 }
 
 
 nova_Nova_String* nova_Nova_Class_Accessor_Nova_name(nova_Nova_Class* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	return nova_Nova_String_Nova_substring(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, (intptr_t)nova_null) + 1, (intptr_t)nova_null);
+	return nova_Nova_String_virtual_Nova_substring((nova_Nova_String*)(this->nova_Nova_Class_Nova_location), exceptionData, nova_Nova_String_1_Nova_lastIndexOf(this->nova_Nova_Class_Nova_location, exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("/")), (intptr_t)nova_null, (intptr_t)nova_null) + 1, (intptr_t)nova_null);
 }
 
 

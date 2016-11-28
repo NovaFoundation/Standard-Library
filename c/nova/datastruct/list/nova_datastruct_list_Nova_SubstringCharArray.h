@@ -1,8 +1,8 @@
 #pragma once
-#ifndef FILE_nova_Nova_Object_NOVA
-#define FILE_nova_Nova_Object_NOVA
+#ifndef FILE_nova_datastruct_list_Nova_SubstringCharArray_NOVA
+#define FILE_nova_datastruct_list_Nova_SubstringCharArray_NOVA
 
-typedef struct nova_Nova_Object nova_Nova_Object;
+typedef struct nova_datastruct_list_Nova_SubstringCharArray nova_datastruct_list_Nova_SubstringCharArray;
 
 
 #include <Nova.h>
@@ -41,8 +41,8 @@ typedef struct nova_Nova_Object nova_Nova_Object;
 #include <nova/operators/nova_operators_Nova_Equals.h>
 
 
-typedef struct nova_Object_Extension_VTable nova_Object_Extension_VTable;
-struct nova_Object_Extension_VTable
+typedef struct nova_datastruct_list_SubstringCharArray_Extension_VTable nova_datastruct_list_SubstringCharArray_Extension_VTable;
+struct nova_datastruct_list_SubstringCharArray_Extension_VTable
 {
 	nova_Nova_Class* classInstance;
 	nova_Interface_VTable itable;
@@ -50,26 +50,20 @@ struct nova_Object_Extension_VTable
 	long_long (*nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong)(nova_Nova_Object*, nova_exception_Nova_ExceptionData*);
 };
 
-extern nova_Object_Extension_VTable nova_Object_Extension_VTable_val;
+extern nova_datastruct_list_SubstringCharArray_Extension_VTable nova_datastruct_list_SubstringCharArray_Extension_VTable_val;
 
 
 CCLASS_CLASS
 (
-	nova_Nova_Object, 
+	nova_datastruct_list_Nova_SubstringCharArray, 
 	
-	nova_Object_Extension_VTable* vtable;
+	nova_datastruct_list_SubstringCharArray_Extension_VTable* vtable;
 )
 
-void nova_Nova_Object_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_Object* nova_Nova_Object_Nova_construct(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_Nova_Object_Nova_destroy(nova_Nova_Object** this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_Nova_Object_0_Nova_equals(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* another);
-nova_Nova_String* nova_Nova_Object_Nova_toString(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_Nova_Object_4_Nova_this(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_String* nova_Nova_Object_Accessor_Nova_hashCode(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-long_long nova_Nova_Object_Accessor_Nova_hashCodeLong(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-void nova_Nova_Object_Nova_super(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-nova_Nova_String* nova_Nova_Object_virtual_Nova_toString(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
-long_long nova_Nova_Object_virtual_Accessor_Nova_hashCodeLong(nova_Nova_Object* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData);
+nova_datastruct_list_Nova_SubstringCharArray* nova_datastruct_list_Nova_SubstringCharArray_Nova_construct(nova_datastruct_list_Nova_SubstringCharArray* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_destroy(nova_datastruct_list_Nova_SubstringCharArray** this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_this(nova_datastruct_list_Nova_SubstringCharArray* this, nova_exception_Nova_ExceptionData* exceptionData);
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_super(nova_datastruct_list_Nova_SubstringCharArray* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

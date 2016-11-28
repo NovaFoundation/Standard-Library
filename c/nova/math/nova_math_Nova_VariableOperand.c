@@ -67,6 +67,8 @@ nova_math_VariableOperand_Extension_VTable nova_math_VariableOperand_Extension_V
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,

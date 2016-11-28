@@ -69,6 +69,8 @@ nova_datastruct_list_Queue_Extension_VTable nova_datastruct_list_Queue_Extension
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_datastruct_list_Nova_Queue_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -98,7 +100,7 @@ nova_datastruct_list_Nova_Queue* nova_datastruct_list_Nova_Queue_0_Nova_construc
 	nova_datastruct_list_Nova_Queue_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_Queue_3_Nova_this(this, exceptionData);
+		nova_datastruct_list_Nova_Queue_4_Nova_this(this, exceptionData);
 	}
 	
 	return this;
@@ -112,7 +114,7 @@ nova_datastruct_list_Nova_Queue* nova_datastruct_list_Nova_Queue_1_Nova_construc
 	nova_datastruct_list_Nova_Queue_Nova_super(this, exceptionData);
 	
 	{
-		nova_datastruct_list_Nova_Queue_4_Nova_this(this, exceptionData, data);
+		nova_datastruct_list_Nova_Queue_5_Nova_this(this, exceptionData, data);
 	}
 	
 	return this;
@@ -131,12 +133,12 @@ void nova_datastruct_list_Nova_Queue_Nova_destroy(nova_datastruct_list_Nova_Queu
 	NOVA_FREE(*this);
 }
 
-void nova_datastruct_list_Nova_Queue_3_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_Queue_4_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	this->prv->nova_datastruct_list_Nova_Queue_Nova_data = nova_datastruct_list_Nova_Array_0_Nova_construct(0, exceptionData);
 }
 
-void nova_datastruct_list_Nova_Queue_4_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
+void nova_datastruct_list_Nova_Queue_5_Nova_this(nova_datastruct_list_Nova_Queue* this, nova_exception_Nova_ExceptionData* exceptionData, nova_datastruct_list_Nova_Array* data)
 {
 	this->prv->nova_datastruct_list_Nova_Queue_Nova_data = data;
 }

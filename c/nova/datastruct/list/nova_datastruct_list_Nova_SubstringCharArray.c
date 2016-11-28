@@ -32,7 +32,7 @@
 
 
 
-nova_ar_ImageTracker_Extension_VTable nova_ar_ImageTracker_Extension_VTable_val =
+nova_datastruct_list_SubstringCharArray_Extension_VTable nova_datastruct_list_SubstringCharArray_Extension_VTable_val =
 {
 	0,
 	{
@@ -75,27 +75,27 @@ nova_ar_ImageTracker_Extension_VTable nova_ar_ImageTracker_Extension_VTable_val 
 };
 
 
-void nova_ar_Nova_ImageTracker_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_init_static(nova_exception_Nova_ExceptionData* exceptionData)
 {
 	{
 	}
 }
 
-nova_ar_Nova_ImageTracker* nova_ar_Nova_ImageTracker_Nova_construct(nova_ar_Nova_ImageTracker* this, nova_exception_Nova_ExceptionData* exceptionData)
+nova_datastruct_list_Nova_SubstringCharArray* nova_datastruct_list_Nova_SubstringCharArray_Nova_construct(nova_datastruct_list_Nova_SubstringCharArray* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	CCLASS_NEW(nova_ar_Nova_ImageTracker, this,);
-	this->vtable = &nova_ar_ImageTracker_Extension_VTable_val;
+	CCLASS_NEW(nova_datastruct_list_Nova_SubstringCharArray, this,);
+	this->vtable = &nova_datastruct_list_SubstringCharArray_Extension_VTable_val;
 	nova_Nova_Object_Nova_super((nova_Nova_Object*)this, exceptionData);
-	nova_ar_Nova_ImageTracker_Nova_super(this, exceptionData);
+	nova_datastruct_list_Nova_SubstringCharArray_Nova_super(this, exceptionData);
 	
 	{
-		nova_ar_Nova_ImageTracker_Nova_this(this, exceptionData);
+		nova_datastruct_list_Nova_SubstringCharArray_Nova_this(this, exceptionData);
 	}
 	
 	return this;
 }
 
-void nova_ar_Nova_ImageTracker_Nova_destroy(nova_ar_Nova_ImageTracker** this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_destroy(nova_datastruct_list_Nova_SubstringCharArray** this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	if (!*this)
 	{
@@ -106,11 +106,11 @@ void nova_ar_Nova_ImageTracker_Nova_destroy(nova_ar_Nova_ImageTracker** this, no
 	NOVA_FREE(*this);
 }
 
-void nova_ar_Nova_ImageTracker_Nova_this(nova_ar_Nova_ImageTracker* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_this(nova_datastruct_list_Nova_SubstringCharArray* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 
-void nova_ar_Nova_ImageTracker_Nova_super(nova_ar_Nova_ImageTracker* this, nova_exception_Nova_ExceptionData* exceptionData)
+void nova_datastruct_list_Nova_SubstringCharArray_Nova_super(nova_datastruct_list_Nova_SubstringCharArray* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 }
 

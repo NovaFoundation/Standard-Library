@@ -68,6 +68,8 @@ nova_math_calculus_Calculus_Extension_VTable nova_math_calculus_Calculus_Extensi
 		0,
 		0,
 		0,
+		0,
+		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
