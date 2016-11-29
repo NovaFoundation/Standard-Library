@@ -43,11 +43,10 @@ class Array<E> implements List<E> {
     }
     
     [+] construct([Native] E[] data, Int count) {
-        this(count)
-        
-        for (i in 0..count) {
-            add(data[i])
-        }
+        this.data = data
+        this.count = count
+        this.capacity = count
+        this.position = count
     }
     
     [+] fillRemaining(E value) => this {
