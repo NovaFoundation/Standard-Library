@@ -64,14 +64,6 @@ nova_io_FileWriter_Extension_VTable nova_io_FileWriter_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0,
 	},
 	nova_Nova_Object_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -217,7 +209,7 @@ void nova_io_Nova_FileWriter_Nova_flush(nova_io_Nova_FileWriter* this, nova_exce
 
 char nova_io_Nova_FileWriter_Nova_close(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_io_Nova_FileWriter_Accessor_Nova_open(this, exceptionData))
+	if (nova_io_Nova_FileWriter_Accessor_Nova_isOpen(this, exceptionData))
 	{
 		fclose(this->prv->nova_io_Nova_FileWriter_Nova_fp);
 		return 1;
@@ -228,7 +220,7 @@ char nova_io_Nova_FileWriter_Nova_close(nova_io_Nova_FileWriter* this, nova_exce
 	}
 }
 
-char nova_io_Nova_FileWriter_Accessor_Nova_open(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData)
+char nova_io_Nova_FileWriter_Accessor_Nova_isOpen(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return this->prv->nova_io_Nova_FileWriter_Nova_fp != 0;
 }

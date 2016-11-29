@@ -20,7 +20,7 @@ class FileWriter extends OutputStream {
     
     visible File file
     
-    visible Bool open => fp != 0
+    visible Bool isOpen => fp != 0
     
     external char EOF
     
@@ -98,7 +98,7 @@ class FileWriter extends OutputStream {
     }
     
     public close() -> Bool {
-        if (open) {
+        if (isOpen) {
             fclose(fp)
             
             return true

@@ -61,14 +61,6 @@ nova_io_FileReader_Extension_VTable nova_io_FileReader_Extension_VTable_val =
 		0,
 		0,
 		0,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0,
 	},
 };
 
@@ -204,13 +196,13 @@ nova_Nova_String* nova_io_Nova_FileReader_Nova_readLine(nova_io_Nova_FileReader*
 
 void nova_io_Nova_FileReader_Nova_close(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	if (nova_io_Nova_FileReader_Accessor_Nova_open(this, exceptionData))
+	if (nova_io_Nova_FileReader_Accessor_Nova_isOpen(this, exceptionData))
 	{
 		fclose(this->prv->nova_io_Nova_FileReader_Nova_fp);
 	}
 }
 
-char nova_io_Nova_FileReader_Accessor_Nova_open(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
+char nova_io_Nova_FileReader_Accessor_Nova_isOpen(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
 	return this->prv->nova_io_Nova_FileReader_Nova_fp != 0;
 }
