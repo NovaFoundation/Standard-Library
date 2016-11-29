@@ -76,6 +76,14 @@ nova_io_File_Extension_VTable nova_io_File_Extension_VTable_val =
 		0,
 		0,
 		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 	},
 	nova_io_Nova_File_Nova_toString,
 	nova_Nova_Object_Accessor_Nova_hashCodeLong,
@@ -88,9 +96,9 @@ CCLASS_PRIVATE
 	
 )
 
-char nova_io_Nova_File_Nova_testLambda39(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
-void nova_io_Nova_File_Nova_testLambda40(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context2* context);
-char nova_io_Nova_File_Nova_testLambda41(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context3* context);
+char nova_io_Nova_File_Nova_testLambda76(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context);
+void nova_io_Nova_File_Nova_testLambda77(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context2* context);
+char nova_io_Nova_File_Nova_testLambda78(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context3* context);
 
 
 
@@ -175,11 +183,11 @@ nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_getChildFiles(nova_io_No
 {
 	nova_datastruct_list_Nova_Array* l1_Nova_list = (nova_datastruct_list_Nova_Array*)nova_null;
 	nova_datastruct_list_Nova_Array* l1_Nova_directories = (nova_datastruct_list_Nova_Array*)nova_null;
-	Context1 contextArg39 = 
+	Context1 contextArg76 = 
 	{
 		&includeHidden,
 	};
-	Context3 contextArg41 = 
+	Context3 contextArg78 = 
 	{
 		&includeHidden,
 	};
@@ -187,17 +195,17 @@ nova_datastruct_list_Nova_Array* nova_io_Nova_File_Nova_getChildFiles(nova_io_No
 	recursive = (int)(recursive == (intptr_t)nova_null ? 0 : recursive);
 	includeHidden = (int)(includeHidden == (intptr_t)nova_null ? 0 : includeHidden);
 	l1_Nova_list = nova_io_Nova_File_Accessorfunc_Nova_files(this, exceptionData);
-	l1_Nova_directories = (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_list), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_io_Nova_File_Nova_testLambda39, this, &contextArg39));
+	l1_Nova_directories = (nova_datastruct_list_Nova_Array*)(nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_list), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_io_Nova_File_Nova_testLambda76, this, &contextArg76));
 	if (recursive)
 	{
-		Context2 contextArg40 = 
+		Context2 contextArg77 = 
 		{
 			&l1_Nova_list,
 		};
 		
-		nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(l1_Nova_directories), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_io_Nova_File_Nova_testLambda40, this, &contextArg40);
+		nova_datastruct_list_Nova_List_virtual0_Nova_forEach((nova_datastruct_list_Nova_List*)(l1_Nova_directories), exceptionData, (nova_datastruct_list_Nova_List_closure3_Nova_func)&nova_io_Nova_File_Nova_testLambda77, this, &contextArg77);
 	}
-	return (nova_datastruct_list_Nova_Array*)nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_list), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_io_Nova_File_Nova_testLambda41, this, &contextArg41);
+	return (nova_datastruct_list_Nova_Array*)nova_datastruct_list_Nova_List_virtual0_Nova_filter((nova_datastruct_list_Nova_List*)(l1_Nova_list), exceptionData, (nova_datastruct_list_Nova_List_closure15_Nova_filterFunc)&nova_io_Nova_File_Nova_testLambda78, this, &contextArg78);
 }
 
 nova_Nova_String* nova_io_Nova_File_Nova_toString(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData)
@@ -205,17 +213,17 @@ nova_Nova_String* nova_io_Nova_File_Nova_toString(nova_io_Nova_File* this, nova_
 	return nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("{File \""))), exceptionData, nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)((this->nova_io_Nova_File_Nova_location)), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\"}"))));
 }
 
-char nova_io_Nova_File_Nova_testLambda39(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
+char nova_io_Nova_File_Nova_testLambda76(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context1* context)
 {
 	return nova_io_Nova_File_Accessorfunc_Nova_isDirectory(file, exceptionData) && ((*context->nova_io_Nova_File_Nova_includeHidden) || !nova_io_Nova_File_Accessorfunc_Nova_isHidden(file, exceptionData)) && !nova_Nova_String_Nova_equals(nova_io_Nova_File_Accessorfunc_Nova_name(file, exceptionData), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("."))) && !nova_Nova_String_Nova_equals(nova_io_Nova_File_Accessorfunc_Nova_name(file, exceptionData), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("..")));
 }
 
-void nova_io_Nova_File_Nova_testLambda40(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context2* context)
+void nova_io_Nova_File_Nova_testLambda77(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* _1, int _2, nova_datastruct_list_Nova_Array* _3, Context2* context)
 {
 	nova_datastruct_list_Nova_Array_Nova_addAll((nova_datastruct_list_Nova_Array*)((*context->nova_io_Nova_File_Nova_list)), exceptionData, (nova_datastruct_list_Nova_Array*)(nova_io_Nova_File_Nova_getChildFiles(_1, exceptionData, 1, (intptr_t)nova_null)));
 }
 
-char nova_io_Nova_File_Nova_testLambda41(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context3* context)
+char nova_io_Nova_File_Nova_testLambda78(nova_io_Nova_File* this, nova_exception_Nova_ExceptionData* exceptionData, nova_io_Nova_File* file, int _2, nova_datastruct_list_Nova_Array* _3, Context3* context)
 {
 	return !nova_io_Nova_File_Accessorfunc_Nova_isDirectory(file, exceptionData) && ((*context->nova_io_Nova_File_Nova_includeHidden) || !nova_io_Nova_File_Accessorfunc_Nova_isHidden(file, exceptionData));
 }

@@ -59,6 +59,14 @@ nova_datastruct_list_Iterator_Extension_VTable nova_datastruct_list_Iterator_Ext
 		0,
 		0,
 		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 	},
 };
 

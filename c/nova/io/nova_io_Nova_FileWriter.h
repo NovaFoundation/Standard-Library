@@ -81,7 +81,7 @@ char nova_io_Nova_FileWriter_Nova_writeLine(nova_io_Nova_FileWriter* this, nova_
 char nova_io_Nova_FileWriter_Nova_write(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_String* data);
 void nova_io_Nova_FileWriter_Nova_flush(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData);
 char nova_io_Nova_FileWriter_Nova_close(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData);
-char nova_io_Nova_FileWriter_Accessor_Nova_open(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData);
+char nova_io_Nova_FileWriter_Accessor_Nova_isOpen(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData);
 void nova_io_Nova_FileWriter_Nova_super(nova_io_Nova_FileWriter* this, nova_exception_Nova_ExceptionData* exceptionData);
 
 #endif

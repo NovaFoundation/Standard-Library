@@ -59,6 +59,14 @@ nova_datastruct_Comparable_Extension_VTable nova_datastruct_Comparable_Extension
 		0,
 		0,
 		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 	},
 };
 

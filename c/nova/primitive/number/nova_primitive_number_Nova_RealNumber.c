@@ -59,6 +59,14 @@ nova_primitive_number_RealNumber_Extension_VTable nova_primitive_number_RealNumb
 		0,
 		0,
 		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 	},
 };
 

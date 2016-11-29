@@ -124,7 +124,7 @@ class FileReader extends InputStream {
         Char[] line = new Char[bufferSize]
         
         external c {
-            if ((#{bufferSize} = getline(&#{line}, &#{bufferSize}, #{fp})) == -1)
+            if ((#{bufferSize} = nova_getline(&#{line}, &#{bufferSize}, #{fp})) == -1)
             {
                 return (nova_Nova_String*)nova_null;
             }
