@@ -22,4 +22,14 @@ class Timer {
     }
     
     public toString() => "Timer { duration: #duration }"
+    
+    [Static]
+    [+] time(action(), callback(Timer) = {}) -> Timer {
+        Timer t = new Timer().start()
+        
+        action()
+        callback(t.stop())
+        
+        return t
+    }
 }
