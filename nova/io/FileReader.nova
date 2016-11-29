@@ -20,7 +20,7 @@ class FileReader extends InputStream {
     
     external char EOF
     
-    visible Bool open => fp != 0
+    visible Bool isOpen => fp != 0
     
     public readString() => readLine()
     public readBytes() => null
@@ -45,19 +45,21 @@ class FileReader extends InputStream {
     }
     
     public readAllContents() -> String {
-        //String data = ""
+        // String data = ""
         
-        /*String line = readLine()
+        // String line = readLine()
         
-        while (line != null) {
-            if (data.count > 0) {
-                data = data + "\n"
-            }
+        // while (line != null) {
+        //     if (data.count > 0) {
+        //         data = data + "\n"
+        //     }
             
-            data = data + line
+        //     data = data + line
             
-            line = readLine()
-        }*/
+        //     line = readLine()
+        // }
+        
+        // return data
         
         Int size
         
@@ -116,47 +118,26 @@ class FileReader extends InputStream {
     }
     
     public readLine() -> String {
-        Int buf  = 5
-        Int size = buf
+        Int bufferSize = 80
         
         [Native]
-        Char[] line = new Char[size]
+        Char[] line = new Char[bufferSize]
         
-        Char c = getc(fp)
-        
-        if (c == EOF) {
-            return null
-        }
-        
-        Int index = 0
-        
-        while (c != '\n' && c != EOF) {
-            if (index >= size) {
-                size = size + buf
-                
-                line = realloc(line, size)
+        external c {
+            if ((#{bufferSize} = getline(&#{line}, &#{bufferSize}, #{fp})) == -1)
+            {
+                return (nova_Nova_String*)nova_null;
             }
             
-            line[index++] = c
-            
-            c = getc(fp)
+            #{line} = realloc(#{line}, #{bufferSize});
+            #{line}[#{bufferSize} - 1] = '\0';
         }
         
-        if (index >= size) {
-            size++
-            
-            line = realloc(line, size)
-        }
-        
-        line[index++] = '\0'
-        
-        line = realloc(line, index)
-        
-        return new String(line)
+        return new String(line, bufferSize - 1)
     }
     
     public close() {
-        if (open) {
+        if (isOpen) {
             fclose(fp)
         }
     }

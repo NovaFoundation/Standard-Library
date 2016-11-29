@@ -188,39 +188,18 @@ nova_Nova_String* nova_io_Nova_FileReader_Nova_readAllContents(nova_io_Nova_File
 
 nova_Nova_String* nova_io_Nova_FileReader_Nova_readLine(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	int l1_Nova_buf = 0;
-	int l1_Nova_size = 0;
+	int l1_Nova_bufferSize = 0;
 	char* l1_Nova_line = (char*)nova_null;
-	char l1_Nova_c = 0;
-	int l1_Nova_index = 0;
 	
-	l1_Nova_buf = (int)(5);
-	l1_Nova_size = l1_Nova_buf;
-	l1_Nova_line = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_size);
-	l1_Nova_c = (char)(getc(this->prv->nova_io_Nova_FileReader_Nova_fp));
-	if (l1_Nova_c == EOF)
+	l1_Nova_bufferSize = (int)(80);
+	l1_Nova_line = (char*)NOVA_MALLOC(sizeof(nova_primitive_number_Nova_Char) * l1_Nova_bufferSize);
+	if ((l1_Nova_bufferSize = getline(&l1_Nova_line, &l1_Nova_bufferSize, this->prv->nova_io_Nova_FileReader_Nova_fp)) == -1)
 	{
-		return (nova_Nova_String*)(nova_Nova_Object*)nova_null;
+		return (nova_Nova_String*)nova_null;
 	}
-	l1_Nova_index = (int)(0);
-	while (l1_Nova_c != '\n' && l1_Nova_c != EOF)
-	{
-		if (l1_Nova_index >= l1_Nova_size)
-		{
-			l1_Nova_size = l1_Nova_size + l1_Nova_buf;
-			l1_Nova_line = (char*)(realloc(l1_Nova_line, l1_Nova_size));
-		}
-		l1_Nova_line[l1_Nova_index++] = l1_Nova_c;
-		l1_Nova_c = (char)(getc(this->prv->nova_io_Nova_FileReader_Nova_fp));
-	}
-	if (l1_Nova_index >= l1_Nova_size)
-	{
-		l1_Nova_size++;
-		l1_Nova_line = (char*)(realloc(l1_Nova_line, l1_Nova_size));
-	}
-	l1_Nova_line[l1_Nova_index++] = '\0';
-	l1_Nova_line = (char*)(realloc(l1_Nova_line, l1_Nova_index));
-	return nova_Nova_String_1_Nova_construct(0, exceptionData, l1_Nova_line);
+	l1_Nova_line = realloc(l1_Nova_line, l1_Nova_bufferSize);
+	l1_Nova_line[l1_Nova_bufferSize - 1] = '\0';
+	return nova_Nova_String_2_Nova_construct(0, exceptionData, l1_Nova_line, l1_Nova_bufferSize - 1);
 }
 
 void nova_io_Nova_FileReader_Nova_close(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
