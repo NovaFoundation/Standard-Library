@@ -21,4 +21,21 @@ class Object implements Equals {
     
     public equals(Object another) => this == another
     public toString() => "[#this.class.name @#hashCode]"
+    
+    // writeFields() =>
+    //     this.class.getFields(true).count > 0 ?
+    //         this.class.getFields(true).map(f -> {
+    //             "\n#f.name = #f.getValue(this)"
+    //         }) + "\n" :
+    //         ""
+        
+    // writeFunctions() =>
+    //     this.class.functions.map(f -> {
+    //         "\n#f"
+    //     })
+    
+    // public toString() =>
+    //     "#this.class.name {" +
+    //     writeFields() +
+    //     "}"
 }
