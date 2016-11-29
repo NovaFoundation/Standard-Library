@@ -63,7 +63,7 @@ class String implements Comparable<String> {
     }
     
     [Target not js]
-    construct([Native] Char[] chars, Int count) {
+    public construct([Native] Char[] chars, Int count) {
         this.count = count
         this.chars = new StringCharArray(chars, count)
     }
