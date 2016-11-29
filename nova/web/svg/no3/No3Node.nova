@@ -1,6 +1,5 @@
 package "nova/web/svg/no3"
 
 public abstract class No3Node {
-    [Public] [Abstract]
-    toJs() -> String
+    public abstract toJs() -> String
 }

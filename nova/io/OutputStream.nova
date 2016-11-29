@@ -1,7 +1,6 @@
 package "nova/io"
 
 public abstract class OutputStream {
-    [Public] [Abstract]
-    write(String data) -> Bool
+    public abstract write(String data) -> Bool
     //public abstract write(Object data) -> Bool
 }
