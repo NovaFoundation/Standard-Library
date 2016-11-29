@@ -1,7 +1,0 @@
-var RealNumber = function () {
-	
-	
-};
-
-
-
