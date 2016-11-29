@@ -45,9 +45,9 @@ class FileReader extends InputStream {
     }
     
     public readAllContents() -> String {
-        String data = ""
+        //String data = ""
         
-        String line = readLine()
+        /*String line = readLine()
         
         while (line != null) {
             if (data.count > 0) {
@@ -57,9 +57,62 @@ class FileReader extends InputStream {
             data = data + line
             
             line = readLine()
+        }*/
+        
+        Int size
+        
+        [Native]
+        Char[] buffer
+        
+        external c {
+            int string_size;
+            FILE *handler = #{fp};
+            
+            #{buffer} = 0;
+            
+            if (handler)
+            {
+                // Seek the last byte of the file
+                fseek(handler, 0, SEEK_END);
+                // Offset from the first to the last byte, or in other words, filesize
+                string_size = ftell(handler);
+                // go back to the start of the file
+                rewind(handler);
+                
+                // Allocate a string that can hold it all
+                #{buffer} = (char*) malloc(sizeof(char) * (string_size + 1) );
+                
+                // Read it all in one operation
+                #{size} = fread(#{buffer}, sizeof(char), string_size, handler);
+                
+                // fread doesn't set it so put a \0 in the last position
+                // and buffer is now officially a string
+                #{buffer}[#{size}] = '\0';
+                
+                if (#{size} < string_size) {
+                    #{buffer} = realloc(#{buffer}, #{size} + 1);
+                }
+                
+                /*if (string_size != #{size})
+                {
+                    // Something went wrong, throw away the memory and set
+                    // the buffer to NULL
+                    free(#{buffer});
+                    #{buffer} = NULL;
+                    
+                    #{buffer} = 0;
+                }*/
+            }
+            
+            if (#{buffer} == 0)
+            {
+                return (nova_Nova_String*)nova_null;
+            }
+            
+            rewind(handler);
         }
         
-        return data
+        return new String(buffer, size)
     }
     
     public readLine() -> String {

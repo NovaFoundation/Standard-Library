@@ -154,21 +154,36 @@ void nova_io_Nova_FileReader_Nova_open(nova_io_Nova_FileReader* this, nova_excep
 
 nova_Nova_String* nova_io_Nova_FileReader_Nova_readAllContents(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)
 {
-	nova_Nova_String* l1_Nova_data = (nova_Nova_String*)nova_null;
-	nova_Nova_String* l1_Nova_line = (nova_Nova_String*)nova_null;
+	int l1_Nova_size = 0;
+	char* l1_Nova_buffer = (char*)nova_null;
 	
-	l1_Nova_data = nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)(""));
-	l1_Nova_line = nova_io_Nova_FileReader_Nova_readLine(this, exceptionData);
-	while (l1_Nova_line != (nova_Nova_String*)nova_null)
+	int string_size;
+	FILE *handler = this->prv->nova_io_Nova_FileReader_Nova_fp;
+	l1_Nova_buffer = 0;
+	if (handler)
 	{
-		if (l1_Nova_data->nova_Nova_String_Nova_count > 0)
-		{
-			l1_Nova_data = (nova_Nova_String*)(nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(l1_Nova_data), exceptionData, nova_Nova_String_1_Nova_construct(0, exceptionData, (char*)("\n"))));
+		fseek(handler, 0, SEEK_END);
+		string_size = ftell(handler);
+		rewind(handler);
+		l1_Nova_buffer = (char*) malloc(sizeof(char) * (string_size + 1) );
+		l1_Nova_size = fread(l1_Nova_buffer, sizeof(char), string_size, handler);
+		l1_Nova_buffer[l1_Nova_size] = '\0';
+		if (l1_Nova_size < string_size) {
+			l1_Nova_buffer = realloc(l1_Nova_buffer, l1_Nova_size + 1);
 		}
-		l1_Nova_data = (nova_Nova_String*)(nova_Nova_String_virtual_Nova_concat((nova_Nova_String*)(l1_Nova_data), exceptionData, l1_Nova_line));
-		l1_Nova_line = nova_io_Nova_FileReader_Nova_readLine(this, exceptionData);
+		/*if (string_size != l1_Nova_size)
+		{
+			free(l1_Nova_buffer);
+			l1_Nova_buffer = NULL;
+			l1_Nova_buffer = 0;
+		}*/
 	}
-	return l1_Nova_data;
+	if (l1_Nova_buffer == 0)
+	{
+		return (nova_Nova_String*)nova_null;
+	}
+	rewind(handler);
+	return nova_Nova_String_2_Nova_construct(0, exceptionData, l1_Nova_buffer, l1_Nova_size);
 }
 
 nova_Nova_String* nova_io_Nova_FileReader_Nova_readLine(nova_io_Nova_FileReader* this, nova_exception_Nova_ExceptionData* exceptionData)

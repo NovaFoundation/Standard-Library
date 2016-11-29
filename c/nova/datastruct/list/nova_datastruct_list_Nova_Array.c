@@ -175,14 +175,10 @@ void nova_datastruct_list_Nova_Array_5_Nova_this(nova_datastruct_list_Nova_Array
 
 void nova_datastruct_list_Nova_Array_6_Nova_this(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object** data, int count)
 {
-	int l2_Nova_i = 0;
-	
-	nova_datastruct_list_Nova_Array_5_Nova_this(this, exceptionData, count, (intptr_t)nova_null);
-	l2_Nova_i = (int)0;
-	for (; l2_Nova_i < (int)count; l2_Nova_i++)
-	{
-		nova_datastruct_list_Nova_Array_0_Nova_add(this, exceptionData, data[l2_Nova_i]);
-	}
+	this->nova_datastruct_list_Nova_Array_Nova_data = data;
+	nova_datastruct_list_Nova_Array_Mutatorfunc_Nova_count(this, exceptionData, count);
+	this->nova_datastruct_list_Nova_Array_Nova_capacity = count;
+	this->nova_datastruct_list_Nova_Array_Nova_position = count;
 }
 
 nova_datastruct_list_Nova_Array* nova_datastruct_list_Nova_Array_Nova_fillRemaining(nova_datastruct_list_Nova_Array* this, nova_exception_Nova_ExceptionData* exceptionData, nova_Nova_Object* value)
