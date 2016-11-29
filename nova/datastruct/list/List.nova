@@ -156,14 +156,24 @@ interface List<Type> extends Iterable<Type> {
 
         return list
     }
-
+    
+    public firstOr(Type default, func(Type) -> Bool = {true}) -> Type {
+        for (element in this) {
+            if (func(element)) {
+                return element
+            }
+        }
+        
+        return default
+    }
+    
     public firstWhere(func(Type) -> Bool) -> Type {
         for (element in this) {
             if (func(element)) {
                 return element
             }
         }
-
+        
         return null
     }
     
