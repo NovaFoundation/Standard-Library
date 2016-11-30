@@ -343,6 +343,16 @@ class String implements Comparable<String> {
     	
     	return strs
     }
+    
+    public getGroupedChars(Char[] chars, Int start = 0, Int end = count, Bool opposite = false) -> String {
+        var i = start
+        
+        while (start < end && chars.contains(this.chars[i]) != opposite) {
+            i++
+        }
+        
+        return substring(start, i)
+    }
 
     public toString() => this
 }
