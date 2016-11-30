@@ -1,0 +1,149 @@
+package "nova/datastruct/list"
+
+import "nova/primitive/number/Integer"
+
+//[Mutable "Array"]
+class ImmutableArray<E> implements List<E> {
+    visible Int count <=> count
+    
+    [Native]
+    visible E[] data
+    
+    visible Bool empty => count <= 0
+    
+    [Override]
+    visible ImmutableArrayIterator<E> iterator => new ImmutableArrayIterator(this)
+    
+    [Override]
+    public E first => count > 0 ? this[0] : null
+    
+    [Override]
+    public E last => count > 0 ? this[count - 1] : null
+    
+    this[Int index] => data[index]
+    
+    public construct() {
+        this(0)
+    }
+    
+    public construct(Int count) {
+        this.count = count
+        
+        [Target js] data = new E[count]
+    }
+    
+    public construct(E[] data) {
+        this.data = data.data
+        this.count = data.count
+    }
+    
+    public construct([Native] E[] data, Int count) {
+        this.data = data
+        this.count = count
+    }
+    
+    public indexOf(E element) -> Int {
+        Int i = 0
+        
+        for (e in this) {
+            if (element == e) {
+                return i
+            }
+            
+            i++
+        }
+        
+        return -1
+    }
+    
+    [Override]
+    public toArray() => new Array(data, count)
+    
+    [Override]
+    public map<Out>(mapFunc(E, Int, ImmutableArray<E>) -> Out) -> ImmutableArray<Out> {
+        Out[] array = new Array(count)
+        
+        Int i = 0
+        
+        for (element in this) {
+            array.add(mapFunc(element, i++, this))
+        }
+        
+        return new ImmutableArray(array)
+    }
+    
+    [Override]
+    public forEach(func(E, Int, ImmutableArray<E>)) => this {
+        for (i in 0..count) {
+            func(data[i], i, this)
+        }
+    }
+    
+    [Override]
+    public filter(filterFunc(E, Int, ImmutableArray<E>) -> Bool) -> ImmutableArray<E> {
+        E[] filtered = new Array()
+        
+        Int i = 0
+        
+        for (element in this) {
+            if (filterFunc(element, i++, this)) {
+                filtered.add(element)
+            }
+        }
+        
+        return ImmutableArray(filtered)
+    }
+    
+    [Override]
+    public take(Int howMany) -> ImmutableArray<E> {
+        howMany = howMany > count ? count : howMany
+        
+        E[] list = new Array()
+        
+        for (i in 0..howMany) {
+            list.add(data[i])
+        }
+        
+        return new ImmutableArray(list)
+    }
+    
+    [Override]
+    public skip(Int howMany) -> ImmutableArray<E> {
+        E[] list = new Array()
+        
+        for (i in howMany..count) {
+            list.add(data[i])
+        }
+        
+        return new ImmutableArray(list)
+    }
+    
+    [RequireGenericType E extends String]
+    public sumSize() -> Long {
+        Long sum = 0
+        
+        for (value in this) {
+            sum += ((String)value).count
+        }
+        
+        return sum
+    }
+    
+    [Override]
+    public reverse() -> ImmutableArray<E> {
+        E[] array = new Array(count)
+        
+        Int i = 0
+        
+        for (element in this) {
+            array.data[count - ++i] = element
+        }
+        
+        return new ImmutableArray(array)
+    }
+    
+    public toMutable() => toArray()
+    
+    [Override]
+    public toString() => "Array [#{join(", ")}]"
+}
