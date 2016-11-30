@@ -2,6 +2,7 @@ package "nova/datastruct/list"
 
 import "nova/primitive/number/Integer"
 
+//[Immutable "ImmutableArray"]
 class Array<E> implements List<E> {
     external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
     
@@ -283,6 +284,8 @@ class Array<E> implements List<E> {
         
         return array
     }
+    
+    public toImmutable() => new ImmutableArray(this)
     
     [Override]
     public toString() => "Array [#{join(", ")}]"
