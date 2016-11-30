@@ -1,0 +1,35 @@
+package "nova/datastruct/list"
+
+class ImmutableArrayIterator<E> implements Iterator<E> {
+    ImmutableArray<E> array
+    
+    visible Int position
+    
+    visible Bool hasNext => array.count > position
+    
+    visible E next {
+        get {
+            if (hasNext) {
+                return array.get(position++)
+            }
+            
+            throw new NoSuchElementException()
+
+            return null
+        }
+        
+        no set
+    }
+    
+    public construct(ImmutableArray<E> array) {
+        this.array = array
+        
+        reset()
+    }
+    
+    public reset() -> Iterator<E> {
+        position = 0
+        
+        return this
+    }
+}
