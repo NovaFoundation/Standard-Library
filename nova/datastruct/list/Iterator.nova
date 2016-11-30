@@ -9,6 +9,4 @@ public interface Iterator<E> {
         get { return null }
         no set
     }
-    
-    public reset() -> Iterator<E>
 }
