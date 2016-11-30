@@ -6,8 +6,7 @@ import "nova/primitive/number/Integer"
 class ImmutableArray<E> implements List<E> {
     visible Int count <=> count
     
-    [Native]
-    visible E[] data
+    visible native E[] data
     
     visible Bool empty => count <= 0
     
@@ -33,8 +32,10 @@ class ImmutableArray<E> implements List<E> {
     }
     
     public construct(E[] data) {
-        this.data = data.data
-        this.count = data.count
+        var clone = data.map({ _ })
+        
+        this.data = clone.data
+        this.count = clone.count
     }
     
     public construct([Native] E[] data, Int count) {
@@ -57,7 +58,7 @@ class ImmutableArray<E> implements List<E> {
     }
     
     [Override]
-    public toArray() => new Array(data, count)
+    public toArray() => map({ _ })//new Array(data, count)
     
     [Override]
     public map<Out>(mapFunc(E, Int, ImmutableArray<E>) -> Out) -> ImmutableArray<Out> {
