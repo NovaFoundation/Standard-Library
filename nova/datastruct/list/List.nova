@@ -167,6 +167,16 @@ interface List<Type> extends Iterable<Type> {
         return default
     }
     
+    public firstOrThrow(Exception e, func(Type) -> Bool = {true}) -> Type {
+        for (element in this) {
+            if (func(element)) {
+                return element
+            }
+        }
+        
+        throw e
+    }
+    
     public firstWhere(func(Type) -> Bool) -> Type {
         for (element in this) {
             if (func(element)) {
