@@ -33,6 +33,24 @@ class CharArray extends Array<Char> {
         indexSize = 1
     }
     
+    public native cloneData() -> Char[] {
+        if (indexSize == 1) {
+            native Char[] d// = new Char[count]
+            
+            external c {
+                #{d} = NOVA_MALLOC(sizeof(char) * #{count});
+                
+                memcpy(#{d}, #{data}, sizeof(#{d}));
+            }
+            
+            return d
+        } else {
+            return super.cloneData()
+        }
+    }
+    
+    public clone() => new CharArray(cloneData(), count)
+    
     public sum(func(Char, Int, CharArray, Long) -> Long) -> Long {
         Long sum = 0
         Int i = 0
