@@ -199,8 +199,22 @@ class Array<E> implements List<E> {
         }
     }
     
+    public native cloneData() -> E[] {
+        native E[] d = new E[count]
+        
+        external c {
+            memcpy(#{d}, #{data}, sizeof(#{d}));
+        }
+        
+        return d
+    }
+    
+    public clone() -> E[] {
+        return new Array<E>(cloneData(), count)
+    }
+    
     [Override]
-    public toArray() => map({ _ })
+    public toArray() => clone()
     
     [Override]
     public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
