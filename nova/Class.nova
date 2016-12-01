@@ -4,7 +4,7 @@ import "nova/datastruct/list/ImmutableArray"
 
 class Class {
     visible Class extension
-    visible Class[] interfaces = new Class[]
+    visible ImmutableArray<Class> interfaces
     
     visible Bool isInterface
     
