@@ -1,10 +1,13 @@
 package "nova"
 
 import "nova/datastruct/list/ImmutableArray"
+import "nova/meta/Field"
 
 class Class {
     visible Class extension
     visible ImmutableArray<Class> interfaces
+    
+    visible ImmutableArray<Field> fields = new Field[0].toImmutable()
     
     visible Bool isInterface
     
