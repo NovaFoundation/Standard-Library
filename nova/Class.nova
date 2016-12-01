@@ -1,5 +1,7 @@
 package "nova"
 
+import "nova/datastruct/list/ImmutableArray"
+
 class Class {
     visible Class extension
     visible Class[] interfaces = new Class[]
@@ -9,6 +11,8 @@ class Class {
     visible String location
     visible String package => location.substring(0, location.lastIndexOf("/", defaultReturnValue: 0))
     visible String name => location.substring(location.lastIndexOf("/") + 1)
+    
+    visible static ImmutableArray<Class> ALL
     
     public construct(String location, Bool isInterface) {
         this.location = location
