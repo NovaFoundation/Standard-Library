@@ -32,7 +32,7 @@ class ImmutableArray<E> implements List<E> {
     }
     
     public construct(E[] data) {
-        var clone = data.map({ _ })
+        var clone = data.clone()
         
         this.data = clone.data
         this.count = clone.count
