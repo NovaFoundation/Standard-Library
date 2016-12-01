@@ -203,15 +203,13 @@ class Array<E> implements List<E> {
         native E[] d = new E[count]
         
         external c {
-            memcpy(#{d}, #{data}, sizeof(#{d}));
+            memcpy(#{d}, #{data}, sizeof(#{d}) * #{count});
         }
         
         return d
     }
     
-    public clone() -> E[] {
-        return new Array<E>(cloneData(), count)
-    }
+    public clone() => new Array<E>(cloneData(), count)
     
     [Override]
     public toArray() => clone()

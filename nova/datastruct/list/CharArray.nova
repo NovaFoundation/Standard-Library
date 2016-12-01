@@ -40,7 +40,7 @@ class CharArray extends Array<Char> {
             external c {
                 #{d} = NOVA_MALLOC(sizeof(char) * #{count});
                 
-                memcpy(#{d}, #{data}, sizeof(#{d}));
+                memcpy(#{d}, #{data}, sizeof(#{d}) * #{count});
             }
             
             return d
