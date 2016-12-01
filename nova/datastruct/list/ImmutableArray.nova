@@ -32,10 +32,14 @@ class ImmutableArray<E> implements List<E> {
     }
     
     public construct(E[] data) {
-        var clone = data.clone()
+        this(data, true)
+    }
+    
+    construct(E[] data, Bool clone) {
+        data = clone ? data.clone() : data
         
-        this.data = clone.data
-        this.count = clone.count
+        this.data = data.data
+        this.count = data.count
     }
     
     public construct([Native] E[] data, Int count) {
@@ -70,7 +74,7 @@ class ImmutableArray<E> implements List<E> {
             array.add(mapFunc(element, i++, this))
         }
         
-        return new ImmutableArray(array)
+        return new ImmutableArray(array, false)
     }
     
     [Override]
@@ -92,7 +96,7 @@ class ImmutableArray<E> implements List<E> {
             }
         }
         
-        return ImmutableArray(filtered)
+        return ImmutableArray(filtered, false)
     }
     
     [Override]
@@ -105,7 +109,7 @@ class ImmutableArray<E> implements List<E> {
             list.add(data[i])
         }
         
-        return new ImmutableArray(list)
+        return new ImmutableArray(list, false)
     }
     
     [Override]
@@ -116,7 +120,7 @@ class ImmutableArray<E> implements List<E> {
             list.add(data[i])
         }
         
-        return new ImmutableArray(list)
+        return new ImmutableArray(list, false)
     }
     
     [RequireGenericType E extends String]
@@ -140,7 +144,7 @@ class ImmutableArray<E> implements List<E> {
             array.data[count - ++i] = element
         }
         
-        return new ImmutableArray(array)
+        return new ImmutableArray(array, false)
     }
     
     public toMutable() => toArray()
