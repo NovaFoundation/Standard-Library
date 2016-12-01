@@ -18,6 +18,8 @@ class IntArray extends Array<Int> {
     public construct(Int count) => super(count)
     public construct([Native] Int[] data, Int count) => super(data, count)
     
+    public clone() => new IntArray(cloneData(), count)
+    
     [Override]
     public map<Out>(mapFunc(Int, Int, IntArray) -> Out) -> Out[] {
         Out[] array = new Array()
