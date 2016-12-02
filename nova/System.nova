@@ -5,6 +5,7 @@ import "nova/io/File"
 import "nova/io/FileWriter"
 import "nova/io/FileReader"
 import "nova/time/Time"
+import "nova/time/CumulativeTimer"
 import "nova/process/Process"
 import "nova/NativeSystem.h"
 
@@ -18,6 +19,8 @@ class System {
     external FILE* getPipe(char command[], exit(Int, String, Bool))
     external bool fgets(char buffer[], int length, FILE* pipe)
     external bool feof(FILE* pipe)
+    
+    visible static CumulativeTimer overheadTimer = new CumulativeTimer()
     
     public static exit(Int code) {
         externalExit(code)
