@@ -1,0 +1,7 @@
+package "nova/meta"
+
+class Field {
+    visible String name
+    
+    visible Type type
+}
