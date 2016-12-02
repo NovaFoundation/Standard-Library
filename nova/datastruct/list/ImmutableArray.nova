@@ -42,7 +42,7 @@ immutable class ImmutableArray<E> implements List<E> {
         this.count = data.count
     }
     
-    public construct([Native] E[] data, Int count) {
+    public construct(native E[] data, Int count) {
         this.data = data
         this.count = count
     }
