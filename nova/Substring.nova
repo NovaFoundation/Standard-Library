@@ -6,7 +6,7 @@ import "nova/regex/Match"
 import "nova/regex/Pattern"
 
 class Substring extends String {
-    visible String source
+    immutable visible String source
     
     visible Int start
     visible Int end => start + count

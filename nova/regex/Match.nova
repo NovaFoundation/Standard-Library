@@ -1,6 +1,6 @@
 package "nova/regex"
 
-class Match {
+immutable class Match {
     visible Int start
     visible Int end
     visible Int count => end - start

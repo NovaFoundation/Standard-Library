@@ -1,6 +1,6 @@
 package "nova/regex"
 
-class Regex {
+immutable class Regex {
     public static containsMatch(Pattern pattern, String search) => containsMatch(pattern.pattern, search)
     public static containsMatch(String regex, String search) => getMatches(regex, search).count > 0
     

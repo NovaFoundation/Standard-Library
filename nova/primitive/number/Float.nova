@@ -2,7 +2,7 @@ package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
 
-class Float extends Number implements Comparable<Float>, RealNumber {
+immutable class Float extends Number implements Comparable<Float>, RealNumber {
     Float value
     
     construct(Int value) => this.value = value

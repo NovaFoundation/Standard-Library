@@ -7,7 +7,7 @@ import "nova/regex/Regex"
 import "nova/regex/Match"
 import "nova/regex/Pattern"
 
-class String implements Comparable<String> {
+immutable class String implements Comparable<String> {
     visible Int count
     
     visible StringCharArray chars

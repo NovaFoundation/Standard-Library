@@ -2,7 +2,7 @@ package "nova/primitive"
 
 import "nova/datastruct/Comparable"
 
-class Bool extends Primitive implements Comparable<Bool> {
+immutable class Bool extends Primitive implements Comparable<Bool> {
     Bool value
     
     construct(Bool value) => this.value = value

@@ -1,6 +1,6 @@
 package "nova/primitive"
 
-class Null extends String {
+immutable class Null extends String {
     public construct() {}
     
     public concat(String other) => "null#other"
