@@ -7,6 +7,16 @@ class Stack<E> {
     
     visible Bool isEmpty => count <= 0
     
+    public construct() {
+        
+    }
+    
+    public construct(E[] data) {
+        for (e in data) {
+            push(e) // y do u hve to be so pushy?
+        }
+    }
+    
     public push(E data) {
         ListNode<E> node = new ListNode(data)
         
