@@ -2,7 +2,7 @@ package "nova/datastruct/list"
 
 import "nova/primitive/number/Integer"
 
-//[Immutable "ImmutableArray"]
+[Immutable "ImmutableArray"]
 class Array<E> implements List<E> {
     external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
     
@@ -11,8 +11,7 @@ class Array<E> implements List<E> {
     visible Int count <=> count
     visible Int position
     
-    [Native]
-    visible E[] data
+    visible native E[] data
     
     visible Bool empty => count <= 0
     
