@@ -1,0 +1,5 @@
+package "nova/meta"
+
+class GenericArgument {
+    visible Type value
+}
