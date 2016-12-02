@@ -278,7 +278,24 @@ class String implements Comparable<String> {
         
         return new Substring(this, start, end)
     }
-
+    
+    /// Trim the front and back end of the string by the given number
+    /// of characters.
+    /// 
+    /// <code>
+    ///     "(hello world! )".trimEnds(1, true)  // "hello world!"
+    ///     "(hello world! )".trimEnds(1, false) // "hello world! "
+    /// </code>
+    /// 
+    /// count: The number of characters to trim from each end.
+    /// trimWhitespace: Whether to trim the whitespace from the edges
+    ///     after the edges have been trimmed.
+    /// return: The trimmed string.
+    public trimEnds(Int count, Bool trimWhitespace = false) =>
+        trimWhitespace ?
+            substring(count, this.count - count).trim() :
+            substring(count, this.count - count)
+    
     public trim(Int start = 0, Int end = count - 1, Char[] charsToTrim = WHITESPACE) -> String {
         while (start <= end && charsToTrim.contains(chars[start])) start++
         while (end >= start && charsToTrim.contains(chars[end])) end--
