@@ -116,7 +116,7 @@ class Array<E> implements List<E> {
         return null
     }
     
-    public indexOf(E element) -> Int {
+    public indexOf(E element, Int defaultReturnValue = -1) -> Int {
         Int i = 0
         
         for (e in this) {
@@ -127,7 +127,7 @@ class Array<E> implements List<E> {
             i++
         }
         
-        return -1
+        return defaultReturnValue
     }
     
     public replace(E element, E other) -> Bool {
