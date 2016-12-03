@@ -3,10 +3,14 @@ package "nova/time"
 class CumulativeTimer extends Timer {
     visible Long duration <=> duration
     
+    visible Int iterations = 0
+    
     public construct() => super()
     
     public stop() => this {
         super.stop()
+        
+        iterations++
         
         duration = duration + super.duration
     }
