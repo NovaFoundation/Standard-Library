@@ -9,7 +9,8 @@ import "nova/time/CumulativeTimer"
 import "nova/process/Process"
 import "nova/NativeSystem.h"
 
-class System {
+[AutoFinal]
+immutable class System {
     external type FILE
     
     external int NULL
@@ -32,7 +33,7 @@ class System {
     
     public static exit(Int code, String message, Bool log) {
         if (log) {
-            var f = new FileWriter("Log" + Time.currentTimeMillis + ".txt")
+            let f = new FileWriter("Log" + Time.currentTimeMillis + ".txt")
             
             if (f.create()) {
                 f.writeLine(message)
