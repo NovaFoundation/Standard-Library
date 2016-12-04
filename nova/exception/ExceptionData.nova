@@ -24,7 +24,7 @@ class ExceptionData {
         caught.add(new CaughtException(type, soft))
     }
     
-    public getDataByException(Exception exception, Bool soft = false) -> ExceptionData {
+    getDataByException(Exception exception, Bool soft = false) -> ExceptionData {
         var data = this
         
         while (true) {
@@ -38,11 +38,16 @@ class ExceptionData {
         }
     }
     
-    public jumpToBuffer(Exception exception, Bool soft = false) {
-        var data = getDataByException(exception, soft)
+    [Target c]
+    public throwException(ExceptionData* context, Exception exception, Bool soft) => false {
+        let catchExceptionData = getDataByException(exception, soft)
         
-        external c {
-            jump(*#{data.buf}, (intptr_t)#{exception});
+        if (catchExceptionData != null) {
+            external {
+                *context = #{catchExceptionData}; // need to set in case nested tries in same function
+                #{catchExceptionData}->nova_exception_Nova_ExceptionData_Nova_thrownException = #{exception};
+                jump(*#{catchExceptionData.buf}, (intptr_t)#{exception});
+            }
         }
     }
 }
