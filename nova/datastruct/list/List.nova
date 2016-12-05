@@ -1,7 +1,8 @@
 package "nova/datastruct/list"
 
+[AutoFinal]
 interface List<Type> extends Iterable<Type> {
-    visible Int count => 0 {
+    visible var Int count => 0 {
         set {}
     }
     /*[Int index] {
@@ -19,7 +20,7 @@ interface List<Type> extends Iterable<Type> {
     public Type last
 
     public toArray() -> Type[] {
-        Type[] array = new Array()
+        let array = new Type[]
 
         for (value in this) {
             array.add(value)
@@ -33,7 +34,7 @@ interface List<Type> extends Iterable<Type> {
     }
 
     public forEach(func(Type, Int, List<Type>)) => this {
-        Int i = 0
+        var Int i = 0
 
         for (value in this) {
             func(value, i++, this)
@@ -41,9 +42,9 @@ interface List<Type> extends Iterable<Type> {
     }
 
     public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out> {
-        Out[] array = new Array(count)
+        let array = new Out[count]
 
-        Int i = 0
+        var Int i = 0
 
         for (element in this) {
             array.add(mapFunc(element, i++, this))
@@ -63,8 +64,7 @@ interface List<Type> extends Iterable<Type> {
     }
 
     public all(allFunc(Type, Int, List<Type>) -> Bool, Bool stopOnContradiction = true) -> Bool {
-        Int i = 0
-        
+        var Int i = 0
         var contradiction = false
         
         for (element in this) {
@@ -79,9 +79,9 @@ interface List<Type> extends Iterable<Type> {
     }
 
     public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type> {
-        Type[] list = new Array()
+        let list = new Type[]
         
-        Int i = 0
+        var Int i = 0
         
         for (value in this) {
             if (filterFunc(value, i++, this)) {
@@ -93,10 +93,10 @@ interface List<Type> extends Iterable<Type> {
     }
     
     [RequireGenericType Type extends String]
-    public filterEmpty() -> List<String> {
-        String[] list = new String[]
+    public pure filterEmpty() -> List<String> {
+        let list = new String[]
         
-        Int i = 0
+        var Int i = 0
         
         for (value in this) {
             if (value != null && ((String)value).count > 0) {
@@ -107,10 +107,10 @@ interface List<Type> extends Iterable<Type> {
         return list
     }
 
-    public take(Int howMany) -> List<Type> {
-        Type[] list = new Array()
+    public pure take(Int howMany) -> List<Type> {
+        let list = new Type[]
 
-        Int i = 0
+        var Int i = 0
 
         for (value in this) {
             if (i++ >= howMany) {
@@ -123,16 +123,15 @@ interface List<Type> extends Iterable<Type> {
         return list
     }
 
-    public takeLast(Int howMany) -> Type[] {
-        var list = new Type[]
-        
-        Int startIndex = Math.max(0, count - howMany)
+    public pure takeLast(Int howMany) -> Type[] {
+        let list = new Type[]
+        let startIndex = Math.max(0, count - howMany)
         
         if (startIndex == count) {
             return list
         }
         
-        Int i = 0
+        var Int i = 0
                 
         for (value in this) {
             if (i++ >= startIndex) {
@@ -143,10 +142,10 @@ interface List<Type> extends Iterable<Type> {
         return list
     }
 
-    public skip(Int howMany) -> List<Type> {
+    public pure skip(Int howMany) -> List<Type> {
         Type[] list = new Array()
 
-        Int i = 0
+        var Int i = 0
 
         for (value in this) {
             if (i++ >= howMany) {
@@ -220,8 +219,8 @@ interface List<Type> extends Iterable<Type> {
     public reverse() -> List<Type>
     
     public reduce<Out>(func(Out, Type, Int, List) -> Out, Out initialValue) -> Out {
-        Out value = initialValue
-        Int i = 0
+        var Out value = initialValue
+        var Int i = 0
         
         for (element in this) {
             value = func(value, element, i++, this)
