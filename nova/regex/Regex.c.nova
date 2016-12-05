@@ -25,10 +25,10 @@ class Regex {
             
             pcre2_code *re;
             
-            char* strData = (char*)#{search.chars.data};
+            char* strData = (char*)#{search.charData.data};
             
             re = pcre2_compile(
-                (PCRE2_SPTR)#{regex.chars.data},               /* the pattern */
+                (PCRE2_SPTR)#{regex.charData.data},               /* the pattern */
                 PCRE2_ZERO_TERMINATED, /* indicates pattern is zero-terminated */
                 0,                     /* default options */
                 &errornumber,          /* for error number */

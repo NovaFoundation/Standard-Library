@@ -26,7 +26,7 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
         return size
     }
     
-    static genString([Native] Char buffer[], Int lastIndex) -> String {
+    static genString(native Char buffer[], Int lastIndex) -> String {
         buffer = realloc(buffer, ++lastIndex + 1)
         
         buffer[lastIndex] = '\0'
@@ -34,19 +34,17 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
         return new String(buffer)
     }
     
-    [Native]
-    static genBuffer(Double value) -> Char[] {
+    static native genBuffer(Double value) -> Char[] {
         Int  size     = 11 + 1 + 15
         
-        [Native]
-        Char[] buffer = new Char[size]
+        native Char[] buffer = new Char[size]
         
         sprintf(buffer, "%.15f", value)
         
         return buffer
     }
     
-    static repetition([Native] Char[] buffer, Int start) -> Int {
+    static repetition(native Char[] buffer, Int start) -> Int {
         Int  index = start
         Char c     = buffer[index]
         
@@ -55,14 +53,13 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
         return start - index - 1
     }
     
-    static lastSignificantDigit([Native] Char[] buffer, Int start) -> Int {
+    static lastSignificantDigit(native Char[] buffer, Int start) -> Int {
         while (buffer[start--] == '0');
         
         return start + 1
     }
     
-    [Native]
-    public static toCharArray(Double value) -> Char[] {
+    public native static toCharArray(Double value) -> Char[] {
         external js {
             return #{value}.toString();
         }
@@ -73,8 +70,7 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
     
     [Target not js]
     public static toString(Double value) -> String {
-        [Native]
-        Char buffer[]  = genBuffer(value)
+        native Char buffer[]  = genBuffer(value)
         Int  size      = strlen(buffer)
         Int  lastIndex = size - 1
         
@@ -118,10 +114,9 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
     }
     
     public static parseDouble(String str) -> Double {
-        [Native]
-        Char[] pEnd
+        native Char[] pEnd
         
-        return strtod(str.chars.data, pEnd)
+        return strtod(str.charData.data, pEnd)
     }
     
     public compareTo(Double other) => value - other

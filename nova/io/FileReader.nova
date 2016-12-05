@@ -40,7 +40,7 @@ class FileReader extends InputStream {
     
     public open() {
         external c {
-            #{fp} = fopen((char*)#{file.location.chars.data}, "r+");
+            #{fp} = fopen((char*)#{file.location.charData.data}, "r+");
         }
     }
     

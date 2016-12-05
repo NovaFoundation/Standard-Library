@@ -8,7 +8,7 @@ class File {
     public directoryContents(String location) -> String[] {
         external {
             tinydir_dir dir;
-            tinydir_open(&dir, (char*)#{location.chars.data});
+            tinydir_open(&dir, (char*)#{location.charData.data});
             
             while (dir.has_next) {
                 tinydir_file file;
@@ -39,7 +39,7 @@ class File {
         
         external {
             tinydir_dir dir;
-            tinydir_open(&dir, (char*)#{location.chars.data});
+            tinydir_open(&dir, (char*)#{location.charData.data});
             
             while (dir.has_next) {
                 tinydir_file file;

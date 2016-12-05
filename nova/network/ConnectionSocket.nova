@@ -71,7 +71,7 @@ class ConnectionSocket extends Socket {
     }
     
     public write(String data) -> Bool {
-        Bool success = nova_socket_send(socket, data.chars.data) == 1
+        Bool success = nova_socket_send(socket, data.charData.data) == 1
         
         return success
     }

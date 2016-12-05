@@ -20,7 +20,7 @@ class Substring extends String {
         Char[] buf
         
         external c {
-            #{buf} = &((char*)#{source.chars.data})[#{start}];
+            #{buf} = &((char*)#{source.charData})[#{start}];
         }
         
         this.chars = new StringCharArray(buf, count)
