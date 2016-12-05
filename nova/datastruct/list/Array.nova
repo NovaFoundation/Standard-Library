@@ -2,16 +2,17 @@ package "nova/datastruct/list"
 
 import "nova/primitive/number/Integer"
 
+[AutoFinal]
 [Immutable "ImmutableArray"]
 class Array<E> implements List<E> {
-    external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
+    pure external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
     
-    visible Int capacity
+    visible var Int capacity
     
-    visible Int count <=> count
-    visible Int position
+    visible var Int count <=> count
+    visible var Int position
     
-    visible native E[] data
+    visible native var E[] data
     
     visible Bool empty => count <= 0
     
@@ -116,8 +117,8 @@ class Array<E> implements List<E> {
         return null
     }
     
-    public indexOf(E element, Int defaultReturnValue = -1) -> Int {
-        Int i = 0
+    public pure indexOf(E element, Int defaultReturnValue = -1) -> Int {
+        var Int i = 0
         
         for (e in this) {
             if (element == e) {
@@ -131,7 +132,7 @@ class Array<E> implements List<E> {
     }
     
     public replace(E element, E other) -> Bool {
-        var index = indexOf(element)
+        let index = indexOf(element)
         
         if (index >= 0) {
             this[index] = other
@@ -143,7 +144,7 @@ class Array<E> implements List<E> {
     }
     
     shiftRight(Int left, Int right) => this {
-        Int i = right - 1
+        var Int i = right - 1
         
         while (i > left) {
             data[i] = data[i - 1]
@@ -155,14 +156,11 @@ class Array<E> implements List<E> {
     }
     
     shiftLeft(Int left, Int right) => this {
-        left--
-        right--
-        
         for (i in left..right) {
-            data[i] = data[i + 1]
+            data[i - 1] = data[i]
         }
         
-        data[right] = null
+        data[right - 1] = null
     }
     
     public swap(Int index1, Int index2) => this {
@@ -198,8 +196,8 @@ class Array<E> implements List<E> {
         }
     }
     
-    public native cloneData() -> E[] {
-        native E[] d = new E[count]
+    public pure native cloneData() -> E[] {
+        native var d = new E[count]
         
         external c {
             memcpy(#{d}, #{data}, sizeof(#{d}) * #{count});
@@ -208,16 +206,16 @@ class Array<E> implements List<E> {
         return d
     }
     
-    public clone() => new Array<E>(cloneData(), count)
+    public pure clone() => new Array<E>(cloneData(), count)
     
     [Override]
-    public toArray() => clone()
+    public pure toArray() => clone()
     
     [Override]
     public map<Out>(mapFunc(E, Int, Array<E>) -> Out) -> Out[] {
-        Out[] array = new Array(count)
+        let array = new Out[count]
         
-        Int i = 0
+        var Int i = 0
         
         for (element in this) {
             array.add(mapFunc(element, i++, this))
@@ -235,9 +233,9 @@ class Array<E> implements List<E> {
     
     [Override]
     public filter(filterFunc(E, Int, Array<E>) -> Bool) -> E[] {
-        E[] filtered = new Array()
+        let filtered = new E[]
         
-        Int i = 0
+        var Int i = 0
         
         for (element in this) {
             if (filterFunc(element, i++, this)) {
@@ -249,10 +247,10 @@ class Array<E> implements List<E> {
     }
     
     [Override]
-    public take(Int howMany) -> E[] {
+    public pure take(var Int howMany) -> E[] {
         howMany = howMany > count ? count : howMany
         
-        E[] list = new Array()
+        let list = new E[]
         
         for (i in 0..howMany) {
             list.add(data[i])
@@ -262,8 +260,8 @@ class Array<E> implements List<E> {
     }
     
     [Override]
-    public skip(Int howMany) -> E[] {
-        E[] list = new Array()
+    public pure skip(Int howMany) -> E[] {
+        let list = new E[]
         
         for (i in howMany..count) {
             list.add(data[i])
@@ -274,7 +272,7 @@ class Array<E> implements List<E> {
     
     [RequireGenericType E extends String]
     public sumSize() -> Long {
-        Long sum = 0
+        var Long sum = 0
         
         for (value in this) {
             sum += ((String)value).count
@@ -284,10 +282,10 @@ class Array<E> implements List<E> {
     }
     
     [Override]
-    public reverse() -> E[] {
-        E[] array = new Array(count)
+    public pure reverse() -> E[] {
+        let array = new E[count]
         
-        Int i = 0
+        var Int i = 0
         
         for (element in this) {
             array.data[count - ++i] = element
