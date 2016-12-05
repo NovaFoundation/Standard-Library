@@ -1,9 +1,10 @@
 package "nova/datastruct/list"
 
+[AutoFinal]
 class ImmutableArrayIterator<E> implements Iterator<E> {
     ImmutableArray<E> array
     
-    visible Int position
+    visible var Int position
     
     visible Bool hasNext => array.count > position
     
