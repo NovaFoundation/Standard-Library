@@ -1,0 +1,41 @@
+package "nova/datastruct/list"
+
+class ImmutableCharArrayIterator implements Iterator<Char> {
+    ImmutableCharArray array
+    
+    Int indexSize
+    
+    visible Int position
+    
+    visible Bool hasNext {
+        get { return array.count > position }
+        no set
+    }
+    
+    visible Char next {
+        get {
+            if (hasNext) {
+                return array.get(position++ * indexSize)
+            }
+            
+            throw new NoSuchElementException()
+
+            return 0
+        }
+        
+        no set
+    }
+    
+    public construct(ImmutableCharArray array, Int indexSize) {
+        this.array = array
+        this.indexSize = indexSize
+        
+        reset()
+    }
+    
+    public reset() -> Iterator<Char> {
+        position = 0
+        
+        return this
+    }
+}
