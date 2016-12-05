@@ -30,8 +30,7 @@ immutable class String implements Comparable<String> {
     
     [Target not js]
     public construct(Char c) {
-        [Native]
-        Char[] chars = new Char[2]
+        native Char[] chars = new Char[2]
 
         chars[0] = c
         chars[1] = '\0'
@@ -41,8 +40,7 @@ immutable class String implements Comparable<String> {
     
     [Target js]
     public construct(Char c) {
-        [Native]
-        Char[] chars
+        native Char[] chars
         
         external {
             chars = [#{c}];
@@ -52,7 +50,7 @@ immutable class String implements Comparable<String> {
     }
     
     [Target not js]
-    public construct([Native] Char[] chars) {
+    public construct(native Char[] chars) {
         count = calculateSize(chars)
         
         if (chars[count] != '\0') {
@@ -63,13 +61,13 @@ immutable class String implements Comparable<String> {
     }
     
     [Target not js]
-    public construct([Native] Char[] chars, Int count) {
+    public construct(native Char[] chars, Int count) {
         this.count = count
         this.chars = new StringCharArray(chars, count)
     }
     
     [Target js]
-    public construct([Native] Char[] chars) {
+    public construct(native Char[] chars) {
         count = calculateSize(chars)
 
         this.chars = new StringCharArray(chars, count)
@@ -81,7 +79,7 @@ immutable class String implements Comparable<String> {
         this.chars = new StringCharArray(chars)
     }
 
-    calculateSize([Native] Char[] chars) -> Int {
+    calculateSize(native Char[] chars) -> Int {
         [Target c] return strlen(chars)
         
         external js {
@@ -124,8 +122,7 @@ immutable class String implements Comparable<String> {
             }
         }
         
-        [Native]
-        Char[] newData = new Char[sz]
+        native Char[] newData = new Char[sz]
 
         strncpy(newData, data1, count)
         strncat(newData, data2, str.count)
@@ -258,11 +255,9 @@ immutable class String implements Comparable<String> {
             return this
         }
         
-        // [Native]
-        // Char[] buf = new Char[end - start + 1]
+        // native Char[] buf = new Char[end - start + 1]
         
-        // [Native]
-        // Char[] arr = chars.data
+        // native Char[] arr = chars.data
         
         // external c {
         //     memcpy(#{buf}, &#{arr[start]}, #{end - start});
@@ -309,8 +304,7 @@ immutable class String implements Comparable<String> {
     public capitalize() => count > 0 ? chars[0].toUpperCase() + substring(1) : this
 
     public transform(transform(Char, Int) -> Char) -> String {
-        [Native]
-        Char[] newData = new Char[count]
+        native Char[] newData = new Char[count]
 
         for (i in 0..count) {
             newData[i] = transform(chars[i], i)

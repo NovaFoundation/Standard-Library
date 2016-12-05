@@ -20,7 +20,7 @@ class ClientSocket extends Socket {
     }
     
     public connect(String ipAddress, Int port) -> Bool {
-        socket = nova_clientsocket_connect(ipAddress.charData.data, port)
+        socket = nova_clientsocket_connect(ipAddress.chars.data, port)
         
         if (socket == 0) {
             return false

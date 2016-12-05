@@ -16,11 +16,10 @@ class Substring extends String {
         this.start = start
         this.count = end - start
         
-        [Native]
-        Char[] buf
+        native Char[] buf
         
         external c {
-            #{buf} = &((char*)#{source.charData})[#{start}];
+            #{buf} = &((char*)#{source.chars.data})[#{start}];
         }
         
         this.chars = new StringCharArray(buf, count)

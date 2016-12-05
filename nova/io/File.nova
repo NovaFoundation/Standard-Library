@@ -33,7 +33,7 @@ class File {
     }
     
     [Target c]
-    visible Bool exists => access(location.charData.data, F_OK) != -1
+    visible Bool exists => access(location.chars.data, F_OK) != -1
     
     [Target not c]
     visible Bool exists => false
@@ -53,7 +53,7 @@ class File {
             
             external {
                 tinydir_dir dir;
-                tinydir_open(&dir, (char*)#{location.charData.data});
+                tinydir_open(&dir, (char*)#{location.chars.data});
                 
                 while (dir.has_next) {
                     #{f} = NOVA_MALLOC(sizeof(tinydir_file));
@@ -107,7 +107,7 @@ class File {
             
             #{file} = NOVA_MALLOC(sizeof(tinydir_file));
             
-            tinydir_file_open(#{file}, (char*)#{location.charData.data});
+            tinydir_file_open(#{file}, (char*)#{location.chars.data});
         }
     }
 

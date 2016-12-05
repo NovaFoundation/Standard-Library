@@ -29,19 +29,19 @@ class DBConnector {
     }
     
     public connect(String host, String user, String password) {
-        mysql = nova_db_connect1(host.charData.data, user.charData.data, password.charData.data)
+        mysql = nova_db_connect1(host.chars.data, user.chars.data, password.chars.data)
         
         updateError()
     }
     
     public connect(String host, String user, String password, String database) {
-        mysql = nova_db_connect2(host.charData.data, user.charData.data, password.charData.data, database.charData.data)
+        mysql = nova_db_connect2(host.chars.data, user.chars.data, password.chars.data, database.chars.data)
         
         updateError()
     }
     
     public connect(String host, String user, String password, String database, Int port, String unixSocket, Int clientFlag) {
-        mysql = nova_db_connect3(host.charData.data, user.charData.data, password.charData.data, database.charData.data, port, unixSocket.charData.data, clientFlag)
+        mysql = nova_db_connect3(host.chars.data, user.chars.data, password.chars.data, database.chars.data, port, unixSocket.chars.data, clientFlag)
         
         updateError()
     }
@@ -51,13 +51,13 @@ class DBConnector {
     }
     
     public changeUser(String username, String password, String database) {
-        nova_user_select(mysql, username.charData.data, password.charData.data, database.charData.data)
+        nova_user_select(mysql, username.chars.data, password.chars.data, database.chars.data)
         
         updateError()
     }
     
     public query(String query) -> ResultSet {
-        result = nova_exec_query(mysql, query.charData.data)
+        result = nova_exec_query(mysql, query.chars.data)
         
         if (result == 0) {
             updateError()

@@ -116,7 +116,7 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
     public static parseDouble(String str) -> Double {
         native Char[] pEnd
         
-        return strtod(str.charData.data, pEnd)
+        return strtod(str.chars.data, pEnd)
     }
     
     public compareTo(Double other) => value - other

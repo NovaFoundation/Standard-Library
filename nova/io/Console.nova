@@ -70,7 +70,7 @@ class Console {
     }
 
     public static write(String text) {
-        Char[] cText = text.charData
+        Char[] cText = text.chars
         
         [Target c] fwrite(cText.data, 1, text.count, stdout)
         [Target js] writeExternal(cText.data)

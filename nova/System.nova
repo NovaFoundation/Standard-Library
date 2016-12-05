@@ -46,7 +46,7 @@ immutable class System {
     }
     
     public static execute(String command) -> Process {
-        FILE* pipe = getPipe(command.charData.data, exit)
+        FILE* pipe = getPipe(command.chars.data, exit)
         
         if (pipe == 0) {
             exit(1, "Unable to open pipe")
