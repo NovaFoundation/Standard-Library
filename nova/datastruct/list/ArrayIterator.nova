@@ -1,9 +1,10 @@
 package "nova/datastruct/list"
 
+[AutoFinal]
 class ArrayIterator<E> implements Iterator<E> {
     E[] array
     
-    visible Int position
+    visible var Int position
     
     visible Bool hasNext => array.count > position
     
