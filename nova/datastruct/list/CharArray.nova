@@ -13,7 +13,7 @@ class CharArray extends Array<Char> {
     
     this[Int index] <=> (([Native] Char[])data)[index]
     
-    Int indexSize
+    visible Int indexSize
     
     public construct() {
         super()
@@ -27,13 +27,13 @@ class CharArray extends Array<Char> {
         indexSize = 4
     }
     
-    public construct([Native] Char[] data, Int count) {
+    public construct(native Char[] data, Int count) {
         super(data, count)
         
         indexSize = 1
     }
     
-    public native cloneData() -> Char[] {
+    public pure native cloneData() -> Char[] {
         if (indexSize == 1) {
             native Char[] d// = new Char[count]
             
@@ -49,7 +49,7 @@ class CharArray extends Array<Char> {
         }
     }
     
-    public clone() => new CharArray(cloneData(), count)
+    public pure clone() => new CharArray(cloneData(), count)
     
     public sum(func(Char, Int, CharArray, Long) -> Long) -> Long {
         Long sum = 0
