@@ -18,8 +18,9 @@ class File {
     visible String location
     visible String name => location.substring(location.lastIndexOf('/') + 1)
     visible String extension => location.substring(location.lastIndexOf('.', defaultReturnValue: location.count))
+    visible String rootName => name.substring(end: name.count - extension.count)
     
-    visible Bool isHidden => name.startsWith(".");
+    visible Bool isHidden => name.startsWith(".")
     
     [Target c]
     visible Bool isDirectory {
