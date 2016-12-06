@@ -1,10 +1,11 @@
 package "nova/datastruct"
 
+[AutoFinal]
 class BinaryNode<E extends Comparable> extends Node<E> {
     /**
      * The left child of the BinaryNode instance.
      */
-    public BinaryNode<E> left {
+    public var BinaryNode<E> left {
         get { return getNode(0) }
         set { setNode(0, value) }
     }
@@ -12,7 +13,7 @@ class BinaryNode<E extends Comparable> extends Node<E> {
     /**
      * The right child of the BinaryNode instance.
      */
-    public BinaryNode<E> right {
+    public var BinaryNode<E> right {
         get { return getNode(1) }
         set { setNode(1, value) }
     }
