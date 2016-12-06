@@ -1,7 +1,8 @@
 package "nova/datastruct"
 
+[AutoFinal]
 class BinaryTree<E extends Comparable> extends Tree<E> {
-    public BinaryNode<E> root <=> (BinaryNode)super.root
+    public var BinaryNode<E> root <=> (BinaryNode)super.root
     
     public construct(Comparable[] data) {
         addNodes(data)

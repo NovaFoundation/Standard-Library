@@ -2,6 +2,7 @@ package "nova/datastruct"
 
 import "nova/exception/UnimplementedOperationException"
 
+[AutoFinal]
 class Tree<E> {
     public Node<E> root
     
