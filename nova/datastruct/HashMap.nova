@@ -2,13 +2,14 @@ package "nova/datastruct"
 
 import "nova/datastruct/list/List"
 
+[AutoFinal]
 [Immutable "ImmutableHashMap"]
 class HashMap<K, V> implements List<Pair<K, V>> {
     Pair<K, V>[][] buckets
     
     Int bucketSize
     
-    visible Int size
+    visible var Int count
     
     this[K key] -> V {
         get {
@@ -16,7 +17,11 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         }
         
         set {
+            remove(key)
+            
             getBucket(key).add(new Pair<K, V>(key, value))
+            
+            count++
             
             return this
         }
@@ -43,7 +48,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     [Override]
     public contains(Pair<K, V> value) -> Bool {
-        Pair<K, V> pair = getPair(value.key)
+        let pair = getPair(value.key)
         
         if (pair != null) {
             return pair.value == value.value// || (pair.value != null && pair.value.equals(value.value))
@@ -80,9 +85,9 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     [Override]
     public map<Out>(func(Pair<K, V>, Int, HashMap<K, V>) -> Out) -> Out[] {
-        Out[] array = new Array()
+        let array = new Out[]
         
-        Int i = 0
+        var Int i = 0
         
         for (bucket in buckets) {
             for (pair in bucket) {
@@ -97,9 +102,9 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     [Override]
     public filter(func(Pair<K, V>, Int, HashMap<K, V>) -> Bool) -> Pair<K, V>[] {
-        Pair<K, V>[] array = new Array()
+        let array = new Pair<K, V>[]
         
-        Int i = 0
+        var Int i = 0
         
         for (bucket in buckets) {
             for (pair in bucket) {
@@ -114,9 +119,9 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     [Override]
     public join(String delimiter) -> String {
-        Int i = 0
+        var Int i = 0
         
-        String output = ""
+        var output = ""
         
         for (bucket in buckets) {
             for (pair in bucket) {
@@ -154,17 +159,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     
     [Override]
     public forEach(func(Pair<K, V>, Int, HashMap<K, V>)) => this {
-        //HashMap<K, V> self = this
-        
-        /*buckets.forEach( {
-            _.forEach(pair -> {
-                if (pair != null && pair != 0) {
-                    func(pair, i++, self)
-                }
-            })
-        })*/
-        
-        Int i = 0
+        var Int i = 0
         
         for (bucket in buckets) {
             for (pair in bucket) {
@@ -176,16 +171,19 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     }
     
     getBucket(K key) => buckets[(Int)(key.hashCodeLong & (buckets.count - 1))]
-    getPair(K key) => getBucket(key).filter(x -> x != 0 && x != null && x.key.equals(key)).first
+    getPair(K key) => getBucket(key).filter(x -> x != null && x.key.equals(key)).first
     
     public remove(K key) -> V {
-        Pair<K, V>[] bucket = getBucket(key)
+        let bucket = getBucket(key)
         
-        Int i = 0
+        var Int i = 0
         
         for (pair in bucket) {
-            if (pair.key.equals(key)) {
+            if (pair == null) {
+                break
+            } else if (pair.key.equals(key)) {
                 bucket.remove(i)
+                count--
                 
                 return pair.value
             }
