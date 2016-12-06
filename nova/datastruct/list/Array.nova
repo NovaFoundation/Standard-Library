@@ -44,7 +44,7 @@ class Array<E> implements List<E> {
         [Target js] data = new E[count]
     }
     
-    public construct([Native] E[] data, Int count) {
+    public construct(native E[] data, Int count) {
         this.data = data
         this.count = count
         this.capacity = count
@@ -184,8 +184,7 @@ class Array<E> implements List<E> {
         
         capacity = count
         
-        [Native]
-        E[] tmp = new E[capacity]
+        native E[] tmp = new E[capacity]
         
         arrayCopy(tmp, 0, data, 0, capacity - offset, capacity, 4)
         
