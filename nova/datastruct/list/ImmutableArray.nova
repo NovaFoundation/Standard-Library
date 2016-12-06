@@ -4,35 +4,40 @@ import "nova/primitive/number/Integer"
 
 //[Mutable "Array"]
 [AutoFinal]
-immutable class ImmutableArray<E> implements List<E> {
-    E[] array
+immutable class ImmutableArray<E> extends Array<E> {
+    visible pure Int count <=> count
     
-    visible pure Int count => array.count
-    
-    visible pure Bool empty => array.empty
+    visible pure Bool empty => count == 0
     
     [Override] visible pure ImmutableArrayIterator<E> iterator => new ImmutableArrayIterator(this)
     
-    [Override] public pure E first => array.first
-    [Override] public pure E last => array.last
+    [Override] public pure E first => super.first
+    [Override] public pure E last => super.last
     
-    pure this[Int index] => array[index]
+    pure this[Int index] => super[index]
     
     public construct(E[] array) => this(array, true)
     public construct(native E[] array, Int count) => this(new Array<E>(array, count), false)
     
-    construct(E[] array, Bool clone) => this.array = clone ? array.clone() : array
+    construct(E[] array, Bool clone) {
+        super(clone ? array.clone().data : array.data, array.count)
+        
+        this.count = array.count
+    }
     
-    public pure indexOf(E element) => array.indexOf(element)
+    public pure indexOf(E element) => super.indexOf(element)
     
-    [Override] public map<Out>(mapFunc(E, Int, Array<E>) -> Out) => new ImmutableArray(array.map(mapFunc), false)
-    [Override] public forEach(func(E, Int, Array<E>)) => array.forEach(func)
-    [Override] public filter(filterFunc(E, Int, Array<E>) -> Bool) => new ImmutableArray(array.filter(filterFunc), false)
-    [Override] public pure toArray() => array.clone()
-    [Override] public pure take(Int howMany) => new ImmutableArray(array.take(howMany), false)
-    [Override] public pure skip(Int howMany) => new ImmutableArray(array.skip(howMany), false)
-    [Override] public pure reverse() => new ImmutableArray(array.reverse(), false)
+    [Override] public map<Out>(mapFunc(E, Int, Array<E>) -> Out) => new ImmutableArray(super.map(mapFunc), false)
+    [Override] public forEach(func(E, Int, Array<E>)) => super.forEach(func)
+    [Override] public filter(filterFunc(E, Int, Array<E>) -> Bool) => new ImmutableArray(super.filter(filterFunc), false)
+    [Override] public pure toArray() => toMutable()
+    [Override] public pure take(Int howMany) => new ImmutableArray(super.take(howMany), false)
+    [Override] public pure skip(Int howMany) => new ImmutableArray(super.skip(howMany), false)
+    [Override] public pure reverse() => new ImmutableArray(super.reverse(), false)
     [Override] public pure toString() => "ImmutableArray [#{join(", ")}]"
     
-    public toMutable() => array.clone()
+    [Override] public add(E element) => new ImmutableArray(new Array<E>(data, count).add(element).data, count + 1)
+    [Override] public add(Int index, E element) => new ImmutableArray(toMutable().add(index, element).data, count + 1)
+    
+    public toMutable() => super.clone()
 }
