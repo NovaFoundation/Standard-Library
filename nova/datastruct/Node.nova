@@ -2,6 +2,7 @@ package "nova/datastruct"
 
 import "nova/datastruct/list/Queue"
 
+[AutoFinal]
 class Node<E> {
     public E data
     
@@ -25,7 +26,7 @@ class Node<E> {
     }
     
     inorder(E[] array) => array {
-        Int half = Math.ceil(children.count / 2.0)
+        let Int half = Math.ceil(children.count / 2.0)
         
         children.take(half).filter({ _ != null }).forEach({ _.inorder(array) })
         
@@ -41,10 +42,10 @@ class Node<E> {
     }
     
     levelorder(E[] array) => array {
-        var queue = new Queue<Node<E>>([this])
+        let queue = new Queue<Node<E>>([this])
         
         while (!queue.empty) {
-            Node<E> current = queue.dequeue()
+            let current = queue.dequeue()
             
             array.add(current.data)
             
