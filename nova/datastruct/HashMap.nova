@@ -46,41 +46,38 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     [Override]
     public toArray() => map({ _ })
     
+    // [Override]
+    // public contains(Pair<K, V> value) =>
+    //     (let pair = getPair(value.key)) &&
+    //     pair.value == value.value
+    
     [Override]
     public contains(Pair<K, V> value) -> Bool {
         let pair = getPair(value.key)
         
-        if (pair != null) {
-            return pair.value == value.value// || (pair.value != null && pair.value.equals(value.value))
-        }
-        
-        return false
+        return pair && pair.value == value.value
     }
     
     [Override]
-    public any(func(Pair<K, V>) -> Bool) -> Bool {
+    public any(func(Pair<K, V>) -> Bool) => false {
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0 && func(pair)) {
+                if (pair && func(pair)) {
                     return true
                 }
             }
         }
-        
-        return false
     }
     
     [Override]
-    public all(func(Pair<K, V>) -> Bool) -> Bool {
+    public all(func(Pair<K, V>) -> Bool) => true {
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0 && !func(pair)) {
+                if (pair && !func(pair)) {
                     return false
                 }
             }
         }
-        
-        return true
     }
     
     [Override]
@@ -91,7 +88,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0) {
+                if (pair) {
                     array.add(func(pair, i++, this))
                 }
             }
@@ -108,7 +105,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0 && func(pair, i++, this)) {
+                if (pair && func(pair, i++, this)) {
                     array.add(pair)
                 }
             }
@@ -125,7 +122,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0) {
+                if (pair) {
                     if (i > 0) {
                         output = output + delimiter
                     }
@@ -143,18 +140,16 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     [Override] public reverse() => map({ _ }).reverse()
     
     [Override]
-    public firstWhere(func(Pair<K, V>) -> Bool) -> Pair<K, V>//=>
-    //buckets.firstNonNull({ _.firstWhere(pair -> pair != null && pair != 0 && func(pair)) })
+    public firstWhere(func(Pair<K, V>) -> Bool) -> Pair<K, V> => null//=>
+    //buckets.firstNonNull({ _.firstWhere(pair -> pair && func(pair)) })
     {
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0 && func(pair)) {
+                if (pair && func(pair)) {
                     return pair
                 }
             }
         }
-        
-        return null
     }
     
     [Override]
@@ -163,7 +158,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         
         for (bucket in buckets) {
             for (pair in bucket) {
-                if (pair != null && pair != 0) {
+                if (pair) {
                     func(pair, i++, this)
                 }
             }
@@ -171,17 +166,15 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     }
     
     getBucket(K key) => buckets[(Int)(key.hashCodeLong & (buckets.count - 1))]
-    getPair(K key) => getBucket(key).filter(x -> x != null && x.key.equals(key)).first
+    getPair(K key) => getBucket(key).filter(x -> x && x.key.equals(key) && x).first
     
-    public remove(K key) -> V {
+    public remove(K key) -> V => null {
         let bucket = getBucket(key)
         
         var Int i = 0
         
         for (pair in bucket) {
-            if (pair == null) {
-                break
-            } else if (pair.key.equals(key)) {
+            if (pair && pair.key.equals(key)) {
                 bucket.remove(i)
                 count--
                 
@@ -190,8 +183,6 @@ class HashMap<K, V> implements List<Pair<K, V>> {
             
             i++
         }
-        
-        return null
     }
     
     public containsKey(K key) => getPair(key) != null
