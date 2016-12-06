@@ -25,7 +25,7 @@ class WFF {
     decodeFormula() {
         StatementGroup<Conclusion> conclusionGroup = searchForConclusion(wff)
         
-        if (conclusionGroup == null) {
+        if (!conclusionGroup) {
             throw new InvalidFormulaException("No valid conclusion found")
         }
         

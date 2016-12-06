@@ -61,9 +61,9 @@ class NumericOperation extends NumericOperand<Object> {
         NumericOperand leftOperator  = decodeOperand(left)
         NumericOperand rightOperator = decodeOperand(right)
         
-        if (left == null) {
+        if (!left) {
             throw new Exception("Left operand '#left' is invalid")
-        } else if (right == null) {
+        } else if (!right) {
             throw new Exception("Right operand '#right' is invalid")
         }
         

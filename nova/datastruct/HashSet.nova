@@ -28,7 +28,7 @@ class HashSet<T> implements List<T> {
     public any(func(T) -> Bool) -> Bool {
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     if (func(v)) {
                         return true
                     }
@@ -43,7 +43,7 @@ class HashSet<T> implements List<T> {
     public all(func(T) -> Bool) -> Bool {
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     if (!func(v)) {
                         return false
                     }
@@ -62,7 +62,7 @@ class HashSet<T> implements List<T> {
         
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     array.add(func(v, i++, this))
                 }
             }
@@ -79,7 +79,7 @@ class HashSet<T> implements List<T> {
         
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     if (func(v, i++, this)) {
                         array.add(v)
                     }
@@ -98,7 +98,7 @@ class HashSet<T> implements List<T> {
 
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     if (i > 0) {
                         output = output + delimiter
                     }
@@ -130,7 +130,7 @@ class HashSet<T> implements List<T> {
     public firstWhere(func(T) -> Bool) -> T {
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     if (func(v)) {
                         return v
                     }
@@ -147,7 +147,7 @@ class HashSet<T> implements List<T> {
 
         /*buckets.forEach( {
             _.forEach(pair -> {
-                if (v != null) {
+                if (v) {
                     func(v, i++, self)
                 }
             })
@@ -157,7 +157,7 @@ class HashSet<T> implements List<T> {
 
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v != null) {
+                if (v) {
                     func(v, i++, this)
                 }
             }
@@ -176,7 +176,7 @@ class HashSet<T> implements List<T> {
     }
     
     public get(T value) -> T {
-        //return getBucket(value).filter(x -> x != 0 && x != null && x.equals(value)).first
+        //return getBucket(value).filter(x -> x != 0 && x && x.equals(value)).first
         
         for (v in getBucket(value)) {
             if (v.equals(value)) {
@@ -206,7 +206,7 @@ class HashSet<T> implements List<T> {
     }
     
     [Override]
-    public contains(T value) => get(value) != null
+    public contains(T value) => value && get(value)
     
     public toString() => "HashSet [#{join(", ")}]"
 }

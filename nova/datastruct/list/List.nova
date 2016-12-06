@@ -99,7 +99,7 @@ interface List<Type> extends Iterable<Type> {
         var Int i = 0
         
         for (value in this) {
-            if (value != null && ((String)value).count > 0) {
+            if (value && ((String)value).count > 0) {
                 list.add(value)
             }
         }
@@ -190,7 +190,7 @@ interface List<Type> extends Iterable<Type> {
         for (element in this) {
             Out value = func(element)
             
-            if (value != null) {
+            if (value) {
                 return value
             }
         }

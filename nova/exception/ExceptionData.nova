@@ -30,7 +30,7 @@ class ExceptionData {
         while (true) {
             if (data.caught.any(c -> { (!soft || c.soft) && exception.class.isOfType(c.type) })) {
                 return data
-            } else if (data.parent == null) {
+            } else if (!data.parent) {
                 return soft ? null : data
             }
             
@@ -42,7 +42,7 @@ class ExceptionData {
     public throwException(ExceptionData* context, Exception exception, Bool soft) => false {
         let catchExceptionData = getDataByException(exception, soft)
         
-        if (catchExceptionData != null) {
+        if (catchExceptionData) {
             external {
                 *context = #{catchExceptionData}; // need to set in case nested tries in same function
                 #{catchExceptionData}->nova_exception_Nova_ExceptionData_Nova_thrownException = #{exception};

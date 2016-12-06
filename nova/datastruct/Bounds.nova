@@ -117,7 +117,7 @@ class Bounds {
      * @return Whether or not the two Bounds have equal values.
      */
     public equals(Bounds bounds) -> Bool {
-        return bounds != null && bounds.start == start && bounds.end == end
+        return bounds && bounds.start == start && bounds.end == end
     }
     
     /**

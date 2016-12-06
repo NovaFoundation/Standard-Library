@@ -30,7 +30,7 @@ immutable class Class {
     pure isOfTypeClass(Class other) -> Bool {
         var current = this
         
-        while (current != null) {
+        while (current) {
             if (current == other) {
                 return true
             }
@@ -44,7 +44,7 @@ immutable class Class {
     pure isOfTypeInterface(Class other) -> Bool {
         var current = this
         
-        while (current != null) {
+        while (current) {
             if (current.interfaces.any({ _ == other })) {
                 return true
             }

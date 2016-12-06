@@ -49,7 +49,7 @@ class Matrix implements Multiply<Matrix> {
     }
     
     public construct(Double[][] data) {
-        if (data == null || data.count == 0)
+        if (!data || data.count == 0)
             throw new InvalidArgumentException("Matrix size must be greater than 0 rows and columns")
         
         this.data = data

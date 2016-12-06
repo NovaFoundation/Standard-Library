@@ -8,7 +8,7 @@ class SvgComponentList {
     public generateOutput(FileWriter writer) {
         SvgComponentNode current = start
         
-        while (current != null) {
+        while (current) {
             current.component.generateOutput(writer)
             
             current = current.next
@@ -20,12 +20,12 @@ class SvgComponentList {
         
         node.component = component
         
-        if (start == null) {
+        if (!start) {
             start = node
         } else {
             SvgComponentNode current = start
             
-            while (current.next != null) {
+            while (current.next) {
                 current = current.next
             }
             

@@ -43,15 +43,15 @@ class BinaryNode<E extends Comparable> extends Node<E> {
     
     public addChild(E data) {
         if (this.data.compareTo(data) >= 0) {
-            if (left == null)
-                left = new BinaryNode(data)
-            else
+            if (left)
                 left.addChild(data)
-        } else {
-            if (right == null)
-                right = new BinaryNode(data)
             else
+                left = new BinaryNode(data)
+        } else {
+            if (right)
                 right.addChild(data)
+            else
+                right = new BinaryNode(data)
         }
     }
 }

@@ -9,10 +9,10 @@ class BinaryTree<E extends Comparable> extends Tree<E> {
     }
     
     public addNode(Comparable data) => this {
-        if (root == null) {
-            root = new BinaryNode(data)
-        } else {
+        if (root) {
             root.addChild(data)
+        } else {
+            root = new BinaryNode(data)
         }
     }
     

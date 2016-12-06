@@ -43,14 +43,14 @@ public class LinkedList<E> implements List<E>
 	{
 		ListNode<E> node = new ListNode(data)
 
-		if (start == null)
+		if (start)
 		{
-			start   = node
-			current = node
+			current.next = node
 		}
 		else
 		{
-			current.next = node
+			start   = node
+			current = node
 		}
 
 		current = node
@@ -70,7 +70,7 @@ public class LinkedList<E> implements List<E>
 		ListNode<E> prev = start
 		ListNode<E> cur  = start.next
 
-		while (cur != null)
+		while (cur)
 		{
 			E d = cur.data
 
@@ -238,18 +238,18 @@ public class LinkedList<E> implements List<E>
 		ListNode<E> current = null
 		ListNode<E> next = null
 
-		if (start != null)
+		if (start)
 		{
 			current = start.clone()
 		}
 
-		while (current != null)
+		while (current)
 		{
 			next = current.next
 			current.next = null
 
-			if (next != null) next = next.clone()
-			if (prev != null) current.next = prev.clone()
+			if (next) next = next.clone()
+			if (prev) current.next = prev.clone()
 
 			prev = current
 			current = next

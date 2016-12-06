@@ -144,7 +144,7 @@ immutable class String implements Comparable<String> {
     public repeat(Int times) =>
         new String[times].map({ this }).join()
     
-    public equals(String other) => other != null && count == other.count && compareTo(other) == 0
+    public equals(String other) => other && count == other.count && compareTo(other) == 0
     
     public replace(Pattern pattern, String replace) -> String {
     	String output = this
@@ -194,7 +194,7 @@ immutable class String implements Comparable<String> {
     public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
     	var first = Regex.getMatches(search, this).first
     	
-    	if (first != null) {
+    	if (first) {
     		return first.start
     	}
     	

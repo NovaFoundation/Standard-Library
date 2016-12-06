@@ -189,7 +189,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         }
     }
     
-    public containsKey(K key) => key && getPair(key) != null
+    public containsKey(K key) => key && getPair(key)
     
     public clone() => new HashMap<K, V>(this)
     

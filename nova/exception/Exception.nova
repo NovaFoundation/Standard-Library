@@ -5,5 +5,5 @@ class Exception {
     
     public construct(String message = "") => this.message = message
     
-    public toString() => this.class.name + (message != null ? ": #message" : "")
+    public toString() => this.class.name + (message ? ": #message" : "")
 }
