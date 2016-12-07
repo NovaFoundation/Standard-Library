@@ -1,5 +1,6 @@
 package "nova/meta"
 
-class GenericArgument {
+[AutoFinal]
+immutable class GenericArgument {
     visible Type value
 }
