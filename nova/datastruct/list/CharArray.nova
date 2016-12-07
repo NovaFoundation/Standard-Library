@@ -6,8 +6,25 @@ class CharArray extends Array<Char> {
     [Override]
     visible CharArrayIterator iterator => new CharArrayIterator(this, indexSize)
     
-    [Override] public Char first => count > 0 ? this[0] : (Char)0
-    [Override] public Char last => count > 0 ? this[count - 1] : (Char)0
+    [Override] public Char first => count > 0 ? this[0] : (Char)0 {
+        set {
+            if (count > 0) {
+                this[0] = value
+            } else {
+                add(value)
+            }
+        }
+    }
+    
+    [Override] public Char last => count > 0 ? this[count - 1] : (Char)0 {
+        set {
+            if (count > 0) {
+                this[count - 1] = value
+            } else {
+                add(value)
+            }
+        }
+    }
     
     public Long hashCodeLong => reduce((v, c) -> 31 * v + (Int)c, 0)
     
