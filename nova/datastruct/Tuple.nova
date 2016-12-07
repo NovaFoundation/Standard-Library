@@ -10,8 +10,8 @@ class Tuple implements List<Object> {
 	
 	visible ArrayIterator<Object> iterator => new ArrayIterator(items)
 
-	visible Object first => items.first
-	visible Object last => items.last
+	public Object first <=> items.first
+	public Object last <=> items.last
 	
 	[Override] public contains(Object value) => items.contains(value)
 	[Override] public toArray() => items.toArray()
