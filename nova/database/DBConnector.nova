@@ -65,8 +65,7 @@ class DBConnector {
             return null
         }
         
-        [Native]
-        Char arrays[][][] = nova_get_results(mysql, result)
+        native Char arrays[][][] = nova_get_results(mysql, result)
         
         if (arrays != 0) {
             Int numRows = (Int)nova_num_rows(mysql)
