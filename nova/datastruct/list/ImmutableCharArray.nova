@@ -12,8 +12,8 @@ immutable class ImmutableCharArray implements List<Char> {
     
     [Override] visible pure ImmutableCharArrayIterator iterator => new ImmutableCharArrayIterator(this, indexSize)
     
-    [Override] public pure Char first => array.first
-    [Override] public pure Char last => array.last
+    [Override] public pure Char first <=> array.first
+    [Override] public pure Char last <=> array.last
     
     pure this[Int index] => array[index]
     

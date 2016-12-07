@@ -8,8 +8,12 @@ class IntRange implements List<Int> {
     [Override]
     visible IntRangeIterator iterator => new IntRangeIterator(this)
     
-    Int first => start
-    Int last => end - 1
+    Int first <=> start
+    Int last => end - 1 {
+        set {
+            end = value + 1
+        }
+    }
     
     public construct() => this(0, 0)
     public construct(Int start, Int end) {

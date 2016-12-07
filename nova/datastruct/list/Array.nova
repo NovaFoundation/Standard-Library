@@ -20,10 +20,26 @@ class Array<E> implements List<E> {
     visible ArrayIterator<E> iterator => new ArrayIterator(this)
     
     [Override]
-    public E first => count > 0 ? this[0] : null
+    public E first => count > 0 ? this[0] : null {
+        set {
+            if (count > 0) {
+                this[0] = value
+            } else {
+                add(value)
+            }
+        }
+    }
     
     [Override]
-    public E last => count > 0 ? this[count - 1] : null
+    public E last => count > 0 ? this[count - 1] : null {
+        set {
+            if (count > 0) {
+                this[count - 1] = value
+            } else {
+                add(value)
+            }
+        }
+    }
     
     this[Int index] <=> data[index]
     

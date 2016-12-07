@@ -11,8 +11,8 @@ immutable class ImmutableArray<E> extends Array<E> {
     
     [Override] visible pure ImmutableArrayIterator<E> iterator => new ImmutableArrayIterator(this)
     
-    [Override] public pure E first => super.first
-    [Override] public pure E last => super.last
+    [Override] public pure E first <=> super.first
+    [Override] public pure E last <=> super.last
     
     pure this[Int index] => super[index]
     
