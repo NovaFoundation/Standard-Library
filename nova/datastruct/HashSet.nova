@@ -4,43 +4,29 @@ import "nova/datastruct/list/List"
 
 class HashSet<T> implements List<T> {
     T[][] buckets
-
-    Int bucketSize
-
+    
     visible Int size
-
-    public construct() {
-        this(5, 5)
-    }
-
-    public construct(Int bucketCount, Int bucketSize) {
+    
+    public construct(Int bucketCount = 5, private Int bucketSize = 5) {
         buckets = new Array(bucketCount).map({ new Array<T>(bucketSize) })
-
-        this.bucketSize = bucketSize
     }
 
     [Override]
-    public toArray() -> T[] {
-        return map({ _ })
-    }
+    public toArray() => map({ _ })
 
     [Override]
-    public any(func(T) -> Bool) -> Bool {
+    public any(func(T) -> Bool) -> Bool => false {
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v) {
-                    if (func(v)) {
-                        return true
-                    }
+                if (v && func(v)) {
+                    return true
                 }
             }
         }
-
-        return false
     }
 
     [Override]
-    public all(func(T) -> Bool) -> Bool {
+    public all(func(T) -> Bool) -> Bool => true {
         for (bucket in buckets) {
             for (v in bucket) {
                 if (v) {
@@ -50,8 +36,6 @@ class HashSet<T> implements List<T> {
                 }
             }
         }
-
-        return true
     }
 
     [Override]
@@ -112,22 +96,16 @@ class HashSet<T> implements List<T> {
     }
 
     [Override]
-    public skip(Int num) -> T[] {
-        return map({ _ }).skip(num)
-    }
+    public skip(Int num) => map({ _ }).skip(num)
 
     [Override]
-    public take(Int num) -> T[] {
-        return map({ _ }).take(num)
-    }
+    public take(Int num) => map({ _ }).take(num)
 
     [Override]
-    public reverse() -> T[] {
-        return map({ _ }).reverse()
-    }
+    public reverse() => map({ _ }).reverse()
 
     [Override]
-    public firstWhere(func(T) -> Bool) -> T {
+    public firstWhere(func(T) -> Bool) -> T => null {
         for (bucket in buckets) {
             for (v in bucket) {
                 if (v) {
@@ -137,22 +115,10 @@ class HashSet<T> implements List<T> {
                 }
             }
         }
-
-        return null
     }
 
     [Override]
     public forEach(func(T, Int, HashSet<T>)) => this {
-        //HashSet<T> self = this
-
-        /*buckets.forEach( {
-            _.forEach(pair -> {
-                if (v) {
-                    func(v, i++, self)
-                }
-            })
-        })*/
-
         Int i = 0
 
         for (bucket in buckets) {
@@ -164,36 +130,21 @@ class HashSet<T> implements List<T> {
         }
     }
 
-    getBucket(T value) -> T[] {
-        //return buckets[(Int)(value.hashCodeLong % buckets.count)]
-        return buckets[(Int)(value.hashCodeLong & (buckets.count - 1))]
-    }
+    getBucket(T value) => buckets[(Int)(value.hashCodeLong & (buckets.count - 1))]
 
-    public add(T value) -> HashSet {
+    public add(T value) -> HashSet => this {
         getBucket(value).add(value)
-        
-        return this
     }
     
-    public get(T value) -> T {
-        //return getBucket(value).filter(x -> x != 0 && x && x.equals(value)).first
-        
-        for (v in getBucket(value)) {
-            if (v.equals(value)) {
-                return v
-            }
-        }
-        
-        return null
-    }
+    public get(T value) => getBucket(value).firstWhere(x -> { x && x.equals(value) })
     
-    public remove(T value) -> T {
+    public remove(T value) -> T => null {
         T[] bucket = getBucket(value)
         
         Int i = 0
         
         for (v in bucket) {
-            if (v.equals(value)) {
+            if (v && v.equals(value)) {
                 bucket.remove(i)
                 
                 return v
@@ -201,8 +152,6 @@ class HashSet<T> implements List<T> {
             
             i++
         }
-        
-        return null
     }
     
     [Override]
