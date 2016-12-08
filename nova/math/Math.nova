@@ -32,27 +32,27 @@ class Math {
     
     external long rand() as extRand
 
-    [*] [Static] Double PI = 3.141592653
+    visible static Double PI = 3.141592653
 
-    [+] [Static] max(Long a, Long b) => a > b ? a : b
-    [+] [Static] min(Long a, Long b) => a < b ? a : b
-    [+] [Static] sign(Long num) => num > 0 ? 1 : (num < 0 ? -1 : 0)
-    [+] [Static] random(Long range) => extRand() % range
-    [+] [Static] abs(Long number) => number < 0 ? -number : number
-    [+] [Static] abs(Double number) => number < 0 ? -number : number
-    [+] [Static] sqrt(Double number) => extSqrt(number)
-    [+] [Static] pow(Double base, Double power) => extPow(base, power)
-    [+] [Static] sin(Double number) => extSin(number)
-    [+] [Static] cos(Double number) => extCos(number)
-    [+] [Static] tan(Double number) => extTan(number)
-    [+] [Static] asin(Double number) => extAsin(number)
-    [+] [Static] acos(Double number) => extAcos(number)
-    [+] [Static] atan(Double number) => extAtan(number)
-    [+] [Static] round(Double number) => floor(number + 0.5)
-    [+] [Static] floor(Double number) => (Long)(number < 0 && (Long)number != number ? number - 1 : number)
-    [+] [Static] ceil(Double number) => (Long)(number >= 0 && (Long)number != number ? number + 1 : number)
+    public static max(Long a, Long b) => a > b ? a : b
+    public static min(Long a, Long b) => a < b ? a : b
+    public static sign(Long num) => num > 0 ? 1 : (num < 0 ? -1 : 0)
+    public static random(Long range) => extRand() % range
+    public static abs(Long number) => number < 0 ? -number : number
+    public static abs(Double number) => number < 0 ? -number : number
+    public static sqrt(Double number) => extSqrt(number)
+    public static pow(Double base, Double power) => extPow(base, power)
+    public static sin(Double number) => extSin(number)
+    public static cos(Double number) => extCos(number)
+    public static tan(Double number) => extTan(number)
+    public static asin(Double number) => extAsin(number)
+    public static acos(Double number) => extAcos(number)
+    public static atan(Double number) => extAtan(number)
+    public static round(Double number) => floor(number + 0.5)
+    public static floor(Double number) => (Long)(number < 0 && (Long)number != number ? number - 1 : number)
+    public static ceil(Double number) => (Long)(number >= 0 && (Long)number != number ? number + 1 : number)
 
-    /*[Static] pow(Int a, Int b) -> Int {
+    /*static pow(Int a, Int b) -> Int {
         if (b == 0) {
             return 1
         } else if (b > 0) {
@@ -62,7 +62,7 @@ class Math {
         }
     }
 
-    [Static] positivePow(Int a, Int b) -> Int {
+    static positivePow(Int a, Int b) -> Int {
         for (Int i = b - 2; i >= 0; i--) {
             a = a * a
         }
