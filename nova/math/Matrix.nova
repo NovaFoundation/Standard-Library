@@ -4,6 +4,7 @@ import "nova/operators/Multiply"
 import "nova/exception/InvalidArgumentException"
 import "nova/exception/InvalidOperationException"
 
+[AutoFinal]
 class Matrix implements Multiply<Matrix> {
     Double[][] data
     
@@ -58,7 +59,7 @@ class Matrix implements Multiply<Matrix> {
     public clone() => new Matrix(rows, cols).add(this)
     
     public static identity(Int order) -> Matrix {
-        Double[][] data = new Double[order][order]
+        let data = new Double[order][order]
         
         for (i in 0..order) {
             data[i][i] = 1
@@ -71,9 +72,9 @@ class Matrix implements Multiply<Matrix> {
         if (!isSquare)
             throw new InvalidOperationException("Cannot take the inverse of a non-square matrix")
         
-        Matrix i = identity(rows)
-        Matrix current = clone()
-        Int j = 0
+        let i = identity(rows)
+        let current = clone()
+        var Int j = 0
         
         while (!current.isIdentity) { // magic goes in here
             //while (current)
@@ -140,7 +141,7 @@ class Matrix implements Multiply<Matrix> {
         if (!allowUnequalDimensions) checkUnequalDimensions(other)
         
         //return new Matrix(data.zip(other, { _.zip(_, { _ - _ }) }))
-        var result = new Matrix(rows, cols)
+        let result = new Matrix(rows, cols)
         
         for (row in 0..Math.min(rows, other.rows)) {
             for (col in 0..Math.min(cols, other.cols)) {
@@ -168,7 +169,7 @@ class Matrix implements Multiply<Matrix> {
                 })
             }))*/
         
-        var result = new Matrix(rows, other.cols)
+        let result = new Matrix(rows, other.cols)
         
         result.data.forEach((outRow, outR) -> {
             data.forEach((row, r) -> {
@@ -182,7 +183,7 @@ class Matrix implements Multiply<Matrix> {
     }
     
     public transpose() -> Matrix {
-        var result = new Matrix(cols, rows)
+        let result = new Matrix(cols, rows)
         
         data.forEach((row, r) -> {
             for (c in 0..cols) {
@@ -201,9 +202,9 @@ class Matrix implements Multiply<Matrix> {
     }
     
     public static determinant(Double[][] data) -> Double {
-        var order = data.count
+        let order = data.count
         
-        Double det = 0
+        var Double det = 0
         
         if (order == 1) {
             det = data[0][0]
@@ -214,7 +215,7 @@ class Matrix implements Multiply<Matrix> {
                 Double[][] m = new Double[order - 1][order - 1]
                 
                 for (i in 1..order) {
-                    Int j2 = 0
+                    var Int j2 = 0
                     
                     for (j in 0..order) {
                         if (j != j1) {
