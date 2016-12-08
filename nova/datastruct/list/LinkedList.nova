@@ -9,14 +9,14 @@ public class LinkedList<E> implements List<E>
 
 	visible LinkedListIterator<E> iterator => new LinkedListIterator(this)
 
-	visible ListNode<E> first => start {
+	public ListNode<E> first => start {
 		set {
 			value.next = start
 			start = value
 		}
 	}
 
-	visible ListNode<E> last => current {
+	public ListNode<E> last => current {
 		set {
 			current.next = value
 			current = value
