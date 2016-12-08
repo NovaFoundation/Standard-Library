@@ -2,6 +2,7 @@ package "nova/math"
 
 import "math.h"
 
+[AutoFinal]
 class Math {
     [Target c] external long llabs(long number) as extAbs
     [Target c] external double fabs(double number) as extFabs
