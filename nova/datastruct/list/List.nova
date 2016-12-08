@@ -11,13 +11,10 @@ interface List<Type> extends Iterable<Type> {
     }
     */
 
-    visible Iterator<Type> iterator {// => null
-        get { return null }
-        no set
-    }
+    visible Iterator<Type> iterator
 
-    public Type first
-    public Type last
+    visible Type first
+    visible Type last
 
     public toArray() -> Type[] {
         let array = new Type[]
