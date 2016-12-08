@@ -4,14 +4,12 @@ import "nova/datastruct/list/Queue"
 
 [AutoFinal]
 class Node<E> {
-    public E data
-    
     visible Node<E>[] children
     
-    public construct(E data = null, Int numChildren = 5) {
-        children = new Array(numChildren)
-        
-        this.data = data
+    this[Int index] <=> children[index]
+    
+    public construct(public E data = null, Int numChildren = 5) {
+        children = new Node<E>[numChildren]
     }
     
     public preorder() => preorder(new Array<E>())
