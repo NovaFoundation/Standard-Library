@@ -5,7 +5,9 @@ import "nova/io/FileWriter"
 class SvgComponent {
     public SvgComponentList children
     
-    public construct() => children = new SvgComponentList()
+    public construct() {
+        children = new SvgComponentList()
+    }
     
     public generateOutput(FileWriter writer) => Console.writeLine("This is wrong")
 }

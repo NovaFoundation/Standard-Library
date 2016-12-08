@@ -3,7 +3,9 @@ package "nova/math"
 class NumericTree {
     NumericOperation root
     
-    public construct(String statement) => root = new NumericOperation(statement)
+    public construct(String statement) {
+        root = new NumericOperation(statement)
+    }
     
-    public toString() => root.toString()
+    public toString() => "#root"
 }

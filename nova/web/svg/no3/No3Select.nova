@@ -1,9 +1,7 @@
 package "nova/web/svg/no3"
 
 class No3Select extends No3Node {
-    public String selection
-    
-    public construct(String selection) => this.selection = selection
+    public construct(public String selection) {}
     
     [Override]
     public toJs() => "d3.select('#selection')"

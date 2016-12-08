@@ -55,26 +55,22 @@ class WFF {
             
         }
         
-        Int conclusionStart = nextNonWhitespaceIndex(wff, index + 2, 1)
-        
-        Bounds bounds = new Bounds(conclusionStart, wff.count)
-        
-        Conclusion conclusion = new Conclusion(bounds.extractString(wff))
+        let conclusionStart = nextNonWhitespaceIndex(wff, index + 2, 1)
+        let bounds = new Bounds(conclusionStart, wff.count)
+        let conclusion = new Conclusion(bounds.extractString(wff))
         
         bounds.start = nextNonWhitespaceIndex(wff, index - 1, -1) + 1
         
-        StatementGroup<Conclusion> group = new StatementGroup(conclusion, bounds)
-        
-        return group
+        return new StatementGroup<Conclusion>(conclusion, bounds)
     }
     
     decodeHypotheses(String wff) -> StatementGroup<Hypothesis>[] {
-        StatementGroup<Hypothesis>[] list = new Array()
+        let list = new StatementGroup<Hypothesis>[]
         
         Int next = 0
         Int prev = 0
         
-        Int index = wff.indexOf("&")
+        var index = wff.indexOf("&")
         
         while (index >= 0) {
             next = nextNonWhitespaceIndex(wff, index - 1, -1)
@@ -93,57 +89,47 @@ class WFF {
     }
     
     generateHypothesis(String wff, Int start, Int end) -> StatementGroup<Hypothesis> {
-        Bounds bounds = new Bounds(start, end)
-        Hypothesis h  = new Hypothesis(bounds.extractString(wff))
+        let bounds = new Bounds(start, end)
+        let h = new Hypothesis(bounds.extractString(wff))
         
-        StatementGroup<Hypothesis> group = new StatementGroup(h, bounds)
-        
-        return group
+        return new StatementGroup<Hypothesis>(h, bounds)
     }
     
-    searchForStatement(String wff) -> StatementGroup<Statement> {
-        return null
-    }
+    searchForStatement(String wff) -> StatementGroup<Statement> => null {}
     
-    static nextNonWhitespaceIndex(String wff, Int index, Int direction) -> Int {
-        return nextWhitespaceIndex(wff, index, direction, true)
-    }
+    static nextNonWhitespaceIndex(String wff, Int index, Int direction) =>
+        nextWhitespaceIndex(wff, index, direction, true)
     
-    static nextWhitespaceIndex(String wff, Int index, Int direction) -> Int {
-        return nextWhitespaceIndex(wff, index, direction, false)
-    }
+    static nextWhitespaceIndex(String wff, Int index, Int direction) =>
+        nextWhitespaceIndex(wff, index, direction, false)
     
-    static nextWhitespaceIndex(String wff, Int index, Int direction, Bool opposite) -> Int {
-        Int i = index
+    static nextWhitespaceIndex(String wff, Int index, Int direction, Bool opposite, Int defaultReturnValue = -1) -> Int => defaultReturnValue {
+        var i = index
         
         while (i < wff.count && i >= 0) {
             Char c = wff.chars[i]
             
-            if (containsChar(c, whitespace) != opposite) {
+            if (whitespace.contains(c) != opposite) {
                 return i
             }
             
-            i = i + direction
+            i += direction
         }
-        
-        return -1
     }
     
-    static containsChar(Char needle, Char[] chars) -> Bool {
+    static containsChar(Char needle, Char[] chars) -> Bool => false {
         for (i in 0..chars.count) {
             if (needle == chars.data[i]) {
                 return true
             }
         }
-        
-        return false
     }
     
-    static findEndingMatch(String wff, Char start, Char end, Int index, Int direction) -> Int {
+    static findEndingMatch(String wff, Char start, Char end, Int index, Int direction, Int defaultReturnValue = -1) -> Int => defaultReturnValue {
         if (direction < 0) {
-            Char temp = start
-            start     = end
-            end       = temp
+            let temp = start
+            start = end
+            end = temp
         }
         
         Int scope = 0
@@ -153,19 +139,15 @@ class WFF {
         while (i < wff.count && i >= 0) {
             Char c = wff.chars[i]
             
-            if (c == start) {
-                scope++
-            } else if (c == end) {
-                scope--
-            }
+            match (c)
+                case start scope++
+                case end scope--
             
             if (scope == 0) {
                 return i
             }
             
-            i = i + direction
+            i += direction
         }
-        
-        return -1
     }
 }

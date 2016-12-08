@@ -5,7 +5,9 @@ import "nova/io/FileWriter"
 class Svg {
     public SvgMainComponent root
     
-    public construct() => root = new SvgMainComponent()
+    public construct() {
+        root = new SvgMainComponent()
+    }
     
     public generateOutput(FileWriter writer) => root.generateOutput(writer)
     

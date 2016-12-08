@@ -25,50 +25,19 @@ class Console {
     external void nova_clearScreen()
     external void fflush(FILE* stream)
     
-    public static log(Object obj = "") {
-        writeLine(obj)
-    }
+    public static log(Object obj = "") => writeLine(obj)
     
-    public static writeLine() {
-        writeLine("")
-    }
-
-    public static writeLine(String text) {
-        write(text + "\n")
-    }
-
-    public static writeLine(Object obj) {
-        writeLine(obj.toString())
-    }
-
-    public static writeLine(Double num) {
-        writeLine(Double.toString(num))
-    }
-
-    public static writeLine(Float num) {
-        writeLine(Double.toString(num))
-    }
-
-    public static writeLine(Long num) {
-        writeLine(Long.toString(num))
-    }
-
-    public static writeLine(Int num) {
-        writeLine(Int.toString(num))
-    }
-
-    public static writeLine(Short num) {
-        writeLine(Int.toString(num))
-    }
-
-    public static writeLine(Byte num) {
-        writeLine(Byte.toString(num))
-    }
-
-    public static writeLine(Char c) {
-        writeLine(Char.toString(c))
-    }
-
+    public static writeLine() => writeLine("")
+    public static writeLine(String text) => write(text + "\n")
+    public static writeLine(Object obj) => writeLine(obj.toString())
+    public static writeLine(Double num) => writeLine(Double.toString(num))
+    public static writeLine(Float num) => writeLine(Double.toString(num))
+    public static writeLine(Long num) => writeLine(Long.toString(num))
+    public static writeLine(Int num) => writeLine(Int.toString(num))
+    public static writeLine(Short num) => writeLine(Int.toString(num))
+    public static writeLine(Byte num) => writeLine(Byte.toString(num))
+    public static writeLine(Char c) => writeLine(Char.toString(c))
+    
     public static write(String text) {
         Char[] cText = text.chars
         
@@ -78,53 +47,18 @@ class Console {
         flushOutput()
     }
 
-    public static write(Object obj) {
-        write(obj.toString())
-    }
-
-    public static write(Double num) {
-        write(Double.toString(num))
-    }
-
-    public static write(Float num) {
-        write(Double.toString(num))
-    }
-
-    public static write(Long num) {
-        write(Long.toString(num))
-    }
-
-    public static write(Int num) {
-        write(Int.toString(num))
-    }
-
-    public static write(Short num) {
-        write(Int.toString(num))
-    }
-
-    public static write(Byte num) {
-        write(Byte.toString(num))
-    }
-
-    public static write(Char c) {
-        write(Char.toString(c))
-    }
-
-    public static readInt() -> Int {
-        String s = readLine()
-
-        return Int.parseInt(s)
-    }
-
-    public static readDouble() -> Double {
-//        Double num
-
-//        scanf("%lf", num)
-//        flushInput()
-        String s = readLine()
-        return Double.parseDouble(s)
-    }
-
+    public static write(Object obj) => write(obj.toString())
+    public static write(Double num) => write(Double.toString(num))
+    public static write(Float num) => write(Double.toString(num))
+    public static write(Long num) => write(Long.toString(num))
+    public static write(Int num) => write(Int.toString(num))
+    public static write(Short num) => write(Int.toString(num))
+    public static write(Byte num) => write(Byte.toString(num))
+    public static write(Char c) => write(Char.toString(c))
+    
+    public static readInt() => Int.parseInt(readLine())
+    public static readDouble() => Double.parseDouble(readLine())
+    
     public static readChar() -> Char {
         Char c = getchar()
 
@@ -148,9 +82,7 @@ class Console {
 
         [Target c] line = ufgets(stdin)
 
-        String s = new String(line)
-
-        return s
+        return new String(line)
     }
 
     public static readPassword() -> String {
@@ -165,13 +97,8 @@ class Console {
         return pass
     }
 
-    public static setEcho(Bool echo) {
-        nova_setEcho(echo)
-    }
-
-    public static clearScreen() {
-        nova_clearScreen()
-    }
+    public static setEcho(Bool echo) => nova_setEcho(echo)
+    public static clearScreen() => nova_clearScreen()
 
     public static waitForEnter() {
         flushInput()

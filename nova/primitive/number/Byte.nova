@@ -3,9 +3,7 @@ package "nova/primitive/number"
 import "nova/datastruct/Comparable"
 
 immutable class Byte extends Number implements Comparable<Byte>, Integer {
-    Byte value
-    
-    construct(Byte value) => this.value = value
+    construct(private Byte value) {}
     
     public compareTo(Byte other) => value - other
     public multiply(Byte value) => this.value * value

@@ -17,10 +17,7 @@ immutable class Class {
     
     visible static immutable Class[] ALL
     
-    public construct(String location, Bool isInterface) {
-        this.location = location
-        this.isInterface = isInterface
-    }
+    public construct(visible String location, visible Bool isInterface) {}
     
     public pure isOfType(Class other) =>
         other.isInterface ?

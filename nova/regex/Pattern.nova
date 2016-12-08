@@ -3,7 +3,5 @@ package "nova/regex"
 immutable class Pattern {
     visible String pattern
     
-    public construct(String pattern) {
-        this.pattern = pattern
-    }
+    public construct(visible String pattern) {}
 }

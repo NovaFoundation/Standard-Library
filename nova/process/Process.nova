@@ -3,7 +3,5 @@ package "nova/process"
 import "nova/io/InputStream"
 
 class Process {
-    visible InputStream reader
-    
-    public construct(InputStream reader) => this.reader = reader
+    public construct(visible InputStream reader) {}
 }

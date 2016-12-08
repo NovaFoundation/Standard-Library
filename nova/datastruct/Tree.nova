@@ -4,21 +4,10 @@ import "nova/exception/UnimplementedOperationException"
 
 [AutoFinal]
 class Tree<E> {
-    public Node<E> root
+    public construct(public Node<E> root = null) {}
     
-    public preorder() -> E[] {
-        return root.preorder()
-    }
-    
-    public inorder() -> E[] {
-        return root.inorder()
-    }
-    
-    public postorder() -> E[] {
-        return root.postorder()
-    }
-    
-    public levelorder() -> E[] {
-        return root.levelorder()
-    }
+    public preorder() => root.preorder()
+    public inorder() => root.inorder()
+    public postorder() => root.postorder()
+    public levelorder() => root.levelorder()
 }

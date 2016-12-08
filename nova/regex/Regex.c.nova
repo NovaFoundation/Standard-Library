@@ -4,8 +4,7 @@ import "pcre/pcre2.h"
 
 class Regex {
     public static getMatches(String regex, String search) -> Match[] {
-        [Native]
-        Int[] values
+        native Int[] values
         
         external {
             int crlf_is_newline;

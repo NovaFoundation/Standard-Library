@@ -7,7 +7,5 @@ class NumericStatement extends Statement {
         tree = new NumericTree(statement.trim())
     }
     
-    public toString() -> String {
-        return tree.toString()
-    }
+    public toString() => "#tree"
 }

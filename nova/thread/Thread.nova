@@ -12,11 +12,9 @@ class Thread {
     
     NOVA_THREAD_HANDLE*    handle
     
-    /*public run()
+    /*public let action()
     
-    public construct() {
-        run = {}
-    }*/
+    public construct(public action() = {}) {}*/
     
     public start() => handle = create_thread(this, startRun)
     public join() => lib_nova_thread_join(handle)

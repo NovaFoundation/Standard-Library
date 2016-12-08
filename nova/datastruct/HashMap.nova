@@ -7,8 +7,6 @@ import "nova/datastruct/list/List"
 class HashMap<K, V> implements List<Pair<K, V>> {
     Pair<K, V>[][] buckets
     
-    Int bucketSize
-    
     visible var Int count
     
     this[K key] -> V {
@@ -27,13 +25,11 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         }
     }
     
-    public construct(Int bucketCount = 5, Int bucketSize = 5) {
+    public construct(Int bucketCount = 5, private Int bucketSize = 5) {
         buckets = new Pair<K, V>[bucketCount][bucketSize]
-        
-        this.bucketSize = bucketSize
     }
     
-    public construct(HashMap<K, V> source, Int bucketCount = 5, Int bucketSize = 5) {
+    public construct(HashMap<K, V> source, Int bucketCount = 5, private Int bucketSize = 5) {
         this(bucketCount, bucketSize)
         
         source.forEach(pair -> {

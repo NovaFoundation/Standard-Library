@@ -7,16 +7,13 @@ class ExceptionData {
     external type buffer
     external buffer* NULL
     
-    visible buffer* buf
-    
     visible ExceptionData parent
     
     visible CaughtException[] caught
     
     public Exception thrownException
     
-    public construct(buffer* buf) {
-        this.buf = buf
+    public construct(visible buffer* buf) {
         this.caught = new CaughtException[]
     }
     

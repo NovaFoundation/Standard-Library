@@ -8,9 +8,7 @@ immutable class Double extends Number implements Comparable<Double>, RealNumber 
     external int strlen(char buffer[])
     external double strtod(char str[], char* pEnd[])
     
-    Double value
-    
-    construct(Double value) => this.value = value
+    construct(private Double value) {}
     
     public static numDigits(Double number) -> Int {
         Int size = number < 0 ? 2 : 1

@@ -3,9 +3,7 @@ package "nova/primitive"
 import "nova/datastruct/Comparable"
 
 immutable class Bool extends Primitive implements Comparable<Bool> {
-    Bool value
-    
-    construct(Bool value) => this.value = value
+    construct(private Bool value) {}
     
     public compareTo(Bool other) => value == other
     public toString() => toString(value)

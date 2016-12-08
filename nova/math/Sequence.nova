@@ -3,11 +3,7 @@ package "nova/math"
 class Sequence {
     visible static Int INFINITE = -1
     
-    visible Double[] values
-    
-    public construct(Double[] values) {
-        this.values = values
-    }
+    public construct(visible Double[] values) {}
     
     //sum [public static] (Double[] values, Int num) -> Double
     public static sum(Int num) -> Double {

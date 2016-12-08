@@ -49,11 +49,9 @@ class Matrix implements Multiply<Matrix> {
         this(new Double[rows][cols])
     }
     
-    public construct(Double[][] data) {
+    public construct(private Double[][] data) {
         if (!data || data.count == 0)
             throw new InvalidArgumentException("Matrix size must be greater than 0 rows and columns")
-        
-        this.data = data
     }
     
     public clone() => new Matrix(rows, cols).add(this)
@@ -92,7 +90,7 @@ class Matrix implements Multiply<Matrix> {
         if (row1 == row2) return
         
         for (col in 0..cols) {
-            var temp = data[row1][col]
+            let temp = data[row1][col]
             data[row1][col] = data[row2][col]
             data[row2][col] = temp
         }
@@ -194,11 +192,8 @@ class Matrix implements Multiply<Matrix> {
         return result
     }
     
-    public determinant() -> Double {
-        if (!isSquare)
-            throw new InvalidArgumentException("Matrix must be square to calculate the determinant")
-        
-        return determinant(data)
+    public determinant() -> Double => determinant(data) {
+        if (!isSquare) throw new InvalidArgumentException("Matrix must be square to calculate the determinant")
     }
     
     public static determinant(Double[][] data) -> Double {

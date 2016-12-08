@@ -9,6 +9,8 @@ class Window {
     
     public String title
     
+    public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {}
+    
     public create() {
         //nova_createWindow(x, y, width, height, "TEST!")
         

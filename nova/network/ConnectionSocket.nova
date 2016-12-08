@@ -18,12 +18,8 @@ class ConnectionSocket extends Socket {
     
     Queue<String> inputBuffer = new Queue()
     
-    SOCKET_ID_TYPE socket
-    
-    public construct(SOCKET_ID_TYPE socket) {
-        this.socket = socket
-        
-        in  = new NetworkInputStream(this)
+    public construct(private SOCKET_ID_TYPE socket) {
+        in = new NetworkInputStream(this)
         out = new NetworkOutputStream(this)
         
         connected = true
@@ -35,28 +31,23 @@ class ConnectionSocket extends Socket {
         nova_socket_close(socket)
     }
     
-    public validateConnection() -> Bool {
-        if (!connected) {
-            return connected
-        }
-        
-        String message = readString(false)
-        
+    public validateConnection() => false {
         if (connected) {
-            inputBuffer.enqueue(message)
+            let message = readString(false)
+            
+            if (connected) {
+                inputBuffer.enqueue(message)
+                
+                return true
+            }
         }
-        
-        return connected
     }
     
-    public readString() -> String {
-        return readString(true)
-    }
+    public readString() => readString(true)
     
     readString(Bool checkBuffer) -> String {
         if (!checkBuffer || inputBuffer.empty) {
-            [Native]
-            Char[] data = nova_socket_receive(socket)
+            native Char[] data = nova_socket_receive(socket)
             
             if (data == 0) {
                 connected = false
@@ -70,9 +61,5 @@ class ConnectionSocket extends Socket {
         return inputBuffer.dequeue()
     }
     
-    public write(String data) -> Bool {
-        Bool success = nova_socket_send(socket, data.chars.data) == 1
-        
-        return success
-    }
+    public write(String data) => nova_socket_send(socket, data.chars.data) == 1
 }

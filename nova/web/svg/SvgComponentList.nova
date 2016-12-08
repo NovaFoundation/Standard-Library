@@ -16,9 +16,7 @@ class SvgComponentList {
     }
     
     public addChild(SvgComponent component) {
-        SvgComponentNode node = new SvgComponentNode()
-        
-        node.component = component
+        SvgComponentNode node = new SvgComponentNode(component)
         
         if (!start) {
             start = node

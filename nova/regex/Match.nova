@@ -1,18 +1,11 @@
 package "nova/regex"
 
 immutable class Match {
-    visible Int start
-    visible Int end
     visible Int count => end - start
     
-    visible String source
     visible String match => source.substring(start, end)
     
-    public construct(String source, Int start, Int end) {
-        this.source = source
-        this.start = start
-        this.end = end
-    }
+    public construct(visible String source, visible Int start, visible Int end) {}
     
     [Override]
     public toString() => match

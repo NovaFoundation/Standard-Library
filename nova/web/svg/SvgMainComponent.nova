@@ -3,7 +3,9 @@ package "nova/web/svg"
 import "nova/io/FileWriter"
 
 class SvgMainComponent extends SvgComponent {
-    public construct() => children = new SvgComponentList()
+    public construct() {
+        children = new SvgComponentList()
+    }
     
     public generateOutput(FileWriter writer) {
         writer.write("<?xml version = '1.0' standalone = 'no'?>\n

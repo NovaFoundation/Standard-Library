@@ -27,16 +27,12 @@ class FileReader extends InputStream {
     
     visible File file
     
-    public construct(File file) {
-        this.file = file
-        
+    public construct(visible File file) {
         open()
     }
     
     [Target c]
-    public construct(FILE* fp) {
-        this.fp = fp
-    }
+    public construct(private FILE* fp) {}
     
     public open() {
         external c {
@@ -45,22 +41,6 @@ class FileReader extends InputStream {
     }
     
     public readAllContents() -> String {
-        // String data = ""
-        
-        // String line = readLine()
-        
-        // while (line) {
-        //     if (data.count > 0) {
-        //         data = data + "\n"
-        //     }
-            
-        //     data = data + line
-            
-        //     line = readLine()
-        // }
-        
-        // return data
-        
         Int size
         
         [Native]
@@ -94,16 +74,6 @@ class FileReader extends InputStream {
                 if (#{size} < string_size) {
                     #{buffer} = realloc(#{buffer}, #{size} + 1);
                 }
-                
-                /*if (string_size != #{size})
-                {
-                    // Something went wrong, throw away the memory and set
-                    // the buffer to NULL
-                    free(#{buffer});
-                    #{buffer} = NULL;
-                    
-                    #{buffer} = 0;
-                }*/
             }
             
             if (#{buffer} == 0)
@@ -136,7 +106,7 @@ class FileReader extends InputStream {
         return new String(line, bufferSize - 1)
     }
     
-    public close() {
+    public close() => true {
         if (isOpen) {
             fclose(fp)
         }

@@ -1,8 +1,5 @@
 package "nova/math/logic"
 
 class StatementLetter extends StatementComponent {
-    String letter
-    String representation
-    
     public construct(private String letter, private String representation) {}
 }

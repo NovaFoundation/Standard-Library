@@ -48,15 +48,11 @@ class ServerSocket extends Socket {
         return true
     }
     
-    public acceptClient() -> ConnectionSocket {
+    public acceptClient() -> ConnectionSocket => null {
         SOCKET_ID_TYPE clientSocket = nova_serversocket_accept(serverSocket)
         
-        if (clientSocket == 0) {
-            return null
+        if (clientSocket != 0) {
+            return new ConnectionSocket(clientSocket)
         }
-        
-        ConnectionSocket socket = new ConnectionSocket(clientSocket)
-        
-        return socket
     }
 }

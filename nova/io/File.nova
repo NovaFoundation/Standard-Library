@@ -88,21 +88,16 @@ class File {
             Short max = (Short)2048
 
             if (value > max || value < min) {
-                Console.writeLine("Invalid max number of open files: #value\nValid values include #{min}-#{max}")
+                throw new Exception("Invalid max number of open files: #value\nValid values include #{min}-#{max}")
             } else {
                 extSetMaxOpenFiles(value)
             }
         }
     }
 
-    construct(String location, tinydir_file* file) {
-        this.location = location
-        this.file = file
-    }
+    construct(visible String location, private tinydir_file* file) {}
 
-    public construct(String location) {
-        this.location = location
-        
+    public construct(visible String location) {
         external c {
             errno = 0;
             
@@ -111,10 +106,6 @@ class File {
             tinydir_file_open(#{file}, (char*)#{location.chars.data});
         }
     }
-
-    /*public construct(FILE* fp) {
-        this.fp = fp
-    }*/
     
     public getChildFiles(Bool recursive = false, Bool includeHidden = false) -> File[] {
         var list = files
