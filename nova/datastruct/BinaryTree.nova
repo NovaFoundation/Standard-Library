@@ -17,6 +17,6 @@ class BinaryTree<E extends Comparable> extends Tree<E> {
     }
     
     public addNodes(Comparable[] data) => this {
-        data.forEach({ addNode(_) })
+        data.forEach(addNode)
     }
 }
