@@ -6,7 +6,7 @@ class SvgComponentList {
     public SvgComponentNode start
     
     public generateOutput(FileWriter writer) {
-        SvgComponentNode current = start
+        var current = start
         
         while (current) {
             current.component.generateOutput(writer)
@@ -16,12 +16,12 @@ class SvgComponentList {
     }
     
     public addChild(SvgComponent component) {
-        SvgComponentNode node = new SvgComponentNode(component)
+        let node = new SvgComponentNode(component)
         
         if (!start) {
             start = node
         } else {
-            SvgComponentNode current = start
+            var current = start
             
             while (current.next) {
                 current = current.next
