@@ -8,9 +8,6 @@ package "nova/datastruct"
  * @version    v0.2.33 Sep 28, 2014 at 6:28:45 PM
  */
 class Bounds {
-    public Int start
-    public Int end
-    
     /**
      * Get the size of the Bounds. end - start.
      * 
@@ -24,34 +21,21 @@ class Bounds {
      * 
      * @return Whether or not the Bounds is valid.
      */
-    visible Bool valid {
-        get { return start >= 0 && end > 0 }
-        no set
-    }
+    visible Bool valid => start >= 0 && end > 0
     
     /**
      * Get whether or not the bounds are endless.
      * 
      * @return Whether or not the bounds will search endlessly.
      */
-    visible Bool endless {
-        get { return end < 0 }
-        no set
-    }
+    visible Bool endless => end < 0
     
     /**
      * Get whether or not the bounds are optional.
      * 
      * @return Whether or not the bounds will search optionally.
      */
-    visible Bool optional {
-        get { return start == 0 }
-        no set
-    }
-    
-    public construct() {
-        this(0, 0)
-    }
+    visible Bool optional => start == 0
     
     /**
      * Create a Bounds instance with the specified start and
@@ -60,10 +44,7 @@ class Bounds {
      * @param start The start location of the Bound.
      * @param end The end location of the Bound.
      */
-    public construct(Int start, Int end) {
-        this.start = start
-        this.end   = end
-    }
+    public construct(public Int start = 0, public Int end = 0) {}
     
     /**
      * Extract a substring from the given source at the specified bound's
@@ -73,42 +54,28 @@ class Bounds {
      * @param source The String to get the substring from.
      * @return The extracted substring.
      */
-    public extractString(String source) -> String {
-        if (!valid) {
-            return null
-        }
-        
-        return source.substring(start, end)
-    }
+    public extractString(String source) =>
+        valid ?
+            source.substring(start, end) :
+            null
     
-    public extractPreString(String source) -> String {
-        if (!valid) {
-            return null
-        }
-        
-        return source.substring(0, start)
-    }
+    public extractPreString(String source) =>
+        valid ?
+            source.substring(0, start) :
+            null
     
-    public extractPostString(String source) -> String {
-        if (!valid) {
-            return source
-        }
-        
-        return source.substring(end)
-    }
+    public extractPostString(String source) =>
+        valid ?
+            source.substring(end) :
+            null
     
-    public trimString(String source) -> String {
-        if (!valid) {
-            return source
-        }
-        
-        return extractPreString(source) + extractPostString(source)
-    }
+    public trimString(String source) =>
+        valid ?
+            extractPreString(source) + extractPostString(source) :
+            null
     
-    public invalidate() {
-        start = -1
-        end   = -1
-    }
+    public invalidate() =>
+        start = end = -1
     
     /**
      * @see nova/Object#equals(Object)
@@ -116,9 +83,8 @@ class Bounds {
      * @param bounds The Bounds to check against.
      * @return Whether or not the two Bounds have equal values.
      */
-    public equals(Bounds bounds) -> Bool {
-        return bounds && bounds.start == start && bounds.end == end
-    }
+    public equals(Bounds bounds) =>
+        bounds && bounds.start == start && bounds.end == end
     
     /**
      * Generate a String representation of the Bounds Object
@@ -128,9 +94,8 @@ class Bounds {
      * 
      * @return A String representation of the Bounds Object.
      */
-    public toString() -> String {
-        return "[" + start + ", " + end + "]"
-    }
+    public toString() =>
+        "[" + start + ", " + end + "]"
     
     /**
      * Clone the values from the specified Bounds instance Into the given
@@ -139,9 +104,9 @@ class Bounds {
      * 
      * @param bounds The Bounds to set the values of.
      */
-    public cloneTo(Bounds bounds) {
+    public cloneTo(Bounds bounds) => bounds {
         bounds.start = start
-        bounds.end   = end
+        bounds.end = end
     }
     
     /**
@@ -152,7 +117,5 @@ class Bounds {
      * 
      * @return The new Bounds instance.
      */
-    public clone() -> Bounds {
-        return new Bounds(start, end)
-    }
+    public clone() => new Bounds(start, end)
 }
