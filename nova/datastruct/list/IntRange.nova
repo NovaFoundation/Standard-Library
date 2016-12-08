@@ -3,8 +3,6 @@ package "nova/datastruct/list"
 class IntRange implements List<Int> {
     visible Int size => end - start
     
-    public Int start, end
-    
     [Override]
     visible IntRangeIterator iterator => new IntRangeIterator(this)
     
@@ -16,10 +14,7 @@ class IntRange implements List<Int> {
     }
     
     public construct() => this(0, 0)
-    public construct(Int start, Int end) {
-        this.start = start
-        this.end = end
-    }
+    public construct(public Int start, public Int end) {}
     
     [Override]
     public contains(Int value) => value >= start && value < end
@@ -56,24 +51,20 @@ class IntRange implements List<Int> {
         return array
     }
     
-    public any(anyFunc(Int) -> Bool) -> Bool {
+    public any(anyFunc(Int) -> Bool) -> Bool => false {
         for (element in this) {
             if (anyFunc(element)) {
                 return true
             }
         }
-        
-        return false
     }
     
-    public all(allFunc(Int) -> Bool) -> Bool {
+    public all(allFunc(Int) -> Bool) -> Bool => true {
         for (element in this) {
             if (!allFunc(element)) {
                 return false
             }
         }
-        
-        return true
     }
     
     public filter(filterFunc(Int, Int, IntRange) -> Bool) -> IntArray {
@@ -98,14 +89,12 @@ class IntRange implements List<Int> {
         return new IntRange((Int)Math.min(start + howMany, end), end)
     }
     
-    public firstWhere(func(Int) -> Bool) -> Int {
+    public firstWhere(func(Int) -> Bool) -> Int => null {
         for (element in this) {
             if (func(element)) {
                 return element
             }
         }
-        
-        return null
     }
     
     //get(Int index) -> Int
@@ -114,9 +103,7 @@ class IntRange implements List<Int> {
     //remove(Int value) -> IntRange
     //clone() -> IntRange
     
-    public reverse() -> IntRange {
-        return new IntRange(end, start)
-    }
+    public reverse() => new IntRange(end, start)
     
     public join(String delimiter) -> String {
         String str = ""
@@ -136,7 +123,5 @@ class IntRange implements List<Int> {
         return str
     }
     
-    public toString() -> String {
-        return "#{start}..#{end}"
-    }
+    public toString() => "#{start}..#{end}"
 }

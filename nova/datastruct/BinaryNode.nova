@@ -5,33 +5,21 @@ class BinaryNode<E extends Comparable> extends Node<E> {
     /**
      * The left child of the BinaryNode instance.
      */
-    public var BinaryNode<E> left {
-        get { return getNode(0) }
-        set { setNode(0, value) }
-    }
+    public var BinaryNode<E> left <=> this[0]
     
     /**
      * The right child of the BinaryNode instance.
      */
-    public var BinaryNode<E> right {
-        get { return getNode(1) }
-        set { setNode(1, value) }
-    }
+    public var BinaryNode<E> right <=> this[1]
     
-    public construct(E data = null) {
-        this(data, 2)
-    }
+    public construct(E data = null) => this(data, 2)
     
-    construct(E data, Int size) {
-        super(data, size)
-    }
+    construct(E data, Int size) => super(data, size)
     
-    getNode(Int index) -> BinaryNode<E> {
-        if (children.count <= index)
-            return null
+    getNode(Int index) -> BinaryNode {
+        if (children.count <= index) return null
         
         return (BinaryNode)children[index]
-        //return children.count > index ? (BinaryNode)children[index] : null
     }
     
     setNode(Int index, BinaryNode<E> data) {

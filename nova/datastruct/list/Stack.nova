@@ -7,9 +7,7 @@ class Stack<E> {
     
     visible Bool isEmpty => count <= 0
     
-    public construct() {
-        
-    }
+    public construct() {}
     
     public construct(E[] data) {
         for (e in data) {
@@ -18,10 +16,8 @@ class Stack<E> {
     }
     
     public push(E data) {
-        ListNode<E> node = new ListNode(data)
-        
-        node.next = top
-        top       = node
+        let node = new ListNode(data, top)
+        top = node
         
         count++
     }
@@ -40,7 +36,5 @@ class Stack<E> {
         return data
     }
     
-    public peek() -> E {
-    	return isEmpty ? null : top.data
-    }
+    public peek() -> E => isEmpty ? null : top.data
 }

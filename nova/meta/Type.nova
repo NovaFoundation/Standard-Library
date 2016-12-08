@@ -6,8 +6,5 @@ immutable class Type {
     
     visible ImmutableArray<GenericArgument> genericArguments
     
-    public construct(String value, ImmutableArray<GenericArgument> genericArguments) {
-        this.value = value
-        this.genericArguments = genericArguments
-    }
+    public construct(visible String value, visible ImmutableArray<GenericArgument> genericArguments) {}
 }

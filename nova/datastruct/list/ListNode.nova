@@ -1,18 +1,7 @@
 package "nova/datastruct/list"
 
 class ListNode<E> {
-    visible E            data
+    public construct(public E data, public ListNode<E> next = null) {}
     
-    public ListNode<E>    next
-    
-    public construct(E data) {
-        this.data = data
-    }
-    
-    public clone() -> ListNode<E> {
-        ListNode<E> clone = new ListNode(data)
-        clone.next = next
-        
-        return clone
-    }
+    public clone() => new ListNode(data, next)
 }

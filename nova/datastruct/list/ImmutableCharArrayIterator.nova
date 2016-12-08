@@ -1,16 +1,9 @@
 package "nova/datastruct/list"
 
 class ImmutableCharArrayIterator implements Iterator<Char> {
-    ImmutableCharArray array
-    
-    Int indexSize
-    
     visible Int position
     
-    visible Bool hasNext {
-        get { return array.count > position }
-        no set
-    }
+    visible Bool hasNext => array.count > position
     
     visible Char next {
         get {
@@ -19,23 +12,16 @@ class ImmutableCharArrayIterator implements Iterator<Char> {
             }
             
             throw new NoSuchElementException()
-
-            return 0
         }
         
         no set
     }
     
-    public construct(ImmutableCharArray array, Int indexSize) {
-        this.array = array
-        this.indexSize = indexSize
-        
+    public construct(private ImmutableCharArray array, private Int indexSize) {
         reset()
     }
     
-    public reset() -> Iterator<Char> {
+    public reset() => this {
         position = 0
-        
-        return this
     }
 }

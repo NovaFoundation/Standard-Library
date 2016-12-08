@@ -1,14 +1,9 @@
 package "nova/datastruct/list"
 
 class LinkedListIterator<E> implements Iterator<E> {
-    LinkedList<E> list
-    
     visible ListNode position
     
-    visible Bool hasNext {
-        get { return position != null }
-        no set
-    }
+    visible Bool hasNext => position != null
     
     visible E next {
         get {
@@ -21,22 +16,16 @@ class LinkedListIterator<E> implements Iterator<E> {
             }
             
             throw new NoSuchElementException()
-            
-            return null
         }
         
         no set
     }
     
-    public construct(LinkedList<E> list) {
-        this.list = list
-        
+    public construct(private LinkedList<E> list) {
         reset()
     }
     
-    public reset() -> Iterator<E> {
+    public reset() => this {
         position = list.first
-        
-        return this
     }
 }

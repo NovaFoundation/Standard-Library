@@ -1,14 +1,9 @@
 package "nova/datastruct/list"
 
 class IntRangeIterator implements Iterator<Int> {
-    IntRange range
-    
     visible Int position
     
-    visible Bool hasNext {
-        get { return position < range.end }
-        no set
-    }
+    visible Bool hasNext => position < range.end
     
     visible Int next {
         get {
@@ -17,22 +12,16 @@ class IntRangeIterator implements Iterator<Int> {
             }
             
             throw new NoSuchElementException()
-
-            return null
         }
         
         no set
     }
     
-    public construct(IntRange range) {
-        this.range = range
-        
+    public construct(private IntRange range) {
         reset()
     }
     
-    public reset() -> Iterator<Int> {
+    public reset() => this {
         position = range.start
-        
-        return this
     }
 }

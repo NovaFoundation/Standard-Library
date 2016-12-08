@@ -2,8 +2,6 @@ package "nova/datastruct/list"
 
 [AutoFinal]
 class ImmutableArrayIterator<E> implements Iterator<E> {
-    ImmutableArray<E> array
-    
     visible var Int position
     
     visible Bool hasNext => array.count > position
@@ -15,22 +13,16 @@ class ImmutableArrayIterator<E> implements Iterator<E> {
             }
             
             throw new NoSuchElementException()
-
-            return null
         }
         
         no set
     }
     
-    public construct(ImmutableArray<E> array) {
-        this.array = array
-        
+    public construct(private ImmutableArray<E> array) {
         reset()
     }
     
-    public reset() -> Iterator<E> {
+    public reset() => this {
         position = 0
-        
-        return this
     }
 }
