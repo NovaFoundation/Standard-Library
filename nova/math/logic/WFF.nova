@@ -3,19 +3,14 @@ package "nova/math/logic"
 import "nova/datastruct/Bounds"
 
 class WFF {
-    StatementLetter[] letters
-    
     Hypothesis[]      hypotheses
     
     Conclusion        conclusion
     
-    String            wff
-    
     static Char[]     whitespace = [ ' ', '\t', '\n', '\r' ]
     
-    public construct(String wellFormedFormula, StatementLetter[] letters) {
-        this.wff     = wellFormedFormula.trim()
-        this.letters = letters
+    public construct(private String wff, private StatementLetter[] letters) {
+        wff = wff.trim()
         
         hypotheses = new Array()
         

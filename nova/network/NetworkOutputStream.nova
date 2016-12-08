@@ -4,11 +4,7 @@ import "nova/network/NativeSocket.h"
 import "nova/io/OutputStream"
 
 class NetworkOutputStream extends OutputStream {
-    ConnectionSocket socket
-    
-    public construct(ConnectionSocket socket) {
-        this.socket = socket
-    }
+    public construct(private ConnectionSocket socket) {}
     
     public write(String data) => socket.write(data)
     public write(Object data) => false

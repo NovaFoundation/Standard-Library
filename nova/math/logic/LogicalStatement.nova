@@ -3,13 +3,9 @@ package "nova/math/logic"
 import "nova/math/Statement"
 
 class LogicalStatement extends Statement {
-    String statement
-    
     StatementComponent[] components
     
-    public construct(String statement) {
-        this.statement = statement
-        
+    public construct(private String statement) {
         components = new Array()
     }
     

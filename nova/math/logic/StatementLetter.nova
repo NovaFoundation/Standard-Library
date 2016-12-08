@@ -4,8 +4,5 @@ class StatementLetter extends StatementComponent {
     String letter
     String representation
     
-    public construct(String letter, String representation) {
-        this.letter         = letter
-        this.representation = representation
-    }
+    public construct(private String letter, private String representation) {}
 }
