@@ -13,7 +13,5 @@ class LogicalStatement extends Statement {
         components = new Array()
     }
     
-    public toString() -> String {
-        return statement
-    }
+    public toString() => statement
 }

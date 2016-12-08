@@ -2,6 +2,5 @@ package "nova/io"
 
 public interface InputStream {
     public readString() -> String
-    
     public readBytes() -> Byte[]
 }

@@ -10,11 +10,6 @@ class NetworkInputStream extends InputStream {
         this.socket = socket
     }
     
-    public readString() -> String {
-        return socket.readString()
-    }
-    
-    public readBytes() -> Byte[] {
-        return null
-    }
+    public readString() => socket.readString()
+    public readBytes() -> Byte[] => null
 }

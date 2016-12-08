@@ -10,11 +10,6 @@ class NetworkOutputStream extends OutputStream {
         this.socket = socket
     }
     
-    public write(String data) -> Bool {
-        return socket.write(data)
-    }
-    
-    public write(Object data) -> Bool {
-        return false
-    }
+    public write(String data) => socket.write(data)
+    public write(Object data) => false
 }
