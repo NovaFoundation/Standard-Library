@@ -13,8 +13,6 @@ class ArrayIterator<E> implements Iterator<E> {
             }
             
             throw new NoSuchElementException()
-
-            return null
         }
         
         no set
