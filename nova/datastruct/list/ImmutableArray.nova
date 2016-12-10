@@ -38,6 +38,8 @@ immutable class ImmutableArray<E> extends Array<E> {
     
     [Override] public add(E element) => new ImmutableArray(new Array<E>(data, count).add(element).data, count + 1)
     [Override] public add(Int index, E element) => new ImmutableArray(toMutable().add(index, element).data, count + 1)
+    [Override] public remove(E element) => new ImmutableArray(toMutable().remove(element).data, indexOf(element) >= 0 ? count - 1 : count)
+    [Override] public remove(Int index) => new ImmutableArray(toMutable().remove(index).data, index >= 0 && index < count ? count - 1 : count)
     
     public toMutable() => super.clone()
 }
