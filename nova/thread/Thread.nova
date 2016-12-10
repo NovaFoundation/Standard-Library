@@ -12,6 +12,10 @@ class Thread {
     
     NOVA_THREAD_HANDLE* handle
     
+    visible static immutable Thread[] ACTIVE_THREADS = new Thread[]
+    
+    visible Bool active
+    
     let action()
     
     public construct(action() = run) {
@@ -34,6 +38,10 @@ class Thread {
     public run() {}
     
     startRun() {
+        active = true
+        
+        ACTIVE_THREADS = ACTIVE_THREADS.add(this)
+        
         try {
             //GC.init()
             
@@ -41,5 +49,9 @@ class Thread {
         } catch (Exception e) {
             Console.writeLine("An error has occurred...")
         }
+        
+        active = false
+        
+        ACTIVE_THREADS = ACTIVE_THREADS.remove(this)
     }
 }
