@@ -111,24 +111,18 @@ class Array<E> implements List<E> {
         count = Math.max(position, count)
     }
     
-    public remove(Int index) -> E {
+    public remove(Int index) => this {
         E element = data[index]
         
         shiftLeft(index + 1, position--)
-        
-        return element
     }
     
-    public remove(E element) -> E {
+    public remove(E element) => this {
         Int index = indexOf(element)
         
         if (index >= 0) {
             shiftLeft(index + 1, position--)
-            
-            return element
         }
-        
-        return null
     }
     
     public pure indexOf(E element, Int defaultReturnValue = -1) -> Int {
