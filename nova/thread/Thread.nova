@@ -10,11 +10,13 @@ class Thread {
     external void lib_nova_thread_cancel(NOVA_THREAD_HANDLE handle)
     external NOVA_THREAD_HANDLE* create_thread(Thread thread, run())
     
-    NOVA_THREAD_HANDLE*    handle
+    NOVA_THREAD_HANDLE* handle
     
-    /*public let action()
+    let action()
     
-    public construct(public action() = {}) {}*/
+    public construct(action() = run) {
+        this.action = action
+    }
     
     public start() => handle = create_thread(this, startRun)
     public join() => lib_nova_thread_join(handle)
@@ -35,7 +37,7 @@ class Thread {
         try {
             //GC.init()
             
-            run()
+            action()
         } catch (Exception e) {
             Console.writeLine("An error has occurred...")
         }
