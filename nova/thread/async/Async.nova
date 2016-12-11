@@ -3,17 +3,36 @@ package "nova/thread/async"
 import "nova/thread/Thread"
 
 class Async {
-    public static execute(func()) -> AsyncResult {
-        AsyncResult result = new AsyncResult()
-        
-        /*
-        Thread thread = new Thread()
+    public static execute(func()) -> Task {
+        let thread = new Thread(func)
+        let task = new Task(thread)
         
         thread.start()
-        */
         
-        func()
+        return task/* {
+            thread: thread
+            
+        }*/
+    }
+    
+    public static request/*<E>*/(func() /*-> E*/) -> Task/*<E>*/ {
+        // let thread = new Thread({
+        //     // let output = func()
+            
+        //     //task.result = output
+        // })
         
-        return result
+        /*let task = new Task<E>(thread)
+        
+        thread.start()
+        
+        return task*/
+        
+        let thread = new Thread(func)
+        let task = new Task(thread)
+        
+        thread.start()
+        
+        return task
     }
 }

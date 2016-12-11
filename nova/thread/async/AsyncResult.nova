@@ -1,5 +1,0 @@
-package "nova/thread/async"
-
-class AsyncResult {
-    
-}
