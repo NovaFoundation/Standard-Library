@@ -1,11 +1,11 @@
 package "nova/math"
 
-import "nova/operators/Multiply"
+import "nova/operators/MultiplyOperator"
 import "nova/exception/InvalidArgumentException"
 import "nova/exception/InvalidOperationException"
 
 [AutoFinal]
-class Matrix implements Multiply<Matrix> {
+class Matrix implements MultiplyOperator<Matrix> {
     Double[][] data
     
     visible Bool isSquare => cols == rows
