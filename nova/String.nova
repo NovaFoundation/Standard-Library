@@ -3,11 +3,13 @@ package "nova"
 import "nova/datastruct/Comparable"
 import "nova/datastruct/HashSet"
 import "nova/datastruct/list/StringCharArray"
+import "nova/operators/PlusOperator"
+import "nova/operators/EqualsOperator"
 import "nova/regex/Regex"
 import "nova/regex/Match"
 import "nova/regex/Pattern"
 
-immutable class String implements Comparable<String> {
+immutable class String implements Comparable<String>, PlusOperator<String>, EqualsOperator<String> {
     visible Int count
     
     visible StringCharArray chars
@@ -140,6 +142,8 @@ immutable class String implements Comparable<String> {
             return new novaConstructors.newString1(newData);
         }
     }
+    
+    public plus(String another) => concat(another)
     
     public repeat(Int times) =>
         new String[times].map({ this }).join()
