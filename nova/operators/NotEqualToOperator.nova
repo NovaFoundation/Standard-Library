@@ -1,0 +1,5 @@
+package "nova/operators"
+
+public interface NotEqualToOperator<E> {
+    public notEqualTo(E another) -> Bool
+}
