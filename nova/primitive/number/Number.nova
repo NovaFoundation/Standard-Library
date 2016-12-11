@@ -1,9 +1,9 @@
 package "nova/primitive/number"
 
 import "nova/primitive/Primitive"
-import "nova/operators/Multiply"
+import "nova/operators/MultiplyOperator"
 
-immutable abstract class Number extends Primitive implements Multiply<Number> {
+immutable abstract class Number extends Primitive implements MultiplyOperator<Number> {
     public static numDigits(Number number) => -1
     
 //    public static toString(Number value) => "[Unimplemented]"
