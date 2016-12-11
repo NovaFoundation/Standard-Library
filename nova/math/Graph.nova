@@ -28,7 +28,7 @@ class Graph {
     /*public addNode(Number val) -> Node {
         Node node = new Node(val)
         
-        map.put(node, id++)
+        map.add(node, id++)
         
         return node
     }

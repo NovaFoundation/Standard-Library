@@ -33,11 +33,11 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         this(bucketCount, bucketSize)
         
         source.forEach(pair -> {
-            put(pair.key, pair.value)
+            add(pair.key, pair.value)
         })
     }
     
-    public put(K key, V value) => this[key] = value
+    public add(K key, V value) => this[key] = value
     
     [Override]
     public toArray() => map({ _ })
