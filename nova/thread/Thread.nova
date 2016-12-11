@@ -18,8 +18,14 @@ class Thread {
     
     let action()
     
-    public construct(action() = run) {
+    Bool useAction = false
+    
+    public construct() {}
+    
+    public construct(action()) {
         this.action = action
+        
+        useAction = true
     }
     
     public start() => handle = create_thread(this, startRun)
@@ -45,7 +51,11 @@ class Thread {
         try {
             //GC.init()
             
-            action()
+            if (useAction) {
+                action()
+            } else {
+                run()
+            }
         } catch (Exception e) {
             Console.writeLine("An error has occurred...")
         }
