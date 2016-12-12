@@ -111,17 +111,21 @@ class Array<E> implements List<E> {
         count = Math.max(position, count)
     }
     
-    public remove(Int index) => this {
+    public remove(Int index) -> E {
         E element = data[index]
         
         shiftLeft(index + 1, position--)
+        
+        return element
     }
     
-    public remove(E element) => this {
+    public remove(E element) -> E => null {
         Int index = indexOf(element)
         
         if (index >= 0) {
             shiftLeft(index + 1, position--)
+            
+            return element
         }
     }
     
@@ -139,15 +143,13 @@ class Array<E> implements List<E> {
         return defaultReturnValue
     }
     
-    public replace(E element, E other) -> Bool {
+    public replace(E element, E other) -> E => null {
         let index = indexOf(element)
         
         if (index >= 0) {
             this[index] = other
             
-            return true
-        } else {
-            return false
+            return other
         }
     }
     
