@@ -1,11 +1,12 @@
 package "nova/math"
 
 import "nova/operators/MultiplyOperator"
+import "nova/operators/PlusOperator"
 import "nova/exception/InvalidArgumentException"
 import "nova/exception/InvalidOperationException"
 
 [AutoFinal]
-class Matrix implements MultiplyOperator<Matrix> {
+class Matrix implements MultiplyOperator<Matrix>, PlusOperator<Matrix> {
     Double[][] data
     
     visible Bool isSquare => cols == rows
@@ -135,6 +136,9 @@ class Matrix implements MultiplyOperator<Matrix> {
         return result
     }
     
+    public plus(Matrix other) => add(other, false)
+    public plus(Matrix other, Bool allowUnequalDimensions) => add(other, allowUnequalDimensions)
+    
     public subtract(Matrix other, Bool allowUnequalDimensions = false) -> Matrix {
         if (!allowUnequalDimensions) checkUnequalDimensions(other)
         
@@ -149,6 +153,9 @@ class Matrix implements MultiplyOperator<Matrix> {
         
         return result
     }
+    
+    public minus(Matrix other) => minus(other, false)
+    public minus(Matrix other, Bool allowUnequalDimensions) => subtract(other, allowUnequalDimensions)
     
     checkUnequalDimensions(Matrix other) {
         if (rows != other.rows || cols != other.cols)
