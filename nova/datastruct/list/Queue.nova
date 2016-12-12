@@ -12,18 +12,8 @@ class Queue<E> implements List<E> {
     public construct() => data = new Array()
     public construct(E[] data) => this.data = data
     
-    public dequeue() -> E {
-        let element = data[0]
-        
-        data.remove(0)
-        
-        return element
-    }
-    
-    public enqueue(E element) => element {
-        data.add(element)
-    }
-    
+    public dequeue() -> E => data.remove(0)
+    public enqueue(E element) => data.add(element)
     public reverse() => new Queue<E>(data.reverse())
     public toString() => "Queue [#{join(", ")}]"
 }
