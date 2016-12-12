@@ -116,6 +116,8 @@ class Array<E> implements List<E> {
         
         shiftLeft(index + 1, position--)
         
+        count = count - 1
+        
         return element
     }
     
@@ -124,6 +126,8 @@ class Array<E> implements List<E> {
         
         if (index >= 0) {
             shiftLeft(index + 1, position--)
+            
+            count = count - 1
             
             return element
         }
