@@ -24,7 +24,7 @@ class Node<E> {
     }
     
     inorder(E[] array) => array {
-        let Int half = Math.ceil(children.count / 2.0)
+        let Int half = children.count - children.count / 2
         
         children.take(half).filter({ _ != null }).forEach({ _.inorder(array) })
         
