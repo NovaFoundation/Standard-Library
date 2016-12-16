@@ -341,7 +341,7 @@ class Array<E> implements List<E> {
     }
     
     [RequireGenericType E extends Comparable]
-    public sort() => mergeSort({ _.compareTo((Comparable)_) })
+    public sort() => mergeSort({ ((Comparable)_).compareTo((Comparable)_) })
     
     public toImmutable() => new ImmutableArray(this)
     
