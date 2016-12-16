@@ -7,7 +7,7 @@ class ReversibleHashMap<K, V> extends HashMap<K, V> {
         rev = new HashMap()
     }
     
-    public add(K key, V value) {
+    public add(K key, V value) => value {
         /*super.add(key, value)
         rev.add(value, key)*/
     }
