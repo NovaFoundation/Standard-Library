@@ -1,6 +1,7 @@
 package "nova/datastruct/list"
 
 import "nova/primitive/number/Integer"
+import "nova/datastruct/Comparable"
 
 [AutoFinal]
 [Immutable "ImmutableArray"]
@@ -306,6 +307,41 @@ class Array<E> implements List<E> {
         
         return array
     }
+    
+    public mergeSort(comparator(E, E) -> Int) -> E[] {
+        let sorted = clone()
+        
+        if (count > 1) {
+            let mid = count / 2
+            let lefthalf = take(mid).mergeSort(comparator)
+            let righthalf = skip(mid).mergeSort(comparator)
+            
+            var Int l = 0
+            var Int r = 0
+            var Int i = 0
+            
+            while (l < lefthalf.count && r < righthalf.count) {
+                if (comparator(lefthalf[l], righthalf[r]) < 1) {
+                    sorted[i++] = lefthalf[l++]
+                } else {
+                    sorted[i++] = righthalf[r++]
+                }
+            }
+            
+            while (l < lefthalf.count) {
+                sorted[i++] = lefthalf[l++]
+            }
+            
+            while (r < righthalf.count) {
+                sorted[i++] = righthalf[r++]
+            }
+        }
+        
+        return sorted
+    }
+    
+    [RequireGenericType E extends Comparable]
+    public sort() => mergeSort({ _.compareTo((Comparable)_) })
     
     public toImmutable() => new ImmutableArray(this)
     
