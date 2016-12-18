@@ -6,7 +6,7 @@ import "nova/exception/InvalidArgumentException"
 import "nova/exception/InvalidOperationException"
 
 [AutoFinal]
-class Matrix implements MultiplyOperator<Matrix>, PlusOperator<Matrix> {
+class Matrix implements MultiplyOperator<Matrix, Matrix>, PlusOperator<Matrix> {
     Double[][] data
     
     visible Bool isSquare => cols == rows
