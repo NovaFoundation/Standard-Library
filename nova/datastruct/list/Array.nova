@@ -340,8 +340,43 @@ class Array<E> implements List<E> {
         return sorted
     }
     
+    public quickSort(comparator(E, E) -> Int) => quickSortHelper(clone(), 0, count - 1, comparator)
+    
+    static quickSortHelper(E[] list, Int first, Int last, comparator(E, E) -> Int) => list {
+        if (first < last) {
+            let mid = partition(list, first, last, comparator)
+            
+            quickSortHelper(list, first, mid - 1, comparator)
+            quickSortHelper(list, mid + 1, last, comparator)
+        }
+    }
+    
+    static partition(E[] list, Int first, Int last, comparator(E, E) -> Int) -> Int {
+        let pivot = list[first]
+        
+        var l = first + 1
+        var r = last
+        
+        while (l <= r) {
+            while (l <= r && comparator(list[l], pivot) <= 0) l++
+            while (l <= r && comparator(list[r], pivot) >= 0) r--
+            
+            if (l <= r) list.swap(l, r)
+        }
+        
+        list.swap(first, r)
+        
+        return r
+    }
+    
     [RequireGenericType E extends Comparable]
-    public sort() => mergeSort({ ((Comparable)_).compareTo((Comparable)_) })
+    public mergeSort() => mergeSort({ ((Comparable)_).compareTo((Comparable)_) })
+    
+    [RequireGenericType E extends Comparable]
+    public quickSort() => quickSort({ ((Comparable)_).compareTo((Comparable)_) })
+    
+    [RequireGenericType E extends Comparable]
+    public sort() => mergeSort()
     
     public toImmutable() => new ImmutableArray(this)
     
