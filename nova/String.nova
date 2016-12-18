@@ -102,8 +102,6 @@ immutable class String implements Comparable<String>, PlusOperator<String>, Equa
         var data2 = str.chars.data
         
         if (this.class.isOfType(Substring)) {
-            var sub = (Substring)this
-            
             external c {
                 char* c = malloc(#{count});
                 
@@ -113,8 +111,6 @@ immutable class String implements Comparable<String>, PlusOperator<String>, Equa
             }
         }
         if (str.class.isOfType(Substring)) {
-            var sub = (Substring)str
-            
             external c {
                 char* c = malloc(#{str.count});
                 
