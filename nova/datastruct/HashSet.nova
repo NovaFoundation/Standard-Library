@@ -29,10 +29,8 @@ class HashSet<T> implements List<T> {
     public all(func(T) -> Bool) -> Bool => true {
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v) {
-                    if (!func(v)) {
-                        return false
-                    }
+                if (v && !func(v)) {
+                    return false
                 }
             }
         }
@@ -63,10 +61,8 @@ class HashSet<T> implements List<T> {
         
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v) {
-                    if (func(v, i++, this)) {
-                        array.add(v)
-                    }
+                if (v && func(v, i++, this)) {
+                    array.add(v)
                 }
             }
         }
