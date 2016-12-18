@@ -2,10 +2,12 @@ package "nova/datastruct/list"
 
 import "nova/primitive/number/Integer"
 import "nova/datastruct/Comparable"
+import "nova/operators/PlusOperator"
+import "nova/operators/PlusEqualsOperator"
 
 [AutoFinal]
 [Immutable "ImmutableArray"]
-class Array<E> implements List<E> {
+class Array<E> implements List<E>, PlusOperator<Array<E>>, PlusEqualsOperator<Array<E>> {
     pure external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
     
     visible var Int capacity
@@ -71,6 +73,12 @@ class Array<E> implements List<E> {
             add(value)
         }
     }
+    
+    [Override]
+    public plus(E[] other) => clone().plusEquals(other)
+    
+    [Override]
+    public plusEquals(E[] other) => addAll(other)
 
     public addAll(E[] data) => this {
         for (d in data) {
