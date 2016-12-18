@@ -321,16 +321,10 @@ immutable class String implements Comparable<String>,
         return new String(newData)
     }
 
-    public getStringBetween(String before, String after, Int start = 0) -> String {
-        Int s = indexOf(before, start)
-        Int e = indexOf(after, s + 1)
-
-        if (s >= 0 && e > 0) {
-            return substring(s + before.count, e)
-        }
-
-        return ""
-    }
+    public getStringBetween(String before, String after, Int start = 0) =>
+        (let s = indexOf(before, start)) >= 0 &&
+        (let e = indexOf(after, s + 1)) > 0 ?
+            substring(s + before.count, e) : null
 
     public surroundWith(String str, Bool symmetrical = false) =>
         "#{str}#{this}#{symmetrical ? new String(str.chars.reverse()) : str}"
