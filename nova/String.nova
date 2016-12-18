@@ -5,11 +5,15 @@ import "nova/datastruct/HashSet"
 import "nova/datastruct/list/StringCharArray"
 import "nova/operators/PlusOperator"
 import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
 import "nova/regex/Regex"
 import "nova/regex/Match"
 import "nova/regex/Pattern"
 
-immutable class String implements Comparable<String>, PlusOperator<String>, EqualsOperator<String> {
+immutable class String implements Comparable<String>,
+                                  PlusOperator<String>,
+                                  EqualsOperator<String>,
+                                  MultiplyOperator<Int, String> {
     visible Int count
     
     visible StringCharArray chars
@@ -139,7 +143,11 @@ immutable class String implements Comparable<String>, PlusOperator<String>, Equa
         }
     }
     
+    [Override]
     public plus(String another) => concat(another)
+    
+    [Override]
+    public multiply(Int times) => repeat(times)
     
     public repeat(Int times) =>
         new String[times].map({ this }).join()
