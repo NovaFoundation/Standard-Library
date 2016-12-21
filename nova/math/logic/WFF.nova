@@ -49,7 +49,7 @@ class WFF {
             return null
         }
         
-        if (wff.lastChar() == ')') {
+        if (wff.chars.last == ')') {
             Int first = findEndingMatch(wff, '(', ')', wff.count - 1, -1)
             
             

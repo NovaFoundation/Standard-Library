@@ -306,7 +306,6 @@ immutable class String implements Comparable<String>,
         return start > end ? "" : substring(start, end + 1)
     }
     
-    public lastChar() => count > 0 ? chars[count - 1] : (Char)0
     public toLowerCase() => transform(Char.toLowerCase)
     public toUpperCase() => transform(Char.toUpperCase)
     public capitalize() => count > 0 ? chars[0].toUpperCase() + substring(1) : this
