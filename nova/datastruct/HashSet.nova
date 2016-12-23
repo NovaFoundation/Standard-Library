@@ -38,9 +38,9 @@ class HashSet<T> implements List<T> {
 
     [Override]
     public map<Out>(func(T, Int, HashSet<T>) -> Out) -> Out[] {
-        Out[] array = new Array()
+        let array = new Out[]
         
-        Int i = 0
+        var Int i = 0
         
         for (bucket in buckets) {
             for (v in bucket) {
@@ -55,9 +55,9 @@ class HashSet<T> implements List<T> {
 
     [Override]
     public filter(func(T, Int, HashSet<T>) -> Bool) -> T[] {
-        T[] array = new Array()
+        let array = new T[]
         
-        Int i = 0
+        var Int i = 0
         
         for (bucket in buckets) {
             for (v in bucket) {
@@ -72,9 +72,9 @@ class HashSet<T> implements List<T> {
 
     [Override]
     public join(String delimiter) -> String {
-        Int i = 0
+        var Int i = 0
 
-        String output = ""
+        var output = ""
 
         for (bucket in buckets) {
             for (v in bucket) {
@@ -91,23 +91,16 @@ class HashSet<T> implements List<T> {
         return output
     }
 
-    [Override]
-    public skip(Int num) => map({ _ }).skip(num)
-
-    [Override]
-    public take(Int num) => map({ _ }).take(num)
-
-    [Override]
-    public reverse() => map({ _ }).reverse()
+    [Override] public skip(Int num) => map({ _ }).skip(num)
+    [Override] public take(Int num) => map({ _ }).take(num)
+    [Override] public reverse() => map({ _ }).reverse()
 
     [Override]
     public firstWhere(func(T) -> Bool) -> T => null {
         for (bucket in buckets) {
             for (v in bucket) {
-                if (v) {
-                    if (func(v)) {
-                        return v
-                    }
+                if (v && func(v)) {
+                    return v
                 }
             }
         }
