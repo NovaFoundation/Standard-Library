@@ -2,5 +2,5 @@ package "nova/meta"
 
 [AutoFinal]
 immutable class Type {
-    public construct(visible String value, visible ImmutableArray<GenericArgument> genericArguments) {}
+    public construct(visible String value, visible immutable GenericArgument[] genericArguments) {}
 }
