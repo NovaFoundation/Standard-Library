@@ -2,7 +2,5 @@ package "nova/meta"
 
 [AutoFinal]
 immutable class Field {
-    visible String name
-    
-    visible Type type
+    public construct(visible String name, visible Type type) {}
 }
