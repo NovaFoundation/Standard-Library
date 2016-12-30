@@ -1,4 +1,3 @@
-#include <precompiled.h>
 #include "NativeDate.h"
 
 struct tm *timeObj;

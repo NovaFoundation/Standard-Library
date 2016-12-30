@@ -1,6 +1,8 @@
 #ifndef NATIVE_DATE
 #define NATIVE_DATE
 
+#include <Nova.h>
+
 void nova_updateTime();
 int nova_getMonth();
 int nova_getDay();

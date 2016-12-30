@@ -1,4 +1,3 @@
-#include <precompiled.h>
 #include "NativeTime.h"
 
 long_long currentTimeMillis()

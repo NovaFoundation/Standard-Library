@@ -3,6 +3,7 @@
 #define NATIVE_NOVA_THREAD
 
 #include <time.h>
+#include <Nova.h>
 
 #ifdef USE_GC
 #	undef GC_NO_THREAD_DECLS
