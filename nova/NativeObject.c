@@ -1,4 +1,3 @@
-#include <precompiled.h>
 #include "NativeObject.h"
 
 char* hashCode(nova_Nova_Object* obj)

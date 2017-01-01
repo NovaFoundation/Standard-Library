@@ -1,4 +1,3 @@
-#include <precompiled.h>
 #include "NativeDBConnector.h"
 
 MYSQL* nova_db_init()
