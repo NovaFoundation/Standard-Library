@@ -38,4 +38,8 @@ immutable class Object implements EqualsOperator {
     //     "#this.class.name {" +
     //     writeFields() +
     //     "}"
+
+    // public hey() {
+    //     Console.writeLine("HEY  from obj")
+    // }
 }

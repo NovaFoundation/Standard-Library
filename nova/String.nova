@@ -10,6 +10,7 @@ import "nova/regex/Regex"
 import "nova/regex/Match"
 import "nova/regex/Pattern"
 
+[AutoFinal]
 immutable class String implements Comparable<String>,
                                   PlusOperator<String>,
                                   EqualsOperator<String>,
@@ -155,9 +156,8 @@ immutable class String implements Comparable<String>,
     public equals(String other) => other && count == other.count && compareTo(other) == 0
     
     public replace(Pattern pattern, String replace) -> String {
-    	String output = this
-    	
-        Int offset = 0
+        var output = this
+        var Int offset = 0
         
         Regex.getMatches(pattern.pattern, this).forEach(match -> {
         	output = output.substring(0, match.start + offset) + replace + output.substring(match.end + offset)
@@ -168,9 +168,8 @@ immutable class String implements Comparable<String>,
     }
     
     public replace(String search, String replace) -> String {
-        String output = this
-
-        Int index = 0
+        var output = this
+        var Int index = 0
 
         while ((index = output.indexOf(search)) >= 0) {
             output = output.substring(0, index) + replace + output.substring(index + search.count)
@@ -212,12 +211,11 @@ immutable class String implements Comparable<String>,
     public indexOf(Char search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) =>
     	indexOf("#search", start, direction, defaultReturnValue)
     public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
-        Int i = start
+        var i = start
 
         while (i < count && i >= 0) {
-            Bool found = true
-
-            Int j = 0
+            var found = true
+            var Int j = 0
 
             while (j < search.count && i + j < count && found) {
                 if (search.chars[j] != chars[i + j]) {
@@ -299,7 +297,7 @@ immutable class String implements Comparable<String>,
             substring(count, this.count - count).trim() :
             substring(count, this.count - count)
     
-    public trim(Int start = 0, Int end = count - 1, Char[] charsToTrim = WHITESPACE) -> String {
+    public trim(var Int start = 0, var Int end = count - 1, Char[] charsToTrim = WHITESPACE) -> String {
         while (start <= end && charsToTrim.contains(chars[start])) start++
         while (end >= start && charsToTrim.contains(chars[end])) end--
         
