@@ -2,9 +2,6 @@
 #ifndef NATIVE_NOVA_THREAD
 #define NATIVE_NOVA_THREAD
 
-#include <time.h>
-#include <Nova.h>
-
 #ifdef USE_GC
 #	undef GC_NO_THREAD_DECLS
 #endif
@@ -37,6 +34,9 @@
 #		define new_thread_method pthread_create
 //#	endif
 #endif
+
+#include <time.h>
+#include <Nova.h>
 
 void lib_nova_thread_create(NOVA_THREAD_HANDLE* handle, NOVA_THREAD_FUNC_TYPE func, NOVA_THREAD_FUNC_ARG arg);
 
