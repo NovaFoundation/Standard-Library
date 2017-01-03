@@ -9,6 +9,8 @@ immutable class Class {
     
     visible immutable Field[] fieldList = new Field[0]
     
+    visible FunctionMap functions
+    
     visible Bool isInterface
     
     visible String location
