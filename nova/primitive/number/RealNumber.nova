@@ -1,5 +1,5 @@
 package "nova/primitive/number"
 
-immutable interface RealNumber {
+immutable trait RealNumber {
     
 }

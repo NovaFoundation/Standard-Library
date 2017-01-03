@@ -1,7 +1,7 @@
 package "nova/datastruct/list"
 
 [AutoFinal]
-interface OrderedList<Type> {
+trait OrderedList<Type> {
     public findIndex(condition(Type, Int, OrderedList<Type>) -> Bool, Int defaultReturnValue = -1) -> Bool => defaultReturnValue {
         var Int i = 0
         

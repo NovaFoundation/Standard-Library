@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public interface NotEqualToOperator<E> {
+public trait NotEqualToOperator<E> {
     public notEqualTo(E another) -> Bool
 }

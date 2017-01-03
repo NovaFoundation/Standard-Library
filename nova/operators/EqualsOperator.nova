@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public interface EqualsOperator<E> {
+public trait EqualsOperator<E> {
     public equals(E another) -> Bool
 }

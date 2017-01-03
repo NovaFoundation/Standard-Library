@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public interface PlusOperator<E> {
+public trait PlusOperator<E> {
     public plus(E another) -> E
 }

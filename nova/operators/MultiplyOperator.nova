@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public interface MultiplyOperator<In, Out> {
+public trait MultiplyOperator<In, Out> {
     public multiply(In value) -> Out
 }

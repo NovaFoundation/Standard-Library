@@ -1,5 +1,5 @@
 package "nova/datastruct/list"
 
-public interface Iterable<E> {
+public trait Iterable<E> {
     visible Iterator<E> iterator
 }
