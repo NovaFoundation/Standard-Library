@@ -1,0 +1,52 @@
+package "nova/meta"
+
+import "nova/meta/Field"
+
+[AutoFinal]
+immutable class Class {
+    visible Class extension
+    visible immutable Class[] interfaces
+    
+    visible immutable Field[] fieldList = new Field[0]
+    
+    visible Bool isInterface
+    
+    visible String location
+    visible String package => location.substring(0, location.lastIndexOf("/", defaultReturnValue: 0))
+    visible String name => location.substring(location.lastIndexOf("/") + 1)
+    
+    visible static immutable Class[] ALL
+    
+    public construct(visible String location, visible Bool isInterface) {}
+    
+    public pure isOfType(Class other) =>
+        other.isInterface ?
+            isOfTypeInterface(other) :
+            isOfTypeClass(other)
+    
+    pure isOfTypeClass(Class other) => false {
+        var current = this
+        
+        while (current) {
+            if (current == other) {
+                return true
+            }
+            
+            current = current.extension
+        }
+    }
+    
+    pure isOfTypeInterface(Class other) => false {
+        var current = this
+        
+        while (current) {
+            if (current.interfaces.any({ _ == other })) {
+                return true
+            }
+            
+            current = current.extension
+        }
+    }
+    
+    public toString() => "Class \"#location\""
+}
