@@ -7,7 +7,7 @@ immutable class Class {
     visible Class extension
     visible immutable Class[] interfaces
     
-    visible immutable Field[] fields = new Field[0]
+    visible immutable Field[] fieldList = new Field[0]
     
     visible Bool isInterface
     
