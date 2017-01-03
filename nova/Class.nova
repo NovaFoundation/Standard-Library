@@ -24,7 +24,7 @@ immutable class Class {
             isOfTypeInterface(other) :
             isOfTypeClass(other)
     
-    pure isOfTypeClass(Class other) -> Bool {
+    pure isOfTypeClass(Class other) => false {
         var current = this
         
         while (current) {
@@ -34,11 +34,9 @@ immutable class Class {
             
             current = current.extension
         }
-        
-        return false
     }
     
-    pure isOfTypeInterface(Class other) -> Bool {
+    pure isOfTypeInterface(Class other) => false {
         var current = this
         
         while (current) {
@@ -48,8 +46,6 @@ immutable class Class {
             
             current = current.extension
         }
-        
-        return false
     }
     
     public toString() => "Class \"#location\""
