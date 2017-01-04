@@ -183,8 +183,8 @@ immutable class String implements Comparable<String>,
     public startsWith(Pattern search) => indexOf(search) == 0
     public contains(String search) => indexOf(search) >= 0
     public contains(Pattern search) => indexOf(search) >= 0
-    public endsWith(String search) => count > 0 && indexOf(search) == count - search.count - 1
-    public endsWith(Pattern search) => count > 0 && indexOf(search) == count - search.pattern.count - 1
+    public endsWith(String search) => count > 0 && indexOf(search) == count - search.count
+    public endsWith(Pattern search) => count > 0 && indexOf(search) == count - search.pattern.count
     public matches(Pattern pattern) -> Bool {
     	var matches = Regex.getMatches(pattern, this)
     	
@@ -279,6 +279,9 @@ immutable class String implements Comparable<String>,
         
         return new Substring(this, start, end)
     }
+    
+    public trimStart(Int count) => substring(count)
+    public trimEnd(Int count) => substring(end: this.count - count)
     
     /// Trim the front and back end of the string by the given number
     /// of characters.
