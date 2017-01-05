@@ -64,7 +64,7 @@ trait List<Type> implements Iterable<Type> {
         return !contradiction
     }
     
-    public filter(filterFunc(Type, Int, List<E>) -> Bool) -> List<Type> {
+    public filter(filterFunc(Type, Int, List<Type>) -> Bool) -> List<Type> {
         let list = new Type[]
         
         var Int i = 0
@@ -77,6 +77,8 @@ trait List<Type> implements Iterable<Type> {
         
         return list
     }
+    
+    public filterNull() => filter({ _ != null })
     
     [RequireGenericType Type extends String]
     public pure filterEmpty() -> List<String> {
