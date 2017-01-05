@@ -15,7 +15,7 @@ immutable class Object implements EqualsOperator {
     public String hashCode => new String(hashCode(this))
     
     [Target not c]
-    public String hashCode => new String("No hashcode available")
+    public String hashCode => "No hashcode available"
     
     public Long hashCodeLong => strtol(hashCode(this), NULL, 16)
     
