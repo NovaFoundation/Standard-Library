@@ -24,13 +24,13 @@ immutable class Object implements EqualsOperator {
     
     // writeFields() =>
     //     this.class.getFields(true).count > 0 ?
-    //         this.class.getFields(true).map(f -> {
+    //         this.class.getFields(true).map(f => {
     //             "\n#f.name = #f.getValue(this)"
     //         }) + "\n" :
     //         ""
         
     // writeFunctions() =>
-    //     this.class.functions.map(f -> {
+    //     this.class.functions.map(f => {
     //         "\n#f"
     //     })
     

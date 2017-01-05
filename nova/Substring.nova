@@ -11,7 +11,7 @@ class Substring extends String {
     visible Int start
     visible Int end => start + count
     
-    public Long hashCodeLong => chars.skip(start).take(count).reduce((v, c) -> 31 * v + (Int)c, 0)
+    public Long hashCodeLong => chars.skip(start).take(count).reduce((v, c) => 31 * v + (Int)c, 0)
     
     public construct(String source, Int start, Int end) {
         this.source = source

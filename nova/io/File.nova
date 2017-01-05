@@ -110,13 +110,13 @@ class File {
     public getChildFiles(Bool recursive = false, Bool includeHidden = false) -> File[] {
         var list = files
         
-        var directories = list.filter(file -> { file.isDirectory && (includeHidden || !file.isHidden) && file.name != "." && file.name != ".." })
+        var directories = list.filter(file => { file.isDirectory && (includeHidden || !file.isHidden) && file.name != "." && file.name != ".." })
         
         if (recursive) {
             directories.forEach({ list.addAll(_.getChildFiles(recursive: true)) })
         }
         
-        return list.filter(file -> { !file.isDirectory && (includeHidden || !file.isHidden) })
+        return list.filter(file => { !file.isDirectory && (includeHidden || !file.isHidden) })
     }
     
     public toString() => "{File \"#location\"}"

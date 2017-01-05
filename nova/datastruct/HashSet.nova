@@ -125,7 +125,7 @@ class HashSet<T> implements List<T> {
         getBucket(value).add(value)
     }
     
-    public get(T value) => getBucket(value).firstWhere(x -> { x && x.equals(value) })
+    public get(T value) => getBucket(value).firstWhere(x => { x && x.equals(value) })
     
     public remove(T value) -> T => null {
         T[] bucket = getBucket(value)

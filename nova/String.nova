@@ -159,7 +159,7 @@ immutable class String implements Comparable<String>,
         var output = this
         var Int offset = 0
         
-        Regex.getMatches(pattern.pattern, this).forEach(match -> {
+        Regex.getMatches(pattern.pattern, this).forEach(match => {
         	output = output.substring(0, match.start + offset) + replace + output.substring(match.end + offset)
         	offset += replace.count - match.count
         })
@@ -346,7 +346,7 @@ immutable class String implements Comparable<String>,
     	
     	Int start = 0
     	
-    	Regex.getMatches(regex.pattern, this).forEach(match -> {
+    	Regex.getMatches(regex.pattern, this).forEach(match => {
     		strs.add(substring(start, match.start))
     		
     		start = match.end

@@ -168,16 +168,16 @@ class Matrix implements MultiplyOperator<Matrix, Matrix>, PlusOperator<Matrix> {
                                                 matrix with dimensions #{other.rows}x#{other.cols}. #cols != #other.rows")
         
         /*return new Matrix(
-            transpose().data.map((outRow, outR) -> {
-                return other.data.map((row, r) -> {
+            transpose().data.map((outRow, outR) => {
+                return other.data.map((row, r) => {
                     outR
                 })
             }))*/
         
         let result = new Matrix(rows, other.cols)
         
-        result.data.forEach((outRow, outR) -> {
-            data.forEach((row, r) -> {
+        result.data.forEach((outRow, outR) => {
+            data.forEach((row, r) => {
                 for (c in 0..cols) {
                     result[r][outR] += row[c] * other[c][outR]
                 }
@@ -190,7 +190,7 @@ class Matrix implements MultiplyOperator<Matrix, Matrix>, PlusOperator<Matrix> {
     public transpose() -> Matrix {
         let result = new Matrix(cols, rows)
         
-        data.forEach((row, r) -> {
+        data.forEach((row, r) => {
             for (c in 0..cols) {
                 result[c][r] = row[c]
             }

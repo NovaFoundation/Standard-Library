@@ -210,6 +210,6 @@ trait List<Type> implements Iterable<Type> {
     }
     
     public join(String delimiter = "") =>
-        reduce((str, e, i) -> str + (i > 0 ? delimiter : "") + e, "")
+        reduce((str, e, i) => str + (i > 0 ? delimiter : "") + e, "")
         //reduce({ _value + (_index > 0 ? delimiter : "") + _element })
 }

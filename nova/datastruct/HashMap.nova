@@ -32,7 +32,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     public construct(HashMap<K, V> source, Int bucketCount = 5, private Int bucketSize = 5) {
         this(bucketCount, bucketSize)
         
-        source.forEach(pair -> {
+        source.forEach(pair => {
             add(pair.key, pair.value)
         })
     }
@@ -164,7 +164,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
     }
     
     getBucket(K key) => buckets[(Int)(key.hashCodeLong & (buckets.count - 1))]
-    getPair(K key) => getBucket(key).filter(x -> x && x.key.equals(key)).first
+    getPair(K key) => getBucket(key).filter(x => x && x.key.equals(key)).first
     
     public remove(K key) -> V => null {
         if (!key) return null

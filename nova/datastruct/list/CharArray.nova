@@ -26,7 +26,7 @@ class CharArray extends Array<Char> {
         }
     }
     
-    public Long hashCodeLong => reduce((v, c) -> 31 * v + (Int)c, 0)
+    public Long hashCodeLong => reduce((v, c) => 31 * v + (Int)c, 0)
     
     this[Int index] <=> (([Native] Char[])data)[index]
     
