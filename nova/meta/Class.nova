@@ -3,7 +3,7 @@ package "nova/meta"
 import "nova/meta/Field"
 
 [AutoFinal]
-immutable class Class {
+immutable class Class<Type> {
     visible Class extension
     visible immutable Class[] interfaces
     
