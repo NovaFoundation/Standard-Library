@@ -218,4 +218,8 @@ trait List<Type> implements Iterable<Type> {
     public stitch(String delimiter = "") =>
         reduce((str, e) => str + delimiter + e, "")
     
+    public toEnglish(String conjunction, Bool oxford = true) =>
+        count > 1 ?
+            take(count - 1).join(", ") + (oxford && count > 2 ? ", " : " ") + "#conjunction " + skip(count - 1).first :
+            "#first"
 }
