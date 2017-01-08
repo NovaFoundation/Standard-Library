@@ -3,7 +3,7 @@ package "nova"
 import "nova/NativeObject.h"
 import "nova/operators/EqualsOperator"
 
-immutable class Object implements EqualsOperator {
+immutable class Object {//} implements EqualsOperator {
     external char[] hashCode(Object obj)
     /*char** endptr*/
 
@@ -19,7 +19,7 @@ immutable class Object implements EqualsOperator {
     
     public Long hashCodeLong => strtol(hashCode(this), NULL, 16)
     
-    public equals(Object another) => this == another
+    // public equals(Object another) => this == another
     public toString() => "{#this.class.name @#hashCode}"
     
     // writeFields() =>
