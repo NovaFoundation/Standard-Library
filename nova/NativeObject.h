@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <nova/nova_Nova_Object.h>
+#include <Nova.h>
 
 char* hashCode(nova_Nova_Object* obj);
 

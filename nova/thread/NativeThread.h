@@ -44,8 +44,9 @@ void lib_nova_thread_create(NOVA_THREAD_HANDLE* handle, NOVA_THREAD_FUNC_TYPE fu
 void thread_nanosleep(long_long nanos);
 #endif
 
-#include <nova/thread/nova_thread_Nova_Thread.h>
-#include <nova/exception/nova_exception_Nova_ExceptionData.h>
+//#include <nova/thread/nova_thread_Nova_Thread.h>
+//#include <nova/exception/nova_exception_Nova_ExceptionData.h>
+#include <Nova.h>
 
 typedef struct DataStruct DataStruct;
 
