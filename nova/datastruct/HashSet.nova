@@ -1,8 +1,9 @@
 package "nova/datastruct"
 
 import "nova/datastruct/list/List"
+import "nova/operators/EqualsOperator"
 
-class HashSet<T> implements List<T> {
+class HashSet<T extends EqualsOperator> implements List<T> {
     T[][] buckets
     
     visible Int size

@@ -1,8 +1,9 @@
 package "nova/datastruct"
 
 import "nova/datastruct/list/List"
+import "nova/operators/EqualsOperator"
 
-immutable class ImmutableHashMap<K, V> implements List<Pair<K, V>> {
+immutable class ImmutableHashMap<K extends EqualsOperator, V> implements List<Pair<K, V>> {
     HashMap<K, V> map
     
     visible Int count => map.count

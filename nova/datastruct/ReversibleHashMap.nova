@@ -1,6 +1,8 @@
 package "nova/datastruct"
 
-class ReversibleHashMap<K, V> extends HashMap<K, V> {
+import "nova/operators/EqualsOperator"
+
+class ReversibleHashMap<K extends EqualsOperator, V extends EqualsOperator> extends HashMap<K, V> {
     HashMap<V, K> rev
     
     public construct() {

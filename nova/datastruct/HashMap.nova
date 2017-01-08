@@ -1,10 +1,11 @@
 package "nova/datastruct"
 
 import "nova/datastruct/list/List"
+import "nova/operators/EqualsOperator"
 
 [AutoFinal]
 [Immutable "ImmutableHashMap"]
-class HashMap<K, V> implements List<Pair<K, V>> {
+class HashMap<K extends EqualsOperator, V> implements List<Pair<K, V>> {
     Pair<K, V>[][] buckets
     
     visible var Int count
@@ -174,7 +175,7 @@ class HashMap<K, V> implements List<Pair<K, V>> {
         var Int i = 0
         
         for (pair in bucket) {
-            if (pair && pair.key.equals(key)) {
+            if (pair && ((EqualsOperator)pair.key).equals(key)) {
                 bucket.remove(i)
                 count--
                 
