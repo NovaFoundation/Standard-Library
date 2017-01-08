@@ -6,6 +6,8 @@ import "nova/operators/EqualsOperator"
 immutable class Object {//} implements EqualsOperator {
     external char[] hashCode(Object obj)
     /*char** endptr*/
+    
+    public static default() => null
 
     external char* NULL
 
