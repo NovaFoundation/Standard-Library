@@ -2,6 +2,7 @@
 #define NATIVE_NOVA_FILE
 
 #include <stdio.h>
+#include <tinydir.h>
 
 #ifdef __APPLE__
 #include <sys/resource.h>
