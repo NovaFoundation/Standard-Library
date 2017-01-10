@@ -1,6 +1,6 @@
 package "nova/io"
 
-class FileReader extends InputStream {
+class FileReader implements InputStream {
     external type FILE
     
     FILE* fp

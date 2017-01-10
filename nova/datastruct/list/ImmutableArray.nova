@@ -4,7 +4,7 @@ import "nova/primitive/number/Integer"
 
 //[Mutable "Array"]
 [AutoFinal]
-immutable class ImmutableArray<E> extends List<E> {
+immutable class ImmutableArray<E> implements List<E> {
     E[] array
     
     visible pure Int count <=> count
