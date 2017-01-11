@@ -22,7 +22,6 @@ class FileReader implements InputStream {
     
     visible Bool isOpen => fp != 0
     
-    public readString() => readLine()
     public readBytes() => null
     
     visible File file
@@ -90,13 +89,30 @@ class FileReader implements InputStream {
     public readLine() -> String {
         Int bufferSize = 80
         
-        [Native]
-        Char[] line = new Char[bufferSize]
+        native Char[] line = new Char[bufferSize]
         
         external c {
             if ((#{bufferSize} = nova_getline(&#{line}, &#{bufferSize}, #{fp})) == -1)
             {
-                return (nova_Nova_String*)nova_null;
+                #{return null};
+            }
+            
+            #{line} = realloc(#{line}, #{bufferSize});
+            #{line}[#{bufferSize} - 1] = '\0';
+        }
+        
+        return new String(line, bufferSize - 1)
+    }
+    
+    public readString() -> String {
+        Int bufferSize = 80
+        
+        native Char[] line = new Char[bufferSize]
+        
+        external c {
+            if ((#{bufferSize} = nova_read(&#{line}, &#{bufferSize}, #{fp})) == -1)
+            {
+                #{return null};
             }
             
             #{line} = realloc(#{line}, #{bufferSize});
