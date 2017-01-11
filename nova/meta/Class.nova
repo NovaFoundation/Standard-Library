@@ -10,6 +10,7 @@ immutable class Class<Type> {
     visible immutable Field[] fields = new Field[0]
     
     visible FunctionMap functionMap
+    visible PropertyMap propertyMap
     
     visible Bool isInterface
     
