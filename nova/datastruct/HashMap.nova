@@ -69,14 +69,22 @@ class HashMap<K extends EqualsOperator, V> implements List<Pair<K, V>> {
     }
     
     [Override]
-    public all(func(Pair<K, V>) -> Bool) => true {
+    public all(func(Pair<K, V>) -> Bool, Bool stopOnContradiction = true) -> Bool {
+        var contradiction = false
+        
         for (bucket in buckets) {
             for (pair in bucket) {
                 if (pair && !func(pair)) {
-                    return false
+                    if (stopOnContradiction) {
+                        return false
+                    }
+                    
+                    contradiction = true
                 }
             }
         }
+        
+        return !contradiction
     }
     
     [Override]

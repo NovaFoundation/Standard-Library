@@ -124,14 +124,20 @@ public class LinkedList<E> implements List<E>
 	}
 
 	[Override]
-	public all(allFunc(E) -> Bool) -> Bool {
+	public all(allFunc(E) -> Bool, Bool stopOnContradiction = true) -> Bool {
+		var contradiction = false
+		
 		for (element in this) {
 			if (!allFunc(element)) {
-				return false
+				if (stopOnContradiction) {
+					return false
+				}
+				
+				contradiction = true
 			}
 		}
 
-		return true
+		return !contradiction
 	}
 
 	[Override]

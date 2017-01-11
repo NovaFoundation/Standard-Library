@@ -88,14 +88,20 @@ class DoubleArray extends Array<Double> {
     }
     
     [Override]
-    public all(allFunc(Double) -> Bool) -> Bool {
+    public all(allFunc(Double) -> Bool, Bool stopOnContradiction = true) -> Bool {
+        var contradiction = false
+        
         for (element in this) {
             if (!allFunc(element)) {
-                return false
+                if (stopOnContradiction) {
+                    return false
+                }
+                
+                contradiction = true
             }
         }
         
-        return true
+        return !contradiction
     }
     
     [Override]

@@ -27,14 +27,22 @@ class HashSet<T extends EqualsOperator> implements List<T> {
     }
 
     [Override]
-    public all(func(T) -> Bool) -> Bool => true {
+    public all(func(T) -> Bool, Bool stopOnContradiction = true) -> Bool {
+        var contradiction = false
+        
         for (bucket in buckets) {
             for (v in bucket) {
                 if (v && !func(v)) {
-                    return false
+                    if (stopOnContradiction) {
+                        return false
+                    }
+                    
+                    contradiction = true
                 }
             }
         }
+        
+        return !contradiction
     }
 
     [Override]
