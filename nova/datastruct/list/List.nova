@@ -21,10 +21,12 @@ trait List<Type> implements Iterable<Type> {
         return array
     }
     
-    public contains(Type value) => any({ _ == value })
+    public contains(Type value) => any(x => {
+        value.class.isOfType(EqualsOperator) && x.class.isOfType(EqualsOperator) ? ((EqualsOperator)x).equals((EqualsOperator)value) : x == value
+    })
     
-    [RequireGenericType Type implements EqualsOperator]
-    public contains(EqualsOperator value) => any({ ((EqualsOperator)_) == value })
+    // [RequireGenericType Type implements EqualsOperator]
+    // public contains(EqualsOperator value) => any({ ((EqualsOperator)_) == value })
     
     public forEach(func(Type, Int, List<Type>)) => this {
         var Int i = 0
