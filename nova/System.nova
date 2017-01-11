@@ -54,4 +54,9 @@ immutable class System {
         
         return new Process(new FileReader(pipe))
     }
+    
+    public static execute(String[] arguments) =>
+        execute(arguments.map(arg => {
+            arg.contains(/[ &]/) ? "\"#arg\"" : arg
+        }).join(" "))
 }
