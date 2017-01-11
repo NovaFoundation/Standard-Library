@@ -43,7 +43,7 @@ immutable class Class<Type> {
         var current = this
         
         while (current) {
-            if (current.interfaces.any({ _ == other })) {
+            if (current.interfaces.any(i => { i == other || i.isOfTypeInterface(other) })) {
                 return true
             }
             
