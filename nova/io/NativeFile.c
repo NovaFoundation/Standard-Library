@@ -49,96 +49,97 @@ int getMaxOpenFiles()
    should check feof(), if not then errno has been set to indicate
    the error.  */
 
-int nova_getstr (char** lineptr, size_t* n, FILE* stream, char terminator, int offset)
+int nova_getstr(char** lineptr, size_t* n, FILE* stream, char terminator, int offset)
 {
-  int nchars_avail;		/* Allocated but unused chars in *LINEPTR.  */
-  char *read_pos;		/* Where we're reading into *LINEPTR. */
-  int ret;
+    int nchars_avail; /* Allocated but unused chars in *LINEPTR.  */
+    char *read_pos;   /* Where we're reading into *LINEPTR. */
 
-  if (!lineptr || !n || !stream)
-    {
-      errno = EINVAL;
-      return -1;
+    if (!lineptr || !n || !stream) {
+        errno = EINVAL;
+        return -1;
     }
 
-  if (!*lineptr)
-    {
-      *n = MIN_CHUNK;
-      *lineptr = malloc (*n);
-      if (!*lineptr)
-	{
-	  errno = ENOMEM;
-	  return -1;
-	}
+    if (!*lineptr) {
+        *n = MIN_CHUNK;
+        *lineptr = malloc(*n);
+        if (!*lineptr) {
+            errno = ENOMEM;
+            return -1;
+        }
     }
 
-  nchars_avail = *n - offset;
-  read_pos = *lineptr + offset;
+    nchars_avail = *n - offset;
+    read_pos = *lineptr + offset;
 
-  for (;;)
-    {
-      int save_errno;
-      register int c = getc (stream);
+    for (;;) {
+        int save_errno;
+        register int c = getc(stream);
 
-      save_errno = errno;
+        save_errno = errno;
 
-      /* We always want at least one char left in the buffer, since we
-	 always (unless we get an error while reading the first char)
-	 NUL-terminate the line buffer.  */
+        /* We always want at least one char left in the buffer, since we
+           always (unless we get an error while reading the first char)
+           NUL-terminate the line buffer.  */
 
-      assert((*lineptr + *n) == (read_pos + nchars_avail));
-      if (nchars_avail < 2)
-	{
-	  if (*n > MIN_CHUNK)
-	    *n *= 2;
-	  else
-	    *n += MIN_CHUNK;
+        assert((*lineptr + *n) == (read_pos + nchars_avail));
+        
+        if (nchars_avail < 2) {
+            if (*n > MIN_CHUNK)
+                *n *= 2;
+            else
+                *n += MIN_CHUNK;
 
-	  nchars_avail = *n + *lineptr - read_pos;
-	  *lineptr = realloc (*lineptr, *n);
-	  if (!*lineptr)
-	    {
-	      errno = ENOMEM;
-	      return -1;
-	    }
-	  read_pos = *n - nchars_avail + *lineptr;
-	  assert((*lineptr + *n) == (read_pos + nchars_avail));
-	}
+            nchars_avail = *n + *lineptr - read_pos;
+            *lineptr = realloc(*lineptr, *n);
+            
+            if (!*lineptr) {
+                errno = ENOMEM;
+                
+                return -1;
+            }
+            
+            read_pos = *n - nchars_avail + *lineptr;
+            assert((*lineptr + *n) == (read_pos + nchars_avail));
+        }
 
-      if (ferror (stream))
-	{
-	  /* Might like to return partial line, but there is no
-	     place for us to store errno.  And we don't want to just
-	     lose errno.  */
-	  errno = save_errno;
-	  return -1;
-	}
+        if (ferror(stream)) {
+            /* Might like to return partial line, but there is no
+               place for us to store errno.  And we don't want to just
+               lose errno.  */
+            errno = save_errno;
+            return -1;
+        }
 
-      if (c == EOF)
-	{
-	  /* Return partial line, if any.  */
-	  if (read_pos == *lineptr)
-	    return -1;
-	  else
-	    break;
-	}
+        if (c == EOF) {
+        	/* Return partial line, if any.  */
+            if (read_pos == *lineptr) {
+                return -1;
+            } else {
+                break;
+            }
+        }
 
-      *read_pos++ = c;
-      nchars_avail--;
+        *read_pos++ = c;
+        nchars_avail--;
 
-      if (c == terminator)
-	/* Return the line.  */
-	break;
+        if (c == terminator) {
+            /* Return the line.  */
+            break;
+        }
     }
 
-  /* Done - NUL terminate and return the number of chars read.  */
-  *read_pos = '\0';
+    /* Done - NUL terminate and return the number of chars read.  */
+    *read_pos = '\0';
 
-  ret = read_pos - (*lineptr + offset);
-  return ret;
+    return read_pos - (*lineptr + offset);
 }
 
 int nova_getline (char** lineptr, size_t* n, FILE* stream)
 {
-  return nova_getstr (lineptr, n, stream, '\n', 0);
+  return nova_getstr(lineptr, n, stream, '\n', 0);
+}
+
+int nova_read (char** lineptr, size_t* n, FILE* stream)
+{
+  return nova_getstr(lineptr, n, stream, '\0', 0);
 }
