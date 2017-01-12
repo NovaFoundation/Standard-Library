@@ -199,4 +199,6 @@ class HashMap<K extends EqualsOperator, V> implements List<Pair<K, V>> {
     public clone() => new HashMap<K, V>(this)
     
     public toImmutable() => new ImmutableHashMap<K, V>(this)
+    
+    public toString() => this.class.location + " {" + map(p => { p.key + ": " + p.value }).join(", ") + "}"
 }

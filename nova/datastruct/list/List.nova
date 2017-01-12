@@ -231,4 +231,6 @@ trait List<Type> implements Iterable<Type> {
         count > 1 ?
             take(count - 1).join(", ") + (oxford && count > 2 ? ", " : " ") + "#conjunction " + skip(count - 1).first :
             "#first"
+    
+    public toString() => this.class.location + " {" + join(", ") + "}"
 }

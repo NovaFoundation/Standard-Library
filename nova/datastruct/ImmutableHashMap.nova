@@ -32,4 +32,6 @@ immutable class ImmutableHashMap<K extends EqualsOperator, V> implements List<Pa
     [Override] public forEach(func(Pair<K, V>, Int, HashMap<K, V>)) => map.forEach(func)
     
     public containsKey(K key) => map.containsKey(key)
+    
+    public toString() => this.class.location + " {" + map.map(p => { p.key + ": " + p.value }).join(", ") + "}"
 }
