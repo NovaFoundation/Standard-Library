@@ -181,10 +181,15 @@ immutable class String implements Comparable<String>,
     public startsWith(Char search) => indexOf(search) == 0
     public startsWith(String search) => indexOf(search) == 0
     public startsWith(Pattern search) => indexOf(search) == 0
+    
+    public contains(Char search) => indexOf(search) >= 0
     public contains(String search) => indexOf(search) >= 0
     public contains(Pattern search) => indexOf(search) >= 0
+    
+    public endsWith(Char search) => count > 0 && indexOf(search) == count - 1
     public endsWith(String search) => count > 0 && indexOf(search) == count - search.count
     public endsWith(Pattern search) => count > 0 && indexOf(search) == count - search.pattern.count
+    
     public matches(Pattern pattern) -> Bool {
     	var matches = Regex.getMatches(pattern, this)
     	
