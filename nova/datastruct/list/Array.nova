@@ -389,5 +389,5 @@ class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusE
     public toImmutable() => new ImmutableArray(this)
     
     [Override]
-    public toString() => "Array [#{join(", ")}]"
+    public toString() => this.class.location + " [#{join(", ")}]"
 }
