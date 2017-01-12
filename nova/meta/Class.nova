@@ -24,8 +24,8 @@ immutable class Class<Type> {
     
     public pure isOfType(Class other) =>
         other.isInterface ?
-            isOfTypeInterface(other) :
-            isOfTypeClass(other)
+            isOfTypeInterface(other) || extension && extension.isOfType(other) :
+            isOfTypeClass(other) || interfaces.any({ _.isOfTypeClass(other) })
     
     pure isOfTypeClass(Class other) => false {
         var current = this
