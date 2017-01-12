@@ -25,6 +25,8 @@ trait List<Type> implements Iterable<Type> {
         value.class.isOfType(EqualsOperator) && x.class.isOfType(EqualsOperator) ? ((EqualsOperator)x).equals((EqualsOperator)value) : x == value
     })
     
+    public containsAny(List<Type> values) => any({ values.contains(_) })
+    
     // [RequireGenericType Type implements EqualsOperator]
     // public contains(EqualsOperator value) => any({ ((EqualsOperator)_) == value })
     
