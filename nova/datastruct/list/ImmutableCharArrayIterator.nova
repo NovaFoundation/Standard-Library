@@ -1,6 +1,6 @@
 package "nova/datastruct/list"
 
-class ImmutableCharArrayIterator implements Iterator<Char> {
+class ImmutableCharArrayIterator {}/*implements Iterator<Char> {
     visible Int position
     
     visible Bool hasNext => array.count > position
@@ -24,4 +24,4 @@ class ImmutableCharArrayIterator implements Iterator<Char> {
     public reset() => this {
         position = 0
     }
-}
+}*/

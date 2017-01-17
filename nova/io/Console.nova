@@ -39,7 +39,7 @@ class Console {
     public static writeLine(Char c) => writeLine(Char.toString(c))
     
     public static write(String text) {
-        Char[] cText = text.chars
+        let cText = text.chars
         
         [Target c] fwrite(cText.data, 1, text.count, stdout)
         [Target js] writeExternal(cText.data)

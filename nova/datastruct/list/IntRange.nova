@@ -20,7 +20,7 @@ class IntRange implements List<Int> {
     public contains(Int value) => value >= start && value < end
     
     public toArray() -> Int[] {
-        Int[] ints = new IntArray(size)
+        let ints = new Int[size]
         
         Int i = start
         
@@ -67,8 +67,8 @@ class IntRange implements List<Int> {
         }
     }
     
-    public filter(filterFunc(Int, Int, IntRange) -> Bool) -> IntArray {
-        IntArray list = new IntArray()
+    public filter(filterFunc(Int, Int, IntRange) -> Bool) -> Int[] {
+        Int[] list = new Int[]
         
         Int i = 0
         

@@ -106,7 +106,7 @@ class NumericOperation extends NumericOperand<Object> {
     }
     
     static searchNextType(String str, Int start) -> Bounds, Int {
-        Int[] operators = new IntArray()
+        Int[] operators = new Int[]
         
         Int minIndex = Int.MAX_VALUE
         Int minRank  = Int.MIN_VALUE
