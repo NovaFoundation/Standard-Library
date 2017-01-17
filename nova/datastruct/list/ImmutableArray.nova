@@ -60,7 +60,7 @@ immutable class ImmutableArray<E> implements List<E> {
     
     public remove(Int index) -> ImmutableArray<E> {
         let array = this.array.clone()
-        array.add(index)
+        array.remove(index)
         
         return new ImmutableArray(array, false)
     }
