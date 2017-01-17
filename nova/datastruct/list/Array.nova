@@ -303,6 +303,18 @@ class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusE
         return sum
     }
     
+    [RequireGenericType E extends Double]
+    public sum(func(Double, Int, Array<Double>) -> Double) -> Double {
+        Double sum = 0
+        var Int i = 0
+        
+        for (element in this) {
+            sum += func((Double)element, i++, this)
+        }
+        
+        return sum
+    }
+    
     [Override]
     public pure reverse() -> E[] {
         let array = new E[count]
