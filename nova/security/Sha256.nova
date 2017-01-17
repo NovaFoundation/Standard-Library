@@ -14,67 +14,67 @@ class Sha256 {
     public digest(String msg) -> String {
         Long[] hash = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]
         
-        // convert string msg into 512-bit/16-integer blocks arrays of ints [§5.2.1]
-        var l = msg.count / 4 + 2 // length (in 32-bit integers) of msg + ‘1’ + appended length
-        Int n = Math.ceil(l / 16)  // number of 16-integer-blocks required to hold 'l' ints
-        var M = new Int[n][16]
+        // // convert string msg into 512-bit/16-integer blocks arrays of ints [§5.2.1]
+        // var l = msg.count / 4 + 2 // length (in 32-bit integers) of msg + ‘1’ + appended length
+        // Long n = Math.ceil(l / 16)  // number of 16-integer-blocks required to hold 'l' ints
+        // var M = new Long[n][16]
         
-        for (i in 0..n) {
-            for (j in 0..16) { // encode 4 chars per integer, big-endian encoding
-                M[i][j] = (msg[i * 64 + j * 4] << 24) | (msg[i * 64 + j * 4 + 1] << 16) |
-                          (msg[i * 64 + j * 4 + 2] << 8) | (msg[i * 64 + j * 4 + 3])
-            } // note running off the end of msg is ok 'cos bitwise ops on NaN return 0
-        }
+        // for (i in 0..n) {
+        //     for (j in 0..16) { // encode 4 chars per integer, big-endian encoding
+        //         M[i][j] = (msg[i * 64 + j * 4] << 24) | (msg[i * 64 + j * 4 + 1] << 16) |
+        //                   (msg[i * 64 + j * 4 + 2] << 8) | (msg[i * 64 + j * 4 + 3])
+        //     } // note running off the end of msg is ok 'cos bitwise ops on NaN return 0
+        // }
         
-        // add length (in bits) into final pair of 32-bit integers (big-endian) [§5.1.1]
-        // note: most significant word would be (len-1)*8 >>> 32, but since JS converts
-        // bitwise-op args to 32 bits, we need to simulate this by arithmetic operators
-        M[n - 1][14] = Math.floor(((msg.count - 1) * 8) / (Long)Math.pow(2, 32))
-        M[n - 1][15] = ((msg.count - 1) * 8) & 0xffffffff
+        // // add length (in bits) into final pair of 32-bit integers (big-endian) [§5.1.1]
+        // // note: most significant word would be (len-1)*8 >>> 32, but since JS converts
+        // // bitwise-op args to 32 bits, we need to simulate this by arithmetic operators
+        // M[n - 1][14] = Math.floor(((msg.count - 1) * 8) / (Long)Math.pow(2, 32))
+        // M[n - 1][15] = ((msg.count - 1) * 8) & 0xffffffff
         
-        // hashAShash COMPUTATION [§6.1.2]
+        // // hashAShash COMPUTATION [§6.1.2]
         
-        for (i in 0..n) {
-            var W = new Int[64]
+        // for (i in 0..n) {
+        //     var W = new Long[64]
             
-            // 1 - prepare message schedule 'W'
-            for (t in  0..16) W[t] = M[i][t]
-            for (t in 16..64) W[t] = l4(W[t - 2]) + W[t - 7] + l3(W[t - 15]) + W[t - 16]
+        //     // 1 - prepare message schedule 'W'
+        //     for (t in  0..16) W[t] = M[i][t]
+        //     for (t in 16..64) W[t] = l4(W[t - 2]) + W[t - 7] + l3(W[t - 15]) + W[t - 16]
             
-            // 2 - initialise working variables a, b, c, d, e, f, g, h with previous hash value
-            // var a = hash[0]
-            // var b = hash[1]
-            // var c = hash[2]
-            // var d = hash[3]
-            // var e = hash[4]
-            // var f = hash[5]
-            // var g = hash[6]
-            // var h = hash[7]
+        //     // 2 - initialise working variables a, b, c, d, e, f, g, h with previous hash value
+        //     // var a = hash[0]
+        //     // var b = hash[1]
+        //     // var c = hash[2]
+        //     // var d = hash[3]
+        //     // var e = hash[4]
+        //     // var f = hash[5]
+        //     // var g = hash[6]
+        //     // var h = hash[7]
             
-            // // 3 - main loop (note 'addition modulo 2^32')C
-            // for (t in 0..64) {
-            //     var T1 = h + l2(e) + l5(e, f, g) + CONSTANTS[t] + W[t]
-            //     var T2 =     l1(a) + l6(a, b, c)
-            //     h = g
-            //     g = f
-            //     f = e
-            //     e = d + T1
-            //     d = c
-            //     c = b
-            //     b = a
-            //     a = T1 + T2
-            // }
+        //     // // 3 - main loop (note 'addition modulo 2^32')C
+        //     // for (t in 0..64) {
+        //     //     var T1 = h + l2(e) + l5(e, f, g) + CONSTANTS[t] + W[t]
+        //     //     var T2 =     l1(a) + l6(a, b, c)
+        //     //     h = g
+        //     //     g = f
+        //     //     f = e
+        //     //     e = d + T1
+        //     //     d = c
+        //     //     c = b
+        //     //     b = a
+        //     //     a = T1 + T2
+        //     // }
             
-            // // 4 - compute the new intermediate hash value
-            // hash[0] += a
-            // hash[1] += b
-            // hash[2] += c
-            // hash[3] += d
-            // hash[4] += e
-            // hash[5] += f
-            // hash[6] += g
-            // hash[7] += h
-        }
+        //     // // 4 - compute the new intermediate hash value
+        //     // hash[0] += a
+        //     // hash[1] += b
+        //     // hash[2] += c
+        //     // hash[3] += d
+        //     // hash[4] += e
+        //     // hash[5] += f
+        //     // hash[6] += g
+        //     // hash[7] += h
+        // }
         
         // convert hash0..hash4 to hex strings (with leading zeros)
         //for (h in 0..hash.count) hash[h] = ('00000000' + hash[h].toString(16)).slice(-8)
