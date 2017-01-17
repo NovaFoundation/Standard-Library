@@ -10,7 +10,7 @@ immutable class Int extends Number implements Comparable<Int>, Integer {
     visible static final Int MAX_VALUE =  2147483647
     visible static final Int MIN_VALUE = -2147483648
     
-    construct(private Int value) {}
+    public construct(private Int value) {}
     
     public compareTo(Int other) => value - other
     public multiply(Int value) => this.value * value

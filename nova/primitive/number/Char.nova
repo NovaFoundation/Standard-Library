@@ -2,8 +2,8 @@ package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
 
-immutable class Char extends Number implements Comparable<Char>, Integer {
-    construct(private Char value) {}
+class Char extends Number implements Comparable<Char>, Integer {
+    public construct(public Char value) {}
     
     public static toLowerCase(Char c) -> Char => c {
         Int id = (Int)c

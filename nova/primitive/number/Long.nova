@@ -6,7 +6,7 @@ immutable class Long extends Number implements Comparable<Long>, Integer {
     visible static final Long MAX_VALUE =  9223372036854775807
     visible static final Long MIN_VALUE = -9223372036854775808
     
-    construct(private Long value) {}
+    public construct(private Long value) {}
     
     public static numDigits(Long number) -> Int {
         Int size = number < 0 ? 2 : 1 
