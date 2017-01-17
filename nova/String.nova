@@ -85,6 +85,11 @@ immutable class String implements Comparable<String>,
 
         this.chars = new StringCharArray(chars)
     }
+    
+    public construct(StringCharArray chars) {
+        this.count = chars.count
+        this.chars = chars
+    }
 
     calculateSize(native Char[] chars) -> Int {
         [Target c] return strlen(chars)
