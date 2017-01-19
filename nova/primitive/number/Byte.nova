@@ -8,6 +8,7 @@ immutable class Byte extends Number implements Comparable<Byte>, Integer {
     public compareTo(Byte other) => value - other
     public multiply(Byte value) => this.value * value
     public multiplyEquals(Byte value) => this.value *= value
+    public equals(Byte value) => this.value == value
     public toString() => toString(value)
     
     public static numDigits(Byte number) => Long.numDigits(number)

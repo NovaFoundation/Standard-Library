@@ -15,6 +15,7 @@ immutable class Int extends Number implements Comparable<Int>, Integer {
     public compareTo(Int other) => value - other
     public multiply(Int value) => this.value * value
     public multiplyEquals(Int value) => this.value *= value
+    public equals(Int value) => this.value == value
     public toString() => toString(value)
     
     public static numDigits(Int number) => Long.numDigits(number)

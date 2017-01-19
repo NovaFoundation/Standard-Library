@@ -26,6 +26,7 @@ class Char extends Number implements Comparable<Char>, Integer {
     public compareTo(Char other) => value - other
     public multiply(Char value) => this.value * value
     public multiplyEquals(Char value) => this.value *= value
+    public equals(Char value) => this.value == value
     public toString() => toString(value)
     
     public static toString(Char c) => new String(c)

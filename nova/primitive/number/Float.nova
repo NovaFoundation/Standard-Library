@@ -8,6 +8,7 @@ immutable class Float extends Number implements Comparable<Float>, RealNumber {
     public compareTo(Float other) => value - other
     public multiply(Float value) => this.value * value
     public multiplyEquals(Float value) => this.value *= value
+    public equals(Float value) => this.value == value
     public toString() => toString(value)
     
     public static numDigits(Float number) => Double.numDigits(number)
