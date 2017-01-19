@@ -31,71 +31,79 @@ class IntRange implements List<Int> {
         return ints
     }
     
-    public forEach(func(Int, Int, IntRange)) {
-        Int i = 0
+    // [Override]
+    // public forEach(func(Int, Int, IntRange)) {
+    //     Int i = 0
         
-        for (value in this) {
-            func(value, i++, this)
-        }
-    }
+    //     for (value in this) {
+    //         func(value, i++, this)
+    //     }
+    // }
     
-    public map<Out>(mapFunc(Int, Int, IntRange) -> Out) -> Out[] {
-        Out[] array = new Array()
+    // [Override]
+    // public map<Out>(mapFunc(Int, Int, IntRange) -> Out) -> Out[] {
+    //     Out[] array = new Array()
         
-        Int i = 0
+    //     Int i = 0
 
-        for (element in this) {
-            array.add(mapFunc(element, i++, this))
-        }
+    //     for (element in this) {
+    //         array.add(mapFunc(element, i++, this))
+    //     }
         
-        return array
-    }
+    //     return array
+    // }
     
-    public any(anyFunc(Int) -> Bool) -> Bool => false {
-        for (element in this) {
-            if (anyFunc(element)) {
-                return true
-            }
-        }
-    }
+    // [Override]
+    // public any(anyFunc(Int) -> Bool) -> Bool => false {
+    //     for (element in this) {
+    //         if (anyFunc(element)) {
+    //             return true
+    //         }
+    //     }
+    // }
     
-    public all(allFunc(Int) -> Bool) -> Bool => true {
-        for (element in this) {
-            if (!allFunc(element)) {
-                return false
-            }
-        }
-    }
+    // [Override]
+    // public all(allFunc(Int, Int, IntRange) -> Bool, Bool stopOnContradiction = true) => true {
+    //     for (element in this) {
+    //         if (!allFunc(element, i++)) {
+    //             return false
+    //         }
+    //     }
+    // }
     
-    public filter(filterFunc(Int, Int, IntRange) -> Bool) -> Int[] {
-        Int[] list = new Int[]
+    // [Override]
+    // public filter(filterFunc(Int, Int, IntRange) -> Bool) -> Int[] {
+    //     Int[] list = new Int[]
         
-        Int i = 0
+    //     Int i = 0
         
-        for (value in this) {
-            if (filterFunc(value, i++, this)) {
-                list.add(value)
-            }
-        }
+    //     for (value in this) {
+    //         if (filterFunc(value, i++, this)) {
+    //             list.add(value)
+    //         }
+    //     }
         
-        return list
-    }
+    //     return list
+    // }
     
-    public take(Int howMany) -> IntRange {
-        return new IntRange(start, (Int)Math.min(start + howMany, end))
-    }
+    // [Override]
+    // public take(Int howMany) -> IntRange {
+    //     return new IntRange(start, (Int)Math.min(start + howMany, end))
+    // }
     
-    public skip(Int howMany) -> IntRange {
-        return new IntRange((Int)Math.min(start + howMany, end), end)
-    }
+    // [Override]
+    // public skip(Int howMany) -> IntRange {
+    //     return new IntRange((Int)Math.min(start + howMany, end), end)
+    // }
     
-    public firstWhere(func(Int) -> Bool) -> Int => null {
-        for (element in this) {
-            if (func(element)) {
-                return element
-            }
-        }
-    }
+    // [Override]
+    // public firstWhere(func(Int) -> Bool) -> Int => null {
+    //     for (element in this) {
+    //         if (func(element)) {
+    //             return element
+    //         }
+    //     }
+    // }
     
     //get(Int index) -> Int
     //set(Int index, Int value) -> IntRange
@@ -103,25 +111,27 @@ class IntRange implements List<Int> {
     //remove(Int value) -> IntRange
     //clone() -> IntRange
     
-    public reverse() => new IntRange(end, start)
+    // [Override]
+    // public reverse() => new IntRange(end, start)
     
-    public join(String delimiter) -> String {
-        String str = ""
+    // [Override]
+    // public join(String delimiter) -> String {
+    //     String str = ""
         
-        Bool passed = false
+    //     Bool passed = false
         
-        for (element in this) {
-            if (passed) {
-                str = str + delimiter
-            } else {
-                passed = true
-            }
+    //     for (element in this) {
+    //         if (passed) {
+    //             str = str + delimiter
+    //         } else {
+    //             passed = true
+    //         }
             
-            str = str + element.toString()
-        }
+    //         str = str + element.toString()
+    //     }
         
-        return str
-    }
+    //     return str
+    // }
     
     public toString() => "#{start}..#{end}"
 }
