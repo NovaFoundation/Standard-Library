@@ -64,5 +64,6 @@ immutable class Long extends Number implements Comparable<Long>, Integer {
     
     public compareTo(Long other) => value - other
     public multiply(Long value) => this.value * value
+    public multiplyEquals(Long value) => this.value *= value
     public toString() => toString(value)
 }

@@ -7,6 +7,7 @@ immutable class Short extends Number implements Comparable<Short>, Integer {
     
     public compareTo(Short other) => value - other
     public multiply(Short value) => this.value * value
+    public multiplyEquals(Short value) => this.value *= value
     public toString() => toString(value)
     
     public static numDigits(Short number) => Long.numDigits(number)

@@ -119,5 +119,6 @@ class Double extends Number implements Comparable<Double>, RealNumber {
     
     public compareTo(Double other) => value - other
     public multiply(Double value) => this.value * value
+    public multiplyEquals(Double value) => this.value *= value
     public toString() => toString(value)
 }
