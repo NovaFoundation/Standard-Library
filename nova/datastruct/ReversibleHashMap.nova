@@ -15,5 +15,5 @@ class ReversibleHashMap<K extends EqualsOperator, V extends EqualsOperator> exte
     }
     
     public getKey(V value) => rev.get(value)
-    public getValue(K key) => get(key)
+    public getValue(K key) => this[key]
 }
