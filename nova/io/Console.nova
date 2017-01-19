@@ -77,8 +77,7 @@ class Console {
     }
 
     public static readLine() -> String {
-        [Native]
-        Char[] line
+        native Char[] line
 
         [Target c] line = ufgets(stdin)
 
@@ -103,8 +102,7 @@ class Console {
     public static waitForEnter() {
         flushInput()
 
-        [Native]
-        Char c[] = new Char[2]
+        native Char[] c = new Char[2]
 
         [Target c] extReadLine(c, 2, stdin)
     }
