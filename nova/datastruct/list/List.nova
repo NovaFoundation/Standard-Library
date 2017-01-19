@@ -50,7 +50,7 @@ trait List<Type> implements Iterable<Type> {
         return array
     }
     
-    public any(anyFunc(Type) -> Bool) -> Bool => false {
+    public any(anyFunc(Type) -> Bool) => false {
         for (element in this) {
             if (anyFunc(element)) {
                 return true
