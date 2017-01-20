@@ -1,8 +1,11 @@
 package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
+import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
+import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Int extends Number implements Comparable<Int>, Integer {
+immutable class Int extends Number implements Comparable<Int>, Integer, MultiplyOperator<Int, Int>, MultiplyEqualsOperator<Int, Int>, EqualsOperator<Int> {
     external int atoi(char str[])
     
     public Long hashCodeLong => value

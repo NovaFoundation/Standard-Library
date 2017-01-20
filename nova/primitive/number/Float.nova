@@ -1,8 +1,11 @@
 package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
+import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
+import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Float extends Number implements Comparable<Float>, RealNumber {
+immutable class Float extends Number implements Comparable<Float>, RealNumber, MultiplyOperator<Float, Float>, MultiplyEqualsOperator<Float, Float>, EqualsOperator<Float> {
     construct(private Float value) {}
     
     public compareTo(Float other) => value - other

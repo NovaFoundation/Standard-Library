@@ -1,8 +1,11 @@
 package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
+import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
+import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Short extends Number implements Comparable<Short>, Integer {
+immutable class Short extends Number implements Comparable<Short>, Integer, MultiplyOperator<Short, Short>, MultiplyEqualsOperator<Short, Short>, EqualsOperator<Short> {
     construct(private Short value) {}
     
     public compareTo(Short other) => value - other

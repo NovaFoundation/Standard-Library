@@ -1,8 +1,11 @@
 package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
+import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
+import "nova/operators/MultiplyEqualsOperator"
 
-class Char extends Number implements Comparable<Char>, Integer {
+class Char extends Number implements Comparable<Char>, Integer, MultiplyOperator<Char, Char>, MultiplyEqualsOperator<Char, Char>, EqualsOperator<Char> {
     public construct(public Char value) {}
     
     public static toLowerCase(Char c) -> Char => c {

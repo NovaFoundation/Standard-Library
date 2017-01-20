@@ -1,8 +1,11 @@
 package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
+import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
+import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Byte extends Number implements Comparable<Byte>, Integer {
+immutable class Byte extends Number implements Comparable<Byte>, Integer, MultiplyOperator<Byte, Byte>, MultiplyEqualsOperator<Byte, Byte>, EqualsOperator<Byte> {
     public construct(private Byte value) {}
     
     public compareTo(Byte other) => value - other
