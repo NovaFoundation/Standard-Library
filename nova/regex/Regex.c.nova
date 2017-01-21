@@ -13,6 +13,7 @@ class Regex {
             int currentSize = 0;
             int i;
             int utf8;
+            int* converted;
             
             uint32_t newline;
             uint32_t option_bits;
@@ -137,7 +138,14 @@ class Regex {
                 var matches = new Array<Match>(matchCount)
             }
             
-            #{values} = matchBoundaries;   
+            converted = NOVA_MALLOC(sizeof(int) * currentSize * 2);
+            
+            for (i = 0; i < currentSize; i++) {
+                converted[i * 2 + 0] = (int)matchBoundaries[i * 2 + 0];
+                converted[i * 2 + 1] = (int)matchBoundaries[i * 2 + 1];
+            }
+            
+            #{values} = converted;  
         }
         
         for (m in 0..matchCount) {
