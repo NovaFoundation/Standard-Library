@@ -8,7 +8,7 @@ import "nova/operators/PlusEqualsOperator"
 [AutoFinal]
 [Immutable "ImmutableArray"]
 class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusEqualsOperator<Array<E>> {
-    pure external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen, int count)
+    pure external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen)
     
     visible var Int capacity
     
@@ -209,7 +209,7 @@ class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusE
         
         native E[] tmp = new E[capacity]
         
-        arrayCopy(tmp, 0, data, 0, capacity - offset, capacity, 4)
+        arrayCopy(tmp, 0, data, 0, capacity - offset, capacity)
         
         data = tmp
         

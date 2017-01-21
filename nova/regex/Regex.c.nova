@@ -108,7 +108,7 @@ class Regex {
                 } else {
                     PCRE2_SIZE *temp = NOVA_MALLOC(sizeof(PCRE2_SIZE) * (currentSize + rc) * 2);
                     
-                    arrayCopy(temp, 0, matchBoundaries, 0, currentSize * 2, (currentSize + rc) * 2, sizeof(PCRE2_SIZE));
+                    arrayCopy(temp, 0, matchBoundaries, 0, currentSize * 2, (currentSize + rc) * 2);
                     
                     matchBoundaries = temp;
                 }
