@@ -80,8 +80,8 @@ int nova_getstr(char** lineptr, size_t* n, FILE* stream, char terminator, int of
         /* We always want at least one char left in the buffer, since we
            always (unless we get an error while reading the first char)
            NUL-terminate the line buffer.  */
-
-        assert((*lineptr + *n) == (read_pos + nchars_avail));
+        
+        assert((int)(*lineptr + *n) == (int)(read_pos + nchars_avail));
         
         if (nchars_avail < 2) {
             if (*n > MIN_CHUNK)
@@ -99,7 +99,7 @@ int nova_getstr(char** lineptr, size_t* n, FILE* stream, char terminator, int of
             }
             
             read_pos = *n - nchars_avail + *lineptr;
-            assert((*lineptr + *n) == (read_pos + nchars_avail));
+            assert((int)(*lineptr + *n) == (int)(read_pos + nchars_avail));
         }
 
         if (ferror(stream)) {
