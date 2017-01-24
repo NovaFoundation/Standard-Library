@@ -12,6 +12,22 @@ class Float extends Number implements RealNumber {
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other
     
+    public plus(Number other) => other.plusReal(value)
+    public plusReal(Double other) => this.value + other
+    public plusInteger(Long other) => this.value + other
+    
+    public plusEquals(Number other) => other.plusEqualsReal(value)
+    public plusEqualsReal(Double other) => this.value += other
+    public plusEqualsInteger(Long other) => this.value += other
+    
+    public minus(Number other) => other.minusReal(value)
+    public minusReal(Double other) => this.value - other
+    public minusInteger(Long other) => this.value - other
+    
+    public minusEquals(Number other) => other.minusEqualsReal(value)
+    public minusEqualsReal(Double other) => this.value -= other
+    public minusEqualsInteger(Long other) => this.value -= other
+    
     public multiply(Number other) => other.multiplyReal(value)
     public multiplyReal(Double other) => this.value * other
     public multiplyInteger(Long other) => this.value * other

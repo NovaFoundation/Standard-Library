@@ -2,11 +2,27 @@ package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
 import "nova/primitive/Primitive"
+import "nova/operators/PlusOperator"
+import "nova/operators/PlusEqualsOperator"
+import "nova/operators/MinusOperator"
+import "nova/operators/MinusEqualsOperator"
 import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-abstract class Number extends Primitive implements MultiplyOperator<Number, Number>, MultiplyEqualsOperator<Number, Number>, EqualsOperator<Number>, Comparable<Number> {
+abstract class Number extends Primitive implements PlusOperator<Number, Number>, PlusEqualsOperator<Number, Number>, MinusOperator<Number, Number>, MinusEqualsOperator<Number, Number>, MultiplyOperator<Number, Number>, MultiplyEqualsOperator<Number, Number>, EqualsOperator<Number>, Comparable<Number> {
+    public abstract plusInteger(Long other) -> Long
+    public abstract plusReal(Double other) -> Double
+    
+    public abstract plusEqualsInteger(Long other) -> Long
+    public abstract plusEqualsReal(Double other) -> Double
+    
+    public abstract minusInteger(Long other) -> Long
+    public abstract minusReal(Double other) -> Double
+    
+    public abstract minusEqualsInteger(Long other) -> Long
+    public abstract minusEqualsReal(Double other) -> Double
+    
     public abstract multiplyInteger(Long other) -> Long
     public abstract multiplyReal(Double other) -> Double
     

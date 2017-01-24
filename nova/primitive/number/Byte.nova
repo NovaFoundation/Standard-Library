@@ -16,6 +16,22 @@ class Byte extends Number implements Integer {
     public multiplyReal(Double other) => this.value * other
     public multiplyInteger(Long other) => this.value * other
     
+    public plus(Number other) => other.plusInteger(value)
+    public plusReal(Double other) => this.value + other
+    public plusInteger(Long other) => this.value + other
+    
+    public plusEquals(Number other) => other.plusEqualsInteger(value)
+    public plusEqualsReal(Double other) => this.value += other
+    public plusEqualsInteger(Long other) => this.value += other
+    
+    public minus(Number other) => other.minusInteger(value)
+    public minusReal(Double other) => this.value - other
+    public minusInteger(Long other) => this.value - other
+    
+    public minusEquals(Number other) => other.minusEqualsInteger(value)
+    public minusEqualsReal(Double other) => this.value -= other
+    public minusEqualsInteger(Long other) => this.value -= other
+    
     public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
     public multiplyEqualsReal(Double other) => this.value *= other
     public multiplyEqualsInteger(Long other) => this.value *= other
