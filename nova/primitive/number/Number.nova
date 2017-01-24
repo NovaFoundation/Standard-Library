@@ -11,6 +11,9 @@ import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
 abstract class Number extends Primitive implements PlusOperator<Number, Number>, PlusEqualsOperator<Number, Number>, MinusOperator<Number, Number>, MinusEqualsOperator<Number, Number>, MultiplyOperator<Number, Number>, MultiplyEqualsOperator<Number, Number>, EqualsOperator<Number>, Comparable<Number> {
+    public Double realValue => 0
+    public Long integerValue => 0
+    
     public abstract plusInteger(Long other) -> Long
     public abstract plusReal(Double other) -> Double
     

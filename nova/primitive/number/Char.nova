@@ -6,6 +6,9 @@ import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
 class Char extends Number implements Comparable<Char>, Integer {
+    public Double realValue => (Double)value
+    public Long integerValue => value
+    
     public construct(public Char value) {}
     
     public static toLowerCase(Char c) -> Char => c {

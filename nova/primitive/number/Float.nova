@@ -6,6 +6,9 @@ import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
 class Float extends Number implements RealNumber {
+    public Double realValue => value
+    public Long integerValue => (Long)value
+    
     construct(public Float value) {}
     
     public compareTo(Number other) => other.compareToReal(value)

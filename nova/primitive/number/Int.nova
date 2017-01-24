@@ -13,6 +13,9 @@ class Int extends Number implements Integer {
     visible static final Int MAX_VALUE =  2147483647
     visible static final Int MIN_VALUE = -2147483648
     
+    public Double realValue => (Double)value
+    public Long integerValue => value
+    
     public construct(public Int value) {}
     
     public compareTo(Number other) => other.compareToInteger(value)

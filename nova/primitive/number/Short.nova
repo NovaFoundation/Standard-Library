@@ -6,6 +6,9 @@ import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
 class Short extends Number implements Integer {
+    public Double realValue => (Double)value
+    public Long integerValue => value
+    
     construct(public Short value) {}
     
     public compareTo(Number other) => other.compareToInteger(value)

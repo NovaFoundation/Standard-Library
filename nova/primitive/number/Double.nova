@@ -11,6 +11,9 @@ class Double extends Number implements RealNumber {
     external int strlen(char buffer[])
     external double strtod(char str[], char* pEnd[])
     
+    public Double realValue => value
+    public Long integerValue => (Long)value
+    
     public construct(public Double value) {}
     
     public static numDigits(Double number) -> Int {
