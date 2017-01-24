@@ -5,13 +5,25 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Short extends Number implements Comparable<Short>, Integer, MultiplyOperator<Short, Short>, MultiplyEqualsOperator<Short, Short>, EqualsOperator<Short> {
-    construct(private Short value) {}
+class Short extends Number implements Integer {
+    construct(public Short value) {}
     
-    public compareTo(Short other) => value - other
-    public multiply(Short value) => this.value * value
-    public multiplyEquals(Short value) => this.value *= value
-    public equals(Short value) => this.value == value
+    public compareTo(Number other) => other.compareToInteger(value)
+    public compareToReal(Double other) => this.value - other
+    public compareToInteger(Long other) => this.value - other
+    
+    public multiply(Number other) => other.multiplyInteger(value)
+    public multiplyReal(Double other) => this.value * other
+    public multiplyInteger(Long other) => this.value * other
+    
+    public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
+    public multiplyEqualsReal(Double other) => this.value *= other
+    public multiplyEqualsInteger(Long other) => this.value *= other
+    
+    public equals(Number other) => other.equalsInteger(value)
+    public equalsReal(Double other) => this.value == other
+    public equalsInteger(Long other) => this.value == other
+    
     public toString() => toString(value)
     
     public static numDigits(Short number) => Long.numDigits(number)

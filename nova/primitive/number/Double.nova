@@ -1,8 +1,11 @@
 package "nova/primitive/number"
 
 import "nova/datastruct/Comparable"
+import "nova/operators/EqualsOperator"
+import "nova/operators/MultiplyOperator"
+import "nova/operators/MultiplyEqualsOperator"
 
-class Double extends Number implements Comparable<Double>, RealNumber {
+class Double extends Number implements RealNumber {
     external void sprintf(char buffer[], char format[], double value)
     external char[] realloc(char buffer[], int size)
     external int strlen(char buffer[])
@@ -117,9 +120,21 @@ class Double extends Number implements Comparable<Double>, RealNumber {
         return strtod(str.chars.data, pEnd)
     }
     
-    public compareTo(Double other) => value - other
-    public multiply(Double value) => this.value * value
-    public multiplyEquals(Double value) => this.value *= value
-    public equals(Double value) => this.value == value
+    public compareTo(Number other) => other.compareToReal(value)
+    public compareToReal(Double other) => this.value - other
+    public compareToInteger(Long other) => this.value - other
+    
+    public multiply(Number other) => other.multiplyReal(value)
+    public multiplyReal(Double other) => this.value * other
+    public multiplyInteger(Long other) => this.value * other
+    
+    public multiplyEquals(Double other) => other.multiplyEqualsReal(value)
+    public multiplyEqualsReal(Double other) => this.value *= other
+    public multiplyEqualsInteger(Long other) => this.value *= other
+    
+    public equals(Number other) => other.equalsReal(value)
+    public equalsReal(Double other) => this.value == other
+    public equalsInteger(Long other) => this.value == other
+    
     public toString() => toString(value)
 }

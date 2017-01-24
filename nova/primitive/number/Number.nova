@@ -1,12 +1,21 @@
 package "nova/primitive/number"
 
+import "nova/datastruct/Comparable"
 import "nova/primitive/Primitive"
 import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-immutable abstract class Number extends Primitive implements MultiplyOperator<Number, Number>, MultiplyEqualsOperator<Number, Number>, EqualsOperator<Number> {
-    public static numDigits(Number number) => -1
+abstract class Number extends Primitive implements MultiplyOperator<Number, Number>, MultiplyEqualsOperator<Number, Number>, EqualsOperator<Number>, Comparable<Number> {
+    public abstract multiplyInteger(Long other) -> Long
+    public abstract multiplyReal(Double other) -> Double
     
-//    public static toString(Number value) => "[Unimplemented]"
+    public abstract multiplyEqualsInteger(Long other) -> Long
+    public abstract multiplyEqualsReal(Double other) -> Double
+    
+    public abstract compareToInteger(Long other) -> Long
+    public abstract compareToReal(Double other) -> Double
+    
+    public abstract equalsInteger(Long other) -> Bool
+    public abstract equalsReal(Double other) -> Bool
 }

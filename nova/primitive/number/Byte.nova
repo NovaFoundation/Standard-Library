@@ -5,20 +5,27 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Byte extends Number implements Comparable<Byte>, Integer, MultiplyOperator<Byte, Byte>, MultiplyEqualsOperator<Byte, Byte>, EqualsOperator<Byte> {
-    public construct(private Byte value) {}
+class Byte extends Number implements Integer {
+    public construct(public Byte value)
     
-    public compareTo(Byte other) => value - other
-    public multiply(Byte value) => this.value * value
-    public multiplyEquals(Byte value) => this.value *= value
-    public equals(Byte value) => this.value == value
+    public compareTo(Number other) => other.compareToInteger(value)
+    public compareToReal(Double other) => this.value - other
+    public compareToInteger(Long other) => this.value - other
+    
+    public multiply(Number other) => other.multiplyInteger(value)
+    public multiplyReal(Double other) => this.value * other
+    public multiplyInteger(Long other) => this.value * other
+    
+    public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
+    public multiplyEqualsReal(Double other) => this.value *= other
+    public multiplyEqualsInteger(Long other) => this.value *= other
+    
+    public equals(Number other) => other.equalsInteger(value)
+    public equalsReal(Double other) => this.value == other
+    public equalsInteger(Long other) => this.value == other
+    
     public toString() => toString(value)
     
     public static numDigits(Byte number) => Long.numDigits(number)
     public static toString(Byte value) => Long.toString(value)
-    
-//    public static getHashCode(Byte value) => new String(hashCode(this))
-//    public static getHashCodeLong(Byte value) => strtol(hashCode(value), 0, 16)
-//    public static toString(Byte value) => "[Object @" + getHashCode(value) + "]"
-//    public static equals(Byte value, Byte another) => this == another
 }

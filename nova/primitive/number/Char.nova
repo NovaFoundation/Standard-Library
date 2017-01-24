@@ -5,7 +5,7 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-class Char extends Number implements Comparable<Char>, Integer, MultiplyOperator<Char, Char>, MultiplyEqualsOperator<Char, Char>, EqualsOperator<Char> {
+class Char extends Number implements Comparable<Char>, Integer {
     public construct(public Char value) {}
     
     public static toLowerCase(Char c) -> Char => c {
@@ -26,10 +26,23 @@ class Char extends Number implements Comparable<Char>, Integer, MultiplyOperator
     
     public toLowerCase() => toLowerCase(value)
     public toUpperCase() => toUpperCase(value)
-    public compareTo(Char other) => value - other
-    public multiply(Char value) => this.value * value
-    public multiplyEquals(Char value) => this.value *= value
-    public equals(Char value) => this.value == value
+    
+    public compareTo(Number other) => other.compareToInteger(value)
+    public compareToReal(Double other) => this.value - other
+    public compareToInteger(Long other) => this.value - other
+    
+    public multiply(Number other) => other.multiplyInteger(value)
+    public multiplyReal(Double other) => this.value * other
+    public multiplyInteger(Long other) => this.value * other
+    
+    public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
+    public multiplyEqualsReal(Double other) => this.value *= other
+    public multiplyEqualsInteger(Long other) => this.value *= other
+    
+    public equals(Number other) => other.equalsInteger(value)
+    public equalsReal(Double other) => this.value == other
+    public equalsInteger(Long other) => this.value == other
+    
     public toString() => toString(value)
     
     public static toString(Char c) => new String(c)

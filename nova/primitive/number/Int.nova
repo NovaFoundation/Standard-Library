@@ -5,7 +5,7 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Int extends Number implements Comparable<Int>, Integer, MultiplyOperator<Int, Int>, MultiplyEqualsOperator<Int, Int>, EqualsOperator<Int> {
+class Int extends Number implements Integer {
     external int atoi(char str[])
     
     public Long hashCodeLong => value
@@ -13,12 +13,24 @@ immutable class Int extends Number implements Comparable<Int>, Integer, Multiply
     visible static final Int MAX_VALUE =  2147483647
     visible static final Int MIN_VALUE = -2147483648
     
-    public construct(private Int value) {}
+    public construct(public Int value) {}
     
-    public compareTo(Int other) => value - other
-    public multiply(Int value) => this.value * value
-    public multiplyEquals(Int value) => this.value *= value
-    public equals(Int value) => this.value == value
+    public compareTo(Number other) => other.compareToInteger(value)
+    public compareToReal(Double other) => this.value - other
+    public compareToInteger(Long other) => this.value - other
+    
+    public multiply(Number other) => other.multiplyInteger(value)
+    public multiplyReal(Double other) => this.value * other
+    public multiplyInteger(Long other) => this.value * other
+    
+    public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
+    public multiplyEqualsReal(Double other) => this.value *= other
+    public multiplyEqualsInteger(Long other) => this.value *= other
+    
+    public equals(Number other) => other.equalsInteger(value)
+    public equalsReal(Double other) => this.value == other
+    public equalsInteger(Long other) => this.value == other
+    
     public toString() => toString(value)
     
     public static numDigits(Int number) => Long.numDigits(number)
