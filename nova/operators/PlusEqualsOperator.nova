@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public trait PlusEqualsOperator<E> {
-    public plusEquals(E another) -> E
+public trait PlusEqualsOperator<In, Out> {
+    public plusEquals(In another) -> Out
 }
