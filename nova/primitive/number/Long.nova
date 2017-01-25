@@ -5,11 +5,14 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-immutable class Long extends Number implements Comparable<Long>, Integer, MultiplyOperator<Long, Long>, MultiplyEqualsOperator<Long, Long>, EqualsOperator<Long> {
+class Long extends Number implements Integer {
     visible static final Long MAX_VALUE =  9223372036854775807
     visible static final Long MIN_VALUE = -9223372036854775808
     
-    public construct(private Long value) {}
+    public Double realValue => (Double)value
+    public Long integerValue => value
+    
+    public construct(public Long value) {}
     
     public static numDigits(Long number) -> Int {
         Int size = number < 0 ? 2 : 1 
@@ -65,9 +68,37 @@ immutable class Long extends Number implements Comparable<Long>, Integer, Multip
         return new String(data)
     }
     
-    public compareTo(Long other) => value - other
-    public multiply(Long value) => this.value * value
-    public multiplyEquals(Long value) => this.value *= value
-    public equals(Long value) => this.value == value
+    public compareTo(Number other) => other.compareToInteger(value)
+    public compareToReal(Double other) => this.value - other
+    public compareToInteger(Long other) => this.value - other
+    
+    public plus(Number other) => other.plusInteger(value)
+    public plusReal(Double other) => this.value + other
+    public plusInteger(Long other) => this.value + other
+    
+    public plusEquals(Number other) => other.plusEqualsInteger(value)
+    public plusEqualsReal(Double other) => this.value += other
+    public plusEqualsInteger(Long other) => this.value += other
+    
+    public minus(Number other) => other.minusInteger(value)
+    public minusReal(Double other) => this.value - other
+    public minusInteger(Long other) => this.value - other
+    
+    public minusEquals(Number other) => other.minusEqualsInteger(value)
+    public minusEqualsReal(Double other) => this.value -= other
+    public minusEqualsInteger(Long other) => this.value -= other
+    
+    public multiply(Number other) => other.multiplyInteger(value)
+    public multiplyReal(Double other) => this.value * other
+    public multiplyInteger(Long other) => this.value * other
+    
+    public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
+    public multiplyEqualsReal(Double other) => this.value *= other
+    public multiplyEqualsInteger(Long other) => this.value *= other
+    
+    public equals(Number other) => other.equalsInteger(value)
+    public equalsReal(Double other) => this.value == other
+    public equalsInteger(Long other) => this.value == other
+    
     public toString() => toString(value)
 }
