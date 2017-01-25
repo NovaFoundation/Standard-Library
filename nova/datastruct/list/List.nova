@@ -120,7 +120,7 @@ trait List<Type> implements Iterable<Type> {
         return list
     }
     
-    public pure takeLast(Int howMany) -> Type[] {
+    public pure takeLast(Int howMany) -> List<Type> {
         let list = new Type[]
         let startIndex = Math.max(0, count - howMany)
         
@@ -191,7 +191,7 @@ trait List<Type> implements Iterable<Type> {
         }
     }
     
-    public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> Out[] {
+    public zip<OtherType, Out>(List<OtherType> other, zipper(Type, OtherType) -> Out) -> List<Out> {
         let i1 = iterator
         let i2 = other.iterator
         
