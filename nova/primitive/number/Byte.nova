@@ -5,46 +5,20 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-class Byte extends Number implements Integer {
-    public Double realValue => (Double)value
-    public Long integerValue => value
+immutable class Byte extends Number implements Comparable<Byte>, Integer, MultiplyOperator<Byte, Byte>, MultiplyEqualsOperator<Byte, Byte>, EqualsOperator<Byte> {
+    public construct(private Byte value) {}
     
-    public construct(public Byte value)
-    
-    public compareTo(Number other) => other.compareToInteger(value)
-    public compareToReal(Double other) => this.value - other
-    public compareToInteger(Long other) => this.value - other
-    
-    public multiply(Number other) => other.multiplyInteger(value)
-    public multiplyReal(Double other) => this.value * other
-    public multiplyInteger(Long other) => this.value * other
-    
-    public plus(Number other) => other.plusInteger(value)
-    public plusReal(Double other) => this.value + other
-    public plusInteger(Long other) => this.value + other
-    
-    public plusEquals(Number other) => other.plusEqualsInteger(value)
-    public plusEqualsReal(Double other) => this.value += other
-    public plusEqualsInteger(Long other) => this.value += other
-    
-    public minus(Number other) => other.minusInteger(value)
-    public minusReal(Double other) => this.value - other
-    public minusInteger(Long other) => this.value - other
-    
-    public minusEquals(Number other) => other.minusEqualsInteger(value)
-    public minusEqualsReal(Double other) => this.value -= other
-    public minusEqualsInteger(Long other) => this.value -= other
-    
-    public multiplyEquals(Number other) => other.multiplyEqualsInteger(value)
-    public multiplyEqualsReal(Double other) => this.value *= other
-    public multiplyEqualsInteger(Long other) => this.value *= other
-    
-    public equals(Number other) => other.equalsInteger(value)
-    public equalsReal(Double other) => this.value == other
-    public equalsInteger(Long other) => this.value == other
-    
+    public compareTo(Byte other) => value - other
+    public multiply(Byte value) => this.value * value
+    public multiplyEquals(Byte value) => this.value *= value
+    public equals(Byte value) => this.value == value
     public toString() => toString(value)
     
     public static numDigits(Byte number) => Long.numDigits(number)
     public static toString(Byte value) => Long.toString(value)
+    
+//    public static getHashCode(Byte value) => new String(hashCode(this))
+//    public static getHashCodeLong(Byte value) => strtol(hashCode(value), 0, 16)
+//    public static toString(Byte value) => "[Object @" + getHashCode(value) + "]"
+//    public static equals(Byte value, Byte another) => this == another
 }

@@ -5,44 +5,13 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-class Float extends Number implements RealNumber {
-    public Double realValue => value
-    public Long integerValue => (Long)value
+immutable class Float extends Number implements Comparable<Float>, RealNumber, MultiplyOperator<Float, Float>, MultiplyEqualsOperator<Float, Float>, EqualsOperator<Float> {
+    construct(private Float value) {}
     
-    construct(public Float value) {}
-    
-    public compareTo(Number other) => other.compareToReal(value)
-    public compareToReal(Double other) => this.value - other
-    public compareToInteger(Long other) => this.value - other
-    
-    public plus(Number other) => other.plusReal(value)
-    public plusReal(Double other) => this.value + other
-    public plusInteger(Long other) => this.value + other
-    
-    public plusEquals(Number other) => other.plusEqualsReal(value)
-    public plusEqualsReal(Double other) => this.value += other
-    public plusEqualsInteger(Long other) => this.value += other
-    
-    public minus(Number other) => other.minusReal(value)
-    public minusReal(Double other) => this.value - other
-    public minusInteger(Long other) => this.value - other
-    
-    public minusEquals(Number other) => other.minusEqualsReal(value)
-    public minusEqualsReal(Double other) => this.value -= other
-    public minusEqualsInteger(Long other) => this.value -= other
-    
-    public multiply(Number other) => other.multiplyReal(value)
-    public multiplyReal(Double other) => this.value * other
-    public multiplyInteger(Long other) => this.value * other
-    
-    public multiplyEquals(Number other) => other.multiplyEqualsReal(value)
-    public multiplyEqualsReal(Double other) => this.value *= other
-    public multiplyEqualsInteger(Long other) => this.value *= other
-    
-    public equals(Number other) => other.equalsReal(value)
-    public equalsReal(Double other) => this.value == other
-    public equalsInteger(Long other) => this.value == other
-    
+    public compareTo(Float other) => value - other
+    public multiply(Float value) => this.value * value
+    public multiplyEquals(Float value) => this.value *= value
+    public equals(Float value) => this.value == value
     public toString() => toString(value)
     
     public static numDigits(Float number) => Double.numDigits(number)
