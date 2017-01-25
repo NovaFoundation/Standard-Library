@@ -111,8 +111,8 @@ class IntRange implements List<Int> {
     //remove(Int value) -> IntRange
     //clone() -> IntRange
     
-    // [Override]
-    // public reverse() => new IntRange(end, start)
+    [Override]
+    public reverse() => new IntRange(end, start)
     
     // [Override]
     // public join(String delimiter) -> String {
