@@ -5,7 +5,7 @@ import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
 import "nova/operators/MultiplyEqualsOperator"
 
-class Char extends Number implements Comparable<Char>, Integer {
+class Char extends Number implements Integer {
     public Double realValue => (Double)value
     public Long integerValue => value
     
