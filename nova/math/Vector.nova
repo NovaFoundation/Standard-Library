@@ -3,6 +3,8 @@ package "nova/math"
 class Vector {
     visible Double magnitude => Math.sqrt(data.sum(n => n * n))
     
+    visible Double[] data
+    
     public construct(Int size) => this(new Double[size])
     public construct(visible Double[] data) {}
     
