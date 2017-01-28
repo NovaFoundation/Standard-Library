@@ -12,9 +12,9 @@ class Polynomial {
         Int start = 0
         Bool reading = false
         
-        coefficients = new DoubleArray()
-        degrees = new DoubleArray()
-        signs = new Array()
+        coefficients = new Double[]
+        degrees = new Double[]
+        signs = new Byte[]
         
         for (i in 0..polynomial.count) {
             if (!isLetter(polynomial.chars[i])) {
