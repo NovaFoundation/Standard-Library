@@ -142,7 +142,7 @@ trait List<Type> implements Iterable<Type> {
     public pure skipLast(Int howMany) => take(count - howMany)
     
     public pure skip(Int howMany) -> List<Type> {
-        Type[] list = new Array()
+        Type[] list = new Type[]
         
         var Int i = 0
         
