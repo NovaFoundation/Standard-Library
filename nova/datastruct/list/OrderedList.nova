@@ -1,11 +1,11 @@
 package "nova/datastruct/list"
 
 [AutoFinal]
-trait OrderedList<Type> {
+trait OrderedList<Type> implements List<Type> {
     public findIndex(condition(Type, Int, OrderedList<Type>) -> Bool, Int defaultReturnValue = -1) -> Bool => defaultReturnValue {
         var Int i = 0
         
-        let list = (List)this
+        let list = this
         
         for (element in list) {
             if (condition(element, i++, this)) {
