@@ -21,7 +21,7 @@ immutable class Object {//} implements EqualsOperator {
     
     public Long hashCodeLong => strtol(hashCode(this), NULL, 16)
     
-    // public equals(Object another) => this == another
+    public equals(Object another) => this == another
     public toString() => "{#this.class.name @#hashCode}"
     
     // writeFields() =>
