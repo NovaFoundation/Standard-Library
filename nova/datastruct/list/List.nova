@@ -22,7 +22,9 @@ trait List<Type> implements Iterable<Type> {
     }
     
     public contains(Type value) => any(x => {
-        value.class.isOfType(EqualsOperator) && x.class.isOfType(EqualsOperator) ? ((EqualsOperator)x).equals((EqualsOperator)value) : x == value
+        value.class.isOfType(EqualsOperator) && x.class.isOfType(EqualsOperator) ?
+            ((EqualsOperator)x).equals((EqualsOperator)value) :
+            x == value
     })
     
     public containsAny(List<Type> values) => any({ values.contains(_) })
