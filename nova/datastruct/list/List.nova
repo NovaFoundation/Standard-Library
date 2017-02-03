@@ -21,6 +21,11 @@ trait List<Type> implements Iterable<Type> {
         return array
     }
     
+    // public contains(Type value) => any({ _.equals(value) })
+    
+    // [RequireGenericType Type implements EqualsOperator]
+    // public contains(EqualsOperator value) => any({ (EqualsOperator)_ == value })
+    
     public contains(Type value) => any(x => {
         value.class.isOfType(EqualsOperator) && x.class.isOfType(EqualsOperator) ?
             ((EqualsOperator)x).equals((EqualsOperator)value) :
@@ -66,7 +71,9 @@ trait List<Type> implements Iterable<Type> {
         
         for (element in this) {
             if (!allFunc(element, i++, this)) {
-                if (stopOnContradiction) return false
+                if (stopOnContradiction) {
+                    return false
+                }
                 
                 contradiction = true
             }
