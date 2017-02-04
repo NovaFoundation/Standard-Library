@@ -17,9 +17,9 @@ class BinaryNode<E extends Comparable> extends Node<E> {
     construct(E data, Int size) => super(data, size)
     
     getNode(Int index) =>
-	children.count > index ?
-		(BinaryNode)children[index] :
-		null
+    	children.count > index ?
+    		(BinaryNode)children[index] :
+    		null
     
     setNode(Int index, BinaryNode<E> data) {
         if (children.count <= index)
