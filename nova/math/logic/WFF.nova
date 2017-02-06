@@ -140,8 +140,8 @@ class WFF {
             Char c = wff.chars[i]
             
             match (c)
-                case start scope++
-                case end scope--
+                start => scope++
+                end => scope--
             
             if (scope == 0) {
                 return i

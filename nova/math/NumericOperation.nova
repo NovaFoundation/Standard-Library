@@ -146,14 +146,14 @@ class NumericOperation extends NumericOperand<Object> {
     
     static getOperatorRank(Char operator) -> Int {
         match operator
-            case '-' fallthrough
-            case '+' return ADDITION
-            case '/' fallthrough
-            case '*' return MULTIPLICATION
-            case '^' return EXPONENT
-            case '[' fallthrough
-            case '(' return GROUPING
-            default  return INVALID
+            '-' => fallthrough
+            '+' => return ADDITION
+            '/' => fallthrough
+            '*' => return MULTIPLICATION
+            '^' => return EXPONENT
+            '[' => fallthrough
+            '(' => return GROUPING
+            default => return INVALID
     }
     
     static nextNonWhitespaceIndex(String str, Int start, Int direction) -> Int {
