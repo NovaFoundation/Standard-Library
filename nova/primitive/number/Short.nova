@@ -47,7 +47,7 @@ class Short extends Number implements Integer {
     
     public static numDigits(Short number) => Long.numDigits(number)
     public static toString(Short value) => Long.toString(value)
-    public static hashCodeLong(Short value) => value
+    public static hashCodeLong(Short value) => Math.abs(value)
     public static equals(Short a, Short b) => a == b
     public static plus(Short a, Long b) => a + b
     public static compareTo(Short a, Short b) => a - b

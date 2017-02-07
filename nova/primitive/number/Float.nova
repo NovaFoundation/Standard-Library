@@ -47,7 +47,7 @@ class Float extends Number implements RealNumber {
     
     public static numDigits(Float number) => Double.numDigits(number)
     public static toString(Float value) => Double.toString(value)
-    public static hashCodeLong(Float value) => (Long)value
+    public static hashCodeLong(Float value) => Math.abs((Long)value)
     public static equals(Float a, Float b) => a == b
     public static plus(Float a, Double b) => a + b
     public static compareTo(Float a, Float b) => a - b
