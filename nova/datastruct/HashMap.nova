@@ -1,6 +1,7 @@
 package "nova/datastruct"
 
 import "nova/datastruct/list/List"
+import "nova/datastruct/list/Iterator"
 import "nova/operators/EqualsOperator"
 
 [AutoFinal]
@@ -25,6 +26,8 @@ class HashMap<K extends EqualsOperator, V> implements List<Pair<K, V>> {
             count++
         }
     }
+    
+    visible HashMapIterator<K, V> iterator => new HashMapIterator(this)
     
     public construct(Int bucketCount = 5, private Int bucketSize = 5) {
         buckets = new Pair<K, V>[bucketCount][bucketSize]
@@ -201,4 +204,48 @@ class HashMap<K extends EqualsOperator, V> implements List<Pair<K, V>> {
     public toImmutable() => new ImmutableHashMap<K, V>(this)
     
     public toString() => this.class.location + " {" + map(p => { p.key + ": " + p.value }).join(", ") + "}"
+    
+    [AutoFinal]
+    class HashMapIterator<K, V> implements Iterator<Pair<K, V>> {
+        visible var Int position
+        var Int bucketIndex
+        var Int index
+        
+        var Pair<K, V>[][] buckets
+        var Pair<K, V>[] bucket
+        
+        visible Bool hasNext => bucketIndex < buckets.count
+        
+        visible Pair<K, V> next {
+            get {
+                if (hasNext) {
+                    let value = bucket[index++]
+                    position++
+                    
+                    if (index >= bucket.count && ++bucketIndex < buckets.count) {
+                         bucket = buckets[bucketIndex]
+                    }
+                    
+                    return value
+                }
+                
+                throw new NoSuchElementException()
+            }
+            
+            no set
+        }
+        
+        public construct(HashMap<K, V> map) {
+            reset()
+            
+            buckets = map.buckets
+            bucket = buckets[0]
+        }
+        
+        public reset() => this {
+            position = 0
+            index = 0
+            bucketIndex = 0
+        }
+    }
 }
