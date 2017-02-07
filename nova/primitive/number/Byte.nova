@@ -47,4 +47,8 @@ class Byte extends Number implements Integer {
     
     public static numDigits(Byte number) => Long.numDigits(number)
     public static toString(Byte value) => Long.toString(value)
+    public static hashCodeLong(Byte value) => value
+    public static equals(Byte a, Byte b) => a == b
+    public static plus(Byte a, Long b) => a + b
+    public static compareTo(Byte a, Byte b) => a - b
 }

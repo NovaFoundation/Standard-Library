@@ -156,4 +156,8 @@ class Double extends Number implements RealNumber {
     public equalsInteger(Long other) => this.value == other
     
     public toString() => toString(value)
+    public static hashCodeLong(Double value) => (Long)value
+    public static equals(Double a, Double b) => a == b
+    public static plus(Double a, Double b) => a + b
+    public static compareTo(Double a, Double b) => a - b
 }

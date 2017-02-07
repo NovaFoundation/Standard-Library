@@ -65,4 +65,8 @@ class Char extends Number implements Integer {
     public toString() => toString(value)
     
     public static toString(Char c) => new String(c)
+    public static hashCodeLong(Char value) => value
+    public static equals(Char a, Char b) => a == b
+    public static plus(Char a, Long b) => a + b
+    public static compareTo(Char a, Char b) => a - b
 }

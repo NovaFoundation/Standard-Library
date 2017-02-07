@@ -55,4 +55,8 @@ class Int extends Number implements Integer {
     public static numDigits(Int number) => Long.numDigits(number)
     public static toString(Int value) => Long.toString(value)
     public static parseInt(String num) => atoi(num.chars.data)
+    public static hashCodeLong(Int value) => value
+    public static equals(Int a, Int b) => a == b
+    public static plus(Int a, Long b) => a + b
+    public static compareTo(Int a, Int b) => a - b
 }
