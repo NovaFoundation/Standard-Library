@@ -64,7 +64,7 @@ class Thread {
     startRun() {
         active = true
         
-        ACTIVE_THREADS = ACTIVE_THREADS.add(this)
+        sync({ ACTIVE_THREADS = ACTIVE_THREADS.add(this) })
         
         try {
             //GC.init()
@@ -80,6 +80,6 @@ class Thread {
         
         active = false
         
-        ACTIVE_THREADS = ACTIVE_THREADS.remove(this)
+        sync({ ACTIVE_THREADS = ACTIVE_THREADS.remove(this) })
     }
 }
