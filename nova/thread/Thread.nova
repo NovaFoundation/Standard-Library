@@ -53,6 +53,12 @@ class Thread {
         }
     }
     
+    public sync(action()) {
+        lock()
+        action()
+        unlock()
+    }
+    
     public run() {}
     
     startRun() {
