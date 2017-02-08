@@ -41,6 +41,12 @@ class Thread {
         }
     }
     
+    public static lock() {
+        external c {
+            WaitForSingleObject(nova_thread_semaphore, INFINITE);
+        }
+    }
+    
     public run() {}
     
     startRun() {
