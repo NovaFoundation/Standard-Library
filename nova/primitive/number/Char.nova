@@ -27,6 +27,9 @@ class Char extends Number implements Integer {
         }
     }
     
+    public repeat(Int times) => repeat(value, times)
+    public static repeat(Char value, Int times) => "#value".repeat(times)
+    
     public toLowerCase() => toLowerCase(value)
     public toUpperCase() => toUpperCase(value)
     
