@@ -40,6 +40,10 @@ class ExceptionData {
         let catchExceptionData = getDataByException(exception, soft)
         
         if (catchExceptionData) {
+            if (!catchExceptionData.parent) {
+                StackTrace.callingTrace(4)
+            }
+            
             external {
                 *context = #{catchExceptionData}; // need to set in case nested tries in same function
                 #{catchExceptionData}->nova_exception_Nova_ExceptionData_Nova_thrownException = #{exception};
