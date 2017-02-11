@@ -223,7 +223,7 @@ immutable class String implements Comparable<String>,
     public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
         var i = start
 
-        while (i < count && i >= 0) {
+        while (i < count && i + search.count <= count && i >= 0) {
             var found = true
             var Int j = 0
 
