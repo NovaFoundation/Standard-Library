@@ -208,19 +208,17 @@ immutable class String implements Comparable<String>,
     /// direction: The direction to search in, positive = to the right, negative = to the left.
     /// defaultReturnValue: The default value returned if no match is met.
     /// return: The index of the match.
-    public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
+    public indexOf(Pattern search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) => defaultReturnValue {
     	var first = Regex.getMatches(search, this).first
     	
     	if (first) {
     		return first.start
     	}
-    	
-    	return defaultReturnValue
     }
     
     public indexOf(Char search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) =>
     	indexOf("#search", start, direction, defaultReturnValue)
-    public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) -> Int {
+    public indexOf(String search, Int start = 0, Int direction = 1, Int defaultReturnValue = -1) => defaultReturnValue {
         var i = start
 
         while (i < count && i + search.count <= count && i >= 0) {
@@ -241,8 +239,6 @@ immutable class String implements Comparable<String>,
 
             i += direction
         }
-
-        return defaultReturnValue
     }
 
     public lastIndexOf(Char search, Int start = count - 1, Int defaultReturnValue = -1) =>
