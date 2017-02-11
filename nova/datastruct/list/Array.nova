@@ -142,20 +142,6 @@ class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusE
         }
     }
     
-    public pure indexOf(E element, Int defaultReturnValue = -1) -> Int {
-        var Int i = 0
-        
-        for (e in this) {
-            if (element == e) {
-                return i
-            }
-            
-            i++
-        }
-        
-        return defaultReturnValue
-    }
-    
     public replace(E element, E other) -> E => null {
         let index = indexOf(element)
         

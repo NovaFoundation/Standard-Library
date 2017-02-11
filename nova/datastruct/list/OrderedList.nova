@@ -13,4 +13,16 @@ trait OrderedList<Type> implements List<Type> {
             }
         }
     }
+    
+    public pure indexOf(Type element, Int defaultReturnValue = -1) => defaultReturnValue {
+        var Int i = 0
+        
+        for (e in this) {
+            if (element == e) {
+                return i
+            }
+            
+            i++
+        }
+    }
 }
