@@ -386,6 +386,8 @@ class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusE
     [RequireGenericType E extends Comparable]
     public sort() => mergeSort()
     
+    public sort(comparator(E, E) -> Int) => mergeSort(comparator)
+    
     public toImmutable() => new ImmutableArray(this)
     
     [Override]
