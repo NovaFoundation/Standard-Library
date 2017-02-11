@@ -1,0 +1,15 @@
+package "nova/exception"
+
+class StackTrace {
+    public static trace() {
+        external c {
+            nova_print_calling_stacktrace(1);
+        }
+    }
+    
+    public static callingTrace(Int count) {
+        external c {
+            nova_print_calling_stacktrace(#{count});
+        }
+    }
+}
