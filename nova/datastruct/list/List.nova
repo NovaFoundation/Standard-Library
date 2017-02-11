@@ -213,6 +213,28 @@ trait List<Type> implements Iterable<Type> {
         return array
     }
     
+    public sum(func(Type, Int, List<Type>) -> Long) -> Long {
+        var Long sum = 0
+        var Int i = 0
+        
+        for (element in this) {
+            sum += func(element, i++, this)
+        }
+        
+        return sum
+    }
+    
+    public sum(func(Type, Int, List<Type>) -> Double) -> Double {
+        var Double sum = 0
+        var Int i = 0
+        
+        for (element in this) {
+            sum += func(element, i++, this)
+        }
+        
+        return sum
+    }
+    
     //get(Int index) -> Type
     //set(Int index, Type value) -> List<Type>
     //add(Type value) -> List<Type>
