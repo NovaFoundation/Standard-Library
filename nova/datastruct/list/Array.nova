@@ -7,7 +7,7 @@ import "nova/operators/PlusEqualsOperator"
 
 [AutoFinal]
 [Immutable "ImmutableArray"]
-class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>>, PlusEqualsOperator<Array<E>> {
+class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>, Array<E>>, PlusEqualsOperator<Array<E>, Array<E>> {
     pure external void arrayCopy(E dest[], int dIndex, E src[], int sIndex, int len, int destArrLen)
     
     visible var Int capacity
