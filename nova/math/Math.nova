@@ -35,10 +35,14 @@ class Math {
     visible static Double PI = 3.141592653
 
     public static max(Long a, Long b) => a > b ? a : b
+    public static max(Int a, Int b) => a > b ? a : b
     public static min(Long a, Long b) => a < b ? a : b
+    public static min(Int a, Int b) => a < b ? a : b
     public static sign(Long num) => num > 0 ? 1 : (num < 0 ? -1 : 0)
     public static random(Long range) => extRand() % range
+    public static random(Int range) => extRand() % range
     public static abs(Long number) => number < 0 ? -number : number
+    public static abs(Int number) => number < 0 ? -number : number
     public static abs(Double number) => number < 0 ? -number : number
     public static sqrt(Double number) => extSqrt(number)
     public static pow(Double base, Double power) => extPow(base, power)
