@@ -43,13 +43,21 @@ class Thread {
     
     public static lock() {
         external c {
-            WaitForSingleObject(nova_thread_semaphore, INFINITE);
+            #ifdef _WIN32
+                WaitForSingleObject(nova_thread_semaphore, INFINITE);
+            #else
+                sem_wait(nova_thread_semaphore);
+            #endif
         }
     }
     
     public static unlock() {
         external c {
-            ReleaseSemaphore(nova_thread_semaphore, 1, 0);
+            #ifdef _WIN32
+                ReleaseSemaphore(nova_thread_semaphore, 1, 0);
+            #else
+                sem_post(nova_thread_semaphore);
+            #endif
         }
     }
     
