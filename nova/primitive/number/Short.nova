@@ -15,6 +15,10 @@ class Short extends Number implements Integer {
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other
     
+    public static compareTo(Short value, Number other) => other.compareToInteger(value)
+    public static compareToReal(Short value, Double other) => value - other
+    public static compareToInteger(Short value, Long other) => value - other
+    
     public plus(Number other) => other.plusInteger(value)
     public plusReal(Double other) => this.value + other
     public plusInteger(Long other) => this.value + other
@@ -43,12 +47,14 @@ class Short extends Number implements Integer {
     public equalsReal(Double other) => this.value == other
     public equalsInteger(Long other) => this.value == other
     
+    public static equals(Short value, Number other) => other.equalsInteger(value)
+    public static equalsReal(Short value, Double other) => value == other
+    public static equalsInteger(Short value, Long other) => value == other
+    
     public toString() => toString(value)
     
     public static numDigits(Short number) => Long.numDigits(number)
     public static toString(Short value) => Long.toString(value)
     public static hashCodeLong(Short value) => Math.abs(value)
-    public static equals(Short a, Short b) => a == b
     public static plus(Short a, Long b) => a + b
-    public static compareTo(Short a, Short b) => a - b
 }

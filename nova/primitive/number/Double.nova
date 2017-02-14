@@ -127,6 +127,10 @@ class Double extends Number implements RealNumber {
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other
     
+    public static compareTo(Double value, Number other) => other.compareToReal(value)
+    public static compareToReal(Double value, Double other) => value - other
+    public static compareToInteger(Double value, Long other) => value - other
+    
     public plus(Number other) => other.plusReal(value)
     public plusReal(Double other) => this.value + other
     public plusInteger(Long other) => this.value + other
@@ -155,9 +159,12 @@ class Double extends Number implements RealNumber {
     public equalsReal(Double other) => this.value == other
     public equalsInteger(Long other) => this.value == other
     
+    public static equals(Double value, Number other) => other.equalsReal(value)
+    public static equalsReal(Double value, Double other) => value == other
+    public static equalsInteger(Double value, Long other) => value == other
+    
     public toString() => toString(value)
     public static hashCodeLong(Double value) => Math.abs((Long)value)
-    public static equals(Double a, Double b) => a == b
     public static plus(Double a, Double b) => a + b
     public static compareTo(Double a, Double b) => a - b
 }

@@ -72,6 +72,10 @@ class Long extends Number implements Integer {
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other
     
+    public static compareTo(Long value, Number other) => other.compareToInteger(value)
+    public static compareToReal(Long value, Double other) => value - other
+    public static compareToInteger(Long value, Long other) => value - other
+    
     public plus(Number other) => other.plusInteger(value)
     public plusReal(Double other) => this.value + other
     public plusInteger(Long other) => this.value + other
@@ -104,5 +108,4 @@ class Long extends Number implements Integer {
     public static hashCodeLong(Long value) => Math.abs(value)
     public static equals(Long a, Long b) => a == b
     public static plus(Long a, Long b) => a + b
-    public static compareTo(Long a, Long b) => a - b
 }

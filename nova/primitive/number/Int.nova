@@ -22,6 +22,10 @@ class Int extends Number implements Integer {
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other
     
+    public static compareTo(Int value, Number other) => other.compareToInteger(value)
+    public static compareToReal(Int value, Double other) => value - other
+    public static compareToInteger(Int value, Long other) => value - other
+    
     public plus(Number other) => other.plusInteger(value)
     public plusReal(Double other) => this.value + other
     public plusInteger(Long other) => this.value + other
@@ -50,13 +54,16 @@ class Int extends Number implements Integer {
     public equalsReal(Double other) => this.value == other
     public equalsInteger(Long other) => this.value == other
     
+    public static equals(Int value, Number other) => other.equalsInteger(value)
+    public static equalsReal(Int value, Double other) => value == other
+    public static equalsInteger(Int value, Long other) => value == other
+    
     public toString() => toString(value)
     
     public static numDigits(Int number) => Long.numDigits(number)
     public static toString(Int value) => Long.toString(value)
     public static parseInt(String num) => atoi(num.chars.data)
     public static hashCodeLong(Int value) => Math.abs(value)
-    public static equals(Int a, Int b) => a == b
     public static plus(Int a, Long b) => a + b
     public static compareTo(Int a, Int b) => a - b
 }
