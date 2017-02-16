@@ -1,6 +1,6 @@
 package "nova/io"
 
-class FileWriter extends OutputStream {
+class FileWriter implements OutputStream {
     external type FILE
     
     FILE* fp
