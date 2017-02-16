@@ -1,6 +1,6 @@
 package "nova/io"
 
 trait OutputStream {
-    public abstract write(String data) -> Bool
-    //public abstract write(Object data) -> Bool
+    public abstract write(String data) => this
+    //public abstract write(Object data) => this
 }

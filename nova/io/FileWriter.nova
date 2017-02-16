@@ -64,7 +64,11 @@ class FileWriter implements OutputStream {
     }
     
     public writeLine(String line) => write("#line\n")
-    public write(String data) => fputs(data.chars.data, fp) != EOF && flush()
+    
+    public write(String data) => this {
+        fputs(data.chars.data, fp) != EOF && flush()
+    }
+    
     public flush() => fflush(fp) == 0
     public close() => isOpen && fclose(fp) == 0
 }

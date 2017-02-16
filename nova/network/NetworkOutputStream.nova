@@ -6,6 +6,7 @@ import "nova/io/OutputStream"
 class NetworkOutputStream implements OutputStream {
     public construct(private ConnectionSocket socket) {}
     
-    public write(String data) => socket.write(data)
-    public write(Object data) => false
+    public write(String data) => this {
+        socket.write(data)
+    }
 }
