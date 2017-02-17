@@ -122,6 +122,18 @@ class FileReader implements InputStream {
         return new String(line, bufferSize - 1)
     }
     
+    public readChar() -> Char {
+        external c {
+            char temp = getc(#{fp});
+            
+            if (temp != EOF) {
+                return temp;
+            }
+        }
+        
+        return 0
+    }
+    
     public close() => true {
         if (isOpen) {
             fclose(fp)
