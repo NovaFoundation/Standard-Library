@@ -19,6 +19,12 @@ class Library {
     }
     
     public sync load() {
+        if (loadFile()) {
+            
+        }
+    }
+    
+    loadFile() -> File {
         if (!library.exists) {
             throw new InvalidLibraryException("Library '#library.name' does not exist at location '#library.location'")
         }
@@ -38,6 +44,8 @@ class Library {
         if (!loadedLibrary) {
             throw new InvalidLibraryException("Failed to load library '#library.location'")
         }
+        
+        return loadedLibrary
     }
     
     static loadFromSource(File source) -> File {
