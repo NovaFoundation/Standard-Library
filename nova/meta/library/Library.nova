@@ -62,8 +62,8 @@ class Library {
         let path = source.location.substring(end: source.location.lastIndexOf('/') + 1)
         let process = System.execute("novac #source.location -library -o #{path}lib#source.rootName")
         
-        while (var line = process.reader.readString()) {
-            Console.log(line)
+        while (var char = process.reader.readChar()) {
+            Console.write(char)
         }
         
         let libFile = new File(path + "lib#source.rootName" + EXTENSION)
