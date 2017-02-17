@@ -1,0 +1,15 @@
+package "nova/io"
+
+class StringBuilder implements OutputStream {
+    String value
+    
+    public construct(private String value = "") {
+        value = value ?: ""
+    }
+    
+    public write(String str) => this {
+        value += str
+    }
+    
+    public toString() => value
+}
