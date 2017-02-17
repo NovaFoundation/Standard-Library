@@ -22,6 +22,20 @@ class Library {
         library = new File(location)
     }
     
+    public getFunction(String location) {
+        external c {
+            if (#{handle} != NULL) {
+                typedef void (*staticFunc)(void*, void*);
+                
+                staticFunc func = (staticFunc)nova_get_function(#{handle}, #{location.chars.data});
+                
+                func(0, 0);
+            } else {
+                #{throw new InvalidLibraryException("Cannot call getFunction before loading '#library.location'")};
+            }
+        }
+    }
+    
     public sync load() {
         if (loadFile()) {
             external c {
