@@ -1,0 +1,51 @@
+package "nova/meta/library"
+
+import "nova/io/File"
+
+class Library {
+    visible File library, loadedLibrary
+    
+    public construct(String location) {
+        library = new File(location)
+    }
+    
+    public sync load() {
+        if (!library.exists) {
+            throw new InvalidLibraryException("Library '#library.name' does not exist at location '#library.location'")
+        }
+        
+        var libFile = library
+        
+        if (libFile.isDirectory) {
+            if (libFile = loadFromSource(libFile)) {
+                loadedLibrary = libFile
+            } else {
+                throw new InvalidLibraryException("Failed to load library '#library.location' from source")
+            }
+        } else {
+            loadedLibrary = libFile
+        }
+        
+        if (!loadedLibrary) {
+            throw new InvalidLibraryException("Failed to load library '#library.location'")
+        }
+    }
+    
+    static loadFromSource(File source) -> File {
+        let path = source.location.substring(end: source.location.lastIndexOf('/') + 1)
+        let process = System.execute("novac #source.location -library -o #{path}lib#source.rootName")
+        
+        while (var line = process.reader.readString()) {
+            Console.log(line)
+        }
+        
+        let extension = ".dll"
+        let libFile = new File(path + "lib#source.rootName" + extension)
+        
+        if (!libFile.isFile) {
+            throw new InvalidLibraryException("Failed to build library '#source.location' from nova source to '#libFile.location'")
+        }
+        
+        return libFile
+    }
+}
