@@ -8,6 +8,9 @@ class Library {
     
     visible static final String EXTENSION
     
+    external type nova_library_handle
+    nova_library_handle handle
+    
     static {
         match (System.OS_INT)
             System.WINDOWS => EXTENSION = ".dll"
