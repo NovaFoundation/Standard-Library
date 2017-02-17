@@ -24,7 +24,13 @@ class Library {
     
     public sync load() {
         if (loadFile()) {
-            
+            external c {
+                #{handle} = nova_load_library(#{loadedLibrary.location.chars.data});
+                
+                if (#{handle} == NULL) {
+                    #{throw new InvalidLibraryException("Failed to call LoadLibrary for library at location #loadedLibrary.location")};
+                }
+            }
         }
     }
     
