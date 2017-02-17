@@ -21,6 +21,29 @@ immutable class System {
     external bool fgets(char buffer[], int length, FILE* pipe)
     external bool feof(FILE* pipe)
     
+    visible static final String OS
+    
+    visible static final Int WINDOWS = 1
+    visible static final Int LINUX = 2
+    visible static final Int MAC_OSX = 3
+    
+    visible static final Int OS_INT
+    
+    static {
+        external c {
+            #ifdef _WIN32
+                #{OS = "Windows"};
+                #{OS_INT = WINDOWS};
+            #elif defined(__linux__)
+                #{OS = "Linux"};
+                #{OS_INT = LINUX};
+            #elif defined(__APPLE__)
+                #{OS = "Mac OS X"};
+                #{OS_INT = MAC_OSX};
+            #endif
+        }
+    }
+    
     visible static CumulativeTimer overheadTimer = new CumulativeTimer()
     
     public static exit(Int code) {
