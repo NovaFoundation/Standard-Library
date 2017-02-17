@@ -21,6 +21,10 @@ immutable class System {
     external bool fgets(char buffer[], int length, FILE* pipe)
     external bool feof(FILE* pipe)
     
+    [Target c] visible static final String TARGET = "C"
+    [Target js] visible static final String TARGET = "Javascript"
+    [Target java] visible static final String TARGET = "Java"
+    
     visible static final String OS
     
     visible static final Int WINDOWS = 1
