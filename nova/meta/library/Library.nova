@@ -5,6 +5,15 @@ import "nova/io/File"
 class Library {
     visible File library, loadedLibrary
     
+    visible static final String EXTENSION
+    
+    static {
+        match (System.OS_INT)
+            System.WINDOWS => EXTENSION = ".dll"
+            System.LINUX => EXTENSION = ".so"
+            System.MAC_OSX => EXTENSION = ".dylib"
+    }
+    
     public construct(String location) {
         library = new File(location)
     }
@@ -39,8 +48,7 @@ class Library {
             Console.log(line)
         }
         
-        let extension = ".dll"
-        let libFile = new File(path + "lib#source.rootName" + extension)
+        let libFile = new File(path + "lib#source.rootName" + EXTENSION)
         
         if (!libFile.isFile) {
             throw new InvalidLibraryException("Failed to build library '#source.location' from nova source to '#libFile.location'")
