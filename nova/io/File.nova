@@ -34,6 +34,8 @@ class File {
         no set
     }
     
+    visible Bool isFile => exists && !isDirectory
+    
     [Target c]
     visible Bool exists => access(location.chars.data, F_OK) != -1
     
