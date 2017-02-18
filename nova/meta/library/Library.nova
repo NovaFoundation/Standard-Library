@@ -12,10 +12,17 @@ class Library {
     nova_library_handle handle
     
     static {
-        match (System.OS_INT)
-            System.WINDOWS => EXTENSION = ".dll"
-            System.LINUX => EXTENSION = ".so"
-            System.MAC_OSX => EXTENSION = ".dylib"
+        if (System.TARGET == "C") {
+            match (System.OS_INT) {
+                System.WINDOWS => EXTENSION = ".dll"
+                System.LINUX => EXTENSION = ".so"
+                System.MAC_OSX => EXTENSION = ".dylib"
+            }
+        } else if (System.TARGET == "Java") {
+            EXTENSION = ".jar"
+        } else if (System.TARGET == "Javascript") {
+            EXTENSION = ".js"
+        }
     }
     
     public construct(String location) {
