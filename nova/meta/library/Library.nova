@@ -56,7 +56,13 @@ class Library {
                 // 
                 // func(0, 0);
                 
-                return nova_get_function(#{handle}, #{location.chars.data});
+                void* func = nova_get_function(#{handle}, #{name.chars.data});
+                
+                if (func != NULL) {
+                    return func;
+                } else {
+                    // #{return null};
+                }
             }
         }
         
