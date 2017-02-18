@@ -36,7 +36,7 @@ class Library {
         }
     }
     
-    public sync load() {
+    public load() {
         if (loadFile()) {
             external c {
                 #{handle} = nova_load_library(#{loadedLibrary.location.chars.data});

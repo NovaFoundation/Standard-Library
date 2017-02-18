@@ -104,8 +104,11 @@ class Long extends Number implements Integer {
     public equalsReal(Double other) => this.value == other
     public equalsInteger(Long other) => this.value == other
     
+    public static equals(Long value, Number other) => other.equalsInteger(value)
+    public static equalsReal(Long value, Double other) => value == other
+    public static equalsInteger(Long value, Long other) => value == other
+    
     public toString() => toString(value)
     public static hashCodeLong(Long value) => Math.abs(value)
-    public static equals(Long a, Long b) => a == b
     public static plus(Long a, Long b) => a + b
 }
