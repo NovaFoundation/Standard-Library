@@ -36,10 +36,10 @@ class Library {
             let packageEnd = location.lastIndexOf('/')
             
             let package = packageEnd > 0 ? location.substring(end: packageEnd).replace("/", "_") + "_Nova_" : ""
-            let className = location.substring(packageEnd + 1, dot).replace("/", "_")
+            let className = location.substring(packageEnd + 1, dot).replace("/", "_") + "_"
             let name = "Nova_" + location.substring(dot + 1)
             
-            return package + className + (static ? "_static_" : "") + name
+            return package + className + (static ? "static_" : "") + name
         }
         
         return location
