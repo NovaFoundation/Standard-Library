@@ -1,6 +1,7 @@
 package "nova/math"
 
 import "nova/datastruct/Bounds"
+import "nova/datastruct/Tuple2"
 
 class NumericOperation extends NumericOperand<Object> {
     NumericOperand leftOperand
@@ -25,36 +26,36 @@ class NumericOperation extends NumericOperand<Object> {
     static Int VARIABLE = 4
     
     public construct(String operation) {
-        Bounds bounds1, Int index1 = searchNextType(operation, 0)
-        Bounds bounds2, Int index2 = searchNextType(operation, bounds1.end)
-        Bounds bounds3 = null
+        // Tuple2<Bounds, Int> bounds1, Int index1 = searchNextType(operation, 0)
+        // Bounds bounds2, Int index2 = searchNextType(operation, bounds1.end)
+        // Bounds bounds3 = null
         
-        Console.writeLine(bounds1 + ", " + bounds2 + " and " + index1 + ", " + index2)
+        // Console.writeLine(bounds1 + ", " + bounds2 + " and " + index1 + ", " + index2)
         
-        String lh      = bounds1.extractString(operation)
-        String op      = bounds2.extractString(operation)
-        String rh      = null
+        // String lh      = bounds1.extractString(operation)
+        // String op      = bounds2.extractString(operation)
+        // String rh      = null
         
-        Int    type1   = getType(lh)
-        Int    type2   = getType(op)
+        // Int    type1   = getType(lh)
+        // Int    type2   = getType(op)
         
-        if (type2 != OPERATOR) {
-            if (type1 == OPERATOR)
-                throw new InvalidNumericStatementException("Missing left hand operand in operation '#operation'")
+        // if (type2 != OPERATOR) {
+        //     if (type1 == OPERATOR)
+        //         throw new InvalidNumericStatementException("Missing left hand operand in operation '#operation'")
             
-            rh = op
-            op = "*"
+        //     rh = op
+        //     op = "*"
             
-            bounds3     = bounds2.clone()
-            bounds2.end = bounds2.start
-        } else {
-            bounds3 = searchNextType(operation, bounds2.end)
-            rh      = bounds3.extractString(operation)
-        }
+        //     bounds3     = bounds2.clone()
+        //     bounds2.end = bounds2.start
+        // } else {
+        //     bounds3 = searchNextType(operation, bounds2.end).item1
+        //     rh      = bounds3.extractString(operation)
+        // }
         
-        if (bounds3.end != operation.count) {
+        // if (bounds3.end != operation.count) {
             
-        }
+        // }
     }
     
     public construct(String left, String operator, String right) {
@@ -105,7 +106,7 @@ class NumericOperation extends NumericOperand<Object> {
         return VARIABLE
     }
     
-    static searchNextType(String str, Int start) -> Bounds, Int {
+    static searchNextType(String str, Int start) -> Tuple2<Bounds, Int> {
         Int[] operators = new Int[]
         
         Int minIndex = Int.MAX_VALUE
@@ -131,7 +132,7 @@ class NumericOperation extends NumericOperand<Object> {
         
         minIndex = nextNonWhitespaceIndex(str, minIndex - 1, -1) + 1
         
-        return new Bounds(start, minIndex), index
+        return new Tuple2(new Bounds(start, minIndex), index)
     }
     
     static nextOperator(String str, Int start) -> Int {
