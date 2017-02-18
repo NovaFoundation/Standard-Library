@@ -27,13 +27,15 @@ class Library {
             if (#{handle} != NULL) {
                 typedef void (*staticFunc)(void*, void*);
                 
-                staticFunc func = (staticFunc)nova_get_function(#{handle}, #{location.chars.data});
+                // staticFunc func = (staticFunc)nova_get_function(#{handle}, #{location.chars.data});
+                // 
+                // func(0, 0);
                 
-                func(0, 0);
-            } else {
-                #{throw new InvalidLibraryException("Cannot call getFunction before loading '#library.location'")};
+                return nova_get_function(#{handle}, #{location.chars.data});
             }
         }
+        
+        throw new InvalidLibraryException("Cannot call getFunction before loading '#library.location'")
     }
     
     public load() {
