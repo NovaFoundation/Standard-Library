@@ -29,11 +29,29 @@ class Library {
         library = new File(location)
     }
     
-    public getFunction(String location) {
+    formatFunctionName(String location, Bool static) -> String {
+        //nova/test/Test.staticFunc
+        //nova_test_Nova_Test_static_Nova_staticFunc
+        if ((let dot = location.indexOf('.')) > 0) {
+            let packageEnd = location.lastIndexOf('/')
+            
+            let package = packageEnd > 0 ? location.substring(end: packageEnd).replace("/", "_") + "_Nova_" : ""
+            let className = location.substring(packageEnd + 1, dot).replace("/", "_")
+            let name = "Nova_" + location.substring(dot + 1)
+            
+            return package + className + (static ? "_static_" : "") + name
+        }
+        
+        return location
+    }
+    
+    public getFunction(String location, Bool static = true) {//-> func(Int) {
+        let name = formatFunctionName(location, static)
+        
         external c {
             if (#{handle} != NULL) {
-                typedef void (*staticFunc)(void*, void*);
-                
+                // typedef void (*staticFunc)(void*, void*);
+                //
                 // staticFunc func = (staticFunc)nova_get_function(#{handle}, #{location.chars.data});
                 // 
                 // func(0, 0);
