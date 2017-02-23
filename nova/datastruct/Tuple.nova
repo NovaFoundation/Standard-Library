@@ -4,6 +4,8 @@ import "nova/datastruct/list/List"
 import "nova/datastruct/list/ArrayIterator"
 
 class Tuple implements List<Object> {
+	visible Object[] items
+	
 	public construct(visible Object[] items) {}
 	
 	visible ArrayIterator<Object> iterator => new ArrayIterator(items)
