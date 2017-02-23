@@ -1,5 +1,6 @@
 package "nova/primitive/number"
 
+import "nova/exception/UnimplementedForTargetException"
 import "nova/datastruct/Comparable"
 import "nova/operators/EqualsOperator"
 import "nova/operators/MultiplyOperator"
@@ -118,9 +119,11 @@ class Double extends Number implements RealNumber {
     }
     
     public static parseDouble(String str) -> Double {
-        native Char[] pEnd
+        external c {
+            return strtod(#{str.chars.data}, NULL);
+        }
         
-        return strtod(str.chars.data, pEnd)
+        throw new UnimplementedForTargetException()
     }
     
     public compareTo(Number other) => other.compareToReal(value)
