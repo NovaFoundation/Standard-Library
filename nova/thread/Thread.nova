@@ -28,6 +28,16 @@ class Thread {
         useAction = true
     }
     
+    visible static Long id {
+        get {
+            external c {
+                return nova_current_thread_id();
+            }
+        }
+        
+        no set
+    }
+    
     public start() => handle = create_thread(this, startRun)
     public join() => lib_nova_thread_join(handle)
     public kill() => lib_nova_thread_cancel(handle)
