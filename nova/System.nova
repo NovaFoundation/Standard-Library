@@ -151,7 +151,7 @@ immutable class System {
         }
         
         external c {
-            NOVA_FREE(#{args});
+            NOVA_FREE((void*)#{args});
         }
         
         GC.collect()
