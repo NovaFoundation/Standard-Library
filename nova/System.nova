@@ -33,6 +33,8 @@ immutable class System {
     
     visible static final Int OS_INT
     
+    compiler_visible thread_local external_name static ExceptionData exceptionData
+    
     static {
         external c {
             #ifdef _WIN32
