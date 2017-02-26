@@ -3,7 +3,7 @@ package "nova/thread"
 import "nova/datastruct/HashMap"
 
 class ThreadLocal<T> {
-    HashMap<Long, T> map = new HashMap<Long, T>()
+    HashMap<Long, T> map = new HashMap()
     
     public construct(T value = null) => set(value)
     
