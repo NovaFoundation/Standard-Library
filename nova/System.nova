@@ -89,6 +89,12 @@ immutable class System {
     
     compiler_visible static runMain(Int argc, native Char[][] argvs, mainFunc(Array<String>), initialize() = {}) -> Int => 0 {
         external c {
+            #ifdef _WIN32
+                setProgramName(#{argvs[0]});
+                //signal(SIGSEGV, nova_signal_handler);
+                SetUnhandledExceptionFilter(nova_exception_handler);
+            #endif
+
             srand(currentTimeMillis());
         }
         
