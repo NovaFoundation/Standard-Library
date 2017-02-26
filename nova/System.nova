@@ -87,7 +87,7 @@ immutable class System {
             arg.contains(/[ &]/) ? "\"#arg\"" : arg
         }).join(" "))
     
-    compiler_visible static runMain(native Char[][] argvs, Int argc, mainFunc(Array<String>), initialize() = {}) -> Int => 0 {
+    compiler_visible static runMain(Int argc, native Char[][] argvs, mainFunc(Array<String>), initialize() = {}) -> Int => 0 {
         external c {
             srand(currentTimeMillis());
         }
