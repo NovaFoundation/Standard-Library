@@ -86,4 +86,66 @@ immutable class System {
         execute(arguments.map(arg => {
             arg.contains(/[ &]/) ? "\"#arg\"" : arg
         }).join(" "))
+    
+    compiler_visible static runMain(native Char[][] argvs, Int argc, mainFunc(Array<String>), initialize() = {}) -> Int => 0 {
+        external c {
+            srand(currentTimeMillis());
+        }
+        
+        GC.init()
+        
+        external c {
+            nova_garbageData = NOVA_MALLOC(sizeof(void*));
+            nova_null = #{new Null()};
+            
+            if ((errno = nova_create_semaphore()) != 0) return errno;
+        }
+        
+        var String[] args
+        
+        try {
+            initialize()
+            
+            args = new String[argc]
+            
+            for (i in 0..argc) {
+                var native Char[] allocated
+                
+                external c {
+                    #{allocated} = (char*)NOVA_MALLOC(sizeof(char) * strlen(#{argvs[i]}) + 1);
+                    copy_string(#{allocated}, #{argvs[i]});
+                }
+                
+                args[i] = new String(allocated[i])
+            }
+            
+            mainFunc(args)
+        } catch (Exception e) {
+            var message = "#e.class.location in main Thread"
+            
+            if (e.message) {
+                message += ": #e.message"
+            }
+            
+            Console.log(message)
+        }
+        
+        Thread.ACTIVE_THREADS.forEach({ _.join() })
+        
+        external c {
+            if ((errno = nova_close_semaphore()) != 0) return errno;
+        }
+        
+        if (OS_INT == WINDOWS) {
+            external c {
+                FreeConsole();
+            }
+        }
+        
+        external c {
+            NOVA_FREE(#{args});
+        }
+        
+        GC.collect()
+    }
 }
