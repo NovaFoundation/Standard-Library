@@ -122,6 +122,13 @@ class Library {
     
     static loadFromSource(File source) -> File {
         let path = source.location.substring(end: source.location.lastIndexOf('/') + 1)
+        
+        let existingLibFile = new File(path + "lib#source.rootName" + EXTENSION)
+        
+        if (existingLibFile.isFile) {
+            return existingLibFile
+        }
+        
         let process = System.execute("novac #source.location -library -o #{path}lib#source.rootName")
         
         while (var char = process.reader.readChar()) {
