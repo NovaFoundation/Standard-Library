@@ -145,13 +145,11 @@ immutable class System {
             if ((errno = nova_close_semaphore()) != 0) return errno;
         }
         
-        if (OS_INT == WINDOWS) {
-            external c {
-                FreeConsole();
-            }
-        }
-        
         external c {
+            #ifdef _WIN32
+                FreeConsole();
+            #endif
+            
             NOVA_FREE((void*)#{args});
         }
         
