@@ -100,8 +100,6 @@ immutable class System {
             srand(currentTimeMillis());
         }
         
-        GC.init()
-        
         external c {
             nova_garbageData = NOVA_MALLOC(sizeof(void*));
             nova_null = #{new Null()};
