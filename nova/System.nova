@@ -138,6 +138,7 @@ immutable class System {
             }
             
             Console.log(message)
+            Console.waitForEnter()
         }
         
         Thread.ACTIVE_THREADS.forEach({ _.join() })
