@@ -1,6 +1,7 @@
 package "nova/meta/library"
 
 import "nova/io/File"
+import "nova/meta/Class"
 import "nova/meta/library/NativeLibrary.h"
 
 class Library {
@@ -29,25 +30,39 @@ class Library {
         library = new File(location)
     }
     
-    formatFunctionName(String location, Bool static) -> String {
-        //nova/test/Test.staticFunc
-        //nova_test_Nova_Test_static_Nova_staticFunc
-        if ((let dot = location.indexOf('.')) > 0) {
-            let packageEnd = location.lastIndexOf('/')
-            
-            let package = packageEnd > 0 ? location.substring(end: packageEnd).replace("/", "_") + "_Nova_" : ""
-            let className = location.substring(packageEnd + 1, dot).replace("/", "_") + "_"
-            let name = "Nova_" + location.substring(dot + 1)
-            
-            return package + className + (static ? "static_" : "") + name
-        }
+    formatFunctionName(String functionName, Object reference) -> String {
+        let static = reference.class.isOfType(Class)
+        let class = static ? (Class)reference : reference.class
         
-        return location
+        return formatFunctionName(functionName, class.location, static)
     }
     
-    public getFunction(String location, Bool static = true) -> func(Int) {
-        let name = formatFunctionName(location, static)
+    formatFunctionName(String functionName, String classLocation, Bool static = true) -> String {
+        let location = "#{classLocation}.#{functionName}"
+        let dot = location.indexOf('.')
         
+        //nova/test/Test.staticFunc
+        //nova_test_Nova_Test_static_Nova_staticFunc
+        if (dot <= 0) {
+            throw new InvalidLibraryException("Invalid function request: { name: #functionName, location: #location }")
+        }
+        
+        let packageEnd = location.lastIndexOf('/')
+        
+        let package = packageEnd > 0 ? location.substring(end: packageEnd).replace("/", "_") + "_Nova_" : ""
+        let className = location.substring(packageEnd + 1, dot).replace("/", "_") + "_"
+        let name = "Nova_" + location.substring(dot + 1)
+        
+        return package + className + (static ? "static_" : "") + name
+    }
+    
+    public getFunction(String functionName, String classLocation) =>
+        getFunction(formatFunctionName(functionName, classLocation, true))
+    
+    public getFunction(String functionName, Object reference) =>
+        getFunction(formatFunctionName(functionName, reference))
+    
+    getFunction(String location) -> func() {
         external c {
             if (#{handle} != NULL) {
                 // typedef void (*staticFunc)(void*, void*);
@@ -56,7 +71,7 @@ class Library {
                 // 
                 // func(0, 0);
                 
-                void* func = nova_get_function(#{handle}, #{name.chars.data});
+                void* func = nova_get_function(#{handle}, #{location.chars.data});
                 
                 if (func != NULL) {
                     return func;
