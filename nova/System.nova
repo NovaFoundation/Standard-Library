@@ -89,7 +89,7 @@ immutable class System {
             arg.contains(/[ &]/) ? "\"#arg\"" : arg
         }).join(" "))
     
-    compiler_visible static runMain(Int argc, native Char[][] argvs, mainFunc(Array<String>), initialize() = {}) -> Int => 0 {
+    compiler_visible static runMain(Int argc, native Char[][] argvs, mainFunc(Array<String>), initialize() = {}, callStaticBlocks() = {}) -> Int => 0 {
         external c {
             #ifdef _WIN32
                 setProgramName(#{argvs[0]});
@@ -111,8 +111,10 @@ immutable class System {
         
         var String[] args
         
+        initialize()
+        
         try {
-            initialize()
+            callStaticBlocks()
             
             args = new String[argc]
             
