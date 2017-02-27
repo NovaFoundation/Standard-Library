@@ -45,7 +45,7 @@ class Library {
         return location
     }
     
-    public getFunction(String location, Bool static = true) {//-> func(Int) {
+    public getFunction(String location, Bool static = true) -> func(Int) {
         let name = formatFunctionName(location, static)
         
         external c {
