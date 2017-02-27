@@ -26,17 +26,30 @@ trait List<Type> implements Iterable<Type> {
     // [RequireGenericType Type implements EqualsOperator]
     // public contains(EqualsOperator value) => any({ (EqualsOperator)_ == value })
     
+    /// Check whether or not the List contains the given value.
+    /// 
+    /// value: The value to search for.
+    /// return: Whether the List contains it.
     public contains(Type value) => any(x => {
         value.class.isOfType(EqualsOperator) && x.class.isOfType(EqualsOperator) ?
             ((EqualsOperator)x).equals((EqualsOperator)value) :
             x == value
     })
     
+    /// Check to see if this List contains any of the values that are
+    /// 
+    /// contained within the given values List.
+    /// values: The list to search the values from.
+    /// return: Whether the List contains any of the values in the List.
     public containsAny(List<Type> values) => any({ values.contains(_) })
     
     // [RequireGenericType Type implements EqualsOperator]
     // public contains(EqualsOperator value) => any({ ((EqualsOperator)_) == value })
     
+    /// Call the given func function for each of the elements in this List.
+    /// 
+    /// func: The function to call for each of the elements in the List.
+    /// return: Returns itself. Chainable function.
     public forEach(func(Type, Int, List<Type>)) => this {
         var Int i = 0
         
@@ -45,6 +58,12 @@ trait List<Type> implements Iterable<Type> {
         }
     }
     
+    /// Create a new List from the values that are returned from the
+    /// supplied mapFunc function.
+    /// 
+    /// mapFunc: The function to use to generate the values that will
+    ///     be contained within the outputted List.
+    /// return: The List of values generated from the mapFunc function calls.
     public map<Out>(mapFunc(Type, Int, List<Type>) -> Out) -> List<Out> {
         let array = new Out[count]
         
@@ -57,6 +76,12 @@ trait List<Type> implements Iterable<Type> {
         return array
     }
     
+    /// Check whether the anyFunc returns true for any of the values
+    /// within this List.
+    /// 
+    /// anyFunc: The function that the values are passed to to determine
+    ///     whether the function is successful.
+    /// return: Whether or not any of the calls to anyFunc returned true.
     public any(anyFunc(Type) -> Bool) => false {
         for (element in this) {
             if (anyFunc(element)) {
