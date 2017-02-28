@@ -84,7 +84,7 @@ class Library {
         throw new InvalidLibraryException("Cannot call getFunction before loading '#library.location'")
     }
     
-    public load() {
+    public load() => this {
         if (loadFile()) {
             external c {
                 #{handle} = nova_load_library(#{loadedLibrary.location.chars.data});
