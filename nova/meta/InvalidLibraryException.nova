@@ -1,4 +1,4 @@
-package "nova/meta/library"
+package "nova/meta"
 
 class InvalidLibraryException extends Exception {
     public construct(String message) {

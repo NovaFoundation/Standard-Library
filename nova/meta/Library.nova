@@ -1,8 +1,8 @@
-package "nova/meta/library"
+package "nova/meta"
 
 import "nova/io/File"
 import "nova/meta/Class"
-import "nova/meta/library/NativeLibrary.h"
+import "nova/meta/NativeLibrary.h"
 
 class Library {
     visible File library, loadedLibrary
