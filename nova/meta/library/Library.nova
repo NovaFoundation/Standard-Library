@@ -57,26 +57,18 @@ class Library {
     }
     
     public getFunction(String functionName, String classLocation) =>
-        getFunction(formatFunctionName(functionName, classLocation, true))
+        getFunctionHandle(formatFunctionName(functionName, classLocation, true), null)
     
     public getFunction(String functionName, Object reference) =>
-        getFunction(formatFunctionName(functionName, reference))
+        getFunctionHandle(formatFunctionName(functionName, reference), reference)
     
-    getFunction(String location) -> func() {
+    getFunctionHandle(String location, Object reference) -> func() {
         external c {
             if (#{handle} != NULL) {
-                // typedef void (*staticFunc)(void*, void*);
-                //
-                // staticFunc func = (staticFunc)nova_get_function(#{handle}, #{location.chars.data});
-                // 
-                // func(0, 0);
-                
                 void* func = nova_get_function(#{handle}, #{location.chars.data});
                 
                 if (func != NULL) {
-                    return func;
-                } else {
-                    // #{return null};
+                    return nova_get_funcStruct2(func, #{reference});
                 }
             }
         }
