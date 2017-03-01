@@ -36,6 +36,12 @@ class Library {
         return constructor()
     }
     
+    public getConstructor(String classLocation) -> func() -> Object {
+        let constructor = getFunction("construct", classLocation)
+        
+        // return constructor
+    }
+    
     formatFunctionName(String functionName, Object reference) -> String {
         let static = reference.class.isOfType(Class)
         let class = static ? (Class)reference : reference.class
