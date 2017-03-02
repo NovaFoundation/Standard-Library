@@ -51,5 +51,7 @@ immutable class Class<Type> {
         }
     }
     
+    public immutable getClassesOfType(Class baseType) => ALL.filter({ _.isOfType(baseType) })
+    
     public toString() => "Class \"#location\""
 }
