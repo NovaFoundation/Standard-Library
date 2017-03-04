@@ -82,9 +82,11 @@ trait List<Type> implements Iterable<Type> {
     /// anyFunc: The function that the values are passed to to determine
     ///     whether the function is successful.
     /// return: Whether or not any of the calls to anyFunc returned true.
-    public any(anyFunc(Type) -> Bool) => false {
+    public any(anyFunc(Type, Int, List<Type>) -> Bool) => false {
+        var Int i = 0
+        
         for (element in this) {
-            if (anyFunc(element)) {
+            if (anyFunc(element, i++, this)) {
                 return true
             }
         }
