@@ -93,7 +93,14 @@ class Thread {
                 run()
             }
         } catch (Exception e) {
-            Console.writeLine("An error has occurred...")
+            var message = "#e.class.location in Thread #id"
+            
+            if (e.message) {
+                message += ": #e.message"
+            }
+            
+            Console.log(message)
+            Console.waitForEnter()
         }
         
         active = false
