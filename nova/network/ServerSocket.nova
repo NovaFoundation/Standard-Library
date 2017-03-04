@@ -24,16 +24,14 @@ class ServerSocket extends Socket {
         open = false
     }
     
-    public start(Int port) -> Bool {
+    public start(Int port) => this {
         serverSocket = nova_serversocket_start(port)
         
         if (serverSocket == 0) {
-            return false
+            return null
         }
         
         open = true
-        
-        return true
     }
     
     public close() -> Bool {
