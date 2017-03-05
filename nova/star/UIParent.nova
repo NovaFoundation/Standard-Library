@@ -8,4 +8,8 @@ trait UIParent extends UIComponent {
         
         children.forEach({ _.paint() })
     }
+    
+    public addChild(UIComponent component) {
+        children.addUnique(component)
+    }
 }
