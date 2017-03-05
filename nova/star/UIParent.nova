@@ -1,0 +1,11 @@
+package "nova/star"
+
+trait UIParent extends UIComponent {
+    visible UIComponent[] children = new UIComponent[]
+    
+    public paint() {
+        draw()
+        
+        children.forEach({ _.paint() })
+    }
+}
