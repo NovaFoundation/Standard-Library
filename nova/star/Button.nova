@@ -2,6 +2,8 @@ package "nova/star"
 
 class Button extends Panel {
     public construct(passing Int x, passing Int y, passing Int width, passing Int height) =>
+    public Int type
+    
         super(x, y, width, height)
     
     public draw() {
@@ -13,7 +15,7 @@ class Button extends Panel {
             r.top    = #{y};
             r.bottom = #{y} + #{height};
             
-            DrawFrameControl(*#{window.hdc}, &r, DFC_BUTTON, DFCS_BUTTONPUSH);
+            DrawFrameControl(*#{window.hdc}, &r, DFC_BUTTON, #{type});
         }
     }
 }
