@@ -2,8 +2,15 @@ package "nova/star"
 
 class Button extends Panel {
     public draw() {
-        // external c {
+        external c {
+            RECT r;
             
-        // }
+            r.left   = #{x};
+            r.right  = #{x} + #{width};
+            r.top    = #{y};
+            r.bottom = #{y} + #{height};
+            
+            DrawFrameControl(*#{window.hdc}, &r, DFC_BUTTON, DFCS_BUTTONPUSH);
+        }
     }
 }
