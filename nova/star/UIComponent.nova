@@ -5,4 +5,8 @@ abstract class UIComponent {
     visible Window window => parent?.window
     
     public abstract draw()
+    
+    public paint() {
+        draw()
+    }
 }
