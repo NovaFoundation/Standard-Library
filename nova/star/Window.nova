@@ -15,8 +15,8 @@ class Window {
         frame = new Frame(this)
     }
     
-    public create() {
-        //nova_createWindow(x, y, width, height, "TEST!")
+    public create() => this {
+        // nova_createWindow(x, y, width, height, "TEST!")
         
         WindowThread t = new WindowThread(this)
         
