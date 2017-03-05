@@ -3,7 +3,7 @@ package "nova/star"
 class Panel extends UIComponent implements UIParent {
     public Int width, height
     
-    public construct(Int x = 0, Int y = 0, public Int width = 0, public Int height = 0) {
+    public construct(passing Int x, passing Int y, public Int width = 0, public Int height = 0) {
         super(x, y)
     }
     
