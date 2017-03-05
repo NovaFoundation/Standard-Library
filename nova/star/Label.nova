@@ -3,6 +3,9 @@ package "nova/star"
 class Label extends UIComponent {
     public String text
     
+    public construct(public String text, Int x = 0, Int y = 0) =>
+        super(x, y)
+    
     public draw() {
         external c {
             TextOut(*#{window.hdc}, #{x}, #{y}, #{text.chars.data}, #{text.count});
