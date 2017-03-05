@@ -1,7 +1,7 @@
 package "nova/star"
 
 class Button extends Panel {
-    public construct(public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) =>
+    public construct(Int x = 0, Int y = 0, Int width = 0, Int height = 0) =>
         super(x, y, width, height)
     
     public draw() {
