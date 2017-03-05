@@ -1,0 +1,9 @@
+package "nova/star"
+
+class Button extends Panel {
+    public draw() {
+        // external c {
+            
+        // }
+    }
+}
