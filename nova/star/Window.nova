@@ -5,11 +5,11 @@ import "nova/star/NativeWindow.h"
 class Window {
     //external WINDOW_ID_TYPE* nova_createWindow(int x, int y, int width, int height, char title[])
     
-    public Int x, y, width, height
+    public external_name Int x, y, width, height
     
-    public Frame frame
+    public external_name Frame frame
     
-    public String title
+    public external_name String title
     
     external type HWND
     external type HDC
