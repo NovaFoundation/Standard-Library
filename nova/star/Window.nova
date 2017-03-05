@@ -11,6 +11,14 @@ class Window {
     
     public String title
     
+    external type HWND
+    external type HDC
+    external type PAINTSTRUCT
+    
+    [Target c] public external_name HWND* hwnd
+    [Target c] public external_name HDC* hdc
+    [Target c] public external_name PAINTSTRUCT* ps
+    
     public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {
         frame = new Frame(this)
     }
