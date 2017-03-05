@@ -23,6 +23,13 @@ class Window {
         frame = new Frame(this)
     }
     
+    [Target c]
+    public setWindowProperties(HWND* hwnd, HDC* hdc, PAINTSTRUCT* ps) {
+        this.hwnd = hwnd
+        this.hdc = hdc
+        this.ps = ps
+    }
+    
     public create() => this {
         // nova_createWindow(x, y, width, height, "TEST!")
         
