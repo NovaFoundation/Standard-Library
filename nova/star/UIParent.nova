@@ -10,6 +10,10 @@ trait UIParent extends UIComponent {
     }
     
     public addChild(UIComponent component) {
-        children.addUnique(component)
+        if (!children.contains(component)) {
+            children.add(component)
+            
+            component.parent = this
+        }
     }
 }
