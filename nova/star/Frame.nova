@@ -6,4 +6,6 @@ class Frame extends Panel {
     visible Window window => windowInstance
     
     public construct(public Window windowInstance) {}
+    
+    public draw() {}
 }
