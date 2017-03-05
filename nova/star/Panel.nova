@@ -4,7 +4,7 @@ class Panel extends UIComponent implements UIParent {
     public Int width, height
     
     public construct(public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {
-        
+        super(x, y)
     }
     
     public draw() {}
