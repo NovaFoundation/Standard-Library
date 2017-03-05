@@ -1,6 +1,9 @@
 package "nova/star"
 
 class Button extends Panel {
+    public construct(public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) =>
+        super(x, y, width, height)
+    
     public draw() {
         external c {
             RECT r;
