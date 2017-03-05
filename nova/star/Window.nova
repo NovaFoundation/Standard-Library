@@ -7,9 +7,13 @@ class Window {
     
     public Int x, y, width, height
     
+    public Frame frame
+    
     public String title
     
-    public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {}
+    public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {
+        frame = new Frame(this)
+    }
     
     public create() {
         //nova_createWindow(x, y, width, height, "TEST!")
