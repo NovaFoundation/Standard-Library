@@ -9,6 +9,7 @@ class WindowThread extends Thread {
     public construct(private Window window) {}
     
     public run() {
-        nova_createWindow(window.x, window.y, window.width, window.height, window.title.chars.data)
+        let paintFunc = window.frame.paint
+        
     }
 }
