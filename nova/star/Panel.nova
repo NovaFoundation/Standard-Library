@@ -9,5 +9,20 @@ class Panel extends UIComponent implements UIParent {
         super(x, y)
     }
     
-    public draw() {}
+    public draw() {
+        if (backgroundColor) {
+            external c {
+                int x = #{absoluteX};
+                int y = #{absoluteY};
+                
+                RECT r = {x, y, x + #{width}, y + #{height}};
+                
+                HBRUSH brush = CreateSolidBrush(RGB(#{backgroundColor.r}, #{backgroundColor.g}, #{backgroundColor.b}));
+                
+                FillRect(*#{window.hdc}, &r, brush);
+                
+                DeleteObject(brush);
+            }
+        }
+    }
 }
