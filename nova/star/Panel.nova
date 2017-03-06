@@ -3,6 +3,8 @@ package "nova/star"
 class Panel extends UIComponent implements UIParent {
     public Int width, height
     
+    public Color backgroundColor
+    
     public construct(passing Int x, passing Int y, public Int width = 0, public Int height = 0) {
         super(x, y)
     }
