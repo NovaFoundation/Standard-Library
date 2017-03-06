@@ -95,15 +95,24 @@ class Button extends Panel implements UIAction {
         super(x, y, width, height)
     
     public draw() {
+        // external c {
+        //     RECT r;
+            
+        //     r.left   = #{x};
+        //     r.right  = #{x} + #{width};
+        //     r.top    = #{y};
+        //     r.bottom = #{y} + #{height};
+            
+        //     DrawFrameControl(*#{window.hdc}, &r, #{type}, #{state});
+        // }
+    }
+    
+    public onAdded() {
         external c {
-            RECT r;
-            
-            r.left   = #{x};
-            r.right  = #{x} + #{width};
-            r.top    = #{y};
-            r.bottom = #{y} + #{height};
-            
-            DrawFrameControl(*#{window.hdc}, &r, #{type}, #{state});
+            CreateWindowW(WC_BUTTONW, #{text.toWide()}, WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                #{x}, #{y}, #{width}, #{height}, *#{window.hwnd}, (HMENU)#{actionId}, NULL, NULL);
         }
+        
+        UIParent.super.onAdded()
     }
 }
