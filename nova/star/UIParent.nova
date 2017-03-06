@@ -9,6 +9,14 @@ trait UIParent extends UIComponent {
         children.forEach({ _.paint() })
     }
     
+    [Target c]
+    public searchActionTarget(Int actionId) {
+        if (this.class.isOfType(UIAction) && ((UIAction)this).actionId == actionId) {
+            ((UIAction)this).onAction()
+        } else {
+            children.forEach({ _.searchActionTarget(actionId) })
+        }
+    }
     public addChild(UIComponent component) {
         if (!children.contains(component)) {
             children.add(component)
