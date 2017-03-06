@@ -89,7 +89,9 @@ class Button extends Panel implements UIAction {
     Int type
     Int state
     
-    public construct(passing Int x, passing Int y, passing Int width, passing Int height, public Int type = REGULAR, public Int state = PUSH) =>
+    public String text
+    
+    public construct(passing Int x, passing Int y, passing Int width, passing Int height, public String text = "", public Int type = REGULAR, public Int state = PUSH) =>
         super(x, y, width, height)
     
     public draw() {
