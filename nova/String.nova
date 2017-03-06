@@ -26,6 +26,8 @@ immutable class String implements Comparable<String>,
     
     static Char[] WHITESPACE = [ ' ', '\t', '\n', '\r' ]
     
+    external type wchar_t
+    
     external void strcpy(char dst[], char src[])
     external void strncpy(char dst[], char src[], int count)
     external void strcat(char dst[], char src[])
@@ -99,6 +101,16 @@ immutable class String implements Comparable<String>,
         }
         external java {
             return #{chars}.length;
+        }
+    }
+    
+    [Target c] public native toWide() -> wchar_t[] {
+        external {
+            size_t size = #{count} + 1;
+            wchar_t* wa = (wchar_t*)NOVA_MALLOC(sizeof(wchar_t) * size);
+            mbstowcs(wa, #{chars.data}, size);
+            
+            return wa;
         }
     }
 
