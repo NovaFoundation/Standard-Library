@@ -17,6 +17,13 @@ trait UIParent extends UIComponent {
             children.forEach({ _.searchActionTarget(actionId) })
         }
     }
+    
+    public onAdded() {
+        super.onAdded()
+        
+        children.forEach({ _.onAdded() })
+    }
+    
     public addChild(UIComponent component) {
         if (!children.contains(component)) {
             children.add(component)
