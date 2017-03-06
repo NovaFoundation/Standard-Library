@@ -10,9 +10,10 @@ class WindowThread extends Thread {
     
     public run() {
         let paintFunc = window.frame.paint
+        let addedFunc = window.frame.onAdded
         
         external c {
-            nova_createWindow(#{window}, #{paintFunc});
+            nova_createWindow(#{window}, #{paintFunc}, #{addedFunc});
         }
     }
 }
