@@ -8,7 +8,9 @@ class UIComponent {
     
     public construct(public Int x, public Int y) {}
     
-    public abstract draw()
+    public onAdded() {}
+    public onRemoved() {}
+    public draw() {}
     
     public paint() {
         draw()
