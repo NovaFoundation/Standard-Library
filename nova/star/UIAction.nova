@@ -4,7 +4,7 @@ trait UIAction extends UIComponent {
     Array<actionFunc()> listeners = new Array()
     
     public onAction() {
-        // listeners.forEach({ _() })
+        listeners.forEach({ _() })
     }
     
     public addActionListener(func()) {
