@@ -1,6 +1,6 @@
 package "nova/star"
 
-class Button extends Panel {
+class Button extends Panel implements UIAction {
     external Int DFC_BUTTON
     external Int DFC_CAPTION
     external Int DFC_MENU
@@ -8,10 +8,10 @@ class Button extends Panel {
     external Int DFC_SCROLL
     
     visible static final Int REGULAR = DFC_BUTTON
-    visible static final Int CAPTION = DFC_CAPTION
-    visible static final Int MENU = DFC_MENU
+    visible static final Int TITLE_BAR = DFC_CAPTION
+    visible static final Int MENU_BAR = DFC_MENU
     visible static final Int POPUP_MENU = DFC_POPUPMENU
-    visible static final Int SCROLL = DFC_SCROLL
+    visible static final Int SCROLL_BAR = DFC_SCROLL
     
     // DFC_BUTTON
     external Int DFCS_BUTTON3STATE
