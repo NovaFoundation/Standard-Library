@@ -1,6 +1,6 @@
 package "nova/star"
 
-abstract class UIComponent {
+class UIComponent {
     public UIComponent parent
     visible Window window => parent?.window
     
