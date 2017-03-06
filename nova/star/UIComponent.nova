@@ -15,6 +15,9 @@ class UIComponent {
     public onRemoved() {}
     public draw() {}
     
+    [Target c]
+    public searchActionTarget(Int actionId) {}
+    
     public paint() {
         draw()
     }
