@@ -6,6 +6,9 @@ class UIComponent {
     
     public Int x, y
     
+    visible Int absoluteX => x + (parent ? parent.x : 0)
+    visible Int absoluteY => y + (parent ? parent.y : 0)
+    
     public construct(public Int x, public Int y) {}
     
     public onAdded() {}
