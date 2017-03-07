@@ -19,7 +19,7 @@ class Panel extends UIComponent implements UIParent {
                 
                 HBRUSH brush = CreateSolidBrush(RGB(#{backgroundColor.r}, #{backgroundColor.g}, #{backgroundColor.b}));
                 
-                FillRect(*#{window.hdc}, &r, brush);
+                FillRect(#{window.hdc}, &r, brush);
                 
                 DeleteObject(brush);
             }
