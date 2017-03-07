@@ -8,7 +8,7 @@ class Label extends UIComponent {
     
     public draw() {
         external c {
-            TextOut(*#{window.hdc}, #{x}, #{y}, #{text.chars.data}, #{text.count});
+            TextOut(#{window.hdc}, #{absoluteX}, #{absoluteY}, #{text.chars.data}, #{text.count});
         }
     }
 }
