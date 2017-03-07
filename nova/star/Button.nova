@@ -110,7 +110,7 @@ class Button extends Panel implements UIAction {
     public onAdded() {
         external c {
             CreateWindowW(WC_BUTTONW, #{text.toWide()}, WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-                #{x}, #{y}, #{width}, #{height}, *#{window.hwnd}, (HMENU)#{actionId}, NULL, NULL);
+                #{x}, #{y}, #{width}, #{height}, #{window.hwnd}, (HMENU)#{actionId}, NULL, NULL);
         }
         
         UIParent.super.onAdded()
