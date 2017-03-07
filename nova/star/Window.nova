@@ -37,4 +37,12 @@ class Window {
         x = Screen.width / 2 - width / 2
         y = Screen.height / 2 - height / 2
     }
+    
+    public repaint() {
+        if (hwnd != NULL) { // If the window has been loaded
+            external c {
+                SendMessage(#{hwnd}, WM_USER_INVALRECT, 0, 0);
+            }
+        }
+    }
 }
