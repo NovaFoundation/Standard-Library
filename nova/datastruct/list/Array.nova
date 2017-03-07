@@ -374,7 +374,7 @@ class Array<E> implements List<E>, OrderedList<E>, PlusOperator<Array<E>, Array<
     
     public sort(comparator(E, E) -> Int) => mergeSort(comparator)
     
-    public toImmutable() => new ImmutableArray(this)
+    public toImmutable() => new ImmutableArray<E>(this)
     
     [Override]
     public toString() => this.class.name + " [#{join(", ")}]"
