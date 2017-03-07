@@ -15,7 +15,9 @@ class Window {
     external type HDC
     external type PAINTSTRUCT
     
-    [Target c] public external_name HWND* hwnd
+    external Int NULL
+    
+    [Target c] public external_name HWND hwnd
     [Target c] public external_name HDC* hdc
     [Target c] public external_name PAINTSTRUCT* ps
     
