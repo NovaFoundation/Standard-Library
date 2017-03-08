@@ -3,10 +3,7 @@ package "nova/star"
 import "nova/star/NativeWindow.h"
 
 class Window {
-    public external_name Int x { set { x = value; refreshPosition() } }
-    public external_name Int y { set { y = value; refreshPosition() } }
-    public external_name Int width { set { width = value; refreshPosition() } }
-    public external_name Int height { set { height = value; refreshPosition() } }
+    public external_name Int x, y, width, height
     
     public external_name Frame frame
     
@@ -44,6 +41,8 @@ class Window {
     public center() => this {
         x = Screen.width / 2 - width / 2
         y = Screen.height / 2 - height / 2
+        
+        refreshPosition()
     }
     
     public repaint() {
