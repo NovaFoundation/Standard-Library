@@ -38,7 +38,10 @@ class Thread {
         no set
     }
     
-    public start() => handle = create_thread(this, startRun)
+    public start() => this {
+        handle = create_thread(this, startRun)
+    }
+    
     public join() => lib_nova_thread_join(handle)
     public kill() => lib_nova_thread_cancel(handle)
     
