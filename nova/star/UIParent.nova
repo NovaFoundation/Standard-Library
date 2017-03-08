@@ -29,6 +29,12 @@ trait UIParent extends UIComponent {
             children.add(component)
             
             component.parent = this
+            // component.onAdded()
+            external c {
+                SendMessage(#{window.hwnd}, WM_ADD_COMPONENT, 0, 0);
+            }
+            
+            repaint()
         }
     }
 }
