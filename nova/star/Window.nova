@@ -34,6 +34,12 @@ class Window {
         t.start()
     }
     
+    public refreshPosition() {
+        external c {
+            SetWindowPos(#{hwnd}, NULL, #{x}, #{y}, #{width}, #{height}, SWP_NOACTIVATE);
+        }
+    }
+    
     public center() => this {
         x = Screen.width / 2 - width / 2
         y = Screen.height / 2 - height / 2
