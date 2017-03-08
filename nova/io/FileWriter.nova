@@ -30,6 +30,11 @@ class FileWriter implements OutputStream {
         }
     }
     
+    [Target c]
+    public construct(FILE* fp) {
+        this.fp = fp
+    }
+    
     public construct(String location) => this(new File(location))
     
     public delete() => close() && remove(file.location.chars.data) == 0
