@@ -12,6 +12,8 @@ class Console {
     external FILE* stdout
     external int   SEEK_END
 
+    public static OutputStream out = new FileWriter(stdout)
+    
     [Target c] external void fgets(char buf[], int size, FILE* stream) as extReadLine
     external void fseek(FILE* stream, int offset, int origin)
     [Target c] external void fputs(char str[], FILE* stream) as writeExternal
@@ -39,10 +41,11 @@ class Console {
     public static writeLine(Char c) => writeLine(Char.toString(c))
     
     public static write(String text) {
-        let cText = text.chars
+        // let cText = text.chars
         
-        [Target c] fwrite(cText.data, 1, text.count, stdout)
-        [Target js] writeExternal(cText.data)
+        // [Target c] fwrite(cText.data, 1, text.count, stdout)
+        // [Target js] writeExternal(cText.data)
+        out.write(text)
 
         flushOutput()
     }
