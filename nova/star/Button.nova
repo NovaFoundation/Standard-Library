@@ -91,6 +91,9 @@ class Button extends Panel implements UIAction {
     
     public String text
     
+    external type HWND
+    [Target c] public external_name HWND hwnd
+    
     public construct(passing Int x, passing Int y, passing Int width, passing Int height, public String text = "", public Int type = REGULAR, public Int state = PUSH) =>
         super(x, y, width, height)
     
@@ -109,8 +112,10 @@ class Button extends Panel implements UIAction {
     
     public onAdded() {
         external c {
-            CreateWindowW(WC_BUTTONW, #{text.toWide()}, WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-                #{x}, #{y}, #{width}, #{height}, #{window.hwnd}, (HMENU)#{actionId}, NULL, NULL);
+            if (#{hwnd} == NULL) {
+                #{hwnd} = CreateWindowW(WC_BUTTONW, #{text.toWide()}, WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                    #{x}, #{y}, #{width}, #{height}, #{window.hwnd}, (HMENU)#{actionId}, NULL, NULL);
+            }
         }
         
         UIParent.super.onAdded()
