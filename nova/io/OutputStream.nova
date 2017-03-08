@@ -4,5 +4,6 @@ trait OutputStream {
     visible static final EmptyOutputStream EMPTY = new EmptyOutputStream()
     
     public write(String data) => this
+    public writeLine(String value) => write(value + "\n")
     //public write(Object data) => this
 }
