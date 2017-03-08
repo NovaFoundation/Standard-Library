@@ -26,12 +26,8 @@ class Window {
         frame = new Frame(this)
     }
     
-    public create() => this {
-        // nova_createWindow(x, y, width, height, "TEST!")
-        
-        WindowThread t = new WindowThread(this)
-        
-        t.start()
+    public show() => this {
+        thread.show()
     }
     
     public refreshPosition() {
