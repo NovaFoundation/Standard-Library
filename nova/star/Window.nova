@@ -3,9 +3,10 @@ package "nova/star"
 import "nova/star/NativeWindow.h"
 
 class Window {
-    //external WINDOW_ID_TYPE* nova_createWindow(int x, int y, int width, int height, char title[])
-    
-    public external_name Int x, y, width, height
+    public external_name Int x { set { x = value; refreshPosition() } }
+    public external_name Int y { set { y = value; refreshPosition() } }
+    public external_name Int width { set { width = value; refreshPosition() } }
+    public external_name Int height { set { height = value; refreshPosition() } }
     
     public external_name Frame frame
     
