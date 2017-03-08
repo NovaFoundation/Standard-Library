@@ -10,12 +10,14 @@ class Window {
     public external_name String title
     
     external type HWND
+    external type HINSTANCE
     external type HDC
     external type PAINTSTRUCT
     
     external Int NULL
     
     [Target c] public external_name HWND hwnd
+    [Target c] public external_name HINSTANCE hinstance
     [Target c] public external_name HDC hdc
     [Target c] public external_name PAINTSTRUCT ps
     
