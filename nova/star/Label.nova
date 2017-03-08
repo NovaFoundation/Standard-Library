@@ -3,8 +3,11 @@ package "nova/star"
 class Label extends UIComponent {
     public String text
     
-    public construct(public String text, passing Int x, passing Int y) =>
+    visible Int width, height
+    
+    public construct(public String text, passing Int x, passing Int y) {
         super(x, y)
+    }
     
     public draw() {
         external c {
