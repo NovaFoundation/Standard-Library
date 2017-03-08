@@ -1,6 +1,8 @@
 package "nova/io"
 
 trait OutputStream {
+    visible static final EmptyOutputStream EMPTY = new EmptyOutputStream()
+    
     public write(String data) => this
     //public write(Object data) => this
 }
