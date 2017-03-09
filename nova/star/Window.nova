@@ -49,6 +49,12 @@ class Window {
     
     [Target c] public external_name WindowThread thread
     
+    static {
+        external c {
+            nova_gui_init();
+        }
+    }
+    
     public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {
         frame = new Frame(this)
         frame.width = clientWidth
@@ -81,7 +87,7 @@ class Window {
     public repaint() {
         if (hwnd != NULL) { // If the window has been loaded
             external c {
-                SendMessage(#{hwnd}, WM_USER_INVALRECT, 0, 0);
+                PostMessage(#{hwnd}, WM_USER_INVALRECT, 0, 0);
             }
         }
     }
