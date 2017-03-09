@@ -14,25 +14,35 @@ class Panel extends UIComponent implements UIParent {
     
     public onAdded() {
         external c {
-            #{hwnd} = CreateWindowW("Empty Panel", L"", WS_CHILD | WS_VISIBLE,
-                #{absoluteX}, #{absoluteY}, #{width}, #{height}, #{window.hwnd}, NULL, NULL, NULL);
+            if (#{hwnd} == NULL) {
+                #{hwnd} = CreateWindowW(L"Empty Panel", L"", WS_CHILD | WS_VISIBLE,
+                    #{absoluteX}, #{absoluteY}, #{width}, #{height}, #{window.hwnd}, NULL, NULL, NULL);
+                
+                SetProp(#{hwnd}, "reference", #{this});
+            }
         }
     }
     
     public draw() {
         if (backgroundColor) {
-            // external c {
+            external c {
                 // int x = #{absoluteX};
                 // int y = #{absoluteY};
                 
                 // RECT r = {x, y, x + #{width}, y + #{height}};
                 
-                // HBRUSH brush = CreateSolidBrush(RGB(#{backgroundColor.r}, #{backgroundColor.g}, #{backgroundColor.b}));
+                // HBRUSH brush = CreateSolidBrush();
                 
                 // FillRect(#{window.hdc}, &r, brush);
                 
                 // DeleteObject(brush);
-            // }
+                
+                RECT r;
+                GetClientRect(#{hwnd}, &r);
+                HBRUSH brush = CreateSolidBrush(RGB(#{backgroundColor.r}, #{backgroundColor.g}, #{backgroundColor.b}));
+                FillRect(#{window.hdc}, &r, brush);
+                DeleteObject(brush);
+            }
         }
     }
 }
