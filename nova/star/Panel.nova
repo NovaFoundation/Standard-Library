@@ -5,24 +5,34 @@ class Panel extends UIComponent implements UIParent {
     
     public Color backgroundColor
     
+    external type HWND
+    [Target c] public external_name HWND hwnd
+    
     public construct(passing Int x, passing Int y, public Int width = 0, public Int height = 0) {
         super(x, y)
     }
     
+    public onAdded() {
+        external c {
+            #{hwnd} = CreateWindowW("Empty Panel", L"", WS_CHILD | WS_VISIBLE,
+                #{absoluteX}, #{absoluteY}, #{width}, #{height}, #{window.hwnd}, NULL, NULL, NULL);
+        }
+    }
+    
     public draw() {
         if (backgroundColor) {
-            external c {
-                int x = #{absoluteX};
-                int y = #{absoluteY};
+            // external c {
+                // int x = #{absoluteX};
+                // int y = #{absoluteY};
                 
-                RECT r = {x, y, x + #{width}, y + #{height}};
+                // RECT r = {x, y, x + #{width}, y + #{height}};
                 
-                HBRUSH brush = CreateSolidBrush(RGB(#{backgroundColor.r}, #{backgroundColor.g}, #{backgroundColor.b}));
+                // HBRUSH brush = CreateSolidBrush(RGB(#{backgroundColor.r}, #{backgroundColor.g}, #{backgroundColor.b}));
                 
-                FillRect(#{window.hdc}, &r, brush);
+                // FillRect(#{window.hdc}, &r, brush);
                 
-                DeleteObject(brush);
-            }
+                // DeleteObject(brush);
+            // }
         }
     }
 }

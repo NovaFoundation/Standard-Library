@@ -91,8 +91,8 @@ class Button extends Panel implements UIAction {
     
     public String text
     
-    external type HWND
-    [Target c] public external_name HWND hwnd
+    // external type HWND
+    // [Target c] public external_name HWND hwnd
     
     public construct(passing Int x, passing Int y, passing Int width, passing Int height, public String text = "", public Int type = REGULAR, public Int state = PUSH) =>
         super(x, y, width, height)
