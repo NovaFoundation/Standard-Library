@@ -22,6 +22,7 @@ class Window {
     [Target c] public external_name PAINTSTRUCT ps
     
     [Target c] public external_name WindowThread thread
+    [Target c] public external_name uiWindow* window
     
     public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {
         frame = new Frame(this)
@@ -34,9 +35,16 @@ class Window {
         thread.show()
     }
     
+    public close() => this {
+        thread.close()
+    }
+    
     public refreshPosition() {
         external c {
-            SetWindowPos(#{hwnd}, NULL, #{x}, #{y}, #{width}, #{height}, SWP_NOACTIVATE);
+            //SetWindowPos(#{hwnd}, NULL, #{x}, #{y}, #{width}, #{height}, SWP_NOACTIVATE);
+            // uiWindowSetContentSize(#{window}, #{width}, #{height});
+            // uiWindowSetPosition(#{window}, #{x}, #{y});
+            int j;
         }
     }
     
