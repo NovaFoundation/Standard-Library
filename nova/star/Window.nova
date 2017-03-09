@@ -5,6 +5,32 @@ import "nova/star/NativeWindow.h"
 class Window {
     public external_name Int x, y, width, height
     
+    public Int clientWidth {
+        get {
+            external c {
+                RECT r;
+                GetClientRect(#{hwnd}, &r);
+                
+                return r.right - r.left;
+            }
+            
+            return 0
+        }
+    }
+    
+    public Int clientHeight {
+        get {
+            external c {
+                RECT r;
+                GetClientRect(#{hwnd}, &r);
+                
+                return r.bottom - r.top;
+            }
+            
+            return 0
+        }
+    }
+    
     public external_name Frame frame
     
     public external_name String title
@@ -26,6 +52,8 @@ class Window {
     
     public construct(public String title = null, public Int x = 0, public Int y = 0, public Int width = 0, public Int height = 0) {
         frame = new Frame(this)
+        frame.width = clientWidth
+        frame.height = clientHeight
         
         thread = new WindowThread(this)
         thread.start()
@@ -46,6 +74,9 @@ class Window {
             // uiWindowSetPosition(#{window}, #{x}, #{y});
             int j;
         }
+        
+        frame.width = clientWidth
+        frame.height = clientHeight
     }
     
     public center() => this {
