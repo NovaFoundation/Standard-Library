@@ -31,10 +31,10 @@ trait UIParent extends UIComponent {
             component.parent = this
             // component.onAdded()
             external c {
-                SendMessage(#{window.hwnd}, WM_ADD_COMPONENT, 0, 0);
+                PostMessage(#{window.hwnd}, WM_ADD_COMPONENT, 0, 0);
             }
             
-            repaint()
+            // repaint()
         }
     }
 }
