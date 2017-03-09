@@ -8,35 +8,18 @@ class WindowThread extends Thread {
     
     public construct(private Window window) {}
     
-    static {
-        external c {
-            nova_init_ui();
-        }
-    }
-    
     public run() {
         let paintFunc = window.frame.paint
-        let addedFunc = window.frame.onAdded
+        let addedFunc = ((UIParent)window.frame).onAdded
         
         external c {
-            #{window.window} = uiNewWindow(#{window.title.chars.data}, #{window.width}, #{window.height}, 1);
-            
-            uiWindowOnClosing(#{window.window}, nova_uiwindow_closing, NULL);
-            uiOnShouldQuit(nova_uiwindow_quit, #{window.window});
-            
-            uiMain();
+            #{window.hwnd} = nova_createWindow(#{window}, #{paintFunc}, #{addedFunc});
         }
     }
     
     public show() => this {
         external c {
-            uiControlShow(uiControl(#{window.window}));
-        }
-    }
-    
-    public close() => this {
-        external c {
-            uiControlDestroy(uiControl(#{window.window}));
+            nova_showWindow(#{window.hwnd});
         }
     }
 }
