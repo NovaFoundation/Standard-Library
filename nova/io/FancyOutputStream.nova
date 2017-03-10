@@ -1,0 +1,27 @@
+package "nova/io"
+
+class FancyOutputStream implements OutputStream {
+    public Int contentWidth = 80
+    
+    public String headerPattern = "="
+    
+    public construct(public OutputStream out = Console.out, public Int contentWidth = 80, public String headerPattern = "=") {}
+    
+    public writeHeader(Object message) => writeHeader(message.toString())
+    public writeHeader(String message) => this {
+        let sideCount = (contentWidth - message.count - 2) / 2
+        
+        write(headerPattern.repeat(sideCount / headerPattern.count))
+        write(" ").write(message).write(" ")
+        write(headerPattern.repeat(sideCount / headerPattern.count))
+        
+        if (sideCount > 0 && message.count % 2 == 1) {
+            write(headerPattern.substring(end: 1))
+        }
+        
+        writeLine()
+    }
+    
+    public write(String value = "") => this { out.write(value) }
+    public writeLine(String value = "") => this { out.writeLine(value) }
+}
