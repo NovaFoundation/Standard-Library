@@ -22,6 +22,10 @@ class FancyOutputStream implements OutputStream {
         writeLine()
     }
     
+    public writeSeparator(String pattern = headerPattern) => this {
+        writeLine(pattern.repeat(contentWidth))
+    }
+    
     public write(String value = "") => this { out.write(value) }
     public writeLine(String value = "") => this { out.writeLine(value) }
 }
