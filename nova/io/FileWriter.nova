@@ -68,7 +68,7 @@ class FileWriter implements OutputStream {
         }
     }
     
-    public writeLine(String line) => write("#line\n")
+    public writeLine(String line = "") => write("#line\n")
     
     public write(String data) => this {
         if (fputs(data.chars.data, fp) != EOF && flush()) {
