@@ -8,15 +8,15 @@ class FancyOutputStream implements OutputStream {
     public construct(public OutputStream out = Console.out, public Int contentWidth = 80, public String headerPattern = "=") {}
     
     public writeHeader(Object message) => writeHeader(message.toString())
-    public writeHeader(String message) => this {
+    public writeHeader(String message, String pattern = headerPattern) => this {
         let sideCount = (contentWidth - message.count - 2) / 2
         
-        write(headerPattern.repeat(sideCount / headerPattern.count))
+        write(pattern.repeat(sideCount / pattern.count))
         write(" ").write(message).write(" ")
-        write(headerPattern.repeat(sideCount / headerPattern.count))
+        write(pattern.repeat(sideCount / pattern.count))
         
         if (sideCount > 0 && message.count % 2 == 1) {
-            write(headerPattern.substring(end: 1))
+            write(pattern.substring(end: 1))
         }
         
         writeLine()
