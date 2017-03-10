@@ -126,6 +126,12 @@ class Double extends Number implements RealNumber {
         throw new UnimplementedForTargetException()
     }
     
+    public withinTolerance(Double target, passing Double tolerance) =>
+        withinTolerance(value, target, tolerance)
+    
+    public static withinTolerance(Double value, Double target, Double tolerance = 0.00000001) =>
+        (value - target) < tolerance && (value - target) > -tolerance
+    
     public compareTo(Number other) => other.compareToReal(value)
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other

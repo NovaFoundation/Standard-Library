@@ -11,6 +11,12 @@ class Float extends Number implements RealNumber {
     
     construct(public Float value) {}
     
+    public withinTolerance(Float target, passing Float tolerance) =>
+        withinTolerance(value, target, tolerance)
+    
+    public static withinTolerance(Float value, Float target, Float tolerance = 0.00000001) =>
+        (value - target) < tolerance && (value - target) > -tolerance
+    
     public compareTo(Number other) => other.compareToReal(value)
     public compareToReal(Double other) => this.value - other
     public compareToInteger(Long other) => this.value - other
