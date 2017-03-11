@@ -3,7 +3,7 @@ package "nova/io"
 class FileWriter implements OutputStream {
     external type FILE
     
-    FILE* fp
+    var FILE* fp
     
     external FILE* fopen(char location[], char operation[])
     external void perror(char name[])

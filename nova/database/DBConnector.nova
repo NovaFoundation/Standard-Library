@@ -19,10 +19,10 @@ class DBConnector {
     external long nova_num_rows(MYSQL* m)
     external long nova_num_cols(MYSQL_RES* res)
     
-    visible String error
+    visible var String error
     
-    MYSQL*     mysql
-    MYSQL_RES* result
+    var MYSQL*     mysql
+    var MYSQL_RES* result
     
     public construct() {
         error = ""

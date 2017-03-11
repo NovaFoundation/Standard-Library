@@ -44,7 +44,7 @@ class Bounds {
      * @param start The start location of the Bound.
      * @param end The end location of the Bound.
      */
-    public construct(public Int start = 0, public Int end = 0) {}
+    public construct(public var Int start = 0, public var Int end = 0) {}
     
     /**
      * Extract a substring from the given source at the specified bound's

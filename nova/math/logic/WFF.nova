@@ -9,7 +9,7 @@ class WFF {
     
     static Char[]     whitespace = [ ' ', '\t', '\n', '\r' ]
     
-    public construct(private String wff, private StatementLetter[] letters) {
+    public construct(private var String wff, private StatementLetter[] letters) {
         wff = wff.trim()
         
         hypotheses = new Array()
@@ -125,7 +125,7 @@ class WFF {
         }
     }
     
-    static findEndingMatch(String wff, Char start, Char end, Int index, Int direction, Int defaultReturnValue = -1) -> Int => defaultReturnValue {
+    static findEndingMatch(String wff, var Char start, var Char end, Int index, Int direction, Int defaultReturnValue = -1) -> Int => defaultReturnValue {
         if (direction < 0) {
             let temp = start
             start = end

@@ -5,7 +5,7 @@ import "nova/meta/Class"
 import "nova/meta/NativeLibrary.h"
 
 class Library {
-    visible File library, loadedLibrary
+    visible var File library, loadedLibrary
     
     visible static final String EXTENSION
     

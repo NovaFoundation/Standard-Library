@@ -1,9 +1,9 @@
 package "nova/io"
 
 class FancyOutputStream implements OutputStream {
-    public Int contentWidth = 80
+    public var Int contentWidth = 80
     
-    public String headerPattern = "="
+    public var String headerPattern = "="
     
     public construct(public OutputStream out = Console.out, public Int contentWidth = 80, public String headerPattern = "=") {}
     

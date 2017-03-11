@@ -1,7 +1,7 @@
 package "nova/datastruct/list"
 
 class IntRangeIterator implements Iterator<Int> {
-    visible Int position
+    visible var Int position
     
     visible Bool hasNext => position < range.end
     

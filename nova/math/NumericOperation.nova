@@ -4,8 +4,8 @@ import "nova/datastruct/Bounds"
 import "nova/datastruct/Tuple2"
 
 class NumericOperation extends NumericOperand<Object> {
-    NumericOperand leftOperand
-    NumericOperand rightOperand
+    var NumericOperand leftOperand
+    var NumericOperand rightOperand
     
     String operator
     
@@ -157,7 +157,7 @@ class NumericOperation extends NumericOperand<Object> {
             default => return INVALID
     }
     
-    static nextNonWhitespaceIndex(String str, Int start, Int direction) -> Int {
+    static nextNonWhitespaceIndex(String str, var Int start, Int direction) -> Int {
         while (start >= 0 && start < str.count && isWhitespace(str.chars[start])) start = start + direction
         
         if (start < 0 || start >= str.count)

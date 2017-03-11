@@ -1,7 +1,7 @@
 package "nova/io"
 
 class StringBuilder implements OutputStream {
-    String value
+    var String value
     
     public construct(private String value = "") {
         value = value ?: ""

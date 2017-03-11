@@ -1,9 +1,9 @@
 package "nova/datastruct/list"
 
 class Stack<E> {
-    visible Int count
+    visible var Int count
     
-    ListNode<E> top
+    var ListNode<E> top
     
     visible Bool isEmpty => count <= 0
     
