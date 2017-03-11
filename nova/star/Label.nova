@@ -7,6 +7,20 @@ class Label extends UIComponent {
     
     public construct(public String text, passing Int x, passing Int y) {
         super(x, y)
+        
+        // external c {
+        //     GetTextExtentPoint32(#{window.hdc},
+        //         _In_  LPCTSTR lpString,
+        //         _In_  int     c,
+        //         _Out_ LPSIZE  lpSize
+        //     )
+        // }
+    }
+    
+    onAdded() {
+        super.onAdded()
+        
+        draw()
     }
     
     public draw() {
