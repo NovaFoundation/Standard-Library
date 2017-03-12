@@ -348,7 +348,7 @@ immutable class String implements Comparable<String>,
         let reversed = chars.reverse()
         
         if (symmetrical) {
-            for (var i = 0; i < reversed.count; i++) {
+            for (i in 0..reversed.count) {
                 switch (let c = reversed[i]) {
                     '(' => reversed.data[i] = ')'
                     ')' => reversed.data[i] = '('
