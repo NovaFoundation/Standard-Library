@@ -13,7 +13,7 @@ class FancyOutputStream implements OutputStream {
         
         write(pattern.repeat(sideCount / pattern.count))
         write(" ").write(message).write(" ")
-        write(rightPattern.repeat(sideCount / pattern.count))
+        write(rightPattern.repeat(sideCount / rightPattern.count))
         
         if (sideCount > 0 && message.count % 2 == 1) {
             write(rightPattern.substring(end: 1))
