@@ -350,15 +350,16 @@ immutable class String implements Comparable<String>,
         if (symmetrical) {
             for (i in 0..reversed.count) {
                 switch (let c = reversed[i]) {
-                    '(' => reversed.data[i] = ')'
-                    ')' => reversed.data[i] = '('
-                    '<' => reversed.data[i] = '>'
-                    '>' => reversed.data[i] = '<'
-                    '{' => reversed.data[i] = '}'
-                    '}' => reversed.data[i] = '{'
-                    '[' => reversed.data[i] = ']'
-                    ']' => reversed.data[i] = '['
-                    '/' => reversed.data[i] = '\\'
+                    '('  => reversed.data[i] = ')'
+                    ')'  => reversed.data[i] = '('
+                    '<'  => reversed.data[i] = '>'
+                    '>'  => reversed.data[i] = '<'
+                    '{'  => reversed.data[i] = '}'
+                    '}'  => reversed.data[i] = '{'
+                    '['  => reversed.data[i] = ']'
+                    ']'  => reversed.data[i] = '['
+                    '/'  => reversed.data[i] = '\\'
+                    '\\' => reversed.data[i] = '/'
                 }
             }
         }
