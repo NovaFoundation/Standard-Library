@@ -344,7 +344,27 @@ immutable class String implements Comparable<String>,
         (let e = indexOf(after, s + 1)) > 0 ?
             substring(s + before.count, e) : null
 
-    public reverse() => new String(chars.reverse())
+    public reverse(Bool symmetrical = false) -> String {
+        let reversed = chars.reverse()
+        
+        if (symmetrical) {
+            for (var i = 0; i < reversed.count; i++) {
+                switch (let c = reversed[i]) {
+                    '(' => reversed.data[i] = ')'
+                    ')' => reversed.data[i] = '('
+                    '<' => reversed.data[i] = '>'
+                    '>' => reversed.data[i] = '<'
+                    '{' => reversed.data[i] = '}'
+                    '}' => reversed.data[i] = '{'
+                    '[' => reversed.data[i] = ']'
+                    ']' => reversed.data[i] = '['
+                    '/' => reversed.data[i] = '\\'
+                }
+            }
+        }
+        
+        return new String(reversed)
+    }
     
     public surroundWith(String str, Bool symmetrical = false) =>
         "#{str}#{this}#{symmetrical ? str.reverse() : str}"
