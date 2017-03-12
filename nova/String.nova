@@ -344,8 +344,10 @@ immutable class String implements Comparable<String>,
         (let e = indexOf(after, s + 1)) > 0 ?
             substring(s + before.count, e) : null
 
+    public reverse() => new String(chars.reverse())
+    
     public surroundWith(String str, Bool symmetrical = false) =>
-        "#{str}#{this}#{symmetrical ? new String(str.chars.reverse()) : str}"
+        "#{str}#{this}#{symmetrical ? str.reverse() : str}"
 
     public compareTo(String other) -> Int {
         var min = Math.min(count, other.count)
