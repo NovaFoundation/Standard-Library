@@ -15,15 +15,13 @@ class ServerSocket extends Socket {
     external char[] nova_socket_receive(SOCKET_ID_TYPE socket)
     external int nova_socket_send(SOCKET_ID_TYPE socket, char message[])
     
-    SOCKET_ID_TYPE serverSocket
+    var SOCKET_ID_TYPE serverSocket
     
-    visible Bool open
+    visible Bool open => serverSocket != 0
     
     visible ConnectionSocket[] requests = new Array()
     
-    public construct() {
-        open = false
-    }
+    public construct() {}
     
     public start(Int port) => this {
         serverSocket = nova_serversocket_start(port)
@@ -31,8 +29,6 @@ class ServerSocket extends Socket {
         if (serverSocket == 0) {
             return null
         }
-        
-        open = true
     }
     
     public close() -> Bool {
@@ -42,7 +38,7 @@ class ServerSocket extends Socket {
             return false
         }
         
-        open = false
+        serverSocket = 0
         
         return true
     }
