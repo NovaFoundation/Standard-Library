@@ -14,8 +14,8 @@ class Long extends Number implements Integer {
     
     public construct(public Long value) {}
     
-    public static numDigits(Long number) -> Int {
-        Int size = number < 0 ? 2 : 1 
+    public static numDigits(var Long number) -> Int {
+        var Int size = number < 0 ? 2 : 1 
         
         number /= 10
         
@@ -40,16 +40,16 @@ class Long extends Number implements Integer {
     }
     
     [Target not js]
-    public static toString(Long value) -> String {
+    public static toString(var Long value) -> String {
         Int charOffset = '0'
-        Int digits = numDigits(value)
+        var Int digits = numDigits(value)
         
         [Native]
         Char[] data = new Char[digits + 1]
         
         data[digits] = '\0'
         
-        Int  offset  = 0
+        var Int  offset  = 0
         
         if (value < 0) {
             data[0] = '-'

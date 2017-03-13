@@ -1,10 +1,10 @@
 package "nova/star"
 
 class UIComponent {
-    public UIComponent parent
+    public var UIComponent parent
     visible Window window => parent?.window
     
-    public Int x, y
+    public var Int x, y
     
     visible Int absoluteX => x + (parent ? parent.x : 0)
     visible Int absoluteY => y + (parent ? parent.y : 0)

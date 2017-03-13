@@ -3,9 +3,9 @@ package "nova/math/logic"
 import "nova/datastruct/Bounds"
 
 class WFF {
-    Hypothesis[]      hypotheses
+    var Hypothesis[]      hypotheses
     
-    Conclusion        conclusion
+    var Conclusion        conclusion
     
     static Char[]     whitespace = [ ' ', '\t', '\n', '\r' ]
     
@@ -67,8 +67,8 @@ class WFF {
     decodeHypotheses(String wff) -> StatementGroup<Hypothesis>[] {
         let list = new StatementGroup<Hypothesis>[]
         
-        Int next = 0
-        Int prev = 0
+        var Int next = 0
+        var Int prev = 0
         
         var index = wff.indexOf("&")
         
@@ -132,7 +132,7 @@ class WFF {
             end = temp
         }
         
-        Int scope = 0
+        var Int scope = 0
         
         Int i = index
         

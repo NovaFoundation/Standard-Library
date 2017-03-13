@@ -10,11 +10,11 @@ class Thread {
     external void lib_nova_thread_cancel(NOVA_THREAD_HANDLE handle)
     external NOVA_THREAD_HANDLE* create_thread(Thread thread, run())
     
-    NOVA_THREAD_HANDLE* handle
+    var NOVA_THREAD_HANDLE* handle
     
     visible static immutable Thread[] ACTIVE_THREADS = new Thread[]
     
-    visible Bool active
+    visible var Bool active
     
     let action()
     

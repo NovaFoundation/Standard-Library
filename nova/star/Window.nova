@@ -3,7 +3,7 @@ package "nova/star"
 import "nova/star/NativeWindow.h"
 
 class Window {
-    public external_name Int x, y, width, height
+    public external_name var Int x, y, width, height
     
     public Int clientWidth {
         get {

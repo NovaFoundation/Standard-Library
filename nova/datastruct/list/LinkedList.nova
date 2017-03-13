@@ -54,8 +54,8 @@ public class LinkedList<E> implements List<E>
 			start = start.next;
 		}
 
-		ListNode<E> prev = start
-		ListNode<E> cur  = start.next
+		var ListNode<E> prev = start
+		var ListNode<E> cur  = start.next
 
 		while (cur) {
 			E d = cur.data
@@ -81,7 +81,7 @@ public class LinkedList<E> implements List<E>
 	public toArray() -> E[] {
 		E[] array = new Array(size)
 
-		Int i = 0
+		var Int i = 0
 
 		for (element in this) {
 			array.set(i++, element)
@@ -94,7 +94,7 @@ public class LinkedList<E> implements List<E>
 	public map<Out>(mapFunc(E, Int, LinkedList<E>) -> Out) -> LinkedList<Out> {
 		LinkedList<Out> array = new LinkedList()
 
-		Int i = 0
+		var Int i = 0
 
 		for (element in this) {
 			array.add(mapFunc(element, i++, this))
@@ -105,7 +105,7 @@ public class LinkedList<E> implements List<E>
 
 	[Override]
 	public forEach(func(E, Int, LinkedList<E>)) => this {
-		Int i = 0
+		var Int i = 0
 
 		for (element in this) {
 			func(element, i++, this)
@@ -144,7 +144,7 @@ public class LinkedList<E> implements List<E>
 	public filter(filterFunc(E, Int, LinkedList<E>) -> Bool) -> LinkedList<E> {
 		LinkedList<E> filtered = new LinkedList()
 
-		Int i = 0
+		var Int i = 0
 
 		for (element in this) {
 			if (filterFunc(element, i++, this)) {
@@ -176,7 +176,7 @@ public class LinkedList<E> implements List<E>
 	public skip(Int howMany) -> LinkedList<E> {
 		E[] list = new Array()
 
-		Int i = 0
+		var Int i = 0
 
 		for (element in this) {
 			if (i++ > howMany) list.add(element)

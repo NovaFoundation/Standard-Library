@@ -117,7 +117,7 @@ class HashSet<T extends EqualsOperator> implements List<T> {
 
     [Override]
     public forEach(func(T, Int, HashSet<T>)) => this {
-        Int i = 0
+        var Int i = 0
 
         for (bucket in buckets) {
             for (v in bucket) {
@@ -139,7 +139,7 @@ class HashSet<T extends EqualsOperator> implements List<T> {
     public remove(T value) -> T => null {
         T[] bucket = getBucket(value)
         
-        Int i = 0
+        var Int i = 0
         
         for (v in bucket) {
             if (v && v.equals(value)) {

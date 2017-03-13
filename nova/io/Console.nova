@@ -80,7 +80,7 @@ class Console {
     }
 
     public static readLine() -> String {
-        native Char[] line
+        native var Char[] line
 
         [Target c] line = ufgets(stdin)
 

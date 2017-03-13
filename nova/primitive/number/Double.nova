@@ -18,7 +18,7 @@ class Double extends Number implements RealNumber {
     public construct(public Double value) {}
     
     public static numDigits(Double number) -> Int {
-        Int size = number < 0 ? 2 : 1
+        var Int size = number < 0 ? 2 : 1
         
         number /= 10
         
@@ -31,7 +31,7 @@ class Double extends Number implements RealNumber {
         return size
     }
     
-    static genString(native Char buffer[], Int lastIndex) -> String {
+    static genString(native var Char buffer[], var Int lastIndex) -> String {
         buffer = realloc(buffer, ++lastIndex + 1)
         
         buffer[lastIndex] = '\0'
@@ -49,7 +49,7 @@ class Double extends Number implements RealNumber {
         return buffer
     }
     
-    static repetition(native Char[] buffer, Int start) -> Int {
+    static repetition(native Char[] buffer, var Int start) -> Int {
         Int  index = start
         Char c     = buffer[index]
         
@@ -58,7 +58,7 @@ class Double extends Number implements RealNumber {
         return start - index - 1
     }
     
-    static lastSignificantDigit(native Char[] buffer, Int start) -> Int {
+    static lastSignificantDigit(native Char[] buffer, var Int start) -> Int {
         while (buffer[start--] == '0');
         
         return start + 1
@@ -75,11 +75,11 @@ class Double extends Number implements RealNumber {
     
     [Target not js]
     public static toString(Double value) -> String {
-        native Char buffer[]  = genBuffer(value)
+        native var Char buffer[]  = genBuffer(value)
         Int  size      = strlen(buffer)
-        Int  lastIndex = size - 1
+        var Int  lastIndex = size - 1
         
-        Char c = buffer[--lastIndex]
+        var Char c = buffer[--lastIndex]
         
         if (c == '0' || c == '9') {
             while (buffer[lastIndex--] == c);

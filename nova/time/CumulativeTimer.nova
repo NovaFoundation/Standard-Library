@@ -1,9 +1,9 @@
 package "nova/time"
 
 class CumulativeTimer extends Timer {
-    visible Long duration <=> duration
+    visible var Long duration <=> duration
     
-    visible Int iterations = 0
+    visible var Int iterations = 0
     
     public construct() => super()
     

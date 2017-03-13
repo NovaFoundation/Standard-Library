@@ -3,7 +3,7 @@ package "nova/web/svg"
 import "nova/io/FileWriter"
 
 class SvgComponentList {
-    public SvgComponentNode start
+    public var SvgComponentNode start
     
     public generateOutput(FileWriter writer) {
         var current = start

@@ -1,12 +1,12 @@
 package "nova/star"
 
 class Panel extends UIComponent implements UIParent {
-    public Int width, height
+    public var Int width, height
     
-    public Color backgroundColor
+    public var Color backgroundColor
     
     external type HWND
-    [Target c] public external_name HWND hwnd
+    [Target c] public external_name var HWND hwnd
     
     public construct(passing Int x, passing Int y, public Int width = 0, public Int height = 0) {
         super(x, y)

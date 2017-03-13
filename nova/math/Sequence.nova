@@ -7,7 +7,7 @@ class Sequence {
     
     //sum [public static] (Double[] values, Int num) -> Double
     public static sum(Int num) -> Double {
-        Double value = 0
+        var Double value = 0
         
         for (i in 0..num) {
             value = value + values.get(i)

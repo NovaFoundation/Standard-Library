@@ -1,7 +1,7 @@
 package "nova/time"
 
 class Timer {
-    visible Long startTime, endTime
+    visible var Long startTime, endTime
     
     visible Long duration => endTime - startTime
     

@@ -22,7 +22,7 @@ class IntRange implements List<Int> {
     public toArray() -> Int[] {
         let ints = new Int[size]
         
-        Int i = start
+        var Int i = start
         
         while (i < end) {
             ints.set(i - start, i++)

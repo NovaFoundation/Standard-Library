@@ -12,12 +12,12 @@ class Date {
     external int nova_getMinute()
     external int nova_getSecond()
     
-    public Int year
-    public Int month
-    public Int day
-    public Int hour
-    public Int minute
-    public Int second
+    public var Int year
+    public var Int month
+    public var Int day
+    public var Int hour
+    public var Int minute
+    public var Int second
     
 //    static HashMap<String,  
     

@@ -13,7 +13,7 @@ class ClientSocket extends Socket {
     
     var SOCKET_ID_TYPE socket
     
-    visible ConnectionSocket connection
+    visible var ConnectionSocket connection
     
     public construct() {
         
