@@ -4,6 +4,7 @@ import "nova/network/NativeServerSocket.h"
 import "nova/network/NativeSocket.h"
 import "nova/io/InputStream"
 import "nova/io/OutputStream"
+import "nova/io/ClosedStreamException"
 
 class ServerSocket extends Socket {
     external type SOCKET_ID_TYPE
@@ -47,6 +48,10 @@ class ServerSocket extends Socket {
     }
     
     public acceptClient() -> ConnectionSocket => null {
+        if (!open) {
+            throw new ClosedStreamException("ServerSocket not started")
+        }
+        
         SOCKET_ID_TYPE clientSocket = nova_serversocket_accept(serverSocket)
         
         if (clientSocket != 0) {
