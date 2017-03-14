@@ -9,19 +9,21 @@ class FancyOutputStream implements OutputStream {
     
     public writeHeader(Object message) => writeHeader(message.toString())
     public writeHeader(String message, String pattern = headerPattern, var String rightPattern = pattern, Bool symmetrical = false) => this {
-        let sideCount = (contentWidth - message.count - 2) / 2
+        let fullHeaderCount = contentWidth - message.count - 2
+        let sideCount = fullHeaderCount / 2
         
         if (symmetrical) {
             rightPattern = pattern.reverse(true)
         }
         
-        write(pattern.repeat(sideCount / pattern.count))
-        write(" ").write(message).write(" ")
-        write(rightPattern.repeat(sideCount / rightPattern.count))
+        let leftCount = sideCount / pattern.count
+        let rightCount = sideCount / rightPattern.count
+        let remainingLeft = sideCount % pattern.count
+        let remainingRight = (sideCount % rightPattern.count) + (message.count % 2)
         
-        if (sideCount > 0 && message.count % 2 == 1) {
-            write(rightPattern.substring(end: 1))
-        }
+        write(pattern.repeat(leftCount)).write(pattern.substring(end: remainingLeft))
+        write(" ").write(message).write(" ")
+        write(rightPattern.repeat(rightCount)).write(rightPattern.substring(end: remainingRight))
         
         writeLine()
     }
