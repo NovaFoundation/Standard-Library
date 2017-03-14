@@ -74,7 +74,7 @@ class Library {
     public getFunction(String functionName, Object reference) =>
         getFunctionHandle(formatFunctionName(functionName, reference), reference)
     
-    getFunctionHandle(String location, Object reference) -> func() {
+    getFunctionHandle(String location, Object reference) -> func() => null {
         external c {
             if (#{handle} != NULL) {
                 void* func = nova_get_function(#{handle}, #{location.chars.data});
@@ -82,10 +82,10 @@ class Library {
                 if (func != NULL) {
                     return nova_get_funcStruct2(func, #{reference});
                 }
+            } else {
+                #{throw new InvalidLibraryException("Cannot call getFunction before loading '#library.location'")};
             }
         }
-        
-        throw new InvalidLibraryException("Cannot call getFunction before loading '#library.location'")
     }
     
     public load() => this {
