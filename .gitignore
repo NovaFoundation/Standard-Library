@@ -1,4 +1,4 @@
 *.o
 *.gch
 *.d
-.novalib
+.novalib/*/
