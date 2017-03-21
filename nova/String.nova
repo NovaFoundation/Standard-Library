@@ -22,6 +22,8 @@ immutable class String implements Comparable<String>,
     visible Char first => chars.first
     visible Char last => chars.last
     
+    visible String title => capitalize()
+    
     this[Int index] => chars[index]
     
     static Char[] WHITESPACE = [ ' ', '\t', '\n', '\r' ]
