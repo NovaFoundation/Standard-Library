@@ -124,7 +124,7 @@ immutable class System {
                     copy_string(#{allocated}, #{argvs[i]});
                 }
                 
-                args[i] = new String(allocated[i])
+                args[i] = new String(allocated)
             }
             
             mainFunc(args)
