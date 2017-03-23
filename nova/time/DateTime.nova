@@ -1,6 +1,7 @@
 package "nova/time"
 
 import "nova/datastruct/Comparable"
+import "nova/datastruct/Tuple2"
 import "nova/regex/Regex"
 
 class DateTime implements Comparable<DateTime> {
@@ -8,7 +9,7 @@ class DateTime implements Comparable<DateTime> {
     
     public Int year, month, dayOfMonth
     
-    visible Bool isLeapYear => isLeapYear(year)
+    visible Bool isLeapYear => Calculator.isLeapYear(year)
     
     visible static final /*immutable*/ Byte[] MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
@@ -35,7 +36,7 @@ class DateTime implements Comparable<DateTime> {
         
         if (month <= 0 || month > 12) {
             throw new InvalidDateException("Invalid month #{month}. Must be 1-12")
-        } else if (!isValidDayOfMonth(month, dayOfMonth)) {
+        } else if (!Calculator.isValidDayOfMonth(month, dayOfMonth)) {
             throw new InvalidDateException("Invalid day of month #dayOfMonth for month #month")
         } else if (dayOfMonth == 29 && !isLeapYear) {
             throw new InvalidDateException("Year #year is not a leap year")
@@ -45,14 +46,6 @@ class DateTime implements Comparable<DateTime> {
         millis += (Long)month * 30 * 24 * 60 * 60
         millis += (Long)dayOfMonth * 24 * 60 * 60
     }
-    
-    static isLeapYear(Int year) =>
-        (year & 3) == 0 &&
-        ((year % 25) != 0 || (year & 15) == 0)
-        // year % 4 == 0 &&
-        // (year % 400 == 0 || year % 100 != 0)
-    
-    static isValidDayOfMonth(Int month, Int day) => day > 0 && day <= MONTH_DAYS[month - 1]
     
     public compareTo(DateTime other) => (Int)(millis - other.millis)
     
@@ -69,5 +62,55 @@ class DateTime implements Comparable<DateTime> {
     
     class InvalidDateFormatException extends InvalidDateException {
         public construct(String message) => super(message)
+    }
+    
+    class Calculator {
+        visible static final Long SECS_DAY = 24 * 60 * 60
+        
+        public static getLeapYearCount(Int year, Bool inclusive = true) -> Int {
+            var Int sum = 0
+            
+            for (i in 1970..(inclusive ? year + 1 : year)) {
+                if (isLeapYear(i)) {
+                    sum++
+                }
+            }
+            
+            return sum
+        }
+        
+        public static getYear(Long millis) -> Int {
+            // let leapYearCount = getLeapYearCount(year)
+            
+            // let days = (365
+            
+            let yearOffset = millis / 365 / 24 / 60 / 60 / 1000
+            let yearMillisOffset = yearOffset * 365 * 24 * 60 * 60 * 1000
+            
+            return yearOffset + 1970
+        }
+        
+        public static getMonth(Long millis, Int year) -> Int {
+            let leapYearCount = getLeapYearCount(year)
+            
+            let yearOffset = millis / 24 / 60 / 60 / 1000
+            let yearMillisOffset = yearOffset * 365 * 24 * 60 * 60 * 1000
+            
+            return 1
+        }
+        
+        public static getDayOfMonth(Long millis, Int year, Int month) -> Int {
+            let leapYearCount = getLeapYearCount(year)
+            
+            return 1
+        }
+        
+        public static isLeapYear(Int year) =>
+            (year & 3) == 0 &&
+            ((year % 25) != 0 || (year & 15) == 0)
+            // year % 4 == 0 &&
+            // (year % 400 == 0 || year % 100 != 0)
+        
+        public static isValidDayOfMonth(Int month, Int day) => day > 0 && day <= DateTime.MONTH_DAYS[month - 1]
     }
 }
