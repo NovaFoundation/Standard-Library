@@ -62,4 +62,12 @@ class DateTime implements Comparable<DateTime> {
         
         return "#{year}-#{monthString}-#{dayOfMonthString}"
     }
+    
+    class InvalidDateException extends Exception {
+        public construct(String message) => super(message)
+    }
+    
+    class InvalidDateFormatException extends InvalidDateException {
+        public construct(String message) => super(message)
+    }
 }
