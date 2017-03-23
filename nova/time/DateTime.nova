@@ -8,6 +8,8 @@ class DateTime implements Comparable<DateTime> {
     
     public Int year, month, dayOfMonth
     
+    visible Bool isLeapYear => isLeapYear(year)
+    
     public construct(String input, String format = null) {
         if (format == null) {
             throw new Exception("implicit formats not implemented yet")
@@ -27,6 +29,12 @@ class DateTime implements Comparable<DateTime> {
         millis += (Long)month * 30 * 24 * 60 * 60
         millis += (Long)dayOfMonth * 24 * 60 * 60
     }
+    
+    static isLeapYear(Int year) =>
+        (year & 3) == 0 &&
+        ((year % 25) != 0 || (year & 15) == 0)
+        // year % 4 == 0 &&
+        // (year % 400 == 0 || year % 100 != 0)
     
     public compareTo(DateTime other) => (Int)(millis - other.millis)
     
