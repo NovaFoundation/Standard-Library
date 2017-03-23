@@ -1,17 +1,9 @@
-package "novex/astro/util"
+package "nova/serialization"
 
 import "nova/regex/Regex"
 import "nova/regex/Match"
 import "nova/datastruct/Tuple2"
 import "nova/datastruct/list/Stack"
-
-import "novex/astro/error/UnimplementedOperationException"
-import "novex/astro/tree/nodes/Node"
-import "novex/astro/tree/nodes/operations/UnaryOperation"
-import "novex/astro/tree/nodes/operations/Operator"
-import "novex/astro/tree/StatementIterator"
-
-import "novex/astro/util/Bounds"
 
 [AutoFinal]
 extension SyntaxStringFunctions {
@@ -30,9 +22,6 @@ extension SyntaxStringFunctions {
     public Bool String.isNumber => count > 0 && matches(/-?[0-9]+/)
     public Bool String.isBool => this == "true" || this == "false"
     public String String.firstWord => nextWord()
-    
-    public getStatements(String this, Stack<Node> parents) =>
-        new StatementIterator(this, parents)
     
     public containsAllWhitespaceAfter(String this, Int index, Int direction = 1) -> Bool {
         for (var i = index; i < count && i >= 0; i += direction) {
@@ -69,19 +58,6 @@ extension SyntaxStringFunctions {
         }
         
         return new Tuple2(array, bracketIndex + 1)
-    }
-    
-    public substring(String this, Bounds bounds) =>
-        substring(bounds.start, bounds.end)
-    
-    public nextWordBounds(String this, Int start = 0) -> Bounds {
-        let index = nextWhitespaceIndex(start)
-        
-        if (index > 0) {
-            return new Bounds(start, index)
-        }
-        
-        return Bounds.EMPTY
     }
     
     /// If contains given search string surrounded by whitespace
@@ -359,7 +335,7 @@ extension SyntaxStringFunctions {
                     break
                 }
             } else if (c == '\'') {
-                index = findEndingChar(c, index, direction)
+                index = findEndingSingleQuote(index, direction)
                 
                 if (index < 0) {
                     break
@@ -412,8 +388,8 @@ extension SyntaxStringFunctions {
             return strs
         }
         
-        var oldIndex =  0
-        var index    = -1
+        var Int oldIndex =  0
+        var Int index    = -1
         
         while ((index = findCharOnTopLevel(',', index + 1, searchGenerics)) >= 0) {
             strs.add(substring(oldIndex, index).trim())
@@ -428,60 +404,6 @@ extension SyntaxStringFunctions {
         }
         
         return strs
-    }
-    
-    public findOperatorIndices(String this, String[] operators = Operator.BINARY_OPERATORS, Bool includeEdges = true) -> Int[] {
-        let matches = new Int[0]
-        System.overheadTimer.start()
-        operators.forEach(operator => {
-            var Int index = 0
-            
-            while ((index = findStringOnTopLevel(operator, start: index)) >= 0) {
-                if ((includeEdges || index > 0 && index < this.count - operator.count) &&
-                    isStrictlyOperator(operator, index)) {
-                    matches.add(index)
-                }
-                
-                index += operator.count + 1
-            }
-        })
-        
-        for (i in 0..matches.count) {
-            for (j in 1..(matches.count - i)) {
-                if (matches[j - 1] > matches[j]) {
-                    let temp = matches[j - 1]
-                    matches[j - 1] = matches[j]
-                    matches[j] = temp
-                }
-            }
-        }
-        System.overheadTimer.stop()
-        return matches
-    }
-    
-    /// If is the given operator and not a sub-operator of another operator.
-    /// e.g. '=' is a sub-operator of '>='
-    public isStrictlyOperator(String this, Char operator, Int index) => isStrictlyOperator("#operator", index)
-    public isStrictlyOperator(String this, String operator, Int index) =>
-        index == count - operator.count ||
-        index >= 0 &&
-        index < count - operator.count &&
-        !Operator.OPERATOR_SYMBOLS.contains(chars[index - 1]) &&
-        !Operator.OPERATOR_SYMBOLS.contains(chars[index + operator.count])
-    
-    public findOperatorOnTopLevel(String this, Char operator, Int start = 0, Bool searchGenerics = false) =>
-        findOperatorOnTopLevel("#operator", start, searchGenerics)
-    
-    public findOperatorOnTopLevel(String this, String operator, var Int start = 0, Bool searchGenerics = false) -> Int {
-        while (true) {
-            let index = findStringOnTopLevel(operator, start, searchGenerics)
-            
-            if (index > 0 && !isStrictlyOperator(operator, index)) {
-                start = index + 1
-            } else {
-                return index
-            }
-        }
     }
     
     public findCharOnTopLevel(String this, Char needle, Int start = 0, Bool searchGenerics = false) -> Int {
@@ -525,7 +447,7 @@ extension SyntaxStringFunctions {
             } else {
                 match (c) {
                     '"'  => start = findEndingQuote(start) + 1
-                    '\'' => start = findEndingChar(c, start, 1) + 1
+                    '\'' => start = findEndingSingleQuote(start) + 1
                     '('  => start = findEndingMatch(start, '(', ')') + 1
                     '{'  => start = findEndingMatch(start, '{', '}') + 1
                     '['  => start = findEndingMatch(start, '[', ']') + 1
@@ -543,76 +465,6 @@ extension SyntaxStringFunctions {
                 }
             }
         }
-    }
-    
-    /**
-     * Calculate the index in which the next statement end is located at,
-     * after the given currentEnd.
-     * 
-     * @param currentEnd The index to search after.
-     * @return The new statement end index.
-     */
-    public calculateStatementEnd(String this, var Int currentEnd, Int statementEndIndex = currentEnd) -> Int {
-        currentEnd = findCharOnTopLevel(EITHER_STATEMENT_END_CHARS, currentEnd)
-        
-        if (currentEnd < 0) {
-            if (nextNonWhitespaceIndex(statementEndIndex + 1) < 0) {
-                return -1
-            }
-            
-            return count
-        } else if (chars[currentEnd] == ';') {
-            return currentEnd
-        }
-        
-        let prevCharIndex = nextNonWhitespaceIndex(currentEnd - 1, -1)
-        let nextCharIndex = nextNonWhitespaceIndex(currentEnd + 1)
-        
-        return calculateReturnValue(statementEndIndex, currentEnd, nextCharIndex, prevCharIndex)
-    }
-    
-    /**
-     * Calculate the statement end's return value.
-     * 
-     * @param currentEnd The current end value of the statement.
-     * @param nextCharIndex The next char to the right of the current end.
-     * @param prevCharIndex The next char to the left of the current end.
-     * @return The return value of the statement end.
-     */
-    public calculateReturnValue(String this, Int statementEndIndex, Int currentEnd, Int nextCharIndex, Int prevCharIndex) -> Int {
-        if (nextCharIndex < 0) {
-            return -1
-        }
-        
-        if (chars[currentEnd] == '{') {
-            return currentEnd
-        } else if (chars[nextCharIndex] == '{') {
-            return nextCharIndex
-        } else if (checkStatementContinuation(prevCharIndex, nextCharIndex)) {
-            return calculateStatementEnd(currentEnd + 1, statementEndIndex)
-        }
-        
-        return currentEnd
-    }
-    
-    public nextWordBounds(String this, var Int start, Int direction) -> Bounds {
-        if (start < 0 || start >= count) {
-            return Bounds.EMPTY
-        }
-        
-        start = nextLetterIndex(start, direction, false, true)
-        
-        var index = nextLetterIndex(start + direction, direction, true, true)
-        
-        if (direction < 0) {
-            if (index == 0) {
-                index--
-            }
-            
-            return new Bounds(index + 1, start + 1)
-        }
-        
-        return new Bounds(start, index)
     }
     
     public findGroupedSymbols(String this, Int start = 0, Int direction = 1) =>
@@ -651,133 +503,6 @@ extension SyntaxStringFunctions {
         return substring(start, index)
     }
     
-    /**
-     * Check whether or not to continue the search for the end of the
-     * statement.
-     * 
-     * @param nextCharIndex The next char to the right of the current end.
-     * @param prevCharIndex The next char to the left of the current end.
-     * @return Whether or not to continue the search for the end of the
-     *      statement.
-     */
-    public checkStatementContinuation(String this, Int prevCharIndex, Int nextCharIndex) -> Bool {
-        Bounds prevWordBounds = nextWordBounds(prevCharIndex, -1)
-        
-        let nextNextCharIndex = nextNonWhitespaceIndex(nextWhitespaceIndex(nextCharIndex + 1))
-        
-        // Whether or not the current statement needs the next line to complete the statement
-        var pendingCompletion = STMT_PRE_CONT_CHARS.contains(chars[prevCharIndex]) && !containsUnaryOperator(prevCharIndex, prevWordBounds.end, direction: -1)
-        
-        if (pendingCompletion && chars[prevCharIndex] == '>') {
-            if (substring(prevCharIndex - 1, prevCharIndex + 1) == "=>") {
-                
-            } else if (searchGenericType(prevCharIndex, true)) {
-                pendingCompletion = false
-            }
-        }
-        
-        // Whether or not the next statement needs a fragment before it to complete the statement
-        let requiresCompletion = STMT_POST_CONT_CHARS.contains(chars[nextCharIndex]) && (!containsUnaryOperator(nextCharIndex, nextNextCharIndex) || findGroupedSymbols(nextCharIndex) == "-")
-        
-        let prevWord = prevWordBounds.extractString(this)
-        
-        return pendingCompletion ^ requiresCompletion || (prevWord == "return" && pendingCompletion /*&& parentStack.check().parentMethod.type*/)
-    }
-    
-    private static validBounds(Bounds bounds, Int stopIndex, Int direction) =>
-        bounds.isValid && (direction > 0 && bounds.end < stopIndex || direction < 0 && bounds.start >= stopIndex)
-    
-    /**
-     * Check whether or not the next sequence of chars in the given source
-     * is a unary operator.
-     * 
-     * @param index The index to start the search at.
-     * @param stopIndex The index to stop the search at.
-     * @param direction The direction to search in, e.g., 1 is forward and
-     *      -1 is backward.
-     * @return Whether or not the next sequence of chars is a unary
-     *      operator.
-     */
-    public containsUnaryOperator(String this, Int index, Int stopIndex, Int direction = 1) -> Bool {
-        var Bounds bounds = findStrings(Operator.UNARY_OPERATORS_NO_MINUS, index, direction)
-        
-        if (!validBounds(bounds, stopIndex, direction)) {
-            bounds = findStrings(Operator.MINUS, index, direction)
-        }
-        
-        if (validBounds(bounds, stopIndex, direction)) {
-            String unary = substring(bounds.start, bounds.end)
-            
-            // Get the propper sides
-            let foundSide   = -direction
-            let correctSide = UnaryOperation.RIGHT//UnaryOperation.SIDES[unary]
-            
-            return correctSide == foundSide || correctSide == UnaryOperation.EITHER
-        }
-        
-        return false
-    }
-    
-    public findStrings(String this, String[] strings, var Int start = 0, Int direction = 1, Char[] scopeChecks = null) -> Bounds {
-        while (start >= 0 && start < count) {
-            Char c = chars[start]
-            
-            if (scopeChecks) {
-                if (scopeChecks.contains('"') && c == '"') {
-                    start = findEndingQuote(start, direction)
-                    
-                    if (start < 0) return Bounds.EMPTY
-                    
-                    start += direction
-                    
-                    continue
-                } else if (scopeChecks.contains('\'') && c == '\'') {
-                    start = findEndingChar(c, start, direction)
-
-                    if (start < 0) return Bounds.EMPTY
-                    
-                    start += direction
-                    
-                    continue
-                } else if (scopeChecks.contains('(') && (c == '(' && direction > 0 || c == ')' && direction < 0)) {
-                    start = findEndingMatch(start, '(', ')', direction)
-
-                    if (start < 0) return Bounds.EMPTY
-                    
-                    start += direction
-                    
-                    if (start <= 0 || start >= count) return Bounds.EMPTY
-                    
-                    continue
-                } else if (scopeChecks.contains('[') && (c == '[' && direction > 0 || c == ']' && direction < 0)) {
-                    start = findEndingMatch(start, '[', ']', direction)
-
-                    if (start < 0) return Bounds.EMPTY
-                    
-                    start += direction
-                    
-                    if (start == 0) return Bounds.EMPTY
-                    
-                    continue
-                }
-            }
-            
-            for (str in strings) {
-                for (Int i = 0; i < str.count && start + i < count; i++) {
-                    if (chars[start + i] != str[i]) {
-                        break
-                    } else if (i == str.count - 1) {
-                        return new Bounds(start, start + str.count)
-                    }
-                }
-            }
-            
-            start += direction
-        }
-        
-        return Bounds.EMPTY
-    }
-    
     public searchGenericType(String this, Int start, Bool backwards = true) -> String => null {
         if (backwards) {
             var Int stack = 0
@@ -802,7 +527,7 @@ extension SyntaxStringFunctions {
                 }
             }
         } else {
-            throw new UnimplementedOperationException("forwards checking not implemented yet... Looks like its time to do that.")
+            // throw new UnimplementedOperationException("forwards checking not implemented yet... Looks like its time to do that.")
         }
     }
     
@@ -815,55 +540,4 @@ extension SyntaxStringFunctions {
      *      found, then -1 is returned instead.
      */
     public findDotOperatorIndex(String this, Int start = 0) => findCharOnTopLevel('.', start)
-    
-    public formatIndentation(String this) -> String {
-        var output = ""
-        var tabs   = ""
-        
-        let matches = Regex.getMatches("[\\}\\{\\)\\(\n]", this)
-        
-        var Int lastIndex = 0
-        var Int lambda    = 0
-        
-        var sameLine = false
-        var inParen  = false
-        
-        matches.forEach(match => {
-            let c = this.chars[match.start]
-            
-            if (c == '{' || c == '(') {
-                if (inParen && c == '{') {
-                    lambda++
-                    return
-                }
-                
-                tabs += "\t"
-                
-                inParen = c == '('
-                sameLine = true
-            } else if (c == '}' || c == ')') {
-                if (lambda > 0 && c == ')') {
-                    lambda--
-                } else if (tabs.count > 0) {
-                    tabs = tabs.substring(1)
-                }
-                
-                inParen = inParen && c != ')'
-                
-                if (output.count > 0 && !sameLine) {
-                    output = output.substring(end: output.count - 1)
-                }
-            } else if (c == '\n') {
-                output += this.substring(lastIndex, match.start) + "\n" + tabs
-                
-                lastIndex = match.start + 1
-                
-                sameLine = false
-            }
-        })
-        
-        output += tabs + substring(lastIndex)
-        
-        return output
-    }
 }
