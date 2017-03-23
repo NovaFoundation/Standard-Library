@@ -1,0 +1,39 @@
+package "nova/time"
+
+import "nova/datastruct/Comparable"
+import "nova/regex/Regex"
+
+class DateTime implements Comparable<DateTime> {
+    public Long millis
+    
+    public Int year, month, dayOfMonth
+    
+    public construct(String input, String format = null) {
+        if (format == null) {
+            throw new Exception("implicit formats not implemented yet")
+        }
+        
+        Regex.getMatches("yyyy", format).forEach(match => {
+            year = Int.parseInt(input.substring(match.start, match.end))
+        })
+        Regex.getMatches("MM", format).forEach(match => {
+            month = Int.parseInt(input.substring(match.start, match.end))
+        })
+        Regex.getMatches("dd", format).forEach(match => {
+            dayOfMonth = Int.parseInt(input.substring(match.start, match.end))
+        })
+        
+        millis += (Long)year * 365 * 24 * 60 * 60
+        millis += (Long)month * 30 * 24 * 60 * 60
+        millis += (Long)dayOfMonth * 24 * 60 * 60
+    }
+    
+    public compareTo(DateTime other) => (Int)(millis - other.millis)
+    
+    public toString(String format) -> String {
+        let monthString = (month < 10 ? "0" : "") + month
+        let dayOfMonthString = (dayOfMonth < 10 ? "0" : "") + dayOfMonth
+        
+        return "#{year}-#{monthString}-#{dayOfMonthString}"
+    }
+}
