@@ -31,6 +31,20 @@ class DateTime implements Comparable<DateTime> {
         this(year, month, dayOfMonth)
     }
     
+    public construct(this Long millis) {
+        
+        
+        // let monthMillisOffset = millis - yearMillisOffset
+        // let monthOffset = monthMillisOffset / 30 / 24 / 60 / 60 / 1000
+        
+        // let secondsMillisOffset = monthMillisOffset - 
+        // let secondsMillis = monthMillisOffset / 30
+        
+        year = Calculator.getYear(millis)
+        month = Calculator.getMonth(millis, year)
+        dayOfMonth = Calculator.getDayOfMonth(millis, year, month)
+    }
+    
     public construct(this Int year = 0, this Int month = 1, this Int dayOfMonth = 1) {
         this.year = year
         
