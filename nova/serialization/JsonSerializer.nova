@@ -1,451 +1,51 @@
 package "nova/serialization"
 
+import "SyntaxStringFunctions"
+
 class JsonSerializer {
     public serialize(Object object) {
         
     }
     
-    public parse(String json) {
+    public parse(File file) {
+        return parse
+    }
+    
+    public parse(String json) -> Object {
         
     }
     
-    let public Int TOKEN_NONE = 0
-    let public Int TOKEN_CURLY_OPEN = 1
-    let public Int TOKEN_CURLY_CLOSE = 2
-    let public Int TOKEN_SQUARED_OPEN = 3
-    let public Int TOKEN_SQUARED_CLOSE = 4
-    let public Int TOKEN_COLON = 5
-    let public Int TOKEN_COMMA = 6
-    let public Int TOKEN_STRING = 7
-    let public Int TOKEN_NUMBER = 8
-    let public Int TOKEN_TRUE = 9
-    let public Int TOKEN_FALSE = 10
-    let public Int TOKEN_NULL = 11
-
-    let private Int BUILDER_CAPACITY = 2000
+    public parseArray(String json) -> Object[] {
+        
+    }
     
-    /// <summary>
-    /// Parses the String json into a value; and fills 'success' with the successfullness of the parse.
-    /// </summary>
-    /// <param name="json">A JSON string.</param>
-    /// <param name="success">Successful parse?</param>
-    /// <returns>An ArrayList, a Hashtable, a double, a string, null, true, or false</returns>
-    [Target none] public static Object jsonDecode(String json) {
-        success = true
-        if (json != null) {
-            Char[] CharArray = json.ToCharArray()
-            Int index = 0
-            Object value = parseValue(CharArray, ref index)
-            return value
-        } else {
-            return null
+    public isObject(String json) => (let trimmed = json.trim()).first == '{' && trimmed.findEndingMatch(0, '{', '}') == trimmed.count - 1
+    public isArray(String json) => (let trimmed = json.trim()).first == '[' && trimmed.findEndingMatch(0, '[', ']') == trimmed.count - 1
+    public isSingleQuoteString(String json) => (let trimmed = json.trim()).first == '\'' && trimmed.findEndingSingleQuote(0) == trimmed.count - 1
+    public isDoubleQuoteString(String json) => (let trimmed = json.trim()).first == '"' && trimmed.findEndingQuote(0) == trimmed.count - 1
+    public isString(String json) => isSingleQuoteString(json) || isDoubleQuoteString(json)
+    
+    public parseObject(String json) -> HashMap<String, Object> {
+        let trimmed = json.trim()
+        
+        if (trimmed.first != '{') {
+            throw new InvalidParseException("Not a JSON object")
+        } else if (trimmed.last != '}') {
+            throw new MissingMatchingTokenException('}')
         }
+        
+        let contents = trimmed.trimEnds(1, true)
+        
+        let properties = contents.splitAtCommas(allowTrailing: true)
+        
+        
     }
-
-    /// <summary>
-    /// Converts a Hashtable / ArrayList Object into a JSON string
-    /// </summary>
-    /// <param name="json">A Hashtable / ArrayList</param>
-    /// <returns>A JSON encoded string, or null if Object 'json' is not serializable</returns>
-    [Target none] public static String jsonEncode(Object json) {
-        StringBuilder builder = new StringBuilder(BUILDER_CAPACITY)
-        Bool success = serializeValue(json, builder)
-        return (success ? builder.ToString() : null)
-    }
-
-    [Target none] public static Hashtable parseObject(Char[] json, ref Int index) {
-        Hashtable table = new Hashtable()
-        Int token
-
-        // {
-        NextToken(json, ref index)
-
-        Bool done = false
-        while (!done) {
-            token = LookAhead(json, index)
-            if (token == TOKEN_NONE) {
-                success = false
-                return null
-            } else if (token == TOKEN_COMMA) {
-                NextToken(json, ref index)
-            } else if (token == TOKEN_CURLY_CLOSE) {
-                NextToken(json, ref index)
-                return table
-            } else {
-
-                // name
-                String name = parseString(json, ref index)
-                if (!success) {
-                    success = false
-                    return null
-                }
-
-                // :
-                token = NextToken(json, ref index)
-                if (token != TOKEN_COLON) {
-                    success = false
-                    return null
-                }
-
-                // value
-                Object value = parseValue(json, ref index)
-                if (!success) {
-                    success = false
-                    return null
-                }
-
-                table[name] = value
-            }
+    
+    class InvalidParseException extends Exception {}
+    
+    class MissingMatchingTokenException extends InvalidParseException {
+        public construct(Char token) {
+            super("Missing matching '#token' token")
         }
-
-        return table
-    }
-
-    [Target none] public static ArrayList parseArray(Char[] json, ref Int index) {
-        ArrayList array = new ArrayList()
-
-        // [
-        NextToken(json, ref index)
-
-        Bool done = false
-        while (!done) {
-            Int token = LookAhead(json, index)
-            if (token == TOKEN_NONE) {
-                success = false
-                return null
-            } else if (token == TOKEN_COMMA) {
-                NextToken(json, ref index)
-            } else if (token == TOKEN_SQUARED_CLOSE) {
-                NextToken(json, ref index)
-                break
-            } else {
-                Object value = parseValue(json, ref index)
-                if (!success) {
-                    return null
-                }
-
-                array.add(value)
-            }
-        }
-
-        return array
-    }
-
-    [Target none] public static Object parseValue(Char[] json, ref Int index) {
-        match (LookAhead(json, index)) {
-            case TOKEN_STRING
-                return parseString(json, ref index)
-            case TOKEN_NUMBER
-                return parseNumber(json, ref index)
-            case TOKEN_CURLY_OPEN
-                return parseObject(json, ref index)
-            case TOKEN_SQUARED_OPEN
-                return parseArray(json, ref index)
-            case TOKEN_TRUE
-                NextToken(json, ref index)
-                return true
-            case TOKEN_FALSE
-                NextToken(json, ref index)
-                return false
-            case TOKEN_NULL
-                NextToken(json, ref index)
-                return null
-            case TOKEN_NONE
-                break
-        }
-
-        success = false
-        return null
-    }
-
-    [Target none] public static String parseString(Char[] json, ref Int index) {
-        StringBuilder s = new StringBuilder(BUILDER_CAPACITY)
-        Char c
-
-        EatWhitespace(json, ref index)
-
-        // "
-        c = json[index++]
-
-        Bool complete = false
-        while (!complete) {
-
-            if (index == json.Length) {
-                break
-            }
-
-            c = json[index++]
-            if (c == '"') {
-                complete = true
-                break
-            } else if (c == '\\') {
-
-                if (index == json.Length) {
-                    break
-                }
-                c = json[index++]
-                if (c == '"') {
-                    s.append('"')
-                } else if (c == '\\') {
-                    s.append('\\')
-                } else if (c == '/') {
-                    s.append('/')
-                } else if (c == 'b') {
-                    s.append('\b')
-                } else if (c == 'f') {
-                    s.append('\f')
-                } else if (c == 'n') {
-                    s.append('\n')
-                } else if (c == 'r') {
-                    s.append('\r')
-                } else if (c == 't') {
-                    s.append('\t')
-                } else if (c == 'u') {
-                    Int remainingLength = json.Length - index
-                    if (remainingLength >= 4) {
-                        // parse the 32 bit hex into an integer codepoint
-                        uInt codePoint
-                        if (!(success = UInt32.TryParse(new string(json, index, 4), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out codePoint))) {
-                            return ""
-                        }
-                        // convert the integer codepoInt to a unicode Char and add to string
-                        s.append(Char.ConvertFromUtf32((int)codePoint))
-                        // skip 4 Chars
-                        index += 4
-                    } else {
-                        break
-                    }
-                }
-
-            } else {
-                s.append(c)
-            }
-
-        }
-
-        if (!complete) {
-            success = false
-            return null
-        }
-
-        return s.ToString()
-    }
-
-    [Target none] public static double parseNumber(Char[] json, ref Int index) {
-        EatWhitespace(json, ref index)
-
-        Int lastIndex = GetLastIndexOfNumber(json, index)
-        Int CharLength = (lastIndex - index) + 1
-
-        double number
-        success = Double.TryParse(new string(json, index, CharLength), NumberStyles.any, CultureInfo.InvariantCulture, out number)
-
-        index = lastIndex + 1
-        return number
-    }
-
-    [Target none] public static Int GetLastIndexOfNumber(Char[] json, Int index) {
-        Int lastIndex
-
-        for (lastIndex = index; lastIndex < json.Length; lastIndex++) {
-            if ("0123456789+-.eE".IndexOf(json[lastIndex]) == -1) {
-                break
-            }
-        }
-        return lastIndex - 1
-    }
-
-    [Target none] public static void EatWhitespace(Char[] json, ref Int index) {
-        for (; index < json.Length; index++) {
-            if (" \t\n\r".IndexOf(json[index]) == -1) {
-                break
-            }
-        }
-    }
-
-    [Target none] public static Int LookAhead(Char[] json, Int index) {
-        Int saveIndex = index
-        return NextToken(json, ref saveIndex)
-    }
-
-    [Target none] public static Int NextToken(Char[] json, ref Int index) {
-        EatWhitespace(json, ref index)
-
-        if (index == json.Length) {
-            return TOKEN_NONE
-        }
-
-        Char c = json[index]
-        index++
-        match (c) {
-            case '{'
-                return TOKEN_CURLY_OPEN
-            case '}'
-                return TOKEN_CURLY_CLOSE
-            case '['
-                return TOKEN_SQUARED_OPEN
-            case ']'
-                return TOKEN_SQUARED_CLOSE
-            case ','
-                return TOKEN_COMMA
-            case '"'
-                return TOKEN_STRING
-            case '0' fallthrough; case '1' fallthrough; case '2' fallthrough; case '3' fallthrough; case '4' fallthrough;
-            case '5' fallthrough; case '6' fallthrough; case '7' fallthrough; case '8' fallthrough; case '9' fallthrough;
-            case '-'
-                return TOKEN_NUMBER
-            case ':'
-                return TOKEN_COLON
-        }
-        index--
-
-        Int remainingLength = json.Length - index
-
-        // false
-        if (remainingLength >= 5) {
-            if (json[index] == 'f' &&
-                json[index + 1] == 'a' &&
-                json[index + 2] == 'l' &&
-                json[index + 3] == 's' &&
-                json[index + 4] == 'e') {
-                index += 5
-                return TOKEN_FALSE
-            }
-        }
-
-        // true
-        if (remainingLength >= 4) {
-            if (json[index] == 't' &&
-                json[index + 1] == 'r' &&
-                json[index + 2] == 'u' &&
-                json[index + 3] == 'e') {
-                index += 4
-                return TOKEN_TRUE
-            }
-        }
-
-        // null
-        if (remainingLength >= 4) {
-            if (json[index] == 'n' &&
-                json[index + 1] == 'u' &&
-                json[index + 2] == 'l' &&
-                json[index + 3] == 'l') {
-                index += 4
-                return TOKEN_NULL
-            }
-        }
-
-        return TOKEN_NONE
-    }
-
-    [Target none] public static Bool serializeValue(Object value, StringBuilder builder) {
-        Bool success = true
-
-        if (value is string) {
-            success = serializeString((string)value, builder)
-        } else if (value is Hashtable) {
-            success = serializeObject((Hashtable)value, builder)
-        } else if (value is ArrayList) {
-            success = serializeArray((ArrayList)value, builder)
-        } else if ((value is Boolean) && ((Boolean)value == true)) {
-            builder.append("true")
-        } else if ((value is Boolean) && ((Boolean)value == false)) {
-            builder.append("false")
-        } else if (value is ValueType) {
-            // thanks to ritchie for pointing out ValueType to me
-            success = serializeNumber(Convert.ToDouble(value), builder)
-        } else if (value == null) {
-            builder.append("null")
-        } else {
-            success = false
-        }
-        return success
-    }
-
-    [Target none] public static Bool serializeObject(Hashtable anObject, StringBuilder builder) {
-        builder.append("{")
-
-        IDictionaryEnumerator e = anObject.GetEnumerator()
-        Bool first = true
-        while (e.MoveNext()) {
-            String key = e.Key.ToString()
-            Object value = e.Value
-
-            if (!first) {
-                builder.append(", ")
-            }
-
-            serializeString(key, builder)
-            builder.append(":")
-            if (!serializeValue(value, builder)) {
-                return false
-            }
-
-            first = false
-        }
-
-        builder.append("}")
-        return true
-    }
-
-    [Target none] public static Bool serializeArray(ArrayList anArray, StringBuilder builder) {
-        builder.append("[")
-
-        Bool first = true
-        for (Int i = 0; i < anArray.Count; i++) {
-            Object value = anArray[i]
-
-            if (!first) {
-                builder.append(", ")
-            }
-
-            if (!serializeValue(value, builder)) {
-                return false
-            }
-
-            first = false
-        }
-
-        builder.append("]")
-        return true
-    }
-
-    [Target none] public static Bool serializeString(String string, StringBuilder builder) {
-        builder.append("\"")
-
-        Char[] charArray = string.chars
-        for (Int i = 0; i < string.Length; i++) {
-            Char c = string[i]
-            if (c == '"') {
-                // builder.append("\\\"")
-            }/* else if (c == '\\') {
-                builder.append("\\\\")
-            } else if (c == '\b') {
-                builder.append("\\b")
-            } else if (c == '\f') {
-                builder.append("\\f")
-            } else if (c == '\n') {
-                builder.append("\\n")
-            } else if (c == '\r') {
-                builder.append("\\r")
-            } else if (c == '\t') {
-                builder.append("\\t")
-            } else {
-                Int codepoInt = Convert.ToInt32(c)
-                if ((codepoInt >= 32) && (codepoInt <= 126)) {
-                    builder.append(c)
-                } else {
-                    builder.append("\\u" + Convert.ToString(codepoint, 16).PadLeft(4, '0'))
-                }
-            }*/
-        }
-
-        builder.append("\"")
-        return true
-    }
-
-    [Target none] public static Bool serializeNumber(double number, StringBuilder builder) {
-        builder.append(Convert.ToString(number, CultureInfo.InvariantCulture))
-        return true
     }
 }
