@@ -56,13 +56,13 @@ class DateTime implements Comparable<DateTime> {
             throw new InvalidDateException("Invalid month #{month}. Must be 1-12")
         } else if (!Calculator.isValidDayOfMonth(month, dayOfMonth)) {
             throw new InvalidDateException("Invalid day of month #dayOfMonth for month #month")
-        } else if (dayOfMonth == 29 && !isLeapYear) {
+        } else if (month == 2 && dayOfMonth == 29 && !isLeapYear) {
             throw new InvalidDateException("Year #year is not a leap year")
         }
         
-        millis += (Long)year * 365 * 24 * 60 * 60
-        millis += (Long)month * 30 * 24 * 60 * 60
-        millis += (Long)dayOfMonth * 24 * 60 * 60
+        millis += (Long)year * 365 * 24 * 60 * 60 * 1000
+        millis += (Long)month * 30 * 24 * 60 * 60 * 1000
+        millis += (Long)dayOfMonth * 24 * 60 * 60 * 1000
     }
     
     public compareTo(DateTime other) => (Int)(millis - other.millis)
