@@ -262,6 +262,17 @@ trait List<Type> implements Iterable<Type> {
         return sum
     }
     
+    public min(func(Type, Int, List<Type>) -> Long) -> Long {
+        var Long min = Long.MAX_VALUE
+        var Int i = 0
+        
+        for (element in this) {
+            min = Math.min(min, func(element, i++, this))
+        }
+        
+        return min
+    }
+    
     public max(func(Type, Int, List<Type>) -> Long) -> Long {
         var Long max = Long.MAX_VALUE
         var Int i = 0
