@@ -5,9 +5,13 @@ import "nova/datastruct/Tuple2"
 import "nova/regex/Regex"
 
 class DateTime implements Comparable<DateTime> {
+    /// Milliseconds since January 1 1970
     public Long millis
     
     public Int year, month, dayOfMonth
+    
+    // public Int => 
+    public Int milliseconds => millis % 1000
     
     visible Bool isLeapYear => Calculator.isLeapYear(year)
     
