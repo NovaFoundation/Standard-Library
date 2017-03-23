@@ -52,6 +52,8 @@ class DateTime implements Comparable<DateTime> {
         // year % 4 == 0 &&
         // (year % 400 == 0 || year % 100 != 0)
     
+    static isValidDayOfMonth(Int month, Int day) => day > 0 && day <= MONTH_DAYS[month - 1]
+    
     public compareTo(DateTime other) => (Int)(millis - other.millis)
     
     public toString(String format) -> String {
