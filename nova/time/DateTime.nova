@@ -48,7 +48,7 @@ class DateTime implements Comparable<DateTime> {
         
         year = Calculator.getYear(millis)
         month = Calculator.getMonth(millis, year)
-        dayOfMonth = Calculator.getDayOfMonth(millis, year, month)
+        dayOfMonth = Calculator.getDayOfMonth(millis)
     }
     
     public construct(this Int year = 0, this Int month = 1, this Int dayOfMonth = 1) {
@@ -100,6 +100,8 @@ class DateTime implements Comparable<DateTime> {
         public static getYear(Long millis) -> Int {
             return getYearAndDay(millis).item1
         }
+        
+        public static getYearSize(Int year) => isLeapYear(year) ? 366 : 365
         
         public static getYearAndDay(Long millis) -> Tuple2<Int, Int> {
             var Int year = DateTime.EPOCH_YEAR
