@@ -51,4 +51,6 @@ class ExceptionData {
             }
         }
     }
+    
+    public toString() => "{Thrown: #thrownException, Caught: #caught}"
 }
