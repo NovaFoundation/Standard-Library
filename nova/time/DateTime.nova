@@ -98,14 +98,19 @@ class DateTime implements Comparable<DateTime> {
         }
         
         public static getYear(Long millis) -> Int {
-            // let leapYearCount = getLeapYearCount(year)
+            return getYearAndDay(millis).item1
+        }
+        
+        public static getYearAndDay(Long millis) -> Tuple2<Int, Int> {
+            var Int year = DateTime.EPOCH_YEAR
+            var Int day = millis / DateTime.SECS_DAY
             
-            // let days = (365
+            while (day >= (let size = getYearSize(year))) {
+                day -= size
+                year++
+            }
             
-            let yearOffset = millis / 365 / 24 / 60 / 60 / 1000
-            let yearMillisOffset = yearOffset * 365 * 24 * 60 * 60 * 1000
-            
-            return yearOffset + 1970
+            return new Tuple2(year, day)
         }
         
         public static getMonth(Long millis, Int year) -> Int {
@@ -117,10 +122,8 @@ class DateTime implements Comparable<DateTime> {
             return 1
         }
         
-        public static getDayOfMonth(Long millis, Int year, Int month) -> Int {
-            let leapYearCount = getLeapYearCount(year)
-            
-            return 1
+        public static getDayOfMonth(Long millis) -> Int {
+            return getYearAndDay(millis).item2
         }
         
         public static isLeapYear(Int year) =>
