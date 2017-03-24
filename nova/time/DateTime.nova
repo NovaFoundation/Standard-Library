@@ -15,7 +15,7 @@ class DateTime implements Comparable<DateTime> {
     
     visible Bool isLeapYear => Calculator.isLeapYear(year)
     
-    visible static final /*immutable*/ Byte[] MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    visible static /*immutable*/ Byte[] MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
     public construct(String input, String format = null) {
         if (format == null) {
