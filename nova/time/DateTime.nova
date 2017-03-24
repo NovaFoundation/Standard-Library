@@ -15,6 +15,7 @@ class DateTime implements Comparable<DateTime> {
     
     visible Bool isLeapYear => Calculator.isLeapYear(year)
     
+    visible static Long SECS_DAY = 24 * 60 * 60 * 1000
     visible static /*immutable*/ Byte[] MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
     public construct(String input, String format = null) {
@@ -83,8 +84,6 @@ class DateTime implements Comparable<DateTime> {
     }
     
     class Calculator {
-        visible static final Long SECS_DAY = 24 * 60 * 60
-        
         public static getLeapYearCount(Int year, Bool inclusive = true) -> Int {
             var Int sum = 0
             
