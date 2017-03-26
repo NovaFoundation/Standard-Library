@@ -114,17 +114,15 @@ class DateTime implements Comparable<DateTime> {
             return [year, day + 1]
         }
         
-        public static getMonth(Long millis, Int year) -> Int {
-            let leapYearCount = getLeapYearCount(year)
+        public static getMonthAndDay(Int year, Int yearDay) -> Int[] {
+            var Int month = 0
+            var Int monthDay = yearDay - 1
             
-            let yearOffset = millis / 24 / 60 / 60 / 1000
-            let yearMillisOffset = yearOffset * 365 * 24 * 60 * 60 * 1000
+            while (monthDay >= getMonthDays(year)[month]) {
+                monthDay -= getMonthDays(year)[month++]
+            }
             
-            return 1
-        }
-        
-        public static getDayOfMonth(Long millis) -> Int {
-            return getYearAndDay(millis).item2
+            return [month + 1, monthDay + 1]
         }
         
         public static isLeapYear(Int year) =>
