@@ -43,7 +43,7 @@ class ExceptionData {
             exception.onThrown(soft)
             
             if (!catchExceptionData.parent) {
-                StackTrace.callingTrace(4)
+                exception.stackTrace.trace()
             }
             
             external {
