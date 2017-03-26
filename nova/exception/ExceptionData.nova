@@ -40,6 +40,8 @@ class ExceptionData {
         let catchExceptionData = getDataByException(exception, soft)
         
         if (catchExceptionData) {
+            exception.onThrown(soft)
+            
             if (!catchExceptionData.parent) {
                 StackTrace.callingTrace(4)
             }
