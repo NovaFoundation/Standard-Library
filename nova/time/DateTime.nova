@@ -4,7 +4,12 @@ import "nova/datastruct/Comparable"
 import "nova/datastruct/Tuple2"
 import "nova/regex/Regex"
 
-class DateTime implements Comparable<DateTime> {
+import "nova/operators/LessThanOperator"
+import "nova/operators/LessThanOrEqualToOperator"
+import "nova/operators/GreaterThanOperator"
+import "nova/operators/GreaterThanOrEqualToOperator"
+
+class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, LessThanOrEqualToOperator<DateTime>, GreaterThanOperator<DateTime>, GreaterThanOrEqualToOperator<DateTime> {
     /// Milliseconds since January 1 1970
     public Long millis
     
@@ -73,6 +78,10 @@ class DateTime implements Comparable<DateTime> {
     }
     
     public compareTo(DateTime other) => (Int)(millis - other.millis)
+    public lessThan(DateTime other) => millis < other.millis
+    public lessThanOrEqualTo(DateTime other) => millis <= other.millis
+    public greaterThan(DateTime other) => millis > other.millis
+    public greaterThanOrEqualTo(DateTime other) => millis >= other.millis
     
     public toString(String format) -> String {
         let monthString = (month < 10 ? "0" : "") + month
