@@ -134,6 +134,6 @@ class DateTime implements Comparable<DateTime> {
             // year % 4 == 0 &&
             // (year % 400 == 0 || year % 100 != 0)
         
-        public static isValidDayOfMonth(Int month, Int day) => day > 0 && day <= DateTime.MONTH_DAYS[month - 1]
+        public static isValidDayOfMonth(Int year, Int month, Int day) => day > 0 && day <= getMonthDays(year)[month - 1]
     }
 }
