@@ -21,4 +21,8 @@ class Interval {
     class IntervalException extends Exception {
         public construct(String message) => super(message)
     }
+    
+    class NoGapException extends IntervalException {
+        public construct(String message = "Cannot get a gap from overlapping Intervals") => super(message)
+    }
 }
