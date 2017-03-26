@@ -1,0 +1,14 @@
+package "nova/time"
+
+/// Class that represents a time interval. The start and end DateTimes indicate
+/// the start and end of the time interval. A null value for the start DateTime
+/// represents "from the beginning of time", while a null value for the end
+/// DateTime represents "to the end of time".
+class Interval {
+    public DateTime start, end
+    
+    public Int days =>
+        start == null || end == null ? -1 : (Int)((end.millis - start.millis) / DateTime.SECS_DAY)
+    
+    public construct(this DateTime start = null, this DateTime end = null) {}
+}
