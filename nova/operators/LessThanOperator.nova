@@ -1,0 +1,5 @@
+package "nova/operators"
+
+public trait LessThanOperator<In, Out> {
+    public lessThan(In another) -> Out
+}
