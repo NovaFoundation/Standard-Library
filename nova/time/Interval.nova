@@ -17,4 +17,8 @@ class Interval {
         else if (start >= other.end) return new Interval(other.end, start)
         else */throw new NoGapException()
     }
+    
+    class IntervalException extends Exception {
+        public construct(String message) => super(message)
+    }
 }
