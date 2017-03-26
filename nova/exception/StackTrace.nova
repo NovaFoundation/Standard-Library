@@ -28,7 +28,7 @@ class StackTrace {
     
     public static callingTrace(Int count) {
         external c {
-            nova_print_calling_stacktrace(#{count});
+            nova_print_calling_stacktrace(#{count}, nova_get_context());
         }
     }
 }
