@@ -24,6 +24,8 @@ class StackTrace {
         }
     }
     
+    public static trace() => callingTrace(1)
+    
     public static callingTrace(Int count) {
         external c {
             nova_print_calling_stacktrace(#{count});
