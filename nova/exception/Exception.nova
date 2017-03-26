@@ -21,12 +21,12 @@ class Exception {
         
     }
     
-    public static catchType(func(), Class exceptionType, Bool soft = false) -> Bool {
+    public static catchType(func(), Class exceptionType, Bool soft = false, Bool exact = false) -> Bool {
         if (soft) {
             try {
                 func()
             } catch all (Exception e) {
-                if (e.class.isOfType(exceptionType)) {
+                if (exact ? e.class == exceptionType : e.class.isOfType(exceptionType)) {
                     return true
                 }
             }
@@ -34,7 +34,7 @@ class Exception {
             try {
                 func()
             } catch (Exception e) {
-                if (e.class.isOfType(exceptionType)) {
+                if (exact ? e.class == exceptionType : e.class.isOfType(exceptionType)) {
                     return true
                 }
             }
