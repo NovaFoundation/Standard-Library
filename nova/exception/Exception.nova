@@ -7,6 +7,20 @@ class Exception {
     
     public toString() => this.class.name + (message ? ": #message" : "")
     
+    [Target c]
+    public onThrown(Bool soft) {
+        external c {
+            // if (#{stackTrace}->context == 0) {
+                // #{stackTrace}->context = nova_get_context();
+            // }
+        }
+    }
+    
+    [Target not c]
+    public onThrown(Bool soft) {
+        
+    }
+    
     public static catchType(func(), Class exceptionType, Bool soft = false) -> Bool {
         if (soft) {
             try {
