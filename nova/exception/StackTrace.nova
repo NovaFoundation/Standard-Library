@@ -14,6 +14,16 @@ class StackTrace {
     [Target c]
     public construct(this NOVA_CODE_CONTEXT* context) {}
     
+    public trace() {
+        external c {
+            if (#{context} != 0) {
+                nova_print_calling_stacktrace(1, #{context});
+            } else {
+                #{StackTrace.callingTrace(4)};
+            }
+        }
+    }
+    
     public static callingTrace(Int count) {
         external c {
             nova_print_calling_stacktrace(#{count});
