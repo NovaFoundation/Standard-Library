@@ -101,6 +101,7 @@ class DateTime implements Comparable<DateTime> {
         public static getDayOfMonth(Long millis) => getYearAndDay(millis).last
         
         public static getYearSize(Int year) => isLeapYear(year) ? 366 : 365
+        public static getMonthDays(Int year) => isLeapYear(year) ? DateTime.LEAP_MONTH_DAYS : DateTime.MONTH_DAYS
         
         public static getYearAndDay(Long millis) -> Int[] {
             var Int year = DateTime.EPOCH_YEAR
