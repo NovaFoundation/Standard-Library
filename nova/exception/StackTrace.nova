@@ -11,6 +11,9 @@ class StackTrace {
         }
     }
     
+    [Target c]
+    public construct(this NOVA_CODE_CONTEXT* context) {}
+    
     public static callingTrace(Int count) {
         external c {
             nova_print_calling_stacktrace(#{count});
