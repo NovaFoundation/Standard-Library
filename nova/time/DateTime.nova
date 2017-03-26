@@ -97,13 +97,12 @@ class DateTime implements Comparable<DateTime> {
             return sum
         }
         
-        public static getYear(Long millis) -> Int {
-            return getYearAndDay(millis).item1
-        }
+        public static getYear(Long millis) => getYearAndDay(millis).first
+        public static getDayOfMonth(Long millis) => getYearAndDay(millis).last
         
         public static getYearSize(Int year) => isLeapYear(year) ? 366 : 365
         
-        public static getYearAndDay(Long millis) -> Tuple2<Int, Int> {
+        public static getYearAndDay(Long millis) -> Int[] {
             var Int year = DateTime.EPOCH_YEAR
             var Int day = millis / DateTime.SECS_DAY
             
@@ -112,7 +111,7 @@ class DateTime implements Comparable<DateTime> {
                 year++
             }
             
-            return new Tuple2(year, day)
+            return [year, day + 1]
         }
         
         public static getMonth(Long millis, Int year) -> Int {
