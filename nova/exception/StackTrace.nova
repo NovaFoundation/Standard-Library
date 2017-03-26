@@ -1,13 +1,13 @@
 package "nova/exception"
 
 class StackTrace {
-    public static trace() {
     external type NOVA_CODE_CONTEXT
     
     compiler_visible external_name NOVA_CODE_CONTEXT* context
     
+    public construct() {
         external c {
-            nova_print_calling_stacktrace(1);
+            #{context} = 0;
         }
     }
     
