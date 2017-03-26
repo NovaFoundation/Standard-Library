@@ -8,7 +8,7 @@ class DateTime implements Comparable<DateTime> {
     /// Milliseconds since January 1 1970
     public Long millis
     
-    public Int year, month, dayOfMonth
+    public Int year, month, dayOfMonth, dayOfYear
     
     // public Int => 
     public Int milliseconds => millis % 1000
