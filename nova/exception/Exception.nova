@@ -1,7 +1,7 @@
 package "nova/exception"
 
 class Exception {
-    visible StackTrace stackTrace
+    visible StackTrace stackTrace = new StackTrace()
     
     public construct(visible String message = "") {}
     
