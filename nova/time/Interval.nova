@@ -12,6 +12,20 @@ class Interval {
     
     public construct(this DateTime start = null, this DateTime end = null) {}
     
+    visible Int months {
+        get {
+            var Int months = 0
+            
+            // while (end > start && start.year != end.year && start.month != end.month) {
+                
+            // }
+            
+            return months
+        }
+        
+        no set
+    }
+    
     visible Int remainingMonths => months % 12
     
     visible Int years {
