@@ -36,7 +36,16 @@ class Interval {
     
     visible Int years {
         get {
-            return 10
+            var Int years = 0
+            
+            let current = new DateTime(end)
+            
+            while (start.year != current.year) {
+                current.subtractYear()
+                years++
+            }
+            
+            return years
         }
         
         no set
