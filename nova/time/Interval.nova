@@ -11,6 +11,7 @@ class Interval {
         start == null || end == null ? -1 : (Int)((end.millis - start.millis) / DateTime.SECS_DAY)
     
     visible Long seconds => (end.millis - start.millis) / 1000
+    visible Int remainingSeconds => seconds % 60
     
     visible Long milliseconds => end.millis - start.millis
     visible Int remainingMilliseconds => milliseconds % 1000
