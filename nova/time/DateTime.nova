@@ -170,7 +170,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
             var Long millis = 0
             
             while (month > 0) {
-                millis += (Long)(getMonthDays(year)[month]) * 24 * 60 * 60 * 1000
+                millis += (Long)(getMonthDays(year)[month - 1]) * 24 * 60 * 60 * 1000
                 
                 --month
             }
