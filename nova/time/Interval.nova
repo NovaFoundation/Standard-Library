@@ -12,6 +12,14 @@ class Interval {
     
     public construct(this DateTime start = null, this DateTime end = null) {}
     
+    visible Int years {
+        get {
+            return 10
+        }
+        
+        no set
+    }
+    
     public construct(DateTime start = null, DateTime end = null) {
         if (start == null || end == null) {
             return new BoundlessInterval(start, end)
