@@ -13,7 +13,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     /// Milliseconds since January 1 1970
     visible var Long millis
     
-    visible var Int year, month, dayOfMonth, dayOfYear
+    visible var Int year, month, dayOfMonth, dayOfYear, hour, minute, second
     
     public Int millisecond => millis % 1000
     
@@ -52,7 +52,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         dayOfMonth = monthAndDay.last
     }
     
-    public construct(this Int year = 0, this Int month = 1, this Int dayOfMonth = 1) {
+    public construct(this Int year = 0, this Int month = 1, this Int dayOfMonth = 1, this Int hour = 0, this Int minute = 0, this Int second = 0, Int millisecond = 0) {
         this.year = year
         
         if (month <= 0 || month > 12) {
