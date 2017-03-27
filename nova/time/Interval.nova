@@ -48,8 +48,8 @@ class Interval {
     }
     
     public getGap(Interval other) -> Interval {
-        if (end <= other.start) return new Interval(end, other.start)
-        else if (start >= other.end) return new Interval(other.end, start)
+        if (end <= other.start) return new BoundedInterval(end, other.start)
+        else if (start >= other.end) return new BoundedInterval(other.end, start)
         else throw new NoGapException(this, other)
     }
     
