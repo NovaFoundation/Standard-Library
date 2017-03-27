@@ -19,9 +19,12 @@ class Interval {
         get {
             var Int months = 0
             
-            // while (end > start && start.year != end.year && start.month != end.month) {
-                
-            // }
+            let current = new DateTime(end)
+            
+            while (start.year != current.year && start.month != current.month) {
+                current.subtractMonth()
+                months++
+            }
             
             return months
         }
