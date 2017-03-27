@@ -81,9 +81,19 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     
     public addMonth() => addMonths(1)
     public addMonths(Int months) {
-        year += (months + month - 1) / 12
+        if (months > 0) {
+            year += (months + month - 1) / 12
+            month = (month - 1 + months) % 12
+        } else {
+            month = month - 1 + months
+            
+            while (month < 0) {
+                month = month + 12
+                year--
+            }
+        }
         
-        month = (month - 1 + months) % 12 + 1
+        ++month
         
         let days = Calculator.getMonthDays(year)[month - 1]
         
