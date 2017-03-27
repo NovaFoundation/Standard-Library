@@ -12,6 +12,8 @@ class Interval {
     
     public construct(this DateTime start = null, this DateTime end = null) {}
     
+    visible Int remainingMonths => months % 12
+    
     visible Int years {
         get {
             return 10
