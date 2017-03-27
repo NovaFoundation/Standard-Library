@@ -1,0 +1,11 @@
+package "nova/time"
+
+import "nova/time/Interval.InvalidIntervalException"
+
+class BoundedInterval extends Interval {
+    public construct(this DateTime start, this DateTime end) {
+        if (start > end) {
+            throw new InvalidIntervalException("Interval from #start to #end is invalid")
+        }
+    }
+}
