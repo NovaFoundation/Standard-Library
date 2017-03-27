@@ -1,0 +1,18 @@
+package "nova/time"
+
+class BoundlessInterval extends Interval {
+    visible Int days => -1
+    
+    visible Long seconds => -1
+    visible Int remainingSeconds => -1
+    
+    visible Long milliseconds => -1
+    visible Int remainingMilliseconds => -1
+    
+    visible Int months => -1
+    visible Int remainingMonths => -1
+    
+    visible Int years => -1
+    
+    public construct(this DateTime start = null, this DateTime end = null) {}
+}
