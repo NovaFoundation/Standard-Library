@@ -144,6 +144,8 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
             return millis
         }
         
+        public static getDayMillis(Int dayOfMonth) => ((Long)dayOfMonth - 1) * 24 * 60 * 60 * 1000
+        
         public static getYear(Long millis) => getYearAndDay(millis).first
         public static getDayOfMonth(Long millis) => getYearAndDay(millis).last
         
