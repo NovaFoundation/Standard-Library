@@ -12,6 +12,8 @@ class Interval {
     
     public construct(this DateTime start = null, this DateTime end = null) {}
     
+    visible Long milliseconds => end.millis - start.millis
+    
     visible Int months {
         get {
             var Int months = 0
