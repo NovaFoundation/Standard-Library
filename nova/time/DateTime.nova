@@ -186,6 +186,10 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         
         public static getYear(Long millis) => getYearAndDay(millis).first
         public static getDayOfMonth(Long millis) => getYearAndDay(millis).last
+        public static getHour(Long millis) => (millis / (60 * 60 * 1000)) % 24
+        public static getMinute(Long millis) => (millis / (60 * 1000)) % 60
+        public static getSecond(Long millis) => (millis / 1000) % 60
+        public static getMillisecond(Long millis) => millis % 1000
         
         public static getYearSize(Int year) => isLeapYear(year) ? 366 : 365
         public static getMonthDays(Int year) => isLeapYear(year) ? DateTime.LEAP_MONTH_DAYS : DateTime.MONTH_DAYS
