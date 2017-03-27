@@ -89,6 +89,18 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     public subtractMonth() => subtractMonths(1)
     public subtractMonths(Int months) => addMonths(-months)
     
+    public addYear() => addYears(1)
+    public addYears(Int years) {
+        year += years
+        
+        if (month == 2 && dayOfMonth == 29 && !Calculator.isLeapYear(year)) {
+            dayOfMonth--
+            dayOfYear--
+        }
+        
+        millis = calculateMillis()
+    }
+    
     public compareTo(DateTime other) => (Int)(millis - other.millis)
     public lessThan(DateTime other) => millis < other.millis
     public lessThanOrEqualTo(DateTime other) => millis <= other.millis
