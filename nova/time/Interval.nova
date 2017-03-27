@@ -59,6 +59,10 @@ class Interval {
         public construct(String message) => super(message)
     }
     
+    class InvalidIntervalException extends IntervalException {
+        public construct(String message) => super(message)
+    }
+    
     class NoGapException extends IntervalException {
         public construct(Interval first, Interval second) => super("Cannot get a gap from overlapping Intervals #first and #second")
     }
