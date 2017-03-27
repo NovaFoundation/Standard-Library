@@ -64,9 +64,9 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
             throw new InvalidDateException("Year #year is not a leap year")
         }
         
-        millis += (Long)year * 365 * 24 * 60 * 60 * 1000
-        millis += (Long)month * 30 * 24 * 60 * 60 * 1000
-        millis += (Long)dayOfMonth * 24 * 60 * 60 * 1000
+        millis += Calculator.getYearMillis(year)
+        millis += Calculator.getMonthMillis(year, month)
+        millis += Calculator.getDayMillis(dayOfMonth)
     }
     
     public construct(DateTime dateTime) => this(millis: dateTime.millis)
