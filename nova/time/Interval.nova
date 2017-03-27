@@ -13,9 +13,9 @@ class Interval {
     public construct(this DateTime start = null, this DateTime end = null) {}
     
     public getGap(Interval other) -> Interval {
-        /*if (end <= other.start) return new Interval(end, other.start)
+        if (end <= other.start) return new Interval(end, other.start)
         else if (start >= other.end) return new Interval(other.end, start)
-        else */throw new NoGapException()
+        else throw new NoGapException(this, other)
     }
     
     class IntervalException extends Exception {
