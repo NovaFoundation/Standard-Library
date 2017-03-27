@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public trait LessThanOrEqualToOperator<In, Out> {
-    public lessThanOrEqualTo(In another) -> Out
+public trait LessThanOrEqualToOperator<In> {
+    public lessThanOrEqualTo(In another) -> Bool
 }

@@ -1,5 +1,5 @@
 package "nova/operators"
 
-public trait GreaterThanOperator<In, Out> {
-    public greaterThan(In another) -> Out
+public trait GreaterThanOperator<In, Bool> {
+    public greaterThan(In another) -> Bool
 }
