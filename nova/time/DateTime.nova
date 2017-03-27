@@ -75,6 +75,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     public greaterThan(DateTime other) => millis > other.millis
     public greaterThanOrEqualTo(DateTime other) => millis >= other.millis
     
+    public toString() => toString("MM/dd/yyyy")
     public toString(String format) -> String {
         let monthString = (month < 10 ? "0" : "") + month
         let dayOfMonthString = (dayOfMonth < 10 ? "0" : "") + dayOfMonth
