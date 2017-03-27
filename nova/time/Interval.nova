@@ -10,7 +10,7 @@ class Interval {
     public Int days =>
         start == null || end == null ? -1 : (Int)((end.millis - start.millis) / DateTime.SECS_DAY)
     
-    public construct(this DateTime start = null, this DateTime end = null) {}
+    visible Long seconds => (end.millis - start.millis) / 1000
     
     visible Long milliseconds => end.millis - start.millis
     visible Int remainingMilliseconds => milliseconds % 1000
