@@ -18,6 +18,8 @@ class Interval {
         else throw new NoGapException(this, other)
     }
     
+    public toString() => "Interval [#start, #end]"
+    
     class IntervalException extends Exception {
         public construct(String message) => super(message)
     }
