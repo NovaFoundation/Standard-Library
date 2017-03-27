@@ -50,6 +50,10 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         let monthAndDay = Calculator.getMonthAndDay(year, dayOfYear)
         month = monthAndDay.first
         dayOfMonth = monthAndDay.last
+        
+        hour = Calculator.getHour(millis)
+        minute = Calculator.getMinute(millis)
+        second = Calculator.getSecond(millis)
     }
     
     public construct(this Int year = 0, this Int month = 1, this Int dayOfMonth = 1, this Int hour = 0, this Int minute = 0, this Int second = 0, Int millisecond = 0) {
