@@ -12,6 +12,14 @@ class Interval {
     
     public construct(this DateTime start = null, this DateTime end = null) {}
     
+    public construct(DateTime start = null, DateTime end = null) {
+        if (start == null || end == null) {
+            return new BoundlessInterval(start, end)
+        } else {
+            return new BoundedInterval(start, end)
+        }
+    }
+    
     public getGap(Interval other) -> Interval {
         if (end <= other.start) return new Interval(end, other.start)
         else if (start >= other.end) return new Interval(other.end, start)
