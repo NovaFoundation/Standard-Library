@@ -21,7 +21,7 @@ class Interval {
             
             let current = new DateTime(end)
             
-            while (start.year != current.year && start.month != current.month) {
+            while (start.year != current.year || start.month != current.month) {
                 current.subtractMonth()
                 months++
             }
