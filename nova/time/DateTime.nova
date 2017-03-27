@@ -44,14 +44,6 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     }
     
     public construct(this Long millis) {
-        
-        
-        // let monthMillisOffset = millis - yearMillisOffset
-        // let monthOffset = monthMillisOffset / 30 / 24 / 60 / 60 / 1000
-        
-        // let secondsMillisOffset = monthMillisOffset - 
-        // let secondsMillis = monthMillisOffset / 30
-        
         let yearAndDay = Calculator.getYearAndDay(millis)
         year = yearAndDay.first
         dayOfYear = yearAndDay.last
