@@ -10,10 +10,10 @@ class Interval {
     visible Int days => (Int)((end.millis - start.millis) / DateTime.SECS_DAY)
     
     visible Long seconds => (end.millis - start.millis) / 1000
-    visible Int remainingSeconds => seconds % 60
+    visible Int remainingSeconds => (Int)(seconds % 60)
     
     visible Long milliseconds => end.millis - start.millis
-    visible Int remainingMilliseconds => milliseconds % 1000
+    visible Int remainingMilliseconds => (Int)(milliseconds % 1000)
     
     visible Int months {
         get {
