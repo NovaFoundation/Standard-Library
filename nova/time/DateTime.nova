@@ -101,6 +101,9 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         millis = calculateMillis()
     }
     
+    public subtractYear() => subtractYears(1)
+    public subtractYears(Int years) => addYears(-years)
+    
     public compareTo(DateTime other) => (Int)(millis - other.millis)
     public lessThan(DateTime other) => millis < other.millis
     public lessThanOrEqualTo(DateTime other) => millis <= other.millis
