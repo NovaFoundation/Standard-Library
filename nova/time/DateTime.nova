@@ -11,7 +11,7 @@ import "nova/operators/GreaterThanOrEqualToOperator"
 
 class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, LessThanOrEqualToOperator<DateTime>, GreaterThanOperator<DateTime>, GreaterThanOrEqualToOperator<DateTime> {
     /// Milliseconds since January 1 1970
-    public Long millis
+    visible var Long millis
     
     visible var Int year, month, dayOfMonth, dayOfYear
     
