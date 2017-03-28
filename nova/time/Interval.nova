@@ -7,7 +7,7 @@ package "nova/time"
 class Interval {
     public DateTime start, end
     
-    visible Int days => (Int)((end.millis - start.millis) / DateTime.SECS_DAY)
+    visible Long days => (end.millis - start.millis) / DateTime.SECS_DAY
     
     visible Long seconds => (end.millis - start.millis) / 1000
     visible Int remainingSeconds => (Int)(seconds % 60)
