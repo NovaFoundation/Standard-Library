@@ -9,6 +9,9 @@ class Interval {
     
     visible Long days => (end.millis - start.millis) / DateTime.SECS_DAY
     
+    visible Long hours => (end.millis - start.millis) / DateTime.SECS_HOUR
+    visible Int remainingHours => (Int)(hours % 24)
+    
     visible Long seconds => (end.millis - start.millis) / 1000
     visible Int remainingSeconds => (Int)(seconds % 60)
     
