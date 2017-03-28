@@ -21,6 +21,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     
     visible static Long SECS_DAY = 24 * 60 * 60 * 1000
     visible static Long SECS_HOUR = 60 * 60 * 1000
+    visible static Long SECS_MINUTE = 60 * 1000
     visible static Int EPOCH_YEAR = 1970
     visible static /*immutable*/ Byte[] MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     visible static Byte[] LEAP_MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
