@@ -26,7 +26,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     visible static /*immutable*/ Byte[] MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     visible static Byte[] LEAP_MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
-    public construct(String input, String format = null) {
+    public construct(String input, String: format = null) {
         if (format == null) {
             throw new Exception("implicit formats not implemented yet")
         }
@@ -41,10 +41,10 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
             dayOfMonth = Int.parseInt(input.substring(match.start, match.end))
         })
         
-        this(year, month, dayOfMonth)
+        this(year: year, month: month, dayOfMonth: dayOfMonth)
     }
     
-    public construct(this Long millis) {
+    public construct(this Long: millis) {
         let yearAndDay = Calculator.getYearAndDay(millis)
         year = yearAndDay.first
         dayOfYear = yearAndDay.last
@@ -58,7 +58,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         second = Calculator.getSecond(millis)
     }
     
-    public construct(this Int year = 0, this Int month = 1, this Int dayOfMonth = 1, this Int hour = 0, this Int minute = 0, this Int second = 0, Int millisecond = 0) {
+    public construct(this Int: year = 0, this Int: month = 1, this Int: dayOfMonth = 1, this Int: hour = 0, this Int: minute = 0, this Int: second = 0, Int: millisecond = 0) {
         if (month <= 0 || month > 12) {
             throw new InvalidDateException("Invalid month #{month}. Must be 1-12")
         } else if (!Calculator.isValidDayOfMonth(year, month, dayOfMonth)) {
