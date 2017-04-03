@@ -3,7 +3,7 @@ package "nova/time"
 import "nova/time/Interval.InvalidIntervalException"
 
 class BoundedInterval extends Interval {
-    public construct(this DateTime start, this DateTime end) {
+    public construct(this super DateTime start, this super DateTime end) {
         if (start == null || end == null) {
             throw new InvalidIntervalException("Bounded interval cannot have open-ended bounds: #this")
         } else if (start > end) {
