@@ -1,5 +1,7 @@
 package "nova/time"
 
+import "nova/time/Interval.InvalidIntervalException"
+
 class BoundlessInterval extends Interval {
     visible Int days => -1
     
@@ -14,5 +16,9 @@ class BoundlessInterval extends Interval {
     
     visible Int years => -1
     
-    public construct(this DateTime start = null, this DateTime end = null) {}
+    public construct(this super DateTime start, this super DateTime end) {
+        if (start != null && end != null) {
+            throw new InvalidIntervalException("BoundlessInterval requires a null start or end DateTime: #this")
+        }
+    }
 }
