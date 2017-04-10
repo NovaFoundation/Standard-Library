@@ -21,4 +21,8 @@ class BoundlessInterval extends Interval {
             throw new InvalidIntervalException("BoundlessInterval requires a null start or end DateTime: #this")
         }
     }
+    
+    class InfiniteIntervalException extends IntervalException {
+        public construct(String property) => super("Cannot get property '#property' from boundless interval (cannot return infinite integer)")
+    }
 }
